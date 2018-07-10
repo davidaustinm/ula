@@ -132,7 +132,6 @@ latex:
 	--stringparam webwork.server.latex $(PDFOUT)/webwork-tex/ \
 	$(MBXXSL)/mathbook-latex.xsl $(MAINFILE)
 	python $(BIN)/postprocess.py -l $(PDFTMP) $(PDFOUT) $(PRJSRC)/inserts
-	cp $(PDFTMP)/images/* $(PDFOUT)/images
 
 
 ###########
