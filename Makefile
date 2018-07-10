@@ -63,9 +63,9 @@ MAINFILE  = $(PRJSRC)/ula.xml
 # the Mathbook XML distribution
 # DAUSR is where extension files get copied
 # so relative paths work properly
-USRXSL = $(USR)/xsl
-USRUSR = $(USR)/user
-DTD   = $(USR)/schema/dtd
+MBXXSL = $(MBX)/xsl
+MBXUSR = $(MBX)/user
+DTD   = $(MBX)/schema/dtd
 
 # These paths are subdirectories of
 # the scratch directory
@@ -96,7 +96,6 @@ html:
 	install -d $(HTMLOUT)/knowl/
 	install -d $(HTMLOUT)/images/
 	install -d $(HTMLOUT)/jslibrary/
-	cp -a $(IMAGESOUT) $(HTMLOUT)
 	cp -a $(IMAGESSRC) $(HTMLOUT)
 	cd $(HTMLTMP); \
 	xsltproc -xinclude \
@@ -109,7 +108,7 @@ html:
 	--stringparam project.text.answer no \
 	--stringparam project.text.solution no \
 	--stringparam html.css.file mathbook-4.css \
-	$(USRXSL)/mathbook-html.xsl $(MAINFILE)
+	$(MBXXSL)/mathbook-html.xsl $(MAINFILE)
 	python $(BIN)/postprocess.py -h $(HTMLTMP) $(HTMLOUT) $(PRJSRC)/inserts
 	cp $(HTMLTMP)/knowl/* $(HTMLOUT)/knowl/
 	cp $(JSSRC)/*js $(HTMLOUT)/jslibrary
@@ -131,7 +130,7 @@ latex:
 	--stringparam project.text.answer no \
 	--stringparam project.text.solution no \
 	--stringparam webwork.server.latex $(PDFOUT)/webwork-tex/ \
-	$(USRXSL)/mathbook-latex.xsl $(MAINFILE)
+	$(MBXXSL)/mathbook-latex.xsl $(MAINFILE)
 	python $(BIN)/postprocess.py -l $(PDFTMP) $(PDFOUT) $(PRJSRC)/inserts
 	cp $(PDFTMP)/images/* $(PDFOUT)/images
 
