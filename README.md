@@ -3,8 +3,7 @@
 This is the source code for the open-source linear algebra text
 *Understanding Linear Algebra*.  The text is written in
 [PreTeXt](https://mathbook.pugetsound.edu/) and distributed under a
-[Creative Commons BY 4.0 license]
-(https://creativecommons.org/licenses/by/4.0/).
+[Creative Commons BY 4.0 license](https://creativecommons.org/licenses/by/4.0/).
 Both html and pdf versions are
 availabe at the [text home page](http://gvsu.edu/s/0Ck).
 
@@ -18,7 +17,7 @@ a `pdflatex` file.
 
 ## Please note
 
-The `Makefile`s were shamelessly stolen from Matt Boelkins' *Active
+The `Makefiles` were shamelessly stolen from Matt Boelkins' *Active
 Calculus* repository.  Thanks to Matt and others for their work
 setting up the development environment.  Any errors here are, of
 course, my own.
