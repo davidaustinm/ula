@@ -1,0 +1,699 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec-power-method"
+	 xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title> Finding eigenvectors numerically  </title>
+
+  <introduction>
+    <p> When presented with a square matrix <m>A</m>, we have
+    typically found its eigenvalues as the roots of the characteristic
+    polynomial <m>\det(A-\lambda I) = 0</m> and the associated
+    eigenvectors as the null space <m>\nul(A-\lambda I)</m>.
+    Unfortunately, this
+    approach is not practical when we are working with large matrices.
+    First, finding the charactertic polynomial of a large matrix
+    requires considerable computation, as does finding the roots of
+    that polynomial.  
+    Second, finding the null space of a singular matrix is plagued by
+    numerical problems, as we will see in the preview activity.
+    </p>
+
+    <p> In this section, we will explore a technique called the
+    <em>power method</em> that finds
+    numerical approximations to the eigenvalues and eigenvectors of a
+    square matrix.  Generally speaking, this method is how
+    eigenvectors are found in practical computing applications.
+    </p>
+
+
+    <exploration>
+      <statement>
+      <p> Let's recall some earlier observations about eigenvalues and
+      eigenvectors. 
+      <ol label="a.">
+	<li><p> How are the eigenvalues and associated eigenvectors of
+	<m>A</m> related to those of <m>A^{-1}</m>? </p></li>
+
+	<li><p> How are the eigenvalues and associated eigenvectors of
+	<m>A</m> related to those of <m>A-3I</m>? </p></li>
+
+	<li><p> If <m>\lambda</m> is an eigenvalue of <m>A</m>, what
+	can we say about the pivot positions of <m>A-\lambda
+	I</m>?</p></li> 
+
+	<li><p> Suppose that
+	<m>A = \left[\begin{array}{rr}
+	0.8 \amp 0.4 \\
+	0.2 \amp 0.6 \\
+	\end{array}\right]
+	</m>.  Explain how we know that <m>1</m> is an eigenvalue of
+	<m>A</m> and then explain why the following Sage computation
+	is incorrect.
+	<sage>
+	  <input>
+A = matrix(2,2,[0.8, 0.4, 0.2, 0.6])
+I = matrix(2,2,[1, 0, 0, 1])	  
+(A-I).rref()
+	  </input>
+	</sage>
+	</p></li>
+
+	<li><p> Suppose that <m>\xvec_0 = \twovec{1}{0}</m>, and we
+	define a sequence <m>\xvec_{k+1} = A\xvec_k</m>;  in other
+	words, <m>\xvec_{k} = A^k\xvec_0</m>.  What happens to
+	<m>\xvec_k</m> as <m>k</m> grows increasingly large? </p></li>
+
+	<li><p> Explain how the eigenvalues of <m>A</m> are
+	responsible for the behavior noted in the previous
+	question. </p></li> 
+
+      </ol></p>
+      </statement>
+
+      <solution>
+	<p><ol label="a.">
+	  <li><p> If <m>\lambda</m> is an eigenvalue of <m>A</m>, then
+	  <m>A\vvec=\lambda\vvec</m> for an associated eigenvector
+	  <m>\vvec</m>.  Multiplying by <m>A^{-1}</m> and
+	  <m>\lambda^{-1}</m>, we obtain <m>\lambda^{-1}\vvec =
+	  A^{-1}\vvec</m>, which shows that <m>\lambda^{-1}</m> is an
+	  eigenvalue of <m>A^{-1}</m>. </p></li>
+
+	  <li><p> In the same way, if <m>\lambda</m> is an eigenvalue
+	  of <m>A</m>, then <m>A\vvec=\lambda\vvec</m> for an
+	  associated eigenvector <m>\vvec</m>.  This means that
+	  <m>(A-3I)\vvec = (\lambda-3)\vvec</m> so that
+	  <m>\lambda-3</m> is an eigenvalue of <m>A-3I</m>. </p></li>
+
+	  <li><p> If <m>\lambda</m> is an eigenvalue of <m>A</m>, then
+	  <m>A-\lambda I</m> is not invertible and so has a row
+	  without a pivot position. </p></li>
+
+	  <li><p> Since <m>A</m> is a positive stochastic matrix, we
+	  know that <m>\lambda=1</m> is an eigenvalue and hence that
+	  <m>A-I</m> is not invertible.  Sage, however, tells us that
+	  <m>A-I\sim I</m>, which cannot be true since <m>A-I</m> is
+	  not invertible. </p></li>
+
+	  <li><p> The vectors <m>\xvec_k</m> form a Markov chain,
+	  which must converge to the steady-state vector
+	  <m>\qvec=\twovec{\frac23}{\frac13}</m>. </p></li>
+
+	  <li><p> We have eigenvalues <m>\lambda_1=1</m> and
+	  <m>\lambda_2=0.4</m>.  If we begin with
+	  <m>\xvec_0=c_1\vvec_1+c_2\vvec_2</m> and 
+	  successively multiply by <m>A</m>, we have
+	  <m>\xvec_k=c_1\vvec_1 + c_2(0.4)^k\vvec_2</m>.  When
+	  <m>k</m> becomes large, the coefficient of <m>\vvec_2</m>
+	  becomes insignificantly small so we are left with an
+	  eigenvector in <m>E_1</m>. </p></li>
+	</ol></p>
+      </solution>
+    </exploration>
+
+  </introduction>
+
+  <subsection>
+    <title> The power method </title>
+
+    <p> Our goal is to find a technique that produces numerical
+    approximations to the eigenvalues and associated eigenvectors of a
+    matrix <m>A</m>.  We begin by searching for the eigenvalue having
+    the largest absolute value.  We call this the <em>dominant</em>
+    eigenvalue.
+    <idx> dominant eigenvalue </idx>
+    </p>
+
+    <p> Let's begin with the positive stochastic matrix
+    <m>A=\left[\begin{array}{rr}
+    0.8 \amp 0.4 \\
+    0.2 \amp 0.6 \\
+    \end{array}\right]
+    </m>.
+    We spent quite a bit of time studying this type of matrix in <xref
+    ref="sec-stochastic" />; in particular, we saw that any Markov
+    chain will converge to the unique steady state vector.  Let's
+    rephrase this statement in terms of the eigenvectors of <m>A</m>.
+    </p>
+
+    <p>
+    In this case, we have eigenvalues <m>\lambda_1 = 1</m> and
+    <m>\lambda_2 =0.4</m>, and associated eigenvectors <m>\vvec_1 =
+    \twovec{2}{1}</m> and <m>\vvec_2 = \twovec{-1}{1}</m>. </p>
+
+    <p>
+    Suppose we begin with the vector
+    <me>
+      \xvec_0 = \twovec{1}{0} = \frac13 \vvec_1 - \frac13 \vvec_2
+    </me>
+    and find
+    <me>
+      \begin{aligned}
+      \xvec_1 \amp {}={} A\xvec_0 = \frac13 \vvec_1 - \frac13(0.4)
+      \vvec_2 \\
+      \xvec_2 \amp {}={} A^2\xvec_0 = \frac13 \vvec_1 - \frac13(0.4)^2
+      \vvec_2 \\
+      \xvec_3 \amp {}={} A^3\xvec_0 = \frac13 \vvec_1 - \frac13(0.4)^3
+      \vvec_2 \\
+      \amp \vdots \\
+      \xvec_k \amp {}={} A^k\xvec_0 = \frac13 \vvec_1 - \frac13(0.4)^k
+      \vvec_2 \\
+      \end{aligned}
+    </me>
+    and so forth.  The point is that the powers <m>0.4^k</m> become
+    increasingly small as <m>k</m> grows so that
+    <m>\xvec_k\approx \frac13\vvec_1</m> when <m>k</m> is large.  As
+    <m>k</m> grows large, the contribution from the eigenvector
+    <m>\vvec_2</m> to the vectors <m>\xvec_k</m> becomes increasingly
+    insignificant.  Therefore, the vectors <m>\xvec_k</m> become
+    increasingly close to a vector in the eigenspace <m>E_1</m>.
+    If we did not know the eigenvector <m>\vvec_1</m>, we could find a
+    basis vector for <m>E_1</m> in this way.
+    </p>
+
+    <p> Let's now look at the matrix
+    <m>A = \left[\begin{array}{rr}
+    2 \amp 1 \\
+    1 \amp 2 \\
+    \end{array}\right]
+    </m>, which has eigenvalues <m>\lambda_1=3</m> and <m>\lambda_2 =
+    1</m> and associated eigenvectors <m>\vvec_1 = \twovec{1}{1}</m>
+    and <m>\vvec_{2} = \twovec{-1}{1}</m>.  Once again, begin with the
+    vector
+    <m> \xvec_0 = \twovec{1}{0}=\frac12 \vvec_1 - \frac12 \vvec_2</m> so that
+    <me>
+      \begin{aligned}
+      \xvec_1 \amp {}={} A\xvec_0 = 3\frac12 \vvec_1 - \frac12
+      \vvec_2 \\
+      \xvec_2 \amp {}={} A^2\xvec_0 = 3^2\frac13 \vvec_1 - \frac12
+      \vvec_2 \\
+      \xvec_3 \amp {}={} A^3\xvec_0 = 3^3\frac13 \vvec_1 - \frac12
+      \vvec_2 \\
+      \amp \vdots \\
+      \xvec_k \amp {}={} A^k\xvec_0 = 3^k\frac13 \vvec_1 - \frac12
+      \vvec_2\text{.} \\
+      \end{aligned}
+    </me>
+    </p>
+
+    <sidebyside widths="55% 40%">
+      <p> As the figure shows, the vectors <m>\xvec_k</m> are
+      stretched by a factor of <m>3</m> in the <m>\vvec_1</m>
+      direction and not at all in the <m>\vvec_2</m> direction.
+      Consequently, the vectors <m>\xvec_k</m> become increasingly
+      long, but their direction gets
+      closer to the direction of the eigenvector
+      <m>\vvec_1=\twovec{1}{1}</m> associated to the dominant
+      eigenvalue. 
+      </p>
+
+      <image source="images/numerical-power" />
+    </sidebyside>
+
+    <p> To find an eigenvector associated to the dominant eigenvalue,
+    we will prevent the length of the vectors <m>\xvec_k</m> from
+    growing arbitrarily large by multiplying by an appropriate
+    normalizing constant.  There are several ways to do this; we will
+    describe one simple way.  Given the vector <m>\xvec_k</m>, we
+    identify its component having the largest absolute value and call
+    it <m>m_k</m>.  We then define <m>\overline{\xvec}_k =
+    \frac{1}{m_k} \xvec_k</m>, which means that the component of
+    <m>\overline{\xvec}_k</m> having the largest absolute value is
+    <m>1</m>.
+    </p>
+
+    <p> For example, beginning with <m>\xvec_0 = \twovec{1}{0}</m>, we
+    find 
+    <m>\xvec_1 = A\xvec_{0} =
+    \twovec{2}{1}</m>.  The component of <m>\xvec_1</m> having the
+    largest absolute value is <m>m_1=2</m> so we multiply by
+    <m>\frac{1}{m_1} = \frac12</m> to obtain <m>\overline{\xvec}_1 =
+    \twovec{1}{\frac12}</m>.  Then <m>\xvec_2 = A\overline{\xvec}_1 =
+    \twovec{\frac52}{2}</m>.  Now the component having the largest
+    absolute value is <m>m_2=\frac52</m> so we multiply by <m>\frac25</m>
+    to obtain <m>\overline{\xvec}_2 = \twovec{1}{\frac45}</m>.  
+    </p>
+
+    <sidebyside widths="55% 40%">
+      <p> The
+      resulting sequence of vectors <m>\overline{\xvec}_k</m> is shown in
+      the figure.  Notice how the vectors
+      <m>\overline{\xvec}_k</m> now approach the eigenvector
+      <m>\vvec_1</m>.  In this way, we find the eigenvector
+      <m>\vvec=\twovec{1}{1}</m> of the matrix <m>A</m>.
+      This is the <em>power method</em> for
+      finding an eigenvector associated to the dominant eigenvalue of
+      a matrix. 
+      <idx> power method </idx>
+      </p>
+      <image source="images/numerical-power-norm" />
+    </sidebyside>
+    
+    <activity>
+      <statement>
+      <p> Let's begin by considering the matrix
+      <m>A = \left[\begin{array}{rr}
+      0.5 \amp 0.2 \\
+      0.4 \amp 0.7 \\
+      \end{array}\right]
+      </m> and the initial vector <m>\xvec_0 = \twovec{1}{0}</m>.
+
+      <sage>
+	<input>
+	</input>
+      </sage>
+
+      <ol label="a.">
+	<li><p>  Compute the vector <m>\xvec_1 =
+	A\xvec_0</m>. </p></li>
+
+	<li><p> Find <m>m_1</m>, the component of <m>\xvec_1</m> that
+	has the largest absolute value.  Then form <m>\overline{\xvec}_1 =
+	\frac 1{m_1} \xvec_1</m>.  Notice that the component having the
+	largest absolute value of <m>\overline{\xvec}_1</m> is <m>1</m>.
+	</p></li>
+
+	<li><p> Find the vector <m>\xvec_2 = A\overline{\xvec}_1</m>.
+	Identify the component <m>m_2</m> of <m>\xvec_2</m> having the
+	largest absolute value.  Then form <m>\overline{\xvec}_2 =
+	\frac1{m_2}\overline{\xvec}_1</m> to obtain a vector in which the
+	component with the largest absolute value is
+	<m>1</m>. </p></li>
+
+	<li><p> The Sage cell below defines a function that implements
+	the power method.  Define the matrix <m>A</m> and initial
+	vector <m>\xvec_0</m> below.  The command
+	<c>power(A, x0,	N)</c> will print out the
+	multiplier <m>m</m> and the vectors
+	<m>\overline{\xvec}_k</m> for <m>N</m> steps of the power method.
+
+	  <sage>
+	    <input>
+def power(A, x, N):
+    for i in range(N):
+        x = A*x
+        m = max([comp for comp in x], key=abs).numerical_approx(digits=14)
+        x = 1/float(m)*x
+        print m, x
+
+### Define the matrix A and initial vector x0 below
+A =
+x0 =
+power(A, x0, 20)
+	    </input>
+	  </sage>
+	</p>
+
+	<p> How does this computation identify an eigenvector of the
+	matrix <m>A</m>? </p></li>
+
+	<li><p> What is the corresponding eigenvalue of this
+	eigenvector? </p></li>
+
+	<li><p> How do the values of the multipliers <m>m_k</m> tell us
+	the eigenvalue associated to the eigenvector we have found?
+	</p></li>
+
+	<li><p> Consider now the matrix
+	<m>A=\left[\begin{array}{rr}
+	-5.1 \amp 5.7 \\
+	-3.8 \amp 4.4 \\
+	\end{array}\right]
+	</m>.
+	Use the power method to find the dominant eigenvalue of <m>A</m> 
+	and an associated eigenvector. </p></li>
+      </ol></p>
+      </statement>
+
+      <solution>
+	<p><ol label="a.">
+	  <li><p> We find <m>\xvec_1=A\xvec_0 =
+	  \twovec{0.5}{0.4}</m>.  </p></li>
+
+	  <li><p> The first component has the largest absolute value
+	  so <m>m_1=0.5</m>.  Therefore,
+	  <m>\overline{\xvec}_1=\frac1{0.5}\xvec_0 =
+	  \twovec1{0.8}</m>. </p></li>
+
+	  <li><p> In the same way, we obtain
+	  <m>\xvec_2=A\overline{\xvec}_1 = \twovec{0.66}{0.96}</m>.
+	  We see that <m>m_2=0.96</m> so we have
+	  <m>\overline{\xvec}_2= \twovec{0.688}{1}</m>. </p></li>
+
+	  <li><p> We see that the vectors <m>\xvec_k</m> are getting
+	  closer and closer to <m>\twovec{0.5}1</m>, which we
+	  therefore identify as an eigenvector associated to the
+	  dominant eigenvalue. </p></li>
+
+	  <li><p> We see that <m>A\twovec{0.5}{1} =
+	  \twovec{0.45}{0.9}=0.9 \twovec{0.5}1</m>.  Therefore, the
+	  dominant eigenvalue is <m>\lambda_1=0.9</m>. </p></li>
+
+	  <li><p> More generally, we see that the multiplier
+	  <m>m_k</m> will converge to the dominant
+	  eigenvalue. </p></li>
+
+	  <li><p> The power method constructs a sequence of vectors
+	  <m>\overline{\xvec}_k</m> converging to an eigenvector
+	  <m>\vvec_1=\twovec{1}{\frac23}</m>.  The multipliers
+	  <m>m_k</m> converge to <m>\lambda_1=1.3</m>, the dominant
+	  eigenvalue. </p></li>
+	  </ol></p>
+      </solution>
+	  
+    </activity>
+
+    <p> Notice that the power method gives us not only an eigenvector
+    <m>\vvec</m> but also its associated eigenvalue.  As in the
+    activity, consider the matrix 
+    <m>A=\left[\begin{array}{rr}
+    -5.1 \amp 5.7 \\
+    -3.8 \amp 4.4 \\
+    \end{array}\right]
+    </m>, which has eigenvector <m>\vvec=\twovec{3}{2}</m>.  The first
+    component has the largest absolute value so we multiply by
+    <m>\frac13</m> to obtain 
+    <m>\overline{\vvec}=\twovec{1}{\frac23}</m>.  When we multiply by
+    <m>A</m>, we have <m>A\overline{\vvec} = \twovec{-1.30}{-0.86}</m>.
+    Notice that the first component still has the largest absolute
+    value so that the multiplier <m>m=-1.3</m> is the eigenvalue
+    <m>\lambda</m> corresponding to the eigenvector.  This
+    demonstrates the fact that the multipliers <m>m_k</m> approach the
+    eigenvalue <m>\lambda</m> having the largest absolute value.</p>
+
+    <p> Notice that the power method requires us to choose an initial
+    vector <m>\xvec_0</m>.  For most choices, this method will find
+    the eigenvalue having the largest absolute value.  However, an
+    unfortunate choice of <m>\xvec_0</m> may not.  For instance, if we
+    had chosen <m>\xvec_0 = \vvec_2</m> in our example above, the
+    vectors in the sequence <m>\xvec_k =
+    A^k\xvec_0=\lambda_2^k\vvec_2</m> will not detect the eigenvector
+    <m>\vvec_1</m>.  However, it usually happens that our
+    initial guess <m>\xvec_0</m> has some contribution from
+    <m>\vvec_1</m> that enables us to find it.
+    </p>
+
+    <p> The power method, as presented here, will fail for certain
+    unlucky matrices.  This is examined in <xref
+    ref="exercise-power-method" /> along with a means to improve the
+    power method to work for all matrices.
+    </p>
+
+  </subsection>
+
+  <subsection>
+    <title> Finding other eigenvalues </title>
+
+    <p> The power method gives a technique for finding the dominant
+    eigenvalue 
+    of a matrix.  We can modify
+    the method to find the other eigenvalues as well.</p>
+
+    <activity>
+      <statement>
+      <p> The key to finding the eigenvalue of <m>A</m> having the
+      smallest absolute value is to note
+      that the eigenvectors of <m>A</m> are the same as those of
+      <m>A^{-1}</m>.
+
+      <ol label="a.">
+	<li><p> If <m>\vvec</m> is an eigenvector of <m>A</m> with
+	associated eigenvector <m>\lambda</m>, explain why
+	<m>\vvec</m> is an eigenvector of <m>A^{-1}</m> with
+	associated eigenvalue <m>\lambda^{-1}</m>. </p></li>
+
+	<li><p> Explain why the eigenvalue of <m>A</m> having the
+	smallest absolute value is the reciprocal of the dominant
+	eigenvalue of 
+	<m>A^{-1}</m>. </p></li>
+
+	<li><p> Explain how to use the power method applied
+	to <m>A^{-1}</m> to find the eigenvalue of <m>A</m> having the
+	smallest absolute value. </p></li>
+
+	<li><p> If we apply the power method to <m>A^{-1}</m>, we
+	begin with an intial vector <m>\xvec_0</m> and generate the
+	sequence <m>\xvec_{k+1} = A^{-1}\xvec_k</m>.  It is not
+	computationally efficient to compute <m>A^{-1}</m>, however,
+	so instead we solve the equation <m>A\xvec_{k+1} =
+	\xvec_k</m>.  Explain why an <m>LU</m> factorization of
+	<m>A</m> is useful for implementing the power method applied to
+	<m>A^{-1}</m>. </p></li>
+
+	<li><p> The following Sage cell defines a command called
+	<c>inverse_power</c> that applies the power method to
+	<m>A^{-1}</m>.  That is, <c>inverse_power(A, x0, N)</c>
+	prints the vectors <m>\xvec_k</m>, where <m>\xvec_{k+1} =
+	A^{-1}\xvec_k</m>, and multipliers <m>\frac{1}{m_k}</m>, which
+	approximate the eigenvalue of <m>A</m>.  Use it to find
+	the eigenvalue of
+	<m>A=\left[\begin{array}{rr}
+	-5.1 \amp 5.7 \\
+	-3.8 \amp 4.4 \\
+	\end{array}\right]
+	</m>
+	having the smallest absolute value.
+
+	<sage>
+	  <input>
+def inverse_power(A, x, N):
+    for i in range(N):
+        x = A \ x
+        m = max([comp for comp in x], key=abs).numerical_approx(digits=14)
+        x = 1/float(m)*x
+        print 1/float(m), x
+### define the matrix A and vector x0
+A =
+x0 =
+inverse_power(A, x0, 20)
+	  </input>
+	</sage>
+	</p></li>
+
+	<li><p> The inverse power method only works if <m>A</m> is
+	invertible.  If <m>A</m> is not invertible, what is its
+	eigenvalue having the smallest absolute value? </p></li>
+
+	<li><p> Use the power method and the inverse power method to
+	find the eigenvalues and associated eigenvectors of the matrix
+	<m>A = \left[\begin{array}{rr}
+	-0.23 \amp -2.33 \\
+	-1.16 \amp 1.08 \\
+	\end{array}\right]
+	</m>.
+	</p></li>
+      </ol></p>
+      </statement>
+
+      <solution>
+	<p><ol label="a.">
+	  <li><p> If <m>\lambda</m> is an eigenvalue of <m>A</m>, then
+	  <m>A\vvec=\lambda\vvec</m> for an associated eigenvector
+	  <m>\vvec</m>.  Multiplying by <m>A^{-1}</m> and
+	  <m>\lambda^{-1}</m>, we obtain <m>\lambda^{-1}\vvec =
+	  A^{-1}\vvec</m>, which shows that <m>\lambda^{-1}</m> is an
+	  eigenvalue of <m>A^{-1}</m>. </p></li>
+
+	  <li><p> If <m>|\lambda_2| \lt |\lambda_1|</m>, then
+	  <m>|\lambda_2^{-1}| \gt |\lambda_1^{-1}|</m>.  Therefore,
+	  the reciprocal of the smallest eigenvalue of <m>A</m> is the
+	  dominant eigenvalue of <m>A^{-1}</m>. </p></li>
+
+	  <li><p> If we apply the power method to the matrix
+	  <m>A^{-1}</m>, we will find the dominant eigenvalue
+	  <m>\lambda</m> and an
+	  associated eigenvector <m>\vvec</m> of <m>A^{-1}</m>.  We
+	  know, however, that <m>\lambda^{-1}</m> will be the
+	  eigenvalue of <m>A</m> having the smallest absolute value
+	  and <m>\vvec</m> will be an associated eigenvector. </p></li>
+
+	  <li><p> We would like to solve equations of the form
+	  <m>A\xvec = \bvec</m> for many different vectors
+	  <m>\bvec</m>.  Using an <m>LU</m> factorization allows us to
+	  recycle for subsequent equations the effort we expend
+	  performing Gaussian elimination to solve the first
+	  equation. </p></li>
+
+	  <li><p> We obtain the eigenvector <m>\vvec_2=\twovec11</m>
+	  and associated eigenvalue <m>\lambda_2=0.6</m>. </p></li>
+
+	  <li><p> If <m>A</m> is not invertible, then <m>\lambda=0</m>
+	  is the eigenvalue having the smallest absolute
+	  value. </p></li>
+
+	  <li><p> We find the dominant eigenvalue to be
+	  <m>\lambda_1=2.195</m> with associated eigenvector
+	  <m>\vvec_1=\twovec{-0.961}1</m>.  The smallest eigenvalue is
+	  <m>\lambda_2=-1.345</m> with associated eigenvector
+	  <m>\vvec_2=\twovec1{0.478}</m>. </p></li>
+	</ol></p>
+      </solution>
+
+    </activity>
+
+    <p> With the power method and the inverse power method, we can now
+    find the eigenvalues of a matrix <m>A</m> having the largest and
+    smallest absolute values.  With one more modification, we can find
+    all the eigenvalues of <m>A</m>. </p>
+
+    <activity>
+      <statement>
+      <p> Remember that the absolute value of a number tells us how
+      far that number is from <m>0</m> on the real number line.  We
+      may therefore think of the inverse power method as telling us
+      the eigenvalue closest to <m>0</m>.
+
+      <ol label="a.">
+	<li><p> If <m>\vvec</m> is an eigenvalue of <m>A</m> with
+	associated eigenvalue <m>\lambda</m>, explain why <m>\vvec</m>
+	is an eigenvector of <m>A - sI</m> where <m>s</m> is some
+	scalar. </p></li>
+
+	<li><p> What is the eigenvalue of <m>A-sI</m> associated to
+	the eigenvector <m>\vvec</m>? </p></li>
+
+	<li><p> Explain why the eigenvalue of <m>A</m> closest to
+	<m>s</m> is the eigenvalue of <m>A-sI</m> closest to
+	<m>0</m>.  </p></li>
+
+	<li><p> Explain why applying the inverse power method to
+	<m>A-sI</m> gives the eigenvalue of <m>A</m> closest to
+	<m>s</m>.
+	</p></li>
+
+	<li><p> Consider the matrix
+	<m>A = \left[\begin{array}{rrrr}
+	3.6 \amp 1.6 \amp 4.0 \amp 7.6 \\
+	1.6 \amp 2.2 \amp 4.4 \amp 4.1 \\
+	3.9 \amp 4.3 \amp 9.0 \amp 0.6 \\
+	7.6 \amp 4.1 \amp 0.6 \amp 5.0 \\
+	\end{array}\right]
+	</m>.
+	If we use the power method and inverse power method, we find 
+	two eigenvalues, <m>\lambda_1=16.35</m>
+	and <m>\lambda_2=0.75</m>.  Viewing these eigenvalues on a
+	number line, we know that the other eigenvalues lie in the
+	range between <m>-\lambda_1</m> and <m>\lambda_1</m>, as
+	shaded in <xref ref="fig-numerical-power-line" />. </p>
+
+	<figure xml:id="fig-numerical-power-line">
+	  <sidebyside width="75%">
+	    <image source="images/numerical-power-line" />
+	  </sidebyside>
+	  <caption> The range of eigenvalues of <m>A</m>.
+	  </caption>
+	</figure>
+
+	<p> The Sage cell below has a function
+	<c>find_closest_eigenvalue(A, s, x, N)</c> that implements
+	<m>N</m> steps of the inverse power method using the matrix
+	<m>A-sI</m> and an initial
+	vector <m>x</m>.  This function prints approximations to the
+	eigenvalues and eigenvectors of <m>A</m>.
+	By trying different values in the gray
+	regions of the number line, find the other two eigenvalues of
+	<m>A</m>. 
+
+	<sage>
+	  <input>
+def find_closest_eigenvalue(A, s, x, N):
+    B = A-s*identity_matrix(A.nrows())
+    for i in range(N):
+        x = B \ x
+        m = max([comp for comp in x], key=abs).numerical_approx(digits=14)
+        x = 1/float(m)*x
+        print 1/float(m)+s, x
+### define the matrix A and vector x0
+A =
+x0 =
+find_closest_eigenvalue(A, 2, x0, 20)
+	  </input>
+	</sage>
+	</p></li>
+
+	<li><p> Write a list of the four eigenvalues of <m>A</m> in
+	increasing order. </p></li>
+      </ol></p>
+      </statement>
+
+      <solution>
+	<p><ol label="a.">
+	  <li><p> If <m>A\vvec=\lambda\vvec</m>, then <m>(A-sI)\vvec =
+	  (\lambda-s)\vvec</m>, which shows that <m>\vvec</m> is also
+	  an eigenvector of <m>A-sI</m>. </p></li>
+
+	  <li><p> From the previous part, we see that the associated
+	  eigenvalue is <m>\lambda-s</m>. </p></li>
+
+	  <li><p> If <m>\lambda</m> is the eigenvalue of <m>A</m>
+	  closest to <m>s</m>, then <m>\lambda-s</m> is an eigenvalue
+	  of <m>A-sI</m> that must be the closest to <m>0</m>.
+	  </p></li>
+
+	  <li><p> The inverse power method applied to <m>A-sI</m>
+	  tells us the eigenvalue of <m>A-sI</m> having the smallest
+	  absolute value and an associated eigenvector <m>\vvec</m>.
+	  Therefore, 
+	  <m>\lambda+s</m> is the eigenvalue of <m>A</m> closest to
+	  <m>s</m> and <m>\vvec</m> is an associated
+	  eigenvector. </p></li>
+
+	  <li><p> We begin by trying to find the closest eigenvalue
+	  to, say, <m>-10</m>.  The power method tells us that this
+	  eigenvalue is <m>\lambda_3=-4.823</m>. If we then try to
+	  find the eigenvalue closest to <m>10</m>, we find the fourth
+	  eigenvalue <m>\lambda_4=7.526</m>.  It may require some
+	  experimentation to find all of the eigenvalues. </p></li>
+
+	  <li><p> The eigenvalues are <m>-4.823, 0.746, 7.526,
+	  16.351</m>. </p></li>
+	</ol></p>
+      </solution>
+
+    </activity>
+
+    <p> There are clearly restrictions on the matrices to which this
+    technique applies.  We have been making the mild assumption that
+    the eigenvalues of <m>A</m> are real and distinct.  If <m>A</m>
+    has repeated or complex 
+    eigenvalues, some other technique will need to be used. </p>
+	
+  </subsection>
+
+  <subsection>
+    <title> Summary </title>
+
+    <p> We have explored the power method as a
+    tool for numerically approximating the eigenvalues and eigenvectors
+    of a matrix.
+    <ul>
+      <li><p> After choosing an initial vector <m>\xvec_0</m>, we
+      define the sequence <m>\xvec_{k+1}=A\xvec_k</m>.  As <m>k</m>
+      becomes increasingly large, the direction of the vectors
+      <m>\xvec_k</m> increasingly closely approximates the direction
+      of the eigenspace corresponding to the eigenvalue
+      <m>\lambda_1</m> having the
+      largest absolute value. </p></li>
+
+      <li><p> We normalize the vectors <m>\xvec_k</m> by multiplying
+      by <m>\frac{1}{m_k}</m>, where <m>m_k</m> is the component having
+      the largest absolute value.  In this way, the vectors
+      <m>\overline{\xvec}_k</m> approach an eigenvector associated to
+      <m>\lambda_1</m>.  The multipliers <m>m_k</m> approach the eigenvalue
+      <m>\lambda_1</m>. </p></li>
+
+      <li><p> To find the eigenvalue having the smallest absolute
+      value, we apply the power method using the matrix
+      <m>A^{-1}</m>.  </p></li>
+
+      <li><p> To find the eigenvalue closest to some number <m>s</m>,
+      we apply the power method using the matrix
+      <m>(A-sI)^{-1}</m>. </p></li>
+    </ul></p>
+
+
+  </subsection>
+
+  <xi:include href="exercises/exercises5-2.xml" />  
+
+</section>

@@ -1,0 +1,938 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec-pivots"
+	 xmlns:xi="http://www.w3.org/2001/XInclude">
+
+  <title>
+    Pivots and their influence on solution spaces
+  </title>
+
+  <introduction>
+    <p> By now, we have seen many examples illustrating how the
+    reduced row echelon matrix provides a convenient description of
+    the solution space to a system of linear equations.  In this
+    section, we will use this understanding to make some general
+    observations about how certain features of the reduced row echelon
+    matrix reflect the nature of the solution space.
+    </p>
+
+    <p>
+      We begin with the following definition.
+    </p>
+
+    <definition>
+      <idx> pivot position </idx>
+      <p> A <em> pivot position </em> in a matrix <m>A</m> is the
+      position of a leading entry in the reduced row echelon matrix of
+      <m>A</m>.  
+      </p>
+    </definition>
+
+    <exploration>
+      <title> Some basic observations about pivots </title>
+
+      <statement>
+      <p> 
+      <ol label="a.">
+	<li> <p>  Given below is a matrix and its reduced row echelon
+	form.  Indicate the pivot positions.
+	<me>
+	  \left[
+	  \begin{array}{rrrr}
+	  2 \amp 4 \amp 6 \amp -1 \\
+	  -3 \amp 1 \amp 5 \amp 0 \\
+	  1 \amp 3 \amp 5 \amp 1 \\
+	  \end{array}
+	  \right]
+	  \sim
+	  \left[
+	  \begin{array}{rrrr}
+	  1 \amp 0 \amp -1 \amp 0 \\
+	  0 \amp 1 \amp 2 \amp 0 \\
+	  0 \amp 0 \amp 0 \amp 1 \\
+	  \end{array}
+	  \right]
+	</me>.
+	</p></li>
+
+	<li> <p> How many pivot positions can there be in one row?  In
+	a <m>3\times5</m> matrix, what is the largest possible number
+	of pivot positions?  Give an example of a matrix that has the
+	largest possible number of pivot positions.
+	</p></li>
+
+	<li> <p> How many pivots can there be in one column?  In a
+	<m>5\times3</m> matrix, what is the largest possible number of
+	pivot positions?  Give an example of a matrix that has the
+	largest possible number of pivot positions. </p></li>
+
+	<li> <p> Give an example of a matrix with a pivot position in
+	every row and every column.  What is special about 
+	such a matrix? </p></li>
+      </ol>
+      </p>
+      </statement>
+
+      <solution>
+	<p>
+	  <ol label="a.">
+	    <li><p>
+	      The pivot positions are indicated below
+	      <me>
+		\left[
+		\begin{array}{rrrr}
+		{\mathbf 2} \amp 4 \amp 6 \amp -1 \\
+		-3 \amp {\mathbf 1} \amp 5 \amp 0 \\
+		1 \amp 3 \amp 5 \amp {\mathbf 1} \\
+		\end{array}
+		\right]
+		\sim
+		\left[
+		\begin{array}{rrrr}
+		{\mathbf 1} \amp 0 \amp -1 \amp 0 \\
+		0 \amp {\mathbf 1} \amp 2 \amp 0 \\
+		0 \amp 0 \amp 0 \amp {\mathbf 1} \\
+		\end{array}
+		\right]\text{.}
+	      </me>
+	    </p></li>
+
+	    <li><p>
+	      A row contains at most one pivot position.  Therefore, a
+	      <m>3\times 5</m> matrix, which has three rows, contains
+	      at most three pivot positions.  Here is an example:
+	      <me>
+		\left[\begin{array}{rrrrr}
+		1 \amp 0 \amp 0 \amp -1 \amp 2 \\
+		0 \amp 1 \amp 0 \amp 1 \amp 3 \\
+		0 \amp 0 \amp 1 \amp 2 \amp 3 \\
+		\end{array}\right]\text{.}
+	      </me>
+	    </p></li>
+
+	    <li><p>
+	      A column contains at most one pivot position.
+	      Therefore, a 
+	      <m>5\times 3</m> matrix, which has three columns,
+	      contains at most three pivot positions.  Here is an example
+	      <me>
+		\left[\begin{array}{rrr}
+		1 \amp 0 \amp 0 \\
+		0 \amp 1 \amp 0 \\
+		0 \amp 0 \amp 1 \\
+		0 \amp 0 \amp 0 \\
+		0 \amp 0 \amp 0 \\
+		\end{array}\right]\text{.}
+	      </me>
+	    </p></li>
+
+	    <li><p>
+	      A matrix with a pivot position in every row and every
+	      column would have the following reduced row echelon
+	      form:
+	      <me>
+		\left[\begin{array}{rrr}
+		1 \amp 0 \amp 0 \\
+		0 \amp 1 \amp 0 \\
+		0 \amp 0 \amp 1 \\
+		\end{array}\right]\text{.}
+	      </me>
+	      Such a matrix must necessarily have the same number of
+	      rows and columns, which means it is what we call a
+	      square matrix.
+	    </p></li>
+	  </ol>
+	</p>
+      </solution>
+
+      <answer>
+	<p>
+	  <ol label="a.">
+	    <li><p>
+	      The pivot positions are indicated below
+	      <me>
+		\left[
+		\begin{array}{rrrr}
+		{\mathbf 2} \amp 4 \amp 6 \amp -1 \\
+		-3 \amp {\mathbf 1} \amp 5 \amp 0 \\
+		1 \amp 3 \amp 5 \amp {\mathbf 1} \\
+		\end{array}
+		\right]
+		\sim
+		\left[
+		\begin{array}{rrrr}
+		{\mathbf 1} \amp 0 \amp -1 \amp 0 \\
+		0 \amp {\mathbf 1} \amp 2 \amp 0 \\
+		0 \amp 0 \amp 0 \amp {\mathbf 1} \\
+		\end{array}
+		\right]\text{.}
+	      </me>
+	    </p></li>
+
+	    <li><p>
+	      Three.
+	    </p></li>
+
+	    <li><p>
+	      Three.
+	    </p></li>
+
+	    <li><p>
+	      Such a matrix must necessarily have the same number of
+	      rows and columns, which means it is what we call a
+	      square matrix.
+	    </p></li>
+	  </ol>
+	</p>
+      </answer>
+    </exploration>
+
+    <p> When we have looked at solution spaces of systems of linear
+    equations, we have frequently asked whether there are infinitely
+    many solutions, exactly one solution, or no solutions.  We will
+    now break this question down into two separate questions.
+    </p>
+
+    <question xml:id="fundamental-questions">
+      <p>
+	When we
+	encounter a system of linear equations, we will ask
+	<dl>
+	  <li> <title> Existence </title>
+	  <p> Is there a solution to the system of linear equations?  If
+	  so, we say that the system is <em> consistent </em>; if not,
+	  we say it is <em> inconsistent</em>.
+	  <idx> consistent system </idx>
+	  <idx> inconsistent system </idx>
+	  </p>
+	  </li>
+	  
+	  <li> <title> Uniqueness </title>
+	  <p> If the system of equations is consistent, is the solution
+	  unique or are there infinitely many solutions?
+	  </p>
+	  </li>
+	</dl>
+      </p>
+    </question>
+
+    <p> These two questions represent two sides of a coin that appear
+    in many variations throughout our explorations.  In this section, we
+    will study how the location of the pivots influence the answers to
+    these two questions.  We begin by considering the question
+    concerning  the existence of solutions.
+    </p>
+
+  </introduction>
+
+  <subsection>
+    <title> The existence of solutions </title>
+
+    <activity>
+      <statement>
+      <p>
+      <ol label="a.">
+	<li xml:id="li-existence-examples"> <p>
+	  Shown below are three augmented matrices in reduced row
+	  echelon form.
+	  </p>
+	  <sidebyside>
+	  <p>
+	    <me>
+	      \left[
+	      \begin{array}{rrr|r}
+	      1 \amp 0 \amp 0 \amp 3 \\
+	      0 \amp 1 \amp 0 \amp 0 \\
+	      0 \amp 0 \amp 1 \amp -2 \\
+	      0 \amp 0 \amp 0 \amp 0 \\
+	      \end{array}
+	      \right]
+	    </me>
+	  </p>
+	  
+	  <p>
+	    <me>
+	      \left[
+	      \begin{array}{rrr|r}
+	      1 \amp 0 \amp 2 \amp 3 \\
+	      0 \amp 1 \amp -1 \amp 0 \\
+	      0 \amp 0 \amp 0 \amp 0 \\
+	      0 \amp 0 \amp 0 \amp 0 \\
+	      \end{array}
+	      \right]
+	    </me>
+	  </p>
+
+	  <p>
+	    <me>
+	      \left[
+	      \begin{array}{rrr|r}
+	      1 \amp 0 \amp 2 \amp 0 \\
+	      0 \amp 1 \amp -1 \amp 0 \\
+	      0 \amp 0 \amp 0 \amp 1 \\
+	      0 \amp 0 \amp 0 \amp 0 \\
+	      \end{array}
+	      \right]
+	    </me>
+	  </p>
+	</sidebyside>
+	<p>
+	  For each matrix, identify the pivot positions and determine if
+	  the corresponding linear system is consistent.
+	  Explain how the location of the pivots determine
+	  consistency or inconsistency.
+	</p>
+	</li>
+	
+	<li> <p> Each of these augmented matrices above has a row in
+	which each entry is zero.  What, if anything, does the
+	presence of such a row tell us about the consistency of the
+	corresponding linear system?  </p></li>
+
+	<li> <p> Give an example of a <m>3\times5</m> augmented matrix
+	in reduced row echelon form that represents a consistent
+	system.  Indicate the pivot positions in your matrix and
+	explain why these pivot positions guarantee a consistent
+	system. 
+	</p></li>
+
+	<li xml:id="li-pivots-existence">
+	  <p> Give an example of a <m>3\times5</m> augmented matrix in
+	  reduced row echelon form that represents an inconsistent
+	  system.  Indicate the pivot positions in your matrix and
+	  explain why these pivot positions guarantee an inconsistent
+	  system.
+	</p></li>
+
+	<li> <p> Write the reduced row echelon form of the coefficient
+	matrix of the corresponding linear system in
+	<xref ref="li-pivots-existence" />?  (Remember that <xref
+	ref="principle-augmentation-principle" /> says that the
+	reduced row echelon form of the coefficient matrix simply
+	consists of the first four columns of the augmented matrix.)
+	What do you notice about the pivot positions in this
+	coefficient matrix?  </p></li>
+
+	<li> <p> Suppose we have a linear system for
+	which the <em> coefficient</em> matrix has the following
+	reduced row echelon form.
+	<me>
+	  \left[
+	  \begin{array}{rrrrr}
+	  1 \amp 0 \amp 0 \amp 0 \amp -1 \\
+	  0 \amp 1 \amp 0 \amp 0 \amp 2  \\
+	  0 \amp 0 \amp 1 \amp 0 \amp 0  \\
+	  0 \amp 0 \amp 0 \amp 1 \amp -3 \\
+	  \end{array}
+	  \right]
+	</me>
+	What can you say about the consistency of the linear system?
+	</p></li>
+      </ol>
+      </p>
+      </statement>
+
+      <solution>
+	<p>
+	  <ol label="a.">
+	    <li><p> The pivot positions are indicated below.
+	      <sidebyside>
+		<p>
+		  <me>
+		    \left[
+		    \begin{array}{rrr|r}
+		    {\mathbf 1} \amp 0 \amp 0 \amp 3 \\
+		    0 \amp {\mathbf 1} \amp 0 \amp 0 \\
+		    0 \amp 0 \amp {\mathbf 1} \amp -2 \\
+		    0 \amp 0 \amp 0 \amp 0 \\
+		    \end{array}
+		    \right]
+		  </me>
+		</p>
+		
+		<p>
+		  <me>
+		    \left[
+		    \begin{array}{rrr|r}
+		    {\mathbf 1} \amp 0 \amp 2 \amp 3 \\
+		    0 \amp {\mathbf 1} \amp -1 \amp 0 \\
+		    0 \amp 0 \amp 0 \amp 0 \\
+		    0 \amp 0 \amp 0 \amp 0 \\
+		    \end{array}
+		    \right]
+		  </me>
+		</p>
+		
+		<p>
+		  <me>
+		    \left[
+		    \begin{array}{rrr|r}
+		    {\mathbf 1} \amp 0 \amp 2 \amp 0 \\
+		    0 \amp {\mathbf 1} \amp -1 \amp 0 \\
+		    0 \amp 0 \amp 0 \amp {\mathbf 1} \\
+		    0 \amp 0 \amp 0 \amp 0 \\
+		    \end{array}
+		    \right]
+		  </me>
+		</p>
+	      </sidebyside>
+	      The first two augmented matrices correspond to
+	      consistent linear systems.  The third does not, however,
+	      since the third row corresponds to the equation
+	      <m>0=1</m>.
+	    </p>
+
+	    <p> In general, a linear system is inconsistent exactly
+	    when there
+	    is a pivot position in the rightmost column of the
+	    augmented matrix.
+	    </p></li>
+
+	    <li><p>
+	      A row in which every entry is zero corresponds to the
+	      equation <m>0=0</m>, which is always true.  Such a row
+	      does not tell us whether the linear system is
+	      inconsistent or not.
+	    </p></li>
+
+	    <li><p>
+	      <me>
+		\left[\begin{array}{rrrr|r}
+		{\mathbf 1} \amp 0 \amp 0 \amp 2 \amp 4 \\
+		0 \amp {\mathbf 1} \amp 0 \amp -2 \amp 1 \\
+		0 \amp 0 \amp {\mathbf 1} \amp 0 \amp 3 \\
+		\end{array}\right]
+	      </me>
+	      This corresponds to a consistent system because there is
+	      not a pivot in the rightmost column.
+	    </p></li>
+
+	    <li><p>
+	      <me>
+		\left[\begin{array}{rrrr|r}
+		{\mathbf 1} \amp 0 \amp 0 \amp 2 \amp 4 \\
+		0 \amp {\mathbf 1} \amp 0 \amp -2 \amp 1 \\
+		0 \amp 0 \amp 0 \amp 0 \amp {\mathbf 1} \\
+		\end{array}\right]
+	      </me>
+	      This is an inconsistent system because the third row
+	      corresponds to the equation <m>0=1</m>, which is never
+	      satisfied.
+	    </p></li>
+
+	    <li><p>
+	      <me>
+		\left[\begin{array}{rrrr}
+		{\mathbf 1} \amp 0 \amp 0 \amp 2 \\
+		0 \amp {\mathbf 1} \amp 0 \amp -2 \\
+		0 \amp 0 \amp 0 \amp 0 \\
+		\end{array}\right]
+	      </me>
+	      In the coefficient matrix, there is a row in which each
+	      entry is <m>0</m>.  This allows a pivot position to
+	      appear in the rightmost column of the augmented matrix.
+	    </p></li>
+
+	    <li><p>
+	      This linear system must be consistent because the
+	      augmented matrix cannot have a pivot position in the
+	      rightmost column.
+	    </p></li>
+	      
+	  </ol>
+	</p>
+      </solution>
+	      
+    </activity>
+
+    <p>
+      The third example in <xref ref="li-existence-examples" /> above
+      asks us to consider the reduced row echelon matrix
+      <me>
+	\left[
+	\begin{array}{rrr|r}
+	1 \amp 0 \amp * \amp 0 \\
+	0 \amp 1 \amp * \amp 0 \\
+	0 \amp 0 \amp 0 \amp 1 \\
+	0 \amp 0 \amp 0 \amp 0 \\
+	\end{array}
+	\right]
+	</me>.
+      In terms of the variables <m>x</m>, <m>y</m>, and <m>z</m>,
+      the final equation says
+      <me>
+	0x + 0y + 0z = 0
+	</me>.
+	If we evaluate the left-hand side with any values of <m>x</m>,
+	<m>y</m>, and <m>z</m>, we get 0, which means that the
+	equation always holds.  Therefore, its presence has no
+	effect on the solution space defined by the other three
+	equations.
+    </p>
+
+    <p> The third equation, however, says that <me> 0x + 0y + 0z = 1
+    </me>.  Again, if we evaluate the left-hand side with any values
+    of <m>x</m>, <m>y</m>, and <m>z</m>, we get 0 so this equation 
+    cannot be satisfied for any <m>(x,y,z)</m>.  This means that the
+    entire 
+    system of equations has no solution and is therefore inconsistent.
+    </p>
+
+    <p>
+      An equation like this appears in the reduced row echelon matrix
+      as
+      <me>
+	\left[
+	\begin{array}{rrrr|r}
+	\vdots \amp \vdots \amp \vdots \amp \vdots \amp \vdots \\
+	0 \amp 0 \amp \ldots \amp 0 \amp 1 \\
+	\vdots \amp \vdots \amp \vdots \amp \vdots \amp \vdots \\
+	\end{array}
+	\right]
+	</me>.
+	The pivot positions make this condition clear:
+	<em>the system is inconsistent if there is a pivot in the
+	rightmost column of the corresponding augmented matrix.</em>
+    </p>
+
+    <p>
+      In fact, we will soon see that the system is consistent if there
+      is not a pivot in the rightmost column of the corresponding
+      augmented matrix.  This leaves us with the following
+    </p>
+
+    <proposition xml:id="thm-pivot-inconsistency">
+      <statement>
+	<p>
+	  A system of linear equations is inconsistent if and only if
+	  there is a pivot position in the rightmost column of the
+	  corresponding augmented matrix.
+	</p>
+      </statement>
+    </proposition>
+
+    <p>
+      This also says something about the pivot positions of the
+      coefficient matrix.  Consider an example of an inconsistent
+      system corresponding to the 
+      reduced row echelon form of the following augmented matrix
+      <me>
+	\left[
+	\begin{array}{ccc|c}
+	1 \amp 0 \amp * \amp 0 \\
+	0 \amp 1 \amp * \amp 0 \\
+	0 \amp 0 \amp 0 \amp 1 \\
+	\end{array}
+	\right]
+	</me>.
+	<xref ref="principle-augmentation-principle" /> says that 
+	that the reduced row echelon form of the
+	coefficient matrix is
+      <me>
+	\left[
+	\begin{array}{ccc}
+	1 \amp 0 \amp * \\
+	0 \amp 1 \amp * \\
+	0 \amp 0 \amp 0 \\
+	\end{array}
+	\right]
+	</me>.
+	This situation can only happen if the coefficient matrix has a
+	row without a pivot position.  To turn this around, we see:
+	<em> if every row of the coefficient matrix has a pivot
+	position, then the system must be consistent. </em> For
+	instance, if our system of equations has a coefficient matrix
+	whose reduced row echelon form is
+      <me>
+	\left[
+	\begin{array}{ccc}
+	1 \amp 0 \amp 0 \\
+	0 \amp 1 \amp 0 \\
+	0 \amp 0 \amp 1 \\
+	\end{array}
+	\right]
+	</me>,
+	then we can guarantee that the system of equations is
+	consistent because there is no way to obtain a pivot in the
+	rightmost column of the augmented matrix.
+    </p>
+
+    <proposition>
+      <statement>
+	If every row of the coefficient matrix has a pivot position,
+	then the corresponding system of linear equations is
+	consistent.
+      </statement>
+    </proposition>
+
+  </subsection>
+
+  <subsection>
+    <title> The uniqueness of solutions </title>
+
+    <p> Now that we have studied the role that pivot positions play in
+    the existence of solutions, let's turn to the question of
+    uniqueness.
+    </p>
+
+    <activity>
+      <statement>
+	<p><ol label="a.">
+	  <li><p>
+	    Here are the three augmented matrices in reduced row echelon
+	    form that we considered in the previous section.
+	    <sidebyside>
+	      <p>
+		<me>
+		  \left[
+		  \begin{array}{rrr|r}
+		  1 \amp 0 \amp 0 \amp 3 \\
+		  0 \amp 1 \amp 0 \amp 0 \\
+		  0 \amp 0 \amp 1 \amp -2 \\
+		  0 \amp 0 \amp 0 \amp 0 \\
+		  \end{array}
+		  \right]
+		</me>
+	      </p>
+	      
+	      <p>
+		<me>
+		  \left[
+		  \begin{array}{rrr|r}
+		  1 \amp 0 \amp 2 \amp 3 \\
+		  0 \amp 1 \amp -1 \amp 0 \\
+		  0 \amp 0 \amp 0 \amp 0 \\
+		  0 \amp 0 \amp 0 \amp 0 \\
+		  \end{array}
+		  \right]
+		</me>
+	      </p>
+
+	      <p>
+		<me>
+		  \left[
+		  \begin{array}{rrr|r}
+		  1 \amp 0 \amp 2 \amp 0 \\
+		  0 \amp 1 \amp -1 \amp 0 \\
+		  0 \amp 0 \amp 0 \amp 1 \\
+		  0 \amp 0 \amp 0 \amp 0 \\
+		  \end{array}
+		  \right]
+		</me>
+	      </p>
+	    </sidebyside>
+	  </p>
+	  <p>
+	    For each matrix, identify the pivot positions and state
+	    whether the corresponding system of linear equations is
+	    consistent.  If the system is consistent, explain whether
+	    the solution is unique or whether there are infinitely many
+	    solutions.  
+	  </p>
+	  </li>
+
+	  <li><p> If possible, give an example of a <m>3\times5</m>
+	  augmented matrix that corresponds to a system of linear equations
+	  having a unique solution.  If it is not possible, explain why.
+	  </p></li>
+
+	  <li><p> If possible, give an example of a <m>5\times3</m>
+	  augmented matrix that corresponds to a system of linear equations
+	  having a unique solution.  If it is not possible, explain why.
+	  </p></li>
+
+	  <li> <p>
+	    What condition on the pivot positions guarantees that a system
+	    of linear equations has a unique solution?
+	  </p></li>
+
+	  <li> <p>
+	    If a system of linear equations has a unique solution, what
+	    can we say about the relationship between the number of
+	    equations and the number of unknowns?
+	  </p></li>
+	</ol>
+	</p>
+      </statement>
+
+      <solution>
+	<p>
+	  <ol label="a.">
+	    <li><p> The pivot positions are indicated below.
+	      <sidebyside>
+		<p>
+		  <me>
+		    \left[
+		    \begin{array}{rrr|r}
+		    {\mathbf 1} \amp 0 \amp 0 \amp 3 \\
+		    0 \amp {\mathbf 1} \amp 0 \amp 0 \\
+		    0 \amp 0 \amp {\mathbf 1} \amp -2 \\
+		    0 \amp 0 \amp 0 \amp 0 \\
+		    \end{array}
+		    \right]
+		  </me>
+		</p>
+		
+		<p>
+		  <me>
+		    \left[
+		    \begin{array}{rrr|r}
+		    {\mathbf 1} \amp 0 \amp 2 \amp 3 \\
+		    0 \amp {\mathbf 1} \amp -1 \amp 0 \\
+		    0 \amp 0 \amp 0 \amp 0 \\
+		    0 \amp 0 \amp 0 \amp 0 \\
+		    \end{array}
+		    \right]
+		  </me>
+		</p>
+		
+		<p>
+		  <me>
+		    \left[
+		    \begin{array}{rrr|r}
+		    {\mathbf 1} \amp 0 \amp 2 \amp 0 \\
+		    0 \amp {\mathbf 1} \amp -1 \amp 0 \\
+		    0 \amp 0 \amp 0 \amp {\mathbf 1} \\
+		    0 \amp 0 \amp 0 \amp 0 \\
+		    \end{array}
+		    \right]
+		  </me>
+		</p>
+	      </sidebyside>
+	      The third linear system is inconsistent.  The first
+	      system is consistent and has exactly one solution
+	      because <m>x_1=3</m>, <m>x_2=0</m>, and <m>x_3=-2</m>.  The
+	      second system is consistent and has infinitely many
+	      solutions since we can write the equations as
+	      <me>
+		\begin{alignedat}{2}
+		x_1 \amp {}={} \amp 3 -2x_3 \\
+		x_2 \amp {}={} \amp x_3\text{.} \\
+		\end{alignedat}
+	      </me>
+	    </p></li>
+
+	    <li><p>
+	      This is not possible as we see by considering the shape
+	      of a typical matrix:
+	      <me>
+		\left[\begin{array}{rrrr|r}
+		1 \amp 0 \amp 0 \amp -3 \amp 1  \\
+		0 \amp 1 \amp 0 \amp 1 \amp 2 \\
+		0 \amp 0 \amp 1 \amp 2 \amp 4 \\
+		\end{array}\right]
+	      </me>
+	      In this case, the variable <m>x_4</m> is free meaning
+	      there are infinitely many solutions.
+	    </p></li>
+
+	    <li><p>
+	      This is possible as the following matrix illustrates:
+	      <me>
+		\left[\begin{array}{rr|r}
+		1 \amp 0 \amp 0 \\
+		0 \amp 1 \amp -3 \\
+		0 \amp 0 \amp 0 \\
+		0 \amp 0 \amp 0 \\
+		0 \amp 0 \amp 0 \\
+		\end{array}\right]\text{.}
+	      </me>
+	    </p></li>
+
+	    <li><p>
+	      If every column of the coefficient matrix has a pivot
+	      position, we can guarantee that the solution is unique.
+	    </p></li>
+
+	    <li><p>
+	      If the coefficient matrix has a
+	      pivot position in every column, there must be at least
+	      many rows as columns.  Therefore, the number of
+	      equations must be less than or equal to 
+	      the number of unknowns.
+	    </p></li>
+	  </ol>
+	</p>
+      </solution>
+    </activity>
+
+    <p>
+      Let's consider what we've learned in this activity.  Since we are
+      interested in the question of whether a consistent linear system
+      has a unique solution or infinitely many, we will only consider
+      consistent systems.  By the results of the previous section,
+      this means that there is not a pivot in the rightmost column of
+      the augmented matrix.  Here are two possible examples:
+      <sidebyside>
+	<p>
+	  <me>
+	    \left[
+	    \begin{array}{rrr|r}
+	    1 \amp 0 \amp 0 \amp 3 \\
+	    0 \amp 1 \amp 0 \amp 0 \\
+	    0 \amp 0 \amp 1 \amp -2 \\
+	    0 \amp 0 \amp 0 \amp 0 \\
+	    \end{array}
+	    \right]
+	  </me>
+	</p>
+
+	<p>
+	  <me>
+	    \left[
+	    \begin{array}{rrr|r}
+	    1 \amp 0 \amp 2 \amp 3 \\
+	    0 \amp 1 \amp -1 \amp 0 \\
+	    0 \amp 0 \amp 0 \amp 0 \\
+	    0 \amp 0 \amp 0 \amp 0 \\
+	    \end{array}
+	    \right]
+	  </me>
+	</p>
+	
+      </sidebyside>
+    </p>
+
+    <p>
+      In the first example, we have the equations
+      <me>
+	\begin{alignedat}{4}
+	x_1 \amp \amp \amp \amp \amp {}={} \amp 3 \\
+	\amp \amp x_2 \amp \amp \amp {}={} \amp 0 \\
+	\amp \amp \amp \amp x_3\amp {}={} \amp -2 \\
+	\end{alignedat}
+      </me>
+      demonstrating the fact that there is a unique solution
+      <m>(x_1,x_2,x_3) = (3,0,-2)</m>.
+    </p>
+
+    <p>
+      In the second example, we have the equations
+      <me>
+	\begin{alignedat}{4}
+	x_1 \amp \amp \amp {}+{} \amp 2x_3\amp {}={} \amp 3 \\
+	\amp \amp x_2 \amp {}-{} \amp x_3\amp {}={} \amp 0 \\
+	\end{alignedat}
+      </me>
+      that we may rewrite as
+      <me>
+	\begin{alignedat}{4}
+	x_1 \amp \amp \amp \amp \amp {}={} \amp 3-2x_3 \\
+	\amp \amp x_2 \amp \amp \amp {}={} \amp x_3 \\
+	\end{alignedat}
+      </me>.
+      From here, we see that <m>x_1</m> and <m>x_2</m> are basic
+      variables that may be expressed in terms of the free variable
+      <m>x_3</m>.  In this case, the presence of the free variable
+      leads to infinitely many solutions.
+    </p>
+
+    <p>
+      Remember that every column of the coefficient matrix corresponds
+      to a variable in our linear system.  In the first example, we
+      see that every column of the coefficient contains a pivot
+      position, which means that every variable is uniquely
+      determined.  In the second example, the column of the
+      coefficient matrix corresponding to <m>x_3</m> does not contain
+      a pivot position, which  results in <m>x_3</m> appearing as a free
+      variable.  This illustrates the following principle.
+    </p>
+
+    <principle>
+      <statement>
+	<p>Suppose that we consider a consistent linear system.
+	<ul>
+	  <li><p> If every column of the coefficient matrix contains
+	  a pivot position, then the system has a unique solution.
+	  </p></li>
+	  <li><p>If there
+	  is a column in the coefficient matrix that contains no pivot
+	  position, then the system has infinitely many solutions.
+	  </p></li>
+	  <li><p> Moreover, columns that contain a pivot position
+	  correspond to basic variables while columns that do not
+	  correspond to free variables.
+	  </p></li>
+	</ul>
+	</p>
+      </statement>
+    </principle>
+
+    <p>
+      When a linear system has a unique solution, every column of the
+      coefficient matrix has a pivot position.  Since every row
+      contains at most one pivot position, there must be at least as
+      many rows as columns in the coefficient matrix.  Therefore, the
+      linear system has at least as many equations as unknowns, which
+      is something we intuitively suspected in <xref ref="sec-expect" />.
+    </p>
+
+    <p>
+      It is reasonable to ask how we choose the free variables.  For
+      instance, if we have a single equation
+      <me>
+	x + 2y = 4
+      </me>,
+      then we may write
+      <me>
+	x = 4-2y
+      </me>
+      or, equivalently,
+      <me>
+	y = 2 - \frac12 x
+      </me>.
+      Clearly, either variable may be considered as a free variable in
+      this case.
+    </p>
+
+    <p>
+      We will see in the future that we are more interested in the
+      <em>number</em> of free variables rather than in their choice.
+      For convenience, we will adopt the convention of calling the
+      variables corresponding to columns that contain no pivot
+      position free, which allows us to quickly identify them.  In
+      particular, the variables <m>x_2</m> and <m>x_4</m> appear as
+      free variables in the following linear system:
+      <me>
+	\left[
+	\begin{array}{rrrr|r}
+	1 \amp 0 \amp 0 \amp 2 \amp 3 \\
+	0 \amp 0 \amp 1 \amp -1 \amp 0 \\
+	\end{array}
+	\right]
+      </me>.
+    </p>
+
+  </subsection>
+
+  <subsection>
+    <title> Summary </title>
+
+    <p> We have seen how the location of pivot positions, in both the
+    augmented and coefficient matrices, gives vital information about
+    the existence and uniqueness of solutions to linear systems.  More
+    specifically,
+    </p>
+    <p>
+      <ul>
+	<li> <p> A linear system is inconsistent exactly when a
+	pivot position appears in the rightmost column of the
+	<em>augmented</em> matrix. </p></li>
+
+	<li> <p> If a linear system is consistent, the solution is
+	unique when every column of the <em>coefficient</em> matrix
+	contains a pivot position.  There are infinitely solutions
+	when there is a column of the <em>coefficient</em> matrix
+	without a pivot position.  </p></li>
+
+	<li> <p> If a linear system if consistent, the columns of the
+	coefficient matrix containing pivot positions correspond to
+	basic variables and the columns without pivot positions
+	correspond to free variables. </p></li>
+      </ul>
+    </p>
+  </subsection>
+
+  <xi:include href="exercises/exercises1-4.xml" />
+
+</section>

@@ -1,0 +1,1362 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<exercises>
+
+  <exercise>
+    <statement>
+      <p> For each of the following geometric operations in the plane,
+      find a <m>2\times 2</m> matrix that defines the matrix
+      transformation performing the operation.
+      <ol label="a.">
+	<li><p> Rotates vectors by <m>180^\circ</m>. </p></li>
+
+	<li><p> Reflects vectors in the vertical axis. </p></li>
+
+	<li><p> Reflects vectors in the line <m>y=-x</m>. </p></li>
+
+	<li><p> Rotates vectors counterclockwise by
+	<m>60^\circ</m>. </p></li>
+
+	<li><p> First rotates vectors counterclockwise by
+	<m>60^\circ</m> and then reflects in the line
+	<m>y=x</m>. </p></li>
+
+      </ol></p>
+    </statement>
+
+    <solution>
+      <p> We create the following matrices as <m>\left[\begin{array}{rr}
+      T(\evec_1) \amp T(\evec_2) \\ \end{array}\right]</m>.
+	<ol label="a.">
+	  <li><p>
+	    <m>
+	      \left[\begin{array}{rr}
+	      -1 \amp 0 \\
+	      0 \amp -1 \\
+	      \end{array}\right]
+	      </m>.
+	  </p></li>
+
+	  <li><p>
+	    <m>
+	      \left[\begin{array}{rr}
+	      1 \amp 0 \\
+	      0 \amp -1 \\
+	      \end{array}\right]
+	      </m>.
+	  </p></li>
+
+	  <li><p>
+	    <m>
+	      \left[\begin{array}{rr}
+	      0 \amp -1 \\
+	      -1 \amp 0 \\
+	      \end{array}\right]
+	      </m>.
+	  </p></li>
+
+	  <li><p>
+	    <m>
+	      \left[\begin{array}{rr}
+	      \cos(60^\circ) \amp -\sin(60^\circ) \\
+	      \sin(60^\circ) \amp \cos(60^\circ) \\
+	      \end{array}\right]
+	      =
+	      \left[\begin{array}{rr}
+	      \frac 12 \amp -\frac{\sqrt{3}}2 \\
+	      \frac{\sqrt{3}}2 \amp \frac12\\
+	      \end{array}\right]
+	      </m>.
+	  </p></li>
+
+	  <li><p>
+	    <m>
+	      \left[\begin{array}{rr}
+	      0 \amp 1 \\
+	      1 \amp 0 \\
+	      \end{array}\right]
+	      \left[\begin{array}{rr}
+	      \frac 12 \amp -\frac{\sqrt{3}}2 \\
+	      \frac{\sqrt{3}}2 \amp \frac12\\
+	      \end{array}\right]
+	      =
+	      \left[\begin{array}{rr}
+	      \frac{\sqrt{3}}2 \amp \frac12\\
+	      \frac 12 \amp -\frac{\sqrt{3}}2 \\
+	      \end{array}\right]
+	      </m>.
+	  </p></li>
+      </ol></p>
+    </solution>
+
+    <answer>
+      <p><ol label="a.">
+	<li><p>
+	  <m>
+	    \left[\begin{array}{rr}
+	    -1 \amp 0 \\
+	    0 \amp -1 \\
+	    \end{array}\right]
+	    </m>.
+	</p></li>
+	
+	<li><p>
+	  <m>
+	    \left[\begin{array}{rr}
+	    1 \amp 0 \\
+	    0 \amp -1 \\
+	    \end{array}\right]
+	    </m>.
+	</p></li>
+
+	<li><p>
+	  <m>
+	    \left[\begin{array}{rr}
+	    0 \amp -1 \\
+	    -1 \amp 0 \\
+	    \end{array}\right]
+	    </m>.
+	</p></li>
+	
+	<li><p>
+	  <m>
+	    \left[\begin{array}{rr}
+	    \frac 12 \amp -\frac{\sqrt{3}}2 \\
+	    \frac{\sqrt{3}}2 \amp \frac12\\
+	    \end{array}\right]
+	    </m>.
+	</p></li>
+
+	<li><p>
+	  <m>
+	    \left[\begin{array}{rr}
+	    \frac{\sqrt{3}}2 \amp \frac12\\
+	    \frac 12 \amp -\frac{\sqrt{3}}2 \\
+	    \end{array}\right]
+	    </m>.
+	</p></li>
+      </ol></p>
+    </answer>
+	    
+  </exercise>
+
+  <exercise xml:id="ex-compose-reflections">
+    <statement>
+      <p> This exercise investigates the composition of reflections in
+      the plane.
+      <ol label="a.">
+	<li><p> Find the result of first reflecting in the line
+	<m>y=0</m> and then <m>y=x</m>.  What familiar operation is
+	the cumulative effect of this composition? </p></li>
+
+	<li><p> What happens if you compose the operations in the
+	opposite order;  that is, what happens if you first reflect in
+	<m>y=x</m> and then <m>y=0</m>?  What familiar operation
+	results?
+	</p></li>
+
+	<li><p> What familiar geometric operation results if you first
+	reflect in the line <m>y=x</m> and then <m>y=-x</m>? </p></li>
+
+	<li><p> What familiar geometric operation results if you first
+	rotate by <m>90^\circ</m> and then reflect in the line
+	<m>y=x</m>? </p></li>
+      </ol></p>
+
+      <p> It is a general fact that the composition of two
+      reflections results in a rotation through twice the angle from
+      the first line of reflection to the second.  We will investigate
+      this more generally in <xref ref="ex-reflection-compose-general" />
+      </p>
+
+    </statement>
+
+    <solution>
+      <p><ol label="a.">
+	<li><p>
+	  <m>
+	    \left[\begin{array}{rr}
+	    0 \amp 1 \\
+	    1 \amp 0 \\
+	    \end{array}\right]
+	    \left[\begin{array}{rr}
+	    1 \amp 0 \\
+	    0 \amp -1 \\
+	    \end{array}\right]
+	    =
+	    \left[\begin{array}{rr}
+	    0 \amp -1 \\
+	    1 \amp 0 \\
+	    \end{array}\right]
+	    </m>.
+	    This is the same as a counterclockwise <m>90^\circ</m> rotation.
+	</p></li>
+
+	<li><p>
+	  <m>
+	    \left[\begin{array}{rr}
+	    1 \amp 0 \\
+	    0 \amp -1 \\
+	    \end{array}\right]
+	    \left[\begin{array}{rr}
+	    0 \amp 1 \\
+	    1 \amp 0 \\
+	    \end{array}\right]
+	    =
+	    \left[\begin{array}{rr}
+	    0 \amp 1 \\
+	    -1 \amp 0 \\
+	    \end{array}\right]
+	    </m>.
+	    This is the same as a clockwise <m>90^\circ</m> rotation.
+	</p></li>
+
+	<li><p>
+	  <m>
+	    \left[\begin{array}{rr}
+	    0 \amp -1 \\
+	    -1 \amp 0 \\
+	    \end{array}\right]
+	    \left[\begin{array}{rr}
+	    0 \amp 1 \\
+	    1 \amp 0 \\
+	    \end{array}\right]
+	    =
+	    \left[\begin{array}{rr}
+	    -1 \amp 0 \\
+	    0 \amp -1 \\
+	    \end{array}\right]
+	    </m>.
+	    This is the same as a <m>180^\circ</m> rotation.
+	</p></li>
+
+	<li><p>
+	  <m>
+	    \left[\begin{array}{rr}
+	    0 \amp 1 \\
+	    1 \amp 0 \\
+	    \end{array}\right]
+	    \left[\begin{array}{rr}
+	    0 \amp -1 \\
+	    1 \amp 0 \\
+	    \end{array}\right]
+	    =
+	    \left[\begin{array}{rr}
+	    1 \amp 0 \\
+	    0 \amp -1 \\
+	    \end{array}\right]
+	    </m>.
+	    This is the same as a reflection in the horizontal axis.
+	</p></li>
+      </ol></p>
+    </solution>
+
+    <answer>
+      <p><ol label="a.">
+	<li><p>
+	  This is the same as a counterclockwise <m>90^\circ</m> rotation.
+	</p></li>
+
+	<li><p>
+	  This is the same as a clockwise <m>90^\circ</m> rotation.
+	</p></li>
+
+	<li><p>
+	  This is the same as a <m>180^\circ</m> rotation.
+	</p></li>
+
+	<li><p>
+	  This is the same as a reflection in the horizontal axis.
+	</p></li>
+      </ol></p>
+    </answer>
+	
+  </exercise>
+
+  <exercise>
+    <statement>
+      <p> Shown below in <xref ref="fig-3d-basis" /> are the vectors
+      <m>\evec_1</m>, <m>\evec_2</m>, and 
+      <m>\evec_3</m> in <m>\real^3</m>.
+      </p>
+
+      <figure xml:id="fig-3d-basis">
+	<sidebyside width="40%">
+	  <image source="images/3d-basis" />
+	</sidebyside>
+	<caption>
+	  The vectors 
+	  <m>\evec_1</m>, <m>\evec_2</m>, and 
+	  <m>\evec_3</m> in <m>\real^3</m>.
+	</caption>
+      </figure>
+      
+      <p>
+	<ol label="a.">
+	  <li><p> Imagine that the thumb of your right hand points
+	  in the direction of <m>\evec_1</m>.  A positive rotation
+	  about the <m>x</m> axis corresponds to a rotation in the
+	  direction in which your fingers point.  
+	  Find the matrix definining the matrix transformation
+	  <m>T</m> that rotates vectors by <m>90^\circ</m> around the
+	  <m>x</m>-axis.  </p></li>
+
+	  <li><p> In the same way, find the matrix that rotates
+	  vectors by <m>90^\circ</m> around the
+	  <m>y</m>-axis. </p></li>
+
+	  <li><P> Find the matrix that rotates vectors by
+	  <m>90^\circ</m> around the <m>z</m>-axis. </P></li>
+
+	  <li><p> What is the cumulative effect of rotating by
+	  <m>90^\circ</m> about the <m>x</m>-axis, followed by a
+	  <m>90^\circ</m> rotation about the <m>y</m>-axis, followed
+	  by a <m>-90^\circ</m> rotation about the <m>x</m>-axis.
+	  <sage>
+	    <input>
+	    </input>
+	  </sage>
+	  </p></li>
+	</ol>
+      </p>
+    </statement>
+
+    <solution>
+      <p> We construct the matrices as
+      <m>\left[\begin{array}{rrr} T(\evec_1) \amp
+      T(\evec_2) \amp T(\evec_3) \\ \end{array}\right]</m>.
+      <ol label="a.">
+	<li><p>
+	  <m>\left[\begin{array}{rrr}
+	  1 \amp 0 \amp 0 \\ 
+	  0 \amp 0 \amp -1  \\
+	  0 \amp 1 \amp 0 \\
+	  \end{array}\right]
+	  </m>.
+	</p></li>
+
+	<li><p> 
+	  <m>\left[\begin{array}{rrr}
+	  0 \amp 0 \amp 1 \\ 
+	  0 \amp 1 \amp 0  \\
+	  -1 \amp 0 \amp 0 \\
+	  \end{array}\right]
+	  </m>.
+	</p></li>
+
+	<li><p>
+	  <m>\left[\begin{array}{rrr}
+	  0 \amp -1 \amp 0 \\ 
+	  1 \amp 0 \amp 0  \\
+	  0 \amp 0 \amp 1 \\
+	  \end{array}\right]
+	  </m>.
+	</p></li>
+
+	<li><p>
+	  <m>\left[\begin{array}{rrr}
+	  1 \amp 0 \amp 0 \\ 
+	  0 \amp 0 \amp -1  \\
+	  0 \amp 1 \amp 0 \\
+	  \end{array}\right]
+	  \left[\begin{array}{rrr}
+	  0 \amp 0 \amp 1 \\ 
+	  0 \amp 1 \amp 0  \\
+	  -1 \amp 0 \amp 0 \\
+	  \end{array}\right]
+	  \left[\begin{array}{rrr}
+	  1 \amp 0 \amp 0 \\ 
+	  0 \amp 0 \amp -1  \\
+	  0 \amp 1 \amp 0 \\
+	  \end{array}\right]=
+	  \left[\begin{array}{rrr}
+	  0 \amp 1 \amp 0 \\ 
+	  -1 \amp 0 \amp 0  \\
+	  0 \amp 0 \amp 1 \\
+	  \end{array}\right]
+	  </m>, which is a <m>-90^\circ</m> rotation about the <m>z</m> axis.
+	</p></li>
+      </ol></p>
+    </solution>
+
+    <answer>
+      <p> <ol label="a.">
+	<li><p>
+	  <m>\left[\begin{array}{rrr}
+	  1 \amp 0 \amp 0 \\ 
+	  0 \amp 0 \amp -1  \\
+	  0 \amp 1 \amp 0 \\
+	  \end{array}\right]
+	  </m>.
+	</p></li>
+
+	<li><p> 
+	  <m>\left[\begin{array}{rrr}
+	  0 \amp 0 \amp 1 \\ 
+	  0 \amp 1 \amp 0  \\
+	  -1 \amp 0 \amp 0 \\
+	  \end{array}\right]
+	  </m>.
+	</p></li>
+
+	<li><p>
+	  <m>\left[\begin{array}{rrr}
+	  0 \amp -1 \amp 0 \\ 
+	  1 \amp 0 \amp 0  \\
+	  0 \amp 0 \amp 1 \\
+	  \end{array}\right]
+	  </m>.
+	</p></li>
+
+	<li><p>
+	  <m>
+	  \left[\begin{array}{rrr}
+	  0 \amp 1 \amp 0 \\ 
+	  -1 \amp 0 \amp 0  \\
+	  0 \amp 0 \amp 1 \\
+	  \end{array}\right]
+	  </m>, which is a <m>-90^\circ</m> rotation about the <m>z</m> axis.
+	</p></li>
+      </ol></p>
+    </answer>
+
+  </exercise>
+
+  <exercise>
+    <statement>
+      <p>
+	We have seen how a matrix transformation can perform a
+	geometric operation; now we would like to find a matrix
+	transformation that undoes that operation.
+	<ol label="a.">
+	  <li><p>
+	    Suppose that <m>T:\real^2\to\real^2</m> is the matrix
+	    transformation that rotates vectors by <m>90^\circ</m>.
+	    Find a matrix transformation <m>S:\real^2\to\real^2</m>
+	    that undoes the rotation;  that is, <m>S</m> takes
+	    <m>T(\xvec)</m> back into <m>\xvec</m> so that
+	    <m>S\circ T(\xvec) = \xvec</m>.  Think geometrically about
+	    what the transformation <m>S</m> should be and then verify
+	    it algebraically.
+	  </p>
+
+	  <p> We say that <m>S</m> is the <em>inverse</em> of <m>T</m>
+	  and we will write it as <m>T^{-1}</m>.  
+	  </p></li>
+
+	  <li><p> Verify algebraically that the reflection
+	  <m>R:\real^2\to\real^2</m> across the line <m>y=x</m> is its
+	  own inverse;  that is, <m>R^{-1} = R</m>. </p></li>
+
+	  <li><p> The matrix transformation <m>T:\real^2\to\real^2</m>
+	  defined by the matrix
+	  <me>
+	    A=
+	    \left[\begin{array}{rr}
+	    1\amp 1 \\
+	    0 \amp 1\\
+	    \end{array}\right]
+	  </me>
+	  is called a <em>shear</em>.  Find the inverse of <m>T</m>.
+	  </p></li>
+
+	  <li><p> Describe the geometric effect of the matrix
+	  transformation defined by
+	  <me>
+	    A=\left[\begin{array}{rr}
+	    \frac12 \amp 0 \\
+	    0 \amp 3\\
+	    \end{array}\right]
+	  </me>
+	  and then find its inverse.
+	  </p></li>
+	</ol>
+      </p>
+    </statement>
+
+    <solution>
+      <p><ol label="a.">
+	<li><p> The transformation <m>S</m> should rotate vectors by
+	<m>-90^\circ</m>.  The matrix is therefore
+	<m>
+	  \left[\begin{array}{rr}
+	  0 \amp 1 \\
+	  -1 \amp 0 \\
+	  \end{array}\right]
+	</m>.
+      </p>
+
+      <p> To check <m>S\circ T</m>, we compute
+      <m>
+	\left[\begin{array}{rr}
+	0 \amp 1 \\
+	-1 \amp 0 \\
+	\end{array}\right]
+	\left[\begin{array}{rr}
+	0 \amp -1 \\
+	1 \amp 0 \\
+	\end{array}\right] =
+	\left[\begin{array}{rr}
+	1 \amp 0 \\
+	0 \amp 1 \\
+	\end{array}\right]
+	</m>.
+	</p></li>
+
+	<li><p>
+	  The matrix defining the reflection is
+	  <m>
+	    \left[\begin{array}{rr}
+	    0 \amp 1 \\
+	    1 \amp 0 \\
+	    \end{array}\right]
+	  </m>.  Multiplying this by itself gives the identity.
+	</p></li>
+
+	<li><p>
+	  We should apply a shear in the opposite direction:
+	  <m>
+	    \left[\begin{array}{rr}
+	    1 \amp -1 \\
+	    0 \amp 1 \\
+	    \end{array}\right]
+	  </m>.
+	</p></li>
+
+	<li><p> We will undo the stretch in the horizontal and vertical
+	directions with the matrix
+	  <m>
+	    \left[\begin{array}{rr}
+	    2 \amp 0 \\
+	    0 \amp \frac13 \\
+	    \end{array}\right]
+	  </m>.
+	</p></li>
+      </ol></p>
+    </solution>
+	  
+    <answer>
+      <p><ol label="a.">
+	<li><p>
+	  <m>
+	    \left[\begin{array}{rr}
+	    0 \amp 1 \\
+	    -1 \amp 0 \\
+	    \end{array}\right]
+	  </m>.
+	</p></li>
+
+	<li><p>
+	  The square of the matrix
+	  <m>
+	    \left[\begin{array}{rr}
+	    0 \amp 1 \\
+	    1 \amp 0 \\
+	    \end{array}\right]
+	  </m>
+	  is the identity.
+	</p></li>
+
+	<li><p>
+	  <m>
+	    \left[\begin{array}{rr}
+	    1 \amp -1 \\
+	    0 \amp 1 \\
+	    \end{array}\right]
+	  </m>.
+	</p></li>
+
+	<li><p>
+	  <m>
+	    \left[\begin{array}{rr}
+	    2 \amp 0 \\
+	    0 \amp \frac13 \\
+	    \end{array}\right]
+	  </m>.
+	</p></li>
+      </ol></p>
+    </answer>
+	  
+  </exercise>
+
+  <exercise>
+    <statement>
+      <p> We have seen that the matrix
+      <me>
+	\left[\begin{array}{rr}
+	\cos\theta \amp -\sin\theta \\
+	\sin\theta \amp \cos\theta \\
+	\end{array}\right]
+      </me>
+      performs a rotation through an angle <m>\theta</m> about
+      the origin.  Suppose instead that we would like to rotate
+      by <m>90^\circ</m> about the point <m>(1,2)</m>.  Using
+      homogeneous coordinates, we will develop a matrix that performs
+      this operation. </p>
+
+      <p> Our strategy is to
+      <ul>
+	<li><p> begin with a vector whose tail is at the
+	point <m>(1,2)</m>, </p></li>
+	<li><p> translate the vector so that its tail is at the
+	origin, </p></li>
+	<li><p> rotate by <m>90^\circ</m>, and </p></li>
+	<li><p> translate the vector so that its tail is back at
+	<m>(1,2)</m>. </p></li>
+      </ul>
+      This is shown in <xref ref="fig-ex-rotate-about-p" />.
+      </p>
+
+      <figure xml:id="fig-ex-rotate-about-p">
+	<sidebyside width="75%">
+	  <image source="images/ex-rotate-about-p" />
+	</sidebyside>
+	<caption>
+	  A sequence of matrix transformations that, when read right
+	  to left and top to bottom, rotate a vector about the point
+	  <m>(1,2)</m>. 
+	</caption>
+      </figure>
+
+      <p> Remember that, when working with homogeneous
+	coordinates, we consider matrices of the form
+	<me>
+	  \left[\begin{array}{rrr}
+	  a \amp b \amp c \\
+	  d \amp e \amp f \\
+	  0 \amp 0 \amp 1 \\
+	  \end{array}\right]
+	</me>.
+
+      <ol label="a.">
+	<li><p> The first operation is a translation by
+	<m>(-1,-2)</m>.  Find the matrix that performs this
+	translation. </p></li>
+
+	<li><p> The second operation is a <m>90^\circ</m> rotation
+	about the origin.  Find the matrix that performs this
+	rotation. </p></li>
+
+	<li><p> The third operation is a translation by <m>(1,2)</m>.
+	Find the matrix that performs this translation. </p></li>
+
+	<li><p> Use these matrices to find the matrix that performs a
+	<m>90^\circ</m> rotation about <m>(1,2)</m>. </p></li>
+
+	<li><p> Use your matrix to determine where the point <m>(-10,
+	5)</m> ends up if rotated by <m>90^\circ</m> about the
+	<m>(1,2)</m>. </p></li>
+      </ol></p>
+    </statement>
+
+    <solution>
+      <p><ol label="a.">
+	<li><p>
+	  <m>
+	    \left[\begin{array}{rrr}
+	    1 \amp 0 \amp -1 \\
+	    0 \amp 1 \amp -2 \\
+	    0 \amp 0 \amp 1 \\
+	    \end{array}\right]
+	  </m>.
+	</p></li>
+
+	<li><p>
+	  <m>
+	    \left[\begin{array}{rrr}
+	    0 \amp -1 \amp 0 \\
+	    1 \amp 0 \amp 0 \\
+	    0 \amp 0 \amp 1 \\
+	    \end{array}\right]
+	  </m>.
+	</p></li>
+
+	<li><p>
+	  <m>
+	    \left[\begin{array}{rrr}
+	    1 \amp 0 \amp 1 \\
+	    0 \amp 1 \amp 2 \\
+	    0 \amp 0 \amp 1 \\
+	    \end{array}\right]
+	  </m>.
+	</p></li>
+
+	<li><p>
+	  <m>
+	    \left[\begin{array}{rrr}
+	    1 \amp 0 \amp 1 \\
+	    0 \amp 1 \amp 2 \\
+	    0 \amp 0 \amp 1 \\
+	    \end{array}\right]
+	    \left[\begin{array}{rrr}
+	    0 \amp -1 \amp 0 \\
+	    1 \amp 0 \amp 0 \\
+	    0 \amp 0 \amp 1 \\
+	    \end{array}\right]
+	    \left[\begin{array}{rrr}
+	    1 \amp 0 \amp -1 \\
+	    0 \amp 1 \amp -2 \\
+	    0 \amp 0 \amp 1 \\
+	    \end{array}\right]
+	    =
+	    \left[\begin{array}{rrr}
+	    0 \amp -1 \amp 3 \\
+	    1 \amp 0 \amp 3 \\
+	    0 \amp 0 \amp 1 \\
+	    \end{array}\right]
+	  </m>.
+	  If we call this matrix <m>C</m>, we compute
+	  <m>C\threevec{-10}{5}{1} = \threevec{-2}{-9}{1}</m>.
+	  Therefore, the point <m>(-10,5)</m> is rotated to
+	  <m>(-2,-9)</m>.
+	</p></li>
+	</ol></p>
+    </solution>
+
+    <answer>
+      <p><ol label="a.">
+	<li><p>
+	  <m>
+	    \left[\begin{array}{rrr}
+	    1 \amp 0 \amp -1 \\
+	    0 \amp 1 \amp -2 \\
+	    0 \amp 0 \amp 1 \\
+	    \end{array}\right]
+	  </m>.
+	</p></li>
+
+	<li><p>
+	  <m>
+	    \left[\begin{array}{rrr}
+	    0 \amp -1 \amp 0 \\
+	    1 \amp 0 \amp 0 \\
+	    0 \amp 0 \amp 1 \\
+	    \end{array}\right]
+	  </m>.
+	</p></li>
+
+	<li><p>
+	  <m>
+	    \left[\begin{array}{rrr}
+	    1 \amp 0 \amp 1 \\
+	    0 \amp 1 \amp 2 \\
+	    0 \amp 0 \amp 1 \\
+	    \end{array}\right]
+	  </m>.
+	</p></li>
+
+	<li><p>
+	  <m>
+	    \left[\begin{array}{rrr}
+	    0 \amp -1 \amp 3 \\
+	    1 \amp 0 \amp 3 \\
+	    0 \amp 0 \amp 1 \\
+	    \end{array}\right]
+	  </m>.
+	  The point <m>(-10,5)</m> is rotated to
+	  <m>(-2,-9)</m>.
+	</p></li>
+	</ol></p>
+    </answer>
+
+  </exercise>
+      
+  <exercise>
+    <statement>
+      <p> This exercise concerns matrix transformations called <em>
+      projections</em>. 
+	<ol label="a.">
+	<li><p>
+	  Consider the matrix transformation
+	  <m>T:\real^2\to\real^2</m> that assigns to a vector
+	  <m>\xvec</m> the closest vector on horizontal axis as
+	  illustrated in <xref ref="fig-ex-projection" />.  This
+	  transformation is called the projection onto the
+	  horizontal axis.  You may imagine <m>T(\xvec)</m> as the
+	  shadow cast by <m>\xvec</m> from a flashlight far up on the
+	  positive <m>y</m>-axis.
+	</p>
+	
+	<figure xml:id="fig-ex-projection">
+	  <sidebyside width="75%">
+	    <image source="images/v-projection" />
+	  </sidebyside>
+	  <caption>
+	    Projection onto the <m>x</m>-axis.
+	  </caption>
+	</figure>
+	
+	<p>
+	  Find the matrix that defines this matrix transformation
+	  <m>T</m>.  
+	</p></li>
+	
+	<li><p>
+	  Find the matrix that defines projection on the vertical
+	  axis.
+	</p></li>
+
+	<li><p>
+	  What is the result of composing the projection onto the
+	  horizontal axis with the projection onto the vertical axis?
+	</p></li>
+
+	<li><p>
+	  Find the matrix that defines projection onto the line
+	  <m>y=x</m>.
+	</p></li>
+      </ol> </p>
+	  
+    </statement>
+
+    <solution>
+      <p><ol label="a.">
+	<li><p>
+	  <m>\left[\begin{array}{rr}
+	  1 \amp 0 \\
+	  0 \amp 0 \\
+	  \end{array}\right]
+	  </m>.
+	</p></li>
+
+	<li><p>
+	  <m>\left[\begin{array}{rr}
+	  0 \amp 0 \\
+	  0 \amp 1 \\
+	  \end{array}\right]
+	  </m>.
+	</p></li>
+
+	<li><p>
+	  <m>
+	    \left[\begin{array}{rr}
+	    0 \amp 0 \\
+	    0 \amp 1 \\
+	    \end{array}\right]
+	    \left[\begin{array}{rr}
+	    1 \amp 0 \\
+	    0 \amp 0 \\
+	    \end{array}\right]
+	    =
+	    \left[\begin{array}{rr}
+	    0 \amp 0 \\
+	    0 \amp 0 \\
+	    \end{array}\right]
+	  </m>.
+	  The result of composing the two projections sends every
+	  vector to <m>\zerovec</m>.
+	</p></li>
+
+	<li><p>
+	  <m>
+	    \left[\begin{array}{rr}
+	    \frac1{\sqrt{2}} \amp \frac1{\sqrt{2}} \\
+	    \frac1{\sqrt{2}} \amp \frac1{\sqrt{2}} \\
+	    \end{array}\right]
+	  </m>.
+	</p></li>
+      </ol></p>
+    </solution>
+
+    <answer>
+      <p><ol label="a.">
+	<li><p>
+	  <m>\left[\begin{array}{rr}
+	  1 \amp 0 \\
+	  0 \amp 0 \\
+	  \end{array}\right]
+	  </m>.
+	</p></li>
+
+	<li><p>
+	  <m>\left[\begin{array}{rr}
+	  0 \amp 0 \\
+	  0 \amp 1 \\
+	  \end{array}\right]
+	  </m>.
+	</p></li>
+
+	<li><p>
+	  <m>
+	    \left[\begin{array}{rr}
+	    0 \amp 0 \\
+	    0 \amp 0 \\
+	    \end{array}\right]
+	  </m>.
+	</p></li>
+
+	<li><p>
+	  <m>
+	    \left[\begin{array}{rr}
+	    \frac1{\sqrt{2}} \amp \frac1{\sqrt{2}} \\
+	    \frac1{\sqrt{2}} \amp \frac1{\sqrt{2}} \\
+	    \end{array}\right]
+	  </m>.
+	</p></li>
+      </ol></p>
+    </answer>
+
+  </exercise>
+
+  <exercise>
+    <statement>
+      <p> This exericse concerns the matrix transformations defined by
+      matrices of the form
+      <me>
+	A = \left[\begin{array}{rr}
+	a \amp -b \\
+	b \amp a \\
+	\end{array}\right]
+      </me>.
+      Let's begin by looking at two special types of these matrices.
+      <ol label="a.">
+	<li><p> First, consider the matrix where <m>a = 2</m> and
+	<m>b=0</m> so that
+	<me>
+	  A = \left[\begin{array}{rr}
+	  2 \amp 0 \\
+	  0 \amp 2 \\
+	  \end{array}\right]
+	</me>.
+	Describe the geometric effect of this matrix.  More generally,
+	suppose we have 
+	<me>
+	  A = \left[\begin{array}{rr}
+	  r \amp 0 \\
+	  0 \amp r \\
+	  \end{array}\right]
+	</me>,
+	where <m>r</m> is a positive number.  What is the geometric
+	effort of <m>A</m> on vectors in the plane?
+	</p></li>
+
+	<li><p> Suppose now that <m>a = 0</m> and <m>b = 1</m> so that
+	<me>
+	  A = \left[\begin{array}{rr}
+	  0 \amp -1 \\
+	  1 \amp 0 \\
+	  \end{array}\right]
+	</me>.
+	What is the geometric effect of <m>A</m> on vectors in the
+	plane?  More generally, suppose we have
+	<me>
+	  A = \left[\begin{array}{rr}
+	  \cos\theta \amp -\sin\theta \\
+	  \sin\theta \amp \cos\theta \\
+	  \end{array}\right]
+	</me>.  What is the geometric effect of <m>A</m> on vectors in
+	the plane?
+	</p></li>
+
+	<li><p> In general, the composition of matrix transformation
+	depends on the order in which we compose them.  For these
+	transformations, however, it is not the case.  Check this by
+	verifying that
+	<me>
+	  \left[\begin{array}{rr}
+	  r \amp 0 \\
+	  0 \amp r \\
+	  \end{array}\right]
+	  \left[\begin{array}{rr}
+	  \cos\theta \amp -\sin\theta \\
+	  \sin\theta \amp \cos\theta \\
+	  \end{array}\right]
+	  =
+	  \left[\begin{array}{rr}
+	  \cos\theta \amp -\sin\theta \\
+	  \sin\theta \amp \cos\theta \\
+	  \end{array}\right]
+	  \left[\begin{array}{rr}
+	  r \amp 0 \\
+	  0 \amp r \\
+	  \end{array}\right]
+	</me>.
+	</p></li>
+
+	<li><p> Let's now look at the general case where
+	<me>
+	  A = \left[\begin{array}{rr}
+	  a \amp -b \\
+	  b \amp a \\
+	  \end{array}\right]
+	</me>.
+	We will draw the vector <m>\twovec{a}{b}</m> in the plane and
+	express it using polar coordinates <m>r</m> and <m>\theta</m>
+	as shown in <xref ref="fig-ex-complex-polar" />.
+      </p>
+
+      <figure xml:id="fig-ex-complex-polar">
+	<sidebyside width="40%">
+	  <image source="images/ex-complex-polar" />
+	</sidebyside>
+	<caption>
+	  A vector may be expressed in polar
+	  coordinates.
+	</caption>
+      </figure>
+
+      <p> We then have
+      <me>
+	\twovec{a}{b} = \twovec{r\cos\theta}{r\sin\theta}
+      </me>.
+      Show that the matrix
+      <me>
+	\left[\begin{array}{rr}
+	a \amp -b \\
+	b \amp a \\
+	\end{array}\right]
+	=
+	\left[\begin{array}{rr}
+	r \amp 0 \\
+	0 \amp r \\
+	\end{array}\right]
+	\left[\begin{array}{rr}
+	\cos\theta \amp -\sin\theta \\
+	\sin\theta \amp \cos\theta \\
+	\end{array}\right]
+      </me>.
+	</p></li>
+
+	<li><p>
+	  Using this description, describe the geometric effect on
+	  vectors in the plane of the
+	  matrix transformation defined by 
+	  <me>
+	    A= \left[\begin{array}{rr}
+	    a \amp -b \\
+	    b \amp a \\
+	    \end{array}\right]
+	  </me>.
+	</p></li>
+
+	<li><p>
+	  Suppose we have a matrix transformation <m>T</m> defined by
+	  a matrix <m>A</m> and another transformation <m>S</m>
+	  defined by <m>B</m> where
+	  <me>
+	    A= \left[\begin{array}{rr}
+	    a \amp -b \\
+	    b \amp a \\
+	    \end{array}\right],
+	    B= \left[\begin{array}{rr}
+	    c \amp -d \\
+	    d \amp c \\
+	    \end{array}\right]
+	  </me>.
+	  Describe the geometric effect of the composition <m>S\circ
+	  T</m> in terms of the <m>a</m>, <m>b</m>, <m>c</m>, and
+	  <m>d</m>.
+	</p></li>
+      </ol>
+      The matrices of this form give a model for the complex numbers
+      and will play an important role in <xref
+      provisional="sec-complex-eigenvalues" />.
+      </p>
+    </statement>
+
+    <solution>
+      <p><ol label="a.">
+	<li><p>
+	  The matrix
+	  <m>\left[\begin{array}{rr}
+	  r \amp 0 \\
+	  0 \amp r \\
+	  \end{array}\right]
+	  </m>
+	  stretches vectors by <m>r</m>.  It has the same effect as
+	  scalar multiplication by <m>r</m>.
+	</p></li>
+
+	<li><p>
+	  This matrix rotates vectors by an angle <m>\theta</m>.
+	</p></li>
+
+	<li><p> No matter which order we multiply the matrices, we
+	find that their product is
+	  <me>
+	    \left[\begin{array}{rr}
+	    r \amp 0 \\
+	    0 \amp r \\
+	    \end{array}\right]
+	    \left[\begin{array}{rr}
+	    \cos\theta \amp -\sin\theta \\
+	    \sin\theta \amp \sin\theta \\
+	    \end{array}\right]
+	    =
+	    \left[\begin{array}{rr}
+	    r\cos\theta \amp -r\sin\theta \\
+	    r\sin\theta \amp r\sin\theta \\
+	    \end{array}\right]\text{.}
+	  </me>
+	</p></li>
+
+	<li><p>
+	  This follows from the previous part.
+	</p></li>
+
+	<li><p>
+	  If we use polar coordinates to write <m>\twovec{a}{b} =
+	  \twovec{r\cos\theta}{r\sin\theta}</m>, multiplying a
+	  vector by <m>A</m> will stretch the vector by <m>r</m> and
+	  rotate it by <m>\theta</m>.
+	</p></li>
+
+	<li><p>
+	  If
+	  <me>
+	    \twovec{a}{b} =
+	    \twovec{r\cos\theta}{r\sin\theta},
+	    \twovec{c}{d} =
+	    \twovec{s\cos\phi}{s\sin\phi}\text{,}
+	  </me>
+	  then <m>S\circ T</m> has the effect of stretching a vector
+	  by <m>rs</m> and rotating it by <m>\theta + \phi</m>.
+	</p></li>
+      </ol></p>
+    </solution>
+	  
+    <answer>
+      <p><ol label="a.">
+	<li><p>
+	  It stretches vectors by <m>r</m>.  
+	</p></li>
+
+	<li><p>
+	  This matrix rotates vectors by an angle <m>\theta</m>.
+	</p></li>
+
+	<li><p> No matter which order we multiply the matrices, we
+	find that their product is
+	  <me>
+	    \left[\begin{array}{rr}
+	    r\cos\theta \amp -r\sin\theta \\
+	    r\sin\theta \amp r\sin\theta \\
+	    \end{array}\right]\text{.}
+	  </me>
+	</p></li>
+
+	<li><p>
+	  This follows from the previous part.
+	</p></li>
+
+	<li><p>
+	  If we use polar coordinates to write <m>\twovec{a}{b} =
+	  \twovec{r\cos\theta}{r\sin\theta}</m>, multiplying a
+	  vector by <m>A</m> will stretch the vector by <m>r</m> and
+	  rotate it by <m>\theta</m>.
+	</p></li>
+
+	<li><p>
+	  If
+	  <me>
+	    \twovec{a}{b} =
+	    \twovec{r\cos\theta}{r\sin\theta},
+	    \twovec{c}{d} =
+	    \twovec{s\cos\phi}{s\sin\phi}\text{,}
+	  </me>
+	  then <m>S\circ T</m> has the effect of stretching a vector
+	  by <m>rs</m> and rotating it by <m>\theta + \phi</m>.
+	</p></li>
+      </ol></p>
+    </answer>
+	  
+  </exercise>
+
+  <exercise xml:id="ex-reflection-compose-general">
+    <statement>
+      <p> We saw earlier that the rotation in the plane through an
+      angle <m>\theta</m> is given by the matrix:
+      <me>
+	\left[\begin{array}{rr}
+	\cos\theta \amp -\sin\theta \\
+	\sin\theta \amp \cos\theta \\
+	\end{array}\right]
+      </me>.
+      We would like to find a similar expression for the matrix that
+      represents the reflection in <m>L_\theta</m>, the line passing
+      through the 
+      origin and making an angle of <m>\theta</m> with the positive
+      <m>x</m>-axis, as shown in <xref ref="fig-ex-reflection-def" />.
+      </p>
+
+      <figure xml:id="fig-ex-reflection-def">
+	<sidebyside width="40%">
+	  <image source="images/ex-reflection-def" />
+	</sidebyside>
+	<caption>
+	  The reflection in the line <m>L_\theta</m>.
+	</caption>
+      </figure>
+
+      <ol label="a.">
+	<li><p> To do this, notice that this reflection can be
+	obtained by composing three separate transformations as shown
+	in <xref ref="fig-ex-reflection-compose" />.  Beginning with
+	the vector <m>\xvec</m>, we apply the transformation <m>R</m>
+	to rotate by <m>-\theta</m> and obtain
+	<m>R(\xvec)</m>.  Next, we apply <m>S</m>, a reflection in the
+	horizontal axis, followed by <m>T</m>, a rotation by
+	<m>\theta</m>.  We see that <m>T(S(R(\xvec)))</m> is the same
+	as the reflection of <m>\xvec</m> in the original line
+	<m>L_\theta</m>. 
+      </p>     
+      <figure xml:id="fig-ex-reflection-compose">
+	<sidebyside width="90%">
+	  <image source="images/ex-reflection-compose" />
+	</sidebyside>
+	<caption>
+	  Reflection in the line <m>L_\theta</m> as a composition of three
+	  transformations.
+	</caption>
+      </figure>
+
+      <p>
+	Using this decomposition, show that the reflection in the
+	line <m>L_\theta</m> is described by the matrix
+	<me>
+	  \left[\begin{array}{rr}
+	  \cos(2\theta) \amp \sin(2\theta) \\
+	  \sin(2\theta) \amp -\cos(2\theta) \\
+	  \end{array}\right]
+	</me>.
+	You will need to remember the trigonometric identities:
+	<me>
+	  \begin{aligned}
+	  \cos(2\theta) \amp {}={} \cos^2\theta - \sin^2\theta \\
+	  \sin(2\theta) \amp {}={} 2\sin\theta\cos\theta \\
+	  \end{aligned}
+	</me>.
+	</p></li>
+
+	<li> <p> Now that we have a matrix that describes the
+	reflection in the line <m>L_\theta</m>,
+	show that the composition of the
+	reflection in the horizontal axis followed by the reflection
+	in <m>L_\theta</m> is a counterclockwise rotation by an angle
+	<m>2\theta</m>.  We saw some examples of this earlier in <xref
+	ref="ex-compose-reflections" />.
+	</p></li>
+      </ol>
+    </statement>
+
+    <solution>
+      <p><ol label="a.">
+	<li><p>
+	  We have
+	  <me>
+	    \begin{array}{rl}
+	    
+	    \left[\begin{array}{rr}
+	    \cos\theta \amp -\sin\theta \\
+	    \sin\theta \amp \cos\theta \\
+	    \end{array}\right]
+	    \amp
+	    \left[\begin{array}{rr}
+	    1 \amp 0 \\
+	    0 \amp -1 \\
+	    \end{array}\right]
+	    
+	    \left[\begin{array}{rr}
+	    \cos\theta \amp \sin\theta \\
+	    -\sin\theta \amp \cos\theta \\
+	    \end{array}\right]
+	    \\
+	    = \amp
+	    
+	    \left[\begin{array}{rr}
+	    \cos\theta \amp -\sin\theta \\
+	    \sin\theta \amp \cos\theta \\
+	    \end{array}\right]
+	    
+	    \left[\begin{array}{rr}
+	    \cos\theta \amp \sin\theta \\
+	    \sin\theta \amp -\cos\theta \\
+	    \end{array}\right]
+	    \\
+	    =
+	    \amp 
+	    \left[\begin{array}{rr}
+	    \cos(2\theta) \amp \sin(2\theta) \\
+	    \sin(2\theta) \amp -\cos(2\theta) \\
+	    \end{array}\right]
+	    \text{.}
+	    \end{array}
+	  </me>
+	</p></li>
+
+	<li><p>
+	  Compute that
+	  <me>
+	    \left[\begin{array}{rr}
+	    \cos(2\theta) \amp \sin(2\theta) \\
+	    \sin(2\theta) \amp -\cos(2\theta) \\
+	    \end{array}\right]
+	    \left[\begin{array}{rr}
+	    1 \amp 0 \\
+	    0 \amp -1 \\
+	    \end{array}\right]
+	    =
+	    \left[\begin{array}{rr}
+	    \cos(2\theta) \amp -\sin(2\theta) \\
+	    \sin(2\theta) \amp \cos(2\theta)
+	    \end{array}\right]\text{.}
+	  </me>
+	</p></li>
+      </ol></p>
+    </solution>
+	    
+    <answer>
+      <p><ol label="a.">
+	<li><p>
+	  We have
+	  <me>
+	    \begin{array}{rl}
+	    \left[\begin{array}{rr}
+	    \cos\theta \amp -\sin\theta \\
+	    \sin\theta \amp \cos\theta \\
+	    \end{array}\right]
+	    \left[\begin{array}{rr}
+	    1 \amp 0 \\
+	    0 \amp -1 \\
+	    \end{array}\right] \amp 
+	    \left[\begin{array}{rr}
+	    \cos\theta \amp \sin\theta \\
+	    -\sin\theta \amp \cos\theta \\
+	    \end{array}\right]
+	    \\
+	    =
+	    \amp
+	    \left[\begin{array}{rr}
+	    \cos(2\theta) \amp \sin(2\theta) \\
+	    \sin(2\theta) \amp -\cos(2\theta) \\
+	    \end{array}\right]
+	    \text{.}
+	    \end{array}
+	  </me>
+	</p></li>
+
+	<li><p>
+	  Compute that
+	  <me>
+	    \left[\begin{array}{rr}
+	    \cos(2\theta) \amp \sin(2\theta) \\
+	    \sin(2\theta) \amp -\cos(2\theta) \\
+	    \end{array}\right]
+	    \left[\begin{array}{rr}
+	    1 \amp 0 \\
+	    0 \amp -1 \\
+	    \end{array}\right]
+	    =
+	    \left[\begin{array}{rr}
+	    \cos(2\theta) \amp -\sin(2\theta) \\
+	    \sin(2\theta) \amp \cos(2\theta)
+	    \end{array}\right]\text{.}
+	  </me>
+	</p></li>
+      </ol></p>
+    </answer>
+	    
+  </exercise>
+
+</exercises>
+  

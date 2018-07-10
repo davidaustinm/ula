@@ -1,0 +1,873 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<exercises>
+  <exercise>
+    <statement>
+      <p> For each of the augmented matrices in reduced row echelon
+      form given below, determine whether the corresponding linear
+      system is consistent and, if it is, determine whether the
+      solution is unique.  If the system is consistent, identify the
+      free variables and the basic variables and give a description of
+      the solution space in parametric form. 
+      <ol label="a.">
+	<li> <p>
+	  <me>
+	    \left[
+	    \begin{array}{rrrr|r}
+	    0 \amp 1 \amp 0 \amp 0 \amp 2 \\
+	    0 \amp 0 \amp 1 \amp 0 \amp 3 \\
+	    0 \amp 0 \amp 0 \amp 1 \amp -2 \\
+	    \end{array}
+	    \right]
+	    </me>.
+	</p></li>
+
+	<li> <p>
+	  <me>
+	    \left[
+	    \begin{array}{rrrr|r}
+	    1 \amp 0 \amp 0 \amp 0 \amp 0 \\
+	    0 \amp 1 \amp 0 \amp 0 \amp 0 \\
+	    0 \amp 0 \amp 1 \amp 1 \amp 0 \\
+	    0 \amp 0 \amp 0 \amp 0 \amp 0 \\
+	    \end{array}
+	    \right]
+	    </me>.
+	</p></li>
+
+	<li> <p>
+	  <me>
+	    \left[
+	    \begin{array}{rrrr|r}
+	    1 \amp 0 \amp 0 \amp 0 \amp 0 \\
+	    0 \amp 1 \amp 0 \amp 0 \amp 0 \\
+	    0 \amp 0 \amp 1 \amp 0 \amp 0 \\
+	    0 \amp 0 \amp 0 \amp 1 \amp 0 \\
+	    0 \amp 0 \amp 0 \amp 0 \amp 1 \\
+	    \end{array}
+	    \right]
+	    </me>.
+	</p></li>
+
+      	<li> <p>
+	  <me>
+	    \left[
+	    \begin{array}{rrr|r}
+	    1 \amp 0 \amp 0 \amp -3 \\
+	    0 \amp 1 \amp 0 \amp -1 \\
+	    0 \amp 0 \amp 1 \amp -2 \\
+	    \end{array}
+	    \right]
+	    </me>.
+	</p></li>
+      </ol>
+      </p>
+    </statement>
+
+    <solution>
+      <p>
+	<ol label="a.">
+	  <li><p>
+	    The linear system is consistent because there is not
+	    a pivot position in the rightmost column.  The variable
+	    <m>x_1</m> is free while <m>x_2=2</m>, <m>x_3=3</m>, and
+	    <m>x_4=-2</m> are basic.  There are infinitely many
+	    solutions. 
+	  </p></li>
+
+	  <li><p>
+	    The linear system is consistent because there is not
+	    a pivot position in the rightmost column.  The variable
+	    <m>x_4</m> is free while <m>x_1=0</m>, <m>x_2=0</m>, and
+	    <m>x_3=-x_4</m> are basic.  There are infinitely many
+	    solutions. 
+	  </p></li>
+
+	  <li><p>
+	    The linear system is inconsistent because there is a pivot
+	    position in the rightmost column.
+	  </p></li>
+
+	  <li><p>
+	    The linear system is consistent with <m>x_1=-3</m>,
+	    <m>x_2=-1</m>, and <m>x_3=-2</m> all being basic
+	    variables.  There is a unique solution.
+	  </p></li>
+	</ol>
+      </p>
+    </solution>
+
+    <answer>
+      <p>
+	<ol label="a.">
+	  <li><p>
+	    The linear system is consistent because there is not
+	    a pivot position in the rightmost column, and
+	    there are infinitely many
+	    solutions. 
+	  </p></li>
+
+	  <li><p>
+	    The linear system is consistent because there is not
+	    a pivot position in the rightmost column, and 
+	    there are infinitely many
+	    solutions. 
+	  </p></li>
+
+	  <li><p>
+	    The linear system is inconsistent because there is a pivot
+	    position in the rightmost column.
+	  </p></li>
+
+	  <li><p>
+	    The linear system is consistent, and there is a unique
+	    solution. 
+	  </p></li>
+	</ol>
+      </p>
+    </answer>
+	    
+  </exercise>
+
+  <exercise>
+    <statement>
+      <p> Include an example of an appropriate matrix as you
+      justify your responses to the following questions.
+      <ol label="a.">
+	<li><p> Suppose a linear system having six equations and
+	three unknowns is consistent.  Can you guarantee that 
+	the solution is unique? Can you guarantee that there are
+	infinitely solutions?  </p></li>
+	<li><p> Suppose that a linear system having three equations
+	and six unknowns is consistent.  Can you guarantee that
+	the solution is unique? Can you guarantee that there are
+	infinitely solutions?  </p></li>
+	<li><p> Suppose that a linear system is consistent and has a
+	unique solution.  What can you guarantee about the pivot
+	positions in the augmented matrix?
+	</p></li>
+      </ol>
+      </p>
+    </statement>
+
+    <solution>
+      <p>
+	<ol label="a.">
+	  <li><p>
+	    Consider the augmented matrices
+	    <me>
+	      \begin{array}{cc}
+	      \left[\begin{array}{rrr|r}
+	      1 \amp -2 \amp 1 \\
+	      0 \amp 0 \amp 0 \\
+	      0 \amp 0 \amp 0 \\
+	      0 \amp 0 \amp 0 \\
+	      0 \amp 0 \amp 0 \\
+	      0 \amp 0 \amp 0 \\
+	      \end{array}\right]
+	      \amp
+	      \left[\begin{array}{rrr|r}
+	      1 \amp 0 \amp 1 \\
+	      0 \amp 1 \amp 3 \\
+	      0 \amp 0 \amp 0 \\
+	      0 \amp 0 \amp 0 \\
+	      0 \amp 0 \amp 0 \\
+	      0 \amp 0 \amp 0 \\
+	      \end{array}\right]\text{.}
+	      \end{array}
+	    </me>
+	    It is possible that the solution is unique and that there
+	    are infinitely many solutions.
+	  </p></li>
+
+	  <li><p>
+	    Consider the augmented matrix
+	    <me>
+	      \left[\begin{array}{rrrrrr|r}
+	      1 \amp 0 \amp 0 \amp 0 \amp 0 \amp 0 \amp 1 \\
+	      0 \amp 1 \amp 0 \amp 0 \amp 0 \amp 0 \amp -1 \\
+	      0 \amp 0 \amp 1 \amp 0 \amp 0 \amp 0 \amp 4 \\
+	      \end{array}\right]
+	    </me>
+	    There must be a column without a pivot position so we can
+	    guarantee that there are infinitely many solutions.
+	  </p></li>
+
+	  <li><p>
+	    Consider the augmented matrix
+	    <me>
+	      \left[\begin{array}{rrr|r}
+	      1 \amp 0 \amp 0 \amp 3 \\
+	      0 \amp 1 \amp 0 \amp -2 \\
+	      0 \amp 0 \amp 1 \amp 1 \\
+	      0 \amp 0 \amp 0 \amp 0 \\
+	      \end{array}\right]\text{.}
+	    </me>
+	    We know that every column of the coefficient matrix has a
+	    pivot position and that the rightmost column does not.
+	    There must be at least as many equations as unknowns.
+	  </p></li>
+	</ol>
+      </p>
+    </solution>
+	      
+    <answer>
+      <p>
+	<ol label="a.">
+	  <li><p>
+	    We cannot guarantee either possibility.
+	  </p></li>
+
+	  <li><p>
+	    We can guarantee there are infinitely many solutions.
+	  </p></li>
+
+	  <li><p>
+	    There is a pivot position in each column of the
+	    coefficient matrix.
+	  </p></li>
+	</ol>
+      </p>
+    </answer>
+  </exercise>
+  
+  <exercise>
+    <statement>
+      <p> Determine whether the following statements are 
+      true or false and provide a justification for your response.
+      <ol label="a.">
+	<li><p>
+	  If the coefficient matrix of a system of linear equations
+	  has a pivot in the rightmost column, then the system is
+	  inconsistent. 
+	</p></li>
+
+	<li><p>
+	  If a system of equations has two equations and four
+	  unknowns, then it must be consistent.
+	</p></li>
+
+	<li><p>
+	  If a system of equations having four equations and three
+	  unknowns is consistent, then the solution is unique.
+	</p></li>
+
+	<li><p>
+	  Suppose that a linear system has four equations and four
+	  unknowns and that the coefficient matrix has four pivots.
+	  Then the linear system is consistent and has a unique
+	  solution. 
+	</p></li>
+
+	<li><p>
+	  Suppose that a linear system has five equations and three
+	  unknowns and that the coefficient matrix has a pivot in
+	  every column.  The the linear system is consistent and has a
+	  unique solution.
+	</p></li>
+      </ol>
+      </p>
+    </statement>
+
+    <solution>
+      <p>
+	<ol label="a.">
+	  <li><p>
+	    This statement is false.  If the <em>augmented</em> 
+	    matrix has a pivot in the rightmost column, then the
+	    system is inconsistent.
+	  </p></li>
+
+	  <li><p>
+	    This statement is false as illustrated by the matrix
+	    <me>
+	      \left[\begin{array}{rrrr|r}
+	      1 \amp 0 \amp 2 \amp 3 \amp -1 \\
+	      0 \amp 0 \amp 0 \amp 0 \amp 1\\
+	      \end{array}\right]\text{.}
+	    </me>
+	  </p></li>
+
+	  <li><p>
+	    This statement is false as illustrated by the matrix
+	    <me>
+	      \left[\begin{array}{rrr|r}
+	      1 \amp 0 \amp 2 \amp 1 \\
+	      0 \amp 1 \amp -2 \amp 0 \\
+	      0 \amp 0 \amp 0 \amp 0 \\
+	      0 \amp 0 \amp 0 \amp 0\\
+	      \end{array}\right]\text{.}
+	    </me>
+	  </p></li>
+
+	  <li><p>
+	    This is true as illustrated by the matrix
+	    <me>
+	      \left[\begin{array}{rrrr|r}
+	      1 \amp 0 \amp 0 \amp 0 \amp 1 \\
+	      0 \amp 1 \amp 0 \amp 0 \amp 3\\
+	      0 \amp 0 \amp 1 \amp 0 \amp -1 \\
+	      0 \amp 0 \amp 0 \amp 1 \amp 7\\
+	      \end{array}\right]\text{.}
+	    </me>
+	  </p></li>
+
+	  <li><p>
+	    This statement is false as illustrated by the matrix
+	    <me>
+	      \left[\begin{array}{rrr|r}
+	      1 \amp 0 \amp 0 \amp 1 \\
+	      0 \amp 1 \amp 0 \amp -2 \\
+	      0 \amp 0 \amp 1 \amp 1 \\
+	      0 \amp 0 \amp 0 \amp 1\\
+	      0 \amp 0 \amp 0 \amp 0 \\
+	      \end{array}\right]\text{.}
+	    </me>
+	  </p></li>
+	</ol>
+      </p>
+    </solution>
+
+    <answer>
+      <p>
+	<ol label="a.">
+	  <li><p> False. </p></li>
+	  <li><p> False. </p></li>
+	  <li><p> False. </p></li>
+	  <li><p> True. </p></li>
+	  <li><p> False. </p></li>
+	</ol>
+      </p>
+    </answer>
+	      
+  </exercise>
+
+  <exercise>
+    <statement>
+      <p> The following systems contain either one or two parameters.
+      <ol label="a.">
+	<li><p> For what values of the parameter <m>k</m> is the
+	following system
+	consistent?  For which of those values is the solution unique?
+	<me>
+	  \begin{alignedat}{3}
+	  -x_1 \amp {}+{} \amp 2x_2 \amp {}={} \amp 3 \\
+	  2x_1 \amp {}-{} \amp 4x_2 \amp {}={} \amp k \\
+	  \end{alignedat}
+	  </me>.
+	</p></li>
+
+	<li><p> For what values of the parameters <m>k</m> and
+	<em>l</em> is the following system consistent?  For which of
+	those values is the solution unique?
+	<me>
+	  \begin{alignedat}{3}
+	  2x_1 \amp {}+{} \amp 4x_2 \amp {}={} \amp 3 \\
+	  -x_1 \amp {}+{} \amp kx_2 \amp {}={} \amp l \\
+	  \end{alignedat}
+	  </me>.
+	</p></li>
+      </ol></p>
+    </statement>
+
+    <solution>
+      <p>
+	<ol label="a.">
+	  <li><p>
+	    We have
+	    <me>
+	      \left[\begin{array}{rr|r}
+	      -1 \amp 2 \amp 3 \\
+	      2 \amp -4 \amp k \\
+	      \end{array}\right]
+	      \sim
+	      \left[\begin{array}{rr|r}
+	      1 \amp -2 \amp -3 \\
+	      0 \amp 0 \amp k+6 \\
+	      \end{array}\right]\text{.}
+	    </me>
+	    This shows that the system is consistent when <m>k=
+	    -6</m>, and the solution can never be unique.  If <m>k\neq
+	    -6</m>, the system is inconsistent.
+	  </p></li>
+
+	  <li><p>
+	    We have
+	    <me>
+	      \left[\begin{array}{rr|r}
+	      2 \amp 4 \amp 3 \\
+	      -1 \amp k \amp l \\
+	      \end{array}\right]
+	      \sim
+	      \left[\begin{array}{rr|r}
+	      1 \amp 2 \amp \frac32 \\
+	      0 \amp 2+k \amp l + \frac32 \\
+	      \end{array}\right]\text{.}
+	    </me>
+	    The system is inconsistent if <m>k=-2</m> and <m>l\neq
+	    -\frac32</m>.  There are infinitely many solutions if
+	    <m>k=-2</m> and <m>l=-\frac32</m>.  There is a unique
+	    solution if <m>k\neq -2</m>.
+	  </p></li>
+	</ol>
+      </p>
+    </solution>
+
+    <answer>
+      <p>
+	<ol label="a.">
+	  <li><p> 
+	    The system is consistent when <m>k=
+	    -6</m>, and the solution can never be unique.  If <m>k\neq
+	    -6</m>, the system is inconsistent.
+	  </p></li>
+
+	  <li><p>
+	    The system is inconsistent if <m>k=-2</m> and <m>l\neq
+	    -\frac32</m>.  There are infinitely many solutions if
+	    <m>k=-2</m> and <m>l=-\frac32</m>.  There is a unique
+	    solution if <m>k\neq -2</m>.
+	  </p></li>
+	</ol>
+      </p>
+    </answer>
+	    
+  </exercise>
+
+  <exercise>
+    <statement>
+      <p> Consider the system of equations described by the following
+      augmented matrix.
+      <me>
+	\left[
+	\begin{array}{ccc|c}
+	1 \amp 2 \amp 3 \amp 1 \\
+	4 \amp 5 \amp 6 \amp 4 \\
+	a \amp b \amp c \amp 9 \\
+	\end{array}
+	\right]
+	</me>.
+	<ol label="a.">
+	  <li><p> Find a choice for the parameters <m>a</m>, <m>b</m>,
+	  and <m>c</m> that causes the linear system to be
+	  inconsistent.  Explain why your choice has this
+	  property. </p></li> 
+
+	  <li><p> Find a choice for the parameters <m>a</m>, <m>b</m>,
+	  and <m>c</m> that causes the linear system to have a unique
+	  solution. Explain why your choice has this
+	  property. </p></li> 
+
+	  <li><p> Find a choice for the parameters <m>a</m>, <m>b</m>,
+	  and <m>c</m> that causes the linear system to have
+	  infinitely many solutions.  Explain why your choice has this
+	  property. </p></li>
+	</ol>
+      </p>
+    </statement>
+
+    <solution>
+      <p>
+	We have
+	<me>
+	  \left[\begin{array}{rrr|r}
+	  1 \amp 2 \amp 3 \amp 1 \\
+	  4 \amp 5 \amp 6 \amp 4 \\
+	  a \amp b \amp c \amp 9 \\
+	  \end{array}\right]
+	  \sim
+	  \left[\begin{array}{rrr|r}
+	  1 \amp 2 \amp 3 \amp 1 \\
+	  0 \amp 1 \amp 2 \amp 0 \\
+	  0 \amp 0 \amp a-2b+c \amp 9-a \\
+	  \end{array}\right]\text{.}
+	</me>
+	<ol label="a.">
+	  <li><p>
+	    If <m> a - 2b + c = 0</m> and <m>9-a\neq 0</m>, then the
+	    system will be inconsistent.  We can choose
+	    <m>a=b=c=0</m>.
+	  </p></li>
+
+	  <li><p>
+	    We want there to be a pivot position in every column so we
+	    choose
+	    <m>a-2b+c\neq 0</m>.  For instance <m>a=1</m>, <m>b=0</m>,
+	    and <m>c=0</m> works.
+	  </p></li>
+
+	  <li><p>
+	    We need for the third and fourth columns to lack pivot
+	    positions so 
+	    we choose <m>a+c-2b=0</m> and <m>a = 9</m>.  For instance,
+	    <m>a=9</m>, <m>b=0</m>, and <m>c=-9</m> works.
+	  </p></li>
+	</ol>
+      </p>
+    </solution>
+
+    <answer>
+      <p> Some example choices are given here, but there are many more.
+	<ol label="a.">
+	  <li><p>
+	    <m>a=b=c=0</m>.
+	  </p></li>
+
+	  <li><p>
+	    <m>a=1</m> and <m>b=c=0</m>.
+	  </p></li>
+
+	  <li><p>
+	    <m>a=9</m>, <m>b=0</m>, and <m>c=-9</m>.
+	  </p></li>
+	</ol>
+      </p>
+    </answer>
+  </exercise>
+  
+  <exercise>
+    <statement>
+      <p> A system of equations where the right hand side of every
+      equation is 0 is called <em>homogeneous</em>.  The augmented
+      matrix of a homogeneous system, for instance, has the following
+      form:
+      <me>
+	\left[
+	\begin{array}{cccc|c}
+	* \amp * \amp * \amp * \amp 0 \\
+	* \amp * \amp * \amp * \amp 0 \\
+	* \amp * \amp * \amp * \amp 0 \\
+	\end{array}
+	\right]
+	</me>.
+	<ol label="a.">
+	  <li> <p> Using the concepts we've seen in this section,
+	  explain why a  homogeneous system of equations must be
+	  consistent.
+	  </p> </li>
+
+	  <li> <p>
+	  What values for the unknowns are guaranteed to give a
+	  solution?  Use this to offer another explanation for why a
+	  homogeneous 
+	  system of equations is consistent.
+	  </p></li>
+
+	  <li> <p> Suppose that a homogeneous system of equations has
+	  a unique solution.
+	  <ol>
+	    <li> <p> Give an example of such a system by
+	    writing its augmented matrix in reduced row echelon
+	    form. </p></li>
+	    <li> <p> Write just the coefficient matrix for the example
+	    you gave in the previous part.  What can you say about the
+	    pivot positions in the coefficient matrix?  Explain why
+	    your observation must hold for any homogeneous system
+	    having a unique solution.  </p></li>
+	    <li> <p> If a homogenous system of equations has a unique
+	    solution, what can you say about the number of equations
+	    compared to the number of unknowns?  
+	    </p></li>
+	  </ol>
+	  </p></li>
+	</ol>
+      </p>
+    </statement>
+
+    <solution>
+      <p>
+	<ol label="a.">
+	  <li><p>
+	    Since all the entries in the rightmost column are
+	    zero, there cannot be a pivot in the rightmost column.
+	  </p></li>
+
+	  <li><p>
+	    We have a solution when all the variables are zero.
+	    Therefore, the system must be consistent.
+	  </p></li>
+
+	  <li><p>
+	    We must have a pivot position in every column of the
+	    coefficient matrix so the augmented matrix could look like
+	    <me>
+	      \left[\begin{array}{rrr|r}
+	      1 \amp 0 \amp 0 \amp * \\
+	      0 \amp 1 \amp 0 \amp * \\
+	      0 \amp 0 \amp 1 \amp * \\
+	      0 \amp 0 \amp 0 \amp 0 \\
+	      \end{array}\right]\text{.}
+	    </me>
+	    Since every column of the coefficient matrix has a pivot
+	    position, there must be at least as many rows as columns.
+	    This means that there must be at least as many equations
+	    as unknowns.
+	  </p></li>
+	</ol>
+      </p>
+    </solution>
+
+    <answer>
+      <p>
+	<ol label="a.">
+	  <li><p> There cannot be a pivot in the rightmost
+	  column.</p></li>
+
+	  <li><p> There is a solution when all the variables are set
+	  to zero.
+	  </p></li>
+
+	  <li><p> There are at least as many equations as unknowns.
+	  </p></li>
+	</ol>
+      </p>
+    </answer>
+  </exercise>
+
+  <exercise xml:id="exercise-poly-fit">
+    <statement>
+      <p> In a previous math class, you have probably seen the fact
+      that, if we are given two points in the plane, then there is a
+      unique line passing through both of them.  In this problem, we
+      will begin with the four points on the left below and ask to
+      find a polynomial that passes through these four points as shown
+      on the right.
+      <sidebyside widths="45% 45%">
+	<image source="images/interpolation-0" />
+	<image source="images/interpolation-1" />
+      </sidebyside>
+      </p>
+
+      <p> A degree three polynomial can be written as
+      <me>
+	p(x) = a + bx + cx^2 + dx^3
+      </me>
+      where <m>a</m>, <m>b</m>, <m>c</m>, and <m>d</m> are
+      coefficients that we would like to determine.
+      Since we want the polynomial to pass through the point
+      <m>(3,1)</m>, we should require that
+      <me>
+	p(3) = a + 3b + 9c + 27d = 1
+	</me>.
+	In this way, we obtain a linear equation for the coefficients
+	<m>a</m>, <m>b</m>, <m>c</m>, and <m>d</m>.
+	<ol>
+	  <li> <p> Write the four linear equations for the
+	  coefficients obtained by requiring that the graph of the
+	  polynomial <m>p(x)</m> passes through the four
+	  points above. </p></li>
+
+	  <li> <p> Write the augmented matrix corresponding to this
+	  system of equations and use the Sage cell below to solve for
+	  the coefficients.
+	  <sage>
+	    <input>
+	    </input>
+	  </sage>
+	  </p></li>
+
+	  <li> <p> Write the polynomial <m>p(x)</m> that you found and
+	  check your work by graphing it in the Sage cell below and
+	  verifying that it passes through the four points.  To plot a
+	  function over a range, you may use a command like
+	  <c> plot(1 + x- 2x^2, xmin = -1, xmax = 4)</c>.
+	  <sage>
+	    <input>
+	    </input>
+	  </sage>
+	  </p></li>
+
+	  <li> <p>
+	    Rather than looking for a degree three polynomial, suppose
+	    we wanted to find a polynomial 
+	    that passes through the four points and that has degree
+	    two, such as
+	    <me>
+	      p(x) = a + bx + cx^2
+	      </me>.
+	      Solve the system of equations for the coefficients.
+	      What can you say about the existence and uniqueness of
+	      the solutions?
+	      <sage>
+		<input>
+		</input>
+	      </sage>
+	  </p></li> 
+
+	  <li> <p>
+	    Rather than looking for a degree three polynomial, suppose
+	    we wanted to find a polynomial 
+	    that passes through the four points and that has degree
+	    four, such as
+	    <me>
+	      p(x) = a + bx + cx^2 + dx^3 + ex^4
+	      </me>.
+	      Solve the system of equations for the coefficients.
+	      What can you say about the existence and uniqueness of
+	      the solutions?
+	      <sage>
+		<input>
+		</input>
+	      </sage>
+	  </p></li>
+
+	  <li> <p> Suppose you had 10 points and you wanted to find a
+	  polynomial passing through each of them.  What should the
+	  degree of the polynomial be to guarantee that there is
+	  exactly one such polynomial?  Explain your response.
+	  </p></li>
+	</ol>
+      </p>
+    </statement>
+
+    <solution>
+      <p>
+	<ol label="a.">
+	  <li><p>
+	    The four equations we find are
+	    <me>
+	      \begin{alignedat}{5}
+	      a \amp \amp \amp \amp \amp \amp 
+	      \amp {}={} \amp 2 \\
+	      a \amp {}+{} \amp b \amp {}+{} \amp c \amp {}+{} \amp d
+	      \amp {}={} \amp 3 \\
+	      a \amp {}+{} \amp 2b \amp {}+{} \amp 4c \amp {}+{} \amp 8d
+	      \amp {}={} \amp 0 \\
+	      a \amp {}+{} \amp 3b \amp {}+{} \amp 9c \amp {}+{} \amp 27d
+	      \amp {}={} \amp 1\text{.} \\
+	      \end{alignedat}
+	    </me>
+	  </p></li>
+
+	  <li><p>
+	    This leads to the augmented matrix
+	    <me>
+	      \left[\begin{array}{rrrr|r}
+	      1 \amp 0 \amp 0 \amp 0 \amp 2 \\
+	      1 \amp 1 \amp 1 \amp 1 \amp 3 \\
+	      1 \amp 2 \amp 4 \amp 8 \amp 0 \\
+	      1 \amp 3 \amp 9 \amp 27 \amp 1 \\
+	      \end{array}\right]
+	      \sim
+	      \left[\begin{array}{rrrr|r}
+	      1 \amp 0 \amp 0 \amp 0 \amp 2 \\
+	      0 \amp 1 \amp 0 \amp 0 \amp \frac{17}{3} \\
+	      0 \amp 0 \amp 1 \amp 0 \amp -6 \\
+	      0 \amp 0 \amp 0 \amp 1 \amp \frac43 \\
+	      \end{array}\right]\text{.}
+	    </me>
+	    This gives the coefficients <m>a=2</m>,
+	    <m>b=\frac{17}{3}</m>, <m>c=-6</m>, and <m>d=\frac43</m>.
+	  </p></li>
+
+	  <li><p>
+	    The polynomial
+	    <me>
+	      p(x) = 2 + \frac{17}{3}x -6x^2 + \frac43 x^3
+	    </me>
+	    passes through the four given points.
+	  </p></li>
+
+	  <li><p>
+	    We have the augmented matrix
+	    <me>
+	      \left[\begin{array}{rrr|r}
+	      1 \amp 0 \amp 0 \amp 2 \\
+	      1 \amp 1 \amp 1 \amp 3 \\
+	      1 \amp 2 \amp 4 \amp 0 \\
+	      1 \amp 3 \amp 9 \amp 1 \\
+	      \end{array}\right]
+	      \sim
+	      \left[\begin{array}{rrr|r}
+	      1 \amp 0 \amp 0 \amp 0 \\
+	      0 \amp 1 \amp 0 \amp 0 \\
+	      0 \amp 0 \amp 1 \amp 0 \\
+	      0 \amp 0 \amp 0 \amp 1 \\
+	      \end{array}\right]\text{.}
+	    </me>
+	    This system is therefore inconsistent, which means there
+	    is no degree 2 polynomial passes through the four points.
+	  </p></li>
+
+	  <li><p>
+	    The augmented matrix we find is
+	    <me>
+	      \left[\begin{array}{rrrrr|r}
+	      1 \amp 0 \amp 0 \amp 0 \amp 0 \amp 2 \\
+	      1 \amp 1 \amp 1 \amp 1 \amp 1 \amp 3 \\
+	      1 \amp 2 \amp 4 \amp 8 \amp 16 \amp 0 \\
+	      1 \amp 3 \amp 9 \amp 27 \amp 81 \amp 1 \\
+	      \end{array}\right]
+	      \sim
+	      \left[\begin{array}{rrrrr|r}
+	      1 \amp 0 \amp 0 \amp 0 \amp 0 \amp 2 \\
+	      0 \amp 1 \amp 0 \amp 0 \amp 6 \amp \frac{17}{3} \\
+	      0 \amp 0 \amp 1 \amp 0 \amp -11 \amp -6 \\
+	      0 \amp 0 \amp 0 \amp 1 \amp 6 \amp \frac43 \\
+	      \end{array}\right]\text{.}
+	    </me>
+	    This shows that there are infinitely many polynomials
+	    whose degree is four and that pass through the four
+	    points.
+	  </p></li>
+
+	  <li><p>
+	    If there are 10 points, we should find a polynomial having
+	    10 coefficients.  This means that the degree of the
+	    polynomial should be 9.
+	  </p></li>
+	</ol>
+      </p>
+    </solution>
+	    
+    <answer>
+      <p>
+	<ol label="a.">
+	  <li><p>
+	    The four equations we find are
+	    <me>
+	      \begin{alignedat}{5}
+	      a \amp \amp \amp \amp \amp \amp 
+	      \amp {}={} \amp 2 \\
+	      a \amp {}+{} \amp b \amp {}+{} \amp c \amp {}+{} \amp d
+	      \amp {}={} \amp 3 \\
+	      a \amp {}+{} \amp 2b \amp {}+{} \amp 4c \amp {}+{} \amp 8d
+	      \amp {}={} \amp 0 \\
+	      a \amp {}+{} \amp 3b \amp {}+{} \amp 9c \amp {}+{} \amp 27d
+	      \amp {}={} \amp 1\text{.} \\
+	      \end{alignedat}
+	    </me>
+	  </p></li>
+
+	  <li><p>
+	    The coefficients are <m>a=2</m>,
+	    <m>b=\frac{17}{3}</m>, <m>c=-6</m>, and <m>d=\frac43</m>.
+	  </p></li>
+
+	  <li><p>
+	    The polynomial is
+	    <me>
+	      p(x) = 2 + \frac{17}{3}x -6x^2 + \frac43 x^3\text{.}
+	    </me>
+	  </p></li>
+
+	  <li><p>
+	    The linear system is inconsistent.
+	  </p></li>
+
+	  <li><p>
+	    The linear system is consistent with infinitely many
+	    solutions.
+	  </p></li>
+
+	  <li><p>
+	    Nine.
+	  </p></li>
+	</ol>
+      </p>
+    </answer>
+
+  </exercise>
+  
+</exercises>
+  

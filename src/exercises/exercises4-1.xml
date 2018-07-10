@@ -1,0 +1,723 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<exercises>
+
+  <exercise>
+    <statement>
+      <p> Consider the matrix and vectors
+      <me>
+	A = \left[\begin{array}{rr}
+	8 \amp -10 \\
+	5 \amp -7 \\
+	\end{array}\right],\qquad
+	\vvec_1=\twovec{2}{1},
+	\vvec_2=\twovec{1}{1}
+      </me>.
+      <ol label="a.">
+	<li><p> Show that the vectors <m>\vvec_1</m> and
+	<m>\vvec_2</m> are eigenvectors of <m>A</m> and find their
+	associated eigenvalues. </p>
+	<sage>
+	  <input>
+	  </input>
+	</sage>
+	</li>
+
+	<li><p> Express the vector <m>\xvec = \twovec{-4}{-1}</m> as a
+	linar combination of <m>\vvec_1</m> and
+	<m>\vvec_2</m>. </p></li>
+
+	<li><p> Use this expression to compute <m>A\xvec</m>,
+	<m>A^2\xvec</m>, and <m>A^{-1}\xvec</m> as a linear
+	combination of eigenvectors. </p></li>
+      </ol></p>
+    </statement>
+
+    <solution>
+      <p><ol label="a.">
+	<li><p> We find that <m>A\vvec_1 = 3\vvec_1</m> and
+	<m>A\vvec_2=-2\vvec_2</m> so the associated eigenvalues are
+	<m>\lambda_1 = 3</m> and <m>\lambda_2=-2</m>. </p></li>
+
+	<li><p> Setting up an augmented matrix and row reducing shows
+	us that <m>\xvec=\twovec{-4}{-1} = -3\vvec_1 +
+	2\vvec_2</m>. </p></li>
+
+	<li><p> We then have
+	<me>
+	  \begin{alignedat}{3}
+	  A\xvec\amp{}={}\amp -9\vvec_1 \amp{}-{}\amp 4\vvec_2\\
+	  A^2\xvec\amp{}={}\amp -27\vvec_1\amp{}+{}\amp8\vvec_2 \\
+	  A^{-1}\xvec\amp{}={}\amp -\vvec_1 \amp{}-{}\amp \vvec_2\text{.} \\
+	  \end{alignedat}
+	</me>
+	</p></li>
+      </ol></p>
+    </solution>
+
+    <answer>
+      <p><ol label="a.">
+	<li><p> We find that <m>A\vvec_1 = 3\vvec_1</m> and
+	<m>A\vvec_2=-2\vvec_2</m> so the associated eigenvalues are
+	<m>\lambda_1 = 3</m> and <m>\lambda_2=-2</m>. </p></li>
+
+	<li><p> <m>\xvec=\twovec{-4}{-1} = -3\vvec_1 +
+	2\vvec_2</m>. </p></li>
+
+	<li><p> We find
+	<me>
+	  \begin{alignedat}{3}
+	  A\xvec\amp{}={}\amp -9\vvec_1 \amp{}-{}\amp 4\vvec_2\\
+	  A^2\xvec\amp{}={}\amp -27\vvec_1\amp{}+{}\amp8\vvec_2 \\
+	  A^{-1}\xvec\amp{}={}\amp -\vvec_1 \amp{}-{}\amp \vvec_2\text{.} \\
+	  \end{alignedat}
+	</me>
+	</p></li>
+      </ol></p>
+    </answer>
+  </exercise>
+	
+  <exercise>
+    <statement>
+      <p> Consider the matrix and vectors
+      <me>
+	A = \left[\begin{array}{rrr}
+	-5 \amp -2 \amp 2 \\
+	24 \amp 14 \amp -10 \\
+	21 \amp 14 \amp -10 \\
+	\end{array}\right],\qquad
+	\vvec_1=\threevec{1}{-2}{-1},
+	\vvec_2=\threevec{2}{-3}{0},
+	\vvec_3=\threevec{0}{-1}{-1}
+      </me>
+      <ol label="a.">
+	<li><p> Show that the vectors <m>\vvec_1</m>, <m>\vvec_2</m>, and
+	<m>\vvec_3</m> are eigenvectors of <m>A</m> and find their
+	associated eigenvalues.
+      </p>
+      <sage>
+	<input>
+	</input>
+      </sage>
+	</li>
+
+	<li><p> Express the vector <m>\xvec = \threevec{0}{-3}{-4}</m>
+	as a linear combination of the eigenvectors. </p></li>
+
+	<li><p> Use this expression to compute <m>A\xvec</m>,
+	<m>A^2\xvec</m>, and <m>A^{-1}\xvec</m> as a linear
+	combination of eigenvectors. </p></li>
+      </ol></p>
+    </statement>
+
+    <solution>
+      <p><ol label="a.">
+	<li><p> We see that <m>A\vvec_1=-3\vvec_1</m>, <m>A\vvec_2 =
+	-2\vvec_2</m>, and <m>A\vvec_3=4\vvec_3</m>.  The associated
+	eigenvalues are <m>\lambda_1 = -3</m>, <m>\lambda_2=-2</m>,
+	and <m>\lambda_3=4</m>. </p></li>
+
+	<li><p> After forming an augmented matrix, we find
+	<m>\xvec=2\vvec_1 -\vvec_2+2\vvec_3</m>. </p></li>
+
+	<li><p> We then have
+	<me>
+	  \begin{alignedat}{4}
+	  A\xvec\amp{}={}\amp -9\vvec_1 \amp{}+{}\amp
+	  2\vvec_2\amp{}+{} \amp 8\vvec_3\\
+	  A^2\xvec\amp{}={}\amp 27\vvec_1\amp{}-{}\amp
+	  4\vvec_2\amp{}+{}\amp 32\vvec_3\\
+	  A^{-1}\xvec\amp{}={}\amp -\frac23\vvec_1\amp
+	  {}+{}\amp\frac12\vvec_2\amp{}+{}\amp\frac12\vvec_3\text{.} \\ 
+	  \end{alignedat}
+	</me>
+	</p></li>
+      </ol></p>
+    </solution>
+
+    <answer>
+      <p><ol label="a.">
+	<li><p> We see that <m>A\vvec_1=-3\vvec_1</m>, <m>A\vvec_2 =
+	-2\vvec_2</m>, and <m>A\vvec_3=4\vvec_3</m>.  The associated
+	eigenvalues are <m>\lambda_1 = -3</m>, <m>\lambda_2=-2</m>,
+	and <m>\lambda_3=4</m>. </p></li>
+
+	<li><p> 
+	<m>\xvec=2\vvec_1 -\vvec_2+2\vvec_3</m>. </p></li>
+
+	<li><p> We find
+	<me>
+	  \begin{alignedat}{4}
+	  A\xvec\amp{}={}\amp -9\vvec_1 \amp{}+{}\amp
+	  2\vvec_2\amp{}+{} \amp 8\vvec_3\\
+	  A^2\xvec\amp{}={}\amp 27\vvec_1\amp{}-{}\amp
+	  4\vvec_2\amp{}+{}\amp 32\vvec_3\\
+	  A^{-1}\xvec\amp{}={}\amp -\frac23\vvec_1\amp
+	  {}+{}\amp\frac12\vvec_2\amp{}+{}\amp\frac12\vvec_3\text{.} \\ 
+	  \end{alignedat}
+	</me>
+	</p></li>
+      </ol></p>
+    </answer>
+
+  </exercise>
+
+  <exercise>
+    <statement>
+      <p> Suppose that <m>A</m> is an <m>n\times n</m> matrix.
+      <ol label="a.">
+	<li><p> Explain why
+	<m>\lambda = 0</m> is an eigenvalue if and only if
+	there is a non-trivial solution to the homogeneous equation
+	<m>A\xvec = 0</m>. </p></li>
+
+	<li><p> Explain why such a matrix <m>A</m> is not invertible
+	if and only if <m>\lambda=0</m> is an eigenvalue.</p></li>
+
+	<li><p> If <m>A</m> is an invertible <m>n\times n</m> matrix
+	having an eigenvector <m>\vvec</m> and associated eigenvalue
+	<m>\lambda</m>, explain why <m>\vvec</m> is also an
+	eigenvector of <m>A^{-1}</m> with associated eigenvalue
+	<m>\lambda^{-1}</m>. </p></li>
+
+	<li><p> If <m>A</m> is an <m>n\times n</m> matrix with
+	eigenvector <m>\vvec</m> and associated eigenvalue
+	<m>\lambda</m>, explain why <m>\vvec</m> is also an
+	eigenvector of <m>A^2</m> with associated eigenvalue
+	<m>\lambda^2</m>.  </p></li>
+
+	<li><p> The matrix
+	<m>
+	  A=\
+	  \left[\begin{array}{rr}
+	  1 \amp 2 \\
+	  2 \amp 1 \\
+	  \end{array}\right]
+	</m>
+	has eigenvectors <m>\vvec_1=\twovec{1}{1}</m> and
+	<m>\vvec_2=\twovec{-1}{1}</m> and associated eigenvalues <m>\lambda_1
+	= 3</m> and <m>\lambda=-1</m>.  What are some eigenvectors and
+	associated eigenvalues for <m>A^5</m>? </p></li>
+      </ol>
+      </p>
+    </statement>
+
+    <solution>
+      <p><ol label="a.">
+	<li><p> If <m>\lambda=0</m> is an eigenvalue, then there is a
+	nonzero vector <m>\vvec</m> such that <m>A\vvec=\lambda\vvec =
+	\zerovec</m>.  This means that an associated eigenvector is a
+	nonzero solution to the homogeneous equation
+	<m>A\xvec=\zerovec</m>.  </p></li>
+
+	<li><p> If <m>\lambda =0</m> is an eigenvalue of <m>A</m>,
+	then there is a nonzero solution to the homogeneous
+	equation <m>A\xvec=\zerovec</m>, which happens exactly when
+	<m>A</m> is not 
+	invertible. </p></li>
+
+	<li><p> If <m>A\vvec=\lambda\vvec</m>, we can multiply both
+	sides by <m>A^{-1}</m> and <m>\frac1\lambda</m> to obtain
+	<m>\frac1\lambda\vvec=A^{-1}\vvec</m>.  This shows that
+	<m>\vvec</m> is an eigenvector of <m>A^{-1}</m> with
+	associated eigenvalue <m>\frac1\lambda</m>.
+	</p></li>
+
+	<li><p> If <m>\vvec</m> is an eigenvector of <m>A</m> with
+	associated eigenvalue <m>\lambda</m>, then
+	<m>A\vvec=\lambda\vvec</m>.  Therefore, <m>A^2\vvec =
+	A(A\vvec) = \lambda A\vvec = \lambda^2\vvec</m>, which means
+	that <m>\vvec</m> is an eigenvector with associated eigenvalue
+	<m>\lambda^2</m>. </p></li>
+
+	<li><p> The vectors <m>\vvec_1</m> and <m>\vvec_2</m> are
+	eigenvectors of <m>A^5</m> with associated eigenvalues
+	<m>\lambda_1^5 = 3^5=243</m> and <m>\lambda_2^5 = (-1)^5 =
+	-1</m>. </p></li>
+      </ol></p>
+    </solution>
+
+    <answer>
+      <p><ol label="a.">
+	<li><p> If <m>\lambda=0</m> is an eigenvalue, then there is a
+	nonzero vector <m>\vvec</m> such that <m>A\vvec=\lambda\vvec =
+	\zerovec</m>.  </p></li>
+
+	<li><p> If <m>\lambda =0</m> is an eigenvalue of <m>A</m>,
+	then there is a nonzero solution to the homogeneous
+	equation <m>A\xvec=\zerovec</m>.</p></li>
+
+	<li><p> If <m>A\vvec=\lambda\vvec</m>, we can multiply both
+	sides by <m>A^{-1}</m> and <m>\frac1\lambda</m> to obtain
+	<m>\frac1\lambda\vvec=A^{-1}\vvec</m>.  
+	</p></li>
+
+	<li><p> Notice that <m>A^2\vvec =
+	A(A\vvec) = \lambda A\vvec = \lambda^2\vvec</m>, which means
+	that <m>\vvec</m> is an eigenvector with associated eigenvalue
+	<m>\lambda^2</m>. </p></li>
+
+	<li><p> The vectors <m>\vvec_1</m> and <m>\vvec_2</m> are
+	eigenvectors of <m>A^5</m> with associated eigenvalues
+	<m>\lambda_1^5 = 3^5=243</m> and <m>\lambda_2^5 = (-1)^5 =
+	-1</m>. </p></li>
+      </ol></p>
+    </answer>
+    
+	
+  </exercise>
+
+  <exercise>
+    <statement>
+      <sidebyside widths="50% 45%">
+	<p> Suppose that <m>A</m> is a matrix with eigenvectors
+	<m>\vvec_1</m> and <m>\vvec_2</m> and eigenvalues <m>\lambda_1 =
+	-1</m> and <m>\lambda_2=2</m> as shown.
+	</p>
+	<image source="images/ex-eigen-powers" />
+      </sidebyside>
+      <p> Sketch the vectors <m>A\xvec</m>, <m>A^2\xvec</m>, and
+      <m>A^{-1}\xvec</m>.
+      </p>
+    </statement>
+
+    <solution>
+      <p> <sidebyside width="50%">
+	<image source="images/ex-eigen-powers-sol" />
+      </sidebyside>
+      </p>
+    </solution>
+    <answer>
+      <p> <sidebyside width="50%">
+	<image source="images/ex-eigen-powers-sol" />
+      </sidebyside>
+      </p>
+    </answer>
+  </exercise>
+
+  <exercise>
+    <statement>
+      <p> For the following matrices, find the eigenvectors and
+      associated eigenvalues by thinking geometrically about the
+      corresponding matrix transformation.
+      <ol label="a.">
+	<li><p>
+	  <m>
+	    \left[\begin{array}{rr}
+	    3 \amp 0 \\
+	    0 \amp 3 \\
+	    \end{array}\right]
+	</m>.</p></li>
+
+	<li><p>
+	  <m>
+	    \left[\begin{array}{rr}
+	    -2 \amp 0 \\
+	    0 \amp 4 \\
+	    \end{array}\right]
+	</m>.</p></li>
+	    
+	<li><p> What are the eigenvectors and associated eigenvalues
+	of the identity matrix? </p></li>
+
+	<li><p> What are the eigenvectors and associated eigenvalues
+	of a diagonal matrix with distinct diagonal entries? </p></li>
+
+      </ol></p>
+    </statement>
+
+    <solution>
+      <p><ol label="a.">
+	<li><p> The corresponding matrix transformation stretches
+	every two-dimensional vector by a factor of <m>3</m>.
+	Therefore, every two-dimensional vector is an eigenvector
+	with associated eigenvalue <m>\lambda=3</m>. </p></li>
+
+	<li><p> The corresponding matrix transformation stretches
+	vectors horizontally by a factor of <m>2</m> and reflects them
+	while stretching by a factor of <m>4</m> vertically.  We have
+	eigenvectors <m>\vvec_1=\twovec{1}{0}</m> with associated
+	eigenvalue <m>\lambda_1=-2</m> and
+	<m>\vvec_2=\twovec{0}{1}</m> with
+	<m>\lambda_2=4</m>. </p></li>
+
+	<li><p> For any vector <m>\vvec</m>, we have
+	<m>I\vvec=\vvec</m>.  Therefore, every vector is an
+	eigenvector of the identity matrix with associated eigenvalue
+	<m>\lambda=1</m>. </p></li>
+
+	<li><p> The standard basis vectors <m>\evec_j</m> are
+	eigenvectors and the associated eigenvalues are the
+	corresponding diagonal entries. </p></li>
+      </ol></p>
+    </solution>
+
+    <answer>
+      <p><ol label="a.">
+	<li><p> 
+	  Every two-dimensional vector is an eigenvector
+	  with associated eigenvalue <m>\lambda=3</m>.
+	</p></li>
+
+	<li><p> We have
+	eigenvectors <m>\vvec_1=\twovec{1}{0}</m> with associated
+	eigenvalue <m>\lambda_1=-2</m> and
+	<m>\vvec_2=\twovec{0}{1}</m> with
+	<m>\lambda_2=4</m>. </p></li>
+
+	<li><p> Every vector is an
+	eigenvector of the identity matrix with associated eigenvalue
+	<m>\lambda=1</m>. </p></li>
+
+	<li><p> The standard basis vectors <m>\evec_j</m> are
+	eigenvectors and the associated eigenvalues are the
+	corresponding diagonal entries. </p></li>
+      </ol></p>
+    </answer>
+
+  </exercise>
+
+  <exercise>
+    <statement>
+      <p> Suppose that <m>A</m> is a <m>2\times2</m> matrix having
+      eigenvectors
+      <me>
+	\vvec_1=\twovec{2}{1}, \qquad
+	\vvec_2=\twovec{-1}{2}
+      </me>
+      and associated eigenvalues <m>\lambda_1=2</m> and
+      <m>\lambda_2=-3</m>.  If <m>\xvec=\twovec{5}{0}</m>, find the
+      vector <m>A^4\xvec</m>.
+      </p>
+    </statement>
+
+    <solution>
+      <p>
+	 We have <m>\xvec = 2\vvec_1-\vvec_2</m>.  Therefore,
+	 <m>A^4\xvec = 2\lambda_1^4\vvec_1-\lambda_2^4\vvec_2 =
+	 32\vvec_1-81\vvec_2=\twovec{145}{-130}</m>.
+      </p>
+    </solution>
+
+    <answer>
+      <p> <m>\twovec{145}{-130}</m>.
+      </p>
+    </answer>
+    
+  </exercise>
+	
+  <exercise>
+    <statement>
+      <p> Determine whether the following statements are true or false
+      and provide a justification for your response.
+      <ol label="a."> 
+	<li><p> The eigenvalues of a diagonal matrix are equal to the
+	entries on the diagonal. </p></li>
+
+	<li><p> If <m>A\vvec=\lambda\vvec</m>, then
+	<m>A^2\vvec=\lambda\vvec</m> as well. </p></li>
+
+	<li><p> Every vector is an eigenvector of the identity
+	matrix. </p></li>
+
+	<li><p> If <m>\lambda=0</m> is an eigenvalue of <m>A</m>, then
+	<m>A</m> is invertible. </p></li>
+
+	<li><p> For every <m>n\times n</m> matrix <m>A</m>, it is
+	possible to find a basis of <m>\real^n</m> consisting of
+	eigenvectors of <m>A</m>. </p></li>
+      </ol></p>
+    </statement>
+
+    <solution>
+      <p><ol label="a.">
+	<li><p> True.  The associated eigenvectors are the standard
+	basis vectors <m>\evec_j</m>. </p></li>
+
+	<li><p> False.  <m>A^2\vvec=\lambda^2\vvec</m>. </p></li>
+
+	<li><p> True, because <m>I\vvec = \vvec</m>. </p></li>
+
+	<li><p> False.  If <m>\lambda=0</m> is an eigenvalue of
+	<m>A</m>, then there is a nonzero solution to the
+	homogeneous equation so <m>A</m> is not invertible. </p></li>
+
+	<li><p> False.  We saw the example <m>\left[\begin{array}{rr}
+	0 \amp -1 \\
+	1 \amp 0 \\
+	\end{array}\right]</m>, which represents a <m>90^\circ</m>
+	rotation and has no eigenvectors. </p></li>
+      </ol></p>
+    </solution>
+
+    <answer>
+      <p><ol label="a.">
+	<li><p> True </p></li>
+	<li><p> False </p></li>
+	<li><p> True </p></li>
+	<li><p> False </p></li>
+	<li><p> False </p></li>
+      </ol></p>
+    </answer>
+	
+  </exercise>
+
+  <exercise>
+    <statement>
+      <p> Consider the two special matrices below and find their
+      eigenvectors and associated eigenvalues.
+      <ol label="a.">
+	<li><p>
+	  <m>
+	    \left[\begin{array}{rrr}
+	    1 \amp 1 \amp 1 \\
+	    1 \amp 1 \amp 1 \\
+	    1 \amp 1 \amp 1 \\
+	    \end{array}\right]
+	</m>.</p></li>
+
+	<li><p>
+	  <m>
+	    \left[\begin{array}{rrr}
+	    1 \amp 1 \amp 1 \\
+	    2 \amp 2 \amp 2 \\
+	    3 \amp 3 \amp 3 \\
+	    \end{array}\right]
+	</m>.</p></li>
+      </ol></p>
+    </statement>
+
+    <solution>
+      <p><ol label="a.">
+	<li><p> Notice that an eigenvector <m>\vvec</m> must be in the
+	column space <m>\col(A)</m> because
+	<m>A\vvec=\lambda\vvec</m>.   The column space of this matrix
+	is spanned by <m>\vvec_1=\threevec{1}{1}{1}</m> and we notice
+	that <m>A\vvec_1 = 3\vvec_1</m>.  Therefore, <m>\vvec_1</m> is
+	an eigenvector with associated eigenvalue <m>\lambda_1=3</m>.
+      </p>
+
+      <p> We also know that that the rank of this matrix is 1 so
+      <m>\nul(A)</m> is two-dimensional.  A basis for the null space
+      is <m>\vvec_2=\threevec{-1}{1}{0}</m> and
+      <m>\vvec_3=\threevec{-1}{0}{1}</m> so these vectors are
+      eigenvectors with associated eigenvalue <m>\lambda_2=\lambda_3 =
+      0</m>. </p></li>
+
+      <li><p> In the same way, <m>\vvec_1=\threevec{1}{2}{3}</m> is an
+      eigenvector with associated eigenvalue <m>\lambda_1=6</m> and
+      <m>\vvec_2=\threevec{-1}{1}{0}</m> and
+      <m>\vvec_3=\threevec{-1}{0}{1}</m> are eigenvectors with
+      associated eigenvalue <m>\lambda_2=\lambda_3=0</m>. </p></li>
+      </ol></p>
+    </solution>
+
+    <answer>
+      <p><ol label="a.">
+	<li><p> 
+	<m>\vvec_1=\threevec{1}{1}{1}</m> with associated eigenvalue
+	<m>\lambda_1=3</m>. 
+	<m>\vvec_2=\threevec{-1}{1}{0}</m> and
+	<m>\vvec_3=\threevec{-1}{0}{1}</m> 
+	associated eigenvalue <m>\lambda_2=\lambda_3 =
+	0</m>. </p></li>
+
+	<li><p> <m>\vvec_1=\threevec{1}{2}{3}</m> 
+	with associated eigenvalue <m>\lambda_1=6</m> and
+      <m>\vvec_2=\threevec{-1}{1}{0}</m> and
+      <m>\vvec_3=\threevec{-1}{0}{1}</m> with
+      associated eigenvalue <m>\lambda_2=\lambda_3=0</m>. </p></li>
+      </ol></p>
+    </answer>
+    
+  </exercise>
+
+  <exercise>
+    <statement>
+      <p> For each of the following matrix transformations, describe
+      the eigenvalues and eigenvectors of the corresponding matrix
+      <m>A</m>.
+      <ol label="a.">
+	<li><p> A reflection in <m>\real^2</m> in the line
+	<m>y=x</m>. </p></li>
+
+	<li><p> A <m>180^\circ</m> rotation in <m>\real^2</m>. </p></li>
+
+	<li><p> A <m>180^\circ</m> rotation in <m>\real^3</m> about
+	the <m>y</m>-axis. </p></li>
+
+	<li><p> A <m>90^\circ</m> rotation in <m>\real^3</m> about the
+	<m>x</m>-axis. </p></li>
+      </ol> </p>
+    </statement>
+
+    <solution>
+      <p><ol label="a.">
+	<li><p> A vector lying along the line of reflection is
+	unchanged so <m>A\twovec{1}{1} = \twovec{1}{1}</m>, which
+	shows that <m>\twovec{1}{1}</m> is an eigenvector with
+	associated eigenvalue <m>\lambda = 1</m>.  At the same time,
+	<m>A\twovec{1}{-1} = -\twovec{1}{-1}</m> so
+	<m>\twovec{1}{-1}</m> is an eigenvector with associated
+	eigenvalue <m>\lambda=-1</m>. </p></li>
+
+	<li><p> Every vector <m>\vvec</m> satisfies
+	<m>A\vvec=-\vvec</m> so every two-dimensional vector is an
+	eigenvector with associated eigenvalue
+	<m>\lambda=-1</m>. </p></li>
+
+	<li><p> Vectors along the <m>y</m>-axis are unchanged so
+	<m>\threevec{0}{1}{0}</m> is an eigenvector with associated
+	eigenvalue <m>\lambda=1</m>.  Vectors in the <m>xz</m>-plane
+	are multiplied by <m>-1</m> so <m>\threevec{1}{0}{0}</m> and
+	<m>\threevec{0}{0}{1}</m> are eigenvectors with associated
+	eigenvalue <m>\lambda=-1</m>. </p></li>
+
+	<li><p> The vector <m>\threevec{1}{0}{0}</m> is an eigenvector
+	with associated eigenvalue <m>\lambda=1</m>.  There are no
+	other eigenvectors that are not scalar multiples of this
+	one. </p> </li>
+      </ol></p>
+    </solution>
+
+    <answer>
+      <p><ol label="a.">
+	<li><p> <m>\twovec{1}{1}</m> with
+	associated eigenvalue <m>\lambda = 1</m> and
+	<m>\twovec{1}{-1}</m> 
+	with associated
+	eigenvalue <m>\lambda=-1</m>. </p></li>
+
+	<li><p> Every two-dimensional vector is an
+	eigenvector with associated eigenvalue
+	<m>\lambda=-1</m>. </p></li>
+
+	<li><p> 
+	<m>\threevec{0}{1}{0}</m> with associated
+	eigenvalue <m>\lambda=1</m>.
+	<m>\threevec{1}{0}{0}</m> and
+	<m>\threevec{0}{0}{1}</m> with associated
+	eigenvalue <m>\lambda=-1</m>. </p></li>
+
+	<li><p> <m>\threevec{1}{0}{0}</m> 
+	with associated eigenvalue <m>\lambda=1</m>.
+	</p> </li>
+      </ol></p>
+    </answer>
+    
+  </exercise>
+
+  <exercise>
+    <statement>
+      <p> Suppose we have two species, <m>P</m> and <m>Q</m>, where
+      species <m>P</m> preys on <m>Q</m>.  Their populations, in
+      millions, in year <m>k</m> are denoted by <m>P_k</m> and
+      <m>Q_k</m> and satisfy
+      <me>
+	\begin{aligned}
+	P_{k+1} \amp {}={} 0.8P_k + 0.2Q_k \\
+	Q_{k+1} \amp {}={} -0.3P_k + 1.5Q_k \\
+	\end{aligned}
+      </me>.
+      We will keep track of the populations in year <m>k</m> using the
+      vector <m>\xvec_k=\twovec{P_k}{Q_k}</m> so that
+      <me>
+	\xvec_{k+1} = A\xvec_k =
+	\left[\begin{array}{rr}
+	0.8 \amp 0.2 \\
+	-0.3 \amp 1.5 \\
+	\end{array}\right]
+	\xvec_k
+      </me>.
+      <ol label="a.">
+	<li><p> Show that <m>\vvec_1=\twovec{1}{3}</m> and
+	<m>\vvec_2=\twovec{2}{1}</m> are eigenvectors of <m>A</m> and
+	find their associated eigenvalues. </p></li>
+
+	<li><p> Suppose that the initial populations are described by
+	the vector
+	<m>\xvec_0 = \twovec{38}{44}</m>.  Express <m>\xvec_0</m> as a
+	linear combination of <m>\vvec_1</m> and
+	<m>\vvec_2</m>. </p></li>
+
+	<li><p> Find the populations after one year, two years, and
+	three years by writing the vectors <m>\xvec_1</m>,
+	<m>\xvec_2</m>, and <m>\xvec_3</m> as linear combinations of
+	<m>\vvec_1</m> and <m>\vvec_2</m>. </p></li>
+
+	<li><p> What is the general form for <m>\xvec_k</m>?</p></li>
+
+	<li><p> After a very long time, what is the ratio of
+	<m>P_k</m> to <m>Q_k</m>? </p></li>
+      </ol></p>
+    </statement>
+
+    <solution>
+      <p><ol label="a.">
+	<li><p> We can compute <m>A\vvec_1 = 1.4\vvec_1</m> and
+	<m>A\vvec_2=0.9\vvec_2</m>.  This means that <m>\vvec_1</m> is
+	an eigenvector with associated eigenvalue <m>\lambda_1=1.4</m>
+	and <m>\vvec_2</m> is an eigenvector with associated
+	eigenvalue <m>\lambda_2=0.9</m>. </p></li>
+
+	<li><p> Setting up an augmented matrix and row reducing shows
+	that <m>\xvec_0=10\vvec_1+14\vvec_2</m>. </p></li>
+
+	<li><p> We have
+	<me>
+	  \begin{alignedat}{4}
+	  \xvec_1\amp{}={}\amp A\xvec_0 \amp {}={} 10(1.4)\vvec_1 \amp
+	  {}+{} \amp 14(0.9)\vvec_2 \\
+	  \xvec_2\amp{}={}\amp A\xvec_1 \amp {}={} 10(1.4)^2\vvec_1 \amp
+	  {}+{} \amp 14(0.9)^2\vvec_2 \\
+	  \xvec_3\amp{}={}\amp A\xvec_2 \amp {}={} 10(1.4)^3\vvec_1 \amp
+	  {}+{} \amp 14(0.9)^3\vvec_2\text{.} \\
+	  \end{alignedat}
+	</me>
+	</p></li>
+
+	<li><p> In general, <m>\xvec_k = 10(1.4)^k\vvec_1 +
+	14(0.9)^k\vvec_2</m>. </p></li>
+
+	<li><p> After a long time, <m>k</m> becomes large so that
+	<m>0.9^k</m> becomes very close to zero.  This means that
+	<m>\xvec_k\approx 10(1.4)^k\vvec_1</m>.  So
+	<m>P_k\approx10(1.4)^k</m> and <m>Q_k\approx30(1.4)^k</m>.
+	This means the ratio of <m>P_k</m> to <m>Q_k</m> is
+	1:3.</p></li> 
+      </ol></p>
+    </solution>
+
+    <answer>
+      <p><ol label="a.">
+	<li><p> <m>\vvec_1</m> 
+	with associated eigenvalue <m>\lambda_1=1.4</m>
+	and <m>\vvec_2</m> with associated
+	eigenvalue <m>\lambda_2=0.9</m>. </p></li>
+
+	<li><p> <m>\xvec_0=10\vvec_1+14\vvec_2</m>. </p></li>
+
+	<li><p> We have
+	<me>
+	  \begin{alignedat}{4}
+	  \xvec_1\amp{}={}\amp A\xvec_0 \amp {}={} 10(1.4)\vvec_1 \amp
+	  {}+{} \amp 14(0.9)\vvec_2 \\
+	  \xvec_2\amp{}={}\amp A\xvec_1 \amp {}={} 10(1.4)^2\vvec_1 \amp
+	  {}+{} \amp 14(0.9)^2\vvec_2 \\
+	  \xvec_3\amp{}={}\amp A\xvec_2 \amp {}={} 10(1.4)^3\vvec_1 \amp
+	  {}+{} \amp 14(0.9)^3\vvec_2\text{.} \\
+	  \end{alignedat}
+	</me>
+	</p></li>
+
+	<li><p> In general, <m>\xvec_k = 10(1.4)^k\vvec_1 +
+	14(0.9)^k\vvec_2</m>. </p></li>
+
+	<li><p> The ratio of <m>P_k</m> to <m>Q_k</m> is
+	1:3.</p></li> 
+      </ol></p>
+
+    </answer>
+  </exercise>
+
+</exercises>

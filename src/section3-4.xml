@@ -1,0 +1,1204 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec-determinants"
+	 xmlns:xi="http://www.w3.org/2001/XInclude">
+
+  <title> Determinants </title>
+
+  <introduction>
+    <p> In this chapter, we have been concerned with bases and related
+    questions about the invertibility of square matrices.  We saw that
+    a square matrix is invertible if and only if it is row equivalent
+    to the identity matrix.  In this section, we will develop a
+    numerical criterion that tells us whether a square matrix is
+    invertible.  This criterion will prove useful in the next chapter.
+    </p>
+
+    <p> To begin, let's consider a <m>2\times2</m> matrix <m>A</m>
+    whose columns are vectors <m>\vvec_1</m> and <m>\vvec_2</m>.  We
+    have frequently drawn the vectors and considered the linear
+    combinations they form through a figure such as <xref
+    ref="fig-intro-dets" />.
+    </p>
+
+    <figure xml:id="fig-intro-dets">
+      <sidebyside width="40%">
+	<image source="images/basis-1" />
+      </sidebyside>
+      <caption>
+	Linear combinations of two <m>\vvec_1</m> and <m>\vvec_2</m>
+	form a collection of congruent parallelograms.
+      </caption>
+    </figure>
+
+    <p> Notice how the linear combinations form a set of congruent
+    parallelograms in the plane.  In this section, we will measure the
+    area of the parallelograms, which will lead naturally to a numerical
+    quantity called the determinant, that tells us if the matrix
+    <m>A</m> is invertible.  
+    </p>
+
+    <sidebyside widths="60% 30%" valign="middle">
+      <p> To recall, if we are given the parallelogram in the figure,
+      we find its area by multiplying the length of one side by the
+      perpendicular distance to its parallel side.  Using the notation
+      in the figure, the area of the
+      parallelogram is <m>bh</m>.
+      </p>
+      <image source="images/parallelogram-area" />
+    </sidebyside>
+
+    <exploration>
+      <statement>
+      <p> We will explore the area formula in this preview
+      activity. 
+
+      <ol label="a.">
+	<li><p> Find the area of the following parallelograms. </p>
+
+	<sbsgroup>
+	  <sidebyside widths="3% 30% 3% 30% 3% 30%">
+	    <p> i. </p>
+	    <image source="images/parallelogram-a" /> 
+	    <p> ii. </p>
+	    <image source="images/parallelogram-b" /> 
+	    <p> iii. </p>
+	    <image source="images/parallelogram-c" /> 
+	  </sidebyside>
+	  <sidebyside widths="3% 30% 3% 30% 3% 30%">
+	    <p> iv. </p>
+	    <image source="images/parallelogram-d" /> 
+	    <p> v. </p>
+	    <image source="images/parallelogram-e" />
+	    <p> 
+	    </p>
+	    <p>
+	    </p>
+	  </sidebyside>
+	</sbsgroup>
+	</li>
+
+	<li>
+	  <sidebyside widths="50% 40%" valign="middle">
+	    <p> Explain why the area of the parallelogram formed by 
+	      the vectors <m>\vvec</m> and <m>\wvec_1</m> is the same as
+	    that formed by <m>\vvec</m> and <m>\wvec_2</m>. </p>
+	    <image source="images/area-shear" />
+	  </sidebyside>
+	</li>
+      </ol></p>
+      </statement>
+
+      <solution>
+	<p><ol label="a.">
+	  <li><p> We find the following areas.
+	  <ol label="i.">
+	    <li><p> A <m>1\times1</m> square has area 1. </p></li>
+	    <li><p> A <m>2\times3</m> rectangle has area 6. </p></li>
+	    <li><p> The square has side length <m>\sqrt{2}</m> giving
+	    an area of 2. </p></li>
+	    <li><p> If we consider the horizontal length as the base,
+	    we see that <m>b=h=2</m> so that the area is 4. </p></li>
+	    <li><p> In the same way, we can consider both the base and
+	    height to be 2 so that the area is 4. </p></li>
+	  </ol>
+	  </p></li>
+
+	  <li><p> If we consider the base to be the length of
+	  <m>\vvec</m>, then the height, which is the perpendicular
+	  distance to its parallel side, is the same in both
+	  parallelograms. </p></li>
+	</ol></p>
+      </solution>
+	    
+    </exploration>
+
+  </introduction>
+
+  <subsection>
+    <title> Determinants of <m>2\times2</m> matrices </title>
+
+    <p> We will now use our familiarity with parallelograms to define
+    the determinant of a <m>2\times2</m> matrix
+    <m>A = \left[\begin{array}{rr} \vvec_1 \amp \vvec_2
+    \end{array}\right]</m>.  First, however, we need to define the 
+    orientation of a pair of vectors.  As shown in <xref
+    ref="fig-det-orientation" />, a pair of vectors <m>\vvec_1</m> and
+    <m>\vvec_2</m> is called <em>positively</em> oriented if the
+    angle, measured in the counterclockwise direction, from
+    <m>\vvec_1</m> to <m>\vvec_2</m> is less than <m>180^\circ</m>;
+    we say the pair is <m>negatively</m> oriented if it is more than
+    <m>180^\circ</m>. 
+    </p>
+
+    <figure xml:id="fig-det-orientation">
+      <sidebyside width="60%">
+	<image source="images/det-orientation" />
+      </sidebyside>
+      <caption>
+	The vectors on the left are positively oriented while the ones
+	on the right are negatively oriented.
+      </caption>
+    </figure>
+
+    <p> We can now define the determinant of a <m>2\times2</m> matrix
+    <m>A</m>.
+    </p>
+
+    <definition>
+      <statement>
+	<idx> determinant </idx>
+	<p> Suppose a <m>2\times2</m> matrix <m>A</m> has columns
+	<m>\vvec_1</m> and <m>\vvec_2</m>.  If the pair of vectors is
+	positively oriented, then the <em>determinant</em> of
+	<m>A</m>, denoted <m>\det A</m>, is the area of the
+	parallelogram formed by <m>\vvec_1</m> and <m>\vvec_2</m>.
+	If the pair is negatively oriented, then <m>\det A</m> is
+	minus the area of the parallelogram. </p>
+      </statement>
+    </definition>
+
+    <example xml:id="example-det-identity">
+      <statement>
+	<p>
+	  Consider the determinant of the identity matrix
+	  <me>I =
+	  \left[\begin{array}{rr} 1\amp 0 \\ 0 \amp 1 \\
+	  \end{array}\right]
+	  =
+	  \left[\begin{array}{rr} \evec_1 \amp \evec_2 \\
+	  \end{array}\right]
+	  </me>.
+	  As seen on the left of <xref ref="fig-det-identity" />,
+	  the vectors <m>\vvec_1 = \evec_1</m> 
+	  and <m>\vvec_2=\evec_2</m> form a positively oriented pair.
+	  Since the parallelogram they form is a <m>1\times1</m> square,
+	  we have <m>\det I = 1.</m>
+	</p>
+
+	<figure xml:id="fig-det-identity">
+	  <sidebyside width="75%">
+	    <image source="images/det-identity" />
+	  </sidebyside>
+	  <caption>
+	    The determinant <m>\det I = 1</m> as seen on the left.
+	    Otherwise, the determinant <m>\det A = -2</m> where
+	    <m>A</m> is the matrix whose columns are shown on the
+	    right.
+	  </caption>
+	</figure>
+
+	<p> Now we will consider the matrix
+	  <me>A = 
+	  \left[\begin{array}{rr} -2\amp 0 \\ 0 \amp 1 \\
+	  \end{array}\right]
+	  =
+	  \left[\begin{array}{rr} \vvec_1 \amp \vvec_2 \\
+	  \end{array}\right]
+	  </me>.
+	  As seen on the right of <xref ref="fig-det-identity" />, the
+	  vectors <m>\vvec_1</m> and <m>\vvec_2</m> form a negatively
+	  oriented pair.  The parallelogram they define is a
+	  <m>2\times1</m> rectangle so we have <m>\det A = -2</m>.
+	  </p>
+      </statement>
+    </example>
+
+    <p> The next set of examples will help illustrate some
+    properties of the determinant.
+    </p>
+
+    <activity>
+      <statement>
+      <p> We will use the diagram to find the determinant of some
+      simple <m>2\times2</m> matrices.
+      </p>
+
+      <p xml:id="INSERT-DETERMINANTS">
+	DETERMINANTS
+      </p>
+
+      <p> <ol label="a.">
+	<li><p>
+	  Use the diagram to find the determinant of the matrix
+	  <m>\left[\begin{array}{rr} -\frac12 \amp 0 \\ 0 \amp 2
+	  \end{array}\right]</m>.
+	  What is the geometric effect of the matrix transformation
+	  defined by this matrix.  
+	  What does this lead you to believe is generally true about
+	  the determinant of a diagonal matrix?
+	</p></li>
+
+	<li><p> Use the diagram to find the determinant of the matrix
+	<m>\left[\begin{array}{rr} 0 \amp 1 \\
+	1 \amp 0 \\
+	\end{array}\right]</m>.  What is the geometric effect of the
+	matrix transformation defined by this matrix?
+	</p></li>
+
+	<li><p> Use the diagram to find the determinant of the matrix
+	<m>\left[\begin{array}{rr} 2 \amp 1 \\
+	0 \amp 1 \\
+	\end{array}\right]</m>.  What is the geometric effect of the
+	matrix transformation defined by this matrix?
+	</p></li>
+
+	<li><p> What do you notice about the determinant of any matrix
+	of the form
+	<m>\left[\begin{array}{rr} 2 \amp k \\
+	0 \amp 1 \\
+	\end{array}\right]</m>?  What does this say about the
+	determinant of an upper triangular matrix?
+	</p></li>
+
+	<li><p> Use the diagram to find the determinant of the matrix
+	<m>\left[\begin{array}{rr} 2 \amp 0 \\
+	1 \amp 1 \\
+	\end{array}\right]</m>.  When we change
+	the entry in the lower left corner, what is the effect on the
+	determinant?  What does this say about the determinant of a
+	lower triangular matrix?
+	</p></li>
+
+	<li><p> Use the diagram to find the determinant of the matrix
+	<m>\left[\begin{array}{rr} 1 \amp -1 \\
+	-2 \amp 2 \\
+	\end{array}\right]</m>.  What is the geometric effect of the
+	matrix transformation defined by this matrix?  In general,
+	what is the determinant of a matrix whose columns are linearly
+	dependent? 
+	</p></li>
+
+	<li><p> Consider the matrices
+	    <me>
+	      A = \left[\begin{array}{rr}
+	      2 \amp 1 \\
+	      2 \amp -1 \\
+	      \end{array}\right],
+	      B = \left[\begin{array}{rr}
+	      1 \amp 0 \\
+	      0 \amp 2 \\
+	      \end{array}\right]
+	    </me>.
+	    Use the diagram to find the determinants of <m>A</m>,
+	    <m>B</m>, and <m>AB</m>.  What does this suggest is
+	    generally true about the 
+	    relationship of <m>\det(AB)</m> to <m>\det A</m> and
+	    <m>\det B</m>?
+	</p></li>
+      </ol></p>
+      </statement>
+
+      <solution>
+	<p><ol label="a.">
+	  <li><p> The determinant is <m>-1</m> because the vectors are
+	  negatively oriented and the rectangle has sides of length
+	  <m>\frac12</m> and <m>2</m>.  The matrix transformation
+	  scales vectors by <m>-\frac12</m> in the horizontal
+	  direction and <m>2</m> in the vertical direction.  We are
+	  led to believe that the determinant of a diagonal matrix is
+	  the product of the diagonal entries.
+	  </p></li>
+
+	  <li><p> The matrix transformation is a reflection over the
+	  line <m>y=x</m> and we see that the determinant is
+	  <m>-1</m>.
+	  </p></li>
+
+	  <li><p> The matrix transformation represents a horizontal
+	  shear, and the determinant is <m>2</m>.
+	  </p></li>
+
+	  <li><p> The determinant will continue to be <m>2</m> for any
+	  value of <m>k</m>.  This illustrates the fact that the
+	  determinant of an upper triangular matrix equals the product
+	  of its diagonal entries.
+	  </p></li>
+
+	  <li><p> The same reasoning tells us that this determinant is
+	  <m>2</m> and, in fact, the determinant of a lower triangular
+	  matrix equals the product of its diagonal entries.
+	  </p></li>
+
+	  <li><p> The determinant of this matrix is <m>0</m> because
+	  the parallelogram formed by the vector has no area.  The
+	  matrix transformation smashes the plane down onto the line
+	  <m>y=2x</m>.  This suggests that the determinant of a
+	  matrix whose columns are linearly dependent is <m>0</m>.
+	  </p></li>
+
+	  <li><p> We find that <m>\det A = -4</m>, <m>\det B = 2</m>,
+	  and <m>\det(AB) = -8</m>.  This suggests that
+	  <m>\det(AB) = \det A \det B</m>.
+	  </p></li>
+	</ol></p>
+      </solution>
+	  
+    </activity>
+
+    <p> Though this activity dealt with determinants of
+    <m>2\times2</m> matrices, the properties that we saw are
+    more generally true for determinants of <m>n\times n</m>
+    matrices.  Let's review these properties now.
+    <ul>
+      <li><p> <m>\det I = 1</m> as we saw in <xref
+      ref="example-det-identity" />. </p></li>
+
+      <li>
+	<sidebyside widths="65% 30%">
+	  <p> 
+	    If <m>A</m> is a diagonal matrix, then <m>\det A</m>
+	    equals the product of its diagonal entries.  For instance,
+	    <m>
+	      \det\left[\begin{array}{rr} 2 \amp 0 \\
+	      0 \amp 3 \\ \end{array}\right] = 2\cdot 3 = 6
+	    </m> since each diagonal entry
+	    represents a stretching along one of the axes, as seen in
+	    the figure.
+	  </p>
+	  <image source="images/parallelogram-b" />
+	</sidebyside>
+      </li>
+
+      <li><p> If <m>A</m> is a triangular matrix, then <m>\det A</m> is
+      also the product of the entries on the diagonal.  For example,
+      <me>
+	\det\left[\begin{array}{rr} 2 \amp 2 \\
+	0 \amp 3 \\ \end{array}\right] = 2\cdot 3 = 6
+	</me>, since the two parallelograms in <xref
+	ref="fig-parallelogram-f" /> have equal area.
+      </p>
+
+      <figure xml:id="fig-parallelogram-f">
+	<sidebyside widths="30% 30%">
+	  <image source="images/parallelogram-f" />
+	  <image source="images/parallelogram-b" />
+	</sidebyside>
+	<caption> The determinant of a triangular matrix equals the
+	product of its diagonal entries.
+	</caption>
+      </figure>
+      </li>
+
+      <li><p> We also saw that
+      <me>
+	\det \left[\begin{array}{rr}
+	0 \amp 1 \\
+	1 \amp 0 \\
+	\end{array}\right] = -1
+      </me>
+      because the vectors are a negatively oriented pair.
+      The matrix transformation defined by this matrix is a reflection
+      in the line <m>y=x</m>;  more generally, the determinant of any
+      matrix that defines a reflection is <m>-1</m>.
+      </p></li>
+
+      <li><p> We saw that the determinant of a product of matrices
+      equals the product of the determinants; that is, <m>\det AB =
+      \det A \det B</m>.  Thus far, we have been thinking of the
+      determinant as the area of a parallelogram.  We may also think
+      of it as a factor by which areas are scaled under the matrix
+      transformation defined by the matrix.  As seen in <xref
+      ref="fig-det-multiplies" />, applying the transform <m>B</m>
+      scales the area by a factor of <m>\det B</m>.  Next applying
+      the transform <m>A</m> scales the area by a factor of <m>\det
+      A</m>.  The total scaling is then <m>\det A\det B</m>.
+    </p>
+    <figure xml:id="fig-det-multiplies">
+      <sidebyside widths="30% 30% 30%">
+	<image source="images/parallelogram-h" />
+	<image source="images/parallelogram-i" />
+	<image source="images/parallelogram-j" />
+      </sidebyside>
+      <caption> The first transformation <m>B</m> scales the area of
+      the unit square by a factor of <m>\det B</m> and the second
+      transformation <m>A</m> scales the area by a factor of <m>\det
+      A</m>.
+      </caption>
+    </figure>
+
+      </li>
+
+      <li>
+	<sidebyside widths="65% 30%">
+	  <p> If two vectors are linearly dependent, then <m>\det A =
+	  0</m>.  In this case, the parallelogram is squashed down
+	  onto a line so that its area becomes zero.  This property is
+	  perhaps the most important of the ones that we have stated
+	  here, and it is what motivates us to explore determinants.
+	  </p>
+
+	  <image source="images/parallelogram-g" />
+	</sidebyside>
+	</li>
+    </ul>
+    </p>
+	
+    <p> Toward the end of this section, we will learn an algebraic
+    technique for computing determinants.  In the meantime, 
+    we will simply note that we can define determinants for <m>n\times
+    n</m> matrices by measuring the volume of a box defined by the columns
+    of the matrix, even if this box resides in <m>\real^n</m> for
+    some very large <m>n</m>.  
+    </p>
+
+    <sidebyside widths="55% 40%">
+      <p> For example, the columns of a <m>3\times3</m> matrix
+      <m>A</m> will form a parallelpiped, like the one shown here.
+      There is a means by which we can classify sets of such vectors
+      as either positively or negatively oriented.  Therefore, we can
+      define the determinant <m>\det A = \pm V</m> where <m>V</m> is
+      the volume of the box, but we will not worry about the details
+      here.
+      </p>
+      <image source="images/det-3d" />
+    </sidebyside>
+
+  </subsection>
+
+  <subsection>
+    <title> Determinants and invertibility </title>
+
+    <p> In the previous activity, we saw that, when the columns of a
+    <m>2\times2</m> matrix
+    <m>A</m> are linearly dependent, then <m>\det A = 0</m> because
+    the parallelogram formed by the columns of <m>A</m> lies on a line
+    and thus has zero area.  Of course, when the columns are linearly
+    dependent, the matrix is not invertible.  This points to an
+    important proposition that we will explore more.
+    </p>
+
+    <proposition xml:id="prop-invertible-det">
+      <statement>
+	<p> The matrix <m>A</m> is invertible if and only if <m>\det A
+	\neq 0</m>.
+	</p>
+      </statement>
+    </proposition>
+
+    <p> To understand this proposition more fully, let's remember that the
+    matrix <m>A</m> is invertible if and only if it is row equivalent
+    to the identity matrix <m>I</m>.  We will therefore consider how
+    the determinant changes when we perform row operations on a matrix.
+    Along the way, we will discover an effective means to compute the
+    determinant.
+    </p>
+
+    <p> In <xref ref="subsec-triangular-invertible" />, we saw how to
+    describe the three row operations, scaling, interchange, and row
+    replacement, using matrix multiplication.  Remember that
+    <ul>
+      <li> <p> Scalings are performed by multiplying by a diagonal
+      matrix, such as 
+      <me>
+	S = \left[\begin{array}{rrr}
+	1 \amp 0 \amp 0 \\
+	0 \amp 3 \amp 0 \\
+	0 \amp 0 \amp 1 \\
+	\end{array}\right]
+      </me>, which has the effect of multiplying the second row by
+      <m>3</m>.  Since <m>S</m> is diagonal, we know that its
+      determinant is the product of its diagonal entries so that
+      <m>\det S = 3</m>.  If we scale a row in <m>A</m> by <m>3</m> to
+      obtain the matrix <m>A'</m>, then we have <m>SA=A'</m>, which
+      means that <m>\det S\det A = \det A'</m>.  Therefore, <m>3\det A
+      = \det A'</m>.  In general, if we scale a row of <m>A</m> by
+      <m>s</m> to obtain <m>A'</m>, we have <m>s\det A=\det A'</m>.
+      </p></li>
+
+      <li><p> Interchanges are performed by matrices such
+      as
+      <me>
+	P = \left[\begin{array}{rrr}
+	0 \amp 1 \amp 0 \\
+	1 \amp 0 \amp 0 \\
+	0 \amp 0 \amp 1 \\
+	\end{array}\right]
+      </me>, which has the effect of interchanging the first and
+      second rows.  Notice that the determinant of this matrix is
+      <m>\det P = -1</m> since it defines a reflection.  Therefore,
+      if we perform an interchange 
+      operation on <m>A</m> to obtain <m>A'</m>, we have <m>PA=A'</m>,
+      which means that <m>\det P \det A = \det A'</m>.  In other
+      words, we have <m>-\det A = \det A'</m> so that the determinant
+      before and after an interchange have opposite signs.
+      </p></li>
+
+      <li><p> Row replacement operations are performed by matrices
+      such as
+      <me>
+	R = \left[\begin{array}{rrr}
+	1 \amp 0 \amp 0 \\
+	0 \amp 1 \amp 0 \\
+	-2 \amp 0 \amp 1 \\
+	\end{array}\right]
+      </me>, which multiplies the first row by <m>-2</m> and adds the
+      result to the third row.  Since this is a lower triangular
+      matrix, we know that the determinant is the product of diagonal
+      entries, which says that <m>\det R = 1</m>.  If we perform a row
+      replacement on <m>A</m> to obtain <m>A'</m>, then <m>RA = A'</m>
+      and therefore <m>\det R \det A = \det A'</m>, which means that
+      <m>\det A = \det A'</m>.  In other words, the determinants
+      before and after a row replacement operation are equal.
+      </p></li>
+    </ul>
+    </p>
+    
+    <activity>
+      <statement>
+      <p> We will investigate the connection between the determinant
+      of a matrix and its invertibility using Gaussian elimination.
+      <ol label="a.">
+	<li><p> Consider the two upper triangular matrices
+	<me>
+	  U_1 =
+	  \left[\begin{array}{rrr}
+	  1 \amp -1 \amp 2 \\
+	  0 \amp 2 \amp 4 \\
+	  0 \amp 0 \amp -2 \\
+	  \end{array}\right],
+	  U_2 =
+	  \left[\begin{array}{rrr}
+	  1 \amp -1 \amp 2 \\
+	  0 \amp 2 \amp 4 \\
+	  0 \amp 0 \amp 0 \\
+	  \end{array}\right]
+	</me>.  Which of the matrices <m>U_1</m> and <m>U_2</m> are invertible?
+	Use our earlier observation that the determinant of an upper
+	triangular matrix is the product of its diagonal entries to
+	find <m>\det U_1</m> and <m>\det U_2</m>. 
+	</p></li>
+
+	<li><p> Explain why an upper triangular matrix is invertible
+	if and only if its determinant is not zero.
+	</p></li>
+
+	<li><p> 
+	  Let's now consider the matrix
+	  <me>
+	    A = 
+	    \left[\begin{array}{rrr}
+	    1 \amp -1 \amp 2 \\
+	    -2 \amp 2 \amp -6 \\
+	    3 \amp -1 \amp 10 \\
+	    \end{array}\right]
+	  </me> and start the Gaussian elimination process.
+	  We begin with a row replacement operation
+	  <me>
+	    A = 
+	    \left[\begin{array}{rrr}
+	    1 \amp -1 \amp 2 \\
+	    -2 \amp 2 \amp -6 \\
+	    3 \amp -1 \amp 10 \\
+	    \end{array}\right]
+	    \sim
+	    \left[\begin{array}{rrr}
+	    1 \amp -1 \amp 2 \\
+	    0 \amp 0 \amp -2 \\
+	    3 \amp -1 \amp 10 \\
+	    \end{array}\right]
+	    = A_1
+	    </me>.
+	    What is the relationship between <m>\det A</m> and
+	    <m>\det A_1</m>?
+	</p></li>
+
+	<li><p> Next we perform another row replacement operation:
+	<me>
+	  A_1=
+	\left[\begin{array}{rrr}
+	1 \amp -1 \amp 2 \\
+	0 \amp 0 \amp -2 \\
+	3 \amp -1 \amp 10 \\
+	\end{array}\right]
+	\sim
+	\left[\begin{array}{rrr}
+	1 \amp -1 \amp 2 \\
+	0 \amp 0 \amp -2 \\
+	0 \amp 2 \amp 4 \\
+	\end{array}\right]
+	= A_2
+	</me>.
+	What is the relationship between <m>\det A</m> and <m>\det
+	A_2</m>?
+	</p></li>
+
+	<li><p> Finally, we perform an interchange:
+	<me>
+	  A_2 =
+	  \left[\begin{array}{rrr}
+	1 \amp -1 \amp 2 \\
+	0 \amp 0 \amp -2 \\
+	0 \amp 2 \amp 4 \\
+	\end{array}\right]
+	\sim
+	  \left[\begin{array}{rrr}
+	  1 \amp -1 \amp 2 \\
+	  0 \amp 2 \amp 4 \\
+	  0 \amp 0 \amp -2 \\
+	  \end{array}\right]
+	  = U
+	</me>
+	to arrive at an upper triangular matrix <m>U</m>.  What is the
+	relationship between <m>\det A</m> and <m>\det U</m>?
+	</p></li>
+
+	<li><p> Since <m>U</m> is upper
+	triangular, we can compute its determinant, which allows us to
+	find <m>\det A</m>.  What is <m>\det A</m>?  Is <m>A</m>
+	invertible?
+	</p></li>
+
+	<li><p> Now consider the matrix
+	<me>
+	  A = 
+	  \left[\begin{array}{rrr}
+	  1 \amp -1 \amp 3 \\
+	  0 \amp 2 \amp -2 \\
+	  2 \amp 1 \amp 3 \\
+	  \end{array}\right]
+	</me>.
+	Perform a sequence of row operations to find an upper
+	triangular matrix <m>U</m> that is row equivalent to
+	<m>A</m>.  Use this to determine <m>\det A</m>.  Is the matrix
+	<m>A</m> invertible?
+	</p></li>
+
+	<li><p> Suppose we apply a sequence of row operations on a
+	matrix <m>A</m> to obtain <m>A'</m>.  Explain why <m>\det A
+	\neq 0</m> if and only if <m>\det A' \neq 0</m>.
+	</p></li>
+
+	<li><p> Explain why an <m>n\times n</m> matrix
+	<m>A</m> is invertible if and only if <m>\det A \neq 0</m>.
+	</p></li>
+
+	<li><p> If <m>A</m> is an invertible matrix with <m>\det A =
+	-3</m>, what is <m>\det A^{-1}</m>?
+	</p></li>
+      </ol></p>
+      </statement>
+
+      <solution>
+	<p><ol label="a.">
+	  <li><p> The matrix <m>U_1</m> is invertible because we see
+	  there is a pivot position in every row and column.  The
+	  matrix <m>U_2</m>, however, is not invertible because there
+	  is not a pivot position in the third row.
+	  </p></li>
+
+	  <li><p> The determinant of an upper triangular matrix equals
+	  the product of its diagonal entries.  Consequently, if the
+	  determinant of an upper triangular matrix is not zero, then
+	  each of its diagonal entries must be nonzero.  In this case,
+	  there is a pivot position in every row and every column so
+	  that the matrix is invertible.  </p></li>
+
+	  <li><p> Row replacement operations do not change the
+	  determinant so <m>\det A = \det A_1</m>.
+	  </p></li>
+
+	  <li><p> In the same way, <m>\det A = \det A_2</m>. </p></li>
+
+	  <li><p> Interchanges change the sign of the determinant so
+	  <m>\det A = -\det U</m>.
+	  </p></li>
+
+	  <li><p> The determinant <m>\det U = -4</m> since it is the
+	  product of the diagonal entries of <m>U</m>.  This means
+	  that <m>\det A = 4</m>.  We see that <m>A</m> is invertible
+	  because <m>U</m>, which has a pivot position in every row
+	  and every column, is invertible.
+	  </p></li>
+
+	  <li><p> Beginning with a row replacement operation, we
+	  arrive at
+	  <me>A_1=\left[\begin{array}{rrr}
+	  1 \amp - 1 \amp 3 \\
+	  0 \amp 2 \amp -2 \\
+	  0 \amp -3 \amp 3 \\
+	  \end{array}\right]</me>.  We next scale the second row by
+	  <m>\frac12</m> to obtain
+	  <me>A_2=\left[\begin{array}{rrr}
+	  1 \amp - 1 \amp 3 \\
+	  0 \amp 1 \amp -1 \\
+	  0 \amp -3 \amp 3 \\
+	  \end{array}\right]</me>.  Another row replacement operation
+	  gives
+	  <me>A_3=\left[\begin{array}{rrr}
+	  1 \amp - 1 \amp 3 \\
+	  0 \amp 1 \amp -1 \\
+	  0 \amp 0 \amp 0 \\
+	  \end{array}\right]</me>.  Putting these operations together,
+	  we see that <m>\det A = 2\det U = 0</m>.  In this case,
+	  <m>A</m> is not invertible because <m>U</m>, which has a row
+	  without a pivot position, is not invertible.
+	  </p></li>
+
+	  <li><p> Performing one of the three row operations either
+	  leaves the determinant unchanged (row replacement), changes
+	  its sign (interchange), or multiplies it by a nonzero number
+	  (scaling).  Therefore, if we begin with a matrix whose
+	  determinant is not zero, the determinant remains not zero
+	  after any row operation is applied.
+	  </p></li>
+
+	  <li><p> If we apply a sequence of row operations to <m>A</m>
+	  to find a
+	  row equivalent matrix <m>U</m> that is upper triangular, we
+	  know that <m>\det A\neq0</m> if and only if <m>\det U \neq 0</m>.
+	  We also know that <m>A</m> is invertible if and only if
+	  <m>U</m> is invertible.  Putting these facts together, we
+	  conclude that <m>\det A\neq 0</m> if and only if <m>A</m> is
+	  invertible. </p></li>
+
+	  <li><p> Since <m>A^{-1}A = I</m>, we have <m>\det A^{-1}
+	  \det A = 1</m> so <m>\det A^{-1} = \frac 13</m>.
+	  </p></li>
+	</ol></p>
+      </solution>
+	    
+    </activity>
+
+    <p> As seen in this activity, row operations provide a means to
+    compute the determinant of a matrix.  For instance, the matrix
+    <me>A=\left[\begin{array}{rrr}
+    1 \amp -1 \amp 2 \\
+    -2 \amp 2 \amp -6 \\
+    3 \amp -1 \amp 10 \\
+    \end{array}\right]
+    \sim
+    \left[\begin{array}{rrr}
+    1 \amp -1 \amp 2 \\
+    0 \amp 2 \amp 4 \\
+    0 \amp 0 \amp -2 \\
+    \end{array}\right]
+    = U
+    </me>
+    is row equivalent to an upper triangular matrix <m>U</m>
+    through a sequence of row operations:  we first apply two row
+    replacement operations and then an interchange.  We may represent
+    the row replacement operations by the matrices <m>R_1</m> and
+    <m>R_2</m> and the interchange by the matrix <m>P</m>.  We then
+    have
+    <me>
+      \begin{aligned}
+      PR_2R_1 A \amp {}={} U \\
+      \det P \det R_1 \det R_2 \det A \amp {}={} \det U \\
+      -1\cdot 1\cdot 1\det A \amp {}={} 1\cdot 2\cdot(-2) \\
+      -\det A {}={} -4\text{,} \\
+      \end{aligned}
+    </me> which shows us that <m>\det A = 4</m>.
+    </p>
+
+    <p> Notice that the three row operations are represented by
+    matrices whose determinants are not zero.  This means that if
+    <m>A</m> is row equivalent to <m>A'</m>, then there are matrices
+    such that <m>E_p\ldots E_2E_1A = A'</m> and so <m>\det E_p\ldots
+    \det E_2\det E_1 \det A = \det A'</m>.  Since <m>\det E_j\neq
+    0</m>, this tells us that <m>\det A \neq 0</m> if and only if
+    <m>\det A'\neq 0</m>.
+    </p>
+
+    <p> The determinant of an upper triangular matrix <m>U</m> is
+    equal to the product of its diagonal entries.  Of course, the
+    matrix 
+    <m>U</m> is invertible if and only if there is a pivot position in
+    every 
+    row, which means each of the diagonal entries must be nonzero.
+    Therefore, an upper triangular matrix <m>U</m> is invertible if
+    and only <m>\det U \neq 0</m>.
+    </p>
+
+    <p> We may now put all this together.  When performing Gaussian
+    elimination on the matrix <m>A</m>, we apply a sequence of row
+    operations until we obtain an upper triangular matrix <m>U</m>
+    that is row equivalent to <m>A</m>.  It follows that <m>\det A
+    \neq 0</m> if and only if <m>\det U \neq 0</m>.  We also know that
+    <m>\det U\neq 0</m> if and only if <m>U</m> is invertible and that
+    <m>U</m> is invertible if and only if <m>A</m> is invertible.
+    This shows that that <m>A</m> is invertible if and
+    only if <m>\det A \neq 0</m>, which completes our explanation of
+    <xref ref="prop-invertible-det" />.
+    </p>
+
+    <p> Finally, remember that <m>A A^{-1} = I</m> if <m>A</m> is
+    invertible.  This means that <m>\det A \det A^{-1} = \det I =
+    1</m>;  in other words, <m>\det A</m> and <m>\det A^{-1}</m> are
+    multiplicative inverses so that <m>\det A^{-1} = 1/\det A</m>.
+    </p>
+      
+  </subsection>
+
+  <subsection>
+    <title> Cofactor expansions </title>
+
+    <p> We now have a technique for computing the determinant of a
+    matrix using row operations.  There is another way to compute
+    determinants, using what are called <em>cofactor expansions</em>,
+    that will be important for us in the next chapter. 
+    We will describe this method here.
+    </p>
+
+    <p> To begin, the determinant of a <m>2\times2</m> matrix is
+    <me>
+      \det\left[\begin{array}{rr}
+      a \amp b \\
+      c \amp d \\
+      \end{array}\right]
+      =
+      ad-bc
+    </me>.  With a little bit of work, it can be shown that this
+    number is the same as the signed area of the parallelogram we
+    introduced earlier.
+    </p>
+
+    <p> Using a cofactor expansion to find the determinant of a more
+    general <m>n\times n</m> matrix is a little more work so we will
+    demonstrate it with an example.
+    </p>
+
+    <example>
+      <statement>
+	<p> We illustrate how to use a cofactor expansion to find the
+	determinant of <m>A</m> where
+	<me>
+	  A = 
+	  \left[\begin{array}{rrr}
+	  1 \amp -1 \amp 2 \\
+	  -2 \amp 2 \amp -6 \\
+	  3 \amp -1 \amp 10 \\
+	  \end{array}\right]
+	</me>.  This is the same matrix that appeared in the last
+	activity where we found that <m>\det A = 4</m>.
+	</p>
+
+	<p> To begin, we choose one row or column.  It doesn't matter
+	which we choose because the result will be the same in any
+	case.  Here, we will choose the second row.
+	<me>
+	  \left[\begin{array}{rrr}
+	  \lgray{1} \amp \lgray{-1} \amp \lgray{2} \\
+	  -2 \amp 2 \amp -6 \\
+	  \lgray{3} \amp \lgray{-1} \amp \lgray{10} \\
+	  \end{array}\right]
+	</me>.
+	</p>
+
+	<p> The determinant will be found by creating a sum of terms,
+	one for each entry in the row we have chosen.  For each entry
+	in the row, we will form its term in the cofactor expansion by
+	multiplying
+	<ul>
+	  <li><p> <m>(-1)^{i+j}</m> where <m>i</m> and <m>j</m> are
+	  the row and column numbers, respectively, of the
+	  entry, </p></li>
+	  <li><p> the entry itself, and </p></li>
+	  <li><p> the determinant of the entries left over when we
+	  have crossed out the row and column containing the
+	  entry. </p> </li>
+	</ul>
+	</p>
+
+	<p> Since we are computing the determinant of this matrix
+	<me>
+	  \left[\begin{array}{rrr}
+	  \gray{1} \amp \gray{-1} \amp \gray{2} \\
+	  -2 \amp 2 \amp -6 \\
+	  \gray{3} \amp \gray{-1} \amp \gray{10} \\
+	  \end{array}\right]
+	</me>
+	using the second row, the entry in the first column of this
+	row is <m>-2</m>.  Let's see 
+	how to form the term from this entry.
+	</p>
+
+	<p> The term itself is <m>-2</m>, and the matrix that is left
+	over when we cross out the second row and first column is
+	<me>
+	  \left[\begin{array}{rrr}
+	  \gray{1} \amp {-1} \amp {2} \\
+	  \gray{-2} \amp \gray{2} \amp \gray{-6} \\
+	  \gray{3} \amp {-1} \amp {10} \\
+	  \end{array}\right]
+	</me>
+	whose determinant is
+	<me>
+	  \det\left[\begin{array}{rr}
+	  -1 \amp 2 \\
+	  -1 \amp 10 \\
+	  \end{array}\right] =
+	  -1(10) - 2 (-1) = -8
+	</me>.
+	Since this entry is in the second row and first column, the
+	term we construct is
+	<m> (-1)^{2+1}(-2)(-8) = -16
+	</m>.
+	</p>
+
+	<p> Putting this together, we find the determinant to be
+	<me>
+	  \begin{aligned}
+	  \left[\begin{array}{rrr}
+	  {1} \amp {-1} \amp {2} \\
+	  -2 \amp {2} \amp {-6} \\
+	  {3} \amp {-1} \amp {10} \\
+	  \end{array}\right] 
+	  {}={}
+	  \amp
+	  (-1)^{2+1}(-2)\det\left[\begin{array}{rr}
+	  -1 \amp 2 \\
+	  -1 \amp 10 \\
+	  \end{array}\right] \\
+	  \amp
+	  {}+{}
+	  (-1)^{2+2}(2)\det\left[\begin{array}{rr}
+	  1 \amp 2 \\
+	  3 \amp 10 \\
+	  \end{array}\right] \\
+	  \amp
+	  {}+{}
+	  (-1)^{2+3}(-6)\det\left[\begin{array}{rr}
+	  -1 \amp -1 \\
+	  3 \amp -1 \\
+	  \end{array}\right] \\
+	  \\
+	  {}={}
+	  \amp
+	  (-1)(-2)(-1(10)-2(-1)) \\
+	  \amp + (1)(2)(1(10)-2(3)) \\
+	  \amp + (-1)(-6)((-1)(-1)-(-1)3) \\ \\
+	  {}={}
+	  \amp
+	  -16 + 8 + 12 \\
+	  {}={}
+	  \amp
+	  4 \\
+
+	  \end{aligned}
+	</me>.
+	Notice that this agrees with the determinant that we found for
+	this matrix using row operations in the last activity.
+	</p>	  
+	  
+      </statement>
+    </example>
+
+    <activity>
+      <statement>
+      <p> We will explore cofactor expansions through some
+      examples.
+      <ol label="a.">
+	<li><p> Using a cofactor expansion, show that the determinant
+	of the following matrix 
+	<me> \det
+	  \left[\begin{array}{rrr}
+	  2 \amp 0 \amp -1 \\
+	  3 \amp 1 \amp 2 \\
+	  -2 \amp 4 \amp -3 \\
+	  \end{array}\right] = -36
+	</me>.  Remember that you can choose any row or column to
+	create the expansion, but the choice of a particular row or
+	column may simplify 
+	the computation.
+	</p></li>
+
+	<li><p> Use a cofactor expansion to find the determinant of
+	<me>
+	  \left[\begin{array}{rrrr}
+	  -3 \amp 0 \amp 0 \amp 0 \\
+	  4 \amp 1 \amp 0  \amp 0 \\
+	  -1 \amp 4 \amp -4 \amp 0\\
+	  0 \amp 3 \amp 2 \amp 3 \\
+	  \end{array}\right]
+	</me>.  Explain how the cofactor expansion technique shows
+	that the determinant of a triangular matrix is equal to the
+	product of its diagonal entries.
+	</p></li>
+
+	<li><p> Use a cofactor expansion to determine whether the
+	following vectors form a basis of <m>\real^3</m>:
+	<me>
+	  \threevec{2}{-1}{-2},
+	  \threevec{1}{-1}{2},
+	  \threevec{1}{0}{-4}
+	</me>.
+	</p></li>
+	
+	<li><p> Sage will compute the determinant of a matrix <c>A</c>
+	with the command <c>A.det()</c>.  Use Sage to find the
+	determinant of the matrix
+	<me>
+	  \left[\begin{array}{rrrr}
+	  2 \amp 1 \amp -2 \amp -3 \\
+	  3 \amp 0 \amp -1  \amp -2 \\
+	  -3 \amp 4 \amp 1 \amp 2\\
+	  1 \amp 3 \amp 3 \amp -1 \\
+	  \end{array}\right]
+	</me>.
+	<sage>
+	  <input>
+	  </input>
+	</sage>
+	  
+	</p></li>
+
+      </ol></p>
+      </statement>
+
+      <solution>
+	<p><ol label="a.">
+	  <li><p> We will using a cofactor expanion along the first
+	  row so that
+	  <me>
+	    \begin{array}{rl}
+	    \det\left[\begin{array}{rrr}
+	    2 \amp 0 \amp -1 \\
+	    3 \amp 1 \amp 2 \\
+	    -2 \amp 4 \amp -3 \\
+	    \end{array}\right]
+	    = \amp
+	    (-1)^{1+1}\cdot 2 \det\left[\begin{array}{rr}
+	    1 \amp 2 \\
+	    4 \amp -3 \\
+	    \end{array}\right] \\
+	    \amp 
+	    + (-1)^{1+3}\cdot (-1) \det\left[\begin{array}{rr}
+	    3 \amp 1 \\
+	    -2 \amp 4 \\
+	    \end{array}\right] \\
+	    = \amp
+	    2(-11) - 14 = -36\text{.}
+	    \end{array}
+	  </me>
+	  </p></li>
+
+	  <li><p> Expanding along the first row gives
+	  <me>
+	    \begin{array}{rl}
+	    \det
+	    \left[\begin{array}{rrrr}
+	    -3 \amp 0 \amp 0 \amp 0 \\
+	    4 \amp 1 \amp 0  \amp 0 \\
+	    -1 \amp 4 \amp -4 \amp 0\\
+	    0 \amp 3 \amp 2 \amp 3 \\
+	    \end{array}\right] \amp
+	    = 3\det
+	    \left[\begin{array}{rrr}
+	    1 \amp 0  \amp 0 \\
+	    4 \amp -4 \amp 0\\
+	    3 \amp 2 \amp 3 \\
+	    \end{array}\right] \\
+	    \amp
+	    =-3(1)\det
+	    \left[\begin{array}{rr}
+	    -4 \amp 0 \\
+	    2 \amp 3 \\
+	    \end{array}\right] \\
+	    \amp
+	    =-3(1)(-4)(3) = 36\text{.}
+	    \end{array}
+	  </me>
+	  </p></li>
+
+	  <li><p> We form the matrix <m>A</m> whose columns are the
+	  three given vectors.  Expanding along either the second row or third
+	  column to take advantage of the zero in the <m>(2,3)</m>
+	  entry, we see that <m>\det A = 0</m>, which means that
+	  <m>A</m> is not invertible.  Therefore, the vectors do not
+	  form a basis for <m>\real^3</m>.
+	  </p></li>
+
+	  <li><p> We compute that <m>\det A = 72</m>.
+	  </p></li>
+	</ol></p>
+      </solution>
+	    
+    </activity>
+
+    <p> In this section, we have seen three ways to compute the
+    determinant: by interpreting the determinant as a signed area or
+    volume; by applying appropriate row operations; and by using a
+    cofactor expansion.  It's worth spending a moment to think about
+    the relative merits of these approaches.
+    </p>
+
+    <p> The geometric definition of the determinant tells us that the
+    determinant is measuring a natural geometric quantity, an insight
+    that does not easily come through the other two approaches.  The
+    intuition we gain by thinking about the determinant geometrically
+    makes it seem reasonable that the determinant should be zero for
+    matrices that are not invertible: if the columns are linearly
+    dependent, the vectors cannot create a positive volume.
+    </p>
+
+    <p> Approaching the determinant through row operations provides an
+    effective means of computing the determinant.  In fact, this is
+    what most computer programs are doing behind the scenes when they
+    compute a determinant.  This approach is also a useful theoretical
+    tool for explaining why the determinant tells us whether a matrix
+    is invertible.
+    </p>
+
+    <p> The cofactor expansion method will be useful to us in the next
+    chapter when we look at eigenvalues and eigenvectors.  It is not,
+    however, a practical way to compute a determinant.  To see why,
+    consider the fact that the determinant of a <m>2\times2</m>
+    matrix, written as <m>ad-bc</m>,
+    requires us to compute two terms, <m>ad</m> and <m>bc</m>.  To
+    compute the determinant of a <m>3\times3</m> matrix, we need to
+    compute three <m>2\times2</m> determinants, which involves
+    <m>3\cdot 2 = 6</m> terms.  For a <m>4\times4</m> matrix, we need
+    to compute four <m>3\times3</m> determinants, which produces
+    <m>4\cdot3\cdot2 = 24</m> terms.  Continuing in this way, we see
+    that the cofactor expansion of a <m>10\times10</m> matrix would
+    involve <m>10\cdot9\cdot8\ldots3\cdot2 = 10! = 3628800</m> terms.
+    By coincidence, this is exactly the number of seconds in six
+    weeks.
+    </p>
+
+    <p> By contrast, we have seen that the number of steps required to
+    perform Gaussian elimination on an <m>n\times n</m> matrix is
+    proportional to <m>n^3</m>.  When <m>n=10</m>, we have <m>n^3 =
+    1000</m>, which points to the fact that finding the determinant
+    using Gaussian elimination is considerably less work.
+    </p>
+
+  </subsection>
+
+  <subsection>
+    <title> Summary </title>
+
+    <p> In this section, we associated a numerical quantity, the
+    determinant, to a square matrix and showed that it tells us whether
+    the matrix is invertible.
+
+    <ul>
+      <li><p> The determinant of an <m>n\times n</m> matrix may be
+      thought of as measuring the size of the box formed by the column
+      vectors together with a sign measuring their orientation.  When
+      <m>n=2</m>, for example, the determinant is the signed area of
+      the parallelogram formed by the two columns of the matrix.
+      </p></li>
+
+      <li><p> We saw that the determinant satisfied many properties.
+      Most importantly, we saw that <m>\det AB = \det A \det B</m> and
+      that the determinant of a triangular matrix is equal to the
+      product of its diagonal entries. </p></li>
+
+      <li><p> These properties helped us compute the determinant of a
+      matrix using row operations.  This also led to the important
+      observation that the determinant of a matrix is nonzero if and
+      only if the matrix is invertible. </p></li>
+
+      <li><p> Finally, we learned how to compute the determinant of a
+      matrix using cofactor expansions.  Though this is an inefficient
+      method for computing determinants, it will be a valuable tool
+      for us in the next chapter. </p></li>
+    </ul></p>
+
+  </subsection>
+  
+  <xi:include href="exercises/exercises3-4.xml" />
+
+</section>

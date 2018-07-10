@@ -1,0 +1,821 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<exercises>
+
+  <exercise>
+    <statement>
+      <p> Suppose that <m>T</m> is the matrix transformation defined
+      by the matrix <m>A</m> and <m>S</m> is the matrix
+      transformation defined by <m>B</m> where
+      <me>
+	A = \left[\begin{array}{rrr}
+	3 \amp -1 \amp 0 \\
+	1 \amp 2 \amp 2 \\
+	-1 \amp 3 \amp 2 \\
+	\end{array}\right], \qquad
+	B = \left[\begin{array}{rrr}
+	1 \amp -1 \amp 0 \\
+	2 \amp 1 \amp 2 \\
+	\end{array}\right]
+      </me>.
+      <ol label="a.">
+	<li><p> If <m>T:\real^n\to\real^m</m>, what are the values of
+	<m>m</m> and <m>n</m>?  What values of <m>m</m> and <m>n</m>
+	are appropriate for the transformation <m>S</m>?
+	</p></li>
+
+	<li><p> Evaluate the matrix transformation
+	<m>T\left(\threevec{1}{-3}{2}\right)</m>. </p></li>
+
+	<li><p> Evaluate the matrix transformation
+	<m>S\left(\threevec{-2}{2}{1}\right)</m>. </p></li>
+
+	<li><p> Evaluate the matrix transformation
+	<m>S\circ T\left(\threevec{1}{-3}{2}\right)</m>. </p></li>
+
+	<li><p> Find the matrix <m>C</m> that defines the matrix
+	transformation <m>S\circ T</m>.</p></li>
+      </ol></p>
+    </statement>
+
+    <solution>
+      <p><ol label="a.">
+	<li><p> Since <m>A</m> is a <m>3\times3</m> matrix, we have
+	<m>T:\real^3\to\real^3</m>.  Since <m>B</m> is a
+	<m>2\times3</m> matrix, we have <m>S:\real^3\to\real^2</m>.
+	</p></li>
+	
+	<li><p> <m>T\left(\threevec{1}{-3}{2}\right) = A\twovec{1}{-3}{2} =
+	\threevec{6}{-1}{-6}</m>.
+	</p></li>
+
+	<li><p> <m>S\left(\threevec{-2}{2}{1}\right) = A\twovec{-2}{2}{1}=
+	\twovec{-6}{0}</m>.
+	</p></li>
+
+	<li><p>
+	  <m>S\circ T\left(\threevec{1}{-3}{2}\right) =
+	  BA\threevec{1}{-3}{2} = \twovec{8}{-1}</m>.
+	</p></li>
+
+	<li><p> <m>C = BA =
+	\left[
+	\begin{array}{rrr}
+	1 \amp -5 \amp -4 \\
+	5 \amp 6 \amp 6 \\
+	\end{array}\right]
+	</m>.
+	</p></li>
+      </ol></p>
+    </solution>
+
+    <answer>
+      <p><ol label="a.">
+	<li><p>	<m>T:\real^3\to\real^3</m> and 
+	<m>S:\real^3\to\real^2</m>.
+	</p></li>
+
+	<li><p> <m> \threevec{6}{-1}{-6}</m>. </p></li>
+
+	<li><p> <m> \twovec{-6}{0}</m>. </p></li>
+
+	<li><p> <m>\twovec{8}{-1}</m>. </p></li>
+
+	<li><p> 
+	  <m>	\left[
+	  \begin{array}{rrr}
+	  1 \amp -5 \amp -4 \\
+	  5 \amp 6 \amp 6 \\
+	  \end{array}\right]
+	  </m>.
+	</p></li>
+      </ol></p>
+    </answer>
+
+  </exercise>
+
+  <exercise>
+    <statement>
+      <p> Determine whether the following statements are true or false
+      and provide a justification for your response.
+      <ol label="a.">
+	<li><p> A matrix transformation <m>T:\real^4\to\real^5</m> is
+	defined by <m>T(\xvec) = A\xvec</m> where <m>A</m> is a
+	<m>4\times5</m> matrix. </p></li>
+
+	<li><p> If <m>T:\real^3\to\real^2</m> is a matrix
+	transformation, then there are infinitely many vectors
+	<m>\xvec</m> such that <m>T(\xvec) = \zerovec</m>. </p></li>
+
+	<li><p> If <m>T:\real^2\to\real^3</m> is a matrix
+	transformation, then it is possible that every equation
+	<m>T(\xvec) = \bvec</m> has a solution for every vector
+	<m>\bvec</m>. </p></li>
+
+	<li><p>
+	  If <m>T:\real^n\to\real^m</m> is a matrix
+	  transformation, then the equation <m>T(\xvec) =
+	  \zerovec</m> always has a solution.
+	</p></li>
+
+	<li><p>
+	  If <m>T:\real^n\to\real^m</m> is a matrix transformation and
+	  <m>\vvec</m> and <m>\wvec</m> two vectors in <m>\real^n</m>,
+	  then the vectors <m>T(\vvec + t\wvec)</m> form a line in
+	  <m>\real^m</m>.
+	</p></li>
+	  
+      </ol></p>
+    </statement>
+
+    <solution>
+      <p><ol label="a.">
+	<li><p> False.  The dimensions of <m>A</m> are
+	<m>5\times4</m>.
+	</p></li>
+
+	<li><p> True.  The dimensions of <m>A</m> are <m>2\times3</m>
+	so there must be a column without a pivot position.
+	</p></li>
+
+	<li><p> False.  The dimensions of <m>A</m> are <m>3\times2</m>
+	so there must be a row without a pivot position.
+	</p></li>
+
+	<li><p> True.  The vector <m>\xvec=\zerovec</m> is always a
+	solution.
+	</p></li>
+
+	<li><p> True.  It follows that <m>T(\vvec+t\wvec) =
+	A(\vvec+t\wvec) = A\vvec + tA\wvec</m>, which describes the
+	line through <m>A\vvec</m> parallel to <m>A\wvec</m>.  Of
+	course, if <m>A\wvec=0</m>, then <m>T(\vvec+t\wvec)</m> is
+	simply the point <m>A\vvec</m>.
+	</p></li>
+      </ol></p>
+    </solution>
+
+    <answer>
+      <p><ol label="a.">
+	<li><p> False </p></li>
+	<li><p> True </p></li>
+	<li><p> False </p></li>
+	<li><p> True </p></li>
+	<li><p> True </p></li>
+      </ol></p>
+    </answer>
+  </exercise>
+
+  <exercise>
+    <statement>
+      <p> This problem concerns the identification of matrix
+      transformations.
+	<ol label="a.">
+	<li><p> Check that the following function <m>T:\real^3\to\real^2</m>
+	is a matrix transformation by finding a matrix <m>A</m> such
+	that <m>T(\xvec) = A\xvec</m>.
+	<me>
+	  T\left(\threevec{x_1}{x_2}{x_3}\right) =
+	  \left[\begin{array}{c}
+	  3x_1 - x_2 + 4x_3 \\ 5x_2 - x_3 \\
+	  \end{array}\right]
+	  </me>.
+	</p></li>
+
+	<li> <p> Explain why
+	<me>
+	  T\left(\threevec{x_1}{x_2}{x_3}\right) =
+	  \left[\begin{array}{c}
+	  3x_1^4 - x_2 + 4x_3 \\ 5x_2 - x_3 \\
+	  \end{array}\right]
+	  </me> is not a matrix transformation.
+	</p></li>
+      </ol>
+      </p>
+    </statement>
+
+    <solution>
+      <p><ol label="a.">
+	<li><p> The matrix <m>A=\left[\begin{array}{rrr}
+	3 \amp -1 \amp 4 \\
+	0 \amp 5 \amp -1 \\
+	\end{array}\right]</m>.
+	</p></li>
+
+	<li><p>
+	  Because the first component has the term <m>3x_1^4</m>,
+	  there is no matrix such that <m>T(\xvec) = A\xvec</m>.
+	</p></li>
+      </ol></p>
+    </solution>
+
+    <answer>
+      <p><ol label="a.">
+	<li><p> <m>A=\left[\begin{array}{rrr}
+	3 \amp -1 \amp 4 \\
+	0 \amp 5 \amp -1 \\
+	\end{array}\right]</m>.
+	</p></li>
+
+	<li><p>
+	  Because the first component has the term <m>3x_1^4</m>.
+	</p></li>
+      </ol></p>
+    </answer>
+    
+  </exercise>
+
+  <exercise>
+    <statement>
+      <p> Suppose that the matrix
+      <me>
+	A = \left[\begin{array}{rrr}
+	1 \amp 3 \amp 1 \\
+	-2 \amp 1 \amp 5 \\
+	0 \amp 2 \amp 2 \\
+	\end{array}\right]
+      </me>
+      defines the matrix transformation <m>T:\real^3\to\real^3</m>.
+      <ol label="a.">
+	<li><p> Describe the vectors <m>\xvec</m> that satisfy 
+	<m>T(\xvec) = \zerovec</m>. </p></li>
+
+	<li><p> Describe the vectors <m>\xvec</m> that satisfy 
+	<m>T(\xvec) = \threevec{-8}{9}{2}</m>. </p></li>
+
+	<li><p> Describe the vectors <m>\xvec</m> that satisfy 
+	<m>T(\xvec) = \threevec{-8}{2}{-4}</m>. </p></li>
+      </ol></p>
+    </statement>
+
+    <solution>
+      <p><ol label="a.">
+	<li><p> We have <m>T(\xvec) = A\xvec = \zerovec</m>.  The
+	reduced row echelon form of <m>A</m> is
+	<m>A \sim \left[\begin{array}{rrr}
+	1 \amp 0 \amp -2 \\
+	0 \amp 1 \amp 1 \\
+	0 \amp 0 \amp 0 \\
+	\end{array}\right]</m>.  Therefore, the solutions have the
+	form <m>\xvec=x_3\threevec{2}{-1}{1}</m>.
+	</p></li>
+
+	<li><p> We see that
+	<me>
+	  \left[\begin{array}{rrr|r}
+	  1 \amp 3 \amp 1 \amp -8 \\
+	  -2 \amp 1 \amp 5 \amp 9 \\
+	  0 \amp 2 \amp 2 \amp 2 \\
+	  \end{array}\right]
+	  \sim
+	  \left[\begin{array}{rrr|r}
+	  1 \amp 0 \amp -2 \amp 0 \\
+	  0 \amp 1 \amp 1 \amp 0 \\
+	  0 \amp 0 \amp 0 \amp 1 \\
+	  \end{array}\right]\text{.}
+	</me>
+	Since this is an inconsistent system, there are no vectors
+	<m>\xvec</m> satisfying the equation.
+	</p></li>
+
+	<li><p> In the same way, we have
+	<me>
+	  \left[\begin{array}{rrr|r}
+	  1 \amp 3 \amp 1 \amp -8 \\
+	  -2 \amp 1 \amp 5 \amp 2 \\
+	  0 \amp 2 \amp 2 \amp -4
+	  \end{array}\right]
+	  \sim
+	  \left[\begin{array}{rrrr}
+	  1 \amp 0 \amp -2 \amp -2 \\
+	  0 \amp 1 \amp 1 \amp -2 \\
+	  0 \amp 0 \amp 0 \amp 0 \\
+	  \end{array}\right]\text{.}
+	</me>
+	This shows that <m>\xvec=\threevec{-2}{-2}{0} +
+	x_3\threevec{2}{-1}{1}</m>.
+	</p></li>
+      </ol></p>
+    </solution>
+
+    <answer>
+      <p><ol label="a.">
+	<li><p><m>\xvec=
+	x_3\threevec{2}{-1}{1}</m>.
+	</p></li>
+
+	<li><p> There are no such vectors. </p></li>
+
+	<li><p> 
+	  <m>\xvec=\threevec{-2}{-2}{0} +
+	  x_3\threevec{2}{-1}{1}</m>.
+	</p></li>
+      </ol></p>
+    </answer>
+
+  </exercise>
+
+  <exercise>
+    <statement>
+      <p> Suppose <m>T:\real^3\to\real^2</m> is a matrix
+      transformation with <m>T(\evec_j) = \vvec_j</m> where
+      <m>\vvec_1</m>, <m>\vvec_2</m>, and <m>\vvec_3</m> are as shown
+      in <xref ref="fig-ex-linear-trans" />.
+      </p>
+
+      <figure xml:id="fig-ex-linear-trans">
+	<sidebyside width="50%">
+	  <image source="images/ex-linear-trans" />
+	</sidebyside>
+	<caption>
+	  The vectors <m>T(\evec_j)=\vvec_j</m>.
+	</caption>
+      </figure>
+
+      <p> <ol label="a.">
+	<li><p> Sketch the vector
+	<m>T\left(\threevec{2}{1}{2}\right)</m>. </p></li>
+
+	<li><p> What is the vector <m>T\left(\threevec{0}{1}{0}\right)</m>?
+	</p></li>
+
+	<li><p> Find all the vectors <m>\xvec</m> such that <m>T(\xvec) =
+	\zerovec</m>. </p></li>
+	</ol></p>
+    </statement>
+
+    <solution>
+      <p><ol label="a.">
+	<li><p> <m>T\left(\threevec{2}{1}{2}\right) =
+	2\vvec_1+\vvec_2+2\vvec_3 = \twovec{1}{-1}</m>.
+	</p></li>
+
+	<li><p> <m>T\left(\threevec{0}{1}{0}\right) = \vvec_2</m>.
+	</p></li>
+
+	<li><p> The matrix that defines <m>T</m> is
+	<me>
+	  A = \left[\begin{array}{rrr}
+	  \vvec_1 \amp \vvec_2 \amp \vvec_3 \\
+	  \end{array}\right]
+	  = \left[\begin{array}{rrr}
+	  2 \amp -1 \amp -1 \\
+	  1 \amp 1 \amp -2 \\
+	  \end{array}\right]
+	  \sim
+	  \left[\begin{array}{rrr}
+	  1 \amp 0 \amp -1 \\
+	  0 \amp 1 \amp -1 \\
+	  \end{array}\right]\text{.}
+	</me>
+	This shows that the solutions to <m>T(\xvec) = A\xvec =
+	\zerovec</m> are <m>\xvec=x_3\threevec{1}{1}{1}</m>.
+	</p></li>
+      </ol></p>
+    </solution>
+
+    <answer>
+      <p><ol label="a.">
+	<li><p> <m>\twovec{1}{-1}</m>.
+	</p></li>
+
+	<li><p> <m>\vvec_2</m>.
+	</p></li>
+
+	<li><p>
+	  <m>\xvec=x_3\threevec{1}{1}{1}</m>.
+	</p></li>
+      </ol></p>
+    </answer>
+	
+  </exercise>
+  
+  <exercise>
+    <statement>
+      <p> Suppose that a company has three plants, called Plants 1, 2,
+      and 3, that produce milk <m>M</m> and yogurt
+      <m>Y</m>.  For every hour of operation,
+      <ul>
+	<li><p> Plant <m>P</m> produces 20 units of milk and 15 units
+	of yogurt. </p></li>
+
+	<li><p> Plant <m>Q</m> produces 30 units of milk and 5 units
+	of yogurt. </p></li>
+
+	<li><p> Plant <m>R</m> produces 0 units of milk and 40 units
+	of yogurt. </p></li>
+      </ul>
+      <ol label="a.">
+	<li><p> Suppose that <m>x_1</m>, <m>x_2</m>, and <m>x_3</m>
+	record the amounts of time that the three plants are operated.
+	Find expressions for the number of units of milk <m>M</m> and
+	yogurt <m>Y</m> produced. </p></li>
+
+	<li><p> If we write <m>\xvec=\threevec{x_1}{x_2}{x_3}</m> and
+	<m>\yvec = \twovec{M}{Y}</m>, find the matrix <m>A</m> that
+	defines the matrix transformation <m>T(\xvec) =
+	\yvec</m>. </p></li>
+
+	<li><p> Furthermore, suppose that producing each unit of
+	<ul>
+	  <li><p> milk requires 5 units of electricity and 8 units of
+	  labor. </p></li>
+	  <li><p> yogurt requires 6 units of electricity and 10 units
+	  of labor. </p></li>
+	</ul>
+	Write expressions for the required amounts of electricity
+	<m>E</m> and labor <m>L</m> in terms of <m>M</m> and
+	<m>Y</m>. </p></li>
+
+	<li><p> If we write the vector <m>\zvec = \twovec{E}{L}</m> to record
+	the required amounts of electricity and labor, find the matrix
+	<m>B</m> that defines the matrix transformation <m>S(\yvec) =
+	\zvec</m>. </p></li>
+
+	<li><p> If <m>\xvec = \threevec{30}{20}{10}</m> describes the
+	amounts of time that the three plants are operated, how much
+	milk and yogurt is produced?  How much electricity and labor
+	are required? </p></li>
+
+	<li><p> Find the matrix <m>C</m> that describes the matrix
+	transformation <m>R(\xvec)=\zvec</m> that gives the
+	required amounts of electricity and labor when the plants are
+	operated times given by vector <m>\xvec</m>. </p></li>
+      </ol></p>
+    </statement>
+
+    <solution>
+      <p><ol label="a.">
+	<li><p> We have
+	<me>
+	  \begin{alignedat}{4}
+	  M \amp {}={} \amp 20x_1 \amp {}+{} \amp 30 x_2 \amp 
+	  \amp \\
+	  Y \amp {}={} \amp 15x_1 \amp {}+{} \amp 5 x_2 \amp {}+{}
+	  \amp 40x_3\text{.} \\
+	  \end{alignedat}
+	</me>
+	</p></li>
+
+	<li><p> The first column of the matrix is
+	<m>T\left(\threevec{1}{0}{0}\right)=\twovec{20}{15}</m>.  This
+	shows us that the matrix is
+	<m>A = \left[\begin{array}{rrr}
+	20 \amp 30 \amp 0 \\
+	15 \amp 5 \amp 40 \\
+	\end{array}\right]</m>.
+	</p></li>
+
+	<li><p> We have
+	<me>
+	  \begin{alignedat}{3}
+	  E \amp {}={} \amp 5M\amp {}+{} \amp 6Y \\
+	  L \amp {}={} \amp 8M\amp {}+{} \amp 10Y\text{,} \\
+	  \end{alignedat}
+	</me>
+	which shows us that the matrix is
+	<m> B = \left[\begin{array}{rr}
+	5 \amp 6 \\
+	8 \amp 10 \\
+	\end{array}\right]</m>.
+	</p></li>
+
+	<li><p> <m>\twovec{M}{Y}=T\left(\threevec{30}{20}{10}\right) =
+	\twovec{1200}{950}</m> and 
+	<m>\twovec{E}{L}=S\left(T\left(\threevec{30}{20}{10}\right)\right)
+	= \twovec{11700}{19100}</m>.
+	</p></li>
+
+	<li><p> <m>C=BA = \left[\begin{array}{rrr}
+	190 \amp 180 \amp 240 \\
+	310 \amp 290 \amp 400 \\
+	\end{array}\right]</m>.
+	</p></li>
+      </ol></p>
+    </solution>
+
+    <answer>
+      <p><ol label="a.">
+	<li><p> 
+	<m>
+	  \begin{alignedat}{4}
+	  M \amp {}={} \amp 20x_1 \amp {}+{} \amp 30 x_2 \amp 
+	  \amp \\
+	  Y \amp {}={} \amp 15x_1 \amp {}+{} \amp 5 x_2 \amp {}+{}
+	  \amp 40x_3\text{.} \\
+	  \end{alignedat}
+	</m>
+	</p></li>
+
+	<li><p> 
+	<m>A = \left[\begin{array}{rrr}
+	20 \amp 30 \amp 0 \\
+	15 \amp 5 \amp 40 \\
+	\end{array}\right]</m>.
+	</p></li>
+
+	<li><p> 
+	<m> B = \left[\begin{array}{rr}
+	5 \amp 6 \\
+	8 \amp 10 \\
+	\end{array}\right]</m>.
+	</p></li>
+
+	<li><p> <m>\twovec{M}{Y}=T\left(\threevec{30}{20}{10}\right) =
+	\twovec{1200}{950}</m> and 
+	<m>\twovec{E}{L}=S\left(T\left(\threevec{30}{20}{10}\right)\right)
+	= \twovec{11700}{19100}</m>.
+	</p></li>
+
+	<li><p> <m>C=BA = \left[\begin{array}{rrr}
+	190 \amp 180 \amp 240 \\
+	310 \amp 290 \amp 400 \\
+	\end{array}\right]</m>.
+	</p></li>
+      </ol></p>
+    </answer>
+
+  </exercise>
+
+  <exercise>
+    <statement>
+      <p> Suppose that <m>T:\real^2\to\real^2</m> is a matrix
+      transformation and that
+      <me>
+	T\left(\twovec{1}{1}\right) = \twovec{3}{-2}, \qquad
+	T\left(\twovec{-1}{1}\right) = \twovec{1}{2}
+      </me>.
+      <ol label="a.">
+	<li><p> Find the vector
+	<m>T\left(\twovec{1}{0}\right)</m>. </p></li>
+
+	<li><p> Find the matrix <m>A</m> that defines
+	<m>T</m>. </p></li>
+
+	<li><p> Find the vector 
+	<m>T\left(\twovec{4}{-5}\right)</m>. </p></li>
+      </ol></p>
+    </statement>
+
+    <solution>
+      <p><ol label="a.">
+	<li><p> We first find weights <m>a</m> and <m>b</m> such that
+	<m>\twovec{1}{0} = a\twovec{1}{1} + b\twovec{-1}{1}</m> by
+	constructing the augmented matrix
+	<me>
+	  \left[\begin{array}{rrr}
+	  1 \amp -1 \amp 1 \\
+	  1 \amp 1 \amp 0
+	  \end{array}\right]
+	  \sim
+	  \left[\begin{array}{rrr}
+	  1 \amp 0 \amp \frac{1}{2} \\
+	  0 \amp 1 \amp -\frac{1}{2}
+	  \end{array}\right]\text{.}
+	</me>
+	This shows that <m>\twovec{1}{0} = \frac12\twovec{1}{1} -
+	\frac12\twovec{-1}{1}</m>.  Therefore,
+	<me>
+	  T\left(\twovec{1}{0}\right) =
+	  \frac12T\left(\twovec{1}{1}\right) -
+	  \frac12T\left(\twovec{-1}{1}\right) =
+	  \twovec{1}{-2}\text{.}
+	</me>
+	</p></li>
+
+	<li><p> In the same way, we find that
+	<me>
+	  T\left(\twovec{0}{1}\right) =
+	  \frac12T\left(\twovec{1}{1}\right) +
+	  \frac12T\left(\twovec{-1}{1}\right) =
+	  \twovec{2}{0}\text{.}
+	</me>
+	This gives the matrix <m>A=\left[\begin{array}{rr}
+	1 \amp 2 \\
+	-2 \amp 0 \\
+	\end{array}\right]</m>.
+	</p></li>
+
+	<li><p> Then <m>T\left(\twovec{4}{-5}\right) = A\twovec{4}{-5}
+	= \twovec{-6}{-8}</m>.
+	</p></li>
+
+      </ol></p>
+    </solution>
+	  
+    <answer>
+      <p><ol label="a.">
+	<li><p> 
+	<m>
+	  T\left(\twovec{1}{0}\right) =
+	  \twovec{1}{-2}
+	</m>.
+	</p></li>
+
+	<li><p> 
+	  <m>A=\left[\begin{array}{rr}
+	  1 \amp 2 \\
+	  -2 \amp 0 \\
+	  \end{array}\right]</m>.
+	</p></li>
+
+	<li><p> <m>T\left(\twovec{4}{-5}\right) 
+	= \twovec{-6}{-8}</m>.
+	</p></li>
+
+      </ol></p>
+    </answer>
+	  
+  </exercise>
+  
+  <exercise>
+    <statement>
+      <p> Suppose that two species <m>P</m> and <m>Q</m> 
+      interact with one another and that we measure their populations
+      every month.  We record their populations in a state vector
+      <m>\xvec = \twovec{p}{q}</m>, where <m>p</m> and <m>q</m> are
+      the populations of <m>P</m> and <m>Q</m>, respectively.  We
+      observe that there is a matrix
+      <me>
+	A = \left[\begin{array}{rr}
+	0.8 \amp 0.3 \\
+	0.7 \amp 1.2 \\
+	\end{array}\right]
+      </me>
+      such that the matrix transformation
+      <m>T(\xvec)=A\xvec</m> is the transition function
+      describing how the state vector evolves from month to month.  We
+      also observe that, at the beginning of July, the populations are
+      described by the state vector <m>\xvec=\twovec{1}{2}</m>.
+      <sage>
+	<input>
+	</input>
+      </sage>
+      <ol label="a.">
+	<li><p> What will the populations be at the beginning of
+	August? </p></li>
+
+	<li><p> What were the populations at the beginning of June?
+	</p></li>
+
+	<li><p> What will the populations be at the beginning of
+	December?  </p></li>
+
+	<li><p> What will the populations be at the beginning of July
+	in the following year? </p></li>
+      </ol></p>
+
+    </statement>
+
+    <solution>
+      <p> The initial state is the vector <m>\xvec_0=\twovec{1}{2}</m>.
+      <ol label="a.">
+	<li><p> At the beginning of August, we have <m>\xvec_1 =
+	A\xvec_0 = \twovec{1.4}{3.1}</m>.
+	</p></li>
+
+	<li><p> At the beginning of June, we have <m>A\xvec_{-1} =
+	\xvec_0</m>.  Solving this equation gives
+	<m>\xvec_{-1}=\twovec{0.8}{1.2}</m>.
+	</p></li>
+
+	<li><p> At the beginning of December, we have
+	<m>\xvec_5=A^5\xvec_0 = \twovec{6.8}{15.9}</m>.
+	</p></li>
+
+	<li><p> At the beginning of July in the following year, we
+	have <m>\xvec_{12} = A^12\xvec_0 = \twovec{116.8}{272.5}</m>.
+	</p></li>
+      </ol></p>
+    </solution>
+	
+    <answer>
+      <p> 
+      <ol label="a.">
+	<li><p> <m>\twovec{1.4}{3.1}</m>.
+	</p></li>
+
+	<li><p> <m>\twovec{0.8}{1.2}</m>.
+	</p></li>
+
+	<li><p> <m>\twovec{6.8}{15.9}</m>.
+	</p></li>
+
+	<li><p> <m>\twovec{116.8}{272.5}</m>.
+	</p></li>
+      </ol></p>
+    </answer>
+	
+  </exercise>
+
+  <exercise>
+    <statement>
+      <p> Students in a school are sometimes absent due to
+      an illness.  Suppose that
+      <ul>
+	<li><p> 95<percent /> of the students who attend school will attend
+	school the next day. </p></li>
+
+	<li><p> 50<percent /> of the students are absent one day will be absent
+	the next day. </p></li>
+
+      </ul>
+      We will record the number of present students <m>p</m> and the
+      number of absent students <m>a</m> in a state vector
+      <m>\xvec=\twovec{p}{a}</m>.  On Tuesday, the state vector is
+      <m>\xvec=\ctwovec{1700}{100}</m>.  The state vector evolves from
+      one day to the next according to the transition function
+      <m>T:\real^2\to\real^2</m>. 
+      <ol label="a.">
+	<li><p> Suppose we initially have 1000 students who are
+	present and none absent.  Find
+	<m>T\left(\ctwovec{1000}{0}\right)</m>.  </p></li>
+
+	<li><p> Suppose we initially have 1000 students who are
+	absent and none present.  Find
+	<m>T\left(\ctwovec{0}{1000}\right)</m>.  </p></li>
+
+	<li><p> Use the results of parts a and b to find the matrix
+	<m>A</m> that defines the matrix 
+	transformation <m>T</m>. </p></li>
+
+	<li><p> If <m>\xvec=\ctwovec{1700}{100}</m> on Tuesday, how
+	are the students distributed on Wednesday? </p></li>
+
+	<li><p> How many students were present on Monday? </p></li>
+
+	<li><p> How many students are present on the following
+	Tuesday? </p></li>
+
+	<li><p> What happens to the number of students who are present
+	after a very long time? </p></li>
+      </ol></p>
+    </statement>
+  </exercise>
+
+  <solution>
+    <p><ol label="a.">
+      <li><p> <m>T\left(\twovec{1000}{0}\right) = \twovec{950}{0}</m>
+      so that <m>T\left(\twovec{1}{0}\right) = \twovec{0.95}{0}</m>.
+      </p></li>
+
+      <li><p> <m>T\left(\twovec{0}{1000}\right) = \twovec{500}{500}</m>
+      so that <m>T\left(\twovec{1}{0}\right) = \twovec{0.5}{0.5}</m>.
+      </p></li>
+
+      <li><p> The matrix <m>A=\left[\begin{array}{rr}0.95 \amp 0.50 \\
+      0.05 \amp 0.50 \\
+      \end{array}\right]</m>.
+      </p></li>
+
+      <li><p> <m>T(\xvec) = A\xvec = \twovec{1665}{135}</m> meaning
+      that 1665 students are present and 135 are absent.
+      </p></li>
+
+      <li><p> We want to solve the equation <m>T(\xvec) =
+      A\xvec=\twovec{1700}{100}</m>, which gives <m>\xvec =
+      \twovec{1778}{22}</m>.  There were 1778 students present on Monday.
+      </p></li>
+
+      <li><p> The following Tuesday, the state will be described by
+      the vector <m>A^7\twovec{1700}{100} = \twovec{1636}{163}</m>.
+      This means that there were 1636 students present the following
+      Tuesday. 
+      </p></li>
+
+      <li><p> If we compute <m>A^k\twovec{1700}{100}</m> for some
+      large powers <m>k</m>, we find that there are about 1636
+      students present every day after a very long time.
+      </p></li>
+    </ol></p>
+  </solution>
+
+  <answer>
+    <p><ol label="a.">
+      <li><p> <m>T\left(\twovec{1000}{0}\right) = \twovec{950}{0}</m>
+      </p></li>
+
+      <li><p> <m>T\left(\twovec{0}{1000}\right) = \twovec{500}{500}</m>
+      </p></li>
+
+      <li><p> <m>A=\left[\begin{array}{rr}0.95 \amp 0.50 \\
+      0.05 \amp 0.50 \\
+      \end{array}\right]</m>.
+      </p></li>
+
+      <li><p> There are 1665 students present and 135 absent.
+      </p></li>
+
+      <li><p> 1778
+      </p></li>
+
+      <li><p> 1636
+      </p></li>
+
+      <li><p> It stabilizes around 1636 students present.
+      </p></li>
+    </ol></p>
+  </answer>
+
+</exercises>
+  

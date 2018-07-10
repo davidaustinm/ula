@@ -1,0 +1,910 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<exercises>
+
+  <exercise>
+    <statement>
+      <p> Shown in <xref ref="fig-ex-basis" /> are two vectors
+      <m>\vvec_1</m> and <m>\vvec_2</m> in the plane <m>\real^2</m>.
+      </p>
+
+      <figure xml:id="fig-ex-basis">
+	<sidebyside width="45%">
+	  <image source="images/ex-basis" />
+	</sidebyside>
+	<caption>
+	  Vectors <m>\vvec_1</m> and <m>\vvec_2</m> in
+	  <m>\real^2</m>.
+	</caption>
+      </figure>
+
+      <p><ol label="a.">
+	<li><p> Explain why <m>\bcal=\{\vvec_1,\vvec_2\}</m> is a
+	basis for <m>\real^2</m>. </p></li>
+
+	<li><p> Using <xref ref="fig-ex-basis" />, indicate the
+	vectors <m>\xvec</m> such that
+	<ol label="i.">
+	  <li><p> <m>\coords{\xvec}{\bcal} = \twovec{2}{-1}</m>
+	  </p></li>
+	  <li><p> <m>\coords{\xvec}{\bcal} = \twovec{-1}{-2}</m>
+	  </p></li>
+	  <li><p> <m>\coords{\xvec}{\bcal} = \twovec{0}{3}</m>
+	  </p></li>
+	</ol></p></li>
+
+	<li><p> Using <xref ref="fig-ex-basis" />, find the
+	representation <m>\coords{\xvec}{\bcal}</m> if
+	<ol label="i.">
+	  <li><p> <m>\xvec = \twovec{-2}{-1}</m>.  </p></li>
+	  <li><p> <m>\xvec = \twovec{2}{4}</m>.  </p></li>
+	  <li><p> <m>\xvec = \twovec{2}{-5}</m>.  </p></li>
+	</ol></p></li>
+
+	<li><p> Find <m>\coords{\xvec}{\bcal}</m> if
+	<m>\xvec=\twovec{60}{90}</m>. </p></li>
+      </ol></p>
+    </statement>
+
+    <solution>
+      <p><ol label="a.">
+	<li><p>
+	  The vectors are linearly independent and span <m>\real^2</m>.
+	  We can see this by forming the matrix
+	  <me>
+	    \left[\begin{array}{rr}
+	    \vvec_1 \amp \vvec_2
+	    \end{array}\right]
+	    =
+	    \left[\begin{array}{rr}
+	    -2 \amp 2 \\
+	    2 \amp 1 \\
+	    \end{array}\right]
+	    \sim
+	    \left[\begin{array}{rr}
+	    1 \amp 0 \\
+	    0 \amp 1 \\
+	    \end{array}\right]\text{.}
+	  </me>
+	</p></li>
+
+	<li><p> The grid on the figure indicates that
+	<ol label="i.">
+	  <li><p> <m>\xvec = \twovec{-6}{3}</m>. </p></li>
+	  <li><p> <m>\xvec = \twovec{-2}{-4}</m>. </p></li>
+	  <li><p> <m>\xvec = \twovec{-6}{6}</m>. </p></li>
+	</ol>
+	</p></li>
+
+	<li><p> The grid on the figure indicates that
+	<ol label="i.">
+	  <li><p> <m>\coords{\xvec}{\bcal} = \twovec{0}{-1}</m>. </p></li> 
+	  <li><p> <m>\coords{\xvec}{\bcal} = \twovec{1}{2}</m>. </p></li> 
+	  <li><p> <m>\coords{\xvec}{\bcal} = \twovec{-2}{-1}</m>. </p></li>
+	</ol>
+	</p></li>
+
+	<li><p> 
+	  We can form the matrix
+	  <me>C_{\bcal}=\left[\begin{array}{rr}
+	  \vvec_1 \amp \vvec_2 \end{array}\right]
+	  = \left[\begin{array}{rr}
+	  -2 \amp 2 \\
+	  2 \amp 1 \\
+	  \end{array}\right]
+	  </me>
+	  so that <m>\xvec=C_{\bcal}\coords{\xvec}{\bcal}</m>.  We
+	  then need to solve the equation
+	  <m>C_{\bcal}\coords{\xvec}{\bcal} = \twovec{60}{90}</m>.
+	  This gives <m>\coords{\xvec}{\bcal} = \twovec{20}{50}</m>.
+	</p></li>
+      </ol></p>
+    </solution>
+	  
+    <answer>
+      <p><ol label="a.">
+	<li><p>
+	  The vectors are linearly independent and span
+	  <m>\real^2</m>.
+	</p></li>
+
+	<li><p> The grid on the figure indicates that
+	<ol label="i.">
+	  <li><p> <m>\xvec = \twovec{-6}{3}</m>. </p></li>
+	  <li><p> <m>\xvec = \twovec{-2}{-4}</m>. </p></li>
+	  <li><p> <m>\xvec = \twovec{-6}{6}</m>. </p></li>
+	</ol>
+	</p></li>
+
+	<li><p> The grid on the figure indicates that
+	<ol label="i.">
+	  <li><p> <m>\coords{\xvec}{\bcal} = \twovec{0}{-1}</m>. </p></li> 
+	  <li><p> <m>\coords{\xvec}{\bcal} = \twovec{1}{2}</m>. </p></li> 
+	  <li><p> <m>\coords{\xvec}{\bcal} = \twovec{-2}{-1}</m>. </p></li>
+	</ol>
+	</p></li>
+
+	<li><p> 
+	  <m>\coords{\xvec}{\bcal} = \twovec{20}{50}</m>.
+	</p></li>
+      </ol></p>
+    </answer>
+	  
+  </exercise>
+
+  <exercise>
+    <statement>
+      <p> Consider vectors
+      <me>\begin{aligned}
+      \vvec_1=\twovec{1}{2}, \amp \vvec_2=\twovec{1}{-3} \\
+      \wvec_1=\twovec{2}{3}, \amp \wvec_2=\twovec{-1}{-2} \text{.} \\
+      \end{aligned}
+      </me>
+      and let <m>\bcal = \{\vvec_1,\vvec_2\}</m> and <m>\ccal =
+      \{\wvec_1,\wvec_2\}</m>.
+      <ol label="a.">
+	<li><p> Explain why <m>\bcal</m> and <m>\ccal</m> are both
+	bases of <m>\real^2</m>. </p></li>
+
+	<li><p> If <m>\xvec = \twovec{5}{-3}</m>, find
+	<m>\coords{\xvec}{\bcal}</m> and
+	<m>\coords{\xvec}{\ccal}</m>. </p> </li>
+
+	<li><p> If <m>\coords{\xvec}{\bcal}=\twovec{2}{-4}</m>, find
+	<m> \xvec</m> and <m>\coords{\xvec}{\ccal}</m>. </p></li>
+      
+	<li><p> If <m>\coords{\xvec}{\ccal}=\twovec{-3}{2}</m>, find
+	<m> \xvec</m> and <m>\coords{\xvec}{\bcal}</m>. </p></li>
+
+	<li><p> Find a matrix <m>D</m> such that
+	<m>\coords{\xvec}{\bcal} = D\coords{\xvec}{\ccal}</m>.
+	</p></li>
+      </ol></p>
+    </statement>
+
+    <solution>
+      <p><ol label="a.">
+	<li><p> In both cases, we see that
+	<me>
+	  C_{\bcal}=\left[\begin{array}{rr}
+	  \vvec_1\amp\vvec_2
+	  \end{array}\right]
+	  \sim
+	  \left[\begin{array}{rr}
+	  1\amp0\\
+	  0\amp1\\
+	  \end{array}\right],
+	  C_{\ccal}=\left[\begin{array}{rr}
+	  \wvec_1\amp\wvec_2
+	  \end{array}\right]
+	  \sim
+	  \left[\begin{array}{rr}
+	  1\amp0\\
+	  0\amp1\\
+	  \end{array}\right]
+	</me>
+	so that both sets of vectors are linearly independent and span
+	<m>\real^2</m>.
+	</p></li>
+
+	<li><p> We solve <m>C_{\bcal}\coords{\xvec}{\bcal} = \xvec</m>
+	and <m>C_{\ccal}\coords{\xvec}{\ccal} = \xvec</m> to find
+	<m>\coords{\xvec}{\bcal}=\twovec{12/5}{13/5}</m> and
+	<m>\coords{\xvec}{\ccal}=\twovec{13}{21}</m>.
+	</p></li>
+
+	<li><p> We have <m>\xvec=C_{\bcal}\coords{\xvec}{\bcal} =
+	\twovec{-2}{16}</m>.  We then solve
+	<m>C_{\ccal}\coords{\xvec}{\ccal} = \twovec{-2}{16}</m> to
+	find <m>\coords{\xvec}{\ccal}=\twovec{-20}{-38}</m>.
+	</p></li>
+
+	<li><p> In the same way, we find <m>\xvec=\twovec{-8}{-13}</m>
+	and <m>\coords{\xvec}{\ccal}=\twovec{-37/5}{-3/5}</m>.
+	</p></li>
+
+	<li><p> We have <m>\coords{\xvec}{\bcal} =
+	C_{\bcal}^{-1}\xvec = 
+	C_{\bcal}^{-1}C_{\ccal}\coords{\xvec}{\ccal}</m>,
+	which shows that <m>D = 
+	C_{\bcal}^{-1}C_{\ccal}=
+	\left[\begin{array}{rr}
+	\frac95 \amp -1 \\
+	\frac15 \amp 0 \\
+	\end{array}\right]
+	</m>.
+	</p></li>
+      </ol></p>
+    </solution>
+	  
+    <answer>
+      <p><ol label="a.">
+	<li><p> The sets of the vectors are both
+	linearly independent and span <m>\real^2</m>.
+	</p></li>
+
+	<li><p> 
+	<m>\coords{\xvec}{\bcal}=\twovec{12/5}{13/5}</m> and
+	<m>\coords{\xvec}{\ccal}=\twovec{13}{21}</m>.
+	</p></li>
+
+	<li><p> <m>\xvec=
+	\twovec{-2}{16}</m> and
+	<m>\coords{\xvec}{\ccal}=\twovec{-20}{-38}</m>.
+	</p></li>
+
+	<li><p> <m>\xvec=\twovec{-8}{-13}</m>
+	and <m>\coords{\xvec}{\ccal}=\twovec{-37/5}{-3/5}</m>.
+	</p></li>
+
+	<li><p>
+	  <m>D = 
+	  \left[\begin{array}{rr}
+	  \frac95 \amp -1 \\
+	  \frac15 \amp 0 \\
+	  \end{array}\right]
+	  </m>.
+	</p></li>
+      </ol></p>
+    </answer>
+	  
+  </exercise>
+      
+  <exercise>
+    <statement>
+      <p> Consider the following vectors in <m>\real^4</m>:
+      <me>
+	\vvec_1 = \fourvec{1}{1}{1}{1},
+	\vvec_2 = \fourvec{0}{1}{1}{1},
+	\vvec_3 = \fourvec{0}{0}{1}{1},
+	\vvec_4 = \fourvec{0}{0}{0}{1}
+      </me>.
+      <ol label="a.">
+	<li><p> Explain why
+	<m>\bcal=\{\vvec_1,\vvec_2,\vvec_3,\vvec_4\}</m> forms a basis
+	for <m>\real^4</m>. </p></li>
+
+	<li><p> Explain how to convert <m>\coords{\xvec}{\bcal}</m>,
+	the representation of a vector <m>\xvec</m> in the coordinates
+	defined by <m>\bcal</m>, into <m>\xvec</m>, its representation
+	in the standard coordinate system. </p></li>
+
+	<li><p> Explain how to convert the vector <m>\xvec</m> into,
+	<m>\coords{\xvec}{\bcal}</m>, 
+	its representation in the coordinate system defined by
+	<m>\bcal</m>. </p></li>
+
+	<li><p> If <m>\xvec=\fourvec{23}{12}{10}{19}</m>, find
+	<m>\coords{\xvec}{\bcal}</m>. </p></li>
+
+	<li><p> If <m>\coords{\xvec}{\bcal}=\fourvec{3}{1}{-3}{-4}</m>, find
+	<m>\xvec</m>. </p></li>
+      </ol></p>
+    </statement>
+
+    <solution>
+      <p><ol label="a.">
+	<li><p> Form the matrix
+	<me>
+	  C_{\bcal} =
+	  \left[\begin{array}{rrrr}
+	  1 \amp 0 \amp 0 \amp 0 \\
+	  1 \amp 1 \amp 0 \amp 0 \\
+	  1 \amp 1 \amp 1 \amp 0 \\
+	  1 \amp 1 \amp 1 \amp 1
+	  \end{array}\right]
+	  \sim
+	  \left[\begin{array}{rrrr}
+	  1 \amp 0 \amp 0 \amp 0 \\
+	  0 \amp 1 \amp 0 \amp 0 \\
+	  0 \amp 0 \amp 1 \amp 0 \\
+	  0 \amp 0 \amp 0 \amp 1
+	  \end{array}\right]\text{,}
+	</me>
+	which shows that the vectors are linearly independent and span
+	<m>\real^4</m>.
+	</p></li>
+
+	<li><p> We have <m>\xvec = C_{\bcal}\coords{\xvec}{\bcal}</m>.
+	</p></li>
+
+	<li><p> We have <m>\coords{\xvec}{\bcal} =
+	C_{\bcal}^{-1}\xvec</m> where
+	<me>
+	  C_{\bcal}^{-1} = 
+	  \left[\begin{array}{rrrr}
+	  1 \amp 0 \amp 0 \amp 0 \\
+	  -1 \amp 1 \amp 0 \amp 0 \\
+	  0 \amp -1 \amp 1 \amp 0 \\
+	  0 \amp 0 \amp -1 \amp 1
+	  \end{array}\right]\text{.}
+	</me>
+	</p></li>
+
+	<li><p>
+	  We find
+	  <m>\coords{\xvec}{\bcal}=\fourvec{23}{-11}{-2}{9}</m>.
+	</p></li>
+
+	<li><p>
+	  We find
+	  <m>\xvec=\fourvec{3}{4}{1}{-3}</m>.
+	</p></li>
+      </ol></p>
+    </solution>
+	
+    <answer>
+      <p><ol label="a.">
+	<li><p>
+	  The vectors are linearly independent and span
+	  <m>\real^4</m>.
+	</p></li>
+
+	<li><p> We have <m>\xvec = C_{\bcal}\coords{\xvec}{\bcal}</m>.
+	</p></li>
+
+	<li><p> We have <m>\coords{\xvec}{\bcal} =
+	C_{\bcal}^{-1}\xvec</m>.
+	</p></li>
+
+	<li><p>
+	  <m>\coords{\xvec}{\bcal}=\fourvec{23}{-11}{-2}{9}</m>.
+	</p></li>
+
+	<li><p>
+	  <m>\xvec=\fourvec{3}{4}{1}{-3}</m>.
+	</p></li>
+      </ol></p>
+    </answer>
+	
+  </exercise>
+
+  <exercise>
+    <statement>
+      <p> Consider the following vectors in <m>\real^3</m>:
+      <me>
+	\vvec_1=\threevec{1}{3}{2},
+	\vvec_2=\threevec{0}{1}{4},
+	\vvec_3=\threevec{-2}{-5}{0},
+	\vvec_4=\threevec{-2}{-1}{-1},
+	\vvec_5=\threevec{1}{-2}{-1}
+      </me>.
+      <ol label="a.">
+	<li><p> Do these vectors form a basis for <m>\real^3</m>?
+	Explain your thinking.
+	<sage>
+	  <input>
+	  </input>
+	</sage>
+	</p></li>
+
+	<li><p> Find a subset of these vectors that forms a basis of
+	<m>\real^3</m>.  </p></li>
+
+	<li><p> Suppose you have a set of vectors <m>\vvec_1,
+	\vvec_2,\ldots,\vvec_6</m> in <m>\real^4</m> such
+	<me>
+	  \left[\begin{array}{rrrr}
+	  \vvec_1 \amp \vvec_2 \amp \ldots \amp \vvec_6
+	  \end{array}\right]
+	  \sim
+	  \left[\begin{array}{rrrrrr}
+	  1 \amp 0 \amp -2 \amp 0 \amp 1 \amp 0 \\
+	  0 \amp 1 \amp 3 \amp 0 \amp -4 \amp 0 \\
+	  0 \amp 0 \amp 0 \amp 1 \amp 2 \amp 0 \\
+	  0 \amp 0 \amp 0 \amp 0 \amp 0 \amp 1 \\
+	  \end{array}\right]
+	</me>.
+	Find a subset of the vectors that span
+	<m>\real^4</m>. </p></li>
+      </ol></p>
+    </statement>
+
+    <solution>
+      <p><ol label="a.">
+	<li><p> Looking at the reduced row echelon form, we find
+	<me>
+	  \left[\begin{array}{rrrrr}
+	  \vvec_1 \amp 
+	  \vvec_2 \amp 
+	  \vvec_3 \amp 
+	  \vvec_4 \amp 
+	  \vvec_5 \\
+	  \end{array}\right]
+	  \sim
+	  \left[\begin{array}{rrrrr}
+	  1 \amp 0 \amp - 2 \amp 0 \amp -1 \\
+	  0 \amp 1 \amp 1 \amp 0 \amp 0 \\
+	  0 \amp 0 \amp 0 \amp 1 \amp -1 \\
+	  \end{array}\right]\text{.}
+	</me>
+	This shows that the vectors are not linearly independent since
+	there is not a pivot position in every column.  Therefore, the
+	set of vectors does not form a basis for <m>\real^3</m>.  Of
+	course, we also know this because a set of vectors for
+	<m>\real^3</m> must contain exactly three vectors.
+	</p></li>
+
+	<li><p> From the reduced row echelon form, we see that the set
+	of vectors spans <m>\real^3</m> because there is a pivot
+	position in every row.  We also see that
+	<m>\vvec_3 = -2\vvec_1+\vvec_2</m> and <m>\vvec_5 =
+	-\vvec_1-\vvec_4</m>.  This means that <m>\vvec_1</m>,
+	<m>\vvec_2</m>, and <m>\vvec_4</m> will span <m>\real^3</m>
+	and therefore form a basis.
+	</p></li>
+
+	<li><p> In the same way, we see that <m>\vvec_1</m>,
+	<m>\vvec_2</m>, <m>\vvec_4</m>, and <m>\vvec_6</m> for a basis
+	for <m>\real^4</m>.
+	</p></li>
+      </ol></p>
+    </solution>
+
+    <answer>
+      <p><ol label="a.">
+	<li><p> No, because a basis for <m>\real^3</m> must contain
+	exactly three vectors.
+	</p></li>
+
+	<li><p>
+	  <m>\vvec_1</m>,
+	  <m>\vvec_2</m>, and <m>\vvec_4</m>.
+	</p></li>
+
+	<li><p> <m>\vvec_1</m>,
+	<m>\vvec_2</m>, <m>\vvec_4</m>, and <m>\vvec_6</m>.
+	</p></li>
+      </ol></p>
+    </answer>
+
+  </exercise>
+
+  <exercise>
+    <statement>
+      <p> This exercise involves a simple Fourier transform, which
+      will play an important role in the next section.
+      </p>
+
+      <p>
+	Suppose that we have the vectors
+      <me>
+	\vvec_1=\threevec{1}{1}{1},
+	\vvec_2=\threevec{\cos\left(\frac\pi6\right)}
+	{\cos\left(\frac{3\pi}6\right)}
+	{\cos\left(\frac{5\pi}6\right)}
+	\vvec_3=\threevec{\cos\left(\frac{2\pi}6\right)}
+	{\cos\left(\frac{6\pi}6\right)}
+	{\cos\left(\frac{10\pi}6\right)}
+      </me>.
+      <ol label="a.">
+	<li><p> Explain why <m>\bcal=\{\vvec_1,\vvec_2,\vvec_3\}</m>
+	is a basis for <m>\real^3</m>.
+	<sage>
+	  <input>
+	  </input>
+	</sage>
+	</p></li>
+
+	<li><p> If <m>\xvec=\threevec{15}{15}{15}</m>, find
+	<m>\coords{\xvec}{\bcal}</m>. </p></li>
+
+	<li><p> Find the matrices <m>C_{\bcal}</m> and
+	<m>C_{\bcal}^{-1}</m>.  If
+	<m>\xvec=\threevec{x_1}{x_2}{x_3}</m> and
+	<m>\coords{\xvec}{\bcal} = \threevec{c_1}{c_2}{c_3}</m>,
+	explain why <m>c_1</m> is the average of <m>x_1</m>,
+	<m>x_2</m>, and <m>x_3</m>. </p></li>
+      </ol>
+      </p>
+    </statement>
+
+    <solution>
+      <p><ol label="a.">
+	<li><p> By forming the matrix
+	<m>C_{\bcal}=\left[\begin{array}{rrr}
+	\vvec_1 \amp \vvec_2 \amp \vvec_3 \end{array}\right]</m> and
+	finding its reduced row echelon form, we see that the vectors
+	are linearly independent and span <m>\real^3</m>.  They
+	therefore form a basis of <m>\real^3</m>.
+	</p></li>
+
+	<li><p> We solve <m>C_{\bcal}\coords{\xvec}{\bcal} = \xvec</m>
+	to find <m>\coords{\xvec}{\bcal} = \threevec{15}{0}{0}</m>.
+	</p></li>
+
+	<li><p>
+	  We have
+	  <me>
+	    C_{\bcal}=
+	    \left[\begin{array}{rrr}
+	    1 \amp \frac{\sqrt{3}}{2} \amp \frac{1}{2} \\
+	    1 \amp 0 \amp -1 \\
+	    1 \amp -\frac{\sqrt{3}}{2} \amp \frac{1}{2}
+	    \end{array}\right],
+	    C_{\bcal}^{-1}=
+	    \left[\begin{array}{rrr}
+	    \frac{1}{3} \amp \frac{1}{3} \amp \frac{1}{3} \\
+	    \frac{\sqrt{3}}{3} \amp 0 \amp -\frac{\sqrt{3}}{3} \\
+	    \frac{1}{3} \amp -\frac{2}{3} \amp \frac{1}{3}
+	    \end{array}\right]\text{.}
+	  </me>
+	  Since we have
+	  <m>\coords{\xvec}{\bcal}=C_{\bcal}^{-1}\xvec</m>, we have
+	  <m>c_1=\frac13 x_1 + \frac13 x_2 + \frac13 x_3 =
+	  \frac13(x_1+x_2+x_3)
+	  </m>.
+	</p></li>
+      </ol></p>
+    </solution>
+	
+    <answer>
+      <p><ol label="a.">
+	<li><p>
+	  The vectors
+	  are linearly independent and span <m>\real^3</m>.  
+	</p></li>
+
+	<li><p> <m>\coords{\xvec}{\bcal} = \threevec{15}{0}{0}</m>.
+	</p></li>
+
+	<li><p>
+	  Since we have
+	  <m>\coords{\xvec}{\bcal}=C_{\bcal}^{-1}\xvec</m>, we have
+	  <m>c_1=\frac13 x_1 + \frac13 x_2 + \frac13 x_3 =
+	  \frac13(x_1+x_2+x_3)
+	  </m>.
+	</p></li>
+      </ol></p>
+    </answer>
+	
+  </exercise>
+	
+  <exercise>
+    <statement>
+      <p>
+      Determine whether the following statements are true or false and
+      provide a justification for your response.
+      <ol label="a.">
+	<li><p> If the columns of a matrix <m>A</m> form a basis for
+	<m>\real^m</m>, then <m>A</m> is invertible. </p></li>
+
+	<li><p> There must be 125 vectors in a basis for
+	<m>\real^{125}</m>. </p></li>
+
+	<li><p> If <m>\bcal=\{\vvec_1,\vvec_2,\ldots,\vvec_n\}</m> is
+	a basis of <m>\real^m</m>, then 
+	every vector in <m>\real^m</m> can be expressed as a linear
+	combination of basis vectors. </p></li>
+
+	<li><p> The coordinates <m>\coords{\xvec}{\bcal}</m> are the
+	weights that form <m>\xvec</m> as a linear combination of
+	basis vectors. </p></li>
+
+	<li><p> If the basis vectors form the columns of the matrix
+	<m>C_{\bcal}</m>, then <m>\coords{\xvec}{\bcal} =
+	C_{\bcal}\xvec</m>. </p></li>
+      </ol>
+      </p>
+    </statement>
+
+    <solution>
+      <p><ol label="a.">
+	<li><p>
+	  True.  If the columns of <m>A</m> form a basis, then
+	  <m>A</m> has a pivot position in every row and every
+	  column.  Therefore, the reduced row echelon form of <m>A</m>
+	  is the identity matrix, which implies that <m>A</m> is
+	  invertible.
+	</p></li>
+
+	<li><p>
+	  True.  The number of vectors in a basis of <m>\real^m</m>
+	  must be <m>m</m>.
+	</p></li>
+
+	<li><p>
+	  True.  If <m>\bcal</m> is a basis, then the vectors in
+	  <m>\bcal</m> span <m>\real^m</m>, which means that every
+	  vector in <m>\real^m</m> can be written as a linear
+	  combination of the vectors in <m>\bcal</m>.
+	</p></li>
+
+	<li><p>
+	  True.  This is the definition of
+	  <m>\coords{\xvec}{\bcal}</m>.
+	</p></li>
+
+	<li><p>
+	  False.  The relationship is
+	  <m>\xvec=C_{\bcal}\coords{\xvec}{\bcal}</m>.
+	</p></li>
+
+      </ol></p>
+    </solution>
+
+    <answer>
+      <p><ol label="a.">
+	<li><p> True </p></li>
+	<li><p> True </p></li>
+	<li><p> True </p></li>
+	<li><p> True </p></li>
+	<li><p> False </p></li>
+      </ol></p>
+    </answer>
+	  
+  </exercise>
+
+  <exercise>
+    <statement>
+      <p>  Provide a justification for your response to each of the
+      following questions.
+      <ol label="a.">
+	<li><p> Suppose you have <m>m</m> linearly independent
+	vectors in <m>\real^m</m>.  Can you guarantee that they form a
+	basis of <m>\real^m</m>? </p></li>
+
+	<li><p> If <m>A</m> is an invertible <m>m\times m</m> matrix,
+	do the columns necessarily form a basis of <m>\real^m</m>?
+	</p></li>
+
+	<li><p> Suppose we have an invertible <m>m\times m</m> matrix
+	<m>A</m>, and we perform a sequence of row operations on
+	<m>A</m> to form a matrix <m>B</m>.  Can you guarantee that
+	the columns of <m>B</m> form a basis for <m>\real^m</m>?
+	</p></li>
+      </ol></p>
+    </statement>
+
+    <solution>
+      <p><ol label="a.">
+	<li><p>
+	  Yes.  A matrix formed from <m>m</m> linearly independent
+	  vectors in <m>\real^m</m> will have a pivot position in
+	  every column.  Since the matrix has the same number of rows
+	  and columns, there must also be a pivot position in every
+	  row.  This means that the vectors span <m>\real^m</m> and
+	  therefore form a basis.
+	</p></li>
+
+	<li><p>
+	  Yes.  An invertible matrix is row
+	  equivalent to the identity 
+	  matrix, which means that the columns are linearly
+	  independent and span <m>\real^m</m>.  This implies that the
+	  columns form a basis of <m>\real^m</m>.
+	</p></li>
+
+	<li><p>
+	  Yes.  The matrix <m>A</m> is row equivalent to the identity
+	  matrix 
+	  so <m>B</m> must be as well.  This means that the columns of
+	  <m>B</m> form a basis for <m>\real^m</m>.
+	</p></li>
+      </ol></p>
+    </solution>
+
+    <answer>
+      <p><ol label="a.">
+	<li><p> Yes </p></li>
+	<li><p> Yes </p></li>
+	<li><p> Yes </p></li>
+      </ol></p>
+    </answer>
+  </exercise>
+
+  <exercise>
+    <statement>
+      <p> Crystallographers find it convenient to use coordinate
+      systems that are adapted to the specific geometry of a crystal.
+      As a two-dimensional example, consider a layer of
+      graphite in which carbon atoms are arranged in regular hexagons
+      to form the crystalline structure shown in <xref
+      ref="fig-ex-graphite" />.
+      </p>
+
+      <figure xml:id="fig-ex-graphite">
+	<sidebyside width="50%">
+	  <image source="images/ex-graphite" />
+	</sidebyside>
+	<caption>
+	  A layer of carbon atoms in a graphite crystal.
+	</caption>
+      </figure>
+
+      <p> The origin of the coordinate system is at the carbon atom
+      labeled by <q>0</q>.  It is convenient to choose the basis
+      <m>\bcal</m> defined by the vectors <m>\vvec_1</m> and
+      <m>\vvec_2</m> and the coordinate system it defines.
+      </p>
+
+      <p><ol label="a.">
+	<li><p> Locate the points <m>\xvec</m> for which
+	<ol label="i.">
+	  <li><p> <m>\coords{\xvec}{\bcal} = \twovec{1}{0}</m>, </p></li>
+	  <li><p> <m>\coords{\xvec}{\bcal} = \twovec{0}{1}</m>, </p></li>
+	  <li><p> <m>\coords{\xvec}{\bcal} =
+	  \twovec{2}{1}</m>. </p></li>
+	</ol>
+	</p></li>
+
+	<li><p> Find the coordinates <m>\coords{\xvec}{\bcal}</m> for
+	all the carbon atoms in the hexagon whose lower left vertex is
+	labeled <q>0</q>. </p></li>
+
+	<li><p> What are the coordinates <m>\coords{\xvec}{\bcal}</m>
+	of the center of that hexagon, which is labeled <q>C</q>? </p></li>
+
+	<li><p> How do the coordinates of the atoms in the hexagon
+	whose lower left corner is labeled <q>1</q> compare to the
+	coordinates in the hexagon whose lower left corner is labeled
+	"0"? </p></li>
+
+	<li><p> Does the point <m>\xvec</m> whose coordinates are
+	<m>\coords{\xvec}{\bcal} = \twovec{16}{4}</m> correspond to a
+	carbon atom or the center of a hexagon? </p></li>
+	</ol></p>
+    </statement>
+
+    <solution>
+      <p><ol label="a.">
+	<li><p>
+	  The points are indicated in the figure.
+	  <sidebyside width="50%">
+	    <image source="images/ex-graphite-sol" />
+	  </sidebyside>
+	</p></li>
+
+	<li><p> Moving counterclockwise around the hexagon, the
+	coordinates are
+	<me>\coords{\xvec}{\bcal} = 
+	\twovec{0}{0}, \twovec{1}{0}, \twovec{2}{1}, \twovec{2}{2},
+	\twovec{1}{2}, \twovec{0}{1}\text{.}
+	</me>
+	</p></li>
+
+	<li><p> <m>\coords{\xvec}{\bcal} = \twovec{1}{1}</m>.
+	</p></li>
+
+	<li><p> We obtain the coordinates for the hexagon with the
+	vertex labeled <q>1</q> by adding the coordinate expression of
+	the point <q>1</q>, which is
+	<m>\coords{\xvec}{\bcal}=\twovec{4}{2}</m> to those of the
+	original hexagon.
+	</p></li>
+
+	<li><p> It is the center of a hexagon.  Adding or subtracting
+	<m>\twovec{3}{0}</m> to the coordinates translates one hexagon to
+	another.  This means that <m>\coords{\xvec}{\bcal} =
+	\twovec{16}{4}</m> can be translated to <m>\coords{\xvec}{\bcal} =
+	\twovec{1}{4}</m>, which is the center of a hexagon.
+	</p></li>
+      </ol></p>
+    </solution>
+
+    <answer>
+      <p><ol label="a.">
+	<li><p>
+	  The points are indicated in the figure.
+	  <sidebyside width="50%">
+	    <image source="images/ex-graphite-sol" />
+	  </sidebyside>
+	</p></li>
+
+	<li><p> <m>\coords{\xvec}{\bcal} = 
+	\twovec{0}{0}, \twovec{1}{0}, \twovec{2}{1}, \twovec{2}{2},
+	\twovec{1}{2}, \twovec{0}{1}
+	</m>.
+	</p></li>
+
+	<li><p> <m>\coords{\xvec}{\bcal} = \twovec{1}{1}</m>.
+	</p></li>
+
+	<li><p> The coordinates differ by 
+	<m>\twovec{4}{2}</m>
+	</p></li>
+
+	<li><p> It is the center of a hexagon. 
+	</p></li>
+      </ol></p>
+    </answer>
+	
+  </exercise>
+
+  <exercise>
+    <statement>
+      <p> Suppose that <m>A=\left[\begin{array}{rr} 2 \amp 1 \\ 1\amp
+      2 \\ \end{array}\right]</m> and
+      <me>
+	\vvec_1=\twovec{1}{1},
+	\vvec_2=\twovec{1}{-1}
+      </me>.
+      <ol label="a.">
+	<li><p> Explain why <m>\bcal=\{\vvec_1,\vvec_2\}</m> is a
+	basis for <m>\real^2</m>. </p></li>
+
+	<li><p> Find <m>A\vvec_1</m> and <m>A\vvec_2</m>. </p></li>
+
+	<li><p> Use what you found in the previous part of this
+	problem to find <m>\coords{A\vvec_1}{\bcal}</m> and
+	<m>\coords{A\vvec_2}{\bcal}</m>.  </p> </li>
+
+	<li><p> If <m>\coords{\xvec}{\bcal} = \twovec{1}{-5}</m>, find
+	<m>\coords{A\xvec}{\bcal} </m>. </p></li>
+
+	<li><p> Find a matrix <m>D</m> such that 
+	<m>\coords{A\xvec}{\bcal} =
+	D\coords{\xvec}{\bcal}</m>. </p></li>
+      </ol>
+
+	You should find that the matrix <m>D</m> is a very simple
+	matrix, which means that this basis <m>\bcal</m> is well
+	suited to study the effect of multiplication by <m>A</m>.
+	This observation is the central idea of the next chapter.
+      </p>
+    </statement>
+  </exercise>
+      
+  <solution>
+    <p><ol label="a.">
+      <li><p> The vectors are linearly independent and span
+      <m>\real^2</m>.
+      </p></li>
+
+      <li><p> We compute that <m>A\vvec_1 = 3\vvec_1</m> and
+      <m>A\vvec_2=\vvec_2</m>.
+      </p></li>
+
+      <li><p> <m>\coords{A\vvec_1}{\bcal} = \twovec{3}{0}</m> and 
+      <m>\coords{A\vvec_2}{\bcal} = \twovec{0}{1}</m>.
+      </p></li>
+
+      <li><p> We know that <m>\xvec = \vvec_1-5\vvec_2</m>, which
+      means that <m>A\xvec = 3\vvec_1-5\vvec_2</m>.  Therefore,
+      <m>\coords{A\xvec}{\bcal}=\twovec{3}{-5}</m>.
+      </p></li>
+
+      <li><p> If <m>\coords{\xvec}{\bcal} = \twovec{c_1}{c_2}</m>,
+      then <m>\xvec=c_1\vvec_1+c_2\vvec_2</m> and
+      <m>A\xvec=3c_1\vvec_1+c_2\vvec_2</m>.  Therefore,
+      <m>D\twovec{c_1}{c_2} = \twovec{3c_1}{c_2}</m>, which says that
+      <m>D=
+      \left[\begin{array}{rr}
+      3 \amp 0 \\
+      0 \amp 1 \\
+      \end{array}\right]
+      </m>.
+      </p></li>
+    </ol></p>
+  </solution>
+      
+  <answer>
+    <p><ol label="a.">
+      <li><p> The vectors are linearly independent and span
+      <m>\real^2</m>.
+      </p></li>
+
+      <li><p> <m>A\vvec_1 = 3\vvec_1</m> and
+      <m>A\vvec_2=\vvec_2</m>.
+      </p></li>
+
+      <li><p> <m>\coords{A\vvec_1}{\bcal} = \twovec{3}{0}</m> and 
+      <m>\coords{A\vvec_2}{\bcal} = \twovec{0}{1}</m>.
+      </p></li>
+
+      <li><p> 
+      <m>\coords{A\xvec}{\bcal}=\twovec{3}{-5}</m>.
+      </p></li>
+
+      <li><p> 
+      <m>D=
+      \left[\begin{array}{rr}
+      3 \amp 0 \\
+      0 \amp 1 \\
+      \end{array}\right]
+      </m>.
+      </p></li>
+    </ol></p>
+  </answer>
+      
+</exercises>

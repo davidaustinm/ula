@@ -1,0 +1,728 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec-expect"
+	 xmlns:xi="http://www.w3.org/2001/XInclude">
+
+  <title>
+    What can we expect
+  </title>
+
+  <introduction>
+    <p>
+      At its heart, the subject of linear algebra is about linear
+      equations and, more specifically, collections of linear
+      equations.  Google routinely deals with a collection of
+      trillions of equations each of which has trillions of unknowns.
+      We will eventually understand how to deal with that kind of
+      complexity.  To begin, however, we will look at a more familiar
+      situation where we have a small number of equations and a small
+      number of unknowns.  In spite of its relative simplicity, this
+      situation is rich enough to demonstrate some fundamental
+      concepts that we will motivate much of our exploration.
+    </p>
+    
+  </introduction>
+
+  <subsection>
+    <title>
+      Some simple examples
+    </title>
+
+    <activity>
+      <statement>
+	<p> With a small number of unknowns, we are able to graph the
+	sets of solutions to linear equations.  Here, we will consider
+	collections of equations having two unknowns.
+	</p>
+	<p><ol label="a.">
+	  <li>
+	    <p>
+	      On the plot below, graph the lines
+	      <me>
+		\begin{split}
+		y \amp = x+1 \\
+		y \amp = 2x-1 \\
+		\end{split}
+		</me>.
+	    </p>
+	    <p>
+	      At what point or points <m>(x,y)</m>, do the lines
+	      intersect?  How many points <m>(x,y)</m> satisfy both
+	      equations?
+	    </p>
+	    <sidebyside width="50%">
+	      <image source="images/empty-4" width="60%"/>
+	    </sidebyside>
+	  </li>
+	  <li>
+	    <p>
+	      On the plot below, graph the lines
+	      <me>
+		\begin{split}
+		y \amp = x+1 \\
+		y \amp = x-1. \\
+		\end{split}
+	      </me>
+	    </p>
+	    <p>
+	      At what point or points <m>(x,y)</m>, do the lines
+	      intersect?  How many points <m>(x,y)</m> satisfy both
+	      equations?
+	    </p>
+	    <sidebyside width="50%">
+	      <image source="images/empty-4" width="60%"/>
+	    </sidebyside>
+	  </li>
+	  <li>
+	    <p>
+	      On the plot below, graph the line
+	      <me>
+		y = x+1
+		</me>.
+	    </p>
+	    <p>
+	      How many points <m>(x,y)</m> satisfy this
+	      equation?
+	    </p>
+	    <sidebyside width="50%">
+	      <image source="images/empty-4" width="60%"/>
+	    </sidebyside>
+	  </li>
+	  <li>
+	    <p>
+	      On the plot below, graph the lines
+	      <me>
+		\begin{split}
+		y \amp = x+1 \\
+		y \amp = 2x-1 \\
+		y \amp = -x. \\
+		\end{split}
+	      </me>
+	    </p>
+	    <p>
+	      At what point or points <m>(x,y)</m>, do the lines
+	      intersect?  How many points <m>(x,y)</m> satisfy all
+	      three equations?
+	    </p>
+	    <sidebyside width="50%">
+	      <image source="images/empty-4" width="60%"/>
+	    </sidebyside>
+	  </li>
+	</ol></p>
+      </statement>
+
+      <solution>
+	<p><ol label="a.">
+	  <li>
+	    <sidebyside widths="50% 40%" margins="0%">
+	      <p>
+		The graph of the two lines is as shown on the right.
+		There is a single point, the point <m>(2,3)</m>, at
+		which the lines intersect.  Therefore, there is a
+		single point that satisfies both equations.
+	      </p>
+	      <image source = "images/intro-two" />
+	    </sidebyside>
+	  </li>
+
+	  <li>
+	    <sidebyside widths="50% 40%" margins="0%">
+	      <p>
+		These two lines are parallel, which means there is no
+		point at which the lines intersect.  Therefore, there
+		is no point that satisfies both equations.
+	      </p>
+	      <image source = "images/intro-parallel" />
+	    </sidebyside>
+	  </li>
+
+	  <li>
+	    <sidebyside widths="50% 40%" margins="0%">
+	      <p>
+		There are infinitely many points that lie on this line
+		and that, therefore, satisfy this single equation.
+	      </p>
+	      <image source = "images/intro-single" />
+	    </sidebyside>
+	  </li>
+
+	  <li>
+	    <sidebyside widths="50% 40%" margins="0%">
+	      <p>
+		These three lines do not have a common intersection
+		point.  Consequently, there is no point satisfying all
+		three equations.
+	      </p>
+	      <image source = "images/intro-three" />
+	    </sidebyside>
+	  </li>
+
+	</ol>
+	</p>
+      </solution>
+	  
+      <answer>
+	<p><ol label="a.">
+	  <li>
+	    <p> This is exactly one point, the point <m>(2,3)</m>,
+	    that satisfies both equations.
+	    </p>
+	  </li>
+
+	  <li>
+	    <p>
+	      There are no points that satisfy both equations.
+	    </p>
+	  </li>
+
+	  <li>
+	    <p>
+	      There are infinitely many points.
+	    </p>
+	  </li>
+
+	  <li>
+	    <p>
+	      There are no points that satisfy all three equations.
+	    </p>
+	  </li>
+	</ol>
+	</p>
+      </answer>
+	  
+    </activity>
+
+    <p>
+      The examples in this introductory activity demonstrate three
+      possible outcomes, which are represented in the three figures
+      below.
+    </p>
+
+    <figure xml:id = "fig-three-possibilities">
+      <image source="images/three-possibilities" />
+      <caption>
+	Three possibilities for collections of linear equations
+	in two unknowns.
+      </caption>
+    </figure>
+
+    <p>
+      In this example, we see that
+    </p>
+    
+    <ul>
+      <li>With a single equation, there are infinitely many points
+      <m>(x,y)</m> 
+      satisfying that equation.</li>
+      <li>Adding a second equation adds another condition we place
+      on the points <m>(x,y)</m> resulting in a single point
+      that satisfies both equations.</li>
+      <li>Adding a third equation adds a third condition on the
+      points <m>(x,y)</m>, and it is no longer possible to satisfy
+      all three conditions.</li>
+    </ul>
+    <p>
+      Generally speaking, a single equation will have many solutions,
+      in fact, infinitely many.  As we add equations, we add
+      conditions which lead to, in a sense we will make precise later,
+      a smaller number of solutions.  Eventually, we have too many
+      equations and find that no points satisfy all of them at the
+      same time.
+    </p>
+
+    <p>
+      This example illustrates a general principle to which we will
+      frequently return.  
+    </p>
+
+    <assemblage>
+      <title> Solutions of linear equations </title>
+      <p>
+	Given a collection of linear equations, there are either:
+	<ul>
+	  <li> <p> infinitely many solutions,</p> </li>
+	  <li> <p> exactly one solution, or</p> </li>
+	  <li> <p> no solutions. </p></li>
+	</ul>
+      </p>
+    </assemblage>
+
+    <p>
+      Notice that we can see a bit more.  In
+      <xref ref="fig-three-possibilities" />, we are looking at equations
+      in two unknowns.  Here we see that
+      <ul>
+	<li> <p> One equation gave us infinitely solutions.</p> </li>
+	<li> <p> Two equations gave us exactly one solution. </p></li>
+	<li> <p> Three equations gave us no solutions. </p></li>
+      </ul>
+    </p>
+
+    <sidebyside widths="50% 40%" margins="0%" valign="top">
+      <p>
+      It seems reasonable to wonder if the number of solutions depends
+      on whether the number of equations is less than, equal to, or
+      greater than the number of unknowns.  Of course, this cannot
+      always be the case;  remember that one of our examples consisted of
+      two equations that were graphically represented by parallel
+      lines and that therefore had no solutions.  Still, it seems safe
+      to think that the more equations we have, the smaller the set of
+      solutions will be.
+      </p>
+      <image source="images/intro-parallel" />
+    </sidebyside>
+    
+    <p>
+      Let's also consider some examples of equations having three
+      unknowns, which we call <m>x</m>, <m>y</m>, and <m>z</m>.  Just as
+      solutions to linear equations in two unknowns formed straight
+      lines, solutions to linear equations in three
+      unknowns form planes.
+    </p>
+
+    <p>
+      When we consider an equation in three unknowns graphically, we
+      need to add a third coordinate axis, as shown in
+      <xref ref="fig-coordinates" />.
+    </p>
+
+    <figure xml:id = "fig-coordinates">
+      <sidebyside width="40%">
+	<image source="images/coordinates-2d" />
+	<image source="images/coordinates-3d" />
+      </sidebyside>
+      <caption>
+	Coordinate systems in two and three dimensions.
+      </caption>
+    </figure>
+
+    <p>
+      As shown in <xref ref="fig-plane-z0" />,
+      a linear equation in two unknowns, such as <m>y=0</m>, is a
+      line while a linear equation in three unknowns, such as
+      <m>z=0</m>, is a plane.
+    </p>
+
+    <figure xml:id = "fig-plane-z0">
+      <sidebyside width="40%">
+	<image source="images/2dy0" />
+	<image source="images/3dz0" />
+      </sidebyside>
+      <caption>
+	The solutions to the equation <m>y=0</m> in two dimensions and
+	<m>z=0</m> in three.
+      </caption>
+    </figure>
+
+    <p>
+      In three unknowns, the set of solutions to one linear
+      equation forms a plane.  The set of solutions to a pair of
+      linear equations is seen graphically as the
+      intersection of the two planes.  As in <xref
+      ref="fig-two-planes" />, we typically expect this intersection
+      to be a line.
+    </p>
+
+    <figure xml:id="fig-two-planes">
+      <sidebyside>
+	<image source="images/plane-simple" />
+	<image source="images/plane-int-1" />
+      </sidebyside>
+      <caption>
+	A single plane and the intersection of two planes.
+      </caption>
+    </figure>
+
+    <p>
+      When we add a third equation, we are looking for the
+      intersection of three planes, which we expect to form a point,
+      as in the left of <xref ref="fig-three-planes" />.  However, in
+      certain special cases, it may happen that there are no
+      solutions, as seen on the right.
+    </p>
+
+    <figure xml:id="fig-three-planes">
+      <sidebyside>
+	<image source="images/plane-int-2" />
+	<image source="images/plane-int-3" />
+      </sidebyside>
+      <caption>
+	Two examples showing the intersections of three planes.
+      </caption>
+    </figure>
+
+    <activity>
+      <statement>
+      <p> This activity begins with equations having three unknowns.
+      In this case, we know that the solutions of a single equation
+      form a plane.  If it helps with visualization, consider using
+      <m>3\times5</m> inch index cards to represent planes.
+      <ol label="a.">
+	<li> <p>
+	  Is it possible that there are no solutions to two linear
+	  equations in three unknowns?  Either sketch
+	  an example or give a reason why it can't happen.
+	</p> </li>
+
+	<li> <p>
+	  Is it possible that there is exactly one solution to 
+	  two linear equations in three unknowns?  Either
+	  sketch an example or give a reason why it can't happen.
+	</p> </li>
+
+	<li> <p> Is it possible that the solutions to
+	  four equations in three unknowns form a line?  Either sketch 
+	  an example or give a reason why it can't happen.
+	</p> </li>
+
+	<li> <p>
+	  What would you usually expect for the set of solutions to
+	  four equations in three unknowns?
+	</p> </li>
+
+	<li> <p>
+	  Suppose we have 500 linear equations in 10
+	  unknowns.  What would be a reasonable guess for which of
+	  the three possibilities for the set of solutions holds?
+	</p></li>
+
+	<li> <p>
+	  Suppose we have 10 linear equations in 500
+	  unknowns.  What would be a reasonable guess for which of
+	  the three possibilities for the set of solutions holds?
+	</p></li>
+
+      </ol></p>
+      </statement>
+      <solution>
+	<p><ol label="a.">
+	  <li>
+	    <p> Yes, it is possible if the two planes are parallel to
+	    one another.
+	    </p>
+	  </li>
+
+	  <li>
+	    <p>
+	      No, this is not possible.  Two planes will either
+	      intersect in a line, if they are not parallel, or not
+	      intersect at all, if they are parallel.
+	    </p>
+	  </li>
+
+	  <li>
+	    <p>
+	      Yes, it is possible that four planes intersect in a
+	      line.  One may sketch four planes that intersect in,
+	      say, the <m>z</m>-axis.   
+	    </p>
+	  </li>
+
+	  <li>
+	    <p>
+	      In general, we would expect there to be no solutions to
+	      four equations in three unknowns because there are more
+	      equations than unknowns.
+	    </p>
+	  </li>
+
+	  <li>
+	    <p>
+	      Since there are more equations than unknowns, we would
+	      expect there to be no solutions.  We cannot guarantee
+	      this, however.
+	    </p>
+	  </li>
+
+	  <li>
+	    <p>
+	      Since there are fewer equations than unknowns, we would
+	      expect there to be infinitely many solutions.  We cannot
+	      guarantee this, however.
+	    </p>
+	  </li>
+	</ol></p>
+      </solution>
+
+      <answer>
+	<p><ol label="a.">
+	  <li> <p> Yes. </p></li>
+	  <li> <p> No. </p></li>
+	  <li> <p> Yes. </p></li>
+	  <li> <p> We would expect there to be no solutions. </p></li>
+	  <li> <p> We would expect there to be no solutions. </p></li>
+	  <li> <p> We would expect there to be infinitely many
+	  solutions. </p></li>
+	</ol></p>
+      </answer>
+	  
+    </activity>
+
+  </subsection>
+
+  <subsection>
+    <title>
+      Systems of linear equations
+    </title>
+
+    <p>
+      Now that we have seen some simple examples, let's clarify
+      what we mean by a system of linear equations.
+    </p>
+
+    <p>
+      First, we considered a linear equation having the form
+      <me> y = 2x - 1</me>.  It will be convenient for us to rewrite
+      this so that all the unknowns are on one side of the equation:
+      <me> -2x + y = -1</me>.
+      Thinking graphically, this gives us the flexibility to describe
+      all lines;  for 
+      instance, vertical lines, such as <m>x=3</m>, may be represented
+      in this form.
+    </p>
+    <p>
+      Notice that each term on the left is the product of a constant
+      and the first power of a unknown.  In the future, we will want
+      to consider equations having many more unknowns, which we
+      will sometimes
+      denote as <m>x_1, x_2, \ldots, x_n</m>.  This leads to the
+      following definition:
+    </p>
+
+    <definition>
+      <p>
+	<idx> <h> linear equation </h></idx>
+	A linear equation in the unknowns <m>x_1,x_2,\ldots,x_n</m> may
+	be written in the form
+	<me>
+	  a_1x_1 + a_2x_2 + \ldots + a_nx_n = b
+	  </me>, where <m>a_1,a_2,\ldots,a_n</m> are real numbers known
+	  as <em>coefficients</em>.
+      </p>
+    </definition>
+
+    <p>
+      By a <term>system of linear equations</term> or a
+      <idx> <h> linear system</h></idx>
+      <term>linear system</term>, we mean a
+      collection of linear equations written in a common set of
+      unknowns.  For example,
+      <me>
+	\begin{alignedat}{4}
+	2x_1 \amp {} + \amp {} 1.2x_2 \amp {}-{} \amp 4x_3 \amp {}={}
+	\amp 3.7 \\
+	-0.1x_1 \amp {} \amp {}  \amp {}  + {} \amp x_3 \amp {}={}
+	\amp 2 \\
+	x_1 \amp {}+{} \amp x_2 \amp {}-{} \amp x_3 \amp {}={} \amp
+	1.4. \\
+	\end{alignedat}
+      </me>
+    </p>
+
+    <p>
+      A <em> solution </em> to a linear system is simply 
+      a set of numbers <m>x_1 = s_1, x_2 = s_2, \ldots, x_n=s_n</m>
+      that satisfy all the equations in the system.
+    </p>
+
+    <p>
+      For instance, we earlier considered the linear system
+      <me>
+	\begin{alignedat}{3}
+	-x \amp {}+{} \amp y \amp {} = {} \amp 1 \\
+	-2x \amp {}+{} \amp y \amp {} = {} \amp -1. \\
+	\end{alignedat}
+      </me>
+      To check that <m>(x,y) = (2,3)</m> is a solution, we verify that the
+      following equations are valid.
+      <me>
+	\begin{alignedat}{3}
+	-2 \amp {}+{} \amp 3 \amp {} = {} \amp 1 \\
+	-2(2) \amp {}+{} \amp 3 \amp {} = {} \amp -1. \\
+	\end{alignedat}
+      </me>
+    </p>
+
+    <p>
+      <idx> solution space </idx>
+      We call the set of all solutions the <em> solution space </em>
+      of the linear system.
+    </p>
+
+    <activity>
+      <title> Linear equations and their solutions </title>
+      <statement>
+      <p>
+	<ol label="a.">
+	  <li><p>
+	    Which of the following equations are linear?  Please provide
+	    a justification for your response.
+	    <ol label="i.">
+	      <li> <p><me> 2x + xy -3y^2 = 2 </me>. </p></li>
+	      <li> <p><me> -2x_1 + 3x_2 +4x_3 - x_5 = 0 </me>. </p></li>
+	      <li> <p><me> x = 3z - 4y </me>. </p></li>
+	    </ol>
+	  </p></li>
+      
+	  <li><p> Consider the system of linear equations:
+	  <me>
+	    \begin{alignedat}{4}
+	    x \amp {}+{} \amp y \amp \amp \amp {}={}
+	    \amp 3 \\
+	    \amp \amp y  \amp {}-{} \amp z \amp {}={}
+	    \amp 2 \\
+	    2x \amp {}+{} \amp y \amp {}+{} \amp z \amp {}={} \amp
+	    4. \\
+	    \end{alignedat}
+	  </me>
+	  <ol label="i.">
+	    <li> <p>Is <m>(x,y,z) = (1,2,0)</m> a solution? </p></li>
+	    <li> <p>Is <m>(x,y,z) = (-2,1,0)</m> a solution?</p> </li>
+	    <li> <p>Is <m>(x,y,z) = (0,-3,1)</m> a solution? </p></li>
+	    <li> <p>Can you find a solution in which <m> y = 0</m>? </p></li>
+	    <li> <p>Do you think there are other solutions? Please explain
+	    your response.</p> </li>
+	  </ol>
+	  </p></li>
+	</ol>
+      </p>
+      </statement>
+
+      <solution>
+	<p><ol label="a.">
+	  <li><p> There are two linear equations in this list.
+	    <ol label="i.">
+	      <li><p>
+		This is not a linear equation due to the presence of
+		<m>y^2</m> in the third term on the left.
+	      </p></li>
+
+	      <li><p>
+		This is a linear equation.
+	      </p></li>
+
+	      <li><p>
+		This is a linear equation since it can be rewritten in
+		the form <m>x + 4y - 3z = 0</m>.
+	      </p></li>
+	    </ol>
+	  </p>
+	  </li>
+
+	  <li><p> We will see that the system of linear equations has
+	  infinitely many solutions. 
+	    <ol label="i.">
+	      <li><p> Yes, this is a solution since all three
+	      equations are satisfied if we set <m>x=1</m>,
+	      <m>y=2</m>, and <m>z=0</m>.
+	      </p></li>
+
+	      <li><p> No, this is not a solution since the first
+	      equation is not satisfied if <m>x=-2</m> and
+	      <m>y=1</m>.
+	      </p></li>
+
+	      <li><p> This is also not a solution.
+	      </p></li>
+
+	      <li><p> If <m>y=0</m>, then we arrive at the system of
+	      three linear equations:
+	      <me>
+		\begin{alignedat}{4}
+		x \amp \amp \amp {}={}
+		\amp 3 \\
+		\amp {}-{} \amp z \amp {}={}
+		\amp 2 \\
+		2x \amp {}+{} \amp z \amp {}={} \amp
+		4. \\
+		\end{alignedat}
+	      </me>
+	      We have a solution when <m>x=3</m> and <m>z=-2</m>.
+	      Therefore, <m>(x,y,z)=(3,0,-2)</m> is a solution to the
+	      original system of equations.
+	      </p></li>
+
+	      <li><p> Since we have found two solutions to the system
+	      of equations, we should expect that there are infinitely
+	      many.  Therefore, there should be many other solutions.
+	      </p></li>
+	    </ol>
+	  </p></li>
+	</ol>
+	</p>
+      </solution>
+      
+      <answer>
+	<p><ol label="a.">
+	  <li><p> There are two linear equations in this list.
+	    <ol label="i.">
+	      <li><p> This is not a linear equation. </p></li>
+	      <li><p> This is a linear equation. </p></li>
+	      <li><p> This is a linear equation. </p></li>
+	    </ol>
+	  </p>
+	  </li>
+
+	  <li><p> We will see that the system of linear equations has
+	  infinitely many solutions. 
+	    <ol label="i.">
+	      <li><p> This is a solution. </p></li>
+	      <li><p> This is a not solution. </p></li>
+	      <li><p> This is a not solution. </p></li>
+	      <li><p> Yes, <m>(x,y,z) = (3,0,-2)</m> is a
+	      solution. </p></li>
+	      <li><p> Yes, because there should be infinitely many
+	      solutions. </p></li>
+	    </ol>
+	  </p></li>
+	</ol>
+	</p>
+      </answer>
+
+    </activity>
+
+  </subsection>
+  
+  <subsection>
+    <title>
+      Summary
+    </title>
+
+    <p> The point of this section is to build some intuition about the
+    behavior of solutions to linear systems through consideration of
+    some simple examples.  We will develop a deeper and more precise
+    understanding of these phenomena in our future explorations.
+    </p>
+    <p><ul>
+      <li><p>
+	A linear equation is one that may be written in the form
+	<me>
+	  a_1x_1 + a_2x_2 + \ldots + a_nx_n = b
+	  </me>.
+      </p></li>
+
+      <li><p> A linear system is a collection of linear equations and
+      a solution is a set of values assigned to each of the unknowns
+      that make each equation true.
+      </p></li>
+
+      <li> <p>
+	We came to expect that a linear system has either
+	infinitely many solutions, exactly one solution, or no
+	solutions.
+      </p></li>
+
+      <li> <p>
+	When we add more equations to a system, the solution space
+	usually seems to become smaller.
+      </p></li>
+    </ul></p>
+
+  </subsection>
+
+  <!--
+      <xi:include href="exercises/exercises1-1.xml" />
+  -->
+
+</section>
+

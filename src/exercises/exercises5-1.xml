@@ -1,0 +1,841 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<exercises>
+
+  <exercise>
+    <statement>
+      <p> In this section, we saw that errors made in
+      computer arithmetic can produce approximate solutions that
+      are far from the exact solutions.  Here is another example in
+      which this can happen.  Consider the matrix
+      <me>
+	A = \left[\begin{array}{cc}
+	1 \amp 1 \\
+	1 \amp 1.0001 \\
+	\end{array}\right]\text{.}
+      </me>
+      <ol label="a.">
+	<li><p> Find the exact solution to the equation
+	<m>A\xvec = \twovec{2}{2}</m>.</p></li>
+
+	<li><p> Suppose that this linear system arises in the
+	midst of a larger computation except that, due to some error
+	in the computation of the right hand side of the equation, our
+	computer thinks we want to solve
+	<m>A\xvec = \ctwovec{2}{2.0001}</m>.  Find the solution to
+	this equation and compare it to the solution of the equation
+	in the previous part of this exericse. </p></li>
+      </ol> </p>
+
+      <p> Notice how a small change in the right hand side of the
+      equation leads to a large change in the solution.  In this case,
+      we say that the matrix <m>A</m> is <em>ill-conditioned</em>
+      because the solutions are extremely sensitive to small changes
+      in the right hand side of the equation.  Though we will not do
+      so here, it is possible to create a measure of the matrix that
+      tells us when a matrix is ill-conditioned.  Regrettably, there
+      is not much we can do to remedy this problem. </p>
+    </statement>
+
+    <solution>
+      <p><ol label="a.">
+	<li><p> We find the solution <m>\xvec=\twovec22</m>. </p></li>
+	<li><p> Here we find the solution <m>\xvec=\twovec11</m>. </p></li> 
+      </ol></p>
+    </solution>
+
+    <answer>
+      <p><ol label="a.">
+	<li><p> <m>\xvec=\twovec22</m>. </p></li>
+	<li><p> <m>\xvec=\twovec11</m>. </p></li> 
+      </ol></p>
+    </answer>
+</exercise>
+
+  <exercise>
+    <statement>
+      <p> In this section, we found the <m>LU</m> factorization of the
+      matrix
+      <me>
+	A = \left[\begin{array}{rrr}
+	1 \amp 2 \amp 1 \\
+	-2 \amp -3 \amp -2 \\
+	3 \amp 7 \amp 4 \\
+	\end{array}\right]
+      </me>
+      in one of the activities, without using partial pivoting.  Apply
+      a sequence of row operations, now using partial pivoting, to
+      find an upper triangular matrix <m>U</m> that is row equivalent
+      to <m>A</m>.
+      <sage>
+	<input>
+	</input>
+      </sage>
+      </p>
+    </statement>
+
+    <solution>
+      <p> Using partial pivoting, we find
+      <me>
+	\begin{array}{rcl}
+	A =
+	\left[\begin{array}{rrr}
+	1 \amp 2 \amp 1 \\
+	-2 \amp -3 \amp -2 \\
+	3 \amp 7 \amp 4 \\
+	\end{array}\right]
+	\amp \sim \amp
+	\left[\begin{array}{rrr}
+	3 \amp 7 \amp 4 \\
+	-2 \amp -3 \amp -2 \\
+	1 \amp 2 \amp 1 \\
+	\end{array}\right] \\
+	\amp \sim \amp
+	\left[\begin{array}{rrr}
+	3 \amp 7 \amp 4 \\
+	0 \amp \frac53 \amp \frac23 \\
+	0 \amp -\frac13 \amp -\frac13 \\
+	\end{array}\right] \\
+	\amp \sim \amp
+	\left[\begin{array}{rrr}
+	3 \amp 7 \amp 4 \\
+	0 \amp \frac53 \amp \frac23 \\
+	0 \amp 0 \amp -\frac15 \\
+	\end{array}\right]\text{.} \\
+	\end{array}
+      </me>
+      This agrees with the result that Sage returns using the
+      <c>LU</c> command. </p>  
+    </solution>
+
+    <answer>
+      <p> <m>U=	\left[\begin{array}{rrr}
+	3 \amp 7 \amp 4 \\
+	0 \amp \frac53 \amp \frac23 \\
+	0 \amp 0 \amp -\frac15 \\
+	\end{array}\right]
+      </m></p>
+    </answer>
+	
+  </exercise>
+
+  <exercise>
+    <statement>
+      <p> In the following exercises, use the given <m>LU</m>
+      factorizations to solve the equations <m>A\xvec = \bvec</m>.
+      <ol label= "a.">
+	<li><p> Solve the equation
+	<me>
+	  A\xvec =
+	  \left[\begin{array}{rr}
+	  1 \amp 0 \\
+	  -2 \amp 1 \\
+	  \end{array}\right]
+	  \left[\begin{array}{rr}
+	  3 \amp 1 \\
+	  0 \amp -2 \\
+	  \end{array}\right]\xvec
+	  =
+	  \twovec{-3}{0}\text{.}
+	</me>
+	</p></li>
+
+	<li><p> Solve the equation
+	<me>
+	  A\xvec =
+	  \left[\begin{array}{rrr}
+	  1 \amp 0 \amp 0 \\
+	  -2 \amp 1 \amp 0 \\
+	  -1 \amp 2 \amp 1 \\
+	  \end{array}\right]
+	  \left[\begin{array}{rrr}
+	  2 \amp 1 \amp 0 \\
+	  0 \amp -1 \amp 3 \\
+	  0 \amp 0 \amp 1 \\
+	  \end{array}\right]\xvec
+	  =
+	  \threevec{5}{-5}{7}\text{.}
+	</me>
+	</p></li>
+      </ol></p>
+
+    </statement>
+
+    <solution>
+      <p><ol label="a.">
+	<li><p> We solve <m>L\cvec=\twovec{-3}{0}</m> to find
+	<m>\cvec=\twovec{-3}{-6}</m> and <m>U\xvec=\cvec</m> to find
+	<m>\xvec=\twovec{-2}3</m>. </p></li>
+
+	<li><p> We solve <m>L\cvec=\threevec5{-5}7</m> to find
+	<m>\cvec=\threevec552</m> and <m>U\xvec=\cvec</m> to find
+	<m>\xvec=\threevec212</m>. </p></li>
+      </ol></p>
+    </solution>
+
+    <answer>
+      <p><ol label="a.">
+	<li><p> <m>\xvec=\twovec{-2}3</m> </p></li>
+
+	<li><p> <m>\xvec=\threevec212</m> </p></li>
+      </ol></p>
+    </answer>
+
+  </exercise>
+
+  <exercise>
+    <statement>
+      <p> Use Sage to solve the following equation by finding an
+      <m>LU</m> factorization:
+      <me>
+	\left[\begin{array}{rrr}
+	3 \amp 4 \amp -1 \\
+	2 \amp 4 \amp 1 \\
+	-3 \amp 1 \amp 4 \\
+	\end{array}\right]
+	\xvec = \threevec{-3}{-3}{-4}
+      </me>.
+      <sage>
+	<input>
+	</input>
+      </sage>
+      </p>
+    </statement>
+
+    <solution>
+      <p>
+	We obtain the decomposition
+	<me>
+	  P=
+	  \left[\begin{array}{rrr}
+	  1 \amp 0 \amp 0 \\
+	  0 \amp 0 \amp 1 \\
+	  0 \amp 1 \amp 0
+	  \end{array}\right],
+	  L=
+	  \left[\begin{array}{rrr}
+	  1 \amp 0 \amp 0 \\
+	  -1 \amp 1 \amp 0 \\
+	  \frac{2}{3} \amp \frac{4}{15} \amp 1
+	  \end{array}\right],
+	  U = 
+	  \left[\begin{array}{rrr}
+	  3 \amp 4 \amp -1 \\
+	  0 \amp 5 \amp 3 \\
+	  0 \amp 0 \amp \frac{13}{15}
+	  \end{array}\right]\text{.}
+	</me>
+	To solve the equation
+	<m>A\xvec=\bvec=\threevec{-3}{-3}{-4}</m>, we first find
+	<m>P\bvec= \threevec{-3}{-4}{-3}</m>, then solve
+	<m>L\cvec=P\bvec</m> to find
+	<m>\cvec=\threevec{-3}{-7}{\frac{13}{15}}</m>, and finally
+	solve <m>U\xvec=\cvec</m> to find
+	<m>\xvec=\threevec2{-2}1</m>. 
+      </p>
+    </solution>
+
+    <answer>
+      <p> <m>\xvec=\threevec2{-2}1</m>
+      </p>
+    </answer>
+
+  </exercise>
+
+  <exercise xml:id="exercise-eigenvector-approx">
+    <statement>
+      <p> Here is another problem with approximate computer arithmetic
+      that we will encounter in the next section.  Consider the matrix
+      <me>
+	A = \left[\begin{array}{rrr}
+	0.2 \amp 0.2 \amp 0.4 \\
+	0.2 \amp 0.3 \amp 0.1 \\
+	0.6 \amp 0.5 \amp 0.5 \\
+	\end{array}\right]\text{.}
+      </me>
+      <ol label="a.">
+	<li><p> Notice that this is a positive stochastic matrix.
+	What do we know about the eigenvalues of this matrix?
+	</p></li> 
+
+	<li><p> Use Sage to define the matrix <m>A</m> using decimals
+	such as <c>0.2</c> and the
+	<m>3\times3</m> identity matrix <m>I</m>.  Ask Sage to compute
+	<m>B = A-I</m> and find the reduced row echelon form of
+	<m>B</m>.
+	<sage>
+	  <input>
+	  </input>
+	</sage>
+	</p></li>
+
+	<li><p> Why is the computation that Sage performed incorrect?
+	</p></li>
+
+	<li><p> Explain why using a computer to find the eigenvectors
+	of a matrix <m>A</m> by finding a basis for <m>\nul(A-\lambda
+	I)</m> is problematic. </p></li>
+      </ol></p>
+    </statement>
+
+    <solution>
+      <p><ol label="a.">
+	<li><p> Since <m>A</m> is a positive stochastic matrix, we
+	know that <m>\lambda=1</m> is an eigenvalue.  Therefore,
+	<m>A-I</m> should not be invertible. </p></li>
+
+	<li><p> Sage tells us that the reduced row echelon form of
+	<m>A-I</m> is <m>\left[\begin{array}{rrr} 1 \amp 0 \amp 0 \\
+	0 \amp 1 \amp 0 \\
+	0 \amp 0 \amp 1 \\
+	\end{array}\right]</m>.  </p></li>
+
+	<li><p> The computation tells us that <m>A-I</m> is
+	invertible.  We know that this can't be the case, however, since
+	<m>\lambda=1</m> is an eigenvalue. </p></li>
+
+	<li><p> Let's trace through the work that goes into finding
+	the reduced row echelon form of <m>A-I</m>:
+	<me>
+	  A-I=
+	  \left[\begin{array}{rrr}
+	  -0.8 \amp 0.2 \amp 0.4 \\
+	  0.2 \amp -0.7 \amp 0.1 \\
+	  0.6 \amp 0.5 \amp -0.5 \\
+	  \end{array}\right]
+	  \sim
+	  \left[\begin{array}{rrr}
+	  -0.8 \amp 0.2 \amp 0.4 \\
+	  0.0 \amp -0.65 \amp 0.2 \\
+	  0.0 \amp 0.65 \amp -0.2 \\
+	  \end{array}\right]\text{.}
+	</me>
+	The next step is to multiply the second row by
+	<m>0.65/0.65</m> and add it to the third row.  The last entry
+	in the third row would be <m>-0.2 + 0.2(0.65)/0.65</m>, which
+	we identify as being <m>0</m>.  The problem is that the
+	computer only approximates this result so it finds something
+	close to <m>0</m> but not quite equal to <m>0</m>.  It
+	therefore, thinks this is a pivot position and scales the row
+	to have <m>1</m> in that position. </p></li>
+      </ol></p>
+    </solution>
+
+    <answer>
+      <p><ol label="a.">
+	<li><p> <m>\lambda=1</m> is an eigenvalue.  </p></li>
+
+	<li><p> <m>\left[\begin{array}{rrr} 1 \amp 0 \amp 0 \\
+	0 \amp 1 \amp 0 \\
+	0 \amp 0 \amp 1 \\
+	\end{array}\right]</m>.  </p></li>
+
+	<li><p> The computation tells us that <m>A-I</m> is
+	invertible, which is not true.  </p></li>
+
+	<li><p> The approximate arithmetic creates a nonexistent third
+	pivot position. </p></li>
+      </ol></p>
+    </answer>
+  </exercise>
+
+  <exercise>
+    <statement>
+      <p> In practice, one rarely finds the inverse of a matrix
+      <m>A</m>.  It requires considerable effort to compute, and we
+      can solve any equation of the form <m>A\xvec = \bvec</m> using
+      an <m>LU</m> factorization, which means that the inverse isn't
+      necessary.  In any case, the best way to compute an inverse is
+      using an <m>LU</m> factorization, as this exericse demonstrates.
+
+      <ol label="a.">
+	<li><p> Suppose that <m>PA = LU</m>.  Explain why <m>A^{-1} =
+	U^{-1}L^{-1}P</m>.</p>
+
+	<p> Since <m>L</m> and <m>U</m> are triangular, finding
+	their inverses is relatively efficient.  That makes this an
+	effective means of finding <m>A^{-1}</m>. </p>
+	</li>
+
+	<li><p> Consider the matrix
+	<me>
+	  A = \left[\begin{array}{rrr}
+	  3 \amp 4 \amp -1 \\
+	  2 \amp 4 \amp 1 \\
+	  -3 \amp 1 \amp 4 \\
+	  \end{array}\right]
+	</me>.
+	Find the <m>LU</m> factorization of <m>A</m> and use it to
+	find <m>A^{-1}</m>.
+	<sage>
+	  <input>
+	  </input>
+	</sage>
+	</p></li>
+      </ol></p>
+    </statement>
+
+    <solution>
+      <p><ol label="a.">
+	<li><p> Notice that a row interchange is undone by the same
+	row interchange.  Therefore, the permutation matrix <m>P</m>
+	is its own inverse so 
+	that <m>P^{-1} = P</m>. 
+	If <m>PA=LU</m>, it then follows that <m>A=PLU</m> so that
+	<m>A^{-1} = U^{-1}L^{-1} P</m>.
+	</p></li>
+
+	<li><p> We find that
+	<me>
+	  \begin{array}{c}
+	  U^{-1} =
+	  \left[\begin{array}{rrr}
+	  \frac{1}{3} \amp -\frac{4}{15} \amp \frac{17}{13} \\
+	  0 \amp \frac{1}{5} \amp -\frac{9}{13} \\
+	  0 \amp 0 \amp \frac{15}{13}
+	  \end{array}\right],
+	  L^{-1} =
+	  \left[\begin{array}{rrr}
+	  1 \amp 0 \amp 0 \\
+	  1 \amp 1 \amp 0 \\
+	  -\frac{14}{15} \amp -\frac{4}{15} \amp 1
+	  \end{array}\right], \\
+	  P = 
+	  \left[\begin{array}{rrr}
+	  1 \amp 0 \amp 0 \\
+	  0 \amp 0 \amp 1 \\
+	  0 \amp 1 \amp 0
+	  \end{array}\right]\text{,}
+	  \end{array}
+	</me>
+	which gives
+	<me>
+	  A^{-1} = U^{-1}L^{-1}P =
+	  \left[\begin{array}{rrr}
+	  -\frac{15}{13} \amp \frac{17}{13} \amp -\frac{8}{13} \\
+	  \frac{11}{13} \amp -\frac{9}{13} \amp \frac{5}{13} \\
+	  -\frac{14}{13} \amp \frac{15}{13} \amp -\frac{4}{13}
+	  \end{array}\right]\text{.}
+	</me>
+	</p></li>
+      </ol></p>
+    </solution>
+
+    <answer>
+      <p>
+	<m>
+	  A^{-1} = U^{-1}L^{-1}P =
+	  \left[\begin{array}{rrr}
+	  -\frac{15}{13} \amp \frac{17}{13} \amp -\frac{8}{13} \\
+	  \frac{11}{13} \amp -\frac{9}{13} \amp \frac{5}{13} \\
+	  -\frac{14}{13} \amp \frac{15}{13} \amp -\frac{4}{13}
+	  \end{array}\right]
+	  </m>.
+      </p>
+    </answer>
+	  
+  </exercise>
+
+  <exercise>
+    <statement>
+      <p> Consider the matrix
+      <me>
+	A = \left[\begin{array}{rrrr}
+	a \amp a \amp a \amp a \\
+	a \amp b \amp b \amp b \\
+	a \amp b \amp c \amp c \\
+	a \amp b \amp c \amp d \\
+	\end{array}\right]\text{.}
+      </me>
+      <ol label="a.">
+	<li><p> Find the <m>LU</m> factorization of
+	<m>A</m>. </p></li>
+
+	<li><p> What conditions on <m>a</m>, <m>b</m>, <m>c</m>, and
+	<m>d</m> guarantee that <m>A</m> is invertible?
+	</p></li>
+      </ol></p>
+    </statement>
+
+    <solution>
+      <p><ol label="a.">
+	<li><p> We begin with <m>E_1A=A_1</m> where
+	<me>
+	  E_1=\left[\begin{array}{rrrr}
+	  1 \amp 0 \amp 0 \amp 0 \\
+	  -1 \amp 1 \amp 0 \amp 0 \\
+	  -1 \amp 0 \amp 1 \amp 0 \\
+	  -1 \amp 0 \amp 0 \amp 1 \\
+	  \end{array}\right],
+	  A_1=
+	  \left[\begin{array}{rrrr}
+	  a \amp a \amp a \amp a \\
+	  0 \amp b-a \amp b-a \amp b-a \\
+	  0 \amp b-a \amp c-a \amp c-a \\
+	  0 \amp b-a \amp c-a \amp d-a \\
+	  \end{array}\right]\text{.}
+	</me>
+	Next we have <m>E_2A_1=A_2</m> where
+	<me>
+	  E_2=\left[\begin{array}{rrrr}
+	  1 \amp 0 \amp 0 \amp 0 \\
+	  0 \amp 1 \amp 0 \amp 0 \\
+	  0 \amp -1 \amp 1 \amp 0 \\
+	  0 \amp -1 \amp 0 \amp 1 \\
+	  \end{array}\right],
+	  A_2=
+	  \left[\begin{array}{rrrr}
+	  a \amp a \amp a \amp a \\
+	  0 \amp b-a \amp b-a \amp b-a \\
+	  0 \amp 0 \amp c-b \amp c-b \\
+	  0 \amp 0 \amp c-b \amp d-b \\
+	  \end{array}\right]\text{.}
+	</me>
+	Finally, we have <m>E_3A_2=U</m>, an upper triangular matrix
+	where
+	<me>
+	  E_3=\left[\begin{array}{rrrr}
+	  1 \amp 0 \amp 0 \amp 0 \\
+	  0 \amp 1 \amp 0 \amp 0 \\
+	  0 \amp 0 \amp 1 \amp 0 \\
+	  0 \amp 0 \amp -1 \amp 1 \\
+	  \end{array}\right],
+	  U =
+	  \left[\begin{array}{rrrr}
+	  a \amp a \amp a \amp a \\
+	  0 \amp b-a \amp b-a \amp b-a \\
+	  0 \amp 0 \amp c-b \amp c-b \\
+	  0 \amp 0 \amp 0 \amp d-c \\
+	  \end{array}\right]\text{.}
+	</me>
+	This gives
+	<me>
+	  L = \left[\begin{array}{rrrr}
+	  1 \amp 0 \amp 0 \amp 0 \\
+	  1 \amp 1 \amp 0 \amp 0 \\
+	  1 \amp 1 \amp 1 \amp 0 \\
+	  1 \amp 1 \amp 1 \amp 1 \\
+	  \end{array}\right],
+	  U =
+	  \left[\begin{array}{rrrr}
+	  a \amp a \amp a \amp a \\
+	  0 \amp b-a \amp b-a \amp b-a \\
+	  0 \amp 0 \amp c-b \amp c-b \\
+	  0 \amp 0 \amp 0 \amp d-c \\
+	  \end{array}\right]\text{.}
+	</me>
+	</p></li>
+	
+	<li><p> Notice that <m>A</m> is invertible if and only if
+	<m>U</m> is invertible and <m>U</m> is invertible if and only
+	all the diagonal terms are not equal.  This means that
+	<m>A</m> is invertible provided that <m>a\neq0</m>, <m>b\neq
+	a</m>, <m>c\neq b</m>, and <m>d\neq c</m>.
+	</p></li>
+      </ol></p>
+    </solution>
+
+    <answer>
+      <p><ol label="a.">
+	<li><p> We find
+	<me>
+	  L = \left[\begin{array}{rrrr}
+	  1 \amp 0 \amp 0 \amp 0 \\
+	  1 \amp 1 \amp 0 \amp 0 \\
+	  1 \amp 1 \amp 1 \amp 0 \\
+	  1 \amp 1 \amp 1 \amp 1 \\
+	  \end{array}\right],
+	  U =
+	  \left[\begin{array}{rrrr}
+	  a \amp a \amp a \amp a \\
+	  0 \amp b-a \amp b-a \amp b-a \\
+	  0 \amp 0 \amp c-b \amp c-b \\
+	  0 \amp 0 \amp 0 \amp d-c \\
+	  \end{array}\right]\text{.}
+	</me>
+	</p></li>
+
+	<li><p> <m>a\neq0</m>, <m>b\neq
+	a</m>, <m>c\neq b</m>, and <m>d\neq c</m>.</p></li>
+      </ol></p>
+    </answer>
+
+  </exercise>
+
+  <exercise>
+    <statement>
+      <p> In the <m>LU</m> factorization of a matrix, the diagonal
+      entries of <m>A</m> are all <m>1</m> while the diagonal entries
+      of <m>U</m> are not necessarily <m>1</m>.  This exercise will
+      explore that observation by considering the matrix
+      <me>
+	A = \left[\begin{array}{rrr}
+	3 \amp 1 \amp 1 \\
+	-6 \amp -4 \amp -1 \\
+	0 \amp -4 \amp 1 \\
+	\end{array}\right]
+      </me>.
+      <ol label="a.">
+	<li><p> Perform Gaussian elimination without partial pivoting
+	to find <m>U</m>, an upper triangular matrix that is row
+	equivalent to <m>A</m>. </p></li>
+
+	<li><p> The diagonal entries of <m>U</m> are called
+	<em>pivots</em>.  Explain why <m>\det A</m> equals the
+	product of the pivots. </p></li>
+
+	<li><p> What is <m>\det A</m> for our matrix
+	<m>A</m>?</p></li> 
+
+	<li><p> More generally, if we have <m>PA=LU</m>, explain why
+	<m>\det A</m> equals plus or minus the product of the
+	pivots. </p></li>
+      </ol></p>
+    </statement>
+
+    <solution>
+      <p><ol label="a.">
+	<li><p> We have
+	<me>
+	  A =
+	  \left[\begin{array}{rrr}
+	  3 \amp 1 \amp 1 \\
+	  -6 \amp -4 \amp -1 \\
+	  0 \amp -4 \amp 1 \\
+	  \end{array}\right]
+	  \sim
+	  \left[\begin{array}{rrr}
+	  3 \amp 1 \amp 1 \\
+	  0 \amp -2 \amp -1 \\
+	  0 \amp -4 \amp 1 \\
+	  \end{array}\right]
+	  \sim
+	  \left[\begin{array}{rrr}
+	  3 \amp 1 \amp 1 \\
+	  0 \amp -2 \amp -1 \\
+	  0 \amp 0 \amp -1 \\
+	  \end{array}\right]=U\text{.}
+	</me>
+	This leads to <m>A=LU</m> where
+	<me>
+	  L =
+	  \left[\begin{array}{rrr}
+	  1 \amp 0 \amp 0 \\
+	  -2 \amp 1 \amp 0 \\
+	  0 \amp 2 \amp 1 \\
+	  \end{array}\right],
+	  U = \left[\begin{array}{rrr}
+	  3 \amp 1 \amp 1 \\
+	  0 \amp -2 \amp -1 \\
+	  0 \amp 0 \amp -1 \\
+	  \end{array}\right]\text{.}
+	</me>
+	</p></li>
+
+	<li><p> Because the diagonal entries of <m>L</m> are <m>1</m>,
+	we have <m>\det L = 1</m>.  Therefore, <m>\det A = \det L \det
+	U = \det U</m>, which equals the product of the
+	pivots. </p></li>
+
+	<li><p> <m>\det A = \det U = 6</m> </p></li>
+
+	<li><p> More generally, if we have <m>PA=LU</m>, we can
+	rewrite as <m>A=PLU</m> so that <m>\det A = \det P \det L \det
+	U = \pm\det U</m>, which is plus or minus the product of the
+	pivots. </p></li>
+      </ol></p>
+    </solution>
+	  
+    <answer>
+      <p><ol label="a.">
+	<li><p> <m>A= LU = 
+	  \left[\begin{array}{rrr}
+	  1 \amp 0 \amp 0 \\
+	  -2 \amp 1 \amp 0 \\
+	  0 \amp 2 \amp 1 \\
+	  \end{array}\right]
+	  \left[\begin{array}{rrr}
+	  3 \amp 1 \amp 1 \\
+	  0 \amp -2 \amp -1 \\
+	  0 \amp 0 \amp -1 \\
+	  \end{array}\right]</m>.
+	</p></li>
+
+	<li><p> <m>\det A = \det L \det U = \det U</m>. </p></li>
+
+	<li><p> <m>\det A = 6</m> </p></li>
+
+	<li><p> <m>\det A = \det P \det L \det U = \pm \det
+	U</m>. </p></li>
+      </ol></p>
+    </answer>
+	
+  </exercise>
+
+  <exercise>
+    <statement>
+      <p> Please provide a justification to your responses to these
+      questions.
+      <ol label="a.">
+	<li><p> In this section, our hypothetical computer could only
+	store numbers using 3 decimal places.  Most computers can
+	store numbers using 15 or more decimal places.  Why do we
+	still need to be concerned about the accuracy of our
+	computations when solving systems of linear
+	equations? </p></li>
+
+	<li><p> Finding the <m>LU</m> factorization of a matrix
+	<m>A</m> is roughly the same amount of work as finding its
+	reduced row echelon form.  Why is the <m>LU</m> factorization
+	useful then?
+	</p></li>
+
+	<li><p> How can we detect whether a matrix is invertible from
+	its <m>LU</m> factorization? </p></li>
+      </ol></p>
+    </statement>
+
+    <solution>
+      <p><ol label="a.">
+	<li><p> Since a typical computer has 15 or more decimal places
+	of accuracy, the error in each individual calculation is
+	relatively small.  However, if we are working with a large
+	matrix, we are performing many calculations and the errors
+	from each of them may accumulate to become
+	significant. </p></li>
+
+	<li><p> If we need to solve <m>A\xvec=\bvec</m> for a couple
+	of different vectors <m>\bvec</m>, we do not have to perform
+	Gaussian elimination again.  Some other quantities, like the
+	inverse and determinant of <m>A</m>, are more easily computed
+	using an <m>LU</m> factorization. </p></li>
+
+	<li><p> The matrix <m>A</m> is invertible if and only if
+	<m>U</m> is, and we can easily see if <m>U</m> is invertible
+	by noting if every row has a pivot. </p></li>
+      </ol></p>
+    </solution>
+
+    <answer>
+      <p><ol label="a.">
+	<li><p> When working with a large matrix, the errors from
+	individual calculations may accumulate. </p></li>
+
+	<li><p> We can solve <m>A\xvec=\bvec</m> for a couple of
+	different <m>\bvec</m> without performing Gaussian elimination
+	again. </p></li>
+
+	<li><p> <m>A</m> is invertible if and only if <m>U</m>
+	is.</p></li>
+      </ol></p>
+    </answer>
+	
+  </exercise>
+
+  <exercise>
+    <statement>
+      <p> Consider the matrix
+      <me>
+	A = \left[\begin{array}{rrrr}
+	-1 \amp 1 \amp 0 \amp 0 \\
+	1 \amp -2 \amp 1 \amp 0 \\
+	0 \amp 1 \amp -2 \amp 1 \\
+	0 \amp 0 \amp -1 \amp 1 \\
+	\end{array}\right]\text{.}
+      </me>
+      <ol label="a.">
+	<li><p> Find the <m>LU</m> factorization of <m>A</m>.
+	</p></li>
+
+	<li><p> Use the factorization to find a basis for
+	<m>\nul(A)</m>. </p></li>
+
+	<li><p> We have seen that <m>\nul(A) = \nul(U)</m>.  Is it
+	true that <m>\col(A) = \col(L)</m>? </p></li>
+
+      </ol></p>
+    </statement>
+
+    <solution>
+      <p><ol label="a.">
+	<li><p> We see that
+	<me>
+	  \begin{array}{c}
+	  P=\left[\begin{array}{rrrr}
+	  1 \amp 0 \amp 0 \amp 0 \\
+	  0 \amp 1 \amp 0 \amp 0 \\
+	  0 \amp 0 \amp 1 \amp 0 \\
+	  0 \amp 0 \amp 0 \amp 1 \\
+	  \end{array}\right],
+	  L=\left[\begin{array}{rrrr}
+	  1 \amp 0 \amp 0 \amp 0 \\
+	  -1 \amp 1 \amp 0 \amp 0 \\
+	  0 \amp -1 \amp 1 \amp 0 \\
+	  0 \amp 0 \amp 1 \amp 1 \\
+	  \end{array}\right], \\
+	  U=\left[\begin{array}{rrrr}
+	  -1 \amp 1 \amp 0 \amp 0 \\
+	  0 \amp -1 \amp 1 \amp 0 \\
+	  0 \amp 0 \amp -1 \amp 1 \\
+	  0 \amp 0 \amp 0 \amp 0 \\
+	  \end{array}\right]\text{.}
+	  \end{array}
+	</me>
+	</p></li>
+
+	<li><p> Because <m>\nul(A) = \nul(U)</m>, we see that
+	<m>\dim~\nul(A)=1</m> with a basis vector
+	<m>\fourvec1111</m>. </p></li>
+
+	<li><p> It is not true that <m>\col(A) = \col(L)</m>.  Since
+	there is a nonzero vector <m>\xvec</m> such that
+	<m>A\xvec=\zerovec</m>, we know that <m>A</m> is not
+	invertible and hence its column space <m>\col(A)</m> is not
+	<m>\real^4</m>.  However, <m>L</m> is invertible so we have
+	<m>\col(L)=\real^4</m>. </p></li>
+      </ol></p>
+    </solution>
+	  
+    <answer>
+      <p><ol label="a.">
+	<li><p> We see that
+	<me>
+	  \begin{array}{c}
+	  P=\left[\begin{array}{rrrr}
+	  1 \amp 0 \amp 0 \amp 0 \\
+	  0 \amp 1 \amp 0 \amp 0 \\
+	  0 \amp 0 \amp 1 \amp 0 \\
+	  0 \amp 0 \amp 0 \amp 1 \\
+	  \end{array}\right],
+	  L=\left[\begin{array}{rrrr}
+	  1 \amp 0 \amp 0 \amp 0 \\
+	  -1 \amp 1 \amp 0 \amp 0 \\
+	  0 \amp -1 \amp 1 \amp 0 \\
+	  0 \amp 0 \amp 1 \amp 1 \\
+	  \end{array}\right], \\
+	  U=\left[\begin{array}{rrrr}
+	  -1 \amp 1 \amp 0 \amp 0 \\
+	  0 \amp -1 \amp 1 \amp 0 \\
+	  0 \amp 0 \amp -1 \amp 1 \\
+	  0 \amp 0 \amp 0 \amp 0 \\
+	  \end{array}\right]\text{.}
+	  \end{array}
+	</me>
+	</p></li>
+
+	<li><p> <m>\fourvec1111</m>. </p></li>
+
+	<li><p> No </p></li>
+      </ol></p>
+    </answer>
+	  
+  </exercise>
+
+	
+	 
+  
+
+  
+
+
+</exercises>

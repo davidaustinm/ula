@@ -1,0 +1,693 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<exercises>
+  <exercise>
+    <statement>
+      <p> For each of the linear systems below, write the associated
+      augmented matrix and find the reduced row echelon matrix
+      that is row equivalent to it.  Identify the basic and free
+      variables and then describe the
+      solution space of the original linear system using a
+      parametric description, if appropriate. </p>
+      <p>
+	<ol label="a.">
+	  <li> <p>
+	    <me>
+	      \begin{alignedat}{3}
+	      2x \amp  {}+{}  \amp y \amp  {}={}  \amp 0 \\
+	      x \amp  {}+{}  \amp 2y \amp  {}={}  \amp 3 \\
+	      -2x \amp  {}+{}  \amp 2y \amp  {}={}  \amp 6 \\
+	      \end{alignedat}
+	    </me>
+	  </p></li>
+
+	  <li> <p>
+	    <me>
+	      \begin{alignedat}{5}
+	      -x_1 \amp  {}+{}  \amp 2x_2 \amp  \amp  \amp  {}+{}
+	      \amp x_4 \amp  {}={}  \amp 2 \\ 
+	      3x_1 \amp  \amp  \amp  \amp  \amp  {}+{}  \amp 2x_4
+	      \amp  {}={}  \amp -1 \\ 
+	      -x_1 \amp  {}-{}  \amp x_2 \amp  \amp  \amp  {}+{}
+	      \amp x_4 \amp  {}={}  \amp 2 \\ 
+	      \end{alignedat}
+	    </me>
+	  </p></li>
+
+	  <li> <p>
+	    <me>
+	      \begin{alignedat}{5}
+	      -2x_1 \amp  {}+{}  \amp 3x_2 \amp  \amp  \amp  {}+{}
+	      \amp 2x_4 \amp  {}={}  \amp 7 \\ 
+	      -x_1 \amp  {}+{}  \amp 4x_2 \amp  {}+{}  \amp x_3 \amp
+	      {}+{}  \amp 3x_4 \amp  {}={}  \amp 9 \\ 
+	      3x_1 \amp  \amp  \amp  {}+{}  \amp 2x_3 \amp  {}+{}
+	      \amp 2x_4 \amp  {}={}  \amp -1 \\ 
+	      x_1 \amp  {}+{}  \amp 5x_2 \amp  {}+{}  \amp 4x_3 \amp
+	      {}+{}  \amp 7x_4 \amp  {}={}  \amp 8 \\ 
+	      \end{alignedat}
+	    </me>
+	  </p></li>
+	</ol>
+      </p>
+    </statement>
+
+    <solution>
+      <p><ol label="a.">
+	<li><p> The augmented matrix and its reduced row echelon form
+	are
+	<me>
+	  \left[\begin{array}{rr|r}
+	  2 \amp 1 \amp 0 \\
+	  1 \amp 2 \amp 3 \\
+	  -2 \amp 2 \amp 6 \\
+	  \end{array}\right]
+	  \sim
+	  \left[\begin{array}{rr|r}
+	  1 \amp 0 \amp -1 \\
+	  0 \amp 1 \amp 2 \\
+	  0 \amp 0 \amp 0 \\
+	  \end{array}\right]\text{.}
+	</me>
+	The linear system corresponding to the reduced row echelon
+	form is
+	<me>
+	  \begin{alignedat}{3}
+	  x \amp \amp \amp {}={} \amp -1 \\
+	  \amp \amp y \amp {}={} \amp 2 \\
+	  \amp \amp 0 \amp {}={} \amp 0\text{.} \\
+	  \end{alignedat}
+	</me>
+	This shows that there is a single solution <m>(-1,2)</m> and
+	that every variable is a basic variable.
+	</p></li>
+
+	<li><p>
+	  Assuming there is a variable <m>x_3</m> that does not appear
+	  in any of the equations, we have the augmented matrix
+	  <me>
+	    \left[\begin{array}{rrrr|r}
+	    -1 \amp 2 \amp 0 \amp 1 \amp 2 \\
+	    3 \amp 0 \amp 0 \amp 2 \amp -1 \\
+	    -1 \amp -1 \amp 0 \amp 1 \amp 2 \\
+	    \end{array}\right]
+	    \sim
+	    \left[\begin{array}{rrrr|r}
+	    1 \amp 0 \amp 0 \amp 0 \amp -1 \\
+	    0 \amp 1 \amp 0 \amp 0 \amp 0 \\
+	    0 \amp 0 \amp 0 \amp 1 \amp 1 \\
+	    \end{array}\right]\text{.}
+	  </me>
+	  The variable <m>x_3</m> is a free variable so it can take on
+	  any value.  Hence, there are infinitely many solutions.
+	  Otherwise, the basic variables are <m>x_1 = -1</m>,
+	  <m>x_2=0</m>, and <m>x_4=1</m>.
+	</p></li>
+
+	<li><p>
+	  The augmented matrix and its reduced row echelon form are
+	  <me>
+	  \left[\begin{array}{rrrrr}
+	  -2 \amp 3 \amp 0 \amp 2 \amp 7 \\
+	  -1 \amp 4 \amp 1 \amp 3 \amp 9 \\
+	  3 \amp 0 \amp 2 \amp 2 \amp -1 \\
+	  1 \amp 5 \amp 4 \amp 7 \amp 8
+	  \end{array}\right]
+	  \sim
+	  \left[\begin{array}{rrrrr}
+	  1 \amp 0 \amp 0 \amp 0 \amp 1 \\
+	  0 \amp 1 \amp 0 \amp 0 \amp 3 \\
+	  0 \amp 0 \amp 1 \amp 0 \amp -2 \\
+	  0 \amp 0 \amp 0 \amp 1 \amp 0
+	  \end{array}\right]\text{,}
+	  </me>
+	  which shows that there is a single solution
+	  <m>(1,3,-2,0)</m>.  Every variable is a basic variable.
+	</p></li>
+      </ol></p>
+    </solution>
+
+    <answer>
+      <p><ol label="a.">
+	<li><p> The reduced row echelon form is
+	<me>
+	  \left[\begin{array}{rr|r}
+	  1 \amp 0 \amp -1 \\
+	  0 \amp 1 \amp 2 \\
+	  0 \amp 0 \amp 0 \\
+	  \end{array}\right]\text{,}
+	</me>
+	and there is a single solution.  Every variable is basic.
+	</p></li>
+
+	<li><p>
+	  The reduced row echelon form is
+	  <me>
+	    \left[\begin{array}{rrrr|r}
+	    1 \amp 0 \amp 0 \amp 0 \amp -1 \\
+	    0 \amp 1 \amp 0 \amp 0 \amp 0 \\
+	    0 \amp 0 \amp 0 \amp 1 \amp 1 \\
+	    \end{array}\right]\text{.}
+	  </me>
+	  The variable <m>x_3</m> is a free variable and all other
+	  variables are basic.
+	</p></li>
+
+	<li><p>
+	  The reduced row echelon form is
+	  <me>
+	  \left[\begin{array}{rrrrr}
+	  1 \amp 0 \amp 0 \amp 0 \amp 1 \\
+	  0 \amp 1 \amp 0 \amp 0 \amp 3 \\
+	  0 \amp 0 \amp 1 \amp 0 \amp -2 \\
+	  0 \amp 0 \amp 0 \amp 1 \amp 0
+	  \end{array}\right]\text{,}
+	  </me>
+	  which shows that there is a single solution
+	  <m>(1,3,-2,0)</m> and that every variable is a basic variable.
+	</p></li>
+      </ol></p>
+    </answer>
+	  
+  </exercise>
+
+  <exercise>
+    <statement>
+      <p> Consider each matrix below and determine if it is in reduced
+      row echelon form.  If not, indicate the reason and apply a
+      sequence of row operations to find its reduced row echelon
+      matrix. For each matrix, indicate whether the linear system
+      has infinitely many solutions, exactly one solution, or no
+      solutions.
+      <ol label="a.">
+	<li> <p>
+	  <me>
+	    \left[
+	    \begin{array}{rrrr|r}
+	    1 \amp 1 \amp 0 \amp 3 \amp 3 \\
+	    0 \amp 1 \amp 0 \amp -2 \amp 1 \\
+	    0 \amp 0 \amp 1 \amp 3 \amp 4 \\
+	    \end{array}
+	    \right]
+	  </me>
+	</p> </li>
+
+	<li> <p>
+	  <me>
+	    \left[
+	    \begin{array}{rrrr|r}
+	    1 \amp 0 \amp 0 \amp 0 \amp 0 \\
+	    0 \amp 2 \amp 0 \amp 0 \amp 0 \\
+	    0 \amp 0 \amp -3 \amp 0 \amp 0 \\
+	    0 \amp 0 \amp 0 \amp 1 \amp 0 \\
+	    0 \amp 0 \amp 0 \amp 0 \amp 1 \\
+	    \end{array}
+	    \right]
+	  </me>
+	</p> </li>
+
+	<li> <p>
+	  <me>
+	    \left[
+	    \begin{array}{rrrr|r}
+	    1 \amp 0 \amp 0 \amp 3 \amp 3 \\
+	    0 \amp 1 \amp 0 \amp -2 \amp 1 \\
+	    0 \amp 0 \amp 1 \amp 3 \amp 4 \\
+	    0 \amp 0 \amp 0 \amp 3 \amp 3 \\
+	    \end{array}
+	    \right]
+	  </me>
+	</p> </li>
+
+	<li> <p>
+	  <me>
+	    \left[
+	    \begin{array}{rrrr|r}
+	    0 \amp 0 \amp 1 \amp 0 \amp -1 \\
+	    0 \amp 1 \amp 0 \amp 0 \amp 3 \\
+	    1 \amp 1 \amp 1 \amp 1 \amp 2 \\
+	    \end{array}
+	    \right]
+	  </me>
+	</p> </li>
+      </ol>
+      </p>
+    </statement>
+
+    <solution>
+      <p><ol label="a.">
+	<li> <p> This is not in reduced row echelon form since the
+	leading entry in the second row is not the only nonzero entry
+	in its column.  Applying a replacement operation gives,
+	  <me>
+	    \left[
+	    \begin{array}{rrrr|r}
+	    1 \amp 1 \amp 0 \amp 3 \amp 3 \\
+	    0 \amp 1 \amp 0 \amp -2 \amp 1 \\
+	    0 \amp 0 \amp 1 \amp 3 \amp 4 \\
+	    \end{array}
+	    \right]
+	    \sim
+	    \left[
+	    \begin{array}{rrrr|r}
+	    1 \amp 0 \amp 0 \amp 5 \amp 2 \\
+	    0 \amp 1 \amp 0 \amp -2 \amp 1 \\
+	    0 \amp 0 \amp 1 \amp 3 \amp 4 \\
+	    \end{array}
+	    \right]\text{.}
+	  </me>
+	  There are infinitely many solutions since <m>x_4</m> is a
+	  free variable.
+	</p> </li>
+
+	<li> <p> This is not in reduced row echelon form since the
+	leading entries are not all <m>1</m>.  We can scale those rows
+	to find the reduced row echelon form.
+	  <me>
+	    \left[
+	    \begin{array}{rrrr|r}
+	    1 \amp 0 \amp 0 \amp 0 \amp 0 \\
+	    0 \amp 2 \amp 0 \amp 0 \amp 0 \\
+	    0 \amp 0 \amp -3 \amp 0 \amp 0 \\
+	    0 \amp 0 \amp 0 \amp 1 \amp 0 \\
+	    0 \amp 0 \amp 0 \amp 0 \amp 1 \\
+	    \end{array}
+	    \right]
+	    \sim
+	    \left[
+	    \begin{array}{rrrr|r}
+	    1 \amp 0 \amp 0 \amp 0 \amp 0 \\
+	    0 \amp 1 \amp 0 \amp 0 \amp 0 \\
+	    0 \amp 0 \amp 1 \amp 0 \amp 0 \\
+	    0 \amp 0 \amp 0 \amp 1 \amp 0 \\
+	    0 \amp 0 \amp 0 \amp 0 \amp 1 \\
+	    \end{array}
+	    \right]\text{.}
+	  </me>
+	  There are no solutions since the last row gives the equation
+	  <m>0=1</m>. 
+	</p> </li>
+
+	<li> <p> This is not in reduced row echelon form since the
+	leading entry in the last row is not <m>1</m> and is not the
+	only nonzero entry in its column.
+	  <me>
+	    \left[
+	    \begin{array}{rrrr|r}
+	    1 \amp 0 \amp 0 \amp 3 \amp 3 \\
+	    0 \amp 1 \amp 0 \amp -2 \amp 1 \\
+	    0 \amp 0 \amp 1 \amp 3 \amp 4 \\
+	    0 \amp 0 \amp 0 \amp 3 \amp 3 \\
+	    \end{array}
+	    \right]
+	    \sim
+	    \left[
+	    \begin{array}{rrrr|r}
+	    1 \amp 0 \amp 0 \amp 0 \amp 0 \\
+	    0 \amp 1 \amp 0 \amp 0 \amp 3 \\
+	    0 \amp 0 \amp 1 \amp 0 \amp 1 \\
+	    0 \amp 0 \amp 0 \amp 1 \amp 1 \\
+	    \end{array}
+	    \right]\text{.}
+	  </me>
+	  This linear system has a single solution.
+	</p> </li>
+
+	<li> <p> This is not in reduced row echelon form since the
+	leading entries appear in the wrong order.
+	  <me>
+	    \left[
+	    \begin{array}{rrrr|r}
+	    0 \amp 0 \amp 1 \amp 0 \amp -1 \\
+	    0 \amp 1 \amp 0 \amp 0 \amp 3 \\
+	    1 \amp 1 \amp 1 \amp 1 \amp 2 \\
+	    \end{array}
+	    \right]
+	    \sim
+	    \left[
+	    \begin{array}{rrrr|r}
+	    1 \amp 0 \amp 0 \amp 1 \amp 0 \\
+	    0 \amp 1 \amp 0 \amp 0 \amp 3 \\
+	    0 \amp 0 \amp 1 \amp 0 \amp -1 \\
+	    \end{array}
+	    \right]\text{.}
+	  </me>
+	  Since <m>x_4</m> is a free variable, there are infinitely
+	  many solutions.
+	</p> </li>
+      </ol>
+      </p>
+    </solution>
+
+    <answer>
+      <p><ol label="a.">
+	<li> <p> The reduced row echelon form is
+	  <me>
+	    \left[
+	    \begin{array}{rrrr|r}
+	    1 \amp 0 \amp 0 \amp 5 \amp 2 \\
+	    0 \amp 1 \amp 0 \amp -2 \amp 1 \\
+	    0 \amp 0 \amp 1 \amp 3 \amp 4 \\
+	    \end{array}
+	    \right]\text{,}
+	  </me>
+	  and there are infinitely many solutions.
+	</p> </li>
+
+	<li> <p> The reduced row echelon form is
+	  <me>
+	    \left[
+	    \begin{array}{rrrr|r}
+	    1 \amp 0 \amp 0 \amp 0 \amp 0 \\
+	    0 \amp 1 \amp 0 \amp 0 \amp 0 \\
+	    0 \amp 0 \amp 1 \amp 0 \amp 0 \\
+	    0 \amp 0 \amp 0 \amp 1 \amp 0 \\
+	    0 \amp 0 \amp 0 \amp 0 \amp 1 \\
+	    \end{array}
+	    \right]\text{,}
+	  </me>
+	  and there are no solutions.
+	</p> </li>
+
+	<li> <p> The reduced row echelon form is
+	  <me>
+	    \left[
+	    \begin{array}{rrrr|r}
+	    1 \amp 0 \amp 0 \amp 0 \amp 0 \\
+	    0 \amp 1 \amp 0 \amp 0 \amp 3 \\
+	    0 \amp 0 \amp 1 \amp 0 \amp 1 \\
+	    0 \amp 0 \amp 0 \amp 1 \amp 1 \\
+	    \end{array}
+	    \right]\text{,}
+	  </me>
+	  and this linear system has a single solution.
+	</p> </li>
+
+	<li> <p> The reduced row echleon form is
+	  <me>
+	    \left[
+	    \begin{array}{rrrr|r}
+	    1 \amp 0 \amp 0 \amp 1 \amp 0 \\
+	    0 \amp 1 \amp 0 \amp 0 \amp 3 \\
+	    0 \amp 0 \amp 1 \amp 0 \amp -1 \\
+	    \end{array}
+	    \right]\text{,}
+	  </me>
+	  and there are infinitely many solutions.
+	</p> </li>
+      </ol>
+      </p>
+    </answer>
+    
+  </exercise>
+
+  <exercise>
+    <statement>
+      <p> Give an example of a reduced row echelon matrix that
+      describes a linear system having the stated properties.  If it
+      is not possible to find such an example, explain why not.
+	<ol label="a.">
+	  <li> <p> Write a reduced row echelon matrix for a linear
+	  system having five equations and three unknowns and having
+	  exactly one solution. </p></li>
+
+	  <li> <p> Write a reduced row echelon matrix for a linear
+	  system having three equations and three unknowns and having
+	  no solution. </p></li>
+
+	  <li> <p> Write a reduced row echelon matrix for a linear
+	  system having three equations and five unknowns and having
+	  infinitely many solutions. </p></li>
+
+	  <li> <p> Write a reduced row echelon matrix for a linear
+	  system having three equations and four unknowns and having
+	  exactly one solution. </p></li>
+
+	  <li> <p> Write a reduced row echelon matrix for a linear
+	  system having four equations and four unknowns and having
+	  exactly one solution. </p></li>
+	</ol>
+      </p>
+    </statement>
+
+    <solution>
+      <p><ol label="a.">
+	<li><p> Our matrix should have five rows and four columns.
+	Here is an example.
+	<me>
+	  \left[\begin{array}{rrr|r}
+	  1 \amp 0 \amp 0 \amp 3 \\
+	  0 \amp 1 \amp 0 \amp -4 \\
+	  0 \amp 0 \amp 1 \amp 2 \\
+	  0 \amp 0 \amp 0 \amp 0 \\
+	  0 \amp 0 \amp 0 \amp 0 \\
+	  \end{array}\right]\text{.}
+	</me>
+	</p></li>
+
+	<li><p> Here is an example.
+	<me>
+	  \left[\begin{array}{rrr|r}
+	  1 \amp 0 \amp -2 \amp 0 \\
+	  0 \amp 1 \amp 1 \amp 0 \\
+	  0 \amp 0 \amp 0 \amp 1 \\
+	  \end{array}\right]\text{.}
+	</me>
+	</p></li>
+
+	<li><p> Here is an example.
+	<me>
+	  \left[\begin{array}{rrrrr|r}
+	  1 \amp 0 \amp 0 \amp -2 \amp 3 \amp 7 \\
+	  0 \amp 1 \amp 0 \amp 3 \amp 0 \amp 4 \\
+	  0 \amp 0 \amp 1 \amp 1 \amp -1 \amp 2 \\
+	  \end{array}\right]\text{.}
+	</me>
+	</p></li>
+
+	<li><p> This is not possible.  If there is a solution, there
+	will always be a free variable so there will be infinitely
+	many solutions.
+	<me>
+	  \left[\begin{array}{rrrr|r}
+	  1 \amp 0 \amp 0 \amp * \amp * \\
+	  0 \amp 1 \amp 0 \amp * \amp * \\
+	  0 \amp 0 \amp 1 \amp * \amp * \\
+	  \end{array}\right]\text{.}
+	</me>
+	</p></li>
+
+	<li><p> Here is an example.
+	<me>
+	  \left[\begin{array}{rrrr|r}
+	  1 \amp 0 \amp 0 \amp 0 \amp 1 \\
+	  0 \amp 1 \amp 0 \amp 0 \amp -2 \\
+	  0 \amp 0 \amp 1 \amp 0 \amp 0 \\
+	  0 \amp 0 \amp 0 \amp 1 \amp 1 \\
+	  \end{array}\right]\text{.}
+	</me>
+	</p></li>
+      </ol></p>
+    </solution>
+	  
+    <answer>
+      <p><ol label="a.">
+	<li><p> 
+	<m>
+	  \left[\begin{array}{rrr|r}
+	  1 \amp 0 \amp 0 \amp 3 \\
+	  0 \amp 1 \amp 0 \amp -4 \\
+	  0 \amp 0 \amp 1 \amp 2 \\
+	  0 \amp 0 \amp 0 \amp 0 \\
+	  0 \amp 0 \amp 0 \amp 0 \\
+	  \end{array}\right]\text{.}
+	</m>
+	</p></li>
+
+	<li><p> 
+	<m>
+	  \left[\begin{array}{rrr|r}
+	  1 \amp 0 \amp -2 \amp 0 \\
+	  0 \amp 1 \amp 1 \amp 0 \\
+	  0 \amp 0 \amp 0 \amp 1 \\
+	  \end{array}\right]\text{.}
+	</m>
+	</p></li>
+
+	<li><p> 
+	<m>
+	  \left[\begin{array}{rrrrr|r}
+	  1 \amp 0 \amp 0 \amp -2 \amp 3 \amp 7 \\
+	  0 \amp 1 \amp 0 \amp 3 \amp 0 \amp 4 \\
+	  0 \amp 0 \amp 1 \amp 1 \amp -1 \amp 2 \\
+	  \end{array}\right]\text{.}
+	</m>
+	</p></li>
+
+	<li><p> This is not possible.  
+	</p></li>
+
+	<li><p> 
+	<m>
+	  \left[\begin{array}{rrrr|r}
+	  1 \amp 0 \amp 0 \amp 0 \amp 1 \\
+	  0 \amp 1 \amp 0 \amp 0 \amp -2 \\
+	  0 \amp 0 \amp 1 \amp 0 \amp 0 \\
+	  0 \amp 0 \amp 0 \amp 1 \amp 1 \\
+	  \end{array}\right]\text{.}
+	</m>
+	</p></li>
+      </ol></p>
+    </answer>
+	  
+  </exercise>
+
+  <exercise>
+    <statement>
+      <p> For each of the questions below, provide a justification
+      for your response.
+      <ol label="a.">
+	<li> <p> What does the presence of a row whose entries are
+	all zero in an augmented matrix tell us about the solution
+	space of the linear system? </p></li>
+
+	<li> <p> How can you determine if a linear system has no
+	solutions directly from its reduced row echelon matrix?
+	</p></li>
+
+	<li> <p> How can you determine if a linear system has
+	infinitely many solutions directly from its reduced row
+	echelon matrix? </p></li>
+
+	<li> <p> What can you say the solution space of a linear
+	system if there are more unknowns than equations and at
+	least one solution exists? </p></li>
+      </ol>
+      </p>
+    </statement>
+
+    <solution>
+      <p><ol label="a.">
+	<li><p> It doesn't tell us anything.  The equation is true for
+	any values of the variables.  Therefore, it does not provide a
+	restriction on the solution space.
+	</p></li>
+
+	<li><p> There must be an equation having the form <m>0=1</m>
+	so there is a row whose leading entry is in the rightmost
+	column of the augmented matrix.
+	</p></li>
+
+	<li><p> First, we know there are solutions so no row can have
+	its leading entry in the rightmost column of the augmented matrix.
+	Second, there must be a free variable to have infinitely many
+	solutions.  Therefore, there must be at least one column that
+	corresponds to a variable that does not contain the leading
+	entry of a row.
+	</p></li>
+
+	<li><p> There must be infinitely many solutions since there
+	will be a free variable.
+	</p></li>
+      </ol></p>
+    </solution>
+
+    <answer>
+      <p><ol label="a.">
+	<li><p> Nothing. </p></li>
+
+	<li><p> The leading entry of some row appears in the rightmost
+	column of the augmented matrix.
+	</p></li>
+
+	<li><p> There is a column that is not the rightmost and that
+	does not contain the leading entry of a row.  Also, the
+	rightmost column does not contain a leading entry.
+	</p></li>
+
+	<li><p> There are infinitely many solutions. </p></li>
+      </ol></p>
+    </answer>
+	
+  </exercise>
+
+  <exercise>
+    <statement>
+      <p> Determine whether the following statements are true or
+      false and explain your reasoning. </p>
+      <ol label="a.">
+	<li> <p> If every variable is basic, then the linear system
+	has exactly one solution. </p></li>
+
+	<li> <p> If two augmented matrices are row equivalent to one
+	another, then they describe two linear systems having the
+	same solution spaces. </p></li>
+
+	<li> <p> The presence of a free variable indicates that there
+	are no solutions to the linear system. </p></li>
+
+	<li> <p> If a linear equation has exactly one solution, then
+	it must have the same number of equations as unknowns. </p>
+	</li>
+
+	<li> <p> If a linear system has the same number of equations
+	as unknowns, then it has exactly one solution. </p></li>
+      </ol>
+    </statement>
+
+    <solution>
+      <p><ol label="a.">
+	<li><p> This is true provided that there is some solution to
+	the linear system.  We have to avoid the situation when there
+	are infinitely variables, and this happens only when there is
+	a free variable.
+	</p></li>
+
+	<li><p> This is true.  When two matrices are row equivalent,
+	there is a sequence of scaling, interchange, and replacement
+	operations that transforms one matrix into the other.  These
+	operations do not change the solution space of the matrix.
+	</p></li>
+
+	<li><p> This is false.  The presence of a free variable tells
+	us there are infinitely many solutions.
+	</p></li>
+
+	<li><p> This is false.  The reduced row echelon form of the
+	augmented matrix could look like
+	<me>
+	  \left[\begin{array}{rr|r}
+	  1 \amp 0 \amp -3 \\
+	  0 \amp 1 \amp 4 \\
+	  0 \amp 0 \amp 0 \\
+	  \end{array}\right]\text{.}
+	</me>
+	In this case, there are three equations in two unknowns, and
+	the system has exactly one solution.
+	</p></li>
+
+	<li><p> This is false, and here is a reduced row echelon
+	matrix that illustrates why.
+	<me>
+	  \left[\begin{array}{rr|r}
+	  1 \amp 2 \amp -1 \\
+	  0 \amp 0 \amp 0 \\
+	  \end{array}\right]\text{.}
+	</me>
+	</p></li>
+      </ol></p>
+    </solution>
+
+    <answer>
+      <p><ol label="a.">
+	<li><p> True. </p></li>
+	<li><p> True. </p></li>
+	<li><p> False. </p></li>
+	<li><p> False. </p></li>
+	<li><p> False. </p></li>
+      </ol></p>
+    </answer>
+	
+  </exercise>
+
+</exercises>

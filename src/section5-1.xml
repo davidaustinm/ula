@@ -1,0 +1,1065 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec-gaussian-revisited"
+	 xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title> Gaussian elimination revisited  </title>
+
+  <introduction>
+    <p> In this section, we revisit Gaussian elimination and explore
+    some problems with implementing it in the straightforward way that
+    we described back in <xref ref="sec-finding-solutions" />.  In
+    particular, we will see how the fact that computers only
+    approximate arithmetic operations can lead us to find solutions
+    that are far from the actual solutions.  Second, we will explore
+    how much work is required to implement Gaussian elimination and
+    devise a more efficient means of implementing it when we want to
+    solve equations <m>A\xvec = \bvec</m> for several different
+    vectors <m>\bvec</m>.  
+    </p>
+
+    <exploration>
+      <statement>
+      <p> To begin, let's recall how we implemented Gaussian
+      elimination by considering the matrix
+      <me>
+	A = \left[\begin{array}{rrrr}
+	1 \amp 2 \amp -1 \amp 2 \\
+	1 \amp 0 \amp -2 \amp 1 \\
+	3 \amp 2 \amp 1 \amp 0 \\
+	\end{array}\right]
+      </me>
+      <ol label="a.">
+	<li><p> What is the first row operation we perform?
+	If the resulting matrix is
+	<m>A_1</m>, find a matrix <m>E_1</m> such that <m>E_1A =
+	A_1</m>.  </p></li>
+
+	<li><p> What is the matrix inverse <m>E_1^{-1}</m>?  You can
+	find this using your favorite technique for finding a matrix
+	inverse.  However, it may be easier to think about the effect
+	that the row operation has and how it can be undone. </p></li>
+
+	<li><p> Perform the next two steps in the Gaussian elimination
+	algorithm to obtain <m>A_3</m>.  Represent these steps using
+	multiplication by matrices <m>E_2</m> and <m>E_3</m> so that
+	<me>
+	  E_3E_2E_1A = A_3
+	</me>.
+	</p></li>
+
+	<li><p> Suppose we need to scale the second row by <m>-2</m>.
+	What is the <m>3\times3</m> matrix that perfoms this row
+	operation by left multiplication?
+	</p></li>
+
+	<li><p> Suppose that we need to interchange the first and
+	second rows.  What is the <m>3\times3</m> matirx that performs
+	this row operation by left multiplication?</p></li>
+      </ol></p>
+      </statement>
+
+      <solution>
+	<p><ol label="a.">
+	  <li><p> We first multiply the first row by <m>-1</m> and add
+	  to the second row.  This can be represented by multiplying
+	  <m>E_1A=A_1</m> where
+	  <me>E_1=\left[\begin{array}{rrr}
+	  1 \amp 0 \amp 0 \\
+	  -1 \amp 1 \amp 0 \\
+	  0 \amp 0 \amp 1 \\
+	  \end{array}\right],
+	  A_1=
+	  \left[\begin{array}{rrrr}
+	  1 \amp 2 \amp -1 \amp 2 \\
+	  0 \amp -2 \amp -1 \amp -1 \\
+	  3 \amp 2 \amp 1 \amp 0
+	  \end{array}\right]\text{.}
+	  </me>
+	  </p></li>
+
+	  <li><p> To undo the row operation, we multiply the first row
+	  by <m>1</m> and add to the second row.  This shows that <m>
+	  E_1^{-1} =
+	  \left[\begin{array}{rrr}
+	  1 \amp 0 \amp 0 \\
+	  1 \amp 1 \amp 0 \\
+	  0 \amp 0 \amp 1
+	  \end{array}\right]</m>.
+	  </p></li>
+
+	  <li><p> We have
+	  <me>
+	    \begin{array}{c}
+	    E_2 = \left[\begin{array}{rrr}
+	    1 \amp 0 \amp 0 \\
+	    0 \amp 1 \amp 0 \\
+	    -3 \amp 0 \amp 1
+	    \end{array}\right],
+	    E_3=\left[\begin{array}{rrr}
+	    1 \amp 0 \amp 0 \\
+	    0 \amp 1 \amp 0 \\
+	    0 \amp -2 \amp 1
+	    \end{array}\right], \\
+	    A_3=\left[\begin{array}{rrrr}
+	    1 \amp 2 \amp -1 \amp 2 \\
+	    0 \amp -2 \amp -1 \amp -1 \\
+	    0 \amp 0 \amp 6 \amp -4
+	    \end{array}\right]\text{.}
+	    \end{array}
+	  </me>
+	  </p></li>
+
+	  <li><p> The matrix performing this scaling is
+	  <m>\left[\begin{array}{rrr} 1 \amp 0 \amp 0 \\
+	  0 \amp -2 \amp 0 \\
+	  0 \amp 0 \amp 1 \\
+	  \end{array}\right]</m>.
+	  </p></li>
+
+	  <li><p> The matrix performing this interchange is
+	  <m>\left[\begin{array}{rrr}
+	  0 \amp 1 \amp 0 \\
+	  1 \amp 0 \amp 0 \\
+	  0 \amp 0 \amp 1 \\
+	  \end{array}\right]</m>.
+	  </p></li>
+	</ol></p>
+      </solution>
+    </exploration>
+
+  </introduction>
+
+  <subsection>
+    <title> Partial pivoting </title>
+
+    <p> The first issue that we will address is the fact that
+    computers do not perform arithemtic operations exactly.  For
+    instance, if we ask Python to evaluate <c>0.1 + 0.2</c>, it
+    reports <c>0.30000000000000004</c> though we know that the true
+    value is 0.3.  There are a couple of reasons for this.</p>
+
+    <p> First, computers perform arithmetic using base 2 numbers,
+    which means that numbers we enter in decimal form, such as
+    <m>0.1</m>, must be converted to base 2.  Even though 0.1 has a
+    simple decimal form, its representation in base 2 is the repeating
+    decimal 
+    <me>
+      0.000110011001100110011001100110011001100110011\ldots\text{.}
+    </me>,
+    To accurately represent this number inside a
+    computer would require an infinite number of digits.  Since a
+    computer can only hold a finite number of digits,
+    we are necessarily using an approximation when
+    simply representing this number in a computer.
+    </p>
+
+    <p> In addition, arithmetic operations, such as addition, are
+    prone to error.  To keep things simple, suppose we have a computer
+    that represents numbers using only three decimal digits.  For
+    instance, the number 1.023 would be represented as <c>1.02</c>
+    while 0.023421 would be <c>0.0234</c>.  If we add these numbers,
+    we have 1.023 + 0.023421 = 1.046421;  the computer reports this
+    sum as
+    <c> 1.02 + 0.0234 = 1.04</c>, whose last digit is not correctly
+    rounded.  Generally speaking, we will see this problem, which is
+    called <em>round off error</em>, whenever we
+    add numbers of signficantly different magnitudes.
+    </p>
+
+    <p> Remember that Gaussian elimination, when applied to an
+    <m>n\times n</m> matrix, requires approximately <m>\frac 23
+    n^3</m> operations.  If we have a <m>1000\times1000</m> matrix,
+    performing Gaussian elimination requires roughly a billion
+    operations, and the errors introduced in each operation could
+    accumulate.  How can we have confidence in the final
+    result?  We can never completely avoid these errors, but we can
+    take steps to mitigate them.  The
+    next activity will introduce one such technique. </p>
+
+    <activity>
+      <statement>
+      <p> Suppose we have a hypothetical computer that represents
+      numbers using only three decimal digits, as we have been
+      discussing.  We will consider the linear system
+      <me>
+	\begin{alignedat}{3}
+	0.0001x \amp  {}+{}  \amp y \amp  {}={}  \amp 1 \\
+	x \amp  {}+{}  \amp y \amp  {}={}  \amp 2\text{.} \\
+	\end{alignedat}
+      </me>
+      <ol label="a.">
+	<li><p> 
+	  Show that this system has the unique solution
+	  <me>
+	    \begin{aligned}
+	    x \amp {}={} \frac{10000}{9999} = 1.00010001\ldots, \\
+	    y \amp {}={} \frac{9998}{9999} =  0.99989998\ldots\text{.}
+	    \end{aligned}
+	  </me>
+	</p></li>
+
+	<li><p> If we represent this solution inside our computer that
+	only holds 3 decimal digits, what do we find for the solution?
+	This is the best that we can hope to find using our computer.
+	</p></li>
+
+	<li><p> Let's imagine that we use our computer to find the
+	solution using Gaussian elimination; that is, after every
+	arithmetic operation, we keep only three decimal digits.  Our
+	first step is to multiply the first equation by 10000 and
+	subtract it from the second equation.  If we represent numbers
+	using only three decimal digits, what does this give for the
+	value of <m>y</m>?  </p></li>
+
+	<li><p> By substituting our value for <m>y</m> into the first
+	equation, what do we find for <m>x</m>?</p></li>
+
+	<li><p> Compare the solution we find on our computer with the
+	actual solution and assess the quality of the
+	approximation.</p></li>
+
+	<li><p> Let's now modify the linear system by simplying
+	interchanging the equations:
+	<me>
+	  \begin{alignedat}{3}
+	  x \amp  {}+{}  \amp y \amp  {}={}  \amp 2 \\
+	  0.0001x \amp  {}+{}  \amp y \amp  {}={}  \amp 1\text{.} \\
+	  \end{alignedat}
+	</me>
+	Of course, this doesn't change the actual solution.  Let's
+	imagine we 
+	use our computer to find the solution using Gaussian
+	elimination.  Perform the first step where we multiply the
+	first equation by 0.0001 and subtract from the second
+	equation.  What does this give for <m>y</m> if we represent
+	numbers using only three decimal digits?</p></li>
+
+	<li><p> Substitute the value you found for <m>y</m> into the
+	first equation and solve for <m>x</m>.  Then compare the
+	approximate solution found with our hypothetical computer to
+	the exact solution. </p></li>
+
+	<li><p> Which approach produces the most accurate
+	approximation? </p></li>
+	
+      </ol></p>
+      </statement>
+
+      <solution>
+	<p><ol label="a.">
+	  <li><p> We may find this result by forming the augmented
+	  matrix
+	  <me>
+	    \left[\begin{array}{rr|r}
+	    \frac1{10000} \amp 1 \amp 1 \\
+	    1 \amp 1 \amp 2 \\
+	    \end{array}\right]
+	  </me>
+	  and row reducing. </p></li>
+
+	  <li><p> The solution would be rounded to <m>x\approx1</m>
+	  and <m>y\approx1</m>.</p></li>
+
+	  <li><p> We first multiply the first row by <m>-10000</m> and
+	  add to the second row.  This gives
+	  <me>
+	    \begin{array}{l}
+	    \left[\begin{array}{rr|r}
+	    0.0001 \amp 1 \amp 1 \\
+	    0 \amp -9999 \amp -9998 \\
+	    \end{array}\right] \\
+	    \approx
+	    \left[\begin{array}{rr|r}
+	    0.0001 \amp 1 \amp 1 \\
+	    0 \amp -10000 \amp -10000 \\
+	    \end{array}\right] \\
+	    \sim 
+	    \left[\begin{array}{rr|r}
+	    0.0001 \amp 1 \amp 1 \\
+	    0 \amp 1 \amp 1 \\
+	    \end{array}\right] 
+	    \text{.}
+	    \end{array}
+	  </me>
+	  This tells us that <m>y\approx 1</m>.</p></li>
+
+	  <li><p> The next steps in the Gaussian elimination algorithm
+	  give us
+	  <me>
+	    \left[\begin{array}{rr|r}
+	    0.0001 \amp 0 \amp 0 \\
+	    0 \amp 1 \amp 1 \\
+	    \end{array}\right]
+	    \sim
+	    \left[\begin{array}{rr|r}
+	    1 \amp 0 \amp 0 \\
+	    0 \amp 1 \amp 1 \\
+	    \end{array}\right]
+	  </me>
+	  so have the approximation solution <m>x\approx0</m> and
+	  <m>y\approx1</m>.  </p></li>
+
+	  <li><p> This compares to the actual solution, as represented
+	  in our computer, as <m>x\approx1</m> and <m>y\approx1</m>.
+	  The value of <m>x</m> differs considerably. </p></li>
+
+	  <li><p> Now we have
+	  <me>
+	    \begin{array}{rcl}
+	    \left[\begin{array}{rr|r}
+	    1 \amp 1 \amp 2 \\
+	    0.0001 \amp 1 \amp 1 \\
+	    \end{array}\right] \amp
+	    \sim \amp
+	    \left[\begin{array}{rr|r}
+	    1 \amp 1 \amp 2 \\
+	    0 \amp 0.9999 \amp 0.9998 \\
+	    \end{array}\right] \\
+	    \amp \approx \amp
+	    \left[\begin{array}{rr|r}
+	    1 \amp 1 \amp 2 \\
+	    0 \amp 1 \amp 1 \\
+	    \end{array}\right]\text{,}
+	    \end{array}
+	  </me>
+	  which gives <m>y\approx1</m>. </p></li>
+
+	  <li><p> Performing one more row operation gives us
+	  <me>
+	    \left[\begin{array}{rr|r}
+	    1 \amp 0 \amp 1 \\
+	    0 \amp 1 \amp 1 \\
+	    \end{array}\right]\text{,}
+	  </me>
+	  which shows the approximate solution as <m>x\approx1</m> and
+	  <m>y\approx1</m>. </p></li>
+
+	  <li><p> The second approach gives an approximate solution
+	  that is as accurate as possible given the computer's limited
+	  ability to store digits. </p></li>
+	</ol></p>
+      </solution>
+    </activity>
+
+    <p> This activity demonstrates how the practical aspects of
+    computing differ from the theoretical.  We know that the order in
+    which we write the equations has no effect on the solution space;
+    row interchange is one of our three allowed row operations in the
+    Gaussian elimination algorithm.  However, when we are only able to
+    perform arithmetic operations approximately, applying row
+    interchanges can dramatically improve the accuracy of our
+    approximations. </p>
+
+    <p> If we could compute the solution exactly, we find
+    <me>
+      x = 1.00010001\ldots, \qquad
+      y =  0.99989998\ldots\text{.}
+    </me>
+    Since our hypothetical computer represents numbers using only
+    three decimal digits, our computer finds
+    <me>
+      x \approx 1.00, \qquad y \approx 1.00.
+    </me>
+    This is the best we can hope to do with our computer since it is
+    impossible to represent the solution exactly.
+    </p>
+
+    <p> When the equations are written in their original order and we
+    multiply the first equation by 10000 and subtract from the second,
+    we find
+    <me>
+      \begin{aligned}
+      (1-10000)y \amp {}={}2-10000 \\
+      -9999 y \amp {}={} -9998 \\
+      -10000y\amp {}\approx{} -10000 \\
+      y \amp {}\approx{} 1.00\text{.} \\
+      \end{aligned}
+    </me>
+    </p>
+
+    <p> In fact, we find the same value for <m>y</m> when we
+    interchange the equations.  Here we multiply the first equation by
+    0.0001 and subtract from the second equation.  We then find
+    <me>
+      \begin{aligned}
+      (1-0.0001)y \amp {}={}2-0.0001 \\
+      -0.9999 y \amp {}={} -0.9998 \\
+      -y\amp {}\approx{} -1.00 \\
+      y \amp {}\approx{} 1.00\text{.} \\
+      \end{aligned}
+    </me>
+    </p>
+
+    <p> The difference occurs when we substitute <m>y\approx 1</m>
+    into the first equation.  When the equations are written in their
+    original order, we have
+    <me>
+      \begin{aligned}
+      0.0001x + 1.00 \amp {}\approx{} 1.00 \\
+      0.0001x \amp {}\approx{} 0.00 \\
+      x \amp {}\approx{} 0.00\text{.} \\
+      \end{aligned}
+    </me>
+    When the equations are written in their original order, we find
+    the solution <m>x\approx 0.00, y \approx 1.00</m>. </p>
+
+    <p> When we write the equation in the opposite order, however,
+    substituting <m>y\approx 1</m> into the first equation gives
+    <me>
+      \begin{aligned}
+      x + 1.00 \amp {}\approx{} 2.00 \\
+      x \amp {}\approx{} 1.00\text{.} \\
+      \end{aligned}
+    </me>
+    In this case, we find the approximate solution <m>x\approx 1.00,
+    y\approx1.00</m>, which is the most accurate solution that our
+    hypothetical computer can find.  Simply interchanging the order of
+    the equation produces a much more accurate solution.</p>
+
+    <sidebyside widths="50% 45%">
+      <p>We can understand why this works graphically.  Each equation
+      represents a line in the plane, and the solution is the
+      intersection point.  Notice that the slopes of these lines
+      differ considerably.
+      </p>
+      <image source="images/partial-pivot-ex" />
+    </sidebyside>
+
+    <p> When the equations are written in their original order, we
+    substitute <m>y\approx1</m> into the equation
+    <m>0.00001x + y = 1</m>, which is a nearly horizontal line.  Along
+    this line, a small change in <m>y</m> leads to a large change in
+    <m>x</m>.  The slight difference in our approximation <m>y\approx
+    1</m> from the exact value <m>y=0.9998999\ldots</m> leads to a
+    large difference in the approximation <m>x\approx0</m> from the
+    exact value <m>x=1.00010001\ldots</m>.
+    </p>
+
+    <p> If we exchange the order in which the equations are written,
+    we substitute our approximation <m>y\approx 1</m> into the
+    equation <m>x+y=2</m>.  Notice that the slope of the associated
+    line is <m>-1</m>.  On this line, a small change in <m>y</m> leads
+    to a relatively small change in <m>x</m> as well.  Therefore, the
+    difference in our approximation <m>y\approx1</m> from the exact
+    value leads to only a small difference in the approximation
+    <m>x\approx1</m> from the exact value. </p>
+
+    <p> This example motivates the technique that computers usually
+    use to perform Gaussian elimation.  In practice, we only need to
+    perform a row interchange when a zero occurs in a pivot position,
+    such as
+    <me>
+      \left[\begin{array}{rrrr}
+      1 \amp -1 \amp 2 \amp 2 \\
+      0 \amp 0 \amp -3 \amp 1 \\
+      0 \amp 2 \amp 2 \amp -3 \\
+      \end{array}\right]
+    </me>.
+    Instead, we will perform a row interchange to put the entry having
+    the largest possible absolute value entry into the pivot position.
+    For instance, when performing Gaussian elimination on the
+    following matrix, we begin by interchanging the first and third
+    rows so that the upper left entry has the largest possible
+    absolute value.
+    <me>
+      \left[\begin{array}{rrrr}
+      2 \amp 1 \amp 2 \amp 3 \\
+      1 \amp -3 \amp -2 \amp 1 \\
+      -3 \amp 2 \amp 3 \amp -2 \\
+      \end{array}\right]
+      \sim
+      \left[\begin{array}{rrrr}
+      -3 \amp 2 \amp 3 \amp -2 \\
+      1 \amp -3 \amp -2 \amp 1 \\
+      2 \amp 1 \amp 2 \amp 3 \\
+      \end{array}\right]\text{.}
+    </me>
+      <idx> partial pivoting </idx>
+    This technique is called <em>partial pivoting</em>, and it means
+    that, in practice, we will perform many more row interchange
+    operations than we typically do when computing exactly by hand.
+    </p>
+
+  </subsection>
+
+  <subsection>
+    <title> <m>LU</m> factorizations </title>
+
+    <p> In <xref ref="subsec-compute-effort" />, we saw that the number
+    of arithmetic operations needed to perform Gaussian elimination on
+    an <m>n\times n</m> matrix is about <m>\frac23 n^3</m>.  This
+    means that a <m>1000\times1000</m> matrix, requires about two
+    thirds of a billion operations.  </p>
+
+    <p> Suppose that we have two equations, <m>A\xvec = \bvec_1</m> and
+    <m>A\xvec = \bvec_2</m>, that we would like to solve.  Usually, we
+    would form augmented matrices
+    <m>\left[\begin{array}{c|c} A \amp \bvec_1 \\ \end{array}\right]</m>
+    and
+    <m>\left[\begin{array}{c|c} A \amp \bvec_2 \\ \end{array}\right]</m>
+    and apply Gaussian elimination.  Of course, the steps we perform
+    in these two computations are nearly identical.  Is there a way
+    to store some of the computation we perform in reducing 
+    <m>\left[\begin{array}{c|c} A \amp \bvec_1 \\ \end{array}\right]</m>
+    and reuse it in solving subsequent equations?  The next activity
+    will point us in the right direction.</p>
+
+    <activity>
+      <statement>
+      <p> We will consider the matrix
+      <me>
+	A = \left[\begin{array}{rrr}
+	1 \amp 2 \amp 1 \\
+	-2 \amp -3 \amp -2 \\
+	3 \amp 7 \amp 4 \\
+	\end{array}\right]
+      </me>
+      and begin performing Gaussian elimination.
+      <ol label="a.">
+	<li> <p> Perform two row replacement operations to find the
+	row equivalent matrix
+	<me>
+	  A' = \left[\begin{array}{rrr}
+	  1 \amp 2 \amp 1 \\
+	  0 \amp 1 \amp 0 \\
+	  0 \amp 1 \amp 1 \\
+	  \end{array}\right]\text{.}
+	</me>
+	Find elementary matrices <m>E_1</m> and <m>E_2</m> that
+	perform these two operations so that <m>E_2E_1 A = A'</m>.
+	</p></li>
+
+	<li><p> Perform a third row replacement to find the upper
+	triangular matrix
+	<me>
+	  U = \left[\begin{array}{rrr}
+	  1 \amp 2 \amp 1 \\
+	  0 \amp 1 \amp 0 \\
+	  0 \amp 0 \amp 1 \\
+	  \end{array}\right]\text{.}
+	</me>
+	Find the elementary matrix <m>E_3</m> such that <m>E_3E_2E_1A
+	= U</m>.  </p></li>
+
+	<li><p> We can write <m>A=E_1^{-1}E_2^{-1}E_3^{-1} U</m>.  
+	Find the inverse matrices <m>E_1^{-1}</m>,
+	<m>E_2^{-1}</m>, and <m>E_3^{-1}</m> and the product
+	<m>L = E_1^{-1}E_2^{-1}E_3^{-1}</m>.  Then verify that
+	<m>A=LU</m>.
+
+	<sage>
+	  <input>
+	  </input>
+	</sage>
+
+	</p></li>
+
+	<li><p> Suppose that we want to solve the equation
+	<m>A\xvec = \bvec = \threevec4{-7}{12}</m>.  We will write
+	<me>
+	  A\xvec = LU\xvec = L(U\xvec) = \bvec
+	</me>
+	and introduce an unknown vector <m>\cvec</m> such that
+	<m>U\xvec = \cvec</m>.  Find <m>\cvec</m> by
+	noting that <m>L\cvec = \bvec</m> and solving this equation.
+	</p></li>
+
+	<li><p> Now that we have found <m>\cvec</m>, find <m>\xvec</m>
+	by solving <m>U\xvec = \cvec</m>. </p></li> 
+
+	<li><p> Use the factorization <m>A=LU</m> and this two-step
+	process, solve the equation 
+	<m>A\xvec = \threevec{2}{-2}{7}</m>. </p></li>
+
+      </ol></p>
+      </statement>
+
+      <solution>
+	<p><ol label="a.">
+	  <li><p> We have
+	  <me>
+	    E_1 =
+	    \left[\begin{array}{rrr}
+	    1 \amp 0 \amp 0 \\
+	    2 \amp 1 \amp 0 \\
+	    0 \amp 0 \amp 1
+	    \end{array}\right],
+	    E_2 = \left[\begin{array}{rrr}
+	    1 \amp 0 \amp 0 \\
+	    0 \amp 1 \amp 0 \\
+	    -3 \amp 0 \amp 1
+	    \end{array}\right]\text{.}
+	  </me>
+	  </p></li>
+
+	  <li><p> The third row replacement is performed by
+	  <me>
+	    E_3 = \left[\begin{array}{rrr}
+	    1 \amp 0 \amp 0 \\
+	    0 \amp 1 \amp 0 \\
+	    0 \amp -1 \amp 1 \\
+	    \end{array}\right]\text{.}
+	  </me>
+	  </p></li>
+
+	  <li><p> The inverse matrices are easily found to be
+	  <me>
+	    E_1^{-1}=
+	    \left[\begin{array}{rrr}
+	    1 \amp 0 \amp 0 \\
+	    -2 \amp 1 \amp 0 \\
+	    0 \amp 0 \amp 1 \\
+	    \end{array}\right],
+	    E_2^{-1}=
+	    \left[\begin{array}{rrr}
+	    1 \amp 0 \amp 0 \\
+	    0 \amp 1 \amp 0 \\
+	    3 \amp 0 \amp 1 \\
+	    \end{array}\right],
+	    E_3^{-1}=
+	    \left[\begin{array}{rrr}
+	    1 \amp 0 \amp 0 \\
+	    0 \amp 1 \amp 0 \\
+	    0 \amp 1 \amp 1 \\
+	    \end{array}\right]
+	  </me>
+	  giving <m>
+	  L = E_1^{-1}E_2^{-1}E_3^{-1} =
+	  \left[\begin{array}{rrr}
+	  1 \amp 0 \amp 0 \\
+	  -2 \amp 1 \amp 0 \\
+	  3 \amp 1 \amp 1
+	  \end{array}\right]
+	  </m> so that <m>A = LU</m>. </p></li>
+
+	  <li><p> Noting that <m>L\cvec=\bvec</m>, we find
+	  <m>\cvec=\threevec41{-1}</m>. </p></li>
+
+	  <li><p> To find <m>\xvec</m>, we solve the equation
+	  <m>U\xvec=\cvec</m> to obtain
+	  <m>\xvec=\threevec31{-1}</m>. </p></li>
+
+	  <li><p> We solve <m>L\cvec=\threevec{2}{-2}{7}</m> to find
+	  <m>\cvec=\threevec22{-1}</m> and <m>U\xvec=\cvec</m> to find
+	  <m>\xvec=\threevec{-1}{2}{-1}</m>. </p></li>
+	</ol></p>
+      </solution>
+    </activity>
+
+    <p> This activity introduces a method for factoring a matrix
+    <m>A</m> as a product of two triangular matrices, <m>A=LU</m>,
+    where <m>L</m> is lower triangular and <m>U</m> is upper
+    triangular.  The key to finding this factorization is to represent
+    the row operations that we apply in the Gaussian elimination algorithm
+    through multiplication by elementary matrices.  </p>
+
+    <p> Beginning with the matrix
+    <m>
+      A = \left[\begin{array}{rrr}
+      1 \amp 2 \amp 1 \\
+      -2 \amp -3 \amp -2 \\
+      3 \amp 7 \amp 4 \\
+      \end{array}\right]
+    </m>,
+    we multiply the first row by <m>2</m> and add the result to
+    the second row.  The result is obtained by multiplying <m>A</m> by
+    the matrix
+    <m>E_1 = \left[\begin{array}{rrr}
+    1 \amp 0 \amp 0 \\
+    2 \amp 1 \amp 0 \\
+    0 \amp 0 \amp 1 \\
+    \end{array}\right]
+    </m>.  Notice that the inverse of <m>E_1</m> is
+    <m>E_1^{-1} = \left[\begin{array}{rrr}
+    1 \amp 0 \amp 0 \\
+    -2 \amp 1 \amp 0 \\
+    0 \amp 0 \amp 0 \\
+    \end{array}\right]
+    </m>.  There is no computation required to find <m>E_1^{-1}</m>;
+    to undo the effect of <m>E_1</m>, we simply multiply the first row
+    by <m>-2</m>, rather than <m>2</m>, and add it to the second row.
+    In practice, to find the inverse of an elementary matrix
+    corresponding to a row replacement operation, we simply change the
+    sign of the number below the diagonal.  That's easy!
+    </p>
+
+    <p> Likewise, the next two row replacements are performed by
+    <me>
+      E_2 = \left[\begin{array}{rrr}
+      1 \amp 0 \amp 0 \\
+      0 \amp 1 \amp 0 \\
+      -3 \amp 0 \amp 1 \\
+      \end{array}\right],\qquad
+      E_3 = \left[\begin{array}{rrr}
+      1 \amp 0 \amp 0 \\
+      0 \amp 1 \amp 0 \\
+      0 \amp -1 \amp 1 \\
+      \end{array}\right]\text{.}
+    </me>
+    From here, we find <m>A = E_1^{-1}E_2^{-1}E_3^{-1} U</m> so that 
+    <me>
+      A = \left[\begin{array}{rrr}
+      1 \amp 2 \amp 1 \\
+      -2 \amp -3 \amp -2 \\
+      3 \amp 7 \amp 4 \\
+      \end{array}\right]
+      = LU = 
+      \left[\begin{array}{rrr}
+      1 \amp 0 \amp 0 \\
+      -2 \amp 1 \amp 0 \\
+      3 \amp 1 \amp 1
+      \end{array}\right]
+      \left[\begin{array}{rrr}
+      1 \amp 2 \amp 1 \\
+      0 \amp 1 \amp 0 \\
+      0 \amp 0 \amp 1 \\
+      \end{array}\right]\text{.}
+    </me>
+    </p>
+
+    <p> If we want to solve the equation <m>A\xvec = LU\xvec =
+    \bvec</m>, we first solve for <m>U\xvec = \cvec</m> by solving
+    <m>L\cvec = \bvec</m>.  Once we have <m>\cvec</m>, we solve
+    <m>U\xvec = \cvec</m> for the vector <m>\xvec</m>, which is the
+    solution to the original equation <m>A\xvec = \bvec</m>.  In our
+    example,
+    <me>
+      \begin{aligned}\
+      L\cvec = \threevec{4}{-7}{12},\amp \qquad
+      \cvec = \threevec{4}{1}{-1} \\ \\
+      U\xvec = \cvec=\threevec{4}{1}{-1}, \amp\qquad
+      \xvec = \threevec{3}{1}{-1}\text{.} \\
+      \end{aligned}
+    </me>
+    If we want to solve <m>A\xvec = \bvec</m> for a different
+    right-hand side <m>\bvec</m>, we can simply repeat this two-step
+    process. 
+    </p>
+
+    <p> We have now introduced <m>LU</m> factorizations as a technique
+    for solving equations <m>A\xvec = \bvec</m>, but we have yet to
+    explain why they are useful.  It becomes apparent when we consider
+    the type of equations that we are solving;  for instance,
+    <m>L\cvec = \bvec</m> in our example has the form
+    <me>
+      \left[\begin{array}{rrr}
+      1 \amp 0 \amp 0 \\
+      -2 \amp 1 \amp 0 \\
+      3 \amp 1 \amp 1
+      \end{array}\right]\cvec = \threevec4{-7}{12}\text{.}
+    </me>
+    Because <m>L</m> is a lower-triangular matrix, it contains lots of
+    zeros.  In fact, we are able to read off the first component of
+    <m>\cvec</m> directly from the equations:  <m>c_1 = 4</m>.  We
+    then have <m>-2c_1+c_2 = -7</m>, which gives <m>c_2 = 1</m>, and
+    <m>3c_1 + c_2 + c_3 = 12</m>, which gives <m>c_3=-1</m>.  As this
+    shows, solving equations involving triangular matrices is quite
+    easy because we essentially only need to perform a sequence of
+    substitutions. </p>
+
+    <p> In fact, solving an equation with an <m>n\times n</m>
+    triangular matrix requires approximately <m>\frac 12 n^2</m>
+    operations.  Once we have the factorization <m>A=LU</m>, we solve
+    the equation <m>A\xvec=\bvec</m> by solving two equations
+    involving triangular matrices, which requires about <m>n^2</m>
+    operations.  For example, if <m>A</m> is a <m>1000\times1000</m> matrix,
+    we solve the equation <m>A\xvec = \bvec</m> using about
+    one million steps.  The compares with the third of a billion
+    operations we need to perform Gaussian elimination.  That
+    represents a significant savings.  Of course, we have to first
+    find the <m>LU</m> factorization of <m>A</m> and this requires
+    roughly the same amount of work as performing Gaussian
+    elimination.  However, once we have the <m>LU</m> factorization,
+    we can use it to solve <m>A\xvec=\bvec</m> for different right
+    hand sides <m>\bvec</m>.    
+    </p>
+
+    <p> Our discussion so far has ignored one issue, however.
+    Remember that we sometimes have to perform row interchange
+    operations in addition to row replacement.  A typical row
+    interchange is represented by multiplication by a matrix such as
+    <me>
+      P = \left[\begin{array}{rrr}
+      0 \amp 0 \amp 1 \\
+      0 \amp 1 \amp 0 \\
+      1 \amp 0 \amp 0 \\
+      \end{array}\right]\text{,}
+    </me>
+    which has the effect of interchanging the first and third rows.
+    Notice that this matrix is not triangular so performing a row
+    interchange will ruin the <m>LU</m> factorization we seek.  We
+    will not give the details here, but linear algebra software
+    packages provide a matrix <m>P</m> that describes
+    how the rows are permuted in the Gaussian elimination process.  In
+    particular, we will write <m>PA = LU</m>, where <m>P</m> is a
+    permutation matrix, <m>L</m> is lower triangular, and <m>U</m> is
+    upper triangular.
+    </p>
+
+    <p> Therefore, to solve the equation <m>A\xvec = \bvec</m>, we
+    first multiply both sides by <m>P</m> to obtain
+    <me>
+      PA\xvec = LU\xvec = P\bvec
+    </me>.
+    That is, we multiply <m>\bvec</m> by <m>P</m> and then find
+    <m>\xvec</m> using the factorization:  <m>L\cvec = P\bvec</m> and
+    <m>U\xvec = \cvec</m>.
+    </p>
+
+    <activity>
+      <statement>
+      <p> Sage will create <m>LU</m> factorizations;  once we have a
+      matrix <c>A</c>, we write <c>P, L, U = A.LU()</c> to obtain the
+      matrices <m>P</m>, <m>L</m>, and <m>U</m> such that <m>PA =
+      LU</m>.
+      <sage>
+	<input>
+	</input>
+      </sage>
+
+      <ol label="a.">
+	<li><p> In the previous activity, we found the <m>LU</m>
+	factorization
+	<me>
+	  A = \left[\begin{array}{rrr}
+	  1 \amp 2 \amp 1 \\
+	  -2 \amp -3 \amp -2 \\
+	  3 \amp 7 \amp 4 \\
+	  \end{array}\right]
+	  = LU = 
+	  \left[\begin{array}{rrr}
+	  1 \amp 0 \amp 0 \\
+	  -2 \amp 1 \amp 0 \\
+	  3 \amp 1 \amp 1
+	  \end{array}\right]
+	  \left[\begin{array}{rrr}
+	  1 \amp 2 \amp 1 \\
+	  0 \amp 1 \amp 0 \\
+	  0 \amp 0 \amp 1 \\
+	  \end{array}\right]\text{.}
+	</me>
+	Using Sage, define the matrix <m>A</m> and then ask Sage for
+	the <m>LU</m> factorization.  What are the matrices <m>P</m>,
+	<m>L</m>, and <m>U</m>? </p>
+
+	<p> Notice that Sage finds a different
+	<m>LU</m> factorization than we found in the previous
+	activity.  This is because Sage uses partial pivoting, as
+	described in the previous section, when it performs Gaussian
+	elimination.  This is reflected by the fact that the
+	permutation <m>P</m> is not the identity.	
+	</p>
+	</li>
+
+	<li><p> Define the vector <m>\bvec = \threevec4{-7}{12}</m>
+	in Sage and compute <m>P\bvec</m>. </p></li>
+
+	<li><p> Use the matrices <c>L</c> and <c>U</c> to solve
+	<m>L\cvec = P\bvec</m> and <m>U\xvec = \cvec</m>.  You should
+	find the same solution <m>\xvec</m> that you found in the
+	previous activity. </p></li>
+
+	<li><p> Use the factorization to solve the equation <m>A\xvec
+	= \threevec{11}{-17}{35}</m>.  </p></li>
+
+	<li><p> How does the factorization show us that <m>A</m> is
+	invertible and that, therefore, every equation
+	<m>A\xvec=\bvec</m> has a unique solution? </p></li>
+
+	<li><p> Suppose that we have the matrix
+	<me>
+	  A = \left[\begin{array}{rrr}
+	  3 \amp -1 \amp 2 \\
+	  2 \amp -1 \amp 1 \\
+	  2 \amp 1 \amp 3 \\
+	  \end{array}\right]
+	</me>.
+	Use Sage to find the <m>LU</m> factorization.  Explain how the
+	factorization shows that <m>A</m> is not invertible. </p></li>
+
+	<li><p> Consider the matrix
+	<me>
+	  A = \left[\begin{array}{rrrr}
+	  -2 \amp 1 \amp 2 \amp -1 \\
+	  1 \amp -1 \amp 0 \amp 2 \\
+	  3 \amp 2 \amp -1 \amp 0 \\
+	  \end{array}\right]
+	</me>
+	and find its <m>LU</m> factorization.  Explain why <m>A</m>
+	and <m>U</m> have the same null space and use this observation
+	to find a basis for <m>\nul(A)</m>. </p></li>
+
+      </ol></p>
+      </statement>
+
+      <solution>
+	<p><ol label="a.">
+	  <li><p> Sage gives us the matrices
+	  <me>
+	    P=\left[\begin{array}{rrr}
+	    0 \amp 0 \amp 1 \\
+	    0 \amp 1 \amp 0 \\
+	    1 \amp 0 \amp 0
+	    \end{array}\right],
+	    L=\left[\begin{array}{rrr}
+	    1 \amp 0 \amp 0 \\
+	    -\frac{2}{3} \amp 1 \amp 0 \\
+	    \frac{1}{3} \amp -\frac{1}{5} \amp 1
+	    \end{array}\right],
+	    U=\left[\begin{array}{rrr}
+	    3 \amp 7 \amp 4 \\
+	    0 \amp \frac{5}{3} \amp \frac{2}{3} \\
+	    0 \amp 0 \amp -\frac{1}{5}
+	    \end{array}\right]
+	  </me>
+	  </p></li>
+
+	  <li><p> We find <m>P\bvec=\threevec{12}{-7}4</m>. </p></li>
+
+	  <li><p> Solving <m>L\cvec=P\bvec</m>, we have
+	  <m>\cvec=\threevec{12}{1}{\frac15}</m>.  Finally, solving
+	  <m>U\xvec=\cvec</m>, we obtain
+	  <m>\xvec=\threevec31{-1}</m>.</p></li>
+
+	  <li><p> We find
+	  <me>
+	    P\bvec=\threevec{35}{-17}{11},
+	    \cvec=\threevec{35}{\frac{19}3}{\frac35},
+	    \xvec=\threevec{4}{5}{-3}\text{.}
+	  </me>
+	  </p></li>
+
+	  <li><p> Because <m>P</m>,
+	  <m>L</m>, and <m>U</m> are invertible, it follows that
+	  <m>\det A = (\det 
+	  L \det U)/\det P\neq 0</m>, which means that <m>A</m> is
+	  invertible. </p></li>
+
+	  <li><p> Sage tells us that
+	  <me>
+	    P = \left[\begin{array}{rrr}
+	    1 \amp 0 \amp 0 \\
+	    0 \amp 0 \amp 1 \\
+	    0 \amp 1 \amp 0
+	    \end{array}\right],
+	    L = 
+	    \left[\begin{array}{rrr}
+	    1 \amp 0 \amp 0 \\
+	    \frac{2}{3} \amp 1 \amp 0 \\
+	    \frac{2}{3} \amp -\frac{1}{5} \amp 1
+	    \end{array}\right],
+	    U= 
+	    \left[\begin{array}{rrr}
+	    3 \amp -1 \amp 2 \\
+	    0 \amp \frac{5}{3} \amp \frac{5}{3} \\
+	    0 \amp 0 \amp 0
+	    \end{array}\right]\text{.}
+	  </me>
+	  Because <m>U</m> is not invertible, we see that <m>\det A =
+	  (\det L\det U)/\det P = 0</m> so <m>A</m> is not
+	  invertible. </p></li>
+
+	  <li><p> We have
+	  <me>
+	    \begin{array}{c}
+	    P=
+	    \left[\begin{array}{rrr}
+	    0 \amp 1 \amp 0 \\
+	    0 \amp 0 \amp 1 \\
+	    1 \amp 0 \amp 0
+	    \end{array}\right],
+	    L=
+	    \left[\begin{array}{rrr}
+	    1 \amp 0 \amp 0 \\
+	    -\frac{2}{3} \amp 1 \amp 0 \\
+	    \frac{1}{3} \amp -\frac{5}{7} \amp 1
+	    \end{array}\right], \\
+	    U= \left[\begin{array}{rrrr}
+	    3 \amp 2 \amp -1 \amp 0 \\
+	    0 \amp \frac{7}{3} \amp \frac{4}{3} \amp -1 \\
+	    0 \amp 0 \amp \frac{9}{7} \amp \frac{9}{7}
+	    \end{array}\right]\text{.}
+	    \end{array}
+	  </me>
+	  We may rewrite <m>PA=LU</m> as <m>A=PLU</m> so if
+	  <m>A\xvec=PLU\xvec=\zerovec</m>, then <m>U\xvec=\zerovec</m>
+	  because <m>P</m> and <m>L</m> are invertible. </p>
+
+	  <p> Notice that <m>U</m> is upper triangular, which means
+	  that it is easy to find its reduced row echelon form:
+	  <me>
+	    \begin{array}{rcl}
+	    U=
+	    \left[\begin{array}{rrrr}
+	    3 \amp 2 \amp -1 \amp 0 \\
+	    0 \amp \frac{7}{3} \amp \frac{4}{3} \amp -1 \\
+	    0 \amp 0 \amp \frac{9}{7} \amp \frac{9}{7}
+	    \end{array}\right]
+	    \amp
+	    \sim
+	    \amp
+	    \left[\begin{array}{rrrr}
+	    3 \amp 2 \amp -1 \amp 0 \\
+	    0 \amp 7 \amp 4 \amp -3 \\
+	    0 \amp 0 \amp 1 \amp 1
+	    \end{array}\right] \\
+	    \amp
+	    \sim
+	    \amp
+	    \left[\begin{array}{rrrr}
+	    3 \amp 2 \amp 0 \amp 1 \\
+	    0 \amp 1 \amp 0 \amp -1 \\
+	    0 \amp 0 \amp 1 \amp 1
+	    \end{array}\right] \\
+	    \amp
+	    \sim
+	    \amp
+	    \left[\begin{array}{rrrr}
+	    1 \amp 0 \amp 0 \amp 1 \\
+	    0 \amp 1 \amp 0 \amp -1 \\
+	    0 \amp 0 \amp 1 \amp 1
+	    \end{array}\right]\text{.} \\
+	    \end{array}
+	  </me>
+	  This shows that a basis for <m>\nul(A)=\nul(U)</m> is
+	  <m>\fourvec{-1}1{-1}1</m>. 
+	  
+	  </p></li>
+	</ol></p>
+      </solution>
+    </activity>
+    
+  </subsection>
+  
+  <subsection>
+    <title> Summary </title>
+
+    <p> We returned to Gaussian elimination, which we have used as a
+    primary tool for finding solutions to linear systems, and explored
+    its practicality as a computation tool, both in terms of numerical
+    accuracy and computational effort.
+
+    <ul>
+      <li><p> We saw that the accuracy of computations implemented on
+      a computer could be improved using <em>partial pivoting</em>, a
+      technique that performs row interchanges so that the entry in a
+      pivot position has the largest possible magnitude. </p></li>
+
+      <li><p> Beginning with a matrix <m>A</m>, we used the Gaussian
+      elimination algorithm to write <m>PA = LU</m>, where <m>P</m> is
+      a permutation matrix, <m>L</m> is lower triangular, and <m>U</m>
+      is upper triangular. </p></li>
+
+      <li><p> Finding this factorization involves roughly as much work
+      as performing Gaussian elimination.  However, once we have the
+      factorization, we are able to quickly solve equations of the
+      form <m>A\xvec = \bvec</m> by first solving <m>L\cvec =
+      P\bvec</m> and then <m>U\xvec = \cvec</m>.  
+      </p></li>
+    </ul></p>
+
+  </subsection>
+
+  <xi:include href="exercises/exercises5-1.xml" />  
+
+</section>

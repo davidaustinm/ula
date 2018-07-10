@@ -1,0 +1,871 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<exercises>
+<exercise>
+  <statement>
+    <p>
+      Consider the system of linear equations:
+      <me>
+	\begin{alignedat}{4}
+	x \amp {}+{} \amp 2y \amp {}-{} \amp z \amp {}={} \amp 1 \\
+	3x \amp {}+{} \amp 2y \amp {}+{} \amp 2z \amp {}={} \amp 7 \\
+	-x \amp \amp \amp {}+{} \amp 4z \amp {}={} \amp -3 \\
+	\end{alignedat}
+      </me>
+      Write this system as an augmented matrix and use Sage to
+      find a description of the solution space.
+
+      <sage>
+	<input>
+	</input>
+      </sage>
+    </p>
+  </statement>
+
+  <solution>
+    <p> We can use Sage to find the reduced row echelon form of the
+    corresponding augmented matrix:
+    <me>
+      \left[\begin{array}{rrr|r}
+      1 \amp 2 \amp -1 \amp 1 \\
+      3 \amp 2 \amp 2 \amp 7 \\
+      -2 \amp 0 \amp 4 \amp -3 \\
+      \end{array}\right]
+      \sim
+      \left[\begin{array}{rrr|r}
+      1 \amp 0 \amp 0 \amp 3 \\
+      0 \amp 1 \amp 0 \amp -1 \\
+      0 \amp 0 \amp 1 \amp 0
+      \end{array}\right]\text{.}
+    </me>
+    This shows that there is exactly one solution <m>(3,-1,0)</m>.
+    </p>
+  </solution>
+
+  <answer>
+    <p>
+      There is exactly one solution <m>(3,-1,0)</m>.
+    </p>
+  </answer>
+      
+</exercise>
+
+<exercise>
+  <statement>
+    <p> Shown below are some traffic patterns in the downtown area of
+    a large city.  The figures give the number of cars per hour
+    traveling along each road.  Any car that drives into an
+    intersection must also leave the intersection.  This means that
+    the number of cars entering an intersection in an hour is equal to
+    the number of cars leaving the intersection.
+    <ol label="a."> 
+      <li> <p>Let's begin with the following traffic pattern.
+	<ol>
+	  <li> <p> How many cars per hour enter the upper left
+	  intersection?  How many cars per hour leave this
+	  intersection?  Use this to form a linear equation in the
+	  variables <m>x</m>, <m>y</m>, <m>z</m>, and
+	  <m>w</m>. 
+	  <sidebyside width="70%">
+	    <image source="images/traffic-b" />
+	  </sidebyside>
+	  </p></li>
+	  
+	  <li> <p> Form three more linear equations from the other
+	  three intersections to form a linear system having four
+	  equations in four unknowns.  Then use Sage to find the
+	  solution space to this system.
+	  <sage>
+	    <input>
+	    </input>
+	  </sage>
+	  </p></li>
+
+	  <li> <p> Is there exactly one solution or infinitely
+	  many solutions?  Explain why you would expect this given
+	  the information provided.
+	  </p> </li>
+
+	</ol>
+      </p></li>
+
+      <li> <p> Another traffic pattern is shown below.
+      <sidebyside width="70%">
+	<image source="images/traffic-a" />
+      </sidebyside>
+      <ol>
+	<li> <p>
+	  Once again, write a system of equations for 
+	  the quantities <m>x</m>, <m>y</m>,
+	  <m>z</m>, and <m>w</m> and
+	  solve the system using the Sage cell below.
+	  <sage>
+	    <input>
+	    </input>
+	  </sage>
+	  </p></li>
+
+	  <li><p>
+	    What can you say about the solution of this linear
+	    system?  Is there exactly one solution or infinitely
+	    many solutions?  Explain why you would expect this given
+	    the information provided.
+	  </p></li>
+
+	  <li><p>
+	    What is the smallest amount of traffic flowing through
+	    <m>x</m>?
+	  </p></li>  
+      </ol> 
+      </p> </li>
+    </ol> </p>
+  </statement>
+
+  <solution>
+    <p><ol label="a.">
+      <li>
+	<p>
+	  We will form a system of linear equations by considering
+	  each intersection and equating the number of cars that enter
+	  the intersection to the number of cars that leave.
+	  <ol label="i.">
+	    <li>
+	      <p>
+		For the intersection in the upper left, the number of
+		cars that enter is <m>x</m> while the number of cars
+		that leave is <m>y + 100</m>.  This gives the equation
+		<m> x = y + 100</m> or <m>x-y = 100</m>.
+	      </p>
+	    </li>
+
+	    <li>
+	      <p>
+		By studying the other three intersections, we form a
+		linear system consisting of four equations in four
+		unknowns:
+		<me>
+		  \begin{alignedat}{5}
+		  x \amp {}-{} \amp y \amp \amp \amp \amp \amp {}={} \amp 100 \\
+		  \amp \amp y \amp {}-{} \amp z \amp \amp \amp {}={}
+		  \amp -250 \\
+		  \amp \amp \amp \amp \amp \amp w \amp {}={} \amp 160 \\
+		  \amp \amp \amp \amp z \amp {}-{} \amp w \amp {}={}
+		  \amp 390\text{.} \\
+		  \end{alignedat}
+		</me>
+		If we express these equations in terms of an augmented
+		matrix and use Sage to find its reduced row echelon
+		form, we find
+		<me>
+		\left[\begin{array}{rrrr|r}
+		1 \amp -1 \amp 0 \amp 0 \amp 100 \\
+		0 \amp 1 \amp -1 \amp 0 \amp -250 \\
+		0 \amp 0 \amp 0 \amp 1 \amp 160 \\
+		0 \amp 0 \amp 1 \amp -1 \amp 390
+		\end{array}\right]
+		\sim
+		\left[\begin{array}{rrrrr}
+		1 \amp 0 \amp 0 \amp 0 \amp 400 \\
+		0 \amp 1 \amp 0 \amp 0 \amp 300 \\
+		0 \amp 0 \amp 1 \amp 0 \amp 550 \\
+		0 \amp 0 \amp 0 \amp 1 \amp 160
+		\end{array}\right]
+		</me>
+	      </p>
+	    </li>
+
+	    <li>
+	      <p>
+		There is exactly one solution:  <m>x=400</m>,
+		<m>y=300</m>, <m>z=550</m>, and <m>w=160</m>.  This is
+		what we expect since the traffic flow <m>w</m> is
+		determined by the upper right intersection.  From
+		here, all the other flows are determined as well.
+	      </p>
+	    </li>
+
+	  </ol>
+	</p>
+      </li>
+
+      <li>
+	<p>
+	  Let's now look at another traffic pattern.
+	  <ol label="i.">
+	    <li>
+	      <p>
+		In this case, we find the equations:
+		<me>
+		  \begin{alignedat}{5}
+		  x \amp {}+{} \amp y \amp \amp \amp \amp \amp {}={} \amp 650 \\
+		  x \amp \amp \amp {}-{} \amp z \amp \amp \amp {}={}
+		  \amp -150 \\
+		  \amp \amp y \amp \amp \amp {}+{} \amp w \amp {}={} \amp 580 \\
+		  \amp \amp \amp \amp z \amp {}-{} \amp w \amp {}={}
+		  \amp 220\text{.} \\
+		  \end{alignedat}
+		</me>
+		This gives the augmented matrix:
+		<me>
+		\left[\begin{array}{rrrr|r}
+		1 \amp 1 \amp 0 \amp 0 \amp 650 \\
+		1 \amp 0 \amp -1 \amp 0 \amp -150 \\
+		0 \amp 1 \amp 0 \amp 1 \amp 580 \\
+		0 \amp 0 \amp 1 \amp -1 \amp 220
+		\end{array}\right]
+		\sim
+		\left[\begin{array}{rrrrr}
+		1 \amp 0 \amp 0 \amp -1 \amp 70 \\
+		0 \amp 1 \amp 0 \amp 1 \amp 580 \\
+		0 \amp 0 \amp 1 \amp -1 \amp 220 \\
+		0 \amp 0 \amp 0 \amp 0 \amp 0
+		\end{array}\right]\text{.}
+		</me>
+	      </p>
+	    </li>
+
+	    <li>
+	      <p>
+		Here, we may view <m>w</m> as a free variable and
+		write
+		<me>
+		  \begin{alignedat}{3}
+		  x \amp {}={} \amp 70 + w \\
+		  y \amp {}={} \amp 580 - w \\
+		  z \amp {}={} \amp 220 + w\text{.} \\
+		  \end{alignedat}
+		</me>
+		This shows that there are infinitely many solutions.
+		This makes sense since the unknown flows <m>x</m>,
+		<m>y</m>, <m>z</m>, and <m>w</m> form a loop.  For
+		instance, we can add one car to each of <m>x</m>,
+		<m>z</m>, and <m>w</m> provided we remove one from
+		<m>y</m>.  
+	      </p>
+	    </li>
+
+	    <li>
+	      <p>
+		Since we must have <m>y\geq 0</m>, it follows that the
+		free variable <m>w</m> satisfies <m>0\leq w \leq
+		580</m>.  This means that <m>x</m> satisfies <m>70
+		\leq x \leq 650</m>.
+	      </p>
+	    </li>
+
+	  </ol>
+	</p>
+      </li></ol>
+    </p>
+  </solution>
+
+  <answer>
+    <p>
+      <ol label="a.">
+	<li>
+	  <p>
+	    There is one solution: <m>x=400</m>, <m>y=300</m>,
+	    <m>z=550</m>, and <m>w=160</m>.
+	  </p>
+	</li>
+
+	<li>
+	  <p>
+	    There are infinitely many solutions described by 
+	    <me>
+	      \begin{alignedat}{3}
+	      x \amp {}={} \amp 70 + w \\
+	      y \amp {}={} \amp 580 - w \\
+	      z \amp {}={} \amp 220 + w\text{.} \\
+	      \end{alignedat}
+	    </me>
+	  </p>
+	</li>
+
+      </ol>
+    </p>
+  </answer>
+  
+</exercise>
+
+<exercise>
+  <statement>
+    <p>
+      A typical problem in thermodynamics is to find the steady-state
+      temperature distribution inside a thin plate if we know the
+      temperature around the boundary.  Let <m>T_1, T_2, \ldots,
+      T_6</m> be the temperatures at the six nodes inside the
+      plate as shown below.
+      <sidebyside width="50%">
+	<image source="images/heat" />
+      </sidebyside>
+      The temperature at a node is approximately the
+      average of the four nearest nodes: for instance,
+      <me>
+	T_1 = (10 + 15 + T_2 + T_4)/4
+      </me>,
+      which we may rewrite as
+      <me> 4T_1 - T_2 - T_4
+      = 25
+      </me>.
+    </p>
+
+    <p>
+      Set up a linear system to find the temperature
+      at these six points inside the plate.  Then use Sage to solve
+      the linear system.  If all the entries of the matrix are
+      integers, Sage will compute the reduced row echelon form using
+      rational numbers.  To view a decimal approximation of the
+      results, you may use
+      <cd>
+A.rref().numerical_approx(digits=4)
+      </cd>
+      <sage>
+	<input>
+	</input>
+      </sage>
+    </p>
+
+    <p>
+      In the real world, the approximation becomes better the
+      closer the points are together, which happens as we add
+      more and more points into the grid.  This is a situtation where
+      we would want to solve linear systems having millions of
+      equations and millions of unknowns.
+    </p>
+
+  </statement>
+
+  <solution>
+    <p>
+      We set up the equations
+      <me>
+	\begin{alignedat}{7}
+	4T_1 \amp {}-{} \amp T_2 \amp \amp \amp {}-{} \amp
+	T_4 \amp \amp \amp \amp \amp {}={} \amp 25 \\
+	-T_1 \amp {}+{} \amp 4T_2 \amp {}-{} \amp T_3 \amp
+	\amp \amp{}-{} \amp T_5 \amp \amp \amp {}={} \amp 20 \\
+	\amp \amp -T_2 \amp {}+{} \amp 4T_3 \amp \amp \amp \amp \amp 
+	{}-{} \amp T_6
+	\amp {}={} \amp 55 \\
+	-T_1 \amp \amp \amp \amp \amp {}{}+ \amp 4T_4 \amp {}-{} \amp
+	T_5 \amp \amp \amp {}={} \amp 20 \\
+	\amp \amp -T_2 \amp \amp \amp {}-{} \amp T_4 \amp {}+{} \amp
+	4T_5 \amp {}-{} \amp T_6 \amp {}={} \amp 20 \\
+	\amp \amp \amp \amp -T_3 \amp \amp \amp {}-{} \amp T_5 \amp {}+{}
+	\amp 4T_6 \amp {}={} \amp 70\text{.} \\
+	\end{alignedat}
+      </me>
+      Setting up an augmented matrix and using Sage to find its
+      reduced row echelon form, we obtain
+      <me>
+	\begin{array}{rrr}
+	T_1 = 14.86, \amp T_2 = 20.50, \amp T_3 = 26.19 \\
+	T_4 = 13.95, \amp T_5 = 20.93, \amp T_6 = 29.28\text{.} \\
+	\end{array}
+      </me>
+    </p>
+  </solution>
+
+  <answer>
+    <p>
+      <me>
+	\begin{array}{rrr}
+	T_1 = 14.86, \amp T_2 = 20.50, \amp T_3 = 26.19 \\
+	T_4 = 13.95, \amp T_5 = 20.93, \amp T_6 = 29.28\text{.} \\
+	\end{array}
+      </me>
+    </p>
+  </answer>
+	
+</exercise>
+
+<exercise>
+  <statement>
+    <p>
+      The fuel inside model rocket motors is a black powder
+      mixture that ideally consists of 60<percent /> charcoal, 30<percent /> potassium
+      nitrate, and 10<percent /> sulfur by weight.
+    </p>
+
+    <p>
+      Suppose you work at a company that makes model rocket
+      motors.  When you come into work one morning, you learn that
+      yesterday's first shift made a perfect batch of fuel.  The
+      second shift, however, misread the recipe and used 50<percent />
+      charcoal, 20<percent /> potassium nitrate and 30<percent /> sulfur.  Then the
+      two batches were mixed together.  A chemical analysis shows
+      that there are 100.3 pounds of charcoal in the mixture and
+      46.9 pounds of potassium nitrate.
+      <ol label="a.">
+	<li> <p> Assuming the first shift produced <m>x</m> pounds
+	of fuel and the second <m>y</m> pounds, set up a linear
+	system in terms of <m>x</m> and <m>y</m>.  How many pounds
+	of fuel did the first shift produce and how many did the
+	second shift produce?
+	<sage>
+	  <input>
+	  </input>
+	</sage>
+	</p></li>
+
+	<li><p> How much sulfur would you expect to find in the
+	mixture? </p></li>
+      </ol>
+    </p>
+  </statement>
+
+  <solution>
+    <p>
+      <ol label="a.">
+	<li>
+	  <p>
+	    Writing equations for the amount of charcoal and the
+	    amount of potassium nitrate, we have
+	    <me>
+	      \begin{alignedat}{3}
+	      0.6x \amp {}+{} \amp 0.5y \amp {}={} \amp 100.3 \\
+	      0.3x \amp {}+{} \amp 0.2y \amp {}={} \amp 46.9\text{.} \\
+	      \end{alignedat}
+	    </me>
+	    Solving this gives <m>x=113</m> pounds and <m>y=65</m>
+	    pounds.
+	  </p>
+	</li>
+
+	<li>
+	  <p>
+	    The amount of sulfur will be <m>0.1x+0.3y = 30.8</m>
+	    pounds.
+	  </p>
+	</li>
+      </ol>
+    </p>
+  </solution>
+
+  <answer>
+    <p> The first shift produces <m>x=113</m> pounds while the second
+    shift produces <m>y=65</m> pounds.  There are <m>30.8</m>
+    pounds of sulfur.
+    </p>
+  </answer>
+</exercise>
+
+<exercise>
+  <statement>
+    <p>  This exercise is about balancing chemical reactions.
+    <ol label="a.">
+      <li><p>
+	Chemists denote a molecule of water as
+	<m>\text{H}_2\text{O}</m>, which means it is composed of two
+	atoms of hydrogen (H) and one atom of oxygen (O).
+	The process by which hydrogen is burned is described by the
+	chemical reaction
+	<me>
+	  x\thinspace \text{H}_2 + y\thinspace\text{O}_2 \to
+	  z\thinspace \text{H}_2\text{O}
+	</me>
+	This means that <m>x</m> molecules of hydrogen
+	<m>\text{H}_2</m> combine with <m>y</m> molecules of
+	oxygen <m>\text{O}_2</m> to produce <m>z</m> water molecules.
+	The number of hydrogen atoms is the same before and after
+	the reaction;  the same is true of the oxygen atoms.
+      </p>
+
+      <p>
+	<ol>
+	  <li> <p> How many hydrogen atoms are there before the
+	  reaction?  How many hydrogen atoms are there after the
+	  reaction?  Find a linear equation in <m>x</m>,
+	  <m>y</m>, and <m>z</m> by equating these quantities.
+	  </p></li>
+
+	  <li> <p> Find a second linear equation in <m>x</m>,
+	  <m>y</m>, and <m>z</m> by equating the number of
+	  oxygen atoms before and after the reaction.
+	  </p></li>
+
+	  <li> <p> Find the solutions of this linear system.
+	  Why are there infinitely many solutions?
+	  <sage>
+	    <input>
+	    </input>
+	  </sage>
+	  </p></li>
+	  
+
+	  <li> <p> In this chemical setting, <m>x</m>, <m>y</m>,
+	  and <m>z</m> should be positive integers.  Find
+	  the solution where <m>x</m>, <m>y</m>, and <m>z</m>
+	  are the smallest possible positive integers.
+	  </p></li>
+	</ol>
+      </p>
+
+      </li>
+
+      <li> <p>
+	Now consider the reaction where potassium permanganate
+	and manganese 
+	sulfate combine with water to produce manganese dioxide, potassium
+	sulfate, and sulfuric acid:
+	<me>
+	  x_1\thinspace \text{K}\text{Mn}\text{O}_4 + 
+	  x_2\thinspace \text{Mn}\text{S}\text{O}_4 + 
+	  x_3\thinspace \text{H}_2\text{O} \to
+	  x_4\thinspace \text{Mn}\text{O}_2 + 
+	  x_5\thinspace \text{K}_2\text{S}\text{O}_4 + 
+	  x_6\thinspace \text{H}_2\text{S}\text{O}_4.
+	</me>
+	As in the previous exercise, find the appropriate values
+	for <m>x_1, x_2, \ldots, x_6</m> to balance the chemical
+	reaction.
+	<sage>
+	  <input>
+	  </input>
+	</sage>
+      </p> </li>
+    </ol>
+    </p>
+  </statement>
+
+  <solution>
+    <p>
+      <ol label="a.">
+	<li>
+	  <p> We will equate the number of hydrogen and oxygen atoms
+	  before and after the reaction.
+	  <ol label="i.">
+	    <li>
+	      <p>
+		Before the reaction, there are two hydrogen atoms for
+		every hydrogen molecule.  Since there are <m>x</m>
+		hydrogen molecules, we have <m>2x</m> hydrogen atoms
+		before the reaction.
+	      </p>
+
+	      <p> After the reaction, there are two hydrogen atoms for
+	      every water molecule.  Since there are <m>z</m> hydrogen
+	      molecules, we have <m>2z</m> hydrogen atoms after the
+	      reaction.  This gives the equation <m>2x=2z</m>.
+	      </p>
+	    </li>
+
+	    <li>
+	      <p>
+		Similarly, there are <m>2y</m> oxygen atoms before the
+		reaction and <m>z</m> oxygen atoms after.  This gives
+		the equation <m>2y = z</m>.
+	      </p>
+	    </li>
+
+	    <li>
+	      <p>
+		We have the linear system
+		<me>
+		  \begin{alignedat}{4}
+		  2x \amp \amp \amp {}-{} \amp 2z \amp {}={} \amp 0 \\
+		  \amp \amp 2y \amp {}-{} \amp z \amp {}={} \amp 0\text{.}
+		  \\
+		  \end{alignedat}
+		</me>
+		When we create the augmented matrix and find its
+		reduced row echelon form, we see that <m>z</m> is a
+		free variable so that
+		<me>
+		  \begin{alignedat}{2}
+		  x \amp {}={} \amp z \\
+		  y \amp {}={} \amp \frac12 z\text{.} \\
+		  \end{alignedat}
+		</me>
+		We need all the quantities to be integers, and the
+		smallest value of <m>z</m> that makes <m>y</m> an
+		integer is <m>z=2</m>.  Therefore, we have <m>x=2</m>,
+		<m>y=1</m>, and <m>z=2</m>.  The reaction is then
+		<me>
+		  2\thinspace \text{H}_2 + \thinspace\text{O}_2 \to
+		  2\thinspace \text{H}_2\text{O}\text{.}
+		</me>
+	      </p>
+	    </li>
+	  </ol>
+	  </p>
+	</li>
+
+	<li>
+	  <p>
+	    Proceeding as in the previous part, we have
+	    <me>
+	      \begin{alignedat}{8}
+	      \text{K:} \amp \thinspace \amp
+	      x_1 \amp \amp \amp \amp \amp \amp \amp {}-{} \amp 2x_5
+	      \amp \amp \amp {}={} \amp 0 \\
+	      \text{Mn:} \amp \thinspace \amp
+	      x_1 \amp {}+{} \amp x_2 \amp \amp \amp {}-{} \amp x_4
+	      \amp \amp \amp \amp \amp {}={} \amp 0 \\
+	      \text{O:} \amp \thinspace \amp
+	      4x_1 \amp {}+{} \amp 4x_2 \amp {}+{} \amp x_3 \amp {}-{}
+	      \amp 2x_4 \amp {}-{} \amp 4x_5 \amp {}-{} \amp 4x_6
+	      \amp {}={} \amp 0 \\
+	      \text{S:} \amp \thinspace \amp
+	      \amp \amp x_2 \amp \amp \amp \amp \amp {}-{} \amp x_5
+	      \amp {}-{} \amp x_6 \amp {}={} \amp 0 \\
+	      \text{H:} \amp \thinspace \amp
+	      \amp \amp \amp \amp 2x_3 \amp \amp \amp \amp \amp {}-{}
+	      \amp 2x_6 \amp {}= \amp 0\text{.} \\
+	      \end{alignedat}
+	    </me>
+	    Solving this linear system, we find
+	    <me>
+	      \begin{alignedat}{2}
+	      x_1 \amp {}={} \amp x_6 \\
+	      x_2 \amp {}={} \amp \frac32 x_6 \\
+	      x_3 \amp {}={} \amp x_6 \\
+	      x_4 \amp {}={} \amp \frac52 x_6 \\
+	      x_5 \amp {}={} \amp \frac12 x_6\text{.} \\
+	      \end{alignedat}
+	    </me>
+	    Once again, we choose <m>x_6</m> to be the smallest
+	    positive integer that causes all of the variables to be
+	    integers. This means that <m>x_6 = 2</m> so that we have
+	    <me>
+	      \begin{array}{rrr}
+	      x_1 = 2, \amp x_2 = 3, \amp x_3 = 2, \\
+	      x_4 = 5, \amp x_5 = 1, \amp x_6 = 2\text{.} \\
+	      \end{array}
+	    </me>
+	    This gives the reaction:
+	    <me>
+	      2\thinspace \text{K}\text{Mn}\text{O}_4 + 
+	      3\thinspace \text{Mn}\text{S}\text{O}_4 + 
+	      2\thinspace \text{H}_2\text{O} \to
+	      5\thinspace \text{Mn}\text{O}_2 + 
+	      \thinspace \text{K}_2\text{S}\text{O}_4 + 
+	      2\thinspace \text{H}_2\text{S}\text{O}_4.
+	    </me>
+	    
+	  </p>
+	</li>
+      </ol>
+    </p>
+  </solution>
+
+  <answer>
+    <p>
+      <ol label="a.">
+	<li>
+	  <p> We have the reaction
+	  <me>
+	    2\thinspace \text{H}_2 + \thinspace\text{O}_2 \to
+	    2\thinspace \text{H}_2\text{O}\text{.}
+	  </me>
+	  </p>
+	</li>
+
+	<li>
+	  <p> We have the reaction
+	  <me>
+	    2\thinspace \text{K}\text{Mn}\text{O}_4 + 
+	    3\thinspace \text{Mn}\text{S}\text{O}_4 + 
+	    2\thinspace \text{H}_2\text{O} \to
+	    5\thinspace \text{Mn}\text{O}_2 + 
+	    \thinspace \text{K}_2\text{S}\text{O}_4 + 
+	    2\thinspace \text{H}_2\text{S}\text{O}_4.
+	  </me>
+	  </p>
+	</li>
+      </ol>
+    </p>
+  </answer>
+		  
+</exercise>
+
+<exercise>
+  <statement>
+    <p> We began this section by stating that increasing
+    computational power has helped linear algebra assume a greater
+    prominence as a scientific tool.  Later, we looked at one
+    computational limitation:  once a matrix gets to be too big,
+    it is not reasonable to apply Gaussian elimination
+    to find its reduced row echelon form. </p>
+
+    <p> In this exercise, we will see another limitation:
+    computer arithmetic with real numbers is only an
+    approximation because computers represent real numbers
+    with only a finite number of bits.  For instance, the number
+    pi
+    <me>
+      \pi =
+      3.141592653589793238462643383279502884197169399\ldots
+    </me>
+    would be approximated inside a computer by, say,
+    <me>
+      \pi\approx 3.141592653589793
+    </me>
+    Most of the time, this is not a problem.  However,
+    when we perform millions or even billions of arithmetic
+    operations, the error in these approximations starts to
+    accumulate and can lead to results that are wildly
+    inaccurate.  Here are two examples demonstrating this.
+
+    <ol label="a.">
+      <li> <p>
+	Let's first see an example showing that computer
+	arithmetic really is an approximation.  First, consider
+	the linear system
+	<me>
+	  \begin{alignedat}{4}
+	  x \amp {}+{} \amp \frac12y \amp {}+{} \amp \frac13z \amp
+	  {}={} \amp 1 \\
+	  \frac12x \amp {}+{} \amp \frac13y \amp {}+{} \amp \frac14z \amp
+	  {}={} \amp 0 \\
+	  \frac13x \amp {}+{} \amp \frac14y \amp {}+{} \amp \frac15z \amp
+	  {}={} \amp 0 \\
+	  \end{alignedat}
+	</me>
+	If the coefficients are entered into Sage as fractions,
+	Sage will find the exact reduced row echelon form.  Find
+	the exact solution to this linear system.
+	<sage>
+	  <input>
+	  </input>
+	</sage>
+      </p>
+
+      <p>
+	Now let's ask Sage to compute with real numbers.  We can
+	do this by representing one of the coefficients as a
+	decimal.  For instance, the same linear system can be
+	represented as 
+	<me>
+	  \begin{alignedat}{4}
+	  x \amp {}+{} \amp 0.5y \amp {}+{} \amp \frac13z \amp
+	  {}={} \amp 1 \\
+	  \frac12x \amp {}+{} \amp \frac13y \amp {}+{} \amp \frac14z \amp
+	  {}={} \amp 0 \\
+	  \frac13x \amp {}+{} \amp \frac14y \amp {}+{} \amp \frac15z \amp
+	  {}={} \amp 0 \\
+	  \end{alignedat}
+	</me>
+	Most computers do arithmetic using either 32 or 64 bits.  To
+	magnify the problem so that we can see it better, we
+	will ask Sage to do arithmetic using only 10 bits as follows.
+	<sage>
+	  <input>
+	    R = RealNumber
+	    RealNumber = RealField(10)
+	    
+	    # enter the matrix below
+	    A = matrix( ..., ..., [ ... ] )
+
+	    print A.rref()
+	    RealNumber = R
+	  </input>
+	</sage>
+	What does Sage give for the solution now?  Compare this to
+	the exact solution that you found previously.
+      </p></li>
+
+      <li> <p>
+	Some types of linear systems are particularly sensitive to
+	errors resulting from computers' approximate arithmetic.
+	For instance, suppose we are interested in the linear system
+	<me>
+	  \begin{alignedat}{3}
+	  x \amp {}+{} \amp y \amp {}={} \amp 2 \\
+	  x \amp {}+{} 1.001\amp y \amp {}={} \amp 2 \\
+	  \end{alignedat}
+	</me>
+	Find the solution to this linear system.
+	<sage>
+	  <input>
+	  </input>
+	</sage>
+      </p>
+
+      <p>
+	Suppose now that the computer has accumulated some error
+	in one of the entries of this system so that it incorrectly
+	stores the system as
+	<me>
+	  \begin{alignedat}{3}
+	  x \amp {}+{} \amp y \amp {}={} \amp 2 \\
+	  x \amp {}+{} 1.001\amp y \amp {}={} \amp 2.001 \\
+	  \end{alignedat}
+	</me>
+	Find the solution to this linear system.
+	<sage>
+	  <input>
+	  </input>
+	</sage>
+      </p>
+
+      <p> Notice how a small error in one of the entries in the
+      linear system leads to a solution that has a dramatically
+      large error.  Fortunately, this is an issue that has been
+      well studied, and there are techniques that mitigate
+      this type of behavior.
+      </p>
+      </li>
+    </ol>
+    </p>
+  </statement>
+
+  <solution>
+    <p>
+      <ol label="a.">
+	<li>
+	  <p>
+	    The exact solution is
+	    <me>
+	      x=9, y=-36, z=30\text{.}
+	    </me>
+	    However, if we compute with only 10 bits, we find the
+	    approximate solution
+	    <me>
+	      x=8.9, y=-35, z=29\text{.}
+	    </me>
+	  </p>
+	</li>
+
+	<li>
+	  <p>
+	    This solution to the first system is <m>x=2</m> and
+	    <m>y=0</m>.  However, with just a small change in the
+	    system, we find the solution <m>x=1</m> and <m>y=1</m>.
+	  </p>
+	</li>
+      </ol>
+    </p>
+  </solution>
+
+  <answer>
+    <p>
+      <ol label="a.">
+	<li>
+	  <p>
+	    The exact solution is
+	    <me>
+	      x=9, y=-36, z=30
+	    </me>
+	    while the approximate solution is
+	    <me>
+	      x=8.9, y=-35, z=29\text{.}
+	    </me>
+	  </p>
+	</li>
+
+	<li>
+	  <p>
+	    This solution to the first system is <m>x=2</m> and
+	    <m>y=0</m>.  However, with just a small change in the
+	    system, we find the solution <m>x=1</m> and <m>y=1</m>.
+	  </p>
+	</li>
+      </ol>
+    </p>
+  </answer>
+</exercise>
+
+</exercises>
+    

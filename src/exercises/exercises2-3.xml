@@ -1,0 +1,948 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<exercises>
+  
+  <exercise>
+    <statement>
+      <p> In this exercise, we will consider the span of some sets of
+      two- and three-dimensional vectors.
+      <sage>
+	<input>
+	</input>
+      </sage>
+      
+	<ol label="a.">
+	  <li><p> Consider the vectors
+	  <me>
+	    \vvec_1 = \twovec{1}{-2},
+	    \vvec_2 = \twovec{4}{3}
+	  </me>.
+	  <ol label="i.">
+	    <li><p> Is <m>\bvec = \twovec{2}{1}</m> in
+	    <m>\span{\vvec_1,\vvec_2}</m>? 
+	    </p></li>
+	    <li><p> Give a written description of
+	    <m>\span{\vvec_1,\vvec_2}</m>.  </p></li>
+	  </ol></p>
+	  </li>
+
+	  <li><p> Consider the vectors
+	  <me>
+	    \vvec_1=\threevec{2}{1}{3},
+	    \vvec_2=\threevec{-2}{0}{2},
+	    \vvec_3=\threevec{6}{1}{-1}
+<!--	    \vvec_4=\threevec{10}{2}{0} -->
+	  </me>.
+	  <ol lable="i.">
+	    <li><p> Is the vector <m>\bvec=\threevec{-10}{-1}{5}</m>
+	    in <m>\span{\vvec_1,\vvec_2,\vvec_3}</m>?
+	    </p></li>
+	    
+	    <li><p> Is the vector <m>\vvec_3</m> 
+	    in <m>\span{\vvec_1,\vvec_2,\vvec_3}</m>?
+	    </p></li>
+
+	    <li> <p> Is the vector <m>\bvec=\threevec{3}{3}{-1}</m>
+	    in <m>\span{\vvec_1,\vvec_2,\vvec_3}</m>?
+	    </p></li>
+
+	    <li><p> Give a written description of
+	    <m>\span{\vvec_1,\vvec_2,\vvec_3}</m>.
+	    </p></li>
+	  </ol></p>
+	  </li>
+	</ol>
+      </p>
+    </statement>
+
+    <solution>
+      <p><ol label="a.">
+	<li><p> The equation
+	<m>\left[\begin{array}{rr}
+	\vvec_1 \amp \vvec_2 \end{array}\right]
+	\xvec = \bvec</m>
+	is consistent so <m>\bvec</m> is in
+	<m>\span{\vvec_1,\vvec_2}</m>. Since
+	<m>\left[\begin{array}{rr}
+	\vvec_1 \amp \vvec_2 \end{array}\right]
+	</m> has a pivot position in every row,
+	<m>\span{\vvec_1,\vvec_2}</m> is <m>\real^2</m>.
+	</p></li>
+
+	<li><p> Let's consider the following vectors.
+	<ol label="i.">
+	  <li><p> The equation
+	  <m>\left[\begin{array}{rrr}\vvec_1 \amp \vvec_2 \amp \vvec_3
+	  \end{array}\right]\xvec = \bvec</m>
+	  is consistent so <m>\bvec</m> is in
+	  <m>\span{\vvec_1,\vvec_2,\vvec_3}</m>.
+	  </p></li>
+
+	  <li><p>
+	    The vector <m>\vvec_3</m> is in
+	    <m>\span{\vvec_1,\vvec_2}</m> because <m>\vvec_3 =
+	    \vvec_1-2\vvec_2</m>.
+	  </p></li>
+
+	  <li><p> The equation
+	  <m>\left[\begin{array}{rrr}\vvec_1 \amp \vvec_2 \amp \vvec_3
+	  \end{array}\right]\xvec = \bvec</m>
+	  is not consistent so <m>\bvec</m> is not in
+	  <m>\span{\vvec_1,\vvec_2,\vvec_3}</m>.
+	  </p></li>
+
+	  <li><p> <m>\span{\vvec_1,\vvec_2,\vvec_3}</m> is the plane
+	  defined by <m>\vvec_1</m> and <m>\vvec_2</m>.
+	  </p></li>
+	</ol></p>
+	</li></ol></p>
+    </solution>
+
+    <answer>
+      <p><ol label="a.">
+	<li><p> <m>\span{\vvec_1,\vvec_2} = \real^2</m>.
+	</p></li>
+
+	<li><p> For the following vectors,
+	<ol label="i.">
+	  <li><p> <m>\bvec</m> is in
+	  <m>\span{\vvec_1,\vvec_2,\vvec_3}</m>.
+	  </p></li>
+
+	  <li><p> <m>\vvec_3</m> is in
+	  <m>\span{\vvec_1,\vvec_2,\vvec_3}</m>.
+	  </p></li>
+
+	  <li><p> <m>\bvec</m> is not in
+	  <m>\span{\vvec_1,\vvec_2,\vvec_3}</m>.
+	  </p></li>
+
+	  <li><p> <m>\span{\vvec_1,\vvec_2,\vvec_3}</m> is a plane in
+	  <m>\real^3</m>.
+	  </p></li>
+	</ol></p></li>
+
+	</ol></p>
+    </answer>
+	
+  </exercise>
+
+  <exercise>
+    <statement>
+      <p> Provide a justification for your response to the following
+      questions. 
+	<ol label="a.">
+	  <li><p> Suppose you have a set of vectors
+	  <m>\vvec_1,\vvec_2,\ldots,\vvec_n</m>.  Can you guarantee
+	  that <m>\zerovec</m> is in
+	  <m>\span{\vvec_1\,\vvec_2,\ldots,\vvec_n}</m>?
+	  </p></li>
+
+	  <li><p> Suppose that <m>A</m> is an <m>m \times n</m>
+	  matrix.  Can you guarantee that the equation <m>A\xvec =
+	  \zerovec</m> is consistent?
+	  </p> </li>
+
+	  <li><p> What is
+	  <m>\span{\zerovec,\zerovec,\ldots,\zerovec}</m>?  </p></li>
+	</ol>
+      </p>
+	
+    </statement>
+
+    <solution>
+      <p><ol label="a.">
+	<li><p>
+	  Yes, because
+	  <m>\zerovec = 0\vvec_1+0\vvec_2+\ldots+0\vvec_n</m>.
+	</p></li>
+
+	<li><p>
+	  Yes, <m>\xvec=\zerovec</m> is a solution to the equation
+	  <m>A\xvec=\zerovec</m>.
+	</p></li>
+
+	<li><p>
+	  <m>\span{\zerovec,\zerovec,\ldots,\zerovec}</m> consists
+	  only of the vector <m>\zerovec</m>.
+	</p></li>
+      </ol></p>
+    </solution>
+	
+    <answer>
+      <p><ol label="a.">
+	<li><p>
+	  Yes
+	</p></li>
+
+	<li><p>
+	  Yes
+	</p></li>
+
+	<li><p>
+	  <m>\span{\zerovec,\zerovec,\ldots,\zerovec}</m> consists
+	  only of the vector <m>\zerovec</m>.
+	</p></li>
+      </ol></p>
+    </answer>
+	
+  </exercise>
+
+  <exercise>
+    <statement>
+      <p> For both parts of this exericse, give a written
+      description of sets of the vectors <m>\bvec</m> and include a
+      sketch. 
+	<ol label="a.">
+	  <li> <p> For which vectors <m>\bvec</m> in <m>\real^2</m> is
+	  the equation 
+	  <me>
+	    \left[\begin{array}{rr}
+	    3 \amp -6 \\
+	    -2 \amp 4 \\
+	    \end{array}\right]
+	    \xvec = \bvec
+	  </me> consistent?
+	  </p></li>
+
+
+	  <li> <p> For which vectors <m>\bvec</m> in <m>\real^2</m> is
+	  the equation
+	  <me>
+	    \left[\begin{array}{rr}
+	    3 \amp -6 \\
+	    -2 \amp 2 \\
+	    \end{array}\right]
+	    \xvec = \bvec
+	  </me> consistent?
+	  </p></li>
+	</ol>
+      </p>
+
+    </statement>
+
+    <solution>
+      <p><ol label="a.">
+	<li><p>
+	  <m>
+	    \left[\begin{array}{rr}
+	    3 \amp -6 \\
+	    -2 \amp 4 \\
+	    \end{array}\right]
+	    \sim
+	    \left[\begin{array}{rr}
+	    1 \amp -2 \\
+	    0 \amp 0 \\
+	    \end{array}\right]
+	  </m>
+	  so <m>\bvec</m> must be on the line defined by
+	  <m>\twovec{3}{-2}</m>.
+	</p></li>
+
+	<li><p>
+	  <m>
+	    \left[\begin{array}{rr}
+	    3 \amp -6 \\
+	    -2 \amp 2 \\
+	    \end{array}\right]
+	    \sim
+	    \left[\begin{array}{rr}
+	    1 \amp 0 \\
+	    0 \amp 1 \\
+	    \end{array}\right]
+	  </m>
+	  so <m>\bvec</m> can be any vector in <m>\real^2</m>.
+	</p></li>
+      </ol></p>
+    </solution>
+
+    <answer>
+      <p><ol label="a.">
+	<li><p>
+	  <m>\bvec</m> must be a scalar multiple of
+	  <m>\twovec{3}{-2}</m>.
+	</p></li>
+	<li><p>
+	  <m>\bvec</m> can be any vector in <m>\real^2</m>.
+	</p></li>
+      </ol></p>
+    </answer>
+	    
+  </exercise>
+  
+  <exercise>
+    <statement>
+      <p> Consider the following matrices:
+      <me>
+	A = \left[\begin{array}{rrrr}
+	3 \amp 0 \amp -1 \amp 1 \\
+	1 \amp -1 \amp 3 \amp 7 \\
+	3 \amp -2 \amp 1 \amp 5 \\
+	-1 \amp 2 \amp 2 \amp 3 \\
+	\end{array}\right],
+	B = \left[\begin{array}{rrrr}
+	3 \amp 0 \amp -1 \amp 4 \\
+	1 \amp -1 \amp 3 \amp -1 \\
+	3 \amp -2 \amp 1 \amp 3 \\
+	-1 \amp 2 \amp 2 \amp 1 \\
+	\end{array}\right]
+      </me>.
+      Do the columns of <m>A</m> span <m>\real^4</m>?  Do the columns
+      of <m>B</m> span <m>\real^4</m>? 
+      <sage>
+	<input>
+	</input>
+      </sage>
+      </p>
+    </statement>
+
+    <solution>
+      <p><ol label="a.">
+	<li><p> The reduced row echelon form of <m>A</m> is
+	<me>
+	  \left[\begin{array}{rrrr}
+	  3 \amp 0 \amp -1 \amp 1 \\
+	  1 \amp -1 \amp 3 \amp 7 \\
+	  3 \amp -2 \amp 1 \amp 5 \\
+	  -1 \amp 2 \amp 2 \amp 3
+	  \end{array}\right]
+	  \sim
+	  \left[\begin{array}{rrrr}
+	  1 \amp 0 \amp 0 \amp 1 \\
+	  0 \amp 1 \amp 0 \amp 0 \\
+	  0 \amp 0 \amp 1 \amp 2 \\
+	  0 \amp 0 \amp 0 \amp 0
+	  \end{array}\right]
+	</me>
+	so the columns of <m>A</m> do not span <m>\real^4</m>.
+	</p></li>
+
+	<li><p> The reduced row echelon form of <m>B</m> is
+	<me>
+	  \left[\begin{array}{rrrr}
+	  3 \amp 0 \amp -1 \amp 4 \\
+	  1 \amp -1 \amp 3 \amp -1 \\
+	  3 \amp -2 \amp 1 \amp 3 \\
+	  -1 \amp 2 \amp 2 \amp 1
+	  \end{array}\right]
+	  \sim
+	  \left[\begin{array}{rrrr}
+	  1 \amp 0 \amp 0 \amp 0 \\
+	  0 \amp 1 \amp 0 \amp 0 \\
+	  0 \amp 0 \amp 1 \amp 0 \\
+	  0 \amp 0 \amp 0 \amp 1
+	  \end{array}\right]
+	</me>
+	so the columns of <m>B</m> span <m>\real^4</m>.
+	</p></li>
+      </ol></p>
+    </solution>
+
+    <answer>
+      <p>
+	The columns of <m>A</m> do not span <m>\real^4</m>.  The
+	columns of <m>B</m> do.
+      </p>
+    </answer>
+	  
+  </exercise>
+      
+  <exercise>
+    <statement>
+      <p> Determine whether the following statements are true or false
+      and provide a justification for your response.  Throughout, we
+      will assume that the matrix <m>A</m> has columns
+      <m>\vvec_1,\vvec_2,\ldots,\vvec_n</m>;  that is,
+      <me>
+	A = \left[\begin{array}{rrrr}
+	\vvec_1\amp\vvec_2\amp\ldots\amp\vvec_n
+	\end{array}\right]
+      </me>.
+      <ol label="a.">
+	<li><p>
+	  If the equation <m> A\xvec = \bvec</m> is consistent, then
+	  <m>\bvec</m> is in
+	<m>\span{\vvec_1,\vvec_2,\ldots,\vvec_n}</m>. </p></li>
+
+	<li> <p>
+	  The equation <m>A\xvec = \vvec_1</m> is always consistent. 
+	</p></li>
+
+	<li><p>
+	  If <m>\vvec_1</m>, <m>\vvec_2</m>, <m>\vvec_3</m>, and
+	  <m>\vvec_4</m> are vectors in <m>\real^3</m>, then their
+	  span is <m>\real^3</m>.
+	</p></li>
+
+	<li><p>
+	  If <m>\bvec</m> can be expressed as a linear combination of
+	  <m>\vvec_1, \vvec_2,\ldots,\vvec_n</m>, then <m>\bvec</m> is
+	  in <m>\span{\vvec_1,\vvec_2,\ldots,\vvec_n}</m>.
+	</p></li>
+
+	<li><p>
+	  If <m>A</m> is a <m>8032\times 427</m> matrix, then the span
+	  of the columns of <m>A</m> is a set of vectors in
+	  <m>\real^{427}</m>.
+	</p></li>
+      </ol></p>
+
+    </statement>
+
+    <solution>
+      <p><ol label="a.">
+	<li><p>
+	  True.  If <m>\xvec</m> is a solution to <m>A\xvec=\bvec</m>,
+	  then the components of <m>\xvec</m> are weights whose linear
+	  combination is <m>\bvec</m>.
+	</p></li>
+
+	<li><p>
+	  True, because <m>x=\fourvec{1}{0}{\vdots}{0}</m> is a solution.
+	</p></li>
+
+	<li><p>
+	  False.  The span could be a smaller set.
+	</p></li>
+
+	<li><p>
+	  True.  This is the definition of the span.
+	</p></li>
+
+	<li><p>
+	  False.  The span is a set of vectors in <m>\real^{8032}</m>.
+	</p></li>
+
+      </ol></p>
+    </solution>
+
+    <answer>
+      <p><ol label="a.">
+	<li> <p> True  </p></li>
+	<li> <p> True  </p></li>
+	<li> <p> False  </p></li>
+	<li> <p> True  </p></li>
+	<li> <p> False  </p></li>
+      </ol></p>
+    </answer>
+  </exercise>
+
+  <exercise>
+    <statement>
+      <p> This exercise asks you to construct some matrices whose
+      columns span a given set.
+      <ol label="a.">
+	<li><p> Construct a <m>3\times3</m> matrix whose columns span
+	<m>\real^3</m>.  </p></li>
+
+	<li><p> Construct a <m>3\times3</m> matrix whose columns span
+	a plane in <m>\real^3</m>.  </p></li>
+
+	<li><p> Construct a <m>3\times3</m> matrix whose columns span
+	a line in <m>\real^3</m>.  </p></li>
+      </ol>
+      </p>
+	    
+    </statement>
+
+    <solution>
+      <p> We will choose matrices in reduced row echelon form.
+	<ol label="a.">
+	<li><p>
+	  <m>\left[\begin{array}{rrr}
+	  1 \amp 0 \amp 0 \\
+	  0 \amp 1 \amp 0 \\
+	  0 \amp 0 \amp 1 \\
+	  \end{array}\right]
+	  </m>.
+	</p></li>
+
+	<li><p>
+	  <m>\left[\begin{array}{rrr}
+	  1 \amp 0 \amp -2 \\
+	  0 \amp 1 \amp 1 \\
+	  0 \amp 0 \amp 0 \\
+	  \end{array}\right]
+	  </m>.
+	</p></li>
+
+	<li><p>
+	  <m>\left[\begin{array}{rrr}
+	  1 \amp 3 \amp -1 \\
+	  0 \amp 0 \amp 0 \\
+	  0 \amp 0 \amp 0 \\
+	  \end{array}\right]
+	  </m>.
+	</p></li>
+      </ol></p>
+    </solution>
+
+    <answer>
+      <p> We will choose matrices in reduced row echelon form.
+	<ol label="a.">
+	<li><p>
+	  <m>\left[\begin{array}{rrr}
+	  1 \amp 0 \amp 0 \\
+	  0 \amp 1 \amp 0 \\
+	  0 \amp 0 \amp 1 \\
+	  \end{array}\right]
+	  </m>.
+	</p></li>
+
+	<li><p>
+	  <m>\left[\begin{array}{rrr}
+	  1 \amp 0 \amp -2 \\
+	  0 \amp 1 \amp 1 \\
+	  0 \amp 0 \amp 0 \\
+	  \end{array}\right]
+	  </m>.
+	</p></li>
+
+	<li><p>
+	  <m>\left[\begin{array}{rrr}
+	  1 \amp 3 \amp -1 \\
+	  0 \amp 0 \amp 0 \\
+	  0 \amp 0 \amp 0 \\
+	  \end{array}\right]
+	  </m>.
+	</p></li>
+      </ol></p>
+    </answer>
+	
+  </exercise>
+
+  <exercise>
+    <statement>
+      <p> Provide a justification for your response to the following
+      questions.
+      <ol label="a.">
+	<li><p>
+	  Suppose that we have vectors in <m>\real^8</m>,
+	  <m>\vvec_1,\vvec_2,\ldots,\vvec_{10}</m>,  whose span
+	  is <m>\real^8</m>.  Can every vector <m>\bvec</m> in
+	  <m>\real^8</m> be written as a linear combination 
+	  of <m>\vvec_1,\vvec_2,\ldots,\vvec_{10}</m>?
+	</p> </li>
+
+	<li><p>
+	  Suppose that we have vectors in <m>\real^8</m>,
+	  <m>\vvec_1,\vvec_2,\ldots,\vvec_{10}</m>,  whose span
+	  is <m>\real^8</m>.  Can every vector <m>\bvec</m> in
+	  <m>\real^8</m> be written <em>uniquely</em> as a linear
+	  combination of <m>\vvec_1,\vvec_2,\ldots,\vvec_{10}</m>?
+	</p> </li>
+
+	<li><p>
+	  Do the vectors
+	  <me>
+	    \evec_1=\threevec{1}{0}{0},
+	    \evec_2=\threevec{0}{1}{0},
+	    \evec_3=\threevec{0}{0}{1}
+	  </me>
+	  span <m>\real^3</m>?
+	</p></li>
+
+	<li><p>
+	  Suppose that <m>\vvec_1,\vvec_2,\ldots,\vvec_n</m> span
+	  <m>\real^{438}</m>.  What can you guarantee about the value
+	  of <m>n</m>?
+	</p></li>
+
+	<li><p>
+	  Can 17 vectors in <m>\real^{20}</m> span <m>\real^{20}</m>?
+	</p></li>
+      </ol></p>
+    </statement>
+
+    <solution>
+      <p><ol label="a.">
+	<li><p>
+	  Yes.  Because the span is <m>\real^8</m>, every vector in
+	  <m>\real^8</m> can be written as a linear combination of the
+	  vectors.
+	</p></li>
+
+	<li><p>
+	  No.  The matrix <m>A=\left[\begin{array}{rrrr}
+	  \vvec_1 \amp \vvec_2 \amp \ldots \amp \vvec_{10} \end{array}
+	  \right]</m> must have a column without a pivot position.
+	  Therefore, any equation <m>A\xvec=\bvec</m> has infinitely
+	  many solutions.
+	</p></li>
+
+	<li><p>
+	  Yes, because <m>\left[\begin{array}{rrr}
+	  1 \amp 0 \amp 0 \\
+	  0 \amp 1 \amp 0 \\
+	  0 \amp 0 \amp 1 \\
+	  \end{array}\right]</m> has a pivot position in every row.
+	</p></li>
+
+	<li><p>
+	  There must be at least 438 vectors so
+	  <m>n\geq438</m>.
+	</p></li>
+
+	<li><p> No, because we need at least 20 vectors to span
+	<m>\real^{20}</m>.
+	</p></li>
+      </ol></p>
+    </solution>
+
+    <answer>
+      <p><ol label="a.">
+	<li><p> Yes </p></li>
+	<li><p> No </p></li>
+	<li><p> Yes </p></li>
+	<li><p> <m>n\geq 438</m> </p></li>
+	<li><p> No </p></li>
+      </ol></p>
+    </answer>
+
+  </exercise>
+
+  <exercise>
+    <statement>
+      <p> The following observation will be helpful in this exericse.
+	If we want to find a solution to the equation <m>AB\xvec =
+	\bvec</m>, we could first find a solution to the equation
+	<m>A\yvec = \bvec</m> and then find a solution to the equation
+	<m>B\xvec = \yvec</m>.
+      </p>
+
+      <p>
+	Suppose that <m>A</m> is a <m>3\times 4</m> matrix whose
+	columns span <m>\real^3</m> and <m>B</m> is a <m>4\times 5</m>
+	matrix.  In this case, we can form the product <m>AB</m>.
+	<ol label="a.">
+	  <li><p> What are the dimensions of the product <m>AB</m>?
+	  </p></li>
+
+	  <li><p> Can you guarantee that the columns of <m>AB</m> span
+	  <m>\real^3</m>?  </p></li>
+
+	  <li><p> If you know additionally that the span of the
+	  columns of <m>B</m> is <m>\real^4</m>, can you guarantee
+	  that the columns of <m>AB</m> span <m>\real^3</m>?
+	  </p></li>
+	</ol>
+      </p>
+    </statement>
+
+    <solution>
+      <p><ol label="a.">
+	<li><p> <m>AB</m> is a <m>3\times5</m> matrix. </p></li>
+
+	<li><p> No.  Since the columns of <m>A</m> span
+	<m>\real^3</m>, then the equation <m>A\yvec=\bvec</m> has a
+	solution <m>\yvec</m> for every vector <m>\bvec</m>.  However,
+	we may not be able to solve the equation <m>B\xvec=\yvec</m>
+	if the columns of <m>B</m> do not span <m>\real^4</m>.
+	</p></li>
+
+	<li><p> Yes.  
+	If we are given a vector <m>\bvec</m> in
+	<m>\real^3</m>, we can find a vector <m>\yvec</m> such that
+	<m>A\yvec = \bvec</m> since the columns of <m>A</m> span
+	<m>\real^3</m>.  Since the columns of <m>B</m> span
+	<m>\real^4</m>, we can find a vector <m>\xvec</m> such that
+	<m>B\xvec=\yvec</m>.  Then <m>AB\xvec = \bvec</m>, which means
+	that <m>B</m> is the span of the columns of <m>AB</m>.
+	</p></li>
+
+      </ol></p>
+    </solution>
+
+    <answer>
+      <p><ol label="a.">
+	<li><p>
+	  <m>3\times5</m>
+	</p></li>
+
+	<li><p>
+	  No
+	</p></li>
+
+	<li><p>
+	  Yes
+	</p></li>
+      </ol></p>
+    </answer>
+
+  </exercise>
+  
+  <exercise>
+    <statement>
+      <p> Suppose that <m>A</m> is a <m>12\times12</m> matrix and
+      that, for some vector <m>\bvec</m>, the equation
+      <m>A\xvec=\bvec</m> has a unique solution.
+      <ol label="a.">
+	<li><p> What can you say about the pivot positions of
+	<m>A</m>?
+	</p></li>
+
+	<li><p> What can you say about the span of the columns of
+	<m>A</m>?
+	</p></li>
+
+	<li><p> If <m>\cvec</m> is some other vector in <m>\real^{12}</m>,
+	what can you conclude about the equation <m>A\xvec =
+	\cvec</m>?
+	</p></li>
+
+	<li><p> What can you about the solution space to the equation
+	<m>A\xvec =\zerovec</m>?
+	</p></li>
+      </ol></p>
+    </statement>
+
+    <solution>
+      <p><ol label="a.">
+	<li><p> Since the solution is unique, each column of <m>A</m>
+	must have a pivot position.  Since there are also 12 rows,
+	each row must have a pivot position as well.  This means that
+	the row reduced echelon form of <m>A</m> is the identity
+	matrix.
+	</p></li>
+
+	<li><p> Since there is a pivot position in every row, the span
+	of the columns of <m>A</m> is <m>\real^{12}</m>.
+	</p></li>
+
+	<li><p> There is a unique solution to the equation because
+	<m>A</m> has a pivot position in every row and every column.
+	</p></li>
+
+	<li><p> There is a unique solution <m>\xvec=\zerovec</m>.
+	</p></li>
+      </ol></p>
+    </solution>
+
+    <answer>
+      <p><ol label="a.">
+	<li><p> There is a pivot position in each row and each column.
+	</p></li>
+
+	<li><p> The span is <m>\real^{12}</m>. </p></li>
+
+	<li><p> There is a unique solution. </p></li>
+	
+	<li><p> There is a unique solution <m>\xvec=\zerovec.</m>
+	</p></li>
+      </ol></p>
+    </answer>
+	
+  </exercise>
+
+  <exercise>
+    <statement>
+      <p> Suppose that
+      <me>
+	\vvec_1 = \fourvec{3}{1}{3}{-1},
+	\vvec_2 = \fourvec{0}{-1}{-2}{2},
+	\vvec_3 = \fourvec{-3}{-3}{-7}{5}
+      </me>.
+      <ol label="a.">
+	<li><p> Is <m>\vvec_3</m> a linear combination of
+	<m>\vvec_1</m> and <m>\vvec_2</m>?  If so, find weights such
+	that <m>\vvec_3 = a\vvec_1+b\vvec_2</m>.
+	</p></li>
+
+	<li><p>
+	  Show that a linear combination
+	  <me>
+	    a\vvec_1 + b\vvec_2 + c\vvec_3
+	  </me>
+	  can be rewritten as a linear combination of <m>\vvec_1</m>
+	  and <m>\vvec_2</m>.
+	</p></li>
+
+	<li><p>
+	  Explain why <m>\span{\vvec_1,\vvec_2,\vvec_3} =
+	  \span{\vvec_1,\vvec_2}</m>.
+	</p></li>
+      </ol>
+      </p>
+    </statement>
+
+    <solution>
+      <p><ol label="a.">
+	<li><p> Yes, because
+	<m>\vvec_3=-\vvec_1+2\vvec_2</m>. </p></li>
+
+	<li><p> We have
+	<me>
+	  \begin{array}{rl}
+	  a\vvec_1+b\vvec_2+c\vvec_3 \amp = a\vvec_1 +
+	  b\vvec_2+c(-\vvec_1+2\vvec_2) \\
+	  \amp =
+	  (a-c)\vvec_1+(b+2c)\vvec_2\text{.}
+	  \end{array}
+	</me>
+	</p></li>
+
+	<li><p> As seen in the last part of this problem, every linear
+	combination of <m>\vvec_1</m>, <m>\vvec_2</m>, and
+	<m>\vvec_3</m> can be rewritten as a linear combination of
+	<m>\vvec_1</m> and <m>\vvec_2</m>.
+	</p></li>
+      </ol></p>
+    </solution>
+
+    <answer>
+      <p><ol label="a.">
+	<li><p> Yes </p></li>
+
+	<li><p> We have
+	<me>
+	  \begin{array}{rl}
+	  a\vvec_1+b\vvec_2+c\vvec_3 \amp = a\vvec_1 +
+	  b\vvec_2+c(-\vvec_1+2\vvec_2) \\
+	  \amp =
+	  (a-c)\vvec_1+(b+2c)\vvec_2\text{.}
+	  \end{array}
+	</me>
+	</p></li>
+
+	<li><p> As seen in the last part of this problem, every linear
+	combination of <m>\vvec_1</m>, <m>\vvec_2</m>, and
+	<m>\vvec_3</m> can be rewritten as a linear combination of
+	<m>\vvec_1</m> and <m>\vvec_2</m>.
+	</p></li>
+      </ol></p>
+    </answer>
+  </exercise>
+
+  <exercise>
+    <statement>
+      <p> As defined in this section, the span of a set of vectors is
+      generated by taking all possible linear combinations of those
+      vectors.  This exericse will demonstrate the fact that the span
+      can also be realized as the solution space to a linear system.
+      </p>
+
+      <p> We will consider the vectors
+      <me>
+	\vvec_1=\threevec{1}{0}{-2},
+	\vvec_2=\threevec{2}{1}{0},
+	\vvec_3=\threevec{1}{1}{2}
+      </me>
+      <ol label="a.">
+	<li> <p> Is every vector in <m>\real^3</m> in
+	<m>\span{\vvec_1,\vvec_2,\vvec_3}</m>?  If not, describe the
+	span.
+	<sage>
+	  <input>
+	  </input>
+	</sage>
+
+	</p></li>
+
+	<li> <p> 
+	  To describe <m>\span{\vvec_1,\vvec_2,\vvec_3}</m> as the
+	  solution space of a linear system, we will write 
+	  <me>
+	    \bvec=\threevec{a}{b}{c}
+	  </me>.
+	  If <m>\bvec</m> is in <m>\span{\vvec_1,\vvec_2,\vvec_3}</m>,
+	  then the linear system corresponding to the augmented matrix
+	  <me>
+	    \left[\begin{array}{rrr|r}
+	    1 \amp 2 \amp 1 \amp a \\
+	    0 \amp 1 \amp 1 \amp b \\
+	    -2\amp 0 \amp 2 \amp c \\
+	    \end{array}\right]
+	  </me>
+	  must be consistent.  This means that a pivot cannot occur in
+	  the rightmost column.  Perform row operations to put this
+	  augmented matrix into a triangular form.  Now
+	  identify an equation in <m>a</m>, <m>b</m>, and <m>c</m>
+	  that tells us when there is no pivot in the rightmost
+	  column.  The solution space to this equation describes
+	  <m>\span{\vvec_1,\vvec_2,\vvec_3}</m>. 
+	</p> </li>
+
+	<li><p>
+	  In this example, the matrix formed by the vectors
+	  <m>\left[\begin{array}{rrr}
+	  \vvec_1\amp\vvec_2\amp\vvec_2 \\
+	  \end{array}\right]
+	  </m> has two pivot positions.  Suppose we were to consider
+	  another example in which this
+	  matrix had had only one pivot position.  How would this have
+	  changed the linear system describing
+	  <m>\span{\vvec_1,\vvec_2,\vvec_3}</m>? 
+	</p></li>
+      </ol></p>
+    </statement>
+
+    <solution>
+      <p><ol label="a.">
+	<li><p> Finding the reduced row echelon form
+	<me>
+	  \left[\begin{array}{rrr}
+	  1 \amp 2 \amp 1 \\
+	  0 \amp 1 \amp 1 \\
+	  -2 \amp 0 \amp 2
+	  \end{array}\right]
+	  \sim
+	  \left[\begin{array}{rrr}
+	  1 \amp 0 \amp -1 \\
+	  0 \amp 1 \amp 1 \\
+	  0 \amp 0 \amp 0
+	  \end{array}\right]
+	</me>
+	shows that <m>\vvec_3</m> is a linear combination of
+	<m>\vvec_1</m> and <m>\vvec_2</m>.  Therefore,
+	<m>\span{\vvec_1,\vvec_2,\vvec_3}</m> is the plane defined by
+	<m>\vvec_1</m> and <m>\vvec_2</m>.
+	</p></li>
+
+	<li><p>
+	  We see that
+	  <me>
+	    \left[\begin{array}{rrr|r}
+	    1 \amp 2 \amp 1 \amp a \\
+	    0 \amp 1 \amp 1 \amp b \\
+	    -2 \amp 0 \amp 2 \amp c \\
+	    \end{array}\right]
+	    \sim
+	    \left[\begin{array}{rrr|r}
+	    1 \amp 2 \amp 1 \amp a \\
+	    0 \amp 1 \amp 1 \amp b \\
+	    0 \amp 0 \amp 0 \amp 2a-4b+c \\
+	    \end{array}\right]\text{.}
+	  </me>
+	  If the equation is consistent, we must have
+	  <m>2a-4b+c=0</m>.  The solution space is the plane defined
+	  by <m>\vvec_1</m> and <m>\vvec_2</m>.
+	</p></li>
+
+	<li><p> In that case, there would be two equations involving
+	the variables <m>a</m>, <m>b</m>, and <m>c</m>, and the
+	solution space would be a line.
+	</p></li>
+      </ol></p>
+    </solution>
+	    
+    <answer>
+      <p><ol label="a.">
+	<li><p>
+	<m>\span{\vvec_1,\vvec_2,\vvec_3}</m> is the plane defined by
+	<m>\vvec_1</m> and <m>\vvec_2</m>.
+	</p></li>
+
+	<li><p>
+	  <m>2a-4b+c=0</m>.
+	</p></li>
+
+	<li><p> There would be two equations involving
+	the variables <m>a</m>, <m>b</m>, and <m>c</m>.
+	</p></li>
+      </ol></p>
+    </answer>
+	    
+  </exercise>
+
+</exercises>
+  

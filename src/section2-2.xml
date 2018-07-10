@@ -1,0 +1,1538 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec-matrices-lin-combs"
+	 xmlns:xi="http://www.w3.org/2001/XInclude">
+
+  <title>
+    Matrix multiplication and linear combinations
+  </title>
+
+  <introduction>
+    <p>
+      The previous section introduced vectors and linear combinations
+      and demonstrated how they provide a means of thinking about
+      linear systems geometrically.  In particular, we saw that the
+      vector <m>\bvec</m> is a linear combination of the vectors
+      <m>\vvec_1,\vvec_2,\ldots,\vvec_n</m> if the linear system
+      corresponding to the augmented matrix
+      <me>
+	\left[\begin{array}{rrrr|r}
+	\vvec_1 \amp \vvec_2 \amp \ldots \amp \vvec_n \amp \bvec
+	\end{array}\right]
+      </me>
+      is consistent.
+    </p>
+
+    <p>
+      Our goal in this section is to introduction matrix
+      multiplication, another algebraic operation that connects linear
+      systems and linear combinations.  
+    </p>
+    
+  </introduction>
+
+  <subsection>
+    <title> Matrices </title>
+
+    <p>
+      We first thought of a matrix as a rectangular array
+      of numbers.  When the number of rows is <m>m</m> and columns is
+      <m>n</m>, we say that the dimensions of the matrix are
+      <m>m\times n</m>.  For instance, the matrix below is a
+      <m>3\times4</m> matrix:
+      <me>
+	\left[
+	\begin{array}{rrrr}
+	0 \amp 4 \amp -3 \amp 1 \\
+	3 \amp -1 \amp 2 \amp 0 \\
+	2 \amp 0 \amp -1 \amp 1 \\
+	\end{array}
+	\right]
+      </me>.
+    </p>
+
+    <p>
+      We may also think of the columns of a matrix as a collection of
+      vectors.  For instance, the matrix above may be represented as
+      <me>
+	\left[
+	\begin{array}{rrrr}
+	\vvec_1 \amp \vvec_2 \amp \vvec_3 \amp \vvec_4
+	\end{array}
+	\right]
+      </me>
+      where
+      <me>
+	\vvec_1=\left[\begin{array}{r}0\\3\\2\\ \end{array}\right],
+	\vvec_2=\left[\begin{array}{r}4\\-1\\0\\ \end{array}\right],
+	\vvec_3=\left[\begin{array}{r}-3\\2\\-1\\ \end{array}\right],
+	\vvec_4=\left[\begin{array}{r}1\\0\\1\\ \end{array}\right]
+      </me>.
+	In this way, we see that our <m>3\times 4</m> matrix is the
+	same as a collection of 4 vectors in <m>\real^3</m>.
+    </p>
+
+    <p>
+      <idx> matrix addition </idx>
+      <idx> matrix, scalar multiplication </idx>
+      This means that we may define scalar multiplication and matrix
+      addition operations using the corresponding vector operations.
+      <me>
+	\begin{aligned}
+	a\left[\begin{array}{rrrr}
+	\vvec_1 \amp \vvec_2 \amp \ldots \amp \vvec_n
+	\end{array}
+	\right]
+	{}={} \amp
+	\left[\begin{array}{rrrr}
+	a\vvec_1 \amp a\vvec_2 \amp \ldots \amp a\vvec_n
+	\end{array}
+	\right] \\
+	\left[\begin{array}{rrrr}
+	\vvec_1 \amp \vvec_2 \amp \ldots \amp \vvec_n
+	\end{array}
+	\right]
+	{}+{} \amp
+	\left[\begin{array}{rrrr}
+	\wvec_1 \amp \wvec_2 \amp \ldots \amp \wvec_n
+	\end{array}
+	\right]
+	 \\
+	{}={} \amp
+	\left[\begin{array}{rrrr}
+	\vvec_1+\wvec_1 \amp \vvec_2+\wvec_2 \amp \ldots \amp
+	\vvec_n+\wvec_n 
+	\end{array}
+	\right]. \\
+	\end{aligned}
+      </me>
+    </p>
+
+    <exploration>
+      <title> Matrix operations </title>
+      <statement><p>
+      <ol label="a.">
+	<li> <p> Compute the scalar multiple
+	<me>
+	  -3\left[
+	  \begin{array}{rrr}
+	  3 \amp 1 \amp 0 \\
+	  -4 \amp 3 \amp -1 \\
+	  \end{array}
+	  \right]
+	</me>.
+	</p></li>
+
+	<li> <p> Suppose that <m>A</m> and <m>B</m> are two matrices.
+	What do we need to know about their dimensions before we can
+	form the sum <m>A+B</m>? </p></li>
+
+	<li> <p> Find the sum
+	<me>
+	  \left[
+	  \begin{array}{rr}
+	  0 \amp -3 \\ 
+	  1 \amp -2 \\
+	  3 \amp 4 \\
+	  \end{array}
+	  \right]
+	  +
+	  \left[
+	  \begin{array}{rrr}
+	  4 \amp -1 \\
+	  -2 \amp 2 \\
+	  1 \amp 1 \\
+	  \end{array}
+	  \right]
+	  </me>.
+	</p></li>
+
+	<li> <p> The matrix <m>I_n</m>, which we call the <em>
+	identity </em> matrix is the <m>n\times n</m> matrix whose
+	entries are zero except for the diagonal entries, which are
+	1.  For instance,
+	<me>
+	  I_3 = 
+	  \left[
+	  \begin{array}{rrr}
+	  1 \amp 0 \amp 0 \\
+	  0 \amp 1 \amp 0 \\
+	  0 \amp 0 \amp 1 \\
+	  \end{array}
+	  \right]
+	</me>.
+	If we can form the sum <m>A+I_n</m>, what must be true about the
+	matrix <m>A</m>?
+	</p></li>
+
+	<li> <p>
+	  Find the matrix <m> A - 2I_3</m> where
+	<me>
+	  A = 
+	  \left[
+	  \begin{array}{rrr}
+	  1 \amp 2 \amp -2 \\
+	  2 \amp -3 \amp 3 \\
+	  -2 \amp 3 \amp 4 \\
+	  \end{array}
+	  \right]
+	</me>.
+	</p></li>
+      </ol>
+      </p></statement>
+
+      <solution>
+	<p><ol label="a.">
+	  <li><p>
+	    <m>\left[\begin{array}{rrr}
+	    -9 \amp -3 \amp 0 \\
+	    12 \amp -9 \amp -1 \\
+	    \end{array}\right]
+	    </m>
+	  </p></li>
+
+	  <li><p>
+	    The dimensions must be the same.
+	  </p></li>
+
+	  <li><p>
+	    <m>\left[\begin{array}{rr}
+	    4 \amp -4 \\
+	    -1 \amp 0 \\
+	    4 \amp 5 \\
+	    \end{array}\right]
+	    </m>
+	  </p></li>
+
+	  <li><p>
+	    The dimensions of <m>A</m> must be <m>n\times n</m>.
+	  </p></li>
+
+	  <li><p>
+	    <m>
+	      A-2I_3 = \left[\begin{array}{rrr}
+	      -1 \amp 2 \amp -2 \\
+	      2 \amp -5 \amp 3 \\
+	      -2 \amp 3 \amp 2 \\
+	      \end{array}\right]
+	    </m>
+	  </p></li>
+	</ol></p>
+      </solution>
+
+      <answer>
+	<p><ol label="a.">
+	  <li><p>
+	    <m>\left[\begin{array}{rrr}
+	    -9 \amp -3 \amp 0 \\
+	    12 \amp -9 \amp -1 \\
+	    \end{array}\right]
+	    </m>
+	  </p></li>
+
+	  <li><p>
+	    The dimensions must be the same.
+	  </p></li>
+
+	  <li><p>
+	    <m>\left[\begin{array}{rr}
+	    4 \amp -4 \\
+	    -1 \amp 0 \\
+	    4 \amp 5 \\
+	    \end{array}\right]
+	    </m>
+	  </p></li>
+
+	  <li><p>
+	    The dimensions of <m>A</m> must be <m>n\times n</m>.
+	  </p></li>
+
+	  <li><p>
+	    <m>
+	      A-2I_3 = \left[\begin{array}{rrr}
+	      -1 \amp 2 \amp -2 \\
+	      2 \amp -5 \amp 3 \\
+	      -2 \amp 3 \amp 2 \\
+	      \end{array}\right]
+	    </m>
+	  </p></li>
+	</ol></p>
+      </answer>
+      
+    </exploration>
+
+    <p>
+      As this preview activity shows, both of these operations are
+      relatively straightforward.  Some care, however, is required
+      when adding matrices.  Since we need the same number of vectors
+      to add and since the vectors must be of the same dimension, two
+      matrices must have the same dimensions as well if we wish
+      to form their sum.
+    </p>
+
+    <p>
+      The identity matrix will play an important role at various
+      points in our explorations.  It is important to note that it is
+      a square matrix, meaning it has an equal number of rows and
+      columns, so any matrix added to it must be square as well.
+      Though we wrote it as <m>I_n</m> in the activity, we will often
+      just write <m>I</m> when the dimensions are clear.
+    </p>
+
+  </subsection>
+
+  <subsection>
+    <title> Matrix multiplication and linear combinations </title>
+
+    <p>
+      A more important operation will be matrix multiplication as it
+      allows us to compactly express linear systems.  For now, we
+      will work with the product of a matrix and vector, which we
+      illustrate with an example.
+    </p>
+
+    <example>
+      <statement>
+	<p>
+	Suppose we have the matrix <m>A</m> and vector <m>\xvec</m> as
+	given below.
+	<me>
+	  A = \left[\begin{array}{rr}
+	  -2 \amp 3 \\
+	  0 \amp 2 \\
+	  3 \amp 1 \\
+	  \end{array}\right],
+	  \xvec = \left[\begin{array}{r}
+	  2 \\ 3 \\ \end{array}\right]
+	</me>.
+	Their product will be defined to be the linear combination of
+	the columns of <m>A</m> using the componentts of <m>\xvec</m>
+	as weights.  This means that
+	<me>
+	  \begin{aligned}
+	  A\xvec = 
+	  \left[\begin{array}{rr}
+	  -2 \amp 3 \\
+	  0 \amp 2 \\
+	  3 \amp 1 \\
+	  \end{array}\right]
+	  \left[\begin{array}{r} 2 \\ 3 \\ \end{array}\right]
+	  {}={} \amp
+	  2 \left[\begin{array}{r} -2 \\ 0 \\ 3 \\ \end{array}\right] +
+	  3 \left[\begin{array}{r} 3 \\ 2 \\ 1 \\ \end{array}\right]
+	  \\ \\
+	  {}={} \amp
+	  \left[\begin{array}{r} -4 \\ 0 \\ 6 \\ \end{array}\right] +
+	  \left[\begin{array}{r} 9 \\ 6 \\ 3 \\ \end{array}\right] \\ \\
+	  {}={} \amp
+	  \left[\begin{array}{r} 5 \\ 6 \\ 9 \\ \end{array}\right]. \\
+	  \end{aligned}
+	</me>
+	</p>
+
+	<p>
+	  Let's take note of the dimensions of the matrix and vectors.
+	  The two components of the vector <m>\xvec</m> are
+	  weights used to form a linear combination of the columns of
+	  <m>A</m>.  Since <m>\xvec</m> has two components, <m>A</m>
+	  must have two columns. 
+	  In other words, the number of columns of <m>A</m> must equal
+	  the dimension of the vector <m>\xvec</m>.
+	</p>
+
+	<p>
+	  In the same way, the columns of <m>A</m> are 3-dimensional
+	  so any linear combination of them is 3-dimensional as well.
+	  Therefore, <m> A\xvec</m> will be 3-dimensional.
+	</p>
+
+	<p>
+	  We then see that if <m>A</m> is a <m>3\times2</m> matrix,
+	  <m>\xvec</m> must be a 2-dimensional vector and
+	  <m>A\xvec</m> will be 3-dimensional.
+	</p>
+      </statement>
+    </example>
+
+    <p>
+      More generally, we have the following definition.
+    </p>
+
+    <definition>
+      <idx> matrix multiplication </idx>
+      <statement>
+	<p>
+	  The product of a matrix <m>A</m> by a vector
+	<m>\xvec</m> will be the linear combination of the columns of
+	<m>A</m> using the components of <m>\xvec</m> as weights.
+	</p>
+
+	<p>
+	  If <m>A</m> is an <m>m\times n</m> matrix, then <m>\xvec</m>
+	  must be an <m>n</m>-dimensional vector, and the product
+	  <m>A\xvec</m> will be an <m>m</m>-dimensional vector.
+	  If
+	  <me>
+	    A=\left[\begin{array}{rrrr}
+	    \vvec_1 \amp \vvec_2 \amp \ldots \amp \vvec_n
+	    \end{array}\right],
+	    \xvec = \left[\begin{array}{r}
+	    c_1 \\ c_2 \\ \vdots \\ c_n \end{array}\right],
+	  </me>
+	  then
+	  <me>
+	    A\xvec = c_1\vvec_1 + c_2\vvec_2 + \ldots c_n\vvec_n
+	    </me>.
+	</p>
+      </statement>
+    </definition>
+
+    <p>
+      The next activity introduces some properties of matrix
+      multiplication. 
+    </p>
+
+    <activity>
+      <title> Matrix multiplication </title>
+
+      <statement><p>
+      <ol label="a.">
+	<li xml:id = "li-example-product"> <p>
+	  Find the matrix product
+	  <me>
+	    \left[
+	    \begin{array}{rrrr}
+	    1 \amp 2 \amp 0 \amp -1 \\
+	    2 \amp 4 \amp -3 \amp -2 \\
+	    -1 \amp -2 \amp 6 \amp 1 \\
+	    \end{array}
+	    \right]
+	    \left[
+	    \begin{array}{r}
+	    3 \\ 1 \\ -1 \\ 1 \\
+	    \end{array}
+	    \right]
+	  </me>.
+	</p></li>
+
+	<li> <p>
+	  Suppose that <m>A</m> is the matrix
+	  <me>
+	    \left[
+	    \begin{array}{rrr}
+	    3 \amp -1 \amp 0 \\
+	    0 \amp -2 \amp 4 \\
+	    2 \amp 1 \amp 5 \\
+	    1 \amp 0 \amp 3 \\
+	    \end{array}
+	    \right]
+	  </me>.
+	  If <m>A\xvec</m> is defined, what is the dimension of the
+	  vector <m>\xvec</m> and what is the dimension of
+	  <m>A\xvec</m>?  
+	</p></li>
+
+	<li> <p>
+	  A vector whoses entries are all zero is denoted by
+	  <m>\zerovec</m>.  If <m>A</m> is a matrix, what is the
+	  product <m>A\zerovec</m>?  
+	</p> </li>
+
+	<li><p>
+	  Suppose that <m>I = \left[\begin{array}{rrr}
+	  1 \amp 0 \amp 0 \\
+	  0 \amp 1 \amp 0 \\
+	  0 \amp 0 \amp 1 \\
+	  \end{array}\right]
+	  </m> is the identity matrix and
+	  <m>\xvec=\threevec{x_1}{x_2}{x_3}</m>.  Find the product
+	  <m>I\xvec</m> and explain why <m>I</m> is called the
+	  identity matrix.
+	</p></li>
+
+	<li> <p>
+	  Suppose we write the matrix <m>A</m> in terms of its columns
+	  as 
+	  <me>
+	    A = \left[
+	    \begin{array}{rrrr}
+	    \vvec_1 \amp \vvec_2 \amp \ldots \amp \vvec_n \\
+	    \end{array}
+	    \right]
+	  </me>.
+	  If the vector <m>\evec_1 = \left[\begin{array}{r} 1 \\ 0 \\
+	  \vdots \\ 0 \end{array}\right]</m>, what is the product
+	  <m>A\evec_1</m>?
+	</p> </li>
+
+	<li> <p>
+	  Suppose that
+	  <me>
+	    A = \left[
+	    \begin{array}{rrrr}
+	    1 \amp 2 \\
+	    -1 \amp 1 \\
+	    \end{array}
+	    \right],
+	    \bvec = \left[
+	    \begin{array}{r}
+	    6 \\ 0
+	    \end{array}
+	    \right]
+	  </me>.
+	  Is there a vector <m>\xvec</m> such that <m>A\xvec = \bvec</m>?
+	</p> </li>
+      </ol>
+      </p></statement>
+
+      <solution>
+	<p><ol label="a.">
+	  <li><p>
+	    We have
+	    <me>
+	      \begin{alignedat}{2}
+	      \left[\begin{array}{rrrr}
+	      1 \amp 2 \amp 0 \amp -2 \\
+	      2 \amp 4 \amp -3 \amp -2 \\
+	      -1 \amp -2 \amp 6 \amp 1 \\
+	      \end{array}\right]
+	      \amp
+	      \fourvec{3}{1}{-1}{1} \\
+	      \amp =
+	      \threevec{3(1)+1(2)-1(0)+1(-1)}
+	      {3(2)+1(4)-1(-3)+1(-2)}
+	      {3(-1)+1(-2)-1(6)+1(1)} \\
+	      \amp =\threevec{4}{11}{10}\text{.}
+	      \end{alignedat}
+	    </me>
+	  </p></li>
+
+	  <li><p>
+	    The dimension of <m>\xvec</m> must be the same as the
+	    number of columns of <m>A</m> so <m>\xvec</m> is
+	    three-dimensional.  The dimension of <m>A\xvec</m> equals
+	    the number of rows of <m>A</m> so <m>A\xvec</m> is
+	    four-dimensional.
+	  </p></li>
+
+	  <li><p> We have <m>A\zerovec = \zerovec</m>. </p></li>
+
+	  <li><p> We have <m>I\xvec=\xvec</m>;  that is, multiplying a
+	  vector by <m>I</m> produces the same vector.
+	  </p></li>
+
+	  <li><p>
+	    The product
+	    <m> A\evec_1 = 1\vvec_1+0\vvec_2+\ldots+0\vvec_n =
+	    \vvec_1</m>.
+	  </p></li>
+
+	  <li><p>
+	    If <m>A\xvec=\bvec</m>, then we have
+	    <me>
+	      \begin{alignedat}{3}
+	      x_1 \amp {}+{} \amp 2x_2 \amp {}={} \amp 6 \\
+	      -x_1 \amp {}+{} \amp x_2 \amp {}={} \amp 0\text{.} \\
+	      \end{alignedat}
+	    </me>
+	    with corresponding augmented matrix
+	    <me>
+	      \left[\begin{array}{rr|r}
+	      1 \amp 2 \amp 6 \\
+	      -1 \amp 1 \amp 0
+	      \end{array}\right]
+	      \sim
+	      \left[\begin{array}{rr|r}
+	      1 \amp 0 \amp 2 \\
+	      0 \amp 1 \amp 2
+	      \end{array}\right]\text{.}
+	    </me>
+	    This means that <m>\xvec=\twovec{2}{2}</m> is the unique
+	    solution to the equation <m>A\xvec=\bvec</m>.
+	  </p></li>
+	</ol></p>
+      </solution>
+	  
+      <answer>
+	<p><ol label="a.">
+	  <li><p>
+	    <m>\threevec{4}{11}{9}\text{.}
+	    </m>
+	  </p></li>
+
+	  <li><p>
+	    The dimension of <m>\xvec</m> must three, and the
+	    dimension of <m>A\xvec</m> must be four.
+	  </p></li>
+
+	  <li><p> <m>A\zerovec = \zerovec</m>. </p></li>
+
+	  <li><p> <m>I\xvec = \xvec</m>. </p></li>
+
+	  <li><p>
+	    <m> A\evec_1 = 1\vvec_1+0\vvec_2+\ldots+0\vvec_n =
+	    \vvec_1</m>.
+	  </p></li>
+
+	  <li><p>
+	    <m>\xvec=\twovec{2}{2}</m> is the unique
+	    solution.
+	  </p></li>
+	</ol></p>
+      </answer>
+	  
+    </activity>
+
+    <p>
+      Multiplication of a matrix <m>A</m> and a vector is
+      defined as a linear combination of the columns of <m>A</m>.
+      However, there is a shortcut for computing such a
+      product.  Let's look at our previous example and focus on the
+      first row of the product.
+      <me>
+	\left[\begin{array}{rr}
+	-2 \amp 3 \\
+	0 \amp 2 \\
+	3 \amp 1 \\
+	\end{array}\right]
+	\left[\begin{array}{r} 2 \\ 3 \\ \end{array}\right]
+	=
+	2 \left[\begin{array}{r} -2 \\ * \\ * \\ \end{array}\right] +
+	3 \left[\begin{array}{r} 3 \\ * \\ * \\ \end{array}\right]
+	=
+	\left[\begin{array}{c} 2(-2)+3(3) \\ * \\ * \\ \end{array}\right] 
+	=
+	\left[\begin{array}{r} 5 \\ * \\ * \\ \end{array}\right]
+      </me>.
+    </p>
+
+    <p>
+      To find the first component of the product, we consider the
+      first row of the matrix.  We then multiply the first entry in
+      that row by the first component of the vector, the second entry
+      by the second component of the vector, and so on, and add the
+      results.  In this way, we see that the third component of the
+      product would be obtained from the third row of the matrix by
+      computing
+      <m>2(3) + 3(1) = 9</m>.
+    </p>
+    
+    <p>
+      You are encouraged to evaluate <xref ref="li-example-product" />
+      using this shortcut and compare the result to what you found
+      while completing the previous activity.
+    </p>
+
+    <activity>
+      <statement>
+      <p>
+	In addition, Sage can find the product of a matrix and vector
+	using the <c>*</c> operator.  For example,
+	<sage>
+	  <input>
+	    A = matrix(2,2,[1,2,2,1])
+	    v = vector([3,-1])
+	    A*v
+	  </input>
+	</sage>
+	<ol label="a.">
+	  <li> <p> Use Sage to evaluate the product
+	  <xref ref="li-example-product" /> yet again.
+	  <sage>
+	    <input>
+	    </input>
+	  </sage>
+	  </p></li>
+
+	  <li> <p> In Sage, define the matrix and vectors
+	  <me>
+	    A = \left[
+	    \begin{array}{rrr}
+	    -2 \amp 0 \\
+	    3 \amp 1 \\
+	    4 \amp 2 \\
+	    \end{array}
+	    \right],
+	    \zerovec = \left[
+	    \begin{array}{r} 0 \\ 0 \end{array}
+	    \right],
+	    \vvec = \left[
+	    \begin{array}{r} -2 \\ 3 \end{array}
+	    \right],
+	    \wvec = \left[
+	    \begin{array}{r} 1 \\ 2 \end{array}
+	    \right]
+	  </me>.
+	  <sage>
+	    <input>
+	    </input>
+	  </sage>
+	  </p></li>
+
+	  <li><p> What do you find when you evaluate <m>A\zerovec</m>?
+	  </p></li>
+
+	  <li><p> What do you find when you evaluate
+	  <m>A(3\vvec)</m> and <m>3(A\vvec)</m> 
+	  and compare your results? </p></li>
+	  
+	  <li><p> What do you find when you evaluate
+	  <m>A(\vvec+\wvec)</m> and <m>A\vvec + A\wvec</m> 
+	  and compare your results? </p></li>
+
+	  <li><p> If <m>I=\left[\begin{array}{rrr}
+	  1 \amp 0 \amp 0 \\
+	  0 \amp 1 \amp 0 \\
+	  0 \amp 0 \amp 1 \\
+	  \end{array}\right]</m>
+	  is the <m>3\times3</m> identity matrix, what is the product
+	  <m>IA</m>? 
+	  </p></li>
+
+	</ol>
+      </p>
+      </statement>
+
+      <solution>
+	<p><ol label="a.">
+	  <li><p> We define
+	    <cd>
+A = matrix(3, 4, [1, 2, 0, -1,
+                  2, 4, -3, -2,
+                  -1, -2, 6, 1])
+v = vector([3, 1, -1, 1])
+A*v		  
+	    </cd>
+	  </p></li>
+
+	  <li><p> We define
+	    <cd>
+A = matrix(2, 3, [-2, 0, 3, 1, 4, 2])
+zero = vector([0, 0])
+v = vector([-2, 3])
+w = vector([1, 2])
+	    </cd>
+	  </p></li>
+
+	  <li><p>
+	    <m>A\zerovec = \zerovec</m>.
+	  </p></li>
+
+	  <li><p>
+	    <m>A(3\vvec) = 3(A\vvec)</m>.
+	  </p></li>
+
+	  <li><p>
+	    <m>A(\vvec+\wvec) = A\vvec + A\wvec</m>
+	  </p></li>
+
+	  <li><p>
+	    <m>IA = A</m>.
+	  </p></li>
+	</ol></p>
+      </solution>
+	    
+      <answer>
+	<p><ol label="a.">
+	  <li><p> We define
+	    <cd>
+A = matrix(3, 4, [1, 2, 0, -1,
+                  2, 4, -3, -2,
+                  -1, -2, 6, 1])
+v = vector([3, 1, -1, 1])
+A*v		  
+	    </cd>
+	  </p></li>
+
+	  <li><p> We define
+	    <cd>
+A = matrix(2, 3, [-2, 0, 3, 1, 4, 2])
+zero = vector([0, 0])
+v = vector([-2, 3])
+w = vector([1, 2])
+	    </cd>
+	  </p></li>
+
+	  <li><p>
+	    <m>A\zerovec = \zerovec</m>.
+	  </p></li>
+
+	  <li><p>
+	    <m>A(3\vvec) = 3(A\vvec)</m>.
+	  </p></li>
+
+	  <li><p>
+	    <m>A(\vvec+\wvec) = A\vvec + A\wvec</m>
+	  </p></li>
+
+	  <li><p>
+	    <m>IA = A</m>.
+	  </p></li>
+	</ol></p>
+      </answer>
+	    
+    </activity>
+
+    <p>
+      This activity demonstrates several general properties satisfied
+      by matrix multiplication that we record here.
+    </p>
+
+    <proposition xml:id = "prop-matrix-mult-prop">
+      <title> Linearity of matrix multiplication </title>
+      <statement>
+	<p> If <m>A</m> is a matrix, <m>\vvec</m> and <m>\wvec</m>
+	vectors, and <m>c</m> a scalar, then
+	<ul>
+	  <li> <p> <m>A\zerovec = \zerovec</m>. </p></li>
+	  <li> <p> <m>A(c\vvec) = cA\vvec</m>. </p></li>
+	  <li> <p> <m>A(\vvec+\wvec) = A\vvec + A\wvec</m>. </p></li>
+	</ul>
+	</p>
+      </statement>
+    </proposition>
+
+  </subsection>
+
+  <subsection>
+    <title> Matrix multiplication and linear systems </title>
+
+    <p>
+      So far, we have begun
+      with a matrix <m>A</m> and a vector <m>\xvec</m> and formed
+      their product <m>A\xvec = \bvec</m>.  We would now like to turn
+      this around:  beginning with a matrix <m>A</m> and a vector
+      <m>\bvec</m>, we will ask if we can find a vector <m>\xvec</m> such
+      that <m>A\xvec = \bvec</m>.  This will naturally lead back to
+      linear systems.
+    </p>
+
+    <p>
+      To see the connection between the matrix equation <m>A\xvec =
+      \bvec</m> and linear systems, let's write the matrix <m>A</m> in
+      terms of its columns <m>\vvec_i</m> and <m>\xvec</m> in terms of
+      its components.
+      <me>
+	A = \left[
+	\begin{array}{rrrr}
+	\vvec_1 \amp \vvec_2 \amp \ldots \vvec_n
+	\end{array}
+	\right],
+	\xvec = \left[
+	\begin{array}{r}
+	c_1 \\ c_2 \\ \vdots \\ c_n \\
+	\end{array}
+	\right]
+      </me>.
+    </p>
+
+    <p>
+      We know that the matrix product <m>A\xvec</m> forms a linear
+      combination of the columns of <m>A</m>.  Therefore, the equation
+      <m>A\xvec = \bvec</m> is merely a compact way of writing the
+      equation for the weights <m>c_i</m>:
+      <me>
+	c_1\vvec_1 + c_2\vvec_2 + \ldots + c_n\vvec_n = \bvec
+      </me>.
+      We have seen this equation before:  Remember that
+      <xref ref="prop-system-comb" /> says that the solutions of this
+      equation are the same as the solutions to the linear system
+      whose augmented matrix is
+      <me>
+	\left[\begin{array}{rrrr|r}
+	\vvec_1 \amp \vvec_2 \amp \ldots \amp \vvec_n \amp \bvec
+	\end{array}\right]
+      </me>.
+    </p>
+
+    <p>
+      This gives us three different ways of looking at the same
+      solution space.
+    </p>
+
+    <proposition xml:id="prop-matrix-eq-solution">
+      <statement>
+	<p> If <m>A=\left[\begin{array}{rrrr}
+	\vvec_1\amp\vvec_2\amp\ldots\vvec_n
+	\end{array}\right]</m> and <m>\xvec=\left[
+	\begin{array}{r}
+	x_1 \\ x_2 \\ \vdots \\ x_n \\
+	\end{array}\right]
+	</m>, then the following are equivalent.
+	<ul>
+	  <li> <p> The vector <m>\xvec</m> satisfies <m>A\xvec = \bvec
+	  </m>. </p></li> 
+
+	  <li> <p> The vector <m>\bvec</m> is a linear combination of
+	  the columns of <m>A</m> with weights <m>x_j</m>:
+	    <me>
+	    x_1\vvec_1 + x_2\vvec_2 + \ldots + x_n\vvec_n = \bvec
+	  </me>. </p></li>
+
+	  <li> <p> The components of <m>\xvec</m> form a solution to
+	  the linear system corresponding to the augmented matrix
+	    <me>
+	    \left[\begin{array}{rrrr|r}
+	    \vvec_1 \amp \vvec_2 \amp \ldots \amp \vvec_n \amp \bvec
+	    \end{array}\right]\text{.}
+	    </me>
+	  </p></li>
+	</ul>
+	</p>
+      </statement>
+    </proposition>
+
+    <p>
+      When the matrix <m>A = \left[\begin{array}{rrrr}
+      \vvec_1\amp\vvec_2\amp\ldots\amp\vvec_n\end{array}\right]</m>,
+      we will frequently write
+      <me>
+	\left[\begin{array}{rrrr|r}
+	\vvec_1\amp\vvec_2\amp\ldots\amp\vvec_n\amp\bvec\end{array}\right]
+	= \left[ \begin{array}{r|r} A \amp \bvec \end{array}\right]
+      </me>
+      and say that we augment the matrix <m>A</m> by the
+      vector <m>\bvec</m>.
+    </p>
+
+    <p>
+      We may think of <m>A\xvec = \bvec</m> as merely giving a
+      notationally compact way of writing a linear system.  This form
+      of the equation, however, will allow us to focus on important
+      features of the system that determine its solution space.
+    </p>
+
+    <example>
+      <statement>
+	<p> Describe the solution space of the equation
+	<me>
+	  \left[\begin{array}{rrr}
+	  2 \amp 0 \amp 2 \\
+	  4 \amp -1 \amp 6 \\
+	  1 \amp 3 \amp -5 \\
+	  \end{array}\right]
+	  \xvec
+	  =
+	  \left[\begin{array}{r}
+	  0 \\ -5 \\ 15
+	  \end{array}\right]
+	</me>
+	</p>
+
+	<p>
+	  By <xref ref="prop-matrix-eq-solution" />, the solution space
+	  to this equation is the same as the equation
+	  <me>
+	    x_1\left[\begin{array}{r}2\\4\\1\end{array}\right] +
+	    x_2\left[\begin{array}{r}0\\-1\\3\end{array}\right]+
+	    x_3\left[\begin{array}{r}2\\6\\-5\end{array}\right]=
+	    \left[\begin{array}{r}0\\-5\\15\end{array}\right]
+	  </me>,
+	  which is the same as the linear system corresponding to
+	  <me>
+	    \left[\begin{array}{rrr|r}
+	    2 \amp 0 \amp 2 \amp 0 \\
+	    4 \amp -1 \amp 6 \amp -5 \\
+	    1 \amp 3 \amp -5 \amp 15 \\
+	    \end{array} \right]
+	  </me>.
+	</p>
+
+	<p>
+	  We will study the solutions to this linear system by
+	  finding the reduced row echelon form of the augmented
+	  matrix:
+	  <me>
+	    \left[\begin{array}{rrr|r}
+	    2 \amp 0 \amp 2 \amp 0 \\
+	    4 \amp -1 \amp 6 \amp -5 \\
+	    1 \amp 3 \amp -5 \amp 15 \\
+	    \end{array} \right]
+	    \sim
+	    \left[\begin{array}{rrr|r}
+	    1 \amp 0 \amp 1 \amp 0 \\
+	    0 \amp 1 \amp -2 \amp 5 \\
+	    0 \amp 0 \amp 0 \amp 0 \\
+	    \end{array} \right]
+	  </me>.
+	  This gives us the system of equations
+	  <me>
+	    \begin{alignedat}{4}
+	    x_1 \amp \amp \amp {}+{} \amp x_3 \amp {}={} \amp 0 \\
+	    \amp \amp x_2 \amp {}-{} \amp 2x_3 \amp {}={} \amp 5 \\
+	    \end{alignedat}
+	  </me>.
+	  The variable <m>x_3</m> is free so we may write the solution
+	  space parametrically as
+	  <me>
+	    \begin{aligned}
+	    x_1 \amp {}={} -x_3 \\
+	    x_2 \amp {}={} 5+2x_3 \\
+	    \end{aligned}
+	  </me>.
+	</p>
+
+	<p>
+	  Since we originally asked to describe the solutions to
+	  the equation <m>A\xvec = \bvec</m>, we will express the
+	  solution in terms of the vector <m>\xvec</m>:
+	  <me>
+	    \xvec
+	    =\left[
+	    \begin{array}{r}
+	    x_1 \\ x_2 \\ x_3
+	    \end{array}
+	    \right]
+	    =
+	    \left[
+	    \begin{array}{r}
+	    -x_3 \\ 5 + 2x_3 \\ x_3
+	    \end{array}
+	    \right]
+	    =\left[\begin{array}{r}0\\5\\0\end{array}\right]
+	    +x_3\left[\begin{array}{r}-1\\2\\1\end{array}\right]
+	  </me>
+
+	  This shows that the solutions <m>\xvec</m> may be written in
+	  the form <m>\vvec + x_3\wvec</m>, for appropriate vectors
+	  <m>\vvec</m> and <m>\wvec</m>.  Geometrically, the solution
+	  space is a line in <m>\real^3</m> through <m>\vvec</m>
+	  moving parallel to <m>\wvec</m>.
+	</p>
+	  
+	</statement>
+    </example>
+
+    <activity>
+      <title> The equation <m>A\xvec = \bvec</m>. </title>
+      <statement><p>
+      <ol label="a.">
+	<li> <p> Consider the linear system
+	<me>
+	  \begin{alignedat}{4}
+	  2x \amp {}+{} \amp y \amp {}-{} \amp 3z \amp {}={} \amp 4 \\
+	  -x \amp {}+{} \amp 2y \amp {}+{} \amp z \amp {}={} \amp 3 \\
+	  3x \amp {}-{} \amp y \amp \amp \amp {}={} \amp -4 \\
+	  \end{alignedat}
+	</me>.
+	Identify the matrix <m>A</m> and vector <m>\bvec</m> to
+	express this system in the form <m>A\xvec = \bvec</m>.
+	</p></li>
+
+	<li> <p> If <m>A</m> and <m>\bvec</m> are as below, write the
+	linear system corresponding to the equation
+	<m>A\xvec=\bvec</m>. 
+	<me>
+	  A = \left[\begin{array}{rrr}
+	  3 \amp -1 \amp 0 \\
+	  -2 \amp 0 \amp 6
+	  \end{array}
+	  \right],
+	  \bvec = \left[\begin{array}{r}
+	  -6 \\ 2
+	  \end{array}
+	  \right]
+	</me>
+	and describe the solution space.
+	<sage>
+	  <input>
+	  </input>
+	</sage>
+	</p></li>
+
+	<li><p>
+	  Describe the solution space of the equation
+	  <me>
+	    \left[
+	    \begin{array}{rrrr}
+	    1 \amp 2 \amp 0 \amp -1 \\
+	    2 \amp 4 \amp -3 \amp -2 \\
+	    -1 \amp -2 \amp 6 \amp 1 \\
+	    \end{array}
+	    \right]
+	    \xvec
+	    = 
+	    \left[\begin{array}{r}
+	    -1 \\ 1 \\ 5
+	    \end{array}
+	    \right]
+	  </me>.
+	  <sage>
+	    <input>
+	    </input>
+	  </sage>
+	</p></li>
+
+	<li><p> Suppose <m>A</m> is an <m>m\times n</m> matrix.  What
+	can you guarantee about the solution space of the equation <m>A\xvec
+	= \zerovec</m>?  </p></li>
+      </ol>
+      </p></statement>
+
+      <solution>
+	<p><ol label="a.">
+	  <li><p>
+	    <m>A = \left[\begin{array}{rrr}
+	    2 \amp 1 \amp -3 \\
+	    -1 \amp 2 \amp 1 \\
+	    3 \amp -1 \amp 0 \\
+	    \end{array}\right]
+	    </m>
+	    and <m>\bvec=\threevec{4}{3}{-4}</m>.
+	  </p></li>
+
+	  <li><p>
+	    Form the augmented matrix
+	    <me>
+	      \left[\begin{array}{rrrr}
+	      3 \amp -1 \amp 0 \amp -6 \\
+	      -2 \amp 0 \amp 6 \amp 2
+	      \end{array}\right]
+	      \sim
+	      \left[\begin{array}{rrrr}
+	      1 \amp 0 \amp -3 \amp -1 \\
+	      0 \amp 1 \amp -9 \amp 3
+	      \end{array}\right]
+	    </me>
+	    so that
+	    <me>
+	      \xvec = \threevec{x_1}{x_2}{x_3} =
+	      \threevec{-1+3x_3}{3+9x_3}{x_3} =
+	      \threevec{-1}{3}{0}+x_3\threevec{3}{9}{1}\text{.}
+	    </me>
+	  </p></li>
+
+	  <li><p>
+	    We have the augmented matrix
+	    <me>
+	      \left[\begin{array}{rrrrr}
+	      1 \amp 2 \amp 0 \amp -1 \amp -1 \\
+	      2 \amp 4 \amp -3 \amp -2 \amp 1 \\
+	      -1 \amp -2 \amp 6 \amp 1 \amp 5
+	      \end{array}\right]
+	      \sim
+	      \left[\begin{array}{rrrrr}
+	      1 \amp 2 \amp 0 \amp -1 \amp 0 \\
+	      0 \amp 0 \amp 1 \amp 0 \amp 0 \\
+	      0 \amp 0 \amp 0 \amp 0 \amp 1
+	      \end{array}\right]\text{.}
+	    </me>
+	    Since this system is inconsistent, there are no solutions
+	    to the matrix equation.
+	  </p></li>
+
+	  <li><p>
+	    We know that there is at least one solution, namely,
+	    <m>\xvec=\zerovec</m>.
+	  </p></li>
+
+	</ol></p>
+      </solution>
+
+      <answer>
+	<p><ol label="a.">
+	  <li><p>
+	    <m>A = \left[\begin{array}{rrr}
+	    2 \amp 1 \amp -3 \\
+	    -1 \amp 2 \amp 1 \\
+	    3 \amp -1 \amp 0 \\
+	    \end{array}\right]
+	    </m>
+	    and <m>\bvec=\threevec{4}{3}{-4}</m>.
+	  </p></li>
+
+	  <li><p>
+	    <m>
+	      \xvec = \threevec{x_1}{x_2}{x_3} =
+	      \threevec{-1}{3}{0}+x_3\threevec{3}{9}{1}\text{.}
+	    </m>
+	  </p></li>
+
+	  <li><p>
+	    There are no solutions.
+	  </p></li>
+
+	  <li><p>
+	    There is at least one solution, namely,
+	    <m>\xvec=\zerovec</m>.
+	  </p></li>
+
+	</ol></p>
+      </answer>
+
+    </activity>
+  </subsection>
+
+  <subsection>
+    <title> Matrix products </title>
+
+    <p> In this section, we have developed some algebraic operations
+    on matrices with the aim of simplifying our description of linear
+    systems.  We will now introduce a final operation, the product of
+    two matrices, that will become important when we study linear
+    transformations in <xref ref="sec-linear-trans" />.  
+    </p>
+
+    <p> Given matrices <m>A</m> and <m>B</m>, we will form their
+    product <m>AB</m> by first writing <m>B</m> in terms of its
+    columns:
+    <me>
+      B = \left[\begin{array}{rrrr}
+      \vvec_1 \amp \vvec_2 \amp \ldots \amp \vvec_p
+      \end{array}\right]
+    </me>.
+    We then define
+    <me>
+      AB = \left[\begin{array}{rrrr}
+      A\vvec_1 \amp A\vvec_2 \amp \ldots \amp A\vvec_p
+      \end{array}\right]
+    </me>. 
+    </p>
+
+    <example>
+      <statement>
+	<p> Given the matrices
+	<me>
+	  A = \left[\begin{array}{rr}
+	  4 \amp 2 \\
+	  0 \amp 1 \\
+	  -3 \amp 4 \\
+	  2 \amp 0 \\
+	  \end{array}\right],
+	  B = \left[\begin{array}{rrr}
+	  -2 \amp 3 \amp 0 \\
+	  1 \amp 2 \amp -2 \\
+	  \end{array}\right]
+	</me>,
+	we have
+	<me>
+	  AB = \left[\begin{array}{rrr}
+	  A \twovec{-2}{1} \amp
+	  A \twovec{3}{2}  \amp
+	  A \twovec{0}{-2} 
+	  \end{array}\right]
+	  = \left[\begin{array}{rrr}
+	  -6 \amp 16 \amp -4 \\
+	  1 \amp 2 \amp -2 \\
+	  10 \amp -1 \amp -8 \\
+	  -4 \amp 6 \amp 0
+	  \end{array}\right]
+	</me>.
+	  </p>
+      </statement>
+    </example>
+
+    <p> It is important to note that we can only multiply matrices if
+    the dimensions of the matrices are compatible.  More specifically,
+    when constructing the product <m>AB</m>, the matrix <m>A</m>
+    multiplies the columns of <m>B</m>.  Therefore, the number of
+    columns of <m>A</m> must equal the number of rows of
+    <m>B</m>.  When this condition is met, the number of rows of
+    <m>AB</m> is the number of rows of <m>A</m>, and the
+    number of columns of <m>AB</m> is the number of columns of
+    <m>B</m>. 
+    </p>
+
+    <activity>
+      <statement>
+      <p> Consider the matrices
+	<me>
+	  A = \left[\begin{array}{rrr}
+	  1 \amp 3 \amp 2 \\
+	  -3 \amp 4 \amp -1 \\
+	  \end{array}\right],
+	  B = \left[\begin{array}{rr}
+	  3 \amp 0 \\
+	  1 \amp 2 \\
+	  -2 \amp -1 \\
+	  \end{array}\right]
+	</me>.
+	<ol label="a.">
+	<li><p> Suppose we want to form the product <m>AB</m>.  Before
+	computing, first explain how you know this product exists
+	and then explain what the dimensions of the resulting matrix
+	will be.</p></li>
+
+	<li><p> Compute the product <m>AB</m>. </p></li>
+
+	<li><p> Sage can multiply matrices using the <c>*</c>
+	operator.  Define the matrices <m>A</m> and <m>B</m> in the
+	Sage cell below and
+	check your work by computing <m>AB</m>.
+	<sage>
+	  <input>
+	  </input>
+	</sage>
+	</p></li>
+
+	<li><p> Are you able to form the matrix product <m>BA</m>?  If
+	so, use the Sage cell above to find <m>BA</m>.  Is it
+	generally true that <m>AB = BA</m>?
+	</p></li>
+
+	<li><p> Suppose we form the three matrices.
+	<me>
+	  A = \left[\begin{array}{rr}
+	  1 \amp 2 \\
+	  3 \amp -2 \\
+	  \end{array}\right],
+	  B = \left[\begin{array}{rr}
+	  0 \amp 4 \\
+	  2 \amp -1 \\
+	  \end{array}\right],
+	  C = \left[\begin{array}{rr}
+	  -1 \amp 3 \\
+	  4 \amp 3 \\
+	  \end{array}\right]
+	</me>.
+	Compare what happens when you compute <m>A(B+C)</m> and <m>AB
+	+ AC</m>.  State your finding as a general principle.
+	<sage>
+	  <input>
+	  </input>
+	</sage>
+
+	</p></li>
+
+	<li><p> Compare the results of evaluating <m>A(BC)</m> and
+	<m>(AB)C</m> and state your finding as a general
+	principle. </p></li> 
+	  
+	<li><p> When we are dealing with real numbers, we know if
+	<m>a\neq 0</m> and <m>ab = ac</m>, then <m>b=c</m>.  Define
+	matrices 
+	<me>
+	  A = \left[\begin{array}{rr}
+	  1 \amp 2 \\
+	  -2 \amp -4 \\
+	  \end{array}\right],
+	  B = \left[\begin{array}{rr}
+	  3 \amp 0 \\
+	  1 \amp 3 \\
+	  \end{array}\right],
+	  C = \left[\begin{array}{rr}
+	  1 \amp 2 \\
+	  2 \amp 2 \\
+	  \end{array}\right]
+	</me>
+	and compute <m>AB</m> and <m>AC</m>.
+	<sage>
+	  <input>
+	  </input>
+	</sage>
+	If <m>AB = AC</m>, is it necessarily true that <m>B = C</m>?
+	</p></li>
+
+	<li><p> Again, with real numbers, we know that if <m>ab =
+	0</m>, then either <m>a = 0</m> or <m>b=0</m>.  Define
+	<me>
+	  A = \left[\begin{array}{rr}
+	  1 \amp 2 \\
+	  -2 \amp -4 \\
+	  \end{array}\right],
+	  B = \left[\begin{array}{rr}
+	  2 \amp -4 \\
+	  -1 \amp 2 \\
+	  \end{array}\right]
+	</me>
+	and compute <m>AB</m>.
+	<sage>
+	  <input>
+	  </input>
+	</sage>
+	If <m>AB = 0</m>, is it necessarily true that either
+	<m>A=0</m> or <m>B=0</m>?
+	</p></li>
+	</ol>
+      </p>
+      </statement>
+
+      <solution>
+	<p><ol label="a.">
+	  <li><p>
+	    The product <m>AB</m> exists because the number of columns
+	    of <m>A</m> equals the number of rows of <m>B</m>.  The
+	    dimensions of <m>AB</m> are <m>2\times 2</m>.
+	  </p></li>
+
+	  <li><p>
+	    We have
+	    <m>AB =
+	    \left[\begin{array}{rr}
+	    2 \amp 4 \\
+	    -3 \amp 9
+	    \end{array}\right]
+	    </m>.
+	  </p></li>
+
+	  <li><p> Define
+	    <cd>
+A = matrix(2, 3, [1, 3, 2, -3, 4, -1])
+B = matrix(3, 2, [3, 0, 1, 2, -2, -1])
+A*B
+	    </cd>
+	  </p></li>
+
+	  <li><p>
+	    Yes, we can form the product <m>BA</m> because the number
+	    of columns of <m>B</m> equals the number of rows of
+	    <m>A</m>.  This product <m>AB</m> will be <m>3\times3</m>,
+	    however, so it must be true that <m>AB\neq BA</m>.
+	  </p></li>
+
+	  <li><p> We find that <m>A(B+C)=AB + AC</m>.
+	  </p></li>
+
+	  <li><p> We find that <m>A(BC) = (AB)C</m>.
+	  </p></li>
+
+	  <li><p>
+	    It is not generally true that <m>B=C</m> if <m>AB=AC</m>,
+	    as illustrated by this example.
+	  </p></li>
+
+	  <li><p>
+	    It is not generally true that <m>A=0</m> or <m>B=0</m> if
+	    <m>AB=0</m>, as illustrated by this example.
+	  </p></li>
+
+	</ol></p>
+      </solution>
+
+      <answer>
+	<p><ol label="a.">
+	  <li><p>
+	    The product <m>AB</m> exists because the number of columns
+	    of <m>A</m> equals the number of rows of <m>B</m>.  The
+	    dimensions of <m>AB</m> are <m>2\times 2</m>.
+	  </p></li>
+
+	  <li><p>
+	    We have
+	    <m>AB =
+	    \left[\begin{array}{rr}
+	    2 \amp 4 \\
+	    -3 \amp 9
+	    \end{array}\right]
+	    </m>.
+	  </p></li>
+
+	  <li><p> Define
+	    <cd>
+A = matrix(2, 3, [1, 3, 2, -3, 4, -1])
+B = matrix(3, 2, [3, 0, 1, 2, -2, -1])
+A*B
+	    </cd>
+	  </p></li>
+
+	  <li><p>
+	    It is not generally true that <m>AB=BA</m>.
+	  </p></li>
+
+	  <li><p> We find that <m>A(B+C)=AB + AC</m>.
+	  </p></li>
+
+	  <li><p> We find that <m>A(BC) = (AB)C</m>.
+	  </p></li>
+
+	  <li><p>
+	    It is not generally true that <m>B=C</m> if <m>AB=AC</m>.
+	  </p></li>
+
+	  <li><p>
+	    It is not generally true that <m>A=0</m> or <m>B=0</m> if
+	    <m>AB=0</m>.
+	  </p></li>
+
+	</ol></p>
+      </answer>
+
+      
+    </activity>
+
+    <p> This activity demonstrated some general properties about
+    products of matrices, which mirror some properties about
+    operations with real numbers.
+    </p>
+
+    <assemblage>
+      <title> Properties of Matrix Multiplication </title>
+
+      <p> If <m>A</m>, <m>B</m>, and <m>C</m> are matrices such that
+      the following operations are defined, it follows
+      that 
+	<dl>
+	  <li><title> Associativity: </title>
+	  <p> <m>A(BC) =  (AB)C</m>. </p></li>
+
+	  <li><title> Distributivity: </title>
+	  <p> <m> A(B+C) = AB+AC</m>. </p>
+	  <p> <m> (A+B)C = AC+BC</m>. </p>
+	  </li>
+	</dl>
+      </p>
+    </assemblage>
+
+    <p> At the same time, there are a few properties that hold for
+    real numbers that do not hold for matrices.
+    </p>
+
+    <assemblage>
+      <title> Things to be careful of </title>
+
+      <p> The following properties hold for real numbers but not for
+      matrices.  
+	<dl>
+	  <li><title> Commutativity: </title>
+	  <p> It is <em>not</em> generally true that <m>AB = BA</m>. </p>
+	  </li>
+
+	  <li><title> Cancellation: </title>
+	  <p> It is <em>not</em> generally true that <m>AB = AC</m>
+	  implies that <m>B = C</m>. </p>
+	  </li>
+
+	  <li><title> Zero divisors: </title>
+	  <p> It is <em>not</em> generally true that <m>AB = 0</m>
+	  implies that 
+	  either <m>A=0</m> or <m>B=0</m>. </p>
+	  </li>
+	</dl>
+      </p>
+    </assemblage>
+
+  </subsection>
+
+  <subsection>
+    <title>
+      Summary
+    </title>
+
+    <p> In this section, we have found an especially simple way to
+    express linear systems using matrix multiplication.
+    <ul>
+      <li> <p> If <m>A</m> is an <m>m\times n</m> matrix and
+      <m>\xvec</m> an <m>n</m>-dimensional vector, then <m>A\xvec</m>
+      is the linear combination of the columns of <m>A</m> using the
+      components of <m>\xvec</m> as weights. The vector <m>A\xvec</m>
+      is <m>m</m>-dimensional. </p></li>
+
+      <li> <p> The solution space to the equation <m>A\xvec =
+      \bvec</m> is the same as the solution space to the linear system
+      corresponding to the augmented matrix
+      <m>\left[ \begin{array}{r|r} A \amp \bvec \end{array}\right]</m>.
+      </p></li>
+
+      <li><p> If <m>A</m> is an <m>m\times n</m> matrix and <m>B</m>
+      is an <m>n\times p</m> matrix, we can form the product <m>AB</m>,
+      which is an <m>m\times p</m> matrix whose columns are the
+      products of <m>A</m> and the columns of <m>B</m>. </p></li>
+    </ul>
+    </p>
+
+  </subsection>
+
+  <xi:include href="exercises/exercises2-2.xml" /> 
+  
+</section>
+

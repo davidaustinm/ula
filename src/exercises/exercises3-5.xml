@@ -1,0 +1,707 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<exercises>
+
+  <exercise>
+    <statement>
+      <p> Suppose that <m>A</m> and its reduced row echelon form are
+      <me>
+      A =
+      \left[\begin{array}{rrrrrr}
+      0 \amp 2 \amp 0 \amp -4 \amp 0 \amp 6 \\
+      0 \amp -4 \amp -1 \amp 7 \amp 0 \amp -16 \\
+      0 \amp 6 \amp 0 \amp -12 \amp 3 \amp 15 \\
+      0 \amp 4 \amp -1 \amp -9 \amp 0 \amp 8 \\
+      \end{array}\right]
+      \sim
+      \left[\begin{array}{rrrrrr}
+      0 \amp 1 \amp 0 \amp -2 \amp 0 \amp 3 \\
+      0 \amp 0 \amp 1 \amp 1 \amp 0 \amp 4 \\
+      0 \amp 0 \amp 0 \amp 0 \amp 1 \amp -1 \\
+      0 \amp 0 \amp 0 \amp 0 \amp 0 \amp 0 \\
+      \end{array}\right]
+      </me>.
+      <ol label="a.">
+	<li><p> The null space <m>\nul(A)</m> is a subspace of
+	<m>\real^p</m> for what <m>p</m>?  The column space
+	<m>\col(A)</m> is a subspace of <m>\real^p</m> for what
+	<m>p</m>? </p></li>
+	
+	<li><p> What are the dimensions <m>\dim~\nul(A)</m> and
+	<m>\dim~\col(A)</m>? </p></li>
+
+	<li><p> Find a basis for the column space
+	<m>\col(A)</m>. </p></li>
+
+	<li><p> Find a basis for the null space
+	<m>\nul(A)</m>. </p></li>
+
+      </ol>
+      </p>
+    </statement>
+
+    <solution>
+      <p><ol label="a.">
+	<li><p> <m>\nul(A)</m> is a subspace of <m>\real^6</m> and
+	<m>\col(A)</m> is a subspace of <m>\real^4</m>. </p></li>
+
+	<li><p> Becuase there are three pivot positions, we see that
+	<m>\rank(A) = 3</m>.  Therefore, <m>\dim~\nul(A) = 6-3=3</m>
+	and <m>\dim~\col(A)=3</m>. </p></li>
+
+	<li><p> A basis for <m>\col(A)</m> is given by the columns of
+	<m>A</m> that contain pivot positions.  Therefore, a basis is
+	<me>
+	  \fourvec{2}{-4}{6}{4},
+	  \fourvec{0}{-1}{0}{-1},
+	  \fourvec{0}{0}{3}{0}\text{.}
+	</me>
+	</p></li>
+
+	<li><p> We can write a parametric description for the solution
+	space to the homogeneous equation as
+	<me>
+	  \xvec =
+	  \left[\begin{array}{r}
+	  x_1 \\ 2x_4 - 3x_6 \\ -x_4-4x_6 \\ x_4 \\ x_6 \\ x_6
+	  \end{array}\right]
+	  =
+	  x_1
+	  \left[\begin{array}{r}
+	  1 \\ 0 \\ 0 \\ 0 \\ 0 \\ 0 \\
+	  \end{array}\right]
+	  +x_4
+	  \left[\begin{array}{r}
+	  0 \\ 2 \\ -1 \\ 1 \\ 0 \\ 0 \\
+	  \end{array}\right] + x_6
+	  \left[\begin{array}{r}
+	  0 \\ -3 \\ -4 \\ 0 \\ 1 \\ 1
+	  \end{array}\right]\text{.}
+	</me>
+	Therefore, a basis for <m>\nul(A)</m> is
+	<me>
+	  \left[\begin{array}{r}
+	  1 \\ 0 \\ 0 \\ 0 \\ 0 \\ 0 \\
+	  \end{array}\right],
+	  \left[\begin{array}{r}
+	  0 \\ 2 \\ -1 \\ 1 \\ 0 \\ 0 \\
+	  \end{array}\right],
+	  \left[\begin{array}{r}
+	  0 \\ -3 \\ -4 \\ 0 \\ 1 \\ 1
+	  \end{array}\right]\text{.}
+	</me>
+	</p></li>
+      </ol></p>
+    </solution>
+	
+    <answer>
+      <p><ol label="a.">
+	<li><p> <m>\nul(A)</m> is a subspace of <m>\real^6</m> and
+	<m>\col(A)</m> is a subspace of <m>\real^4</m>. </p></li>
+
+	<li><p> <m>\dim~\nul(A) = 3</m>
+	and <m>\dim~\col(A)=3</m>. </p></li>
+
+	<li><p> <m>
+	  \fourvec{2}{-4}{6}{4},
+	  \fourvec{0}{-1}{0}{-1},
+	  \fourvec{0}{0}{3}{0}
+	</m>
+	</p></li>
+
+	<li><p> <m>
+	  \left[\begin{array}{r}
+	  1 \\ 0 \\ 0 \\ 0 \\ 0 \\ 0 \\
+	  \end{array}\right],
+	  \left[\begin{array}{r}
+	  0 \\ 2 \\ -1 \\ 1 \\ 0 \\ 0 \\
+	  \end{array}\right],
+	  \left[\begin{array}{r}
+	  0 \\ -3 \\ -4 \\ 0 \\ 1 \\ 1
+	  \end{array}\right]
+	</m>
+	</p></li>
+      </ol></p>
+    </answer>
+	
+  </exercise>
+
+  <exercise>
+    <statement>
+      <p>  Suppose that
+      <me>
+	A = \left[\begin{array}{rrrr}
+	2 \amp 0 \amp -2 \amp -4 \\
+	-2 \amp -1 \amp 1 \amp 2 \\
+	0 \amp -1 \amp -1 \amp -2
+	\end{array}\right]
+      </me>.
+      <ol label="a.">
+	<li><p> Is the vector <m>\threevec{0}{-1}{-1}</m> in <m>\col(A)</m>?
+	</p></li>
+
+	<li><p> Is the vector <m>\fourvec{2}{1}{0}{2}</m> in
+	<m>\col(A)</m>? </p></li>
+
+	<li><p> Is the vector <m>\threevec{2}{-2}{0}</m> in
+	<m>\nul(A)</m>? </p></li>
+
+	<li><p> Is the vector <m>\fourvec{1}{-1}{3}{-1}</m> in
+	<m>\nul(A)</m>? </p></li>
+
+	<li><p> Is the vector <m>\fourvec{1}{0}{1}{-1}</m> in
+	<m>\nul(A)</m>? </p></li>
+      </ol>
+      </p>
+    </statement>
+
+    <solution>
+      <p><ol label="a.">
+	<li><p> Yes.  This vector is a column of <m>A</m> so it may be
+	written as a linear combination of the columns of
+	<m>A</m>. </p></li>
+
+	<li><p> No.  Vectors in <m>\col(A)</m> must be
+	three-dimensional. </p></li>
+
+	<li><p> No.  Vectors in <m>\nul(A)</m> must be
+	four-dimensional. </p></li>
+
+	<li><p> Yes, because this vector, when multiplied by <m>A</m>,
+	gives <m>\zerovec</m>. </p></li>
+
+	<li><p> No, because this vector, when multiplied by <m>A</m>,
+	does not give <m>\zerovec</m>. </p></li>
+      </ol></p>
+    </solution>
+
+    <answer>
+      <p><ol label="a.">
+	<li><p> Yes </p></li>
+	<li><p> No </p></li>
+	<li><p> No </p></li>
+	<li><p> Yes </p></li>
+	<li><p> No </p></li>
+      </ol></p>
+    </answer>
+	
+  </exercise>
+
+  <exercise>
+    <statement>
+      <p> Determine whether the following statements are true or false
+      and provide a justification for your response.  Unless otherwise
+      stated, assume that <m>A</m> is an <m>m\times n</m> matrix.
+      <ol label="a.">
+	<li><p> If <m>A</m> is a <m>127\times 341</m> matrix, then
+	<m>\nul(A)</m> is a subspace of <m>\real^{127}</m>. </p></li>
+
+	<li><p> If <m>\dim~\nul(A) = 0</m>, 
+	then the columns of <m>A</m> are linearly
+	independent. </p></li>
+
+	<li><p> If <m>\col(A) = \real^m</m>, then <m>A</m> is 
+	invertible. </p></li>
+
+	<li><p> If <m>A</m> has a pivot position in every column, then
+	<m>\nul(A) = \real^m</m>. </p></li>
+
+	<li><p> If <m>\col(A) = \real^m</m> and <m>\nul(A) =
+	\{\zerovec\}</m>, then <m>A</m> is invertible. </p></li>
+
+      </ol>
+      </p>
+    </statement>
+
+    <solution>
+      <p><ol label="a.">
+	<li><p> False.  <m>\nul(A)</m> is a subspace of
+	<m>\real^{341}</m>. </p></li>
+
+	<li><p> True.  In this case, the only solution to the
+	homogeneous equation <m>A\xvec=\zerovec</m> is the trivial
+	solution <m>\xvec=\zerovec</m>.  This means that every column
+	has a pivot position so the columns are linearly
+	independent. </p></li>
+
+	<li><p> False.  The matrix <m>A</m> may not be a square
+	matrix. </p></li>
+
+	<li><p> False.  If <m>A</m> has a pivot position in every
+	column, then <m>\nul(A) = \{\zerovec\}</m>. </p></li>
+
+	<li><p> True.  Since <m>\col(A)=\real^m</m>, we know that
+	<m>A</m> has a pivot position in every row.  Since
+	<m>\nul(A)=\{\zerovec\}</m>, we know that <m>A</m> has a pivot
+	position in every column.  Therefore, <m>A</m> must be a
+	square matrix and invertible. </p></li>
+      </ol></p>
+    </solution>
+
+    <answer>
+      <p><ol label="a.">
+	<li><p> False </p></li>
+	<li><p> True </p></li>
+	<li><p> False </p></li>
+	<li><p> False </p></li>
+	<li><p> True </p></li>
+      </ol></p>
+    </answer>
+  </exercise>
+
+  <exercise>
+    <statement>
+      <p> Explain why the following statements are true.
+      <ol label="a."> 
+	<li><p> If <m>B</m> is invertible, then <m>\nul(BA) =
+	\nul(A)</m>. </p></li>
+
+	<li><p> If <m>B</m> is invertible, then <m>\col(AB) =
+	\col(A)</m>. </p></li>
+
+	<li><p> If <m>A\sim A'</m>, then <m>\nul(A) = \nul(A')</m>. 
+	</p></li>
+
+      </ol>
+      </p>
+    </statement>
+
+    <solution>
+      <p><ol label="a.">
+	<li><p> If <m>BA\xvec=\zerovec</m>, then
+	<m>A\xvec=\zerovec</m> if <m>B</m> is invertible. </p></li>
+
+	<li><p> The column space consists of all the vectors
+	<m>\bvec</m> for which <m>A\xvec=\bvec</m> is consistent.  We
+	can rewrite this condition as <m>AB(B^{-1}\xvec)=\bvec</m>,
+	which means that <m>A\xvec=\bvec</m> is consistent exactly
+	when <m>AB\xvec=\bvec</m> is. </p></li>
+
+	<li><p> If <m>A\sim A'</m>, then <m>A</m> and <m>A'</m>
+	have the same reduced row echelon form, which determines
+	<m>\nul(A)</m>. </p></li>
+      </ol></p>
+    </solution>
+
+    <answer>
+      <p><ol label="a.">
+	<li><p> If <m>BA\xvec=\zerovec</m>, then
+	<m>A\xvec=\zerovec</m> if <m>B</m> is invertible. </p></li>
+
+	<li><p> The column space consists of all the vectors
+	<m>\bvec</m> for which <m>A\xvec=\bvec</m> is consistent.  We
+	can rewrite this condition as <m>AB(B^{-1}\xvec)=\bvec</m>,
+	which means that <m>A\xvec=\bvec</m> is consistent exactly
+	when <m>AB\xvec=\bvec</m> is. </p></li>
+
+	<li><p> If <m>A\sim A'</m>, then <m>A</m> and <m>A'</m>
+	have the same reduced row echelon form, which determines
+	<m>\nul(A)</m>. </p></li>
+      </ol></p>
+    </answer>
+
+  </exercise>
+
+  <exercise>
+    <statement>
+      <p> For each of the following conditions, construct a <m>3\times
+      3</m> matrix having the given properties.
+      <ol label="a.">
+	<li><p> <m>\dim~\nul(A) = 0</m>. </p></li>
+	<li><p> <m>\dim~\nul(A) = 1</m>. </p></li>
+	<li><p> <m>\dim~\nul(A) = 2</m>. </p></li>
+	<li><p> <m>\dim~\nul(A) = 3</m>. </p></li>
+      </ol></p>
+    </statement>
+
+    <solution>
+      <p><ol label="a.">
+	<li><p>
+	  <m>
+	    \left[\begin{array}{rrr}
+	    1 \amp 0 \amp 0 \\
+	    0 \amp 1 \amp 0 \\
+	    0 \amp 0 \amp 1 \\
+	    \end{array}\right]
+	    </m>.
+	</p></li>
+	<li><p>
+	  <m>
+	    \left[\begin{array}{rrr}
+	    1 \amp 0 \amp -1 \\
+	    0 \amp 1 \amp 2 \\
+	    0 \amp 0 \amp 0 \\
+	    \end{array}\right]
+	    </m>.
+	</p></li>
+	<li><p>
+	  <m>
+	    \left[\begin{array}{rrr}
+	    1 \amp 4 \amp -1 \\
+	    0 \amp 0 \amp 0 \\
+	    0 \amp 0 \amp 0 \\
+	    \end{array}\right]
+	    </m>.
+	</p></li>
+	<li><p>
+	  <m>
+	    \left[\begin{array}{rrr}
+	    0 \amp 0 \amp 0 \\
+	    0 \amp 0 \amp 0 \\
+	    0 \amp 0 \amp 0 \\
+	    \end{array}\right]
+	    </m>.
+	</p></li>
+      </ol></p>
+    </solution>
+	
+    <answer>
+      <p><ol label="a.">
+	<li><p>
+	  <m>
+	    \left[\begin{array}{rrr}
+	    1 \amp 0 \amp 0 \\
+	    0 \amp 1 \amp 0 \\
+	    0 \amp 0 \amp 1 \\
+	    \end{array}\right]
+	    </m>.
+	</p></li>
+	<li><p>
+	  <m>
+	    \left[\begin{array}{rrr}
+	    1 \amp 0 \amp -1 \\
+	    0 \amp 1 \amp 2 \\
+	    0 \amp 0 \amp 0 \\
+	    \end{array}\right]
+	    </m>.
+	</p></li>
+	<li><p>
+	  <m>
+	    \left[\begin{array}{rrr}
+	    1 \amp 4 \amp -1 \\
+	    0 \amp 0 \amp 0 \\
+	    0 \amp 0 \amp 0 \\
+	    \end{array}\right]
+	    </m>.
+	</p></li>
+	<li><p>
+	  <m>
+	    \left[\begin{array}{rrr}
+	    0 \amp 0 \amp 0 \\
+	    0 \amp 0 \amp 0 \\
+	    0 \amp 0 \amp 0 \\
+	    \end{array}\right]
+	    </m>.
+	</p></li>
+      </ol></p>
+    </answer>
+	
+  </exercise>
+
+  <exercise>
+    <statement>
+      <p> Suppose that <m>A</m> is a <m>3\times 4</m> matrix.
+      <ol label="a.">
+	<li><p> Is it possible that <m>\dim~\nul(A) = 0</m>?</p></li> 
+	
+	<li><p> If <m>\dim~\nul(A) = 1</m>, what can you say about
+	<m>\col(A)</m>? </p></li>
+
+	<li><p> If <m>\dim~\nul(A) = 2</m>, what can you say about
+	<m>\col(A)</m>? </p> </li>
+
+	<li><p> If <m>\dim~\nul(A) = 3</m>, what can you say about
+	<m>\col(A)</m>? </p></li>
+
+	<li><p> If <m>\dim~\nul(A) = 4</m>, what can you say about
+	<m>\col(A)</m>?</p></li>
+      </ol>
+      </p>
+    </statement>
+
+    <solution>
+      <p><ol label="a.">
+	<li><p> No.  There are more columns than rows so there must be
+	at least one column without a pivot position.
+	</p></li>
+
+	<li><p> Remember that we have <m>\dim~\col(A) + \dim~\nul(A) =
+	4</m>.  Therefore, we have <m>\dim~\col(A) = 3</m> in this
+	case, which implies that <m>\col(A) = \real^3</m>. </p></li>
+
+	<li><p> Here, <m>\dim~\col(A) = 2</m> so <m>\col(A)</m> is a
+	plane in <m>\real^3</m>. </p></li>
+	<li><p> Here, <m>\dim~\col(A) = 1</m> so <m>\col(A)</m> is a
+	line in <m>\real^3</m>. </p></li>
+	<li><p> Here, <m>\dim~\col(A) = 0</m> so
+	<m>\col(A)=\{\zerovec\}</m>.
+	</p></li>
+      </ol></p>
+    </solution>
+
+    <answer>
+      <p><ol label="a.">
+	<li><p> No </p></li>
+	<li><p> <m>\col(A) = \real^3</m> </p></li>
+	<li><p> <m>\col(A)</m> is a plane in <m> \real^3</m> </p></li>
+	<li><p> <m>\col(A)</m> is a line in <m>\real^3</m> </p></li>
+	<li><p> <m>\col(A)=\{\zerovec\}</m>. </p></li>
+      </ol></p>
+    </answer>
+  </exercise>
+
+  <exercise>
+    <statement>
+      <p> Consider the vectors
+      <me>
+	\vvec_1 = \threevec{2}{3}{-1},
+	\vvec_2 = \threevec{-1}{2}{4},
+	\wvec_1 = \fourvec{3}{-1}{1}{0},
+	\wvec_2 = \fourvec{-2}{4}{0}{1}
+      </me>
+      and suppose that <m>A</m> is a matrix such that
+      <m>\col(A)=\span{\vvec_1,\vvec_2}</m> and <m>\nul(A) = 
+      \span{\wvec_1,\wvec_2}</m>.  
+
+      <ol label="a.">
+	<li><p> What are the dimensions of <m>A</m>?
+	</p></li>
+
+	<li><p> Find such a matrix <m>A</m>. </p></li>
+      </ol>
+      </p>
+    </statement>
+
+    <solution>
+      <p><ol label="a.">
+	<li><p> Since <m>\vvec_1</m> and <m>\vvec_2</m> are
+	three-dimensional vectors, <m>A</m> must have three rows.
+	Also, we know that <m>\dim~\nul(A) = 2</m> and <m>\dim~\col(A)
+	= 2</m>.  Therefore, the number of columns is
+	<m>n=\dim~\nul(A) + \dim~\col(A) = 4</m>. Hence, <m>A</m> is a
+	<m>3\times4</m> matrix.
+	</p></li>
+
+	<li><p> We can use <m>\vvec_1</m> and <m>\vvec_2</m> as the
+	first two columns of <m>A</m>.  We also know that
+	<m>A\wvec_1=\zerovec</m> and <m>A\wvec_2=\zerovec</m>.  
+	If we call the other two columns
+	<m>\vvec_3</m> and <m>\vvec_4</m>, then
+	<m>A\wvec_1=\zerovec</m> implies that
+	<m>3\vvec_1-\vvec_2+\vvec_3 = \zerovec</m> so that <m>\vvec_3
+	= \threevec{-7}{-7}{7}</m>.  Since <m>A\wvec_2 = \zerovec</m>,
+	we have <m>-2\vvec_1+4\vvec_2 + \vvec_4=\zerovec</m>, which
+	says that <m>\vvec_4=\threevec{8}{-2}{-18}</m>.  This gives
+	<me>
+	  A = \left[\begin{array}{rrrr}
+	  2 \amp -1 \amp -7 \amp 8 \\
+	  3 \amp 2 \amp -7 \amp -2 \\
+	  -1 \amp 4 \amp 7 \amp -18 \\
+	  \end{array}\right]\text{.}
+	</me>
+	</p></li>
+      </ol></p>
+    </solution>
+
+    <answer>
+      <p><ol label="a.">
+	<li><p> <m>3\times4</m></p></li>
+	<li><p>
+	  <m>
+	    A = \left[\begin{array}{rrrr}
+	    2 \amp -1 \amp -7 \amp 8 \\
+	    3 \amp 2 \amp -7 \amp -2 \\
+	    -1 \amp 4 \amp 7 \amp -18 \\
+	    \end{array}\right]
+	  </m>
+	</p></li>
+      </ol></p>
+    </answer>
+  </exercise>
+
+  <exercise>
+    <statement>
+      <p>
+	Suppose that <m>A</m> is an <m>8\times 8</m> matrix and that
+	<m>\det A = 14</m>.
+	<ol label="a.">
+	  <li><p> What can you conclude about <m>\nul(A)</m>?
+	  </p></li>
+
+	  <li><p> What can you conclude about <m>\col(A)</m>?
+	  </p></li>
+	</ol>
+      </p>
+    </statement>
+
+    <solution>
+      <p> We know that <m>A</m> is invertible so
+      <m>\nul(A)=\{\zerovec\}</m> and <m>\col(A) = \real^8</m>.
+      </p>
+    </solution>
+    <answer>
+      <p> <m>\nul(A)=\{\zerovec\}</m> and <m>\col(A) = \real^8</m>.
+      </p>
+    </answer>
+  </exercise>
+
+  <exercise>
+    <statement>
+      <p>
+	Suppose that <m>A</m> is a matrix and there is an invertible
+	matrix <m>P</m> such that
+	<me>
+	  A = P~\left[\begin{array}{rrr}
+	  2 \amp 0 \amp 0 \\
+	  0 \amp -3 \amp 0 \\
+	  0 \amp 0 \amp 1 \\
+	  \end{array}\right]~P^{-1}
+	</me>.
+	<ol label="a.">
+	  <li><p> What can you conclude about <m>\nul(A)</m>?
+	  </p></li>
+
+	  <li><p> What can you conclude about <m>\col(A)</m>?
+	  </p></li>
+	</ol>
+      </p>
+    </statement>
+
+    <solution>
+      <p> We know that <m>\det A = -6</m> so <m>A</m> is invertible.
+      Therefore, <m>\nul(A)=\{\zerovec\}</m> and
+      <m>\col(A)=\real^3</m>. </p>
+    </solution>
+    <answer>
+      <p> <m>\nul(A)=\{\zerovec\}</m> and
+      <m>\col(A)=\real^3</m>. </p>
+    </answer>
+  </exercise>
+
+  <exercise>
+    <statement>
+      <p>
+	In this section, we saw that the solution space to the
+	homogeneous equation <m>A\xvec = \zerovec</m> is a subspace of
+	<m>\real^p</m> for some <m>p</m>.  In this exercise, we will
+	investigate whether the solution space to another equation
+	<m>A\xvec = \bvec</m> can form a subspace.
+      </p>
+
+      <p> Let's consider the matrix
+      <me>
+	A = \left[\begin{array}{rr}
+	2 \amp -4 \\
+	-1 \amp 2 \\
+	\end{array}\right]
+      </me>.
+      <ol label="a.">
+	<li><p> Find a parametric description of the solution space to
+	the homogeneous equation <m>A\xvec = \zerovec</m>. </p></li>
+
+	<li><sidebyside widths="45% 50%">
+	  <p> Graph the solution space to the homogeneous equation to
+	  the right.
+	  </p>
+	  <image source="images/empty-4" />
+	</sidebyside>
+	</li>
+
+	<li><p> Find a parametric description of the solution
+	space to the equation <m>A\xvec = \twovec{4}{-2}</m> and graph
+	it above. </p></li>
+
+	<li><p> Is the solution space to the equation <m>A\xvec =
+	\twovec{4}{-2}</m> a subspace of <m>\real^2</m>?  </p></li>
+
+	<li><p> Find a parametric description of the solution space to
+	the equation <m>A\xvec=\twovec{-8}{4}</m> and graph it
+	above. </p></li>
+
+	<li><p> What can you say about all the solution spaces to
+	equations of the form <m>A\xvec = \bvec</m> when <m>\bvec</m>
+	is a vector in <m>\col(A)</m>? </p></li>
+
+	<li><p> Suppose that the solution space to the equation
+	<m>A\xvec = \bvec</m> forms a subspace.  Explain why it must
+	be true that <m>\bvec = \zerovec</m>. </p></li>
+      </ol>
+      </p>
+    </statement>
+
+    <solution>
+      <p><ol label="a.">
+	<li><p> We have
+	<me>
+	A = \left[\begin{array}{rr}
+	2 \amp -4 \\
+	-1 \amp 2 \\
+	\end{array}\right]
+	\sim
+	\left[\begin{array}{rr}
+	1 \amp -2 \\
+	0 \amp 0 \\
+	\end{array}\right]\text{,}
+	</me>
+	which shows that <m>\xvec=x_2\twovec{2}{1}</m> describes the
+	solution space to the homogeneous equation. </p></li>
+
+	<li><p> The solution space forms a line through the
+	origin. </p></li>
+
+	<li><p> The solution space has the parametric description
+	<m>\xvec=\twovec{2}{0}+x_2\twovec{2}{1}</m>, which is a line
+	parallel to the solution space to the homogeneous
+	equation. </p></li>
+
+	<li><p> This cannot form a subspace since it does not contain
+	the vector <m>\zerovec</m>. </p></li>
+
+	<li><p> The solution space has the parametric description
+	<m>\xvec=\twovec{-4}{0}+x_2\twovec{2}{1}</m>, which is a line
+	parallel to the solution space to the homogeneous
+	equation.  The graph of the solution spaces is shown below.
+	<sidebyside width="50%">
+	  <image source="images/ex-3-5" />
+	</sidebyside>
+	</p></li>
+
+	<li><p> They are all parallel to the solution space to the
+	homogeneous equation. </p></li>
+
+	<li><p> If the solution space is a subspace, then
+	<m>\xvec=\zerovec</m> must be in the solution space.  This
+	means that <m>A\xvec = A\zerovec = \zerovec =
+	\bvec</m>. </p></li>
+      </ol></p>
+    </solution>
+	  
+    <answer>
+      <p><ol label="a.">
+	<li><p> <m>\xvec=x_2\twovec{2}{1}</m></p></li>
+
+	<li><p> The solution space forms a line through the
+	origin. </p></li>
+
+	<li><p> <m>\xvec=\twovec{2}{0}+x_2\twovec{2}{1}</m> </p></li>
+
+	<li><p> No </p></li>
+
+	<li><p> <m>\xvec=\twovec{-4}{0}+x_2\twovec{2}{1}</m>.
+	The graph of the solution spaces is shown below.
+	<sidebyside width="50%">
+	  <image source="images/ex-3-5" />
+	</sidebyside>
+	</p></li>
+
+	<li><p> They are all parallel to the solution space to the
+	homogeneous equation. </p></li>
+
+	<li><p> <m>\xvec=\zerovec</m> must be in the solution space.
+	</p></li>
+      </ol></p>
+    </answer>
+	  
+  </exercise>
+
+</exercises>

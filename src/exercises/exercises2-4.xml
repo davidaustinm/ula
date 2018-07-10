@@ -1,0 +1,892 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<exercises>
+
+  <exercise>
+    <statement>
+      <p> Consider the set of vectors
+      <me>
+	\vvec_1 = \threevec{1}{2}{1},
+	\vvec_2 = \threevec{0}{1}{3},
+	\vvec_3 = \threevec{2}{3}{-1},
+	\vvec_4 = \threevec{-2}{4}{-1}
+      </me>.
+      <ol label="a.">
+	<li> <p> Explain why this set of vectors is linearly
+	dependent. 
+	</p></li>
+
+	<li> <p> Write one of the vectors as a linear combination of
+	the others.
+	<sage>
+	  <input>
+	  </input>
+	</sage>
+	</p></li>
+
+	<li> <p> Find weights <m>c_1</m>, <m>c_2</m>, <m>c_3</m>, and
+	<m>c_4</m>, not all of which are zero, such that
+	<me>c_1\vvec_1 + c_2 \vvec_2 + c_3 \vvec_3
+	+ c_4 \vvec_4 = \zerovec
+	</me>. </p></li>
+
+	<li> <p> Find a nontrivial solution to the homogenous equation
+	<m>A\xvec = \zerovec</m> where <m>A=\left[\begin{array}{rrrr}
+	\vvec_1\amp\vvec_2\amp\vvec_3\amp\vvec_4
+	\end{array}\right]</m>. </p></li>
+
+      </ol></p>
+    </statement>
+
+    <solution>
+      <p><ol label="a.">
+	<li><p>
+	  We view the vectors as the columns of a matrix so that
+	  <me>
+	    \left[\begin{array}{rrrr}
+	    1 \amp 0 \amp 2 \amp -2 \\
+	    2 \amp 1 \amp 3 \amp 4 \\
+	    1 \amp 3 \amp -1 \amp -1
+	    \end{array}\right]
+	    \sim
+	    \left[\begin{array}{rrrr}
+	    1 \amp 0 \amp 2 \amp 0 \\
+	    0 \amp 1 \amp -1 \amp 0 \\
+	    0 \amp 0 \amp 0 \amp 1
+	    \end{array}\right]\text{.}
+	  </me>
+	  Since there is a column without a pivot position, the
+	  vectors must linearly dependent.  We also expect this because
+	  four vectors in <m>\real^3</m> must always be linearly
+	  dependent.
+	</p></li>
+
+	<li><p>
+	  If we view the first three columns as an augmented matrix,
+	  we have
+	  <me>
+	    \left[\begin{array}{rr|r}
+	    1 \amp 0 \amp 2 \\
+	    2 \amp 1 \amp 3 \\
+	    1 \amp 3 \amp -1 \\
+	    \end{array}\right]
+	    \sim
+	    \left[\begin{array}{rr|r}
+	    1 \amp 0 \amp 2 \\
+	    0 \amp 1 \amp -1 \\
+	    0 \amp 0 \amp 0 \\
+	    \end{array}\right]\text{.}
+	  </me>
+	  We see that <m>\vvec_3 = 2\vvec_1-\vvec_2</m>.
+	</p></li>
+
+	<li><p>
+	  From the solution to the previous part, we have
+	  <m>-2\vvec_1+\vvec_2+\vvec_3 = \zerovec</m>, which says that
+	  <m>c_1=-2</m>, <m>c_2=1</m>, <m>c_3=1</m>, and <m>c_4=0</m>
+	  is an appropriate choice of weights.
+	</p></li>
+
+	<li><p>
+	  From the solution to the previous part, we see that
+	  <m>\xvec = \fourvec{-2}{1}{1}{0}</m> is a solution of the
+	  homogeneous equation.
+	</p></li>
+      </ol></p>
+    </solution>
+
+    <answer>
+      <p><ol label="a.">
+	<li><p>
+	  Four vectors in <m>\real^3</m> must always be linearly
+	  dependent.
+	</p></li>
+
+	<li><p>
+	  <m>\vvec_3 = 2\vvec_1-\vvec_2</m>.
+	</p></li>
+
+	<li><p>
+	  <m>c_1=-2</m>, <m>c_2=1</m>, <m>c_3=1</m>, and <m>c_4=0</m>
+	</p></li>
+
+	<li><p>
+	  <m>\xvec = \fourvec{-2}{1}{1}{0}</m>
+	</p></li>
+      </ol></p>
+    </answer>
+  </exercise>
+
+  <exercise>
+    <statement>
+      <p> Consider the vectors
+      <me>
+	\vvec_1 = \threevec{2}{-1}{0},
+	\vvec_2 = \threevec{1}{2}{1},
+	\vvec_3 = \threevec{2}{-2}{3}
+      </me>.
+      <ol label="a.">
+	<li> <p> Are these vectors linearly independent or linearly
+	dependent?
+	<sage>
+	  <input>
+	  </input>
+	</sage>
+	</p></li>
+
+	<li> <p> Describe the
+	<m>\span{\vvec_1,\vvec_2,\vvec_3}</m>. </p></li>
+
+	<li> <p> Suppose that <m>\bvec</m> is a vector in
+	<m>\real^3</m>.  Explain why we can guarantee that
+	<m>\bvec</m> may be written as a linear combination of
+	<m>\vvec_1</m>, <m>\vvec_2</m>, and <m>\vvec_3</m>.
+	</p></li>
+
+	<li> <p> Suppose that <m>\bvec</m> is a vector in
+	<m>\real^3</m>.  In how many ways can 
+	<m>\bvec</m> be written as a linear combination of
+	<m>\vvec_1</m>, <m>\vvec_2</m>, and <m>\vvec_3</m>?
+	</p></li>
+      </ol></p>
+	
+    </statement>
+
+    <solution>
+      <p><ol label="a.">
+	<li><p>
+	  Viewing the vectors as the columns of a matrix, we have
+	  <me>
+	    \left[\begin{array}{rrr}
+	    2 \amp 1 \amp 2 \\
+	    -1 \amp 2 \amp -2 \\
+	    0 \amp 1 \amp 3
+	    \end{array}\right]
+	    \sim
+	    \left[\begin{array}{rrr}
+	    1 \amp 0 \amp 0 \\
+	    0 \amp 1 \amp 0 \\
+	    0 \amp 0 \amp 1
+	    \end{array}\right]\text{.}
+	  </me>
+	  Since there is a pivot position in every column, the vectors
+	  are linearly independent.
+	</p></li>
+
+	<li><p>
+	  Since the matrix has a pivot position in every row, we see
+	  that <m>\span{\vvec_1,\vvec_2,\vvec_3} = \real^3</m>.
+	</p></li>
+
+	<li><p>
+	  Because <m>\span{\vvec_1,\vvec_2,\vvec_3} = \real^3</m>,
+	  every vector in <m>\real^3</m> can be written as a linear
+	  combination of <m>\vvec_1</m>, <m>\vvec_2</m>, and
+	  <m>\vvec_3</m>.
+	</p></li>
+
+	<li><p>
+	  In exactly one way.  Because the matrix has a pivot position
+	  in every column, there cannot be a free variable.
+	</p></li>
+
+      </ol></p>
+    </solution>
+
+    <answer>
+      <p><ol label="a.">
+	<li><p>
+	  Linearly independent.
+	</p></li>
+
+	<li><p>
+	  <m>\span{\vvec_1,\vvec_2,\vvec_3} = \real^3</m>.
+	</p></li>
+
+	<li><p>
+	  Because <m>\span{\vvec_1,\vvec_2,\vvec_3} = \real^3</m>,
+	  every vector in <m>\real^3</m> can be written as a linear
+	  combination of <m>\vvec_1</m>, <m>\vvec_2</m>, and
+	  <m>\vvec_3</m>.
+	</p></li>
+
+	<li><p>
+	  In exactly one way.  
+	</p></li>
+
+      </ol></p>
+    </answer>
+
+  </exercise>
+
+  <exercise>
+    <statement>
+      <p> Answer the following questions and provide a justification for
+      your responses.
+      <ol label="a.">
+	<li> <p> If the vectors <m>\vvec_1</m> and <m>\vvec_2</m> form
+	a linearly dependent set, must one vector be a scalar multiple
+	of the other?
+	</p></li>
+
+	<li><p>
+	  Suppose that <m>\vvec_1,\vvec_2,\ldots,\vvec_n</m> is a
+	  linearly independent set of vectors.  What can you say about
+	  the linear independence or dependence of a subset of these
+	  vectors?
+	</p></li>
+
+	<li><p> Suppose <m>\vvec_1,\vvec_2,\ldots,\vvec_n</m> is a
+	linearly independent set of vectors that form the columns of a
+	matrix <m>A</m>.  If the equation <m>A\xvec = \bvec</m> is
+	inconsistent, what can you say about the linear independence
+	or dependence of the set of vectors 
+	<m>\vvec_1,\vvec_2,\ldots,\vvec_n,\bvec</m>?
+	</p></li>
+      </ol></p>
+
+    </statement>
+
+    <solution>
+      <p><ol label="a.">
+	<li><p>
+	  Yes.  If <m>c_1\vvec_1 + c_2\vvec_2 = \zerovec</m> and one of the
+	  weights is not zero, we can rearrange this expression to
+	  solve for one of the vectors as a scalar multiple of the
+	  other.  For instance, if <m>2\vvec_1-3\vvec_2=\zerovec</m>,
+	  then <m>\vvec_1 = \frac32\vvec_2</m>.
+	</p></li>
+
+	<li><p>
+	  Any subset of the vectors forms a linearly independent set.
+	  Because the original set is linearly independent, none of
+	  the vectors can be written as a linear combination of the
+	  others.  This is still true when we look at a smaller set of
+	  the vectors.
+	</p></li>
+
+	<li><p>
+	  The set of vectors
+	  <m>\vvec_1,\vvec_2,\ldots,\vvec_n,\bvec</m> will also be
+	  linearly independent.  Since <m>A\xvec=\bvec</m> is
+	  inconsistent, we know that <m>\bvec</m> cannot be written as
+	  a linear combination of the other vectors.  We also know
+	  that each of the vectors <m>\vvec_j</m> cannot be written as
+	  a linear combination of the others because
+	  <m>\vvec_1,\vvec_2,\ldots,\vvec_n</m> is a linearly
+	  independent set.
+	</p></li>
+      </ol></p>
+    </solution>
+
+    <answer>
+      <p><ol label="a.">
+	<li><p>
+	  Yes
+	</p></li>
+
+	<li><p>
+	  Any subset is linearly independent.
+	</p></li>
+
+	<li><p> They form a linearly independent set.
+	</p></li>
+
+	</ol></p>
+    </answer>
+	
+  </exercise>
+  
+  <exercise>
+    <statement>
+      <p> Determine if the following statements are true or false and
+      provide a justification for your response.
+      <ol label="a.">
+	<li><p> If <m>\vvec_1,\vvec_2,\ldots,\vvec_n</m> are linearly
+	dependent, then one vector is a scalar multiple of the
+	others. </p></li>
+
+	<li><p> If <m>\vvec_1, \vvec_2, \ldots, \vvec_{10}</m> are
+	vectors in <m>\real^5</m>, then the set of vectors is linearly
+	dependent. </p></li>
+
+	<li><p> If <m>\vvec_1, \vvec_2, \ldots, \vvec_{5}</m> are
+	vectors in <m>\real^{10}</m>, then the set of vectors is linearly
+	independent. </p></li>
+
+	<li><p> Suppose we have a set of vectors
+	<m>\vvec_1,\vvec_2,\ldots,\vvec_n</m> and that <m>\vvec_2</m>
+	is a scalar multiple of <m>\vvec_1</m>.  Then the set is
+	linearly dependent. </p></li>
+
+	<li><p> Suppose that <m>\vvec_1,\vvec_2,\ldots,\vvec_n</m> are
+	linearly independent and form the columns of a matrix
+	<m>A</m>.  If <m>A\xvec = \bvec</m> is consistent, then there
+	is exactly one solution. </p></li>
+      </ol></p>
+    </statement>
+
+    <solution>
+      <p><ol label="a.">
+	<li><p>
+	  False.  We only know that one vector can be written as a
+	  linear combination of the others.
+	</p></li>
+
+	<li><p>
+	  True.  If we put the vectors into a matrix, there are more
+	  columns than rows.  Therefore, there must be a column
+	  without a pivot position so the vectors form a linearly
+	  dependent set.
+	</p></li>
+
+	<li><p>
+	  False.  They could form a linearly independent set, but we
+	  cannot guarantee it.  We would have to look at the location
+	  of the pivot positions in the associated <m>10\times5</m>
+	  matrix. 
+	</p></li>
+
+	<li><p>
+	  True.  In this case, <m>\vvec_2</m> can be written as a
+	  linear combination of the other vectors so the set is
+	  linearly dependent.
+	</p></li>
+
+	<li><p>
+	  True.  Since the vectors are linearly independent, <m>A</m>
+	  has a pivot position in every column.  Therefore, there is
+	  not a free variable in the description of the
+	  solution space to the equation <m>A\xvec=\bvec</m>.
+	  Therefore, the solution is unique.
+	</p></li>
+      </ol></p>
+    </solution>
+
+    <answer>
+      <p><ol label="a.">
+	<li><p> False </p></li>
+	<li><p> True </p></li>
+	<li><p> False </p></li>
+	<li><p> True </p></li>
+	<li><p> True </p></li>
+      </ol></p>
+    </answer>
+  </exercise>
+
+  <exercise>
+    <statement>
+      <p> Suppose we have a set of vectors
+      <m>\vvec_1,\vvec_2,\vvec_3,\vvec_4</m> in <m>\real^5</m> that
+      satisfy the relationship:
+      <me>
+	2\vvec_1 - \vvec_2 + 3\vvec_3 + \vvec_4 = \zerovec
+      </me>
+      and suppose that <m>A</m> is the matrix
+      <m>A=\left[\begin{array}{rrrr}
+      \vvec_1\amp\vvec_2\amp\vvec_3\amp\vvec_4
+      \end{array}\right]
+      </m>.
+      <ol label="a.">
+	<li><p> Find a nontrivial solution to the equation <m>A\xvec =
+	\zerovec</m>. </p></li>
+
+	<li><p> Explain why the matrix <m>A</m> has a column without a
+	pivot position. </p></li>
+
+	<li><p> Write one of the vectors as a linear combination of
+	the others. </p></li>
+
+	<li><p> Explain why the set of vectors is linearly
+	dependent. </p></li>
+      </ol></p>
+    </statement>
+
+    <solution>
+      <p><ol label="a.">
+	<li><p>
+	  The vector <m>\xvec=\fourvec{2}{-1}{3}{1}</m> is a solution.
+	</p></li>
+
+	<li><p>
+	  There is a nontrivial solution to the homogeneous equation
+	  <m>A\xvec=\zerovec</m>.  Since there is also the trivial
+	  solution <m>\xvec=\zerovec</m>, there must be infinitely
+	  many solutions.  This can only happen when there is a column
+	  of <m>A</m> that does not have a pivot position.
+	</p></li>
+
+	<li><p>
+	  <m>\vvec_4 = -2\vvec_1 + \vvec_2 - 3\vvec_3</m>.
+	</p></li>
+
+	<li><p>
+	  Because one of the vectors can be written as a linear
+	  combination of the others, the set of vectors is linearly
+	  dependent.
+	</p></li>
+      </ol></p>
+    </solution>
+
+    <answer>
+      <p><ol label="a.">
+	<li><p>
+	  <m>\xvec=\fourvec{2}{-1}{3}{1}</m>
+	</p></li>
+
+	<li><p>
+	  There are infinitely many solutions to the homogeneous
+	  equation <m>A\xvec=\zerovec</m>.
+	</p></li>
+
+	<li><p>
+	  <m>\vvec_4 = -2\vvec_1 + \vvec_2 - 3\vvec_3</m>.
+	</p></li>
+
+	<li><p>
+	  One vector can be written as a linear combination of the
+	  others.
+	</p></li>
+
+      </ol></p>
+    </answer>
+	
+  </exercise>
+      
+  <exercise>
+    <statement>
+      <p>  Suppose that
+      <m>\vvec_1,\vvec_2,\ldots,\vvec_n</m> is a set of vectors in
+      <m>\real^{27}</m> that form the columns of a matrix <m>A</m>.
+      <ol label="a.">
+	<li><p> Suppose that the vectors span <m>\real^{27}</m>.  What
+	can you say about the number of vectors <m>n</m> in this set?
+	</p></li>
+
+	<li><p> Suppose instead that the vectors are linearly
+	independent.  What can you say about the number of vectors
+	<m>n</m> in this set? </p></li>
+
+	<li><p> Suppose that the vectors are both linearly independent
+	and span <m>\real^{27}</m>.  What can you say about the number
+	of vectors in the set? </p></li>
+
+	<li><p> Assume that the vectors are both linearly independent
+	and span <m>\real^{27}</m>.  Given a vector <m>\bvec</m> in
+	<m>\real^{27}</m>, what 
+	can you say about the solution space to the equation
+	<m>A\xvec = \bvec</m>? </p></li>
+      </ol></p>
+    </statement>
+
+    <solution>
+      <p><ol label="a.">
+	<li><p>
+	  In this case, the matrix <m>A</m> must have a pivot position
+	  in evey row.  There must be at least 27 vectors for this to
+	  be possible.
+	</p></li>
+
+	<li><p>
+	  In this case, the matrix <m>A</m> must have a pivot position
+	  in every column.  There must be no more than 27 vectors for
+	  this to be possible.
+	</p></li>
+
+	<li><p>
+	  There must be exactly 27 vectors.
+	</p></li>
+
+	<li><p>
+	  There is exactly one solution to the equation
+	  <m>A\xvec=\bvec</m> because the matrix <m>A</m> has a pivot
+	  position in every row and every column.
+	</p></li>
+      </ol></p>
+    </solution>
+
+    <answer>
+      <p><ol label="a.">
+	<li><p>
+	  There must be at least 27 vectors.
+	</p></li>
+
+	<li><p>
+	  There must be no more than 27 vectors.
+	</p></li>
+
+	<li><p>
+	  There are exactly 27 vectors.
+	</p></li>
+
+	<li><p>
+	  There is exactly one solution.
+	</p></li>
+	</ol></p>
+    </answer>
+	
+  </exercise>
+
+  <exercise>
+    <statement>
+      <p> Given below are some descriptions of sets of vectors that
+      form the columns of a matrix <m>A</m>.  For each description,
+      give a possible reduced row echelon form for <m>A</m> or
+      indicate why there is no set of vectors satisfying the
+      description by stating why the required reduced row echelon
+      matrix cannot exist.
+      <ol label="a.">
+	<li><p>
+	  A set of 4 linearly independent vectors in <m>\real^5</m>.
+	</p></li>
+
+	<li><p>
+	  A set of 4 linearly independent vectors in <m>\real^4</m>.
+	</p></li>
+
+	<li><p>
+	  A set of 3 vectors that span <m>\real^4</m>.
+	</p></li>
+
+	<li><p>
+	  A set of 5 linearly independent vectors in <m>\real^3</m>.
+	</p></li>
+
+	<li><p>
+	  A set of 5 vectors that span <m>\real^4</m>.
+	</p></li>
+      </ol></p>
+	  
+    </statement>
+
+    <solution>
+      <p><ol label="a.">
+	<li><p>  There must be a pivot position in every column:
+	  <m>
+	    \left[\begin{array}{rrrr}
+	    1 \amp 0 \amp 0 \amp 0 \\
+	    0 \amp 1 \amp 0 \amp 0 \\
+	    0 \amp 0 \amp 1 \amp 0 \\
+	    0 \amp 0 \amp 0 \amp 1 \\
+	    0 \amp 0 \amp 0 \amp 0 \\
+	    \end{array}\right]
+	  </m>.
+	</p></li>
+	    
+	<li><p> There must be a pivot position in every row.
+	  <m>
+	    \left[\begin{array}{rrrr}
+	    1 \amp 0 \amp 0 \amp 0 \\
+	    0 \amp 1 \amp 0 \amp 0 \\
+	    0 \amp 0 \amp 1 \amp 0 \\
+	    0 \amp 0 \amp 0 \amp 1 \\
+	    \end{array}\right]
+	  </m>.
+	</p></li>
+	    
+	<li><p>
+	  This is not possible.  The matrix <m>A</m> has dimensions
+	  <m>4\times 3</m> so there cannot be a pivot position in
+	  every row.
+	</p></li>
+	    
+	<li><p>
+	  This is not possible.  The matrix <m>A</m> has dimensions
+	  <m>3\times5</m> so there cannot be a pivot position in every
+	  column. 
+	</p></li>
+	    
+	<li><p> There must be a pivot position in every row.
+	  <m>
+	    \left[\begin{array}{rrrrr}
+	    1 \amp 0 \amp 0 \amp 0 \amp -1 \\
+	    0 \amp 1 \amp 0 \amp 0 \amp 0 \\
+	    0 \amp 0 \amp 1 \amp 0 \amp -2 \\
+	    0 \amp 0 \amp 0 \amp 1 \amp 4 \\
+	    \end{array}\right]
+	  </m>.
+	</p></li>
+      </ol></p>
+    </solution>
+
+    <answer>
+      <p><ol label="a.">
+	<li><p>
+	  <m>
+	    \left[\begin{array}{rrrr}
+	    1 \amp 0 \amp 0 \amp 0 \\
+	    0 \amp 1 \amp 0 \amp 0 \\
+	    0 \amp 0 \amp 1 \amp 0 \\
+	    0 \amp 0 \amp 0 \amp 1 \\
+	    0 \amp 0 \amp 0 \amp 0 \\
+	    \end{array}\right]
+	  </m>.
+	</p></li>
+	    
+	<li><p>
+	  <m>
+	    \left[\begin{array}{rrrr}
+	    1 \amp 0 \amp 0 \amp 0 \\
+	    0 \amp 1 \amp 0 \amp 0 \\
+	    0 \amp 0 \amp 1 \amp 0 \\
+	    0 \amp 0 \amp 0 \amp 1 \\
+	    \end{array}\right]
+	  </m>.
+	</p></li>
+	    
+	<li><p>
+	  This is not possible. 
+	</p></li>
+	    
+	<li><p>
+	  This is not possible. 
+	</p></li>
+	    
+	<li><p>
+	  <m>
+	    \left[\begin{array}{rrrrr}
+	    1 \amp 0 \amp 0 \amp 0 \amp -1 \\
+	    0 \amp 1 \amp 0 \amp 0 \amp 0 \\
+	    0 \amp 0 \amp 1 \amp 0 \amp -2 \\
+	    0 \amp 0 \amp 0 \amp 1 \amp 4 \\
+	    \end{array}\right]
+	  </m>.
+	</p></li>
+      </ol></p>
+    </answer>
+
+    
+  </exercise>
+
+  <exercise>
+    <statement>
+      <p> When we explored matrix multiplication in <xref
+      ref="sec-matrices-lin-combs" />, we saw that some properties
+      that are true for real numbers are not true for matrices.  This
+      exercise will investigate that in some more depth.
+
+      <ol label="a.">
+	<li><p>
+	  Suppose that <m>A</m> and <m>B</m> are two matrices and that
+	  <m>AB = 0</m>.  If <m>B \neq 0</m>, what can you say about the
+	linear independence of the columns of <m>A</m>? </p></li>
+
+	<li><p> Suppose that we have matrices <m>A</m>, <m>B</m> and
+	<m>C</m> such that <m>AB = AC</m>.  We have seen that we
+	cannot generally conclude that <m>B=C</m>.  If we assume
+	additionally that 
+	<m>A</m> is a matrix whose columns are linearly independent,
+	explain why <m>B = C</m>.  You may wish to begin by rewriting
+	the equation <m>AB = AC</m> as <m>AB-AC = A(B-C) = 0</m>.
+	</p></li>
+      </ol>
+      </p>
+    </statement>
+
+    <solution>
+      <p><ol label="a.">
+	<li><p>
+	  Since <m>B\neq0</m>, there is a nonzero vector <m>\xvec</m>
+	  such that <m>B\xvec\neq\zerovec</m>.  However, we must have
+	  <m>AB\xvec=\zerovec</m>, which means that <m>A(B\xvec) =
+	  \zerovec</m>.  There is therefore a nontrivial solution to
+	  the homogeneous equation <m>A\yvec=\zerovec</m> so the
+	  columns of <m>A</m> are linearly dependent.
+	</p></li>
+
+	<li><p>
+	  Since the columns of <m>A</m> are linearly independent,
+	  the only solution to the homogeneous equation
+	  <m>A\yvec=\zerovec</m> is <m>\yvec=\zerovec</m>.  We know
+	  that <m>A(B-C)\xvec = A[(B-C)\xvec]=\zerovec</m> for
+	  all vectors <m>\xvec</m>.  This means that
+	  <m>(B-C)\xvec=\zerovec</m> or <m>B\xvec=C\xvec</m> for all
+	  vectors <m>\xvec</m>.  This implies that <m>B=C</m>.
+	</p></li>
+
+      </ol></p>
+    </solution>
+
+    <answer>
+      <p><ol label="a.">
+	<li><p> They are linearly dependent.
+	</p></li>
+
+	<li><p>
+	  We have <m>B\xvec=C\xvec</m> for every vector <m>\xvec</m>.
+	</p></li>
+      </ol></p>
+    </answer>
+  </exercise>
+
+  <exercise>
+    <statement>
+      <p> Suppose that <m>k</m> is an unknown parameter and consider
+      the set of vectors
+      <me>
+	\vvec_1 = \threevec{2}{0}{1}, 
+	\vvec_2 = \threevec{4}{-2}{-1}, 
+	\vvec_1 = \threevec{0}{2}{k}
+      </me>.
+      <ol label="a.">
+	<li><p> For what values of <m>k</m> is the set of vectors
+	linearly dependent? </p></li>
+
+	<li><p> For what values of <m>k</m> does the set of vectors
+	span <m>\real^3</m>? </p></li>
+      </ol></p>
+
+    </statement>
+
+    <solution>
+      <p><ol label="a.">
+	<li><p> We construct the matrix
+	<me>
+	  \left[\begin{array}{rrr}
+	  2 \amp 4 \amp 0 \\
+	  0 \amp -2 \amp 2 \\
+	  1 \amp -1 \amp k \\
+	  \end{array}\right]
+	  \sim
+	  \left[\begin{array}{rrr}
+	  1 \amp 2 \amp 0 \\
+	  0 \amp 1 \amp -1 \\
+	  0 \amp 0 \amp k-3 \\
+	  \end{array}\right]\text{.}
+	</me>
+	If the vectors are linearly dependent, we cannot have a
+	pivot position in the third column.  This means that
+	<m>k=3</m>.
+	</p></li>
+
+	<li><p>
+	  If the vectors span <m>\real^3</m>, there must be a pivot in
+	  the third row, which means that <m>k\neq 3</m>.
+	</p></li>
+      </ol></p>
+    </solution>
+
+    <answer>
+      <p><ol label="a.">
+	<li><p> <m>k=3</m>. </p></li>
+	<li><p> <m>k\neq3</m>. </p></li>
+      </ol></p>
+    </answer>
+      
+  </exercise>
+  
+  <exercise>
+    <statement>
+      <p> Given a set of linearly dependent vectors, we can eliminate
+      some of the vectors to create a smaller, linearly independent set
+      of vectors.
+	<ol label="a.">
+	  <li><p> Suppose that <m>\wvec</m> is a linear combination of
+	  the vectors <m>\vvec_1</m> and <m>\vvec_2</m>.
+	  Explain why
+	  <m>\span{\vvec_1,\vvec_2, \wvec} =
+	  \span{\vvec_1,\vvec_2}</m>.
+	  </p></li>
+
+	  <li><p> Consider the vectors
+	  <me>
+	    \vvec_1 = \threevec{2}{-1}{0},
+	    \vvec_2 = \threevec{1}{2}{1},
+	    \vvec_3 = \threevec{-2}{6}{2},
+	    \vvec_4 = \threevec{7}{-1}{1}
+	  </me>.
+	  Write one of the vectors as a linear combination of the
+	  others.  Find a set of three vectors whose span is the same
+	  as <m>\span{\vvec_1,\vvec_2,\vvec_3,\vvec_4}</m>.
+	  </p></li>
+
+	  <li><p> Are the three vectors you are left with linearly
+	  independent?  If not, express one of the vectors as a linear
+	  combination of the others and find a set of two vectors
+	  whose span is the same as
+	  <m>\span{\vvec_1,\vvec_2,\vvec_3,\vvec_4}</m>.
+	  </p></li>
+
+	  <li><p> Give a geometric description of
+	  <m>\span{\vvec_1,\vvec_2,\vvec_3,\vvec_4}</m> in
+	  <m>\real^3</m> as we did in <xref ref="sec-span" />.
+	  </p></li>
+	</ol>
+      </p>
+    </statement>
+
+    <solution>
+      <p><ol label="a.">
+	<li><p>
+	  If <m>\wvec</m> is a linear combination of <m>\vvec_1</m>
+	  and <m>\vvec_2</m>, then we can write
+	  <m>\wvec=a\vvec_1+b\vvec_2</m>.  Then any linear combination
+	  of <m>\vvec_1,\vvec_2,\wvec</m> can be rewritten as
+	  <me>
+	    c_1\vvec_1+c_2\vvec_2+c_3\wvec=(c_1+c_3a)\vvec_1 +
+	    (c_2+c_3b)\vvec_2\text{.}
+	  </me>
+	</p></li>
+
+	<li><p>
+	  We have
+	  <me>
+	  \left[\begin{array}{rrrr}
+	  2 \amp 1 \amp -2 \amp 7 \\
+	  -1 \amp 2 \amp 6 \amp -1 \\
+	  0 \amp 1 \amp 2 \amp 1
+	  \end{array}\right]
+	  \sim
+	  \left[\begin{array}{rrrr}
+	  1 \amp 0 \amp -2 \amp 3 \\
+	  0 \amp 1 \amp 2 \amp 1 \\
+	  0 \amp 0 \amp 0 \amp 0
+	  \end{array}\right]\text{.}
+	  </me>
+	  This shows that <m>\vvec_3 = -2\vvec_1+2\vvec_2</m> and so
+	  <m>\span{\vvec_1,\vvec_2,\vvec_3,\vvec_4} =
+	  \span{\vvec_1,\vvec_2,\vvec_4}</m>.
+	</p></li>
+
+	<li><p>
+	  The remaining three vectors are linearly dependent
+	  because <m>\vvec_4 = 3\vvec_1+\vvec_2</m>.  We therefore
+	  have 
+	  <m>\span{\vvec_1,\vvec_2,\vvec_3,\vvec_4} =
+	  \span{\vvec_1,\vvec_2}</m>.
+	</p></li>
+
+	<li><p>
+	  The vectors <m>\vvec_1</m> and <m>\vvec_2</m> are linearly
+	  independent so their span is a plane in <m>\real^3</m>.
+	</p></li>
+      </ol></p>
+    </solution>
+
+    <answer>
+      <p><ol label="a.">
+	<li><p> Any linear combination of <m>\vvec_1</m>,
+	<m>\vvec_2</m>, and <m>\wvec</m> can be rewritten as a linear
+	combination of <m>\vvec_1</m> and <m>\vvec_2</m>.
+	</p></li>
+
+	<li><p>
+	  <m>\span{\vvec_1,\vvec_2,\vvec_3,\vvec_4} =
+	  \span{\vvec_1,\vvec_2,\vvec_4}</m>.
+	</p></li>
+
+	<li><p>
+	  <m>\span{\vvec_1,\vvec_2,\vvec_3,\vvec_4} =
+	  \span{\vvec_1,\vvec_2}</m>.
+	</p></li>
+
+	<li><p>
+	  It is a plane in <m>\real^3</m>.
+	</p></li>
+      </ol></p>
+    </answer>
+
+  </exercise>
+
+</exercises>
+  

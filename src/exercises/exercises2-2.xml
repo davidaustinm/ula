@@ -1,0 +1,1442 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<exercises>
+  <exercise>
+    <statement>
+      <p> Consider the system of linear equations
+      <me>
+	\begin{alignedat}{4}
+	x \amp {}+{} \amp 2y \amp {}-{} \amp z \amp {}={} \amp 1 \\
+	3x \amp {}+{} \amp 2y \amp {}+{} \amp 2z \amp {}={} \amp 7 \\
+	-x \amp \amp \amp {}+{} \amp 4z \amp {}={} \amp -3 \\
+	\end{alignedat}
+      </me>.
+      <ol label="a.">
+	<li><p>
+	  Find the matrix <m>A</m> and vector <m>\bvec</m> that expresses
+	  this linear system in the form <m>A\xvec=\bvec</m>.
+	</p></li>
+
+	<li><p>
+	  Give a description of the solution space to the equation
+	  <m>A\xvec = \bvec</m>.
+	  <sage>
+	    <input>
+	    </input>
+	  </sage>
+	</p></li>
+      </ol></p>
+    </statement>
+
+    <solution>
+      <p><ol label="a.">
+	<li><p>
+	  <m> A = \left[\begin{array}{rrr}
+	  1 \amp 2 \amp -1 \\
+	  3 \amp 2 \amp 2 \\
+	  -1 \amp 0 \amp 4 \\
+	  \end{array}\right]</m>
+	  and <m>\bvec=\threevec{1}{7}{-3}</m>.
+	</p></li>
+
+	<li><p>
+	  We have
+	  <me>
+	    \left[\begin{array}{rrrr}
+	    1 \amp 2 \amp -1 \amp 1 \\
+	    3 \amp 2 \amp 2 \amp 7 \\
+	    -1 \amp 0 \amp 4 \amp -3
+	    \end{array}\right]
+	    \sim
+	    \left[\begin{array}{rrrr}
+	    1 \amp 0 \amp 0 \amp 3 \\
+	    0 \amp 1 \amp 0 \amp -1 \\
+	    0 \amp 0 \amp 1 \amp 0
+	    \end{array}\right]
+	  </me>
+	  so there is a unique solution <m>\xvec=\threevec{3}{-1}{0}</m>. 
+	</p></li>
+      </ol>
+      </p>
+    </solution>
+
+    <answer>
+      <p><ol label="a.">
+	<li><p>
+	  <m> A = \left[\begin{array}{rrr}
+	  1 \amp 2 \amp -1 \\
+	  3 \amp 2 \amp 2 \\
+	  -1 \amp 0 \amp 4 \\
+	  \end{array}\right]</m>
+	  and <m>\bvec=\threevec{1}{7}{-3}</m>.
+	</p></li>
+
+	<li><p>
+	  There is a unique solution <m>\xvec=\threevec{3}{-1}{0}</m>. 
+	</p></li>
+      </ol>
+      </p>
+    </answer>
+    
+  </exercise>
+
+  <exercise>
+    <statement>
+      <p> Suppose that <m>A</m> is a <m>135\times2201</m> matrix.  If
+      <m>A\xvec</m> is defined, what is the dimension of <m>\xvec</m>?
+      What is the dimension of <m>A\xvec</m>?
+      </p>
+    </statement>
+
+    <solution>
+      <p> If <m>A\xvec</m> is defined, then
+      <m>\xvec\in\real^{2201}</m> and <m>A\xvec\in\real^{135}</m>.
+      </p>
+    </solution>
+
+    <answer>
+      <p>
+      <m>\xvec\in\real^{2201}</m> and <m>A\xvec\in\real^{135}</m>.
+      </p>
+    </answer>
+    
+  </exercise>
+
+  <exercise>
+    <statement>
+      <p>Suppose that <m> A </m> is a <m>3\times2</m> matrix
+      whose columns are <m>\vvec_1</m> and <m>\vvec_2</m>;  that is,
+      <me> A = \left[\begin{array}{rr} \vvec_1 \amp \vvec_2
+      \end{array}
+      \right]
+      </me>.
+      <ol label="a.">
+	<li> <p> What is the dimension of the vectors <m>\vvec_1</m>
+	and <m>\vvec_2</m>? </p></li>
+
+	<li> <p> What is the product <m>A\twovec{1}{0}</m> in terms of
+	<m>\vvec_1</m> and <m>\vvec_2</m>?  What is
+	the product <m>A\twovec{0}{1}</m>? What is
+	the product <m>A\twovec{2}{3}</m>? </p></li>
+
+	<li> <p> Suppose that
+	<me>
+	  A\twovec{1}{0} = \threevec{3}{-2}{1}, A\twovec{0}{1} =
+	  \threevec{0}{3}{2}
+	  </me>.
+	  What is the matrix <m>A</m>?
+	</p></li>
+      </ol>
+      </p>
+    </statement>
+
+    <solution>
+      <p><ol label="a.">
+	<li><p> Both <m>\vvec_1</m> and <m>\vvec_2</m> are
+	three-dimensional.
+	</p></li>
+
+	<li><p>
+	  <m>A\twovec{1}{0} = \vvec_1</m> and 
+	  <m>A\twovec{0}{1} = \vvec_2</m>.  Also,
+	  <m>A\twovec{2}{3} = 2\vvec_1+3\vvec_3</m>.
+	</p></li>
+
+	<li><p>
+	  <m>A = \left[\begin{array}{rr}
+	  3 \amp 0 \\
+	  -2 \amp 3 \\
+	  1 \amp 2 \\
+	  \end{array}\right]
+	  </m>
+	</p></li>
+      </ol></p>
+    </solution>
+
+    <answer>
+      <p><ol label="a.">
+	<li><p> Both <m>\vvec_1</m> and <m>\vvec_2</m> are
+	three-dimensional.
+	</p></li>
+
+	<li><p>
+	  <m>A\twovec{1}{0} = \vvec_1</m> and 
+	  <m>A\twovec{0}{1} = \vvec_2</m>.  Also,
+	  <m>A\twovec{2}{3} = 2\vvec_1+3\vvec_3</m>.
+	</p></li>
+
+	<li><p>
+	  <m>A = \left[\begin{array}{rr}
+	  3 \amp 0 \\
+	  -2 \amp 3 \\
+	  1 \amp 2 \\
+	  \end{array}\right]
+	  </m>
+	</p></li>
+      </ol></p>
+    </answer>
+    
+  </exercise>
+  
+  <exercise>
+    <statement>
+      <p> Shown below are vectors <m>\vvec_1</m> and <m>\vvec_2</m>.
+      Suppose that the matrix <m>A</m> is
+      <me>
+	A = \left[\begin{array}{rr}
+	\vvec_1 \amp \vvec_2
+	\end{array}\right]
+      </me>.
+      <sidebyside width="60%">
+	<image source="images/ex-matrix-cols" />
+      </sidebyside>
+      </p>
+
+      <p>
+      <ol label="a.">
+	<li><p> What are the dimensions of the matrix <m>A</m>? </p></li>
+	<li><p> On the plot above, indicate the vectors
+	<me>
+	  A\twovec{1}{0}, A\twovec{2}{3}, A\twovec{0}{-3}
+	</me>.
+	</p> </li>
+
+	<li> <p> Find all vectors <m>\xvec</m> such that
+	<m>A\xvec=\bvec</m>. </p></li>
+
+	<li> <p> Find all vectors <m>\xvec</m> such that <m>A\xvec =
+	\zerovec</m>. </p></li>
+      </ol> 
+      </p>
+    </statement>
+
+    <solution>
+      <p><ol label="a.">
+	<li><p> <m>A</m> is a <m>2\times2</m> matrix.
+	</p></li>
+	
+	<li><p> We have
+	  <sidebyside width="50%">
+	    <image source="images/ex-matrix-cols-sol" />
+	  </sidebyside>
+	</p></li>
+
+	<li><p>
+	  There is a unique vector <m>\xvec=\twovec{-3}{-3}</m>.
+	</p></li>
+
+	<li><p>
+	  There is a unique vector <m>\xvec=\twovec{0}{0}</m>.
+	</p></li>
+      </ol></p>
+    </solution>
+
+    <answer>
+      <p><ol label="a.">
+	<li><p> <m>A</m> is a <m>2\times2</m> matrix.
+	</p></li>
+	
+	<li><p> We have
+	  <sidebyside width="50%">
+	    <image source="images/ex-matrix-cols-sol" />
+	  </sidebyside>
+	</p></li>
+
+	<li><p>
+	  There is a unique vector <m>\xvec=\twovec{-3}{-3}</m>.
+	</p></li>
+
+	<li><p>
+	  There is a unique vector <m>\xvec=\twovec{0}{0}</m>.
+	</p></li>
+      </ol></p>
+    </answer>
+	
+  </exercise>
+
+  <exercise>
+    <statement>
+      <p> Suppose that
+      <me> A=\left[\begin{array}{rrr}
+      1 \amp 0 \amp 2 \\
+      2 \amp 2 \amp 2 \\
+      -1 \amp -3 \amp 1
+      \end{array}\right]
+      </me>.
+      <ol label="a.">
+	<li><p> Describe the solution space to the equation <m>A\xvec
+	= \zerovec</m>.</p></li>
+
+	<li><p> Find a <m>3\times2</m> matrix <m>B</m> with no zero
+	entries such that <m>AB = 0</m>. </p></li>
+      </ol>
+      </p>
+    </statement>
+
+    <solution>
+      <p><ol label="a.">
+	<li><p> We construct the augmented matrix
+	<me>
+	  \left[\begin{array}{rrr|r}
+	  1 \amp 0 \amp 2 \amp 0 \\
+	  2 \amp 2 \amp 2 \amp 0 \\
+	  -1 \amp -3 \amp 1 \amp 0
+	  \end{array}\right]
+	  \sim
+	  \left[\begin{array}{rrr|r}
+	  1 \amp 0 \amp 2 \amp 0 \\
+	  0 \amp 1 \amp -1 \amp 0 \\
+	  0 \amp 0 \amp 0 \amp 0
+	  \end{array}\right]\text{,}
+	</me>
+	which shows that
+	<me>
+	  \xvec=\threevec{-2x_3}{x_3}{x_3} = x_3\threevec{-2}{1}{1}\text{.}
+	</me>
+	</p></li>
+
+	<li><p>
+	  We form <m>B</m> by choosing two vectors in the solution
+	  space to <m>A\xvec=\zerovec</m>.  For instance,
+	  <m>
+	    B = \left[\begin{array}{rr}
+	    -2 \amp 2 \\
+	    1 \amp -1 \\
+	    1 \amp -1 \\
+	    \end{array}\right]\text{.}
+	  </m>
+	</p></li>
+      </ol></p>
+    </solution>
+	  
+    <answer>
+      <p><ol label="a.">
+	<li><p>
+	  <m>
+	  \xvec=\threevec{-2x_3}{x_3}{x_3} = x_3\threevec{-2}{1}{1}\text{.}
+	  </m>
+	</p></li>
+
+	<li><p>
+	  There are many possibilities.  For instance,
+	  <m>
+	    B = \left[\begin{array}{rr}
+	    -2 \amp 2 \\
+	    1 \amp -1 \\
+	    1 \amp -1 \\
+	    \end{array}\right]\text{.}
+	  </m>
+	</p></li>
+      </ol></p>
+    </answer>
+
+  </exercise>
+
+  <exercise>
+    <statement>
+      <p> Consider the matrix
+      <me>
+	A=\left[\begin{array}{rrrr}
+	1 \amp 2 \amp -4 \amp -4 \\
+	2 \amp 3 \amp 0 \amp 1 \\
+	1 \amp 0 \amp 4 \amp 6 \\
+	\end{array}\right]
+      </me>.
+      <ol label="a.">
+	<li> <p> Find the product <m>A\xvec</m> where
+	<me>
+	  \xvec = \fourvec{1}{-2}{0}{2}
+	</me>. </p></li>
+
+	<li> <p> Give a description of the vectors <m>\xvec</m> such
+	that
+	<me>
+	  A\xvec = \threevec{-1}{15}{17}
+	</me>.
+	<sage>
+	  <input>
+	  </input>
+	</sage>
+	</p> </li>
+
+	<li> <p> Find the reduced row echelon form of <m>A</m> and
+	identify the pivot positions. </p></li>
+
+	<li> <p> Can you find a vector <m>\bvec</m> such that
+	<m>A\xvec=\bvec</m> is inconsistent? </p></li>
+
+	<li> <p> For a general 3-dimensional vector <m>\bvec</m>, what
+	can you say about the solution space of the equation
+	<m>A\xvec = \bvec</m>?
+	</p></li>
+      </ol></p>
+    </statement>
+
+    <solution>
+      <p><ol label="a.">
+	<li><p>
+	  <m>A\xvec = \threevec{-11}{-2}{13}</m>.
+	</p></li>
+
+	<li><p>
+	  We consider the augmented matrix
+	  <me>
+	    \left[\begin{array}{rrrr|r}
+	    1 \amp 2 \amp -4 \amp -4 \amp -1 \\
+	    2 \amp 3 \amp 0 \amp 1 \amp 15 \\
+	    1 \amp 0 \amp 4 \amp 6 \amp 17
+	    \end{array}\right]
+	    \sim
+	    \left[\begin{array}{rrrr|r}
+	    1 \amp 0 \amp 0 \amp 2 \amp 9 \\
+	    0 \amp 1 \amp 0 \amp -1 \amp -1 \\
+	    0 \amp 0 \amp 1 \amp 1 \amp 2
+	    \end{array}\right]
+	  </me>
+	  so that
+	  <m>\xvec=\fourvec{9-2x_4}{-1+x_4}{2-x_4}{x_4}
+	  =\fourvec{9}{-1}{2}{0}+x_4\fourvec{-2}{1}{-1}{1}</m>.
+	</p></li>
+
+	<li><p>
+	  We see that
+	  <m>A \sim \left[\begin{array}{rrrr}
+	    {\mathbf 1} \amp 0 \amp 0 \amp 2 \\
+	    0 \amp {\mathbf 1} \amp 0 \amp -1 \\
+	    0 \amp 0 \amp 1 \amp {\mathbf 1} \\
+	    \end{array}\right]\text{.}
+	  </m>
+	</p></li>
+
+	<li><p>
+	  There is no vector <m>\bvec</m> such that
+	  <m>A\xvec=\bvec</m> is inconsistent because the augmented
+	  matrix <m>\left[\begin{array}{r|r} A \amp \bvec
+	  \end{array}\right]</m> cannot have a pivot position in the
+	  rightmost column.
+	</p></li>
+
+	<li><p>
+	  For any <m>\bvec</m>, the augmented matrix
+	  <m>\left[\begin{array}{r|r} A \amp \bvec
+	  \end{array}\right]</m> will have exactly one column without
+	  a pivot.  Therefore, the solution space will form a line in
+	  <m>\real^4</m>, as in part b.
+	</p></li>
+
+      </ol></p>
+    </solution>
+
+    <answer>
+      <p><ol label="a.">
+	<li><p>
+	  <m>A\xvec = \threevec{-11}{-2}{13}</m>.
+	</p></li>
+
+	<li><p>
+	  <m>\xvec=\fourvec{9-2x_4}{-1+x_4}{2-x_4}{x_4}
+	  =\fourvec{9}{-1}{2}{0}+x_4\fourvec{-2}{1}{-1}{1}</m>.
+	</p></li>
+
+	<li><p>
+	  We see that
+	  <m>A \sim \left[\begin{array}{rrrr}
+	    {\mathbf 1} \amp 0 \amp 0 \amp 2 \\
+	    0 \amp {\mathbf 1} \amp 0 \amp -1 \\
+	    0 \amp 0 \amp 1 \amp {\mathbf 1} \\
+	    \end{array}\right]\text{.}
+	  </m>
+	</p></li>
+
+	<li><p>
+	  No
+	</p></li>
+
+	<li><p>
+	  The solution space will form a line in
+	  <m>\real^4</m>, as in part b.
+	</p></li>
+
+      </ol></p>
+    </answer>
+	  
+  </exercise>
+
+  <exercise>
+    <statement>
+      <p> The operations that we perform in Gaussian elimination can
+      be accomplished using matrix multiplication.  This observation
+      is the basis of an important technique that we will investigate
+      in a subsequent chapter.
+      </p>
+
+      <p> Let's consider the matrix
+      <me>
+	A = \left[\begin{array}{rrr}
+	1 \amp 2 \amp -1 \\
+	2 \amp 0 \amp 2 \\
+	-3 \amp 2 \amp 3 \\
+	\end{array}\right]
+      </me>.
+
+      <ol label="a.">
+	<li><p> Suppose that
+	<me>S = \left[\begin{array}{rrr}
+	1 \amp 0 \amp 0 \\
+	0 \amp 7 \amp 0 \\
+	0 \amp 0 \amp 1 \\
+	\end{array}\right]
+	</me>.
+	Verify that <m>SA</m> is the matrix that results when the
+	second row of <m>A</m> is scaled by a factor of 7.  What
+	matrix <m>S</m> would scale the third row by -3?</p></li>
+
+	<li><p> Suppose that
+	<me>P = \left[\begin{array}{rrr}
+	0 \amp 1 \amp 0 \\
+	1 \amp 0 \amp 0 \\
+	0 \amp 0 \amp 1 \\
+	\end{array}\right]
+	</me>.
+	Verify that <m>PA</m> is the matrix that results from
+	interchanging the first and second rows.  What matrix <m>P</m>
+	would interchange the first and third rows? </p></li>
+
+	<li><p> Suppose that
+	<me>L_1 = \left[\begin{array}{rrr}
+	1 \amp 0 \amp 0 \\
+	-2 \amp 1 \amp 0 \\
+	0 \amp 0 \amp 1 \\
+	\end{array}\right]
+	</me>.
+	Verify that <m>L_1A</m> is the matrix that results from
+	multiplying the first row of <m>A</m> by <m>-2</m> and adding
+	it to the second row.  What matrix <m>L_2</m> would multiply
+	the first row by 3 and add it to the third row? </p></li>
+
+	<li><p> When we performed Gaussian elimination, our first goal
+	was to perform row operations that brought the matrix into a
+	triangular form.  For our matrix <m>A</m>, find the row
+	operations needed to find a row equivalent matrix <m>U</m> in
+	triangular form.  By expressing these row operations in terms
+	of matrix multiplication, find a
+	matrix <m>L</m> such that <m>LA = U</m>.
+
+	<sage>
+	  <input>
+	  </input>
+	</sage>
+	</p></li>
+      </ol>
+      </p>
+    </statement>
+
+    <solution>
+      <p><ol label="a.">
+	<li><p>
+	  We compute that
+	  <me>
+	    SA =
+	    \left[\begin{array}{rrr}
+	    1 \amp 0 \amp 0 \\
+	    0 \amp 7 \amp 0 \\
+	    0 \amp 0 \amp 1 \\
+	    \end{array}\right]
+	    \left[\begin{array}{rrr}
+	    1 \amp 2 \amp -1 \\
+	    2 \amp 0 \amp 2 \\
+	    -3 \amp 2 \amp 3 \\
+	    \end{array}\right]
+	    =
+	    \left[\begin{array}{rrr}
+	    1 \amp 2 \amp -1 \\
+	    14 \amp 0 \amp 14 \\
+	    -3 \amp 2 \amp 3 \\
+	    \end{array}\right]\text{.}
+	  </me>
+	  To scale the third row by <m>-3</m>, we would use the matrix
+	  <m>S=
+	  \left[\begin{array}{rrr}
+	  1 \amp 0 \amp 0 \\
+	  0 \amp 1 \amp 0 \\
+	  0 \amp 0 \amp -3 \\
+	  \end{array}\right]
+	  </m>.
+	</p></li>
+
+	<li><p>
+	  We compute that
+	  <me>
+	    PA =
+	    \left[\begin{array}{rrr}
+	    0 \amp 1 \amp 0 \\
+	    1 \amp 0 \amp 0 \\
+	    0 \amp 0 \amp 1 \\
+	    \end{array}\right]
+	    \left[\begin{array}{rrr}
+	    1 \amp 2 \amp -1 \\
+	    2 \amp 0 \amp 2 \\
+	    -3 \amp 2 \amp 3 \\
+	    \end{array}\right]
+	    =
+	    \left[\begin{array}{rrr}
+	    2 \amp 0 \amp 2 \\
+	    1 \amp 2 \amp -1 \\
+	    -3 \amp 2 \amp 3 \\
+	    \end{array}\right]\text{.}
+	  </me>
+	  To interchange the first and third rows, we would use
+	  <m>P=
+	  \left[\begin{array}{rrr}
+	  0 \amp 0 \amp 1 \\
+	  0 \amp 1 \amp 0 \\
+	  1 \amp 0 \amp 0 \\
+	  \end{array}\right]
+	  </m>.
+	</p></li>
+
+	<li><p>
+	  We compute that
+	  <me>L_1A =
+	  \left[\begin{array}{rrr}
+	  1 \amp 0 \amp 0 \\
+	  -2 \amp 1 \amp 0 \\
+	  0 \amp 0 \amp 1 \\
+	  \end{array}\right]
+	  \left[\begin{array}{rrr}
+	  1 \amp 2 \amp -1 \\
+	  2 \amp 0 \amp 2 \\
+	  -3 \amp 2 \amp 3 \\
+	  \end{array}\right]
+	  =
+	  \left[\begin{array}{rrr}
+	  1 \amp 2 \amp -1 \\
+	  0 \amp -4 \amp 4 \\
+	  -3 \amp 2 \amp 3 \\
+	  \end{array}\right]\text{.}
+	  </me>
+	  To multiply the first row by 3 and add to the third row, we
+	  would use
+	  <m>L_2=
+	  \left[\begin{array}{rrr}
+	  1 \amp 0 \amp 0 \\
+	  0 \amp 1 \amp 0 \\
+	  3 \amp 0 \amp 1 \\
+	  \end{array}\right]
+	  </m>.
+	</p></li>
+
+	<li><p>
+	  Keeping track of the operations we perform in Gaussian
+	  elimination, we define
+	  <me>
+	    \begin{array}{cc}
+	    L_1=
+	    \left[\begin{array}{rrr}
+	    1 \amp 0 \amp 0 \\
+	    -2 \amp 1 \amp 0 \\
+	    0 \amp 0 \amp 1 \\
+	    \end{array}\right],
+	    \amp
+	    L_2=
+	    \left[\begin{array}{rrr}
+	    1 \amp 0 \amp 0 \\
+	    0 \amp 1 \amp 0 \\
+	    3 \amp 0 \amp 1 \\
+	    \end{array}\right],
+	    \\
+	    S =
+	    \left[\begin{array}{rrr}
+	    1 \amp 0 \amp 0 \\
+	    0 \amp -\frac14 \amp 0 \\
+	    0 \amp 0 \amp 1 \\
+	    \end{array}\right],
+	    \amp
+	    L_3 =
+	    \left[\begin{array}{rrr}
+	    1 \amp 0 \amp 0 \\
+	    0 \amp 1 \amp 0 \\
+	    0 \amp -8 \amp 1 \\
+	    \end{array}\right]\text{.}
+	    \end{array}
+	  </me>
+	  Then <m>L_3SL_2L_1A = \left[\begin{array}{rrr}
+	  1 \amp 2 \amp -1 \\
+	  0 \amp 1 \amp -1 \\
+	  0 \amp 0 \amp 8 \\
+	  \end{array}\right]
+	  </m>.  So <m>L=L_3SL_2L_1 =
+	  \left[\begin{array}{rrr}
+	  1 \amp 0 \amp 0 \\
+	  \frac{1}{2} \amp -\frac{1}{4} \amp 0 \\
+	  -1 \amp 2 \amp 1
+	  \end{array}\right]
+	  </m>.
+	</p></li>
+	</ol></p>
+    </solution>
+	    
+    <answer>
+      <p><ol label="a.">
+	<li><p>
+	  To scale the third row by <m>-3</m>, we would use the matrix
+	  <m>S=
+	  \left[\begin{array}{rrr}
+	  1 \amp 0 \amp 0 \\
+	  0 \amp 1 \amp 0 \\
+	  0 \amp 0 \amp -3 \\
+	  \end{array}\right]
+	  </m>.
+	</p></li>
+
+	<li><p>
+	  To interchange the first and third rows, we would use
+	  <m>P=
+	  \left[\begin{array}{rrr}
+	  0 \amp 0 \amp 1 \\
+	  0 \amp 1 \amp 0 \\
+	  1 \amp 0 \amp 0 \\
+	  \end{array}\right]
+	  </m>.
+	</p></li>
+
+	<li><p>
+	  To multiply the first row by 3 and add to the third row, we
+	  would use
+	  <m>L_2=
+	  \left[\begin{array}{rrr}
+	  1 \amp 0 \amp 0 \\
+	  0 \amp 1 \amp 0 \\
+	  3 \amp 0 \amp 1 \\
+	  \end{array}\right]
+	  </m>.
+	</p></li>
+
+	<li><p>
+	  <m>L=
+	  \left[\begin{array}{rrr}
+	  1 \amp 0 \amp 0 \\
+	  \frac{1}{2} \amp -\frac{1}{4} \amp 0 \\
+	  -1 \amp 2 \amp 1
+	  \end{array}\right]
+	  </m>.
+	</p></li>
+	</ol></p>
+    </answer>
+	    
+  </exercise>
+	
+  <exercise>
+    <statement>
+      <p> In this exercise, you will construct the <em>inverse</em> of a
+      matrix, a subject that we will investigate more fully in the
+      next chapter.
+      Suppose that <m>A</m> is the <m>2\times2</m> matrix:
+      <me>
+	A = \left[\begin{array}{rr}
+	3 \amp -2 \\
+	-2 \amp 1 \\
+	\end{array}\right]
+      </me>.
+      <ol label="a.">
+	<li><p> 
+	  Find the vectors <m>\bvec_1</m> and <m>\bvec_2</m> such that
+	  the matrix <m>B=\left[\begin{array}{rr} \bvec_1 \amp \bvec_2
+	  \end{array}\right]</m> satisfies
+	  <me>
+	    AB = I =
+	    \left[\begin{array}{rr}
+	    1 \amp 0 \\
+	    0 \amp 1 \\
+	    \end{array}\right]
+	  </me>.
+	  <sage>
+	    <input>
+	    </input>
+	  </sage>
+	</p></li>
+
+	<li><p> In general, it is not true that <m>AB = BA</m>.  Check
+	that it is true, however, for the specific <m>A</m> and
+	<m>B</m> that appear in this problem.
+	  <sage>
+	    <input>
+	    </input>
+	  </sage>
+	</p></li>
+
+	<li><p> Suppose that <m>\xvec = \twovec{x_1}{x_2}</m>.  What
+	do you find when you evaluate <m>I\xvec</m>? </p></li>
+
+	<li><p> Suppose that we want to solve the equation <m>A\xvec =
+	\bvec</m>.  We know how to do this using Gaussian elimination;
+	let's use our matrix <m>B</m> to find a different way:
+	<me>
+	  \begin{aligned}
+	  A\xvec \amp {}={} \bvec \\
+	  B(A\xvec) \amp {}={} B\bvec \\
+	  (BA)\xvec \amp {}={} B\bvec \\
+	  I\xvec \amp {}={} B\bvec \\
+	  \xvec \amp {}={} B\bvec \\
+	  \end{aligned}
+	</me>.
+	In other words, the solution to the equation
+	<m>A\xvec=\bvec</m> is <m>\xvec = B\bvec</m>. </p>
+
+	<p> Consider the equation <m>A\xvec = \twovec{5}{-2}</m>.
+	Find the solution in two different ways, first using Gaussian
+	elimination and then as <m>\xvec = B\bvec</m>, and verify that
+	you have found the same result.</p>
+	<sage>
+	  <input>
+	  </input>
+	</sage>
+	</li>
+      </ol>
+      </p>
+    </statement>
+
+    <solution>
+      <p><ol label="a.">
+	<li><p>
+	  We find <m>\bvec_1</m> and <m>\bvec_2</m> by solving the
+	  equations
+	  <me>
+	    A\bvec_1=\twovec{1}{0}, A\bvec_2=\twovec{0}{1}\text{.}
+	  </me>
+	  This gives
+	  <me>
+	    B = \left[
+	    \begin{array}{rr}
+	    -1 \amp -2 \\
+	    -2 \amp -3 \\
+	    \end{array}\right]\text{.}
+	  </me>
+	</p></li>
+
+	<li><p> It is true, in this case, that <m>AB=BA=I</m>.
+	</p></li>
+
+	<li><p>
+	  We have seen that <m>I\xvec = \xvec</m>.
+	</p></li>
+
+	<li><p>
+	  If <m>\bvec=\twovec{5}{-2}</m>, then
+	  <m>\xvec=B\bvec=\twovec{-1}{-4}</m> is the solution to the
+	  equation
+	  <m>A\xvec=\bvec</m>.
+	</p></li>
+
+	</ol></p>
+    </solution>
+
+    <answer>
+      <p><ol label="a.">
+	<li><p>
+	  <m>
+	    B = \left[
+	    \begin{array}{rr}
+	    -1 \amp -2 \\
+	    -2 \amp -3 \\
+	    \end{array}\right]\text{.}
+	  </m>
+	</p></li>
+
+	<li><p> It is true, in this case, that <m>AB=BA=I</m>.
+	</p></li>
+
+	<li><p>
+	  <m>I\xvec = \xvec</m>.
+	</p></li>
+
+	<li><p>
+	  <m>\xvec=B\bvec=\twovec{-1}{-4}</m>.
+	</p></li>
+
+	</ol></p>
+    </answer>
+    
+  </exercise>
+  
+  <exercise>
+    <statement>
+      <p> Determine whether the following statements are true or false
+      and provide a justification for your response.
+      <ol label="a.">
+	<li><p>
+	  If <m>A\xvec</m> is defined, then the number of components
+	  of <m>\xvec</m> equals the number of rows of <m>A</m>.
+	</p></li>
+
+	<li><p>
+	  The solution space to the equation <m>A\xvec = \bvec</m> is
+	  equivalent to the solution space to the linear system whose
+	  augmented matrix is <m>\left[\begin{array}{r|r} A \amp \bvec
+	  \end{array}\right]</m>.
+	</p></li>
+
+	<li><p>
+	  If a linear system of equations has 8 equations and 5
+	  unknowns, then the dimensions of the matrix <m>A</m> in the
+	  corresponding equation <m>A\xvec = \bvec</m> is
+	  <m>5\times8</m>.
+	</p></li>
+
+	<li><p>
+	  If <m>A</m> has a pivot in every row, then every equation
+	  <m>A\xvec = \bvec</m> is consistent.
+	</p></li>
+
+	<li><p>
+	  If <m>A</m> is a <m>9\times5</m> matrix, then <m>A\xvec=\bvec</m>
+	  is inconsistent for some vector <m>\bvec</m>.
+	</p></li>
+      </ol></p>
+    </statement>
+
+    <solution>
+      <p><ol label="a.">
+	<li><p>
+	  False, the number of components of <m>\xvec</m> equals the
+	  number of columns of <m>A</m>.
+	</p></li>
+
+	<li><p>
+	  True.  This is a result of <xref
+	  ref="prop-matrix-eq-solution" />.
+	</p></li>
+
+	<li><p>
+	  False.  The dimensions of <m>A</m> would be <m>8\times5</m>.
+	</p></li>
+
+	<li><p>
+	  True, because the augmented matrix
+	  <m>\left[\begin{array}{r|r}
+	  A \amp \bvec
+	  \end{array}\right]
+	  </m>
+	  cannot have a pivot position in the rightmost column.
+	</p></li>
+
+	<li><p>
+	  True.  Because there is not a pivot position in every row of
+	  <m>A</m>, the augmented matrix 
+	  <m>\left[\begin{array}{r|r}
+	  A \amp \bvec
+	  \end{array}\right]
+	  </m>
+	  will have a pivot position in the rightmost column for some
+	  vectors <m>\bvec</m>.
+	</p></li>
+      </ol></p>
+    </solution>
+
+    <answer>
+      <p><ol label="a.">
+	<li><p> False</p></li>
+	<li><p> True </p></li>
+	<li><p> False</p></li>
+	<li><p> True</p></li>
+	<li><p> True</p></li>
+      </ol></p>
+    </answer>
+    
+  </exercise>
+
+  <exercise>
+    <statement>
+      <p> 
+	Suppose that <m>A</m> is an <m>4\times4</m> matrix and that
+	the equation <m>A\xvec = \bvec</m> has a unique solution for
+	some vector <m>\bvec</m>.
+	<ol label="a.">
+	<li><p>  What does this say about the pivots of the matrix
+	<m>A</m>?  Write the reduced row echelon form of <m>A</m>.
+	</p></li>
+
+	<li><p> Can you find another vector <m>\cvec</m> such that
+	<m>A\xvec = \cvec</m> is inconsistent?
+	</p></li>
+
+	<li><p> What can you say about the solution space to the
+	equation <m>A\xvec = \zerovec</m>? </p></li>
+
+	<li><p> Suppose <m>A=\left[\begin{array}{rrrr}
+	\vvec_1 \amp \vvec_2 \amp \vvec_3 \amp \vvec_4
+	\end{array}\right]</m>.  Explain why every four-dimensional
+	vector can be written as a linear combination of the vectors
+	<m>\vvec_1</m>, <m>\vvec_2</m>, <m>\vvec_3</m>, and
+	<m>\vvec_4</m> in exactly one way.
+	</p></li>
+	</ol>
+      </p>
+    </statement>
+
+    <solution>
+      <p><ol label="a.">
+	<li><p> Since the solution is unique, there must be a pivot
+	position in 
+	every column of <m>A</m>.  This means that there are four
+	pivot positions so there is a pivot position in every row.  In
+	other words,
+	<m>A \sim \left[\begin{array}{rrrr}
+	1 \amp 0 \amp 0 \amp 0 \\
+	0 \amp 1 \amp 0 \amp 0 \\
+	0 \amp 0 \amp 1 \amp 0 \\
+	0 \amp 0 \amp 0 \amp 1 \\
+	\end{array}\right]
+	</m>.
+	</p></li>
+
+	<li><p>No, because <m>A</m> has a pivot in every
+	row. </p></li>
+
+	<li><p> There is only one solution, which is
+	<m>\xvec=\zerovec</m>. </p></li>
+
+	<li><p> If <m>\bvec</m> is a four-dimensional vector, then
+	<m>A\xvec=\bvec</m> has a unique solution since <m>A</m> has a
+	pivot position in every row and every column.  This means that
+	<m>\bvec</m> can be written as a linear combination of the
+	columns of <m>A</m> in exactly one way.
+	</p></li>
+      </ol></p>
+    </solution>
+
+    <answer>
+      <p><ol label="a.">
+	<li><p>
+	  <m>A \sim \left[\begin{array}{rrrr}
+	  1 \amp 0 \amp 0 \amp 0 \\
+	  0 \amp 1 \amp 0 \amp 0 \\
+	  0 \amp 0 \amp 1 \amp 0 \\
+	  0 \amp 0 \amp 0 \amp 1 \\
+	  \end{array}\right]
+	  </m>.
+	</p></li>
+
+	<li><p> No </p></li>
+
+	<li><p> <m>\xvec=\zerovec</m>. </p></li>
+
+	<li><p> Every equation <m>A\xvec=\bvec</m> has exactly one
+	solution. </p></li>
+      </ol></p>
+    </answer>
+      
+  </exercise>
+
+  <exercise>
+    <statement>
+      <p> Define the matrix
+      <me>
+	A = \left[\begin{array}{rrr}
+	1 \amp 2 \amp 4 \\
+	-2 \amp 1 \amp -3 \\
+	3 \amp 1 \amp 7 \\
+	\end{array}\right]
+      </me>.
+      <ol label="a.">
+	<li><p> Describe the solution space to the homogeneous
+	equation <m>A\xvec = \zerovec</m>.  What does this solution
+	space represent geometrically?
+	<sage>
+	  <input>
+	  </input>
+	</sage>
+	</p></li>
+
+	<li><p> Describe the solution space to the equation <m>\bvec =
+	\threevec{-3}{-4}{1}</m>.  What does this solution space
+	represent geometrically and how does it compare to the
+	previous solution space?
+	<sage>
+	  <input>
+	  </input>
+	</sage>
+	</p></li>
+
+	<li><p>
+	  We will now explain the relationship between the previous
+	  two solution spaces.  Suppose that <m>\xvec_h</m> is a
+	  solution to the homogeneous equation;  that is
+	  <m>A\xvec_h=\zerovec</m>.  We will also suppose that
+	  <m>\xvec_p</m> is a solution to the equation <m>A\xvec =
+	  \bvec</m>;  that is, <m>A\xvec_p=\bvec</m>.
+	</p> 
+
+	<p> Use the Linearity Principle expressed in
+	<xref ref="prop-matrix-mult-prop" /> to explain why
+	<m>\xvec_h+\xvec_p</m> is a solution to the equation <m>A\xvec
+	= \bvec</m>.  You may do this by evaluating
+	<m>A(\xvec_h+\xvec_p)</m>.
+	</p>
+
+	<p> That is, if we find one solution <m>\xvec_p</m> to an
+	equation <m>A\xvec = \bvec</m>, we may add any solution to the
+	homogeneous equation 
+	to <m>\xvec_p</m> and still have a solution to the equation
+	<m>A\xvec = \bvec</m>.  In other words, the solution space to
+	the equation
+	<m>A\xvec = \bvec</m>
+	is given by translating the solution space to the homogeneous
+	equation by the vector <m>\xvec_p</m>.
+	</p></li>
+
+      </ol></p>
+    </statement>
+
+    <solution>
+      <p><ol label="a.">
+	<li><p> We have the augmented matrix
+	<me>
+	 \left[\begin{array}{rrr|r}
+	 1 \amp 2 \amp 4 \amp 0 \\
+	 -2 \amp 1 \amp -3 \amp 0 \\
+	 3 \amp 1 \amp 7 \amp 0 \\
+	 \end{array}\right]
+	 \sim
+	 \left[\begin{array}{rrr|r}
+	 1 \amp 0 \amp 2 \amp 0 \\
+	 0 \amp 1 \amp 1 \amp 0 \\
+	 0 \amp 0 \amp 0 \amp 0 \\
+	 \end{array}\right]
+	</me>
+	so that <m>\xvec = x_3\threevec{-2}{-1}{1}</m>.  The solution
+	space is a line that passes through the origin.
+	</p></li>
+
+	<li><p>
+	  Now we have
+	  <me>
+	    \left[\begin{array}{rrr|r}
+	    1 \amp 2 \amp 4 \amp -3 \\
+	    -2 \amp 1 \amp -3 \amp -4 \\
+	    3 \amp 1 \amp 7 \amp 1
+	    \end{array}\right]
+	    \sim
+	    \left[\begin{array}{rrr|r}
+	    1 \amp 0 \amp 2 \amp 1 \\
+	    0 \amp 1 \amp 1 \amp -2 \\
+	    0 \amp 0 \amp 0 \amp 0
+	    \end{array}\right]
+	  </me>
+	  so that
+	  <m>\xvec=\threevec{1}{-2}{0}+x_3\threevec{-2}{-1}{1}</m>.
+	  This is a line through <m>\threevec{1}{-2}{0}</m> parallel
+	  to <m>\threevec{-2}{-1}{1}</m>.  Notice that this line is
+	  parallel to the line in part a.
+	</p></li>
+
+	<li><p>
+	  Notice that
+	  <m>A(\xvec_h + \xvec_p) = A\xvec_h + A\xvec_p = \zerovec +
+	  \bvec = \bvec</m>.  This shows that if we add a vector from
+	  the solution space to <m>A\xvec=\zerovec</m> to a vector
+	  from the solution space to <m>A\xvec=\bvec</m>,  we obtain a
+	  vector in the solution space to <m>A\xvec=\bvec</m>.
+	</p></li>
+      </ol></p>
+    </solution>
+	
+    <answer>
+      <p><ol label="a.">
+	<li><p>
+	  <m>\xvec = x_3\threevec{-2}{-1}{1}</m>.
+	</p></li>
+
+	<li><p>
+	  <m>\xvec=\threevec{1}{-2}{0}+x_3\threevec{-2}{-1}{1}</m>.
+	</p></li>
+
+	<li><p>
+	  Notice that
+	  <m>A(\xvec_h + \xvec_p) = A\xvec_h + A\xvec_p = \zerovec +
+	  \bvec = \bvec</m>.
+	</p></li>
+      </ol></p>
+    </answer>
+	
+  </exercise>
+      
+  <exercise>
+    <statement>
+      <p> Suppose that a city is starting a bicycle sharing program
+      with bicycles at locations <m>B</m> and <m>C</m>.  Bicycles that
+      are rented at one location may be returned to either location at
+      the end of the day.  Over time, the city finds that 80<percent /> of
+      bicycles rented at location <m>B</m> are returned to <m>B</m>
+      with the other 20<percent /> returned to <m>C</m>.  Similarly, 50<percent /> of
+      bicycles rented at location <m>C</m> are returned to <m>B</m>
+      and 50<percent /> to <m>C</m>.
+      </p>
+
+      <p> To keep track of the bicycles, we form a vector
+      <me>
+	\xvec_k = \twovec{B_k}{C_k}
+      </me>
+      where <m>B_k</m> is the number of bicycles at location <m>B</m>
+      at the beginning of day <m>k</m> and <m>C_k</m> is the number of
+      bicycles at <m>C</m>.  The information above tells us
+      <me>
+	\xvec_{k+1} = A\xvec_k
+      </me>
+      where
+      <me>
+	A = \left[\begin{array}{rr}
+	0.8 \amp 0.5 \\
+	0.2 \amp 0.5 \\
+	\end{array}\right]
+	</me>.
+
+	<sage>
+	  <input>
+	  </input>
+	</sage>
+      <ol label="a.">
+	<li><p> Let's check that this makes sense.
+	<ol>
+	  <li><p> Suppose that there are 1000 bicycles at location
+	  <m>B</m> and none at <m>C</m> on day 1.  This means we have
+	  <m>\xvec_1 = \twovec{1000}{0}</m>.  Find the number of
+	  bicycles at both locations on day 2 by evaluating
+	  <m>\xvec_2 = A\xvec_1</m>. </p></li>
+
+	  <li><p> Suppose that there are 1000 bicycles at location
+	  <m>C</m> and none at <m>B</m> on day 1.  Form the vector
+	  <m>\xvec_1</m> and determine the number of bicycles at the
+	  two locations the next day by finding 
+	  <m>\xvec_2 = A\xvec_1</m>. </p></li>
+	</ol></p> </li>
+
+	<li> <p> Suppose that one day there are 1050 bicycles at
+	location <m>B</m> and 450 at location <m>C</m>.  How many
+	bicycles were there at each location the previous day?
+	</p> </li> 
+
+	<li> <p> Suppose that there are 500 bicycles at location
+	<m>B</m> and 500 at location <m>C</m> on Monday.  How many
+	bicycles are there at the two locations on Tuesday?  on
+	Wednesday? on Thursday?
+	</p></li>
+
+	
+      </ol></p>
+    </statement>
+
+    <solution>
+      <p><ol label="a.">
+	<li><p> We see that
+	<ol label="i.">
+	  <li><p> <m>x_2 = \twovec{800}{200}</m>. </p></li>
+	  <li><p> <m>x_2 = \twovec{500}{500}</m>. </p></li>
+	</ol>
+	</p></li>
+
+	<li><p> We solve the equation
+	<m>A\xvec = \twovec{1050}{450}</m> to obtain
+	<m>\xvec = \twovec{1000}{500}</m>.
+	</p></li>
+
+	<li><p> If <m>\xvec_1 = \twovec{500}{500}</m> represents the
+	distribution of bicycles on Monday, then <m>\xvec_2=A\xvec_1 =
+	\twovec{650}{350}</m> represents the distribution of bicycles
+	on Tuesday, <m>\xvec_3=A\xvec_2=\twovec{695}{305}</m>
+	represents the distribution of bicycles on Wednesday, and
+	<m>\xvec_4=A\xvec_3=\twovec{708.5}{291.5}</m> on Thursday.
+	</p></li>
+      </ol></p>
+    </solution>
+	  
+    <answer>
+      <p><ol label="a.">
+	<li><p> We see that
+	<ol label="i.">
+	  <li><p> <m>x_2 = \twovec{800}{200}</m>. </p></li>
+	  <li><p> <m>x_2 = \twovec{500}{500}</m>. </p></li>
+	</ol>
+	</p></li>
+
+	<li><p> 
+	  <m>\xvec = \twovec{1000}{500}</m>.
+	</p></li>
+
+	<li><p> 
+	  <m>\twovec{650}{350}</m> represents the distribution of bicycles
+	on Tuesday, <m>\twovec{695}{305}</m>
+	represents the distribution of bicycles on Wednesday, and
+	<m>\twovec{708.5}{291.5}</m> on Thursday.
+	</p></li>
+      </ol></p>
+    </answer>
+	  
+  </exercise>
+
+  <exercise>
+    <statement>
+      <p> This problem is a continuation of the previous problem.
+      <ol label="a.">
+	<li><p> Let us define vectors
+	<me> \vvec_1 = \twovec{5}{2}, \vvec_2 = \twovec{-1}{1}
+	</me>.
+	Show that
+	<me>
+	  A\vvec_1 = \vvec_1, A\vvec_2 = -0.3\vvec_2
+	</me>.
+	</p></li>
+
+	<li><p>
+	  Suppose that <m>\xvec_1 = c_1 \vvec_1 + c_2 \vvec_2</m>
+	  where <m>c_2</m> and <m>c_2</m> are scalars.  Use the 
+	  Linearity Principle expressed in <xref
+	  ref="prop-matrix-mult-prop" /> to explain why
+	  <me>
+	    \xvec_{2} = A\xvec_1 = c_1\vvec_1 -0.3c_2\vvec_2
+	  </me>.
+	</p></li>
+
+	<li><p>
+	  Continuing in this way, explain why
+	  <me>
+	    \begin{aligned}
+	    \xvec_{3} = A\xvec_2 \amp {}={} c_1\vvec_1 +(-0.3)^2c_2\vvec_2 \\
+	    \xvec_{4} = A\xvec_3 \amp {}={} c_1\vvec_1 +(-0.3)^3c_2\vvec_2 \\
+	    \xvec_{5} = A\xvec_4 \amp {}={} c_1\vvec_1 +(-0.3)^4c_2\vvec_2 \\
+	    \end{aligned}
+	    </me>.
+	</p></li>
+
+	<li> <p> Suppose that there are initially 500 bicycles at
+	location <m>B</m> and 500 at location <m>c</m>.  Write the
+	vector <m>\xvec_1</m> and find the scalars <m>c_1</m> and
+	<m>c_2</m> such that <m>\xvec_1=c_1\vvec_1 + c_2\vvec_2</m>.
+	</p></li>
+
+	<li><p> Use the previous part of this problem to determine
+	<m>\xvec_2</m>, <m>\xvec_3</m> and <m>\xvec_4</m>. </p></li>
+
+	<li><p> After a very long time, how are all the bicycles
+	distributed? </p></li>
+      </ol></p>
+	    
+    </statement>
+  </exercise>
+
+  <solution>
+    <p><ol label="a.">
+      <li><p>
+	<m>A\vvec_1 = \twovec{5}{2} = \vvec_1</m> and
+	<m>A\vvec_2 = \twovec{0.3}{-0.3} = -0.3\vvec_2</m>.
+      </p></li>
+
+      <li><p> We have
+      <me>
+	\begin{array}{rl}
+	\xvec_2=A\xvec_1 = \amp A(c_1\vvec_1+c_2\vvec_2) \\
+	=\amp c_1A\vvec_1 + c_2A\vvec_2 =
+	c_1\vvec_1 -0.3c_2\vvec_2\text{.}
+	\end{array}
+      </me>
+      </p></li>
+
+      <li><p>
+	<me>
+	  \begin{array}{rl}
+	\xvec_3=A\xvec_2=\amp A(c_1\vvec_1-0.3c_2\vvec_2) \\
+	= \amp c_1A\vvec_1 -0.3c_2A\vvec_2 =
+	c_1\vvec_1 +(-0.3)^2c_2\vvec_2\text{.}
+	\end{array}
+	</me>
+	and so on.
+      </p></li>
+
+      <li><p>
+	We find that
+	<me>\xvec_1=\twovec{500}{500} = \frac{1000}{7}\vvec_1 +
+	\frac{1500}{7}\vvec_2</me>.
+      </p></li>
+
+      <li><p>
+	Then
+	<me>
+	  \begin{array}{l}
+	  \xvec_2=\frac{1000}{7}\vvec_1 - (0.3)\frac{1000}{7}\vvec{2},
+	  \\
+	  \xvec_3=\frac{1000}{7}\vvec_1 + (0.3)^2\frac{1000}{7}\vvec{2},
+	  \\
+	  \xvec_4=\frac{1000}{7}\vvec_1 -
+	  (0.3)^3\frac{1000}{70}\vvec{2}\text{.}
+	  \end{array}
+	  </me>
+      </p></li>
+
+      <li><p> After a very long time, the second term becomes
+      increasingly close to zero and so
+      <me>\xvec\approx\frac{1000}{7}\vvec_1 = \twovec{5000/7}{2000/7}
+      = \twovec{714.3}{285.7}\text{.}
+      </me>
+      </p></li>
+    </ol></p>
+  </solution>
+
+  <answer>
+    <p><ol label="a.">
+      <li><p>
+	<m>A\vvec_1 = \twovec{5}{2} = \vvec_1</m> and
+	<m>A\vvec_2 = \twovec{0.3}{-0.3} = -0.3\vvec_2</m>.
+      </p></li>
+
+      <li><p> We have
+      <me>
+	\begin{array}{rl}
+	\xvec_2=A\xvec_1 = \amp A(c_1\vvec_1+c_2\vvec_2) \\
+	=\amp c_1A\vvec_1 + c_2A\vvec_2 =
+	c_1\vvec_1 -0.3c_2\vvec_2\text{.}
+	\end{array}
+      </me>
+      </p></li>
+
+      <li><p>
+	<me>
+	  \begin{array}{rl}
+	\xvec_3=A\xvec_2=\amp A(c_1\vvec_1-0.3c_2\vvec_2) \\
+	= \amp c_1A\vvec_1 -0.3c_2A\vvec_2 =
+	c_1\vvec_1 +(-0.3)^2c_2\vvec_2\text{.}
+	\end{array}
+	</me>
+	and so on.
+      </p></li>
+
+      <li><p>
+	We find that
+	<me>\xvec_1=\twovec{500}{500} = \frac{1000}{7}\vvec_1 +
+	\frac{1500}{7}\vvec_2</me>.
+      </p></li>
+
+      <li><p>
+	Then
+	<me>
+	  \begin{array}{l}
+	  \xvec_2=\frac{1000}{7}\vvec_1 - (0.3)\frac{1000}{7}\vvec{2},
+	  \\
+	  \xvec_3=\frac{1000}{7}\vvec_1 + (0.3)^2\frac{1000}{7}\vvec{2},
+	  \\
+	  \xvec_4=\frac{1000}{7}\vvec_1 -
+	  (0.3)^3\frac{1000}{70}\vvec{2}\text{.}
+	  \end{array}
+	  </me>
+      </p></li>
+
+      <li><p> After a very long time, the second term becomes
+      increasingly close to zero and so
+      <me>\xvec\approx\frac{1000}{7}\vvec_1 = \twovec{5000/7}{2000/7}
+      = \twovec{714.3}{285.7}\text{.}
+      </me>
+      </p></li>
+    </ol></p>
+  </answer>
+
+</exercises>
+  

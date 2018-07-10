@@ -1,0 +1,963 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<exercises>
+
+  <exercise>
+    <statement>
+      <p>
+	Consider the matrix
+	<me>
+	  A = \left[\begin{array}{rrrr}
+	  3 \amp -1 \amp 1 \amp 4 \\
+	  0 \amp 2 \amp 3 \amp 1 \\
+	  -2 \amp 1 \amp 0 \amp -2 \\
+	  3 \amp 0 \amp 1 \amp 2 \\
+	  \end{array}\right]
+	</me>.
+	<sage>
+	  <input>
+	  </input>
+	</sage>
+	<ol label="a.">
+	  <li><p> Explain why <m>A</m> has an
+	  inverse. </p></li>
+
+	  <li><p> Find the inverse of <m>A</m> by augmenting by the
+	  identity <m>I</m> to form <m>\left[\begin{array}{r|r}A \amp
+	  I \end{array}\right]</m>. </p></li>
+
+	  <li><p> Use your inverse to solve the equation <m>A\xvec =
+	  \fourvec{3}{2}{-3}{-1}</m>. </p></li>
+	</ol>
+      </p>
+    </statement>
+
+    <solution>
+      <p><ol label="a.">
+	<li><p>
+	  We see that <m>A\sim I</m>, the identity matrix, which
+	  implies that <m>A</m> has an inverse.
+	</p></li>
+
+	<li><p>
+	  We have
+	  <me>
+	    \begin{array}{l}
+	    \left[\begin{array}{rrrr|rrrr}
+	    3 \amp -1 \amp 1 \amp 4 \amp 1 \amp 0 \amp 0 \amp 0 \\
+	    0 \amp 2 \amp 3 \amp 1 \amp 0 \amp 1 \amp 0 \amp 0 \\
+	    -2 \amp 1 \amp 0 \amp -1 \amp 0 \amp 0 \amp 1 \amp 0 \\
+	    3 \amp 0 \amp 1 \amp 2 \amp 0 \amp 0 \amp 0 \amp 1
+	    \end{array}\right] \\
+	    \sim
+	    \left[\begin{array}{rrrr|rrrr}
+	    1 \amp 0 \amp 0 \amp 0 \amp -\frac{3}{11} \amp -\frac{1}{11} \amp -\frac{1}{11} \amp \frac{6}{11} \\
+	    0 \amp 1 \amp 0 \amp 0 \amp -\frac{1}{11} \amp -\frac{4}{11} \amp \frac{18}{11} \amp \frac{13}{11} \\
+	    0 \amp 0 \amp 1 \amp 0 \amp -\frac{1}{11} \amp \frac{7}{11} \amp -\frac{15}{11} \amp -\frac{9}{11} \\
+	    0 \amp 0 \amp 0 \amp 1 \amp \frac{5}{11} \amp -\frac{2}{11} \amp \frac{9}{11} \amp \frac{1}{11}
+	    \end{array}\right]\text{,}
+	    \end{array}
+	  </me>
+	  which says that
+	  <me>
+	    A^{-1} =
+	    \left[\begin{array}{rrrr}
+	    -\frac{3}{11} \amp -\frac{1}{11} \amp -\frac{1}{11} \amp \frac{6}{11} \\
+	    -\frac{1}{11} \amp -\frac{4}{11} \amp \frac{18}{11} \amp \frac{13}{11} \\
+	    -\frac{1}{11} \amp \frac{7}{11} \amp -\frac{15}{11} \amp -\frac{9}{11} \\
+	    \frac{5}{11} \amp -\frac{2}{11} \amp \frac{9}{11} \amp \frac{1}{11}
+	    \end{array}\right]\text{.}
+	  </me>
+	</p></li>
+
+	<li><p>
+	  We compute that <m>\xvec=A^{-1}\fourvec{3}{2}{-3}{-1} =
+	  \fourvec{-14/11}{-78/11}{65/11}{-17/11}
+	  </m>.
+	</p></li>
+      </ol></p>
+    </solution>
+
+    <answer>
+      <p><ol label="a.">
+	<li><p>
+	  <m>A\sim I</m>
+	</p></li>
+
+	<li><p>
+	  <m>
+	    A^{-1} =
+	    \left[\begin{array}{rrrr}
+	    -\frac{3}{11} \amp -\frac{1}{11} \amp -\frac{1}{11} \amp \frac{6}{11} \\
+	    -\frac{1}{11} \amp -\frac{4}{11} \amp \frac{18}{11} \amp \frac{13}{11} \\
+	    -\frac{1}{11} \amp \frac{7}{11} \amp -\frac{15}{11} \amp -\frac{9}{11} \\
+	    \frac{5}{11} \amp -\frac{2}{11} \amp \frac{9}{11} \amp \frac{1}{11}
+	    \end{array}\right]
+	  </m>
+	</p></li>
+
+	<li><p>
+	  <m>\xvec=
+	  \fourvec{-14/11}{-78/11}{65/11}{-17/11}
+	  </m>.
+	</p></li>
+      </ol></p>
+    </answer>
+	
+  </exercise>
+
+  <exercise>
+    <statement>
+      <p> In this exercise, we will consider <m>2\times 2</m> matrices
+      as defining linear transformations.
+      <ol label="a.">
+	<li><p> Write the matrix <m>A</m> that performs a <m>45^\circ</m>
+	rotation.  What geometric operation undoes this rotation?
+	Find the matrix that perform this operation and verify that it
+	is <m>A^{-1}</m>.  </p></li>
+
+	<li><p> Write the matrix <m>A</m> that performs a
+	<m>180^\circ</m> rotation.  Verify that <m>A^2 = I</m> so that
+	<m>A^{-1} = A</m>, and explain geomtrically why this is the
+	case.  </p></li>
+
+	<li><p> Find three more matrices <m>A</m> that satisfy <m>A^2
+	= I</m>. </p></li>
+      </ol></p>
+    </statement>
+
+    <solution>
+      <p><ol label="a.">
+	<li><p>
+	  <m>A=\left[\begin{array}{rr}
+	  \frac1{\sqrt{2}} \amp -\frac1{\sqrt{2}} \\
+	  \frac1{\sqrt{2}} \amp \frac1{\sqrt{2}} \\
+	  \end{array}\right]</m>.  To undo the rotation, we will
+	  perform a <m>45^\circ</m> clockwise rotation, which is
+	  defined by the matrix
+	  <m>A^{-1}=\left[\begin{array}{rr}
+	  \frac1{\sqrt{2}} \amp \frac1{\sqrt{2}} \\
+	  -\frac1{\sqrt{2}} \amp \frac1{\sqrt{2}} \\
+	  \end{array}\right]</m>.
+	</p></li>
+
+	<li><p>
+	  <m>A=\left[\begin{array}{rr}
+	  -1 \amp 0 \\
+	  0 \amp -1 \\
+	  \end{array}\right]</m>.  We see that <m>A^2=I</m> because
+	  rotating by <m>180^\circ</m> is its own inverse.
+	</p></li>
+
+	<li><p>
+	  We can do this by constructing matrices that define
+	  reflections, such as
+	  <me>
+	    \left[\begin{array}{rr}
+	    1 \amp 0 \\
+	    0 \amp -1 \\
+	    \end{array}\right],
+	    \left[\begin{array}{rr}
+	    -1 \amp 0 \\
+	    0 \amp 1 \\
+	    \end{array}\right],
+	    \left[\begin{array}{rr}
+	    0 \amp 1 \\
+	    1 \amp 0 \\
+	    \end{array}\right]\text{.}
+	  </me>
+	</p></li>
+      </ol></p>
+    </solution>
+
+    <answer>
+      <p><ol label="a.">
+	<li><p>
+	  <m>A=\left[\begin{array}{rr}
+	  \frac1{\sqrt{2}} \amp -\frac1{\sqrt{2}} \\
+	  \frac1{\sqrt{2}} \amp \frac1{\sqrt{2}} \\
+	  \end{array}\right]</m>
+	  and
+	  <m>A^{-1}=\left[\begin{array}{rr}
+	  \frac1{\sqrt{2}} \amp \frac1{\sqrt{2}} \\
+	  -\frac1{\sqrt{2}} \amp \frac1{\sqrt{2}} \\
+	  \end{array}\right]</m>.
+	</p></li>
+
+	<li><p>
+	  <m>A=\left[\begin{array}{rr}
+	  -1 \amp 0 \\
+	  0 \amp -1 \\
+	  \end{array}\right]</m>.  
+	</p></li>
+
+	<li><p>
+	  <me>
+	    \left[\begin{array}{rr}
+	    1 \amp 0 \\
+	    0 \amp -1 \\
+	    \end{array}\right],
+	    \left[\begin{array}{rr}
+	    -1 \amp 0 \\
+	    0 \amp 1 \\
+	    \end{array}\right],
+	    \left[\begin{array}{rr}
+	    0 \amp 1 \\
+	    1 \amp 0 \\
+	    \end{array}\right]\text{.}
+	  </me>
+	</p></li>
+      </ol></p>
+    </answer>
+	  
+  </exercise>
+
+  <exercise>
+    <statement>
+      <p> Suppose that <m>A</m> is an <m>n\times n</m> matrix.
+      <ol label="a.">
+	<li><p> Suppose that <m>A^2 = AA</m> is invertible with
+	inverse <m>B</m>.  This means that <m>BA^2 = BAA = I</m>.
+	Explain why <m>A</m> must be invertible with inverse
+	<m>BA</m>. </p></li>
+
+	<li><p> Suppose that <m>A^{100}</m> is invertible with inverse
+	<m>B</m>.  Explain why <m>A</m> is invertible.  What is
+	<m>A^{-1}</m> in terms of <m>A</m> and <m>B</m>? </p></li>
+      </ol></p>
+    </statement>
+
+    <solution>
+      <p><ol label="a.">
+	<li><p>
+	  If <m>A^2</m> has inverse <m>B</m>, then <m>BA^2 = I</m>.
+	  This means that <m>(BA)A=I</m> so <m>A</m> is invertible
+	  with inverse <m>BA</m>.
+	</p></li>
+
+	<li><p>
+	  In the same way, we have <m>BA^{100} = (BA^{99})A=I</m>,
+	  which shows that <m>A^{-1}=BA^{99}</m>.
+	</p></li>
+      </ol></p>
+    </solution>
+    <answer>
+      <p><ol label="a.">
+	<li><p>
+	  If <m>A^2</m> has inverse <m>B</m>, then <m>BA^2 = I</m>.
+	  This means that <m>(BA)A=I</m> so <m>A</m> is invertible
+	  with inverse <m>BA</m>.
+	</p></li>
+
+	<li><p>
+	  In the same way, we have <m>BA^{100} = (BA^{99})A=I</m>,
+	  which shows that <m>A^{-1}=BA^{99}</m>.
+	</p></li>
+      </ol></p>
+    </answer>
+  </exercise>
+
+  <exercise>
+    <statement>
+      <p>
+	Our definition of an invertible matrix requires that <m>A</m>
+	be a square <m>n\times n</m> matrix.  Let's examine what
+	happens when <m>A</m> is not square.  For instance, suppose
+	that 
+	<me>
+	  A = \left[\begin{array}{rr}
+	  -1 \amp -1 \\
+	  -2 \amp -1 \\
+	  3 \amp 0 \\
+	  \end{array}\right],
+	  \hspace{24pt}
+	  B = \left[\begin{array}{rrr}
+	  -2 \amp 2 \amp 1 \\
+	  1 \amp -2 \amp -1 \\
+	  \end{array}\right]
+	</me>.
+	<ol label="a.">
+	  <li><p>
+	    Verify that <m>BA = I_2</m>.  In this case, we say that
+	    <m>B</m> is a <em>left</em> inverse of <m>A</m>.
+	    <sage>
+	      <input>
+	      </input>
+	    </sage>
+	  </p></li>
+
+	  <li><p> If <m>A</m> has a left inverse <m>B</m>, we can
+	  still use it to find solutions to linear equations.  If we
+	  know there is a solution to the equation
+	  <m>A\xvec = \bvec</m>, we can
+	  multiply both sides of the equation by <m>B</m> to find
+	  <m>\xvec = B\bvec</m>.
+	</p>
+	<p>
+	  Suppose you know there is a solution to the equation
+	  <m>A\xvec = \threevec{-1}{-3}{6}</m>.  Use the left inverse
+	  <m>B</m> to find <m>\xvec</m> and verify that it is a
+	  solution.  </p></li>
+
+	  <li><p> Now consider the matrix
+	  <me>
+	    C = \left[\begin{array}{rrr}
+	    1 \amp -1 \amp 0 \\
+	    -2 \amp 1 \amp 0 \\
+	    \end{array}\right]
+	  </me> and verify that <m>C</m> is also a left inverse of
+	  <m>A</m>.  This shows that the matrix <m>A</m> may have more
+	  than one left inverse.
+	  </p></li>
+      
+	  <li><p> 
+	  When <m>A</m> is a <em>square</em> 
+	  matrix, we said that <m>BA=I</m> implies that <m>AB=I</m>.
+	  In this problem, we have a non-square matrix <m>A</m> with
+	  <m>BA = I</m>.  What happens when we compute
+	  <m>AB</m>?  </p></li>
+	</ol>
+      </p>
+    </statement>
+
+    <solution>
+      <p><ol label="a.">
+	<li><p>
+	  We compute that <m>BA=I_2</m>.
+	</p></li>
+
+	<li><p>
+	  We find <m>\xvec=B\threevec{-1}{-3}{6} = \twovec{2}{-1}</m>,
+	  which is indeed a solution to the equation
+	  <m>A\xvec=\threevec{-1}{-3}{6}</m>.
+	</p></li>
+
+	<li><p>
+	  In the same way, we compute <m>CA=I_2</m>.
+	</p></li>
+
+	<li><p>
+	  In this example, the product <m>AB</m> is a <m>3\times3</m>
+	  matrix, which is different than the identity.  This shows
+	  that <m>A</m> is not a left-inverse of <m>B</m>.
+	</p></li>
+      </ol></p>
+    </solution>
+
+    <answer>
+      <p><ol label="a.">
+	<li><p>
+	  <m>BA=I_2</m>.
+	</p></li>
+
+	<li><p>
+	  <m>\xvec= \twovec{2}{-1}</m>
+	</p></li>
+
+	<li><p>
+	  <m>CA=I_2</m>.
+	</p></li>
+
+	<li><p>
+	  <m>A</m> is not a left-inverse of <m>B</m>.
+	</p></li>
+      </ol></p>
+    </answer>
+  </exercise>
+
+  <exercise>
+    <statement>
+      <p> If a matrix <m>A</m> is invertible, there is a sequence of
+      row operations that transform the matrix <m>A</m> into the
+      identify <m>I</m>.  We have seen that every row operation can be
+      performed by matrix multiplication.  If the <m>j^{th}</m> step
+      in the Gaussian elimination process is performed by multiplying
+      by <m>E_j</m>, then we have
+      <me>
+	E_p\ldots E_2E_1 A = I
+      </me>,
+      which means that
+      <me>
+	A^{-1} = E_p\ldots E_2E_1
+      </me>.
+      For each of the following matrices, find a sequence of row
+      operations that transforms the matrix to the identity <m>I</m>.
+      Write the matrices <m>E_j</m> that perform the steps and use
+      them to find <m>A^{-1}</m>.
+      <ol label="a.">
+	<li><p>
+	  <me>A = \left[\begin{array}{rrr}
+	  0 \amp 2 \amp 0 \\
+	  -3 \amp 0 \amp 0 \\
+	  0 \amp 0 \amp 1 \\
+	  \end{array}\right]
+	  </me>.
+	</p></li>
+
+      	<li><p>
+	  <me>A = \left[\begin{array}{rrrr}
+	  1 \amp 0 \amp 0 \amp 0 \\
+	  2 \amp 1 \amp 0 \amp 0 \\
+	  0 \amp -3 \amp 1 \amp 0 \\
+	  0 \amp 0 \amp 2 \amp 1 \\
+	  \end{array}\right]
+	  </me>.
+	</p></li>
+
+	<li><p>
+	  <me>A = \left[\begin{array}{rrr}
+	  1 \amp 1 \amp 1 \\
+	  0 \amp 1 \amp 1 \\
+	  0 \amp 0 \amp 2 \\
+	  \end{array}\right]
+	  </me>.
+	</p></li>
+
+      </ol></p>
+    </statement>
+
+    <solution>
+      <p><ol label="a.">
+	<li><p>
+	  If
+	  <me>
+	    P =
+	    \left[\begin{array}{rrr}
+	    0 \amp 1 \amp 0 \\
+	    1 \amp 0 \amp 0 \\
+	    0 \amp 0 \amp 1 \\
+	    \end{array}\right],
+	    S_1 =
+	    \left[\begin{array}{rrr}
+	    -\frac13 \amp 0 \amp 0 \\
+	    0 \amp 1 \amp 0 \\
+	    0 \amp 0 \amp 1 \\
+	    \end{array}\right],
+	    S_2 =
+	    \left[\begin{array}{rrr}
+	    1 \amp 0 \amp 0 \\
+	    0 \amp \frac12 \amp 0 \\
+	    0 \amp 0 \amp 1 \\
+	    \end{array}\right]\text{,}
+	  </me>
+	  then <m>S_2S_1P A = I</m> so that <m>A^{-1}=S_2S_1P=
+	  \left[\begin{array}{rrr}
+	  0 \amp -\frac13 \amp 0 \\
+	  \frac12 \amp 0 \amp 0 \\
+	  0 \amp 0 \amp 1 \\
+	  \end{array}\right]
+	  </m>.
+	</p></li>
+
+	<li><p>
+	  We use three replacement operations
+	  <me>
+	    \begin{array}{l}
+	    L_1 =
+	    \left[\begin{array}{rrrr}
+	    1 \amp 0 \amp 0 \amp 0 \\
+	    -2 \amp 1 \amp 0 \amp 0 \\
+	    0 \amp 0 \amp 1 \amp 0 \\
+	    0 \amp 0 \amp 0 \amp 1 \\
+	    \end{array}\right],
+	    L_2 =
+	    \left[\begin{array}{rrrr}
+	    1 \amp 0 \amp 0 \amp 0 \\
+	    0 \amp 1 \amp 0 \amp 0 \\
+	    0 \amp 3 \amp 1 \amp 0 \\
+	    0 \amp 0 \amp 0 \amp 1 \\
+	    \end{array}\right], \\
+	    L_3 =
+	    \left[\begin{array}{rrrr}
+	    1 \amp 0 \amp 0 \amp 0 \\
+	    0 \amp 1 \amp 0 \amp 0 \\
+	    0 \amp 0 \amp 1 \amp 0 \\
+	    0 \amp 0 \amp -2 \amp 1 \\
+	    \end{array}\right]\text{.}
+	    \end{array}
+	  </me>
+	  Therefore, <m>L_3L_2L_1A = I</m> so <m>A^{-1} = L_3L_2L_1 =
+	    \left[\begin{array}{rrrr}
+	    1 \amp 0 \amp 0 \amp 0 \\
+	    -2 \amp 1 \amp 0 \amp 0 \\
+	    -6 \amp 3 \amp 1 \amp 0 \\
+	    12 \amp -6 \amp -2 \amp 1 \\
+	    \end{array}\right]
+	  </m>.
+	</p></li>
+
+	<li><p>
+	  We use a scaling followed by replacement operations:
+	  <me>
+	    S =
+	    \left[\begin{array}{rrr}
+	    1 \amp 0 \amp 0 \\
+	    0 \amp 1 \amp 0 \\
+	    0 \amp 0 \amp \frac12 \\
+	    \end{array}\right],
+	    U_1 =
+	    \left[\begin{array}{rrr}
+	    1 \amp 0 \amp -1 \\
+	    0 \amp 1 \amp -1 \\
+	    0 \amp 0 \amp 1 \\
+	    \end{array}\right],
+	    U_2 = 
+	    \left[\begin{array}{rrr}
+	    1 \amp -1 \amp 0 \\
+	    0 \amp 1 \amp 0 \\
+	    0 \amp 0 \amp 1 \\
+	    \end{array}\right]\text{.}
+	  </me>
+	  This gives <m>U_2U_1SA = I</m> so that
+	  <m>
+	    A^{-1} = U_2U_1S =
+	    \left[\begin{array}{rrr}
+	    1 \amp -1 \amp 0 \\
+	    0 \amp 1 \amp -\frac12 \\
+	    0 \amp 0 \amp \frac12 \\
+	    \end{array}\right]
+	    </m>.
+	</p></li>
+      </ol></p>
+    </solution>
+
+    <answer>
+      <p><ol label="a.">
+	<li><p>
+	  <m>A^{-1}=
+	  \left[\begin{array}{rrr}
+	  0 \amp -\frac13 \amp 0 \\
+	  \frac12 \amp 0 \amp 0 \\
+	  0 \amp 0 \amp 1 \\
+	  \end{array}\right]
+	  </m>.
+	</p></li>
+
+	<li><p>
+	  <m>A^{-1} = 
+	    \left[\begin{array}{rrrr}
+	    1 \amp 0 \amp 0 \amp 0 \\
+	    -2 \amp 1 \amp 0 \amp 0 \\
+	    -6 \amp 3 \amp 1 \amp 0 \\
+	    12 \amp -6 \amp -2 \amp 1 \\
+	    \end{array}\right]
+	  </m>.
+	</p></li>
+
+	<li><p>
+	  <m>
+	    A^{-1} = 
+	    \left[\begin{array}{rrr}
+	    1 \amp -1 \amp 0 \\
+	    0 \amp 1 \amp -\frac12 \\
+	    0 \amp 0 \amp \frac12 \\
+	    \end{array}\right]
+	    </m>.
+	</p></li>
+      </ol></p>
+    </answer>
+    
+  </exercise>
+
+  <exercise>
+    <statement>
+      <p>
+	Determine whether the following statements are true or false
+	and explain your reasoning.
+	<ol label="a.">
+	  <li><p> If <m>A</m> is invertible, then the columns of
+	  <m>A</m> are linearly independent. </p></li>
+
+	  <li><p> If <m>A</m> is a square matrix whose diagonal
+	  entries are all nonzero, then <m>A</m> is
+	  invertible.</p></li>
+
+	  <li><p> If <m>A</m> is an invertible <m>n\times n</m>
+	  matrix, then the columns of <m>A</m> span
+	  <m>\real^n</m>. </p></li> 
+
+	  <li><p> If <m>A</m> is invertible, then there is a
+	  nontrivial solution to the homogeneous equation <m>A\xvec =
+	  \zerovec</m>. </p></li>
+
+	  <li><p> If <m>A</m> is an <m>n\times n</m> matrix and the
+	  equation <m>A\xvec = \bvec</m> has a solution for every
+	  vector <m>\bvec</m>, then <m>A</m> is invertible. </p></li>
+	</ol>
+      </p>
+    </statement>
+
+    <solution>
+      <p><ol label="a.">
+	<li><p>
+	  True.  If <m>A</m> is invertible, then it has a pivot
+	  position in every column, which implies that the columns are
+	  linearly independent.
+	</p></li>
+
+	<li><p>
+	  False.  We only know this if <m>A</m> is a triangular
+	  matrix.  For instance, the matrix <m>\left[\begin{array}{rr}
+	  1 \amp 1 \\
+	  1 \amp 1 \\
+	  \end{array}\right]</m> is not invertible.
+	</p></li>
+
+	<li><p>
+	  True.  If <m>A</m> is invertible, then it has a pivot
+	  position in every row, which implies that the columns 
+	  span <m>\real^n</m>.
+	</p></li>
+
+	<li><p>
+	  False. Since there is a pivot position in every column, the
+	  homogeneous equation <m>A\xvec=\zerovec</m> has only the
+	  trivial solution <m>\xvec=\zerovec</m>.
+	</p></li>
+
+	<li><p>
+	  True.  In this case, the columns of <m>A</m> span
+	  <m>\real^n</m> so there must be a pivot position in every
+	  row.  Because <m>A</m> is a square matrix, it must be row
+	  equivalent to the identity matrix <m>I</m>.
+	</p></li>
+
+      </ol></p>
+    </solution>
+
+    <answer>
+      <p><ol label="a.">
+	<li><p> True </p></li>
+	<li><p> False </p></li>
+	<li><p> True </p></li>
+	<li><p> False</p></li>
+	<li><p> True </p></li>
+      </ol></p>
+    </answer>
+  </exercise>
+
+  <exercise>
+    <statement>
+      <p> Provide a justification for your response to the following
+      questions.
+      <ol label="a.">
+	<li><p> Suppose that <m>A</m> is a square matrix with two
+	identical columns.  Can <m>A</m> be invertible? </p></li>
+
+	<li><p> Suppose that <m>A</m> is a square matrix with two
+	identical rows.  Can <m>A</m> be invertible? </p></li>
+
+	<li><p> Suppose that <m>A</m> is an invertible matrix and that
+	<m>AB = AC</m>.  Can you conclude that <m>B = C</m>? </p></li>
+
+	<li><p> Suppose that <m>A</m> is an invertible <m>n\times
+	n</m> matrix.  What can you say about the span of the columns
+	of <m>A^{-1}</m>? </p></li>
+
+	<li><p> Suppose that <m>A</m> is an invertible matrix and that
+	<m>B</m> is row equivalent to <m>A</m>. 
+	Can you guarantee that <m>B</m> is invertible?
+	</p></li> 
+      </ol>
+      </p>
+    </statement>
+
+    <solution>
+      <p><ol label="a.">
+	<li><p>
+	  No.  If <m>A</m> has two identical columns, then the columns
+	  are not linearly independent.  This means there is a column
+	  without a pivot position and so <m>A</m> is not row
+	  equivalent to the identity matrix <m>I</m>.
+	</p></li>
+
+	<li><p>
+	  No.  If we perform a replacement operation that multiplies
+	  one of the equal rows by <m>-1</m> and adds it to the other
+	  equal row, we obtain a matrix having a row whose entries are all
+	  zero.  This says that the reduced row echelon form has such a
+	  row as well.  Therefore, there is a row that does not
+	  contain a pivot so the reduced row echelon form cannot be
+	  the identity <m>I</m>.
+	</p></li>
+
+	<li><p>
+	  Yes.  If we multiply both sides of <m>AB=AC</m> by
+	  <m>A^{-1}</m> on the left, then we see that <m>B=C</m>.
+	</p></li>
+
+	<li><p>
+	  The inverse <m>A^{-1}</m> is also invertible since <m>A</m>
+	  is its inverse.  Therefore, the span of the columns of
+	  <m>A^{-1}</m> is <m>\real^n</m>.
+	</p></li>
+
+	<li><p>
+	  Yes.  Since <m>A</m> is row equivalent to the identity
+	  matrix <m>I</m>, the matrix <m>B</m> is as well.  Therefore,
+	  <m>B</m> is invertible.
+	</p></li>
+      </ol></p>
+    </solution>
+
+    <answer>
+      <p><ol label="a.">
+	<li><p> No </p></li>
+	<li><p> No </p></li>
+	<li><p> Yes </p></li>
+	<li><p> The span is <m>\real^n</m>. </p></li>
+	<li><p> Yes </p></li>
+      </ol></p>
+    </answer>
+  </exercise>
+
+  <exercise>
+    <statement>
+      <p>
+	Suppose that we start with the <m>3\times3</m> matrix <m>A</m>
+	and perform the following sequence of row operations:
+	<ol label="1.">
+	  <li><p>  Multiply row 1 by -2 and add to row 2. </p></li>
+	  <li><p>  Multiply row 1 by 4 and add to row 3. </p></li>
+	  <li><p>  Scale row 2 by <m>1/2</m>. </p></li>
+	  <li><p>  Multiply row 2 by -1 and add to row 3. </p></li>
+	</ol>
+	Suppose we arrive at the upper triangular matrix
+	<me>
+	  U = \left[\begin{array}{rrr}
+	  3 \amp 2 \amp -1 \\
+	  0 \amp 1 \amp 3 \\
+	  0 \amp 0 \amp -4 \\
+	  \end{array}\right]
+	</me>.
+	<sage>
+	  <input>
+	  </input>
+	</sage>
+	<ol label="a.">
+	  <li><p> Write the matrices <m>E_1</m>, <m>E_2</m>,
+	  <m>E_3</m>, and <m>E_4</m> that perform the four row
+	  operations. </p></li>
+
+	  <li><p> 
+	  Find the
+	  matrix <m>E = E_4E_3E_2E_1</m>. </p></li>
+
+	  <li><p> We then have <m>E_4E_3E_2E_1 A = EA = U</m>.  Now
+	  that we have the matrix <m>E</m>, find the original matrix
+	  <m>A = E^{-1}U</m>.
+	  </p></li>
+	</ol>
+      </p>
+    </statement>
+
+    <solution>
+      <p><ol label="a.">
+	<li><p>
+	  We have
+	  <me>
+	    \begin{array}{cc}
+	    E_1=\left[\begin{array}{rrr}
+	    1 \amp 0 \amp 0 \\
+	    -2 \amp 1 \amp 0 \\
+	    0 \amp 0 \amp 1
+	    \end{array}\right],
+	    \amp
+	    E_2=\left[\begin{array}{rrr}
+	    1 \amp 0 \amp 0 \\
+	    0 \amp 1 \amp 0 \\
+	    4 \amp 0 \amp 1
+	    \end{array}\right], \\
+	    E_3 = \left[\begin{array}{rrr}
+	    1 \amp 0 \amp 0 \\
+	    0 \amp \frac{1}{2} \amp 0 \\
+	    0 \amp 0 \amp 1
+	    \end{array}\right],
+	    \amp
+	    E_4 = 
+	    \left[\begin{array}{rrr}
+	    1 \amp 0 \amp 0 \\
+	    0 \amp 1 \amp 0 \\
+	    0 \amp -2 \amp 1
+	    \end{array}\right]\text{.}
+	    \end{array}
+	  </me>
+	</p></li>
+
+	<li><p>
+	  We have
+	  <m> E = E_4E_3E_2E_1 = 
+	  \left[\begin{array}{rrr}
+	  1 \amp 0 \amp 0 \\
+	  -1 \amp \frac{1}{2} \amp 0 \\
+	  6 \amp -1 \amp 1
+	  \end{array}\right]
+	  </m>.
+	</p></li>
+
+	<li><p>
+	  We write <m>A=E^{-1}U=
+	  \left[\begin{array}{rrr}
+	  3 \amp 2 \amp -1 \\
+	  6 \amp 6 \amp 4 \\
+	  -12 \amp -6 \amp 6
+	  \end{array}\right]
+	  </m>.
+	</p></li>
+      </ol></p>
+    </solution>
+    
+    <answer>
+      <p><ol label="a.">
+	<li><p>
+	  We have
+	  <me>
+	    \begin{array}{cc}
+	    E_1=\left[\begin{array}{rrr}
+	    1 \amp 0 \amp 0 \\
+	    -2 \amp 1 \amp 0 \\
+	    0 \amp 0 \amp 1
+	    \end{array}\right],
+	    \amp
+	    E_2=\left[\begin{array}{rrr}
+	    1 \amp 0 \amp 0 \\
+	    0 \amp 1 \amp 0 \\
+	    4 \amp 0 \amp 1
+	    \end{array}\right], \\
+	    E_3 = \left[\begin{array}{rrr}
+	    1 \amp 0 \amp 0 \\
+	    0 \amp \frac{1}{2} \amp 0 \\
+	    0 \amp 0 \amp 1
+	    \end{array}\right],
+	    \amp
+	    E_4 = 
+	    \left[\begin{array}{rrr}
+	    1 \amp 0 \amp 0 \\
+	    0 \amp 1 \amp 0 \\
+	    0 \amp -2 \amp 1
+	    \end{array}\right]\text{.}
+	    \end{array}
+	  </me>
+	</p></li>
+
+	<li><p>
+	  <m> E = 
+	  \left[\begin{array}{rrr}
+	  1 \amp 0 \amp 0 \\
+	  -1 \amp \frac{1}{2} \amp 0 \\
+	  6 \amp -1 \amp 1
+	  \end{array}\right]
+	  </m>.
+	</p></li>
+
+	<li><p>
+	  <m>A=
+	  \left[\begin{array}{rrr}
+	  3 \amp 2 \amp -1 \\
+	  6 \amp 6 \amp 4 \\
+	  -12 \amp -6 \amp 6
+	  \end{array}\right]
+	  </m>.
+	</p></li>
+      </ol></p>
+    </answer>
+    
+  </exercise>
+
+  <exercise xml:id="ex-right-inverse">
+    <statement>
+      <p> We defined an <m>n\times n</m> matrix to be invertible if
+      there is a matrix <m>B</m> such that <m>BA=I_n</m>.  In this
+      exercise, we will explain why <m>B</m> is also invertible and
+      that <m>AB = I</m>.  This means that, if <m>B=A^{-1}</m>, then
+      <m>A = B^{-1}</m>.
+      <ol label="a.">
+	<li><p> Given the fact that <m>BA = I_n</m>, explain why the
+	matrix <m>B</m> must also be a square 
+	<m>n\times n</m> matrix. </p></li>
+
+	<li><p> Suppose that <m>\bvec</m> is a vector in
+	<m>\real^n</m>.  Since we have <m>BA = I</m>, it follows that
+	<m>B(A\bvec) = \bvec</m>.  Use this to explain why the columns
+	of <m>B</m> span <m>\real^n</m>.  What does this say about the
+	pivot positions of <m>B</m>? </p></li>
+
+	<li><p> Explain why the equation
+	<m>B\xvec = \zerovec</m> has only the trivial
+	solution. </p></li>
+
+	<li><p> Beginning with the equation, <m>BA=I</m>, multiply
+	both sides by <m>B</m> to obtain <m>BAB = B</m>.  We will
+	rearrange this equation:
+	<me>
+	  \begin{aligned}
+	  BAB \amp {}={} B \\
+	  BAB - B\amp {}={} 0 \\
+	  B(AB-I) \amp {}={} 0\text{.} \\
+	  \end{aligned}
+	</me>
+	Since the homogeneous equation <m>B\xvec =\zerovec</m> has
+	only the trivial solution, explain why <m>AB-I = 0</m> and
+	therefore, <m>AB = I</m>.
+	</p></li>
+      </ol>
+      </p>
+    </statement>
+
+    <solution>
+      <p><ol label="a.">
+	<li><p>
+	  Since <m>BA</m> is defined, <m>B</m> must have <m>n</m>
+	  columns.  And since <m>BA</m> has <m>n</m> rows, <m>B</m>
+	  must have <m>n</m> rows.  This means that <m>B</m> is a
+	  square <m>n\times n</m> matrix.
+	</p></li>
+
+	<li><p>
+	  Every row of <m>B</m> must have a pivot position, which means that
+	  <m>B</m> is row equivalent to the identity matrix <m>I</m>.
+	</p></li>
+
+	<li><p> Because every row of <m>B</m> has a pivot position,
+	every column of <m>B</m> does as well.  Therefore, the
+	homogeneous equation <m>B\xvec=\zerovec</m> has only the
+	trivial solution <m>\xvec=\zerovec</m>.
+	</p></li>
+
+	<li><p>
+	  If we choose any vector <m>\yvec</m>, we have
+	  <m>B(AB-I)\yvec = B[(AB-I)\yvec]=\zerovec</m>.  Therefore,
+	  <m>(AB-I)\yvec</m> is a solution to the homogeneous equation
+	  <m>B\xvec=\zerovec</m>, and we can conclude that
+	  <m>(AB-I)\yvec = \zerovec</m>.  This means that <m>AB\yvec -
+	  \yvec = \zerovec</m> or <m>AB\yvec = \yvec</m> for every
+	  vector <m>\yvec</m>.  Therefore, <m>AB=I</m>, which shows
+	  that <m>B^{-1} = A</m>.
+	</p></li>
+      </ol></p>
+    </solution>
+
+    <answer>
+      <p><ol label="a.">
+	<li><p>
+	  Because <m>BA</m> is defined and has <m>n</m> rows.
+	</p></li>
+
+	<li><p>
+	  Every row of <m>B</m> must have a pivot position.
+	</p></li>
+
+	<li><p> 
+	  Every column of <m>B</m> must have a pivot position.
+	</p></li>
+
+	<li><p>
+	  <m>B[(AB-I)\yvec] = \zerovec</m> for any <m>\yvec</m>, which
+	  means that <m>(AB-I)\yvec</m> for any <m>\yvec</m>.  This
+	  says that <m>AB=I</m>.
+	</p></li>
+      </ol></p>
+    </answer>
+  </exercise>
+
+</exercises>

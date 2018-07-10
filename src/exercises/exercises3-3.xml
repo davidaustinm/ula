@@ -1,0 +1,767 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<exercises>
+
+  <exercise>
+    <statement>
+      <p> Consider the vector
+      <m>\xvec=\left[\begin{array}{r}
+      103 \\ 94 \\ 91 \\ 92 \\ 103 \\ 105 \\ 105 \\ 108
+      \end{array}\right]
+      </m>.
+      <ol label="a.">
+	<li><p> In the Sage cell below is a copy of the change of
+	basis matrices that define the Fourier transform.  Find the
+	Fourier coefficients of <m>\xvec</m>.
+      	<sage copy="sage-dct-def" />
+	</p></li>
+
+	<li><p> We will now form the vector <m>\yvec</m>, which is an
+	approximation of <m>\xvec</m>.  To do this, round all the
+	Fourier coefficients of <m>\xvec</m> to the nearest integer to
+	obtain <m>\coords{\yvec}{\ccal}</m>.  If a coefficient has an
+	absolute value less than one, set it equal to zero.  Now find
+	the vector <m>\yvec</m> and compare this approximation to
+	<m>\xvec</m>.  What is the error in this approximation?
+	</p></li>
+
+	<li><p> Repeat the last part of this problem, but set the
+	rounded Fourier coefficients to zero if they have an absolute
+	value less than five.  Use it to create a second approximation
+	of <m>\xvec</m>.  What is the error in this
+	approximation?</p></li>
+
+	<li><p> Compare the number of nonzero Fourier coefficients
+	that you have in the two approximations and compare the
+	accuracy of the approximations.  Using a few sentences,
+	discuss the comparisons that you find.  </p></li>
+      </ol>
+      </p>
+    </statement>
+
+    <solution>
+      <p><ol label="a.">
+	<li><p>
+	  <m> C_{\bcal}^{-1}\xvec=\fourvec{F_0}{F_1}{\vdots}{F_7} =
+	  \left[\begin{array}{c}
+	  100\\ -5.99 \\ 3.98 \\ 4.46 \\ 1.94 \\ -0.97 \\ 0.84 \\
+	  1.07 \\
+	  \end{array}\right]
+	  </m>.
+	</p></li>
+
+	<li><p> We round the Fourier coefficients to the vector
+	<m> 
+	  \left[\begin{array}{c}
+	  100 \\ -6 \\ 4 \\ 4 \\ 2 \\ -1 \\ 1 \\ 1
+	  \end{array}\right]
+	</m> and find the approximation <m>\yvec</m>, which compares
+	to the original vector <m>\xvec</m>.  
+	<me>
+	  \yvec=\left[\begin{array}{c}
+	  103 \\ 94 \\ 91 \\ 92 \\ 103 \\ 105 \\ 105 \\ 108
+	  \end{array}\right],
+	  \xvec=\left[\begin{array}{c}
+	  103 \\ 94 \\ 91 \\ 92 \\ 103 \\ 105 \\ 105 \\ 108
+	  \end{array}\right]\text{.}
+	</me>
+	In this case, the approximation <m>\yvec</m> is the same as
+	the original vector <m>\xvec</m>.
+	</p></li>
+
+	<li><p> Now we found the Fourier coefficients to
+	<m> 
+	  \left[\begin{array}{c}
+	  100 \\ -6 \\ 0 \\ 0 \\ 0 \\ 0 \\ 0 \\ 0
+	  \end{array}\right]
+	</m> and find the approximation <m>\yvec</m>, which compares
+	to the original vector <m>\xvec</m>.  
+	<me>
+	  \yvec=\left[\begin{array}{c}
+	  94 \\ 95 \\ 97 \\ 99 \\ 101 \\ 103 \\ 105 \\ 106
+	  \end{array}\right],
+	  \xvec=\left[\begin{array}{c}
+	  103 \\ 94 \\ 91 \\ 92 \\ 103 \\ 105 \\ 105 \\ 108
+	  \end{array}\right]\text{.}
+	</me>
+	Now we see that the approximating vector <m>\yvec</m> differs
+	from the original vector <m>\xvec</m>.  
+	</p></li>
+
+	<li><p> In the first approximation, the reconstructed vector
+	<m>\yvec</m> agrees with the original vector <m>\xvec</m>.  In
+	the second approximation, there are only two nonzero Fourier
+	coefficients, and we see that the approximating vector differs
+	from the original vector.  In the second case, however, we are
+	using only one quarter of the Fourier coefficients.  Though
+	the entries in the vector <m>\yvec</m> differ from those in the
+	original vector <m>\xvec</m>, the difference is probably not
+	visually noticeable since the possible values range from 0 to
+	255.
+	</p></li>
+      </ol></p>
+    </solution>
+	  
+    <answer>
+      <p><ol label="a.">
+	<li><p>
+	  <m> 
+	  \left[\begin{array}{c}
+	  100\\ -5.99 \\ 3.98 \\ 4.46 \\ 1.94 \\ -0.97 \\ 0.84 \\
+	  1.07 \\
+	  \end{array}\right]
+	  </m>.
+	</p></li>
+
+	<li><p> <m>
+	  \yvec=\left[\begin{array}{c}
+	  103 \\ 94 \\ 91 \\ 92 \\ 103 \\ 105 \\ 105 \\ 108
+	  \end{array}\right]
+	</m>
+	</p></li>
+
+	<li><p>
+	  <m>
+	  \yvec=\left[\begin{array}{c}
+	  94 \\ 95 \\ 97 \\ 99 \\ 101 \\ 103 \\ 105 \\ 106
+	  \end{array}\right]
+	  </m>
+	</p></li>
+
+	<li><p> In the first approximation, the reconstructed vector
+	<m>\yvec</m> agrees with the original vector <m>\xvec</m>.  In
+	the second approximation, there are only two nonzero Fourier
+	coefficients, and we see that the approximating vector differs
+	from the original vector.  In the second case, however, we are
+	using only one quarter of the Fourier coefficients.  Though
+	the entries in the vector <m>\yvec</m> differ from those in the
+	original vector <m>\xvec</m>, the difference is probably not
+	visually noticeable since the possible values range from 0 to
+	255.
+	</p></li>
+      </ol></p>
+    </answer>
+
+  </exercise>
+
+  <exercise>
+    <statement>
+      <p> There are several steps to the JPEG compression algorithm.
+      The following questions examine the motivation behind some of
+      them. 
+      <ol label="a.">
+	<li><p> What is the overall goal of the JPEG compression
+	algorithm? 
+	</p></li>
+	
+	<li><p> Why do we convert colors from the the <m>RGB</m> color
+	model to the <m>YC_bC_r</m> model? </p></li>
+
+	<li><p> Why do we decompose the image into a collection of
+	<m>8\times8</m> arrays of pixels? </p></li>
+
+	<li><p> What role does the Discrete Fourier Transform play in
+	the JPEG compression algorithm? </p></li>
+
+	<li><p> Why is the information conveyed by the rapid-variation
+	Fourier coefficients, generally speaking, less important than
+	the slow-variation coefficients?
+	</p></li>
+      </ol></p>
+    </statement>
+
+    <solution>
+      <p><ol label="a.">
+	<li><p> The goal is to represent the image in a format that
+	requires less storage but still allows us to reconstruct the
+	image with most of the visual information preserved.
+	</p></li>
+
+	<li><p> In the <m>YC_bC_r</m> color model, the most significant
+	visual information is stored in the <m>Y</m> channel.
+	Therefore, we should store most of this information.  The
+	information in the <m>C_b</m> and <m>C_r</m> channels is not
+	as visually significant so we can store a smaller amount of
+	that data without noticing the effect.
+	</p></li>
+
+	<li><p> As seen in an image, these blocks are relatively
+	small, which means that the approximations we reconstruct are
+	probably not noticeably different from the original.  Also,
+	the blocks are small enough so that the image does not
+	typically change a lot over the block.  At the same time, the
+	blocks are large enough to allow us to save storage by
+	throwing away some of the Fourier coefficients.
+	</p></li>
+
+	<li><p> The Discrete Fourier Transform represents the data in
+	a block as its average and variations from the average.
+	Since the blocks are relatively small, there will typically be
+	small variations away from the average.  Therefore, we can
+	often ignore those variations without visually
+	detecting the approximation.  </p></li>
+
+	<li><p> Our eyes do not detect individual pixels so we do not
+	detect differences from one pixel to the next.  This means that
+	we do not typically notice rapid variations.
+	</p></li>
+      </ol></p>
+    </solution>
+	
+    <answer>
+      <p><ol label="a.">
+	<li><p> The goal is to represent the image in a format that
+	requires less storage but still allows us to reconstruct the
+	image with most of the visual information preserved.
+	</p></li>
+
+	<li><p> In the <m>YC_bC_r</m> color model, the most significant
+	visual information is stored in the <m>Y</m> channel.
+	Therefore, we should store most of this information.  The
+	information in the <m>C_b</m> and <m>C_r</m> channels is not
+	as visually significant so we can store a smaller amount of
+	that data without noticing the effect.
+	</p></li>
+
+	<li><p> As seen in an image, these blocks are relatively
+	small, which means that the approximations we reconstruct are
+	probably not noticeably different from the original.  Also,
+	the blocks are small enough so that the image does not
+	typically change a lot over the block.  At the same time, the
+	blocks are large enough to allow us to save storage by
+	throwing away some of the Fourier coefficients.
+	</p></li>
+
+	<li><p> The Discrete Fourier Transform represents the data in
+	a block as its average and variations from the average.
+	Since the blocks are relatively small, there will typically be
+	small variations away from the average.  Therefore, we can
+	often ignore those variations without visually
+	detecting the approximation.  </p></li>
+
+	<li><p> Our eyes do not detect individual pixels so we do not
+	detect differences from one pixel to the next.  This means that
+	we do not typically notice rapid variations.
+	</p></li>
+      </ol></p>
+    </answer>
+	
+  </exercise>
+
+  <exercise>
+    <statement>
+      <p> The Fourier transform that we used in this section is often
+      called the Discrete Fourier Cosine Transform because it is
+      defined using a basis <m>\ccal</m> consisting of cosine
+      functions.  There is also a Fourier Sine Transform defined using
+      a basis <m>\scal</m> consisting of sine functions.  For
+      instance, in <m>\real^4</m>, the basis vectors of <m>\scal</m> are
+    <me>
+      \begin{aligned}
+      \vvec_1 = \left[\begin{array}{c}
+      \sin\left(\frac{1\cdot1\pi}{8}\right) \\
+      \sin\left(\frac{3\cdot1\pi}{8}\right) \\
+      \sin\left(\frac{5\cdot1\pi}{8}\right) \\
+      \sin\left(\frac{7\cdot1\pi}{8}\right) \\
+      \end{array}\right], \amp
+      \vvec_2 = \left[\begin{array}{c}
+      \sin\left(\frac{1\cdot2\pi}{8}\right) \\
+      \sin\left(\frac{3\cdot2\pi}{8}\right) \\
+      \sin\left(\frac{5\cdot2\pi}{8}\right) \\
+      \sin\left(\frac{7\cdot2\pi}{8}\right) \\
+      \end{array}\right], \\
+      \\
+      \vvec_3 = \left[\begin{array}{c}
+      \sin\left(\frac{1\cdot3\pi}{8}\right) \\
+      \sin\left(\frac{3\cdot3\pi}{8}\right) \\
+      \sin\left(\frac{5\cdot3\pi}{8}\right) \\
+      \sin\left(\frac{7\cdot3\pi}{8}\right) \\
+      \end{array}\right], \amp
+      \vvec_4 = \left[\begin{array}{c}
+      \sin\left(\frac{1\cdot4\pi}{8}\right) \\
+      \sin\left(\frac{3\cdot4\pi}{8}\right) \\
+      \sin\left(\frac{5\cdot4\pi}{8}\right) \\
+      \sin\left(\frac{7\cdot4\pi}{8}\right) \\
+      \end{array}\right]\text{.} \\
+      \end{aligned}
+    </me>
+    We can think of these vectors graphically, as shown in <xref
+    ref="fig-fourier-sine-basis" />.
+      </p>
+
+      <figure xml:id="fig-fourier-sine-basis">
+	<sidebyside width="90%">
+	  <image source="images/fourier-sine-basis" />
+	</sidebyside>
+	<caption>
+	  The vectors <m>\vvec_1,\vvec_2,\vvec_3,\vvec_4</m>
+	  that form the basis <m>\scal</m>.
+	</caption>
+      </figure>
+
+      <p><ol label="a.">
+	<li><p> The Sage cell below defines the matrix <c>S</c> whose
+	columns are the vectors in the basis <m>\scal</m> as well as
+	the matrix <c>C</c> whose columns form the basis <m>\ccal</m>
+	used in the Fourier Cosine Transform.
+      </p>
+
+      <sage>
+	<input>
+sinmat = []
+cosmat = []	  
+for i in range(4):
+    for j in range(1,5):
+        sinmat.append(sin((2*i+1)*j*pi/8.0))
+        cosmat.append(cos((2*i+1)*(j-1)*pi/8.0))
+S = matrix(4,4,sinmat).numerical_approx()    
+C = matrix(4,4,cosmat).numerical_approx()    
+	</input>
+      </sage>
+
+      <p> In the <m>8\times8</m> block of luminance values we
+      considered in this section, the first column begins with the
+      four entries
+      176, 181, 165, and 139, as seen in <xref
+      ref="fig-jpeg-block-luminance" />.  These form the vector
+      <m>\xvec=\fourvec{176}{181}{165}{139}</m>.  Find both
+      <m>\coords{\xvec}{\scal}</m> and <m>\coords{\xvec}{\ccal}</m>.
+	</p></li>
+
+	<li><p> Write a sentence or two comparing the values for the
+	Fourier Sine coefficients <m>\coords{\xvec}{\scal}</m>
+	and the Fourier Cosine coefficients
+	<m>\coords{\xvec}{\ccal}</m>.
+	</p></li>
+
+	<li><p> Suppose now that <m>\xvec=\fourvec{100}{100}{100}{100}</m>.
+	Find the Fourier Sine coefficients
+	<m>\coords{\xvec}{\scal}</m> and the Fourie Cosine
+	coefficients <m>\coords{\xvec}{\ccal}</m>.  </p></li>
+
+	<li><p> Write a few sentences explaining why we use the
+	Fourier Cosine Transform in the JPEG compression algorithm
+	rather than the Fourier Sine Transform.
+      </p></li>
+
+      </ol></p>
+    </statement>
+
+    <solution>
+      <p><ol label="a.">
+	<li><p> We find that
+	<me>
+	  \coords{\xvec}{\scal} =
+	  \left[\begin{array}{c}
+	  220 \\ 18.7 \\ 79.3 \\ 5.3 \\
+	  \end{array}\right],
+	  \coords{\xvec}{\ccal} =
+	  \left[\begin{array}{c}
+	  165 \\ 20.1 \\ -11.0 \\ -0.3 \\
+	  \end{array}\right]\text{.}
+	</me>
+	</p></li>
+
+	<li><p> The higher Fourier Cosine coefficients are smaller
+	than their counterparts in the Fourier Sine transform.  This
+	means that we can ignore these coefficients in the Fourier
+	Cosine transform without losing too much information.
+	</p></li>
+
+	<li><p> We find that
+	<me>
+	  \coords{\xvec}{\scal} =
+	  \left[\begin{array}{c}
+	  131 \\ 0 \\ 54.1 \\ 0 \\
+	  \end{array}\right],
+	  \coords{\xvec}{\ccal} =
+	  \left[\begin{array}{c}
+	  100 \\ 0 \\ 0 \\ 0
+	  \end{array}\right]\text{.}
+	</me>
+	</p></li>
+
+	<li><p> Generally speaking, the coefficients in the Fourier
+	Cosine transform are smaller, which means that they can be
+	safely ignored.  Most of the important important is channeled
+	into the first coefficient, which records the average of the
+	components of the vector <m>\xvec</m>.
+	</p></li>
+      </ol></p>
+    </solution>
+
+    <answer>
+      <p><ol label="a.">
+	<li><p> 
+	<m>
+	  \coords{\xvec}{\scal} =
+	  \left[\begin{array}{c}
+	  220 \\ 18.7 \\ 79.3 \\ 5.3 \\
+	  \end{array}\right]
+	  </m> and
+	  <m>
+	  \coords{\xvec}{\ccal} =
+	  \left[\begin{array}{c}
+	  165 \\ 20.1 \\ -11.0 \\ -0.3 \\
+	  \end{array}\right]
+	  </m>.
+	</p></li>
+
+	<li><p> The higher Fourier Cosine coefficients are smaller
+	than their counterparts in the Fourier Sine transform.  This
+	means that we can ignore these coefficients in the Fourier
+	Cosine transform without losing too much information.
+	</p></li>
+
+	<li><p> 
+	<m>
+	  \coords{\xvec}{\scal} =
+	  \left[\begin{array}{c}
+	  131 \\ 0 \\ 54.1 \\ 0 \\
+	  \end{array}\right]
+	  </m> and
+	  <m>
+	  \coords{\xvec}{\ccal} =
+	  \left[\begin{array}{c}
+	  100 \\ 0 \\ 0 \\ 0
+	  \end{array}\right]
+	</m>.
+	</p></li>
+
+	<li><p> Generally speaking, the coefficients in the Fourier
+	Cosine transform are smaller, which means that they can be
+	safely ignored.  Most of the important important is channeled
+	into the first coefficient, which records the average of the
+	components of the vector <m>\xvec</m>.
+	</p></li>
+      </ol></p>
+    </answer>
+
+  </exercise>
+
+  <exercise>
+    <statement>
+      <p> In <xref ref="example-wavelet-basis" />, we looked at a
+      basis for <m>\real^4</m> that we called the Haar wavelet basis.
+      The basis vectors are
+      <me>
+	\vvec_1=\fourvec{1}{1}{1}{1},
+	\vvec_2=\fourvec{1}{1}{-1}{-1},
+	\vvec_3=\fourvec{1}{-1}{0}{0},
+	\vvec_4=\fourvec{0}{0}{1}{-1}
+      </me>,
+      which may be understood graphically as in <xref
+      ref="fig-haar-wavelet-basis" />. We will denote this basis by
+      <m>\wcal</m>. 
+      </p>
+
+      <figure xml:id="fig-haar-wavelet-basis">
+	<sidebyside width="75%">
+	  <image source="images/basis-revenue-elements" />
+	</sidebyside>
+	<caption> The Haar wavelet basis represented graphically.
+	</caption>
+      </figure>
+
+      <p> The change of coordinates from a vector <m>\xvec</m> in
+      <m>\real^4</m> to <m>\coords{\xvec}{\wcal}</m> is called the
+      Haar <em>wavelet transform</em> and we write
+      <me>
+	\coords{\xvec}{\wcal} = \fourvec{H_1}{H_2}{H_3}{H_4}
+      </me>.  The coefficients <m>H_1,H_2,H_3,H_4</m> are called
+      wavelet coefficients.
+      </p>
+
+      <p> Let's work with the <m>4\times4</m> block of luminance
+      values in the upper left corner of our larger <m>8\times8</m>
+      block:
+      <me>
+	\left[\begin{array}{rrrr}
+	176 \amp 170 \amp 170 \amp 169 \\
+	181 \amp 179 \amp 175 \amp 167 \\
+	165 \amp 170 \amp 169 \amp 161 \\
+	139 \amp 150 \amp 164 \amp 166
+	\end{array}\right]
+      </me>.
+      </p>
+	
+      <p> <ol label="a.">
+	<li><p> The following Sage cell defines the matrix <c>W</c>
+	whose columns are the basis vectors in <m>\wcal</m>.  If
+	<m>\xvec</m> is the first column of luminance values in the
+	<m>4\times4</m> block above, find the wavelet coefficients
+	<m>\coords{\xvec}{\wcal}</m>.
+
+	<sage>
+	  <input>
+W = matrix(4,4,[1,1,1,0,1,1,-1,0,1,-1,0,1,1,-1,0,-1])	    
+	  </input>
+	</sage>
+	</p></li>
+
+	<li><p> Notice that <m>H_1</m> gives the average value of the
+	components of <m>\xvec</m> and <m>H_2</m> describes how the
+	averages of the first two and last two components differ from
+	the overall average.  The coefficients <m>H_3</m> and
+	<m>H_4</m> describe small-scale variations between the first
+	two components and last two components, respectively.
+	</p>
+
+	<p> If we set the last wavelet coefficients <m>H_3=0</m>
+	and <m>H_4=0</m>, we obtain the wavelet coefficients
+	<m>\coords{\yvec}{\wcal}</m> for a vector <m>\yvec</m> that
+	approximates <m>\xvec</m>.  Find the vector <m>\yvec</m> and
+	compare it to the original vector <m>\xvec</m>. </p></li>
+
+	<li><p> What impact does the fact that <m>H_3=0</m> and
+	<m>H_4=0</m> have on the form of the vector
+	<m>\yvec</m>?  Explain how setting these coefficients to zero
+	ignores the behavior of <m>\xvec</m> on a small scale.
+	</p></li>
+
+	<li><p> In the JPEG compression algorithm, we looked at the
+	Fourier coefficients of all the columns of luminance values
+	and then performed a Fourier transform on the rows.  The
+	Sage cell below will perform the same operation using the
+	wavelet transform;  that is, it will first find the wavelet
+	coefficients of each of the columns and then perform the
+	wavelet transform on the rows.  You only need to evaluate the
+	cell to find the wavelet coefficients obtained in this way.
+	<sage>
+	  <input>
+luminance = matrix(4,4,[176, 170, 170, 169, 181, 179, 175, 167, 165,
+170, 169, 161, 139, 150,  164, 166])
+Winv = W.inverse()
+wavelet_transform = (Winv*(Winv*luminance).transpose()).transpose()
+print wavelet_transform.numerical_approx(digits=3)
+	  </input>
+	</sage>
+	</p></li>
+
+	<li><p> Now set all the wavelet coefficients equal to zero
+	except those in the upper left <m>2\times2</m> block and use
+	them to define the matrix <c>coeffs</c> in the Sage cell
+	below.  This has the effect of ignoring all of the small-scale
+	differences.  Evaluating this cell will recover the
+	approximate luminance values.
+	<sage>
+	  <input>
+# define the matrix of coefficients below
+coeffs = 
+# this code will undo the wavelet transform
+approx_luminance = W*((W*(coeffs.transpose())).transpose())
+print approx_luminance.numerical_approx(digits=3)
+	  </input>
+	</sage>
+	</p> </li>
+
+	<li><p> Explain how the wavelet transform and this approximation
+	can be used to create a lower resolution version of the
+	image. </p></li>
+      </ol></p>
+
+      <p> This kind of wavelet transform is the basis of the JPEG 2000
+      compression algorithm, which is an alternative to the usual JPEG
+      algorithm.  </p>
+    </statement>
+
+    <solution>
+      <p><ol label="a.">
+	<li><p> We find that <m>\coords{\xvec}{\wcal} =
+	\left[\begin{array}{c}
+	165 \\ 13.2 \\ -2.5 \\ 13.0 \\
+	\end{array}\right]
+	</m>.
+	</p></li>
+
+	<li><p> We have the approximation <m>\coords{\yvec}{\wcal} =
+	\left[\begin{array}{c} 165 \\ 13.2 \\ 0 \\ 0
+	\end{array}\right]
+	</m> and <m>\yvec=\left[\begin{array}{c}
+	178.2 \\ 178.2 \\ 151.8 \\ 151.8 \\
+	\end{array}\right]
+	</m>.
+	</p></li>
+
+	<li><p> The first two components are equal as are the last two
+	components.  Since we see no difference in these components,
+	we have lost the information that differentiates the
+	components on a small scale.
+	</p></li>
+
+	<li><p> We find the wavelet coefficients
+	<me>
+	  \left[\begin{array}{rrrr}
+	  167 \amp -0.7 \amp -1.0 \amp 1.9 \\
+	  6.4 \amp 3.8 \amp 3.0 \amp 0.4 \\
+	  -2.1 \amp -1.4 \amp 1.0 \amp -1.8 \\
+	  5.8 \amp 5.8 \amp 1.5 \amp 2.5 \\
+	  \end{array}\right]\text{.}
+	</me>
+	</p></li>
+
+	<li><p> We find the approximate luminance values to be
+	<me>
+	  \left[\begin{array}{rrrr}
+	  177 \amp 177 \amp 170 \amp 170 \\
+	  177 \amp 177 \amp 170 \amp 170 \\
+	  156 \amp 156 \amp 165 \amp 165 \\
+	  156 \amp 156 \amp 165 \amp 165 \\
+	  \end{array}\right]\text{.}
+	</me>
+	</p></li>
+
+	<li><p> The luminance values are constant on <m>2\times2</m>
+	blocks.  It is as if the image is represented with pixels that
+	are twice as wide and twice as tall.
+	</p></li>
+      </ol></p>
+    </solution>
+	  
+    <answer>
+      <p><ol label="a.">
+	<li><p> <m>\coords{\xvec}{\wcal} =
+	\left[\begin{array}{c}
+	165 \\ 13.2 \\ -2.5 \\ 13.0 \\
+	\end{array}\right]
+	</m>.
+	</p></li>
+
+	<li><p> 
+	  <m>\yvec=\left[\begin{array}{c}
+	  178.2 \\ 178.2 \\ 151.8 \\ 151.8 \\
+	  \end{array}\right]
+	  </m>.
+	</p></li>
+
+	<li><p> The first two components are equal as are the last two
+	components.  
+	</p></li>
+
+	<li><p> We find the wavelet coefficients
+	<me>
+	  \left[\begin{array}{rrrr}
+	  167 \amp -0.7 \amp -1.0 \amp 1.9 \\
+	  6.4 \amp 3.8 \amp 3.0 \amp 0.4 \\
+	  -2.1 \amp -1.4 \amp 1.0 \amp -1.8 \\
+	  5.8 \amp 5.8 \amp 1.5 \amp 2.5 \\
+	  \end{array}\right]\text{.}
+	</me>
+	</p></li>
+
+	<li><p> We find the approximate luminance values to be
+	<me>
+	  \left[\begin{array}{rrrr}
+	  177 \amp 177 \amp 170 \amp 170 \\
+	  177 \amp 177 \amp 170 \amp 170 \\
+	  156 \amp 156 \amp 165 \amp 165 \\
+	  156 \amp 156 \amp 165 \amp 165 \\
+	  \end{array}\right]\text{.}
+	</me>
+	</p></li>
+
+	<li><p> The luminance values are constant on <m>2\times2</m>
+	blocks.  It is as if the image is represented with pixels that
+	are twice as wide and twice as tall.
+	</p></li>
+      </ol></p>
+    </answer>
+	  
+	
+  </exercise>
+  
+  <exercise>
+    <statement>
+      <p> In this section, we looked at the <m>RGB</m> and
+      <m>YC_bC_r</m> color models.  In this exercise, we will look at
+      the <m>HSV</m> color model where <m>H</m> is the hue, <m>S</m>
+      is the saturation, and <m>V</m> is the value of the color.  All
+      three quantities vary between 0 and 255.
+      </p>
+
+      <p xml:id="INSERT-HSV-DIAGRAM">
+	HSV-DIAGRAM
+      </p>
+
+      <p><ol label="a.">
+	<li><p>
+	  If you leave <m>S</m> and <m>V</m> at some fixed values,
+	  what happens when you change the value of <m>H</m>?
+	</p></li>
+
+	<li><p> Move the value <m>V</m> to the right and keep it
+	fixed.  Describe what happens when you vary the saturation
+	<m>S</m> using a fixed hue <m>H</m> and value
+	<m>V</m>. </p></li>
+
+	<li><p> Describe what happens when <m>H</m> and <m>S</m> are
+	fixed and <m>V</m> varies.
+	</p></li>
+
+	<li><p> How can you create white in this color model?
+	</p></li>
+
+	<li><p> How can you create black in this color model?
+	</p></li>
+
+	<li><p> Find an approximate range of hues that
+	correspond to blue. </p></li>
+
+	<li><p> Find an approximate range of hues that
+	correspond to green. </p></li>
+      </ol></p>
+
+      <p> The <m>YC_bC_r</m> color model concentrates the most
+      important visual information in the luminance coordinate, which
+      roughly measures the brightness of the color.  The other two
+      coordinates describe the hue of the color.  By contrast, the
+      <m>HSV</m> color model concentrates all the information about
+      the hue in the <m>H</m> coordinate.
+      </p>
+
+      <p> This is useful in computer vision applications.  For
+      instance, if we want a robot to detect a blue ball in its field
+      of vision, we can specify a range of hue values to search for.
+      If the lighting changes in the room, the saturation and value
+      may change, but the hue will not.  This increases the likelihood
+      that the robot will still detect the blue ball across a wide
+      range of lighting conditions.
+      </p>
+
+    </statement>
+
+    <solution>
+      <p><ol label="a.">
+	<li><p> The color changes but not the brightness. </p></li>
+	<li><p> The color appears more <q>washed out</q> with a low
+	saturation and appears more vibrant with a high
+	saturation. </p></li>
+	<li><p> The brightness changes. </p></li>
+	<li><p> Set the saturation <m>S=0</m> and the value
+	<m>V=255</m>. </p></li>
+
+	<li><p> Set <m>S=V=0</m>. </p></li>
+	<li><p> <m>128\leq H \leq 192</m>. </p></li>
+	<li><p> <m>64\leq H \leq 128</m>. </p></li>
+      </ol></p>
+    </solution>
+	
+    <answer>
+      <p><ol label="a.">
+	<li><p> The color changes but not the brightness. </p></li>
+	<li><p> The color appears more <q>washed out</q> with a low
+	saturation and appears more vibrant with a high
+	saturation. </p></li>
+	<li><p> The brightness changes. </p></li>
+	<li><p> Set the saturation <m>S=0</m> and the value
+	<m>V=255</m>. </p></li>
+
+	<li><p> Set <m>S=V=0</m>. </p></li>
+	<li><p> <m>128\leq H \leq 192</m>. </p></li>
+	<li><p> <m>64\leq H \leq 128</m>. </p></li>
+      </ol></p>
+    </answer>
+	
+  </exercise>
+  
+</exercises>

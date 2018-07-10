@@ -1,0 +1,1041 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<exercises>
+
+  <exercise>
+    <statement>
+      <p> Consider the following <m>2\times2</m> stochastic
+      matrices.</p>
+
+      <sidebyside widths="50% 45%">
+	<p> For each, make a copy of the diagram and label each edge 
+	to indicate the probability of that transition.  Then find all
+	the steady-state vectors and describe what happens to a Markov
+	chain defined by that matrix. </p>
+
+	<image source="images/ex-stoch"/>
+      </sidebyside>
+
+      <p>
+	<ol label="a.">
+	  <li><p>
+	    <m>\left[\begin{array}{rr}
+	    1 \amp 1 \\
+	    0 \amp 0 \\
+	    \end{array}\right]
+	    </m>.
+	  </p></li>
+
+	  <li><p>
+	    <m>\left[\begin{array}{rr}
+	    0.8 \amp 1 \\
+	    0.2 \amp 0 \\
+	    \end{array}\right]
+	    </m>.
+	  </p></li>
+
+	  <li><p>
+	    <m>\left[\begin{array}{rr}
+	    1 \amp 0 \\
+	    0 \amp 1 \\
+	    \end{array}\right]
+	    </m>.
+	  </p></li>
+
+	  <li><p>
+	    <m>\left[\begin{array}{rr}
+	    0.7 \amp 0.6 \\
+	    0.3 \amp 0.4 \\
+	    \end{array}\right]
+	    </m>.
+	  </p></li>
+	</ol>
+      </p>
+    </statement>
+
+    <solution>
+      <p><ol label="a.">
+	<li><p> The eigenvalues are <m>\lambda_1=1</m> and
+	<m>\lambda_2=0</m> so there is a unique steady-state vector
+	<m>\qvec=\twovec10</m> to which any Markov chain will
+	converge. </p></li>
+
+	<li><p> The eigenvalues are <m>\lambda_1=1</m> and
+	<m>\lambda_2=-0.2</m> so there is a unique steady-state vector
+	<m>\qvec=\twovec{\frac56}{\frac16}</m> to which any Markov
+	chain will converge. </p></li>
+
+	<li><p> Every two-dimensional vector is an eigenvector with
+	eigenvalue <m>\lambda=1</m> so that <m>A\xvec=\xvec</m> for
+	every <m>\xvec</m>.  This shows that any Markov chain will
+	remain constant.  The steady-state vectors are those for
+	which <m>\qvec=\twovec{p}{1-p}</m> for some <m>p</m> 
+	satisfying <m>0\leq p\leq 1</m>.  </p></li>
+
+	<li><p> The eigenvalues are <m>\lambda_1=1</m> and
+	<m>\lambda_2=0.1</m> so there is a unique steady-state vector
+	<m>\qvec=\twovec{\frac23}{\frac13}</m> to which any Markov
+	chain will converge. </p></li>
+      </ol></p>
+    </solution>
+
+    <answer>
+      <p><ol label="a.">
+	<li><p> Any Markov chain will converge to
+	<m>\qvec=\twovec10</m>.</p></li>
+
+	<li><p> Any Markov chain will converge to
+	<m>\qvec=\twovec{\frac56}{\frac16}</m>.
+	</p></li>
+
+	<li><p> The steady-state vectors are those for
+	which <m>\qvec=\twovec{p}{1-p}</m> for some <m>p</m> 
+	satisfying <m>0\leq p\leq 1</m>.  </p></li>
+
+	<li><p> Any Markov chain will converge to 
+	<m>\qvec=\twovec{\frac23}{\frac13}</m>. </p></li>
+      </ol></p>
+    </answer>
+  </exercise>
+
+  <exercise>
+    <statement>
+      <p> Every year, people move between urban (U), suburban (S),
+      and rural (R) populations with the probabilities given
+      in <xref ref="fig-stoch-pops" />. </p>
+
+      <figure xml:id="fig-stoch-pops">
+	<sidebyside widths="50%">
+	  <image source="images/stoch-pops" />
+	</sidebyside>
+	<caption>
+	  The flow between urban, suburban, and rural
+	  populations. 
+	</caption>
+      </figure>
+
+      <p>
+	<ol label="a.">
+	  <li><p> Construct the stochastic matrix <m>A</m> describing
+	  the movement of people. </p></li>
+
+	  <li><p> Explain what the Perron-Frobenius theorem tells us 
+	  about the existence of a steady-state vector <m>\qvec</m>
+	  and the behavior of a Markov chain. </p></li>
+
+	  <li><p> Use the Sage cell below to find the some terms of a
+	  Markov chain.
+	  <sage>
+	    <input>
+def markov_chain(A, x0, N):
+    for i in range(N):
+        x0 = A*x0
+        print x0.numerical_approx(digits=3)
+## define the matrix G and x0
+A =
+x0 =
+markov_chain(A, x0, 20)		
+	    </input>
+	  </sage>
+	  </p></li>
+
+	  <li><p> Describe the long-term distribution of people among
+	  urban, suburban, and rural populations. </p></li>
+	</ol>
+      </p>
+    </statement>
+
+    <solution>
+      <p><ol label="a.">
+	<li><p> The diagram tells us that
+	<me>
+	  \begin{alignedat}{4}
+	  R_{k+1} \amp {}={} \amp 0.85R_k \amp {}+{} \amp 0.06S_k \amp
+	  {}+{} \amp 0.05U_k \\
+	  S_{k+1} \amp {}={} \amp 0.07R_k \amp {}+{} \amp 0.86S_k \amp
+	  {}+{} \amp 0.07U_k \\
+	  U_{k+1} \amp {}={} \amp 0.08R_k \amp {}+{} \amp 0.08S_k \amp
+	  {}+{} \amp 0.88U_k \\
+	  \end{alignedat}
+	</me>
+	giving the stochastic matrix
+	<m>A=
+	\left[\begin{array}{rrr}
+	0.85 \amp 0.06 \amp 0.05 \\
+	0.07 \amp 0.86 \amp 0.07 \\
+	0.08 \amp 0.08 \amp 0.88 \\
+	\end{array}\right]
+	</m>.
+	</p></li>
+
+	<li><p> Since all the entries of <m>A</m> are positive, we
+	know that <m>A</m> is a positive matrix.  Therefore, the
+	Perron-Frobenius theorem tells us that there is a uniqe
+	steady-state vector <m>\qvec</m> and that any Markov chain
+	will converge to <m>\qvec</m>.</p></li>
+
+	<li><p> Any Markov chain we create will converge to
+	<m>\qvec=\threevec{0.267}{0.333}{0.400}</m>.  </p></li>
+
+	<li><p> Eventually, about <m>26.7</m><percent /> of the population
+	will be rural, <m>33.3</m><percent /> will be suburban, and
+	<m>40.0</m><percent /> will be urban.</p></li>
+      </ol></p>
+    </solution>
+
+    <answer>
+      <p><ol label="a.">
+	<li><p> 
+	<m>A=
+	\left[\begin{array}{rrr}
+	0.85 \amp 0.06 \amp 0.05 \\
+	0.07 \amp 0.86 \amp 0.07 \\
+	0.08 \amp 0.08 \amp 0.88 \\
+	\end{array}\right]
+	</m>.
+	</p></li>
+
+	<li><p> There is a uniqe
+	steady-state vector <m>\qvec</m> and any Markov chain
+	will converge to <m>\qvec</m>.</p></li>
+
+	<li><p> Any Markov chain we create will converge to
+	<m>\qvec=\threevec{0.267}{0.333}{0.400}</m>.  </p></li>
+
+	<li><p> Eventually, about <m>26.7</m><percent /> of the population
+	will be rural, <m>33.3</m><percent /> will be suburban, and
+	<m>40.0</m><percent /> will be urban.</p></li>
+      </ol></p>
+    </answer>
+  </exercise>
+
+  <exercise>
+    <statement>
+      <p> Determine whether the following statements are true or false
+      and provide a justification of your response.
+      <ol label="a.">
+	<li><p> Every stochastic matrix has a steady-state
+	vector. </p></li>
+
+	<li><p> If <m>A</m> is a stochastic matrix, then any Markov
+	chain defined by <m>A</m> converges to a steady-state
+	vector. </p></li>
+
+	<li><p> If <m>A</m> is a stochastic matrix, then
+	<m>\lambda=1</m> is an eigenvalue and all the other
+	eigenvalues satisfy <m>|\lambda| \lt
+	1</m>. </p></li>
+
+	<li><p> A positive stochastic matrix has a unique steady-state
+	vector. </p></li>
+
+	<li><p> If <m>A</m> is an invertible stochastic matrix, then
+	so is <m>A^{-1}</m>. </p> </li>
+      </ol></p>
+    </statement>
+
+    <solution>
+      <p><ol label="a.">
+	<li><p> True.  Every stochastic matrix has an eigenvalue
+	<m>\lambda_1=1</m>, and we can find a steady-state vector
+	inside the eigenspace <m>E_1</m>. </p></li>
+
+	<li><p> False. We have seen examples, such as
+	<m>A=\mattwo0110</m>, for which this is not true.  We need to
+	know that <m>A</m> is a positive matrix so that the
+	Perron-Frobenius theorem applies if we want to reach this
+	conclusion. </p> </li>
+
+	<li><p> False.  Again, we can only guarantee this if the
+	matrix is positive so that the Perron-Frobenius theorem
+	applies. </p></li>
+
+	<li><p> True.  This follows from the Perron-Frobenius
+	theorem. </p></li>
+
+	<li><p> False.  If <m>A</m> is an invertible stochastic
+	matrix, the eigenvalues of <m>A</m> must satisfy <m>0\lt
+	|\lambda_j| \leq 1</m>.  The eigenvalues of <m>A^{-1}</m> are
+	<m>\frac1{\lambda_j}</m>, which satisfy
+	<m>1\leq \left|\frac1{\lambda_j}\right|</m> so <m>A^{-1}</m>
+	is most likely not stochastic.  </p></li>
+      </ol></p>
+    </solution>
+
+    <answer>
+      <p><ol label="a.">
+	<li><p> True </p></li>
+	<li><p> False </p></li>
+	<li><p> False </p></li>
+	<li><p> True </p></li>
+	<li><p> False </p></li>
+      </ol></p>
+    </answer>
+	
+  </exercise>
+
+  <exercise>
+    <statement>
+      <p> Consider the stochastic matrix
+      <me>
+	A = \left[\begin{array}{rrr}
+	1 \amp 0.2 \amp 0.2 \\
+	0 \amp 0.6 \amp 0.2 \\
+	0 \amp 0.2 \amp 0.6 \\
+	\end{array}\right]
+      </me>.
+      <ol label="a.">
+	<li><p> Find the eigenvalues of <m>A</m>.
+	<sage>
+	  <input>
+	  </input>
+	</sage>
+	</p></li>
+
+	<li><p> Do the conditions of the Perron-Frobenius theorem
+	apply to this matrix? </p></li>
+	
+	<li><p> Find the steady-state vectors of <m>A</m>. </p></li>
+
+	<li><p> What can we guarantee about the long-term behavior of
+	a Markov chain defined by the matrix <m>A</m>? </p></li>
+
+      </ol></p>
+    </statement>
+
+    <solution>
+      <p><ol label="a.">
+	<li><p> The eigenvalues are <m>\lambda_1=1</m>,
+	<m>\lambda_2=0.8</m>, and <m>\lambda_3=0.4</m> with associated
+	eigenvectors <m>\vvec_1=\threevec100</m>,
+	<m>\vvec_2=\threevec{-2}11</m>, and
+	<m>\vvec_3=\threevec01{-1}</m>. </p></li>
+
+	<li><p> The conditions of the Perron-Frobenius theorem do not
+	apply because the matrix is not postive.  The first column of
+	any power of <m>A</m> will be <m>\threevec100</m>.
+	</p></li>
+
+	<li><p> Since <m>\lambda_1=1</m> has multiplicity <m>1</m>, we
+	know that <m>E_1</m> is one-dimensional.  There is, therefore,
+	a unique steady-state vector
+	<m>\qvec=\threevec100</m>. </p></li>
+
+	<li><p> Any Markov chain will converge to <m>\qvec</m> because
+	the eigenvalues <m>\lambda_2</m> and <m>\lambda_2</m> are less
+	than <m>1</m>. </p></li>
+      </ol></p>
+    </solution>
+    
+    <answer>
+      <p><ol label="a.">
+	<li><p> The eigenvalues are <m>\lambda_1=1</m>,
+	<m>\lambda_2=0.8</m>, and <m>\lambda_3=0.4</m> with associated
+	eigenvectors <m>\vvec_1=\threevec100</m>,
+	<m>\vvec_2=\threevec{-2}11</m>, and
+	<m>\vvec_3=\threevec01{-1}</m>. </p></li>
+
+	<li><p> No
+	</p></li>
+
+	<li><p> <m>\qvec=\threevec100</m> </p></li>
+
+	<li><p> Any Markov chain will converge to
+	<m>\qvec</m>. </p></li> 
+      </ol></p>
+    </answer>
+    
+  </exercise>
+
+  <!--
+  <exercise>
+    <statement>
+      <p> In the last section, we considered examples of interacting
+      species such as
+      <me>
+	\begin{aligned}
+	R_{k+1} \amp {}={} 0.9R_k - 0.2S_k \\
+	S_{k+1} \amp {}={} 0.1R_k + 1.2S_k \\
+	\end{aligned}
+      </me>
+      <ol label="a.">
+	<li><p> If the vector <m>\xvec_k=\twovec{R_k}{S_k}</m>,
+	write the matrix <m>A</m> that describes the evolution of the
+	populations <m>\xvec_{k+1} = A\xvec_k</m>.</p></li>
+
+	<li><p> Explain whether the matrix <m>A</m> is stochastic or
+	not. </p></li> 
+
+	<li><p> Find the eigenvalues of <m>A</m> and explain how your
+	result is consistent with what we have seen in this
+	section. </p></li> 
+      </ol>
+      </p>
+    </statement>
+    </exercise>
+    -->
+
+  <exercise>
+    <statement>
+      <p> Explain your responses to the following.
+      <ol label="a.">
+	<li><p> Why does Google use a Markov chain to compute the
+	PageRank vector? </p></li>
+
+	<li><p> Describe two problems that can happen when Google
+	constructs a Markov chain using the Google matrix
+	<m>G</m>. </p></li>
+
+	<li><p> Describe how these problems are consistent with the
+	Perron-Frobenius theorem. </p></li>
+
+	<li><p> Describe why the Perron-Frobenius theorem suggests
+	creating a Markov chain using the modified Google matrix <m>G' =
+	\alpha G + (1-\alpha)H_n</m>. </p></li>
+      </ol></p>
+    </statement>
+
+    <solution>
+      <p><ol label="a.">
+	<li><p> The modified Google matrix <m>G'</m> is huge, roughly 30
+	trillion <m>\times</m> 30 trillion, so it is not
+	computationally feasible to compute the steady-state vector by
+	finding a basis for <m>\nul(G'-I)</m>. </p></li>
+
+	<li><p> It may happen that a Markov chain does not converge.
+	We saw this with the cyclic web where a Markov chain just
+	moved PageRank from one page to the next around a loop.  Also,
+	it may happen that a Markov chain converges to a probability
+	vector with some zero entries.  This happens when PageRank
+	drains out of one part of the web.</p></li>
+
+	<li><p> In both of these situations, the Google matrix is not
+	positive so the Perron-Frobenius theorem does not
+	apply. </p></li>
+
+	<li><p> When we create <m>G'</m> in this way, we are
+	guaranteed of having a postive stochastic matrix because all
+	the entries of <m>G'</m> are positive. </p></li>
+      </ol></p>
+    </solution>
+
+    <answer>
+      <p><ol label="a.">
+	<li><p> It is not computationally feasible. </p></li>
+
+	<li><p> A Markov chain does not converge or it may converge to
+	a probability vector having some zero entries. </p></li>
+
+	<li><p> In both of these situations, the Google matrix is not
+	positive. </p></li>
+
+	<li><p> <m>G'</m> is guaranteed to be positive. </p></li>
+      </ol></p>
+    </answer>
+  </exercise>
+
+  <p> In the next few exercises, we will consider the <m>1\times n</m>
+  matrix <m>S = \left[\begin{array}{rrrr} 1 \amp 1 \amp \ldots \amp 1
+  \end{array}\right]</m>. </p>
+
+  <exercise xml:id="exercise-stochastic-probability">
+    <statement>
+      <p> Suppose that <m>A</m> is a stochastic matrix and that
+      <m>\xvec</m> is a probability vector.  We would like
+      to explain why the product <m>A\xvec</m> is a probability vector.
+      <ol label="a.">
+	<li><p> Explain why <m>\xvec=\threevec{0.4}{0.5}{0.1}</m> is
+	a probability vector and then find the product
+	<m>S\xvec</m>. </p></li>  
+	
+	<li><p> More generally, if <m>\xvec</m> is any probability
+	vector, what is the product <m>S\xvec</m>?  </p></li>
+
+	<li><p> If <m>A</m> is a stochastic matrix, explain why
+	<m>SA=S</m>. </p></li> 
+
+	<li><p> Explain why <m>A\xvec</m> is a probability vector by
+	considering the product <m>SA\xvec</m>. </p></li>
+      </ol></p>
+    </statement>
+
+    <solution>
+      <p><ol label="a.">
+	<li><p> Since the components of <m>\xvec</m> are nonnegative
+	and add to <m>1</m>, <m>\xvec</m> is a probability vector.  We
+	see that <m>S\xvec=[1]</m>. </p></li>
+
+	<li><p> Multiplying any vector <m>\xvec</m> by <m>S</m> just adds the
+	components of <m>\xvec</m>.  Therefore, if <m>\xvec</m> is a
+	probability vector, <m>S\xvec=[1]</m>.
+	</p></li>
+
+	<li><p> Because the columns of <m>A</m> add to <m>1</m>, we
+	see that <m>S</m> multiplying any column of <m>A</m> gives
+	<m>1</m>.  Consequently, the entries in <m>SA</m> are the
+	sums of the columns of <m>A</m>, which are all <m>1</m>.  This
+	gives <m>SA=S</m>.
+	</p></li>
+
+	<li><p> Because all the entries in both <m>A</m> and
+	<m>\xvec</m> are 
+	nonnegative, it follows that the components of <m>A\xvec</m>
+	are nonnegative.  Then we have <m>S(A\xvec)=(SA)\xvec = S\xvec
+	= [1]</m>, which shows that the components of <m>\xvec</m> add
+	to <m>1</m>.  Therefore, <m>\xvec</m> is a probability
+	vector. </p></li>
+      </ol></p>
+    </solution>
+
+    <answer>
+      <p><ol label="a.">
+	<li><p> <m>S\xvec=[1]</m>. </p></li>
+
+	<li><p> If <m>\xvec</m> is a
+	probability vector, <m>S\xvec=[1]</m>.
+	</p></li>
+
+	<li><p> The entries in <m>SA</m> are the
+	sums of the columns of <m>A</m>, which are all <m>1</m>.  
+	</p></li>
+
+	<li><p> <m>S(A\xvec)=(SA)\xvec = S\xvec = [1]</m></p></li>
+      </ol></p>
+    </answer>
+  </exercise>
+
+  <exercise>
+    <statement>
+      <p> Using the results of the previous exercise, we would like to
+      explain why <m>A^2</m> is a stochastic 
+      matrix if <m>A</m> is stochastic.
+	<ol label="a.">
+	<li><p> Suppose that <m>A</m> and <m>B</m> are stochastic
+	matrices.  Explain why the product <m>AB</m> is a stochastic
+	matrix by considering the product <m>SAB</m>. </p></li>
+
+	<li><p> Explain why <m>A^2</m> is a stochastic
+	matrix. </p></li>
+
+	<li><p> How do the steady-state vectors of <m>A^2</m> compare
+	to the steady-state vectors of <m>A</m>? </p></li>
+      </ol></p>
+    </statement>
+
+    <solution>
+      <p><ol label="a.">
+	<li><p> If both <m>A</m> and <m>B</m> are stochastic, all the
+	entries of both <m>A</m> and <m>B</m> are nonnegative.
+	Therefore, the entries of <m>AB</m> are also nonnegative.  In
+	addition, 
+	we have
+	<m>S(AB) = (SA)B = SB = S</m>, which shows that <m>AB</m> is
+	stochastic. </p></li>
+
+	<li><p> This follows from the previous part, which shows that
+	the product of two stochastic matrices is
+	stochastic. </p></li>
+
+	<li><p> If <m>\qvec</m> is a steady-state vector for <m>A</m>,
+	it will be a steady-state vector for <m>A^2</m> as well
+	because <m>A^2\qvec = A\qvec=\qvec</m>. </p>
+
+	<p> However, it is possible that there are steady-state
+	vectors of <m>A^2</m> that are not steady-state vectors of
+	<m>A</m>.  If the eigenvalues of <m>A</m> are <m>\lambda_j</m>,
+	remember that the eigenvalues of <m>A^2</m> are
+	<m>\lambda_j^2</m>.  Therefore, <m>A^2</m> can have more
+	steady-state vectors if <m>\lambda_j=-1</m> is an eigenvalue of
+	<m>A</m>, which leads to <m>\lambda_j^2=1</m>.  For instance,
+	<m>A=\mattwo0110</m> has a unique steady-state vector
+	<m>\twovec{\frac12}{\frac12}</m> whereas every probability
+	vector <m>\twovec{p}{1-p}</m> is a steady-state vector for
+	<m>A^2=\mattwo1001</m>.
+	</p></li>
+      </ol></p>
+    </solution>
+    
+    <answer>
+      <p><ol label="a.">
+	<li><p> <m>S(AB) = (SA)B = SB = S</m></p></li>
+
+	<li><p> This follows from the previous part.</p></li>
+
+	<li><p> A steady-state vector for <m>A</m> is a steady-state
+	vector for <m>A^2</m> but a steady-state vector for <m>A^2</m>
+	is not necessarily a steady-state vector for <m>A</m>.</p></li>
+      </ol></p>
+    </answer>    
+  </exercise>
+
+  <exercise xml:id="exercise-stochastic-eigenvalue">
+    <statement>
+      <p> This exercise explains why <m>\lambda=1</m> is an eigenvalue
+      of a stochastic matrix <m>A</m>.  To conclude that
+      <m>\lambda=1</m> is an eigenvalue, we need to know that
+      <m>A-I</m> is not invertible.
+      <ol label="a.">
+	<li><p> What is the product <m>S(A-I)</m>? </p></li>
+
+	<li><p> Explain why <m>\col(A-I)</m> is contained in
+	<m>\nul(S)</m>. </p></li>
+	
+	<li><p> What is the product <m>S\evec_1</m>?  </p></li>
+
+	<li><p> Explain why <m>\evec_1</m> is not contained in the
+	column space <m>\col(A-I)</m>.  </p></li>
+
+	<li><p> Explain why we can conclude that <m>A-I</m> is not
+	invertible and that <m>\lambda=1</m> is an eigenvalue of
+	<m>A</m>. </p></li>
+      </ol></p>
+    </statement>
+
+    <solution>
+      <p><ol label="a.">
+	<li><p> Remember that multiplying a matrix <m>B</m> by
+	<m>S</m> gives a <m>1\times n</m> matrix whose entries are the
+	sum of the columns of <m>B</m>.  Therefore, <m>S(A-I)=SA-SI =
+	S-S = \left[\begin{array}{rrrr}0\amp0\amp\ldots\amp 0
+	\end{array}\right]</m>.
+	</p></li>
+
+	<li><p> Any vector in <m>\col(A-I)</m> can be written as
+	<m>(A-I)\xvec</m>.  However, we have <m>S[(A-I)\xvec] =
+	[S(A-I)]\xvec = [0]</m>, which means that <m>(A-I)\xvec</m> is
+	in <m>\nul(S)</m>. </p></li>
+	
+	<li><p> Since the components of <m>\evec_1</m> add to <m>1</m>,
+	<m>S\evec_1=[1]</m>. </p></li>
+
+	<li><p> From the previous part, we see that <m>\evec_1</m> is
+	not in <m>\nul(S)</m> which says it is not in
+	<m>\col(A-I)</m>.  </p></li>
+
+	<li><p> If <m>A-I</m> is invertible, then
+	<m>\col(A-I)=\real^n</m>.  However, we have seen that
+	<m>\evec_1</m> is not in <m>\col(A-I)</m> so <m>A-I</m> cannot
+	be invertible. </p></li>
+      </ol></p>
+    </solution>
+
+    <answer>
+      <p><ol label="a.">
+	<li><p> <m>S(A-I) =
+	\left[\begin{array}{rrrr}0\amp0\amp\ldots\amp 0 
+	\end{array}\right]</m>
+	</p></li>
+
+	<li><p> <m>S[(A-I)\xvec] =
+	[S(A-I)]\xvec = [0]</m> </p></li>
+	
+	<li><p> <m>S\evec_1=[1]</m> </p></li>
+
+	<li><p> <m>\evec_1</m>
+	not in <m>\nul(S)</m> so it is not in
+	<m>\col(A-I)</m>.  </p></li>
+
+	<li><p> <m>\col(A-I)</m> cannot be
+	<m>\real^n</m>. </p></li> 
+      </ol></p>
+    </answer>
+  </exercise>
+
+  <exercise>
+    <statement>
+      <p> We saw a couple of model Internets in which a Markov chain
+      defined by the Google matrix <m>G</m> did not converge to an
+      appropriate PageRank vector.  For this reason, Google defines
+      the matrix 
+      <me>
+	H_n = \left[\begin{array}{rrrr}
+	\frac1n \amp \frac1n \amp \ldots \amp \frac1n \\
+	\frac1n \amp \frac1n \amp \ldots \amp \frac1n \\
+	\vdots \amp \vdots \amp \ddots \amp \vdots \\
+	\frac1n \amp \frac1n \amp \ldots \amp \frac1n \\
+	\end{array}\right]
+      </me>,
+      where <m>n</m> is the number of web pages, and constructs a
+      Markov chain from the modified 
+      Google matrix 
+      <me>G' = \alpha G + (1-\alpha)H_n</me>.
+      Since <m>G'</m> is positive, the Markov chain is guaranteed to
+      converge to a unique steady-state vector. </p>
+
+      <p> We said that Google chooses <m>\alpha = 0.85</m> so we might
+      wonder why this is a good choice.  We will explore the role of 
+      <m>\alpha</m> in this exercise.  Let's consider the model
+      Internet described in <xref 
+      ref="fig-google-cyclic" /> and construct the Google matrix
+      <m>G</m>.  In the Sage cell below, you can enter the matrix
+      <m>G</m> and choose a value for <m>\alpha</m>.
+      <sage>
+	<input>
+def modified_markov_chain(A, x0, N):
+    r = A.nrows()
+    A = alpha*A + (1-alpha)*matrix(r,r,[1.0/r]*(r*r))	      
+    for i in range(N):
+        x0 = A*x0
+        print x0.numerical_approx(digits=3)
+## Define the matrix original Google matrix G and choose alpha.
+## The function above finds the modified Google matrix
+## and resulting Markov chain
+alpha = 0
+G =
+x0 = vector([1,0,0,0,0])
+modified_markov_chain(G, x0, 20)		
+	</input>
+      </sage>
+
+      <ol label="a.">
+	<li><p> Let's begin with <m>\alpha=0</m>.  With this choice,
+	what is the matrix <m>G'=\alpha G + (1-\alpha)H_n</m>?
+	Construct a Markov chain using the Sage cell above.  How
+	many steps are required for the Markov chain to converge to
+	the accuracy with which the vectors <m>\xvec_k</m> are
+	displayed? </p></li>
+	
+	<li><p> Now choose <m>\alpha=0.25</m>.  How
+	many steps are required for the Markov chain to converge to
+	the accuracy at which the vectors <m>\xvec_k</m> are
+	displayed? </p></li>
+	
+	<li><p> Repeat this experiment with <m>\alpha = 0.5</m> and
+	<m>\alpha=0.75</m>.  </p></li>
+	
+	<li><p> What happens if <m>\alpha = 1</m>? </p></li>
+      </ol></p>
+      
+      <p> This experiment gives some insight into the choice of
+      <m>\alpha</m>.  The smaller <m>\alpha</m> is, the faster the
+      Markov chain converges.  This is important; since the matrix
+      <m>G'</m> that Google works with is so large, we would like to
+      minimize the number of terms in the Markov chain that we need to
+      compute.  On the other hand, as we lower <m>\alpha</m>, the
+      matrix <m>G' = \alpha G + (1-\alpha)H_n</m> begins to resemble
+      <m>H_n</m> more and <m>G</m> less.  The value
+      <m>\alpha=0.85</m> is chosen so that the matrix <m>G'</m> sufficiently
+      resembles <m>G</m> while having the Markov chain converge in a
+      reasonable amount of steps.</p>
+    </statement>
+
+    <solution>
+      <p> Remember that the steady-state vector for <m>G'</m> is
+      <m>\qvec=\left[\begin{array}{c}
+      \frac15  \\
+      \frac15  \\
+      \frac15  \\
+      \frac15  \\
+      \frac15  \\
+      \end{array}\right]</m>.
+      <ol label="a.">
+	<li><p> If <m>\alpha = 0</m>, then <m>G'=H_n</m> and we see
+	that any Markov chain converges to <m>\qvec</m> in one term.
+	That is, <m>\xvec_1=\qvec</m>. </p></li>
+
+	<li><p> After six terms, we have <m>\xvec_6=\qvec</m> to
+	three digits. </p></li>
+
+	<li><p> With <m>\alpha = 0.5</m>, it is not until
+	<m>\xvec_{11}=\qvec</m> to three digits. With
+	<m>\alpha=0.75</m>, it is not until
+	<m>\xvec_{26}</m>. </p></li>
+
+	<li><p> With <m>\alpha=1</m>, we have <m>G'=G</m> so the
+	Markov chain will never converge. </p></li>
+      </ol></p>
+    </solution>
+    <answer>
+      <p> <ol label="a.">
+	<li><p> If <m>\alpha = 0</m>, then <m>G'=H_n</m> and we see
+	that any Markov chain converges to the steady-state vector
+	<m>\qvec</m> in one term. 
+	That is, <m>\xvec_1=\qvec</m>. </p></li>
+
+	<li><p> After six terms, we have <m>\xvec_6=\qvec</m> to
+	three digits. </p></li>
+
+	<li><p> With <m>\alpha = 0.5</m>, it is not until
+	<m>\xvec_{11}=\qvec</m> to three digits. With
+	<m>\alpha=0.75</m>, it is not until
+	<m>\xvec_{26}</m>. </p></li>
+
+	<li><p> With <m>\alpha=1</m>, we have <m>G'=G</m> so the
+	Markov chain will never converge. </p></li>
+      </ol></p>
+    </answer>
+  </exercise>
+
+  <exercise>
+    <statement>
+      <p> This exercise will analyze the board game <em>Chutes and
+      Ladders</em>, or at least a simplified version of it. </p>
+
+      <sidebyside widths="50% 45%">
+	<p> The board for this game consists of 100 squares arranged
+	in a <m>10\times10</m> grid and numbered 1 to 100.  There are
+	pairs of squares joined by a ladder and pairs joined by a
+	chute.  All players begin in square 1 and take turns rolling a
+	die.  On their turn, a player will move ahead the number of
+	squares indicated on the die.  If they arrive at a square at
+	the bottom of a ladder, they move to the square at the top of
+	the ladder.  If they arrive at a square at the top of a chute,
+	the move down to the square at the bottom of the chute.  The
+	winner is the first player to reach square 100.
+	</p>
+
+	<image source="images/chutes.jpg" />
+      </sidebyside>
+
+      <p>
+	<ol label="a.">
+	  <li><p> We begin by playing a simpler version of this game
+	  with only eight squares laid out in a row as shown in
+	  <xref ref="fig-chutes-plain" /> and containing neither
+	  chutes nor ladders.  Rather than a six-sided
+	  die, we will flip a coin and move ahead one or two squares
+	  depending on the result whether we have heads or tails.  If
+	  we are on square 7, we move 
+	  ahead to square 8 regardless of the coin flip, and if we are
+	  on square 8, we will stay there forever.  </p>
+
+	  <figure xml:id="fig-chutes-plain">
+	    <sidebyside width="50%">
+	      <image source="images/chutes-plain" />
+	    </sidebyside>
+	    <caption>
+	      A simple version of Chutes and Ladders with neither chutes
+	      nor ladders.
+	    </caption>
+	  </figure>
+
+	  <p> Construct the <m>8\times8</m> matrix <m>A</m> that
+	  records the probability that a player moves from one square to
+	  another on one move.  For instance, if a player is on square
+	  2, there is a 50<percent /> chance they are on square 3 and a 50<percent />
+	  chance they are on square 4 at the end of the next
+	  move. </p>
+
+	  <p> Since we begin the game on square 1, the initial vector
+	  <m>\xvec_0 = \evec_1</m>.  Generate a few terms of the
+	  Markov chain <m>\xvec_{k+1} = A\xvec_k</m>.
+	  <sage>
+	    <input>
+def markov_chain(A, x0, N):
+    for i in range(N):
+        x0 = A*x0
+        print x0.numerical_approx(digits=3)
+## define the matrix A and x0
+A =
+x0 =
+markov_chain(A, x0, 10)		
+	    </input>
+	  </sage>
+	  </p>
+
+	  <p> What is the probability that we arrive at square 8 by
+	  the fourth move?  By the sixth move?  By the seventh
+	  move?</p> </li>
+	  
+	  <li><p> We will now modify the game by adding one chute and
+	  one ladder as shown in <xref ref="fig-chutes-ladders" />.
+	  </p>
+
+	  <figure xml:id="fig-chutes-ladders">
+	    <sidebyside width="50%">
+	      <image source="images/chutes-ladders" />
+	    </sidebyside>
+	    <caption>
+	      A version of Chutes and Ladders with one chute and one
+	      ladder. 
+	    </caption>
+	  </figure>
+
+	  <p> Even though there are eight squares, we only need to
+	  consider six of them.  For instance, if we arrive at the
+	  first white square, we move up to square 4.
+	  Similarly, if we arrive at the second white square, we move
+	  down to square 1.</p>
+
+	  <p> Once again, construct the <m>6\times6</m> stochastic
+	  matrix that records the probability that we move from one
+	  square to another on a given turn and generate some terms in
+	  the Markov chain that begins with <m>\xvec_0=\evec_1</m>.  
+	  <sage>
+	    <input>
+def markov_chain(A, x0, N):
+    for i in range(N):
+        x0 = A*x0
+        print x0.numerical_approx(digits=3)
+## define the matrix A and x0
+A =
+x0 =
+markov_chain(A, x0, 10)		
+	    </input>
+	  </sage>
+	  </p>
+
+	  <p>
+	    <ol label="i.">
+	      <li><p> What is the smallest number of moves we can make and
+	      arrive at square 6?  What is the probability that we
+	      arrive at square 6 using this number of moves?  </p></li>
+
+	      <li><p> What is the probability that we arrive at square
+	      6 after five moves? </p></li>
+
+	      <li><p> What is the probability that we are still on
+	      square 1 after five moves?  After seven moves?  After
+	      nine moves? </p></li>
+
+	      <li><p> After how many moves do we have a 90<percent /> chance of
+	      having arrived at square 6? </p></li>
+
+	      <li><p> Find the steady-state vector and
+	      discuss what this vector implies about the game.
+	      </p></li> 
+	    </ol>
+	  </p> </li>
+	</ol>
+      </p>
+
+      <p> One can analyze the full version of Chutes and Ladders
+      having 100 squares in
+      the same way.  Without any chutes or ladders, one finds that the
+      average number of moves required to reach square 100 is 
+      29.0.  Once we add the chutes and ladders back in, the average
+      number of moves required to reach square 100 is 27.1.  This
+      shows that the average number of moves does not change
+      significantly when we add the chutes and ladders.  There is,
+      however, much more variation in the possibilities because
+      it is possible to reach square 100 much more quickly and much
+      more slowly. </p>
+
+    </statement>
+
+    <solution>
+      <p><ol label="a.">
+	<li><p> We have the matrix
+	<me>
+	  A =
+	  \left[\begin{array}{rrrrrrrr}
+	  0 \amp 0 \amp 0 \amp 0 \amp 0 \amp 0 \amp 0 \amp 0 \\
+	  \frac{1}{2} \amp 0 \amp 0 \amp 0 \amp 0 \amp 0 \amp 0 \amp 0 \\
+	  \frac{1}{2} \amp \frac{1}{2} \amp 0 \amp 0 \amp 0 \amp 0 \amp 0 \amp 0 \\
+	  0 \amp \frac{1}{2} \amp \frac{1}{2} \amp 0 \amp 0 \amp 0 \amp 0 \amp 0 \\
+	  0 \amp 0 \amp \frac{1}{2} \amp \frac{1}{2} \amp 0 \amp 0 \amp 0 \amp 0 \\
+	  0 \amp 0 \amp 0 \amp \frac{1}{2} \amp \frac{1}{2} \amp 0 \amp 0 \amp 0 \\
+	  0 \amp 0 \amp 0 \amp 0 \amp \frac{1}{2} \amp \frac{1}{2} \amp 0 \amp 0 \\
+	  0 \amp 0 \amp 0 \amp 0 \amp 0 \amp \frac{1}{2} \amp 1 \amp 1
+	  \end{array}\right]\text{.}
+	</me>
+	Starting a Markov chain with <m>\xvec_0 = \evec_1</m>, we find
+	that
+	<me>
+	  \xvec_4=\left[\begin{array}{c}
+	  0.000\\ 0.000\\ 0.000\\ 0.000\\ 0.0625\\ 0.250\\ 0.375\\ 0.312
+	  \end{array}\right],
+	  \xvec_6=\left[\begin{array}{c}
+	  0.000\\ 0.000\\ 0.000\\ 0.000\\ 0.000\\ 0.000\\ 0.0156\\ 0.984
+	  \end{array}\right],
+	  \xvec_7=\left[\begin{array}{c}
+	  0.000\\ 0.000\\ 0.000\\ 0.000\\ 0.000\\ 0.000\\ 0.000\\ 1.00
+	  \end{array}\right]\text{.}
+	</me>
+	This says that the chances are <m>31.2</m><percent /> that
+	we arrive at square <m>8</m> after four moves and
+	<m>98.4</m><percent /> that we arrive after five moves.  We
+	are guaranteed to arrive after seven moves.
+	</p></li>
+
+	<li><p> Now we have the matrix
+	<m>
+	  A =
+	  \left[\begin{array}{rrrrrr}
+	  0 \amp 0 \amp 0 \amp \frac{1}{2} \amp \frac{1}{2} \amp 0 \\
+	  \frac{1}{2} \amp 0 \amp 0 \amp 0 \amp 0 \amp 0 \\
+	  0 \amp \frac{1}{2} \amp 0 \amp 0 \amp 0 \amp 0 \\
+	  \frac{1}{2} \amp \frac{1}{2} \amp \frac{1}{2} \amp 0 \amp 0 \amp 0 \\
+	  0 \amp 0 \amp \frac{1}{2} \amp \frac{1}{2} \amp 0 \amp 0 \\
+	  0 \amp 0 \amp 0 \amp 0 \amp \frac{1}{2} \amp 1
+	  \end{array}\right]\text{,}
+	</m>
+	which leads to the Markov chain with terms
+	<me>
+	  \begin{array}{rrr}
+	  \xvec_3=\left[\begin{array}{c}
+	  0.250\\ 0.125\\ 0.000\\ 0.250\\ 0.250\\ 0.125
+	  \end{array}\right], \amp 
+	  \xvec_5=\left[\begin{array}{c}
+	  0.156\\ 0.125\\ 0.063\\ 0.219\\ 0.125\\ 0.312
+	  \end{array}\right], \amp
+	  \xvec_7=\left[\begin{array}{c}
+	  0.156\\ 0.086\\ 0.039\\ 0.156\\ 0.117\\ 0.445
+	  \end{array}\right], \\
+	  \xvec_9=\left[\begin{array}{c}
+	  0.119\\ 0.069\\ 0.039\\ 0.129\\ 0.092\\ 0.553
+	  \end{array}\right], \amp
+	  \xvec_{23}=\left[\begin{array}{c}
+	  0.027\\ 0.015\\ 0.008\\ 0.028\\ 0.020\\ 0.902
+	  \end{array}\right]\text{.}
+	  \end{array}
+	</me>
+	<ol label="i.">
+	  <li><p> We can first arrive at square <m>6</m> after three
+	  moves.  The chances of doing so are <m>12.5</m><percent
+	  />. </p></li>
+
+	  <li><p> After five moves, there is a <m>31.2</m><percent />
+	  chance that we have arrived at square <m>6</m>. </p></li>
+
+	  <li><p> The chances of being on square <m>1</m> after five
+	  moves is <m>15.6</m><percent />.  After seven moves, it is
+	  still <m>15.6</m><percent />.  After nine moves, however, it
+	  is <m>11.9</m><percent />. </p></li>
+
+	  <li><p> After 23 moves, there is a <m>90.2</m><percent />
+	  chance that we have arrived at square <m>6</m>. </p></li>
+
+	  <li><p> The steady-state vector is <m>\qvec=\evec_6</m>,
+	  which means that we will eventually arrive at square
+	  <m>6</m>. </p></li>
+	</ol>
+	</p></li>
+      </ol></p>
+    </solution>
+
+    <answer>
+      <p><ol label="a.">
+	<li><p> 
+	The chances are <m>31.2</m><percent /> that
+	we arrive at square <m>8</m> after four moves and
+	<m>98.4</m><percent /> that we arrive after five moves.  We
+	are guaranteed to arrive after seven moves.
+	</p></li>
+
+	<li><p> We find that
+	<ol label="i.">
+	  <li><p> We can first arrive at square <m>6</m> after three
+	  moves.  The chances of doing so are <m>12.5</m><percent
+	  />. </p></li>
+
+	  <li><p> After five moves, there is a <m>31.2</m><percent />
+	  chance that we have arrived at square <m>6</m>. </p></li>
+
+	  <li><p> The chances of being on square <m>1</m> after five
+	  moves is <m>15.6</m><percent />.  After seven moves, it is
+	  still <m>15.6</m><percent />.  After nine moves, however, it
+	  is <m>11.9</m><percent />. </p></li>
+
+	  <li><p> After 23 moves, there is a <m>90.2</m><percent />
+	  chance that we have arrived at square <m>6</m>. </p></li>
+
+	  <li><p> <m>\qvec=\evec_6</m> </p></li>
+	</ol>
+	</p></li>
+      </ol></p>
+    </answer>
+
+  </exercise>
+
+</exercises>

@@ -1,0 +1,443 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<exercises>
+  <p> This Sage cell has the commands <c>power</c>,
+  <c>inverse_power</c>, and <c>find_closest_eigenvalue</c> that we
+  have developed in this section.  After evaluating this cell, these
+  commands will be available in any other cell on this page.
+  <sage>
+    <input>
+def power(A, x, N):
+    for i in range(N):
+        x = A*x
+        m = max([comp for comp in x], key=abs).numerical_approx(digits=14)
+        x = 1/float(m)*x
+        print m, x
+def find_closest_eigenvalue(A, s, x, N):
+    B = A-s*identity_matrix(A.nrows())
+    for i in range(N):
+        x = B \ x
+        m = max([comp for comp in x], key=abs).numerical_approx(digits=14)
+        x = 1/float(m)*x
+        print 1/float(m)+s, x
+def inverse_power(A, x, N):
+    find_closest_eigenvalue(A, 0, x, N)
+    </input>
+  </sage>
+  </p>
+
+  <exercise>
+    <statement>
+      <p> Suppose that <m>A</m> is a matrix having eigenvalues
+      <m>-3</m>, <m>-0.2</m>, <m>1</m>, and <m>4</m>.
+      <ol label="a.">
+	<li><p> What are the eigenvalues of <m>A^{-1}</m>? </p></li>
+
+	<li><p> What are the eigenvalues of <m>A+7I</m>?</p></li>
+      </ol></p>
+    </statement>
+
+    <solution>
+      <p><ol label="a.">
+	<li><p> The eigenvalues of <m>A^{-1}</m> are the reciprocals
+	of the eigenvalues of <m>A</m>.  They are, therefore,
+	<m>-\frac13</m>, <m>-5</m>, <m>1</m>, and
+	<m>\frac14</m>. </p></li>
+
+	<li><p> If <m>\lambda</m> is an eigenvalue of <m>A</m>, then
+	<m>\lambda+7</m> is an eigenvalue of <m>A+7I</m>.  Therefore,
+	the eigenvalues of <m>A+7I</m> are <m>-4</m>, <m>6.8</m>,
+	<m>8</m>, and <m>12</m>. </p></li>
+      </ol></p>
+    </solution>
+
+    <answer>
+      <p><ol label="a.">
+	<li><p> <m>-\frac13</m>, <m>-5</m>, <m>1</m>, and
+	<m>\frac14</m>. </p></li>
+
+	<li><p> <m>-4</m>, <m>6.8</m>,
+	<m>8</m>, and <m>12</m>. </p></li>
+      </ol></p>
+    </answer>
+  </exercise>
+
+  <exercise>
+    <statement>
+      <p> Use the commands <c>power</c>, <c>inverse_power</c>, and
+      <c>find_closest_eigenvalue</c> to approximate the eigenvalues
+      and associated eigenvectors of the
+      following matrices.
+      <sage>
+	<input>
+	</input>
+      </sage>
+      <ol label="a.">
+	<li><p> <m>A= \left[\begin{array}{rr}
+	-2 \amp -2 \\
+	-8 \amp -2 \\
+	\end{array}\right]
+	</m>. </p></li>
+
+	<li><p> <m>A= \left[\begin{array}{rr}
+	0.6 \amp 0.7 \\
+	0.5 \amp 0.2 \\
+	\end{array}\right]
+	</m>. </p></li>
+
+	<li><p> <m>A= \left[\begin{array}{rrrr}
+	1.9  \amp -16.0 \amp  -13.0 \amp 27.0 \\
+	-2.4 \amp  20.3 \amp  4.6 \amp -17.7 \\
+	-0.51 \amp -11.7 \amp -1.4 \amp  13.1  \\
+	 -2.1 \amp  15.3 \amp  6.9 \amp -20.5 \\
+	\end{array}\right]
+	</m>. </p></li>
+      </ol></p>
+    </statement>
+
+    <solution>
+      <p><ol label="a.">
+	<li><p> The power method tells us that the dominant eigenvalue
+	is <m>\lambda_1=-6</m> with associated eigenvector
+	<m>\vvec_1=\twovec{0.5}{1}</m>.  The inverse power method
+	tells us that the eigenvalue having the smallest absolute
+	value is <m>\lambda_2=2</m> with associated eigenvector
+	<m>\vvec_2=\twovec{-0.5}1</m>. </p></li>
+
+	<li><p> The power method tells us that the dominant eigenvalue
+	is <m>\lambda_1=1.024</m> with associated eigenvector
+	<m>\vvec_1=\twovec1{0.606}</m>.  The inverse power method
+	tells us that the eigenvalue having the smallest absolute
+	value is <m>\lambda_2=-0.224</m> with associated eigenvector
+	<m>\vvec_2=\twovec{-0.849}1</m>. </p></li>
+
+	<li><p> The power method tells us that the dominant eigenvalue
+	is <m>\lambda_1=-14.014</m>. 
+	The inverse power method
+	tells us that the eigenvalue having the smallest absolute
+	value is <m>\lambda_2=-1.530</m>.  If we now look for the
+	closest eigenvalue to <m>-9</m>, we see that it is
+	<m>\lambda_1=-14.014</m>, which we have already found.  Let's
+	try again, this time looking to find the closest eigenvalue to
+	<m>10</m>.  Here, we find <m>\lambda_3=11.226</m>.  If we next
+	try to find the eigenvalue closest to <m>4</m>, we find it to
+	be <m>\lambda_4=4.618</m>.  </p>
+
+	<p> The four eigenvalues are then <m>-14.014</m>,
+	<m>-1.530</m>, <m>11.226</m>, and 
+	<m>4.618</m>. </p></li>
+      </ol></p>
+    </solution>
+
+    <answer>
+      <p><ol label="a.">
+	<li><p> <m>\lambda = -6</m> and <m>2</m>. </p></li>
+
+	<li><p> <m>\lambda=1.024</m> and <m>-0.224</m>. </p></li>
+
+	<li><p> <m>\lambda = -14.014</m>,
+	<m>-1.530</m>, <m>11.226</m>, and 
+	<m>4.618</m>. </p></li>
+      </ol></p>
+    </answer>
+	
+  </exercise>
+
+  <exercise>
+    <statement>
+      <p> Use the techniques we have seen in this section to find the
+      eigenvalues of the matrix
+      <me>
+	A= \left[\begin{array}{rrrrr}
+	-14.6 \amp 9.0 \amp -14.1 \amp 5.8 \amp  13.0 \\
+	 27.8 \amp -4.2 \amp  16.0 \amp 0.9 \amp -21.3 \\
+	 -5.5 \amp 3.4 \amp  3.4 \amp  3.3 \amp  1.1 \\
+	 -25.4 \amp 11.3 \amp -15.4 \amp 4.7 \amp  20.3 \\
+	 -33.7 \amp 14.8 \amp -22.5 \amp 9.7 \amp  26.6 \\
+	 \end{array}\right]
+      </me>.
+      <sage>
+	<input>
+A = matrix(5,5, [-14.6,  9.0, -14.1, 5.8,  13.0,
+                  27.8, -4.2,  16.0, 0.9, -21.3,
+                  -5.5,  3.4,   3.4, 3.3,   1.1,
+                 -25.4, 11.3, -15.4, 4.7,  20.3,
+                 -33.7, 14.8, -22.5, 9.7,  26.6])
+	</input>
+      </sage>
+      </p>
+    </statement>
+
+    <solution>
+      <p> The power method shows us that <m>\lambda_1=9.449</m> is the
+      dominant eigenvalue.  The inverse power method tells us that
+      <m>-2.134</m> is the eigenvalue having the smallest absolute
+      value.  We then probe in between these values to find eigenvalues
+      <m>-4.399</m>, <m>7.100</m>, and <m>5.974</m>. </p>
+    </solution>
+
+    <answer>
+      <p> <m>\lambda=9.449</m>,
+      <m>-2.134</m>,
+      <m>-4.399</m>, <m>7.100</m>, and <m>5.974</m>. </p>
+    </answer>
+    
+  </exercise>
+
+  <exercise>
+    <statement>
+      <p> Consider the matrix
+      <m>A = \left[\begin{array}{rr}
+      0 \amp -1 \\
+      -4 \amp 0 \\
+      \end{array}\right]
+      </m>.
+      <sage>
+	<input>
+	</input>
+      </sage>
+      <ol label="a.">
+	<li><p> Describe what happens if we apply the power method and
+	the inverse power method using the initial vector <m>\xvec_0 =
+	\twovec{1}{0}</m>. </p></li>
+
+	<li><p> Find the eigenvalues of this matrix
+	and explain this observed behavior. </p></li>
+
+	<li><p> How can we apply the techniques of this section to
+	find the eigenvalues of <m>A</m>? </p></li>
+      </ol></p>
+
+    </statement>
+
+    <solution>
+      <p><ol label="a.">
+	<li><p> We see that neither the power method nor the inverse
+	power method converge. </p></li>
+
+	<li><p> The eigenvalues are <m>\lambda=2</m> and <m>-2</m>.
+	This means that there is not a unique dominant eigenvalue and
+	there is not a unique eigenvalue with the smallest absolute
+	value.  The methods try to find first one of them and then the
+	other. </p></li>
+
+	<li><p> To break the symmetry, we can look for an eigenvalue
+	closest to, say, <m>5</m>.  When we do this, we find the
+	eigenvalue <m>\lambda_1=2</m>.  Then look for another eigenvalue
+	closest to <m>-5</m> to find <m>\lambda_2=-2</m>. </p></li>
+      </ol></p>
+    </solution>
+
+    <answer>
+      <p><ol label="a.">
+	<li><p> The methods do not converge. </p></li>
+
+	<li><p> There is not a unique dominant eigenvalue. </p></li>
+
+	<li><p> Try finding an eigenvalue closest to, say,
+	<m>5</m>. </p></li>
+      </ol></p>
+    </answer>
+  </exercise>
+
+  <exercise xml:id="exercise-power-method">
+    <statement>
+      <p> We have seen that the matrix
+      <m>A = \left[\begin{array}{rr}
+      1 \amp 2 \\
+      2 \amp 1 \\
+      \end{array}\right]
+      </m> has eigenvalues <m>\lambda_1 = 3</m> and
+      <m>\lambda_2=-1</m> and associated eigenvectors <m>\vvec_1 =
+      \twovec{1}{1}</m> and <m>\vvec_2=\twovec{-1}{1}</m>.
+      <ol label="a.">
+	<li><p> Describe what happens when we apply the inverse power
+	method 
+	using the initial vector <m>\xvec_0 = \twovec{1}{0}</m>.</p></li>
+
+	<li><p> Explain why this is happening and provide a contrast
+	with how the power method usually works. </p></li>
+
+	<li><p> How can we modify the power method to give the
+	dominant eigenvalue in this case? </p></li>
+      </ol></p>
+    </statement>
+
+
+    <solution>
+      <p><ol label="a.">
+	<li><p> We see that the vectors <m>\overline{\xvec}_k</m> do
+	not converge but instead flip
+	between approximations to <m>\vvec_2</m> and <m>-\vvec_2</m>.
+	Also, the multipliers <m>m_k</m> are converging to <m>1</m>
+	rather than <m>-1</m>.  </p></li>
+
+	<li><p> When applying the power method, the multipliers
+	<m>m_k</m> are usually formed from the same component of the
+	vectors <m>\overline{\xvec}_k</m> in every
+	iteration.  Here, we see that the multipliers are obtained
+	from the first component, then the second component, then the
+	first, and so on.
+	</p></li>
+
+	<li><p> Choose one of the components, say, the first one and
+	consider the ratio between that component of
+	<m>A\overline{\xvec}_k</m> and <m>\overline{\xvec}_k</m>
+	in place of the multiplier <m>m_k</m>.  The problem is that
+	you must make sure that this component is not approaching zero.
+	</p></li>
+      </ol></p>
+    </solution>
+
+    <answer>
+      <p><ol label="a.">
+	<li><p> We see that the vectors <m>\overline{\xvec}_k</m> do
+	not converge and the multipliers <m>m_k</m> converge to the
+	wrong value. </p></li>
+
+	<li><p> The multipliers are obtained
+	from the first component, then the second component, then the
+	first, and so on.
+	</p></li>
+
+	<li><p> Choose one of the components, say, the first one and
+	consider the ratio between that component of
+	<m>A\overline{\xvec}_k</m> and <m>\overline{\xvec}_k</m>
+	in place of the multiplier <m>m_k</m>.  
+	</p></li>
+      </ol></p>
+    </answer>
+  </exercise>
+
+  <exercise>
+    <statement>
+      <p> Suppose that <m>A</m> is a <m>2\times2</m> matrix with
+      eigenvalues <m>4</m> and <m>-3</m> and that <m>B</m> is a
+      <m>2\times2</m> matrix with eigenvalues <m>4</m> and <m>1</m>.
+      If we apply the power method to find the dominant eigenvalue of
+      these matrices to the same degree of accuracy, which matrix will
+      require more steps in the algorithm?  Explain your response.
+      </p>
+    </statement>
+
+    <solution>
+      <p> For both matrices, <m>\lambda_1=4</m> is the dominant
+      eigenvalue and <m>\lambda_2</m> is the eigenvalue closest to
+      <m>0</m>. We will construct the initial vector as a linear
+      combination of eigenvectors:  <m>\xvec_0 =
+      c_1\vvec_1+ c_2\vvec_2</m>.   Then <m>A^k\xvec_0 =
+      c_14^k\vvec_1+c_2\lambda_2^k\vvec_2</m>.  For the matrix
+      <m>B</m>, <m>\lambda_2=1</m> is relatively small compared to
+      <m>\lambda_1=4</m> so we expect the contribution from
+      <m>\vvec_2</m> to become smaller more quickly.  Therefore, we
+      will need more steps in the power method to find the dominant
+      eigenvalue of <m>A</m>.</p>
+    </solution>
+
+    <answer>
+      <p> We will need more steps when finding the dominant eigenvalue
+      of <m>A</m>. </p>
+    </answer>
+  </exercise>
+
+  <exercise>
+    <statement>
+      <p> Suppose that we apply the power method to the matrix
+      <m>A</m> with an initial vector <m>\xvec_0</m> and find the
+      eigenvalue <m>\lambda=3</m> and eigenvector <m>\vvec</m>.
+      Suppose that we then apply the power method again with a
+      different initial 
+      vector and find the same eigenvalue <m>\lambda=3</m> but a
+      different eigenvector <m>\wvec</m>.  What can we conclude about
+      the matrix <m>A</m> in this case?</p>
+    </statement>
+
+    <solution>
+      <p> The dominant eigenvector is <m>\lambda=3</m> but it has a
+      multiplicity greater than one and the associated eigenspace has
+      <m>\dim E_3 \gt 1</m>. </p>
+    </solution>
+
+    <answer>
+      <p> <m>\lambda=3</m> is the dominant eigenvalue with a
+      multiplicity greater than one. </p>
+    </answer>
+  </exercise>
+
+  <exercise>
+    <statement>
+      <p> The power method we have developed only works if the matrix
+      has real eigenvalues.  
+      Suppose that <m>A</m> is a <m>2\times2</m> matrix that has a
+      complex eigenvalue <m>\lambda = 2+3i</m>.  What would happen if
+      we apply the power method to <m>A</m>?
+	</p>
+    </statement>
+
+    <solution>
+      <p> The power method relies on the fact that the vectors
+      <m>\overline{\xvec}_k</m> attempt to line up in the direction of
+      a vector in the dominant eigenspace.  If the eigenvalues are
+      complex, however, the vectors <m>\overline{\xvec}_k</m> will be
+      rotated with each iteration so they will not
+      converge. </p>
+    </solution>
+
+    <answer>
+      <p> The vectors <m>\overline{\xvec}_k</m> will not converge. </p>
+    </answer>
+  </exercise>
+
+  <exercise>
+    <statement>
+      <p> Consider the matrix
+      <m>A=\left[\begin{array}{rr}
+      1 \amp 1 \\
+      0 \amp 1 \\
+      \end{array}\right]
+      </m>.
+      <ol label="a.">
+	<li><p> Find the eigenvalues and associated eigenvectors of
+	<m>A</m>. </p></li>
+
+	<li><p> Make a prediction about what happens if we apply the
+	power method and the inverse power method to find eigenvalues
+	of <m>A</m>. </p></li>
+
+	<li><p> Verify your prediction using Sage.
+	<sage>
+	  <input>
+	  </input>
+	</sage>
+	</p></li>
+      </ol></p>
+    </statement>
+
+    <solution>
+      <p><ol label="a.">
+	<li><p> There is a single eigenvalue <m>\lambda=1</m> having
+	multiplicity two with its associated eigenspace <m>E_1</m>
+	being one-dimensional with basis vector <m>\twovec10</m>.
+	</p></li>
+
+	<li><p> Applying either the power or inverse power method will
+	find the eigenvalue <m>\lambda=1</m> and a scalar multiple of
+	<m>\vvec</m>. </p></li>
+      </ol></p>
+    </solution>
+
+    <answer>
+      <p><ol label="a.">
+	<li><p> There is a single eigenvalue <m>\lambda=1</m> having
+	multiplicity two with its associated eigenspace <m>E_1</m>
+	being one-dimensional with basis vector <m>\vvec=\twovec10</m>.
+	</p></li>
+
+	<li><p> Applying either the power or inverse power method will
+	find the eigenvalue <m>\lambda=1</m> and a scalar multiple of
+	<m>\vvec</m>. </p></li>
+      </ol></p>
+    </answer>
+  </exercise>
+
+</exercises>
