@@ -63,9 +63,9 @@ MAINFILE  = $(PRJSRC)/ula.xml
 # the Mathbook XML distribution
 # DAUSR is where extension files get copied
 # so relative paths work properly
-DAXSL = $(DA)/xsl
-DAUSR = $(DA)/user
-DTD   = $(DA)/schema/dtd
+USRXSL = $(USR)/xsl
+USRUSR = $(USR)/user
+DTD   = $(USR)/schema/dtd
 
 # These paths are subdirectories of
 # the scratch directory
@@ -78,25 +78,6 @@ PGOUT      = $(OUT)/pg
 HTMLOUT    = $(OUT)/html
 PDFOUT     = $(OUT)/pdf
 IMAGESOUT  = $(OUT)/images
-
-# Some aspects of producing these examples require a WeBWorK server.
-# For all but trivial testing or examples, please look into setting
-# up your own WeBWorK server, or consult Alex Jordan about the use
-# of PCC's server in a nontrivial capacity.    <alex.jordan@pcc.edu>
-SERVER = https://webwork.pcc.edu
-
-#  Write out each WW problem as a standalone problem in PGML ready 
-#  for use on a WW server.  "def" files and "header" files are 
-#  produced. Directories and filenames are derived from titles of 
-#  chapters, sections, etc., in addition to the titles of the 
-#  problems themselves.
-#
-#  Results land in the subdirectory:  $(PGOUT)/local
-#
-pg:
-	install -d $(PGOUT)
-	cd $(PGOUT); \
-	xsltproc -xinclude --stringparam chunk.level 2 $(DAXSL)/mathbook-webwork-archive.xsl $(MAINFILE)
 
 #  HTML output 
 #  Output lands in the subdirectory:  $(HTMLOUT)
@@ -119,7 +100,6 @@ html:
 	cp -a $(IMAGESSRC) $(HTMLOUT)
 	cd $(HTMLTMP); \
 	xsltproc -xinclude \
-	--stringparam webwork.server $(SERVER) \
 	--stringparam html.knowl.exercise.inline no \
 	--stringparam html.knowl.example no \
 	--stringparam exercise.text.solution no \
@@ -129,32 +109,10 @@ html:
 	--stringparam project.text.answer no \
 	--stringparam project.text.solution no \
 	--stringparam html.css.file mathbook-4.css \
-	$(DAXSL)/mathbook-html.xsl $(MAINFILE)
+	$(USRXSL)/mathbook-html.xsl $(MAINFILE)
 	python $(BIN)/postprocess.py -h $(HTMLTMP) $(HTMLOUT) $(PRJSRC)/inserts
-	#cp $(HTMLTMP)/images/* $(HTMLOUT)/images/
 	cp $(HTMLTMP)/knowl/* $(HTMLOUT)/knowl/
 	cp $(JSSRC)/*js $(HTMLOUT)/jslibrary
-
-# make all the image files in svg format
-images:
-	install -d $(IMAGESOUT)
-	-rm $(IMAGESOUT)/*.svg
-	$(DA)/script/mbx -c latex-image -f svg -d $(IMAGESOUT) $(MAINFILE)
-#	$(DA)/script/mbx -c asymptote -f svg -d $(IMAGESOUT) $(MAINFILE)
-
-# make all the image files in pdf format
-pdfimages:
-	install -d $(IMAGESOUT)
-	-rm $(IMAGESOUT)/*.pdf
-	$(DA)/script/mbx -c latex-image -f pdf -d $(IMAGESOUT) $(MAINFILE)
-
-# for pdf output, a one-time prerequisite for LaTeX conversion of
-# problems living on a server, and image construction at server
-# our "webwork-tex" is a subdirectory of where the PDF is compiled
-# -s specifies an existing WW server to use (ignore security warnings)
-webwork-server-tex:
-	install -d $(PDFOUT)/webwork-tex
-	$(DA)/script/mbx -v -c webwork-tex -s $(SERVER) -d $(PDFOUT)/webwork-tex $(MAINFILE)
 
 # LaTeX for print
 # see prerequisite just above
@@ -173,27 +131,10 @@ latex:
 	--stringparam project.text.answer no \
 	--stringparam project.text.solution no \
 	--stringparam webwork.server.latex $(PDFOUT)/webwork-tex/ \
-	$(DAXSL)/mathbook-latex.xsl $(MAINFILE)
+	$(USRXSL)/mathbook-latex.xsl $(MAINFILE)
 	python $(BIN)/postprocess.py -l $(PDFTMP) $(PDFOUT) $(PRJSRC)/inserts
 	cp $(PDFTMP)/images/* $(PDFOUT)/images
 
-
-# PDF for print
-# see prerequisite just above
-# the "webwork-tex" directory must be given here
-# [note trailing slash (subject to change)]
-pdf:
-	install -d $(PDFOUT)
-	-rm $(PDFOUT)/*.tex
-	install -d $(PDFTMP)
-	-rm $(PDFTMP)/images/*
-	cp -a $(IMAGESSRC) $(PDFOUT)
-	cd $(PDFTMP); \
-	xsltproc -xinclude --stringparam webwork.server.latex $(PDFOUT)/webwork-tex/ $(DAXSL)/mathbook-latex.xsl $(MAINFILE); \
-	python $(BIN)/postprocess.py -p $(PDFTMP) $(PDFOUT)
-	cp $(PDFTMP)/images/* $(PDFOUT)/images
-	xelatex index.tex; \
-	xelatex index.tex
 
 ###########
 # Utilities
