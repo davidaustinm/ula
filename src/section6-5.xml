@@ -1,0 +1,534 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec-least-squares"
+	 xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title> Least squares problems  </title>
+
+  <introduction>
+    <p> A linear system with more equations than unknowns usually has
+    no solutions.  Suppose, for example, that the equation
+    <m>A\xvec=\bvec</m> is formed from an <m>m\times n</m> matrix
+    <m>A</m> having more rows than columns.  Because not every row can
+    have a pivot position, the columns of <m>A</m> will not span
+    <m>\real^m</m>.  This means that for most vectors <m>\bvec</m>,
+    the equation <m>A\xvec=\bvec</m> will be inconsistent.
+    </p>
+
+    <p> Our story needn't end there, however.  When the equation
+    <m>A\xvec=\bvec</m> is inconsistent, we may instead seek the
+    vector <m>\xvec</m> where <m>A\xvec</m> is as close as possible to
+    <m>\bvec</m>.  Using the ideas we have constructed in this
+    chapter, we will see that orthogonal projections give us just the
+    right tool for doing this.
+    </p>
+    
+    <exploration>
+      <p>
+	<ol label="a.">
+	  <li><p>
+	    If <m>\bvec</m> is in <m>\col(A)</m>, what does this say
+	    about the consistency of the equation <m>A\xvec =
+	    \bvec</m>?  
+	  </p></li>
+
+	  <li><p> Is there a solution to the equation
+	  <m>A\xvec=\bvec</m> where <m>A</m> and <m>\bvec</m> are such
+	  that 
+	  <me>
+	    \begin{bmatrix}
+	    1 \amp 2 \\
+	    2 \amp 5 \\
+	    -1 \amp 0 \\
+	    \end{bmatrix}
+	    \xvec = \threevec5{-3}{-1}\text{.}
+	  </me>
+	  </p></li>
+
+	  <li><p> We know that <m>\threevec12{-1}</m> and
+	  <m>\threevec250</m> form a basis for <m>\col(A)</m>.  Find
+	  an orthogonal basis for <m>\col(A)</m>. 
+	  </p></li>
+
+	  <li><p> Find the orthogonal projection <m>\widehat\bvec</m>
+	  of <m>\bvec</m> onto <m>\col(A)</m>.
+	  </p></li>
+
+	  <li><p> Explain why the equation <m>A\xvec=\widehat\bvec</m>
+	  must be consistent and then find its solution.
+	  </p></li>
+	  
+	</ol>
+      </p>
+    </exploration>
+
+  </introduction>
+
+  <subsection>
+    <title> A first example </title>
+
+    <p> We begin with an example that demonstrates a least
+    squares problem and how we can approach it.
+    </p>
+
+    <activity>
+      <p> Suppose we have three data points <m>(1,1)</m>,
+      <m>(2,1)</m>, and <m>(3,3)</m> and that we would like to find a
+      line passing through them.
+      <ol label="a.">
+	<li><p> Plot these three points in <xref ref="fig-ls-empty"
+	/>.  Are you able to draw a line that passes through these three
+	points? 
+	<figure xml:id="fig-ls-empty">
+	  <sidebyside width="50%">
+	    <image source = "images/empty-ls" />
+	  </sidebyside>
+	  <caption> Plot the three data points here. </caption>
+	</figure>
+	</p></li>
+
+	<li><p> Let's try to find a line that passes through these
+	points.  Remember that the equation of a line can be written
+	as <m>y=b + mx</m> where <m>m</m> is the slope and <m>b</m> is
+	the <m>y</m>-intercept.  We will try to find <m>m</m> and
+	<m>b</m> so that the three points lie on the line.  </p>
+
+	<p> The first data point <m>(1,1)</m> will give us an equation
+	for <m>m</m> and <m>b</m>.  In particular, we know that when
+	<m>x=1</m>, then <m>y=1</m> so we have
+	<m>b + m(1) = 1</m> or <m>b + m = 1</m>.  Use the other two
+	data points to create a linear system describing <m>m</m> and
+	<m>b</m>.
+	</p></li>
+
+	<li><p> Is there a solution to this linear system?  How does
+	this relate to your attempt to draw a line through the three
+	points above?
+	</p></li>
+
+	<li><p> Identify <m>A</m> and <m>\bvec</m> so that the linear
+	system has the form <m>A\xvec=\bvec</m>.  Since this system is
+	inconsistent, we know that <m>\bvec</m> is not in the column
+	space <m>\col(A)</m>.  Consequently, we form <m>\widehat\bvec</m>,
+	the orthogonal projection of <m>\bvec</m> onto <m>\col(A)</m>,
+	which is the vector in <m>\col(A)</m> closest to
+	<m>\bvec</m>.  Find an orthogonal basis for
+	<m>\col(A)</m> and use it to find the orthogonal projection
+	<m>\widehat\bvec</m> of <m>\bvec</m> onto <m>\col(A)</m>.
+	</p></li>
+
+	<li><p> Since <m>\widehat\bvec</m> is in <m>\col(A)</m>, the
+	equation <m>A\xvec = \widehat\bvec</m> is consistent.  Find its
+	solution <m>\xvec = \twovec{b}{m}</m> and sketch the line
+	<m>y=b + mx</m> in <xref ref="fig-ls-empty" />.  We say that
+	this is the line of best fit.
+	</p></li>
+      </ol>
+      </p>
+    </activity>
+
+    <p> The example appearing in this activity illustrates the
+    idea behind least squares problems.  When presented with a linear
+    system that has no solution, we trade it in for a new linear
+    system that we can solve.  More specifically, if
+    <m>A\xvec = \bvec</m> has no solution, we instead find
+    the vector <m>\xvec</m> that minimizes the distance between
+    <m>A\xvec</m> and <m>\bvec</m>.
+    </p>
+
+    <p> In the example above, we call the data points
+    <m>(x_i, y_i)</m> and construct the matrix <m>A</m> and
+    vector <m>\bvec</m> as
+    <me>
+      A =
+      \begin{bmatrix}
+      1 \amp x_1 \\
+      1 \amp x_2 \\
+      1 \amp x_3 \\
+      \end{bmatrix},\hspace{24pt}
+      \bvec = \threevec{y_1}{y_2}{y_3}\text{.}
+    </me>
+    If we represent a line using the vector <m>\xvec = \twovec bm</m>,
+    the equation <m>A\xvec=\bvec</m> seeks a line that passes through
+    all the data points.  In our example, it is clear that there
+    is no such line, a fact reflected by the inconsistency of the
+    equation <m>A\xvec=\bvec</m>.
+    </p>
+
+    <p> Instead, we seek <m>\xvec</m> so that <m>A\xvec =
+    \threevec{b+mx_1}{b+mx_2}{b+mx_3}</m> is as close to <m>\bvec</m>
+    as possible.  We therefore look at the 
+    square of the distance between <m> A\xvec</m> and <m>\bvec</m>:
+    <me>
+      \begin{aligned}
+      \len{\bvec - A\xvec}^2 \amp =  \\
+      \amp \left(y_1-(b+mx_1)\right)^2 + 
+      \left(y_2-(b+mx_2)\right)^2 +
+      \left(y_3-(b+mx_3)\right)^2\text{,} \\
+      \end{aligned}
+    </me>
+    and ask to find the values for <m>b</m> and <m>m</m> that
+    make this sum of squares as small as possible.  This is why we
+    call this a <em>least squares</em> problem.
+    </p>
+
+    <p> The expression for <m>\len{b-A\xvec}^2</m> has geometric
+    meaning within the context of the problem.  If we draw the line
+    corresponding to the vector <m>\xvec=\twovec bm</m>, we may
+    measure by how much the line misses the data points.  For instance
+    <m>y_i - (b + mx_i)</m> is the vertical distance between the line
+    and the data point <m>(x_i, y_i)</m>, as shown in <xref
+    ref="fig-least-squares-def" />.  Seen in this way, the square of
+    the distance <m>\len{\bvec-A\xvec}^2</m> measures how much the
+    line defined by the vector <m>\xvec</m> misses the data points.
+    The solution to the least squares problem is the line that misses
+    the data points by the least.
+    </p>
+
+    <figure xml:id="fig-least-squares-def">
+      <sidebyside width="50%">
+	<image source = "images/line-regress-1" />
+      </sidebyside>
+      <caption> The solution of the least squares problem. </caption>
+    </figure>
+  </subsection>
+
+  <subsection>
+    <title> Solving least squares problems </title>
+    
+    <p> Now that we've seen an example of what we're trying to
+    accomplish, let's put this technique into a more general
+    framework.
+    </p>
+
+    <p> Given an inconsistent system <m>A\xvec =
+    \bvec</m>, we seek to find <m>\xvec</m> that minimizes the
+    distance from <m>A\xvec</m> to <m>\bvec</m>.  We find <m>\xvec</m>
+    by forming <m>\widehat\bvec</m>, the orthogonal projection of
+    <m>\bvec</m> onto the column space <m>\col(A)</m> and then solving
+    <m>A\xvec = \widehat\bvec</m>.
+    </p>
+
+    <p> Before going further, let's take note of what a solution means
+    in this context.  For instance, we know that there is no solution
+    to the equation <m>A\xvec = \bvec</m>.  We therefore modify the
+    vector on the right-hand side to <m>\bhat</m>, the orthogonal
+    projection of <m>\bvec</m> onto <m>\col(A)</m>.  As we move
+    forward, we will denote the solution of <m>A\xvec = \bhat</m> by
+    <m>\xhat</m> and call this vector the <em>least squares
+    approximate solution</em> of <m>A\xvec=\bvec</m> to distinguish it
+    from a (non-existent) solution of <m>A\xvec=\bvec</m>.
+    </p>
+
+    <p> Let's now remember how orthogonal projection works:  the
+    orthogonal projection <m>\widehat\bvec</m> of <m>\bvec</m> onto
+    the column space <m>\col(A)</m> is defined so that
+    <m>\widehat\bvec - \bvec</m> is orthogonal to <m>\col(A)</m>.  In
+    other words, <m>\bhat-\bvec</m> is in the orthogonal complement
+    <m>\col(A)^\perp</m>.  Remember also that <m>\col(A)^\perp =
+    \nul(A^T)</m>, which implies that
+    <me>
+      A^T(\widehat\bvec-\bvec) = \zerovec\text{.}
+    </me>
+    Finally, the least squares approximate solution is the vector
+    <m>\xhat</m> such that <m>A\xhat = \widehat\bvec</m>, which gives
+    <me>
+      \begin{aligned}
+      A^T(A\xhat - \bvec) \amp = \zerovec \\
+      A^TA\xhat - A^T\bvec \amp = \zerovec \\
+      A^TA\xhat \amp = A^T\bvec\text{.}
+      \end{aligned}
+    </me>
+    This is an important equation so we will take note of it here.
+    </p>
+
+    <proposition>
+      <statement>
+	<idx> normal equations </idx>
+	<p>
+	The least squares approximation solution <m>\widehat\xvec</m>
+	to the equation <m>A\xvec = \bvec</m> is given by the <em>normal
+	equations</em>
+	<me>A^TA\widehat\xvec = A^T\bvec\text{.}
+	</me>
+	</p>
+      </statement>
+    </proposition>
+
+    <p> The normal equations will always be consistent.  This is
+    because <m>\bhat</m>, the orthogonal projection of <m>\bvec</m>
+    onto <m>\col(A)</m>, is a vector in <m>\col(A)</m>.  This means
+    that <m>A\xhat=\bhat</m> will always have a solution.
+    </p>
+
+    <p> Moreover, if the columns of <m>A</m> are linearly independent,
+    there is exactly one solution to the normal equations.  To see
+    why, let's imagine, for the moment, that <m>\xvec</m> is a
+    solution to the homogeneous equation
+    <m>A^TA\xvec = \zerovec</m>.  Then we have
+    <me>
+      \begin{aligned}
+      \xvec\cdot(A^TA\xvec) \amp = \xvec\cdot\zerovec = 0 \\
+      \xvec^TA^TA\xvec \amp = 0 \\
+      (A\xvec)^T(A\xvec) \amp = 0 \\
+      (A\xvec)\cdot(A\xvec) \amp = 0 \\
+      \len{A\xvec}^2 \amp = 0 \\
+      A\xvec \amp = \zerovec \text{.} \\
+      \end{aligned}
+    </me>
+    In other words, if <m>\xvec</m> is a solution to the homogeneous
+    equation <m>A^TA\xvec = \zerovec</m>, then we know that <m>A\xvec
+    = \zerovec</m>.  Since we are assuming that the columns of
+    <m>A</m> are linearly independent, we know that the homogeneous
+    equation <m>A\xvec=\zerovec</m> has only the trivial solution
+    <m>\xvec = \zerovec</m>.  Therefore, the homogeneous equation
+    <m>A^TA\xvec=\zerovec</m> has only the trivial solution, which
+    means that <m>A^TA</m> has a pivot position in every column.
+    Hence, the normal equations <m>A^TA\xhat = A^T\bvec</m> must
+    have a unique solution.
+    </p>
+
+    <proposition>
+      <statement>
+	<p> If the columns of <m>A</m> are linearly independent, then
+	there is a unique least squares approximate solution
+	<m>\xhat</m> to the equation <m>A\xvec=\bvec</m> given by the
+	normal equations
+	<me>
+	  A^TA\xhat = A^T\bvec\text{.}
+	</me>
+	</p>
+      </statement>
+    </proposition>
+
+    <p> Let's put this proposition to use in the next activity.
+    </p>
+
+    <activity>
+      <p> The rate at which a cricket chirps is related to the outdoor
+      temperature.  Here is some data measured experimentally.  The
+      chirp rate <m>C</m> is expressed in chirps per second while the
+      temperature <m>T</m> is in degrees Fahrenheit.
+      <me>
+	\begin{aligned}
+	\amp \begin{array}{|c||c|c|c|c|c|c|c|c|}
+	\hline
+	C \amp 20.0 \amp 16.0 \amp 19.8 \amp 18.4 \amp 17.1
+	\amp 15.5 \amp 14.7 \amp 15.7 \\
+	\hline
+	T \amp 88.6 \amp 71.6 \amp 93.3 \amp 84.3 \amp 80.6 \amp 75.2
+	\amp 69.7 \amp 71.6 \\
+	\hline
+	\end{array} 
+	\\
+	\amp
+	\begin{array}{|c||c|c|c|c|c|c|c|}
+	\hline
+	C \amp 15.4
+	\amp 16.3 \amp 15.0 \amp 17.2 \amp 16.0 \amp 17.0 \amp 14.4 \\
+	\hline
+	T \amp 69.4 \amp 83.3 \amp 79.6 \amp 82.6 \amp
+	80.6 \amp 83.5 \amp 76.3 \\
+	\hline
+	\end{array}
+	\end{aligned}
+      </me>
+	
+      The data is also represented graphically in <xref
+      ref="fig-crickets" />
+      </p>
+
+      <figure xml:id = "fig-crickets">
+	<sidebyside width="75%">
+	  <image source="images/ls-crickets" />
+	</sidebyside>
+	<caption>
+	  The rate at which crickets chirp <m>C</m> is related to the
+	  temperature <m>T</m>.
+	</caption>
+      </figure>
+
+      <p> We would like to represent this relationship by a linear
+      function
+      <me>
+	T = \beta_0 + \beta_1 C\text{.}
+      </me>
+      <ol label="a.">
+	<li><p> Use the first data point <m>(C_1,T_1)=(20.0,88.6)</m>
+	to write an equation involving <m>\beta_0</m> and
+	<m>\beta_1</m>.
+	</p></li>
+
+	<li><p> Suppose that we represent the unknowns using a vector
+	<m>\xvec = \twovec{\beta_0}{\beta_1}</m>.  Use the data to
+	create the matrix
+	<m>A</m> and vector <m>\bvec</m> such that the linear system
+	<m>A\xvec= \bvec</m> describes the unknown vector
+	<m>\xvec</m>.
+	</p></li>
+
+	<li><p> Write the normal equations <m>A^TA\xhat =
+	A^T\bvec</m>; that is, find the matrix <m>A^TA</m> and the
+	vector <m>A^T\bvec</m>.
+	</p></li>
+
+	<li><p> Solve the normal equations to find <m>\xhat</m>, the
+	least squares approximate solution to the equation
+	<m>A\xvec=\bvec</m>.
+	</p></li>
+
+	<li><p> If the chirp rate is 22 chirps per second, what is
+	your prediction for the temperature?
+	</p></li>
+      </ol></p>
+    </activity>
+
+    <p> This activity demonstrates a typical use of linear regression:
+    after we use known data to form a linear function that best
+    represents the data, we can make predictions about situations not
+    reflected in the data.
+    </p>
+    
+  </subsection>
+
+  <subsection>
+    <title> Using <m>QR</m> factorizations </title>
+
+    <p> We have seen how to find the least squares approximate
+    solution <m>\xhat</m> to <m>A\xvec=\bvec</m> by solving the normal
+    equations <m>A^TA\xhat = A^T\bvec</m>.  As stated in this form,
+    solving the normal equations involves row reducing the matrix
+    <m>A^TA</m>, and this could be computationally intensive when
+    there are a lot of parameters in the linear function we are
+    fitting to the data.  If we have a <m>QR</m> factorization of
+    <m>A</m>, however, there is an easier way to find the least
+    squares approximate solution <m>\xhat</m> as we will now see.
+    </p>
+
+    <p> Suppose we have <m>A=QR</m>, and we would like to find the
+    least squares approximate solution <m>\xhat</m> of
+    <m>A\xvec=\bvec</m>.  Our first step is to project <m>\bvec</m>
+    orthogonally onto <m>\col(A)</m> to obtain <m>QQ^T\bvec</m>.  The
+    least square approximate solution is then
+    <me>
+      \begin{aligned}
+      A\xhat \amp = QQ^T\bvec\\
+      QR\xhat \amp = QQ^T\bvec\text{.}
+      \end{aligned}
+    </me>
+    If we multiply both sides of this expression by <m>Q^T</m> and
+    remember that <m>Q^TQ=I</m>, the identity matrix, we
+    have
+    <me>
+      \begin{aligned}
+      Q^TQR\xhat \amp = Q^TQQ^T\bvec \\
+      IR\xhat \amp = IQ^T\bvec \\
+      R\xhat \amp = Q^T\bvec\text{.}
+      \end{aligned}
+    </me>
+    This is convenient because, as we recall, <m>R</m> is an upper
+    triangular matrix so that the equation <m>R\xhat = Q^T\bvec</m>
+    can be efficiently solved using back substitution.
+    </p>
+
+    <proposition>
+      <statement>
+	<p> Given the <m>QR</m> factorization, <m>A=QR</m>, the least
+	squares approximate solution <m>\xhat</m> to the equation
+	<m>A\xvec=\bvec</m> is given by
+	<me>
+	  R\xhat = Q^T\bvec\text{.}
+	</me>
+	</p>
+      </statement>
+    </proposition>
+
+    <p> Let's put this proposition to use in the next activity.
+    </p>
+
+    <activity>
+      <p> Brozak’s formula, which is used to calculate a person's body fat
+      index (<m>BFI</m>), is
+      <me>BFI = 100 \left(\frac{4.57}{\rho} - 4.142\right)
+      </me>
+      where <m>\rho</m> denotes a person's body density in grams per
+      cubic centimeter.  Obtaining an accurate measure of <m>\rho</m>
+      is difficult, however, because it requires submerging the person
+      in water and measuring the volume of water displaced.  Instead,
+      we will gather several other body measurements, which are more
+      easily obtained, and use it to
+      predict <m>BFI</m>.  For instance, we take 10 patients and
+      measure their weight <m>w</m> in pounds, height <m>h</m> in
+      inches, abdomen <m>a</m> in 
+      centimeters, wrist circumference <m>r</m> in centimeters, neck
+      circumference <m>n</m> in centimeters, and <m>BFI</m>.  We find
+      that:
+      <me>
+	\begin{array}{|c|c|c|c|c|c|}
+	\hline
+	w \amp h \amp a \amp r \amp n \amp BFI \\
+	\hline
+	\hline
+	154 \amp 68 \amp 85 \amp 17 \amp 36 \amp 13 \\
+	173 \amp 72 \amp 83 \amp 18 \amp 39 \amp 7 \\
+	154 \amp 66 \amp 88 \amp 17 \amp 34 \amp 25 \\
+	185 \amp 72 \amp 86 \amp 18 \amp 37 \amp 11 \\
+	184 \amp 71 \amp 100 \amp 18 \amp 34 \amp 28 \\
+	210 \amp 75 \amp 94 \amp 19 \amp 39 \amp 21 \\
+	181 \amp 70 \amp 91 \amp 18 \amp 36 \amp 19 \\
+	176 \amp 73 \amp 89 \amp 19 \amp 38 \amp 13 \\
+	191 \amp 74 \amp 83 \amp 18 \amp 38 \amp 5 \\
+	199 \amp 74 \amp 89 \amp 19 \amp 42 \amp 12 \\
+	\hline
+	\end{array}
+      </me>
+      We would like to find the linear function
+      <me>
+	BFI = \beta_0 + \beta_1w + \beta_2h + \beta_3a + \beta_4r +
+	\beta_5n
+      </me>
+      that best fits the data.
+      <ol label="a.">
+	<li><p> Denote the data points as <m>(w_i, h_i, a_i, r_i, n_i,
+	BFI_i)</m> and use the first point to write an equation for
+	the fitting parameters <m>\beta_0,\beta_1,\ldots,\beta_5</m>.
+	</p></li>
+
+	<li><p> Write the linear system
+	<m>A\xvec = \bvec</m> for 
+	these parameters;  that is, what is the matrix <m>A</m> and
+	the vector
+	<m>\bvec</m>?
+	</p></li>
+
+	<li><p> Find the <m>QR</m> factorization of <m>A</m>.
+	</p></li>
+
+	<li><p> Find the least squares approximate solution
+	<m>\xhat</m> by solving the equation <m>R\xhat =
+	Q^T\bvec</m>.  
+	</p></li>
+
+	<li><p> What are the parameters
+	<m>\beta_0,\beta_1,\ldots,\beta_5</m> that best fit the data.
+	</p></li>
+
+	<li><p>
+	  Suppose a patient's measurements are <m>w=190</m>,
+	  <m>h = 70</m>, <m>a = 90</m>,
+	  <m>r=18</m> and <m>n = 35</m>.  Estimate this patient's
+	  <m>BFI</m>.
+	</p></li>
+      </ol></p>
+
+    </activity>
+
+  </subsection>
+
+  <subsection>
+    <title> Polynomial Regression </title>
+
+    
+
+  </subsection>
+</section>
+

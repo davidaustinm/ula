@@ -1,0 +1,1089 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="sec-dot-product"
+	 xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title> The dot product  </title>
+
+  <introduction>
+    <p> Here we introduce a simple geometric operation, known as the
+    dot product, that helps us measure the length of vectors and the
+    angle formed by a pair of vectors.  If we have two
+    <m>n</m>-dimensional vectors <m>\vvec</m> and <m>\wvec</m>, their
+    dot product, denoted <m>\vvec\cdot\wvec</m> will be a scalar.  For
+    two-dimensional vectors, we have
+    <me>
+      \vvec\cdot\wvec = \twovec{v_1}{v_2}\cdot\twovec{w_1}{w_2} =
+      v_1w_1 + v_2w_2\text{.}
+    </me>
+    For instance,
+    <me>
+      \twovec{2}{-3}\cdot\twovec{4}{1} = 2\cdot 4 + (-3)\cdot 1 = 5.
+    </me>
+    </p>
+
+    <exploration>
+      <p>
+	<ol label="a.">
+	  <li><p> Compute the dot product
+	  <me>\twovec{3}{4}\cdot\twovec{2}{-2}\text{.}
+	  </me>
+	  </p></li>
+
+	  <li><p> Sketch the vector <m>\vvec=\twovec{3}{4}</m> below.  Then
+	  use the Pythagorean theorem to find the length of <m>\vvec</m>.
+	  <figure>
+	    <sidebyside width="50%">
+	      <image source="images/empty-6"/>
+	    </sidebyside>
+	    <caption>
+	      <p> Sketch the vector <m>\vvec</m> and find its length.
+	      </p>
+	    </caption>
+	  </figure>
+	  </p></li>
+
+	  <li><p> Compute the dot product <m>\vvec\cdot\vvec</m>.  How
+	  is the dot product related to the length of <m>\vvec</m>?
+	  </p></li>
+
+	  <li><p> Remember that the matrix <m>\mattwo0{-1}10</m>
+	  represents the matrix transformation that rotates vectors
+	  clockwise by <m>90^\circ</m>.  Begin with the vector
+	  <m>\vvec = \twovec34</m> and find <m>\wvec</m>, the result
+	  of rotating <m>\vvec</m> by <m>90^\circ</m>.
+	  </p></li>
+
+	  <li><p> What is the dot product <m>\vvec\cdot\wvec</m>?
+	  </p></li>
+
+	  <li><p> Suppose that <m>\vvec=\twovec ab</m>.  Find the
+	  vector <m>\wvec</m> that results from rotating <m>\vvec</m>
+	  by <m>90^\circ</m>.  Then find the dot product
+	  <m>\vvec\cdot\wvec</m>.  </p></li>
+
+	  <li><p> Suppose that <m>\vvec</m> and <m>\wvec</m> are two
+	  perpendicular vectors.  What do you think their dot product
+	  <m>\vvec\cdot\wvec</m> is?
+	  </p></li>
+	</ol>
+      </p>
+    </exploration>
+
+  </introduction>
+
+  <subsection>
+    <title> The geometry of the dot product </title>
+
+    <p> <idx> dot product </idx>
+      The dot product is defined, more generally, for any two
+    <m>n</m>-dimensional vectors:
+    <me>
+      \vvec\cdot\wvec =
+      \left[
+      \begin{array}{c}
+      v_1 \\ v_2 \\ \vdots \\ v_n \\
+      \end{array}
+      \right]
+      \cdot 
+      \left[
+      \begin{array}{c}
+      w_1 \\ w_2 \\ \vdots \\ w_n \\
+      \end{array}
+      \right]
+      = v_1w_1 + v_2w_2 + \ldots + v_nw_n\text{.}
+    </me>
+    In some books, you may see the dot product referred to as the
+    <em>inner product</em>.
+    The important thing to remember is that the dot product will
+    produce a scalar.  In other words, the two vectors are combined in
+    such a way as to create a number.  We will spend some time
+    thinking about the significance of this number.
+    </p>
+
+    <example>
+      <statement>
+	<p> We will compute the dot product between two
+	four-dimensional vectors as
+	<me>
+	  \left[
+	  \begin{array}{c}
+	  2 \\ 0 \\ -3 \\ 1 \\
+	  \end{array}
+	  \right]
+	  \cdot 
+	  \left[
+	  \begin{array}{c}
+	  -1 \\ 3 \\ 1 \\ 2 \\
+	  \end{array}
+	  \right]
+	  = 2(-1) + 0(3) + (-3)(1) + 1(2) = -3\text{.}
+	</me>
+	</p>
+      </statement>
+    </example>
+    
+    <assemblage>
+      <title> Properties of dot products </title>
+      <p> As with ordinary multiplication, the dot product enjoys some
+      familiar algebraic properties, such as commutativity and
+      distributivity.  More specifically, it doesn't matter which order
+      we compute the dot product of vectors:
+      <me>
+	\vvec\cdot\wvec = \wvec\cdot\vvec\text{.}
+      </me>
+      If <m>s</m> is a scalar, we have
+      <me>
+	(s\vvec)\cdot\wvec = s(\vvec\cdot\wvec)\text{.}
+      </me>
+      We may also distribute the dot product across linear combinations:
+      <me>
+	(c_1\vvec_1+c_2\vvec_2)\cdot\wvec = c_1\vvec_1\cdot\wvec +
+	c_2\vvec_2\cdot\wvec\text{.}
+      </me>
+      </p>
+    </assemblage>
+
+    <example>
+      <statement>
+	<p> Suppose that <m>\vvec_1\cdot\wvec = 4</m> and
+	<m>\vvec_2\cdot\wvec = -7</m>.  Then
+	<me>
+	  \begin{aligned}
+	  (2\vvec_1)\cdot\wvec \amp {}={} 2(\vvec_1\cdot\wvec) =
+	  2(4) = 8 \\
+	  (-3\vvec_1+ 2\vvec_2)\cdot\wvec \amp {}={}
+	  -3(\vvec_1\cdot\wvec) + 2(\vvec_2\cdot\wvec) = -3(4)+2(-7) =
+	  -26\text{.}
+	  \end{aligned}
+	</me>
+	</p>
+      </statement>
+    </example>
+
+    <p> The most important property of the dot product, and
+    the real reason for our interest in it, is how it that it gives us
+    geometric information about vectors and their relationship to one
+    another.  Let's first think about the length of a vector by
+    looking at the vector <m>\vvec = \twovec32</m> as shown in <xref
+    ref="fig-dot-length" />
+    </p>
+
+    <figure xml:id="fig-dot-length">
+      <sidebyside width="50%">
+	<image source="images/dot-length" />
+      </sidebyside>
+      <caption> The vector <m>\vvec</m>.
+      </caption>
+    </figure>
+
+    <p>
+      We may find the length of this vector using the Pythagorean
+      theorem as the vector forms the hyptonuse of a right triangle
+      having a horizontal leg of length 3 and a vertical leg of length
+      2.  The length of <m>\vvec</m>, which we denote as
+      <m>\len{\vvec}</m>, is therefore <m>\len{\vvec} = \sqrt{3^2 +
+      2^2} = \sqrt{13}</m>.  Now notice that the dot product of
+      <m>\vvec</m> with itself:
+      <me>\vvec\cdot\vvec = 3(3) + 2(2) = 13 = \len{\vvec}^2</me>.
+      This is generally true so that we have
+      <me>
+	\vvec\cdot\vvec = \len{\vvec}^2\text{.}
+      </me>
+    </p>
+
+    <p> More than that, the dot product of two vectors records
+    information about the angle between them.  Consider <xref
+    ref="fig-dot-angle" />.
+    </p>
+
+    <figure xml:id="fig-dot-angle">
+      <sidebyside width="50%">
+	<image source="images/dot-angle" />
+      </sidebyside>
+      <caption>
+	The dot product <m>\vvec\cdot\wvec</m> measures the angle
+	<m>\theta</m>.
+      </caption>
+    </figure>
+
+    <p> To see this, we will apply the Law of Cosines, which says that
+    <me>
+      \begin{aligned}
+      \len{\wvec-\vvec}^2 \amp = \len{\vvec}^2 + \len{\wvec}^2 -
+      2\len{\vvec}\len{\wvec}\cos\theta \\
+      (\wvec-\vvec)\cdot(\wvec-\vvec) \amp =
+      \vvec\cdot\vvec +
+      \wvec\cdot\wvec - 2\len{\vvec}\len{\wvec}\cos\theta \\
+      \wvec\cdot\wvec + \vvec\cdot\vvec- 2\vvec\cdot\wvec \amp =
+      \vvec\cdot\vvec +
+      \wvec\cdot\wvec - 2\len{\vvec}\len{\wvec}\cos\theta \\
+      -2\vvec\cdot\wvec \amp = -2\len{\vvec}\len{\wvec}\cos\theta \\
+      \vvec\cdot\wvec \amp = \len{\vvec}\len{\wvec}\cos\theta \\
+      \end{aligned}
+    </me>
+    The upshot of this reasoning is that
+    <me>
+      \vvec\cdot\wvec = \len{\vvec}\len{\wvec}\cos\theta\text{.}
+    </me>
+    </p>
+
+    <p> To summarize:
+    </p>
+
+    <assemblage>
+      <title> Geometric properties of the dot product </title>
+
+      <p> The dot product gives us the following geometric
+      information:
+      <me>
+	\begin{aligned}
+	\vvec\cdot\vvec\amp = \len{\vvec}^2 \\
+	\vvec\cdot\wvec\amp = \len{\vvec}\len{\wvec}\cos\theta \\
+	\end{aligned}
+      </me>
+      where <m>\theta</m> is the angle between <m>\vvec</m> and
+      <m>\wvec</m>.
+      </p>
+    </assemblage>
+
+    <activity>
+      <p><ol label="a">
+	<li><p> Consider the vectors <m>\vvec=\twovec32</m> and
+	<m>\wvec=\twovec{-1}3</m>.  Sketch the vectors using <xref
+	ref="fig-dot-empty" />.
+	</p>
+
+	<figure xml:id="fig-dot-empty">
+	  <sidebyside width="50%">
+	    <image source="images/empty-4" />
+	  </sidebyside>
+	  <caption>
+	    Sketch the vectors <m>\vvec</m> and <m>\wvec</m> here.
+	  </caption>
+	</figure>
+	</li>
+
+	<li><p> Find the lengths <m>\len{\vvec}</m> and
+	<m>\len{\wvec}</m> using the dot product. </p></li>
+
+	<li><p> Find the dot product <m>\vvec\cdot\wvec</m> and use it
+	to find the angle between <m>\vvec</m> and
+	<m>\wvec</m>.
+	</p></li>
+
+	<li><p> Consider the vector <m>\xvec = \twovec{-2}{3}</m>.
+	Include it in your sketch in <xref ref="fig-dot-empty" /> and
+	find the angle between <m>\vvec</m> and <m>\xvec</m>.
+	</p></li>
+
+	<li><p> If two vectors are perpendicular, what can you say
+	about their dot product?
+	</p></li>
+
+	<li><p> For what value of <m>k</m> is the vector
+	<m>\twovec2k</m> perpendicular to <m>\wvec</m>?
+	</p></li>
+
+	<li><p> Sage can be used to find lengths of vectors and their
+	dot products.  For instance, if <c>v</c> and <c>w</c> are
+	vectors, then <c>v.norm()</c> gives the length of <c>v</c> and
+	<c>v * w</c> gives <m>\vvec\cdot\wvec</m>.</p>
+
+	<p> Suppose that
+	<me>
+	  \vvec=\fourvec203{-2}, \hspace{24pt}
+	  \wvec=\fourvec1{-3}41\text{.}
+	</me>
+	Use the Sage cell below to find <m>\len{\vvec}</m>,
+	<m>\len{\wvec}</m>, <m>\vvec\cdot\wvec</m>, and the angle
+	between <m>\vvec</m> and <m>\wvec</m>.  You may use
+	<c>arccos</c> to find the angle's measure expressed in
+	radians.  
+	<sage>
+	</sage>
+	</p></li>
+      </ol></p>
+    </activity>
+
+    <p> As we move forward, it will be important for us to recognize
+    when vectors are perpendicular to one another.  As the activity
+    shows, vectors <m>\vvec</m> and <m>\wvec</m> are perpendicular
+    when their dot product is zero. 
+    This is because the angle between the vectors is
+    <m>\theta=90^\circ</m> so we have
+    <me>
+      \vvec\cdot\wvec=\len{\vvec}\len{\wvec}\cos\theta =
+      \len{\vvec}\len{\wvec}\cos90^\circ = 0\text{.}
+    </me>
+    This leads to the following definition.
+    </p>
+
+    <definition>
+      <statement>
+	<idx> orthogonal </idx>
+	We say that vectors <m>\vvec</m> and <m>\wvec</m> are
+	orthogonal if <m>\vvec\cdot\wvec=0</m>.
+      </statement>
+    </definition>
+
+    <p> In practical terms, a pair of perpendicular vectors are
+    orthogonal.  However, the concept of orthogonality is somewhat
+    more general because it allows one or both of the vectors to
+    be the zero vector <m>\zerovec</m>.
+    </p>
+
+    <p>
+      Up to this point, the dot product is a tool for finding
+      geometric information about vectors.  We will now consider
+      some further uses as well.
+    </p>
+
+    <p>
+      To begin, we will use the dot product to compare vectors.
+      Consider the vectors <m>\uvec</m>, <m>\vvec</m>, and
+      <m>\wvec</m>, shown in <xref ref="fig-similar-vectors" />.  The
+      vectors <m>\vvec</m> and <m>\wvec</m> seem more similar as the
+      directions in which they point are closer.  By comparison,
+      <m>\uvec</m> seems rather dissimilar.  We will measure the
+      similarity of vectors by finding the angle between them;  the
+      smaller the angle, the more similar the vectors.
+    </p>
+
+    <figure xml:id="fig-similar-vectors">
+      <sidebyside width="50%">
+	<image source="images/similar-vectors" />
+      </sidebyside>
+      <caption>
+	Which of the vectors are most similar?
+      </caption>
+    </figure>
+
+    <activity>
+      <p> This activity explores two further uses of the dot product
+      beginning with the similarity of vectors.
+      <ol label="a.">
+	<li>
+	  <p>
+	    Our first task is to assess the similarity between various
+	    Wikipedia articles by forming vectors from each of five
+	    articles.  In particular, one may download the text from
+	    articles on Veteran's Day, Memorial Day, Labor Day, the
+	    Golden Globe Awards, and the Super Bowl, remove
+	    common words, such as <q>the</q> and
+	    <q>then,</q> and count the number of times 
+	    words appeared in each article.
+	  </p>
+
+	  <p>
+	    To get a clearer sense, evaluate the following cell that
+	    loads in some special commands along with the Wikipedia data.
+	    For each of the five articles, you will see a list of the
+	    number of times 10 words appear in these articles.  For
+	    instance, the word <q>act</q> appears 3 times in the
+	    Veteran's Day article and 0 times in the Labor Day article.
+
+	    <sage>
+	      <input>
+sage.repl.load.load("http://merganser.math.gvsu.edu/david/linear.algebra/ula/python/dot-similarity.py", globals())
+events.head(int(10))
+	      </input>
+	    </sage>
+	    For each of the five articles, we obtain 604-dimensional
+	    vectors, that are named <c>veterans</c>, <c>memorial</c>,
+	    <c>labor</c>, <c>golden</c>, and <c>super</c>.
+	  </p>
+
+	  <p>
+	    <ol label="i.">
+	      <li>
+		<p> Suppose that two articles have no words in
+		common.  What is the value of the dot product between
+		their corresponding vectors?  What does this say
+		about the angle between these vectors?
+		</p>
+	      </li>
+
+	      <li>
+		<p>
+		  Suppose there are two articles on the same subject,
+		  yet one article is twice is long.  What approximate
+		  relationship would you expect to hold between the
+		  two vectors?  What does this say about the angle
+		  between them?
+		</p>
+	      </li>
+
+	      <li>
+		<p> Use the Sage cell below to find the angle between
+		the vector <c>veterans</c> and the other four
+		vectors.  To express the angle in degrees, use the
+		<c>degrees(x)</c> command, which gives the number of
+		degrees in <c>x</c> radians.
+
+		<sage>
+		  <input>
+		  </input>
+		</sage>
+		</p>
+	      </li>
+
+	      <li>
+		<p>
+		  Compare the four angles you have found and discuss
+		  what they mean about the similarity between the
+		  Veteran's Day article and the other four.  Does your
+		  result reflect the nature of these five events?
+		</p>
+	      </li>
+	    </ol>
+	  </p>
+	</li>
+
+	<li>
+	  <p>
+	    Vectors are often used to represent how a quantity changes
+	    over time.  For instance, the vector
+	    <m>\svec=\fourvec{78.3}{81.2}{82.1}{79.0}</m> might represent
+	    the value of a company's stock on four consecutive days.
+	    We call such a vector a <em>time series.</em>  Evaluate
+	    the Sage cell below to see a representation of two time
+	    series <m>\svec_1</m>, in blue, and <m>\svec_2</m>, in orange,
+	    which we may imagine represent the value of two 
+	    stocks over a period of time.
+
+	    <sage>
+	      <input>
+series_plot(s1, 'blue') + series_plot(s2, 'orange')		
+	      </input>
+	    </sage>
+
+	    Even though one stock has a higher value than the other,
+	    the two appear to be related since they seem to rise and
+	    fall at roughly similar ways.  We often say that they are
+	    <em>correlated</em>, and we would like to measure the degree
+	    to which they are correlated.
+
+	    <ol label="i.">
+	      <li>
+		<p>
+		  In order to compare the ways in
+		  which they rise and fall, we will first
+		  <em>demean</em> the time series;  that is, for each
+		  time series, we will subtract its average value to
+		  obtain a new time series.  There is a command
+		  <c>demean(s)</c> that returns the demeaned time
+		  series of <c>s</c>.  Use the Sage cell below to
+		  demean the series <m>\svec_1</m> and <m>\svec_2</m> and
+		  plot.  (This cell relies on some data loaded by the
+		  first cell in this activity.)
+		  <sage>
+		    <input>
+ds1 = demean(s1)
+ds2 = demean(s2)
+series_plot(ds1, 'blue') + series_plot(ds2, 'orange')		
+		    </input>
+		  </sage>
+		</p>
+	      </li>
+
+	      <li>
+		<p>
+		  If the demeaned series are <m>\tilde{\svec}_1</m> and
+		  <m>\tilde{\svec}_2</m>, then the correlation between
+		  <m>\svec_1</m> and <m>\svec_2</m> is defined to be
+		  <me>
+		    \corr(\svec_1, \svec_2) =
+		    \frac{\tilde{\svec}_1\cdot\tilde{\svec}_2}
+		    {\len{\tilde{\svec}_1}\len{\tilde{\svec}_2}}.
+		  </me>
+		  Given the geometric interpretation of the dot
+		  product, the correlation equals the cosine of the
+		  agle between the demeaned time series, and
+		  therefore <m>\corr(\svec_1,\svec_2)</m> is
+		  between -1 and 1.
+		</p>
+
+		<p>
+		  Find the correlation between <m>\svec_1</m> and
+		  <m>\svec_2</m>.
+		  <sage>
+		    <input>
+
+		    </input>
+		  </sage>
+		</p>
+	      </li>
+
+	      <li>
+		<p>
+		  Suppose that two time series are such that their
+		  demeaned time series are scalar multiples of one
+		  another, as in <xref ref="fig-correlation" />
+		</p>
+
+		<figure xml:id="fig-correlation">
+		  <sidebyside widths="40% 40%">
+		    <image source="images/correlation-pos" />
+		    <image source="images/correlation-neg" />
+		  </sidebyside>
+		  <caption>
+		    On the left, the demeaned time series are positive
+		    scalar multiples of one another.  On the right,
+		    they are negative scalar multiples.
+		  </caption>
+		</figure>
+
+		<p>
+		  Suppose we have time series <m>\tvec_1</m> and
+		  <m>\tvec_2</m> whose
+		  demeaned time series <m>\tilde{\tvec}_1</m>
+		  and <m>\tilde{\tvec}_2</m> are positive scalar
+		  multiples of one another, what is the angle between
+		  the demeaned vectors?  What does this say about the
+		  correlation <m>\corr(\tvec_1, \tvec_2)</m>?
+		</p>
+	      </li>
+
+	      <li>
+		<p>
+		  Suppose the 
+		  demeaned time series <m>\tilde{\tvec}_1</m>
+		  and <m>\tilde{\tvec}_2</m> are negative scalar
+		  multiples of one another, what is the angle between
+		  the demeaned vectors?  What does this say about the
+		  correlation <m>\corr(\tvec_1, \tvec_2)</m>?
+		</p>
+	      </li>
+
+	      <li>
+		<p>
+		  Use the Sage cell below to plot the time series
+		  <m>\svec_1</m> and <m>\svec_3</m> and find their
+		  correlation. 
+		  <sage>
+		    <input>
+series_plot(s1, 'blue') + series_plot(s3, 'orange')		
+		    </input>
+		  </sage>
+		</p>
+	      </li>
+
+	      <li>
+		<p>
+		  Use the Sage cell below to plot the time series
+		  <m>\svec_1</m> and <m>\svec_4</m> and find their
+		  correlation. 
+		  <sage>
+		    <input>
+series_plot(s1, 'blue') + series_plot(s4, 'orange')		
+		    </input>
+		  </sage>
+		</p>
+	      </li>
+
+	    </ol>
+	  </p>
+	</li>
+      </ol>
+      </p>
+    </activity>
+
+
+  </subsection>
+
+  <subsection>
+    <title> <m>k</m>-means clustering </title>
+
+    <p>
+      A typical problem in data science is to find some underlying
+      patterns in a data set.  Suppose, for instance, that we have the
+      set of 177 data points plotted in <xref ref="fig-clusters" />.
+      Notice that the points are not scattered around haphazardly;
+      instead, they seem to form clusters.  Our goal here is to
+      develop a strategy for detecting the clusters.
+    </p>
+
+    <figure xml:id="fig-clusters">
+      <sidebyside width="70%">
+	<image source="images/cluster-plot" />
+      </sidebyside>
+      <caption>
+	A set of 177 data points.
+      </caption>
+    </figure>
+
+    <p>
+      To see why this could be useful, suppose we have medical data
+      describing a group of patients, some of whom have been diagnosed
+      with a specific condition, such as diabetes.  For example, maybe
+      we have a record of age, weight, blood sugar, cholestrol, and
+      other attributes for each patient.  It could be that the data
+      points for the group having the condition form a cluster that is
+      somewhat distinct from the rest of the data.  Suppose that we
+      are able to identify that cluster and that we are then presented
+      with a new patient that has not been tested for the condition.
+      If the attributes for that patient place them in that cluster, we
+      may identify them as being at risk for the condition and perhaps
+      recommend appropriate action.
+    </p>
+
+    <p>
+      If there are many attributes for each patient, the data
+      may be high-dimensional and not easily visualized.  We would
+      therefore like to develop an algorithm that separates the data
+      points into clusters.  We call the result a <em>clustering</em>.
+    </p>
+
+    <p>
+      The next activity introduces a technique, called <m>k</m>-means
+      clustering, that helps us find clusterings.  To do so, we will
+      view the data points as vectors so that the distance between two
+      data points equals the length of the vector joining them.
+    </p>
+
+    <activity>
+      <p>
+	To begin, we identify the <em>centroid</em>, or the
+	average, of a set of vectors
+	<m>\vvec_1, \vvec_2, \ldots,\vvec_n</m> 
+	as
+	<me>
+	  \frac1n\left(\vvec_1+\vvec_2+\ldots+\vvec_n\right).
+	</me>
+
+	<ol label="a.">
+	  <li>
+	    <p>
+	      Find the centroid of the vectors
+	      <me>
+		\vvec_1=\twovec11,
+		\vvec_2=\twovec41,
+		\vvec_3=\twovec44.
+	      </me>
+	      and sketch the vectors and the centroid using <xref
+	      ref="fig-centroid-plot" />.  You may wish to simply plot
+	      the points represented by the tips of the vectors rather
+	      than drawing the vectors themselves.
+	    </p>
+
+	    <figure xml:id="fig-centroid-plot">
+	      <sidebyside width="50%">
+		<image source="images/empty-5-k" />
+	      </sidebyside>
+	      <caption>
+		The vectors <m>\vvec_1</m>, <m>\vvec_2</m>,
+		<m>\vvec_3</m> and their centroid.
+	      </caption>
+	    </figure>
+
+	    <p>
+	      Notice that the centroid lies in the center of the
+	      points defined by the vectors.
+	    </p>
+	  </li>
+
+	  <li>
+	    <p>
+	      Now we'll illustrate an algorithm
+	      to create clusterings.  To begin, consider the following
+	      points, represented as vectors,
+	      <me>
+		\vvec_1=\twovec{-2}{1},
+		\vvec_2=\twovec11,
+		\vvec_3=\twovec12,
+		\vvec_4=\twovec32,
+	      </me>
+	      which are shown in <xref ref="fig-clustering-ex" />.
+	    </p>
+
+	    <figure xml:id="fig-clustering-ex">
+	      <sidebyside width="50%">
+		<image source="images/kmeans-data" />
+	      </sidebyside>
+	      <caption>
+		We will group this set of four points into two
+		clusters.
+	      </caption>
+	    </figure>
+
+	    <p> 
+	      Suppose that we would like to group these points into
+	      <m>k=2</m> clusters. (Later on, we'll see how to choose
+	      an appropriate value for <m>k</m>, the number of
+	      clusters.)  We begin by choosing two points
+	      <m>c_1</m> and <m>c_2</m> at random and declaring them
+	      to be the <q>centers</q>' of the two clusters.
+	    </p>
+
+	    <p>
+	      For example, suppose we randomly choose
+	      <m>c_1=\vvec_2</m> and <m>c_2=\vvec_3</m> as the center
+	      of two clusters.  The cluster centered on
+	      <m>c_1=\vvec_2</m> will be the set of points that are
+	      closer to <m>c_1=\vvec_2</m> than to <m>c_2=\vvec_3</m>.
+	      Determine which of the four data points are in this
+	      cluster, which we denote by <m>C_1</m>, and circle them
+	      in <xref ref="fig-clustering-ex" />.
+	    </p>
+	  </li>
+
+	  <li>
+	    <p>
+	      The second cluster will consist of the data points that
+	      are closer to <m>c_2=\vvec_3</m> than
+	      <m>c_1=\vvec_2</m>.  Determine which of the four points
+	      are in this cluster, which we denote by <m>C_2</m>, and
+	      circle them in <xref ref="fig-clustering-ex" />.
+	    </p>
+	  </li>
+
+	  <li>
+	    <p>
+	      We now have a clustering with two clusters, but it may
+	      be that we can 
+	      improve upon them in the following way.  First,
+	      find the centroids of the two clusters;  that is,
+	      redefine <m>c_1</m> to be the centroid of cluster
+	      <m>C_1</m> and <m>c_2</m> to be the centroid of
+	      <m>C_2</m>. 
+	      Find those centroids and
+	      indicate them in <xref ref="fig-clustering-ex-2" />
+	    </p>
+
+	    <figure xml:id="fig-clustering-ex-2">
+	      <sidebyside width="50%">
+		<image source="images/kmeans-data" />
+	      </sidebyside>
+	      <caption>
+		Indicate the new centroids and clusters.
+	      </caption>
+	    </figure>
+
+	    <p>
+	      Now update the cluster <m>C_1</m> to be
+	      the set of points closer to <m>c_1</m> than <m>c_2</m>.
+	      Update the cluster <m>C_2</m> in a similar way and
+	      indicate the clusters in <xref ref="fig-clustering-ex-2"
+	      />.
+	    </p>
+	  </li>
+
+	  <li>
+	    <p>
+	      Let's perform this last step again.  That is, update the
+	      centroids <m>c_1</m> and <m>c_2</m> from the new
+	      clusters and then update the clusters <m>C_1</m> and
+	      <m>C_2</m>.  Indicate your centroids and clusters in 
+	      <xref ref="fig-clustering-ex-3" />
+	    </p>
+
+	    <figure xml:id="fig-clustering-ex-3">
+	      <sidebyside width="50%">
+		<image source="images/kmeans-data" />
+	      </sidebyside>
+	      <caption>
+		Indicate the new centroids and clusters.
+	      </caption>
+	    </figure>
+
+	    <p>
+	      Notice that this last step produces the same set of
+	      clusters so there is no point in repeating it.  We
+	      declare this to be our final clustering.
+	    </p>
+	  </li>
+
+	</ol>
+      </p>
+    </activity>
+
+    <p>
+      This activity demonstrates our algorithm for finding a
+      clustering.  We first choose a value <m>k</m> and seek to break
+      the data points into <m>k</m> clusters. The algorithm 
+      proceeds in the following way:
+      <ul>
+	<li>
+	  <p>
+	    Choose <m>k</m> points <m>c_1, c_2, \ldots, c_k</m> at
+	    random from our data set. 
+	  </p>
+	</li>
+	<li>
+	  <p>
+	    Construct the cluster <m>C_1</m> as the set of data points
+	    closest to <m>c_1</m>, <m>C_2</m> as the set of data
+	    points closest to <m>c_2</m>, and so forth.
+	  </p>
+	</li>
+	<li>
+	  <p> Repeat the following until the clusters no longer
+	  change: 
+	  <ul>
+	    <li>
+	      <p>
+		Find the centroids <m>c_1, c_2,\ldots,c_k</m> of the
+		current clusters.
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		Update the clusters <m>C_1,C_2,\ldots,C_k</m>.
+	      </p>
+	    </li>
+	  </ul>
+	  </p>
+	</li>
+      </ul>
+    </p>
+
+    <p>
+      The clusterings we find depend on the initial random choice of
+      points <m>c_1, c_2,\ldots, c_k</m>.  For instance, in the
+      previous activity, we arrived, with the initial choice <m>c_1=
+      \vvec_2</m> and <m>c_2=\vvec_3</m>, at the clustering:
+      <me>
+	\begin{array}{rcl}
+	C_1 \amp {}={} \amp \{\vvec_1\} \\
+	C_2 \amp {}={} \amp \{\vvec_2, \vvec_3,\vvec_4\}.
+	\end{array}
+      </me>
+    </p>
+
+    <p>
+      If we instead choose the initial points to be <m>c_1 =
+      \vvec_3</m> and <m>c_2=\vvec_4</m>, we find the clustering:
+      <me>
+	\begin{array}{rcl}
+	C_1 \amp {}={} \amp \{\vvec_1, \vvec_2, \vvec_3\} \\
+	C_2 \amp {}={} \amp \{\vvec_4\}.
+	\end{array}
+      </me>
+    </p>
+
+    <p>
+      Is there a way that we can determine which is the better of the
+      two?  It feels like a better clustering will be one for which the
+      points in a cluster are, on average, closer to the centroid of
+      their cluster.  If we have a clustering, we therefore define a
+      function, called the <em>objective</em>, which measures the
+      average of the square of the distance from each point to the
+      centroid of the cluster to which that point belongs.  A
+      clustering with a smaller objective will have clusters more
+      tightly centered around their centroids, which should result in
+      a better clustering.
+    </p>
+
+    <p>
+      For example, when we obtain the clustering:
+      <me>
+	\begin{array}{rcl}
+	C_1 \amp {}={} \amp \{\vvec_1, \vvec_2, \vvec_3\} \\
+	C_2 \amp {}={} \amp \{\vvec_4\}.
+	\end{array}
+      </me>
+      with centroids <m>c_1=\twovec{0}{4/3}</m> and
+      <m>c_2=\vvec_4=\twovec32</m>, we find the objective function to
+      be
+      <me>
+	\frac14\left(
+	\len{\vvec_1-c_1}^2 + 
+	\len{\vvec_2-c_1}^2 + 
+	\len{\vvec_3-c_1}^2 + 
+	\len{\vvec_4-c_2}^2
+	\right)
+	= \frac 53.
+      </me>
+    </p>
+
+    <activity>
+      <p>
+	We'll now use the objective to compare clusterings and to
+	choose an appropriate value of <m>k</m>.
+	<ol label="a.">
+	  <li>
+	    <p>
+	      In the previous activity, our algorithm found the
+	      clustering:
+	      <me>
+		\begin{array}{rcl}
+		C_1 \amp {}={} \amp \{\vvec_1\} \\
+		C_2 \amp {}={} \amp \{\vvec_2, \vvec_3,\vvec_4\}
+		\end{array}
+	      </me>
+	      with centroids <m>c_1=\vvec_1</m> and
+	      <m>c_2=\twovec{5/3}{5/3}</m>.  
+	      Find the objective of this clustering.
+	    </p>
+	  </li>
+	  <li>
+	    <p>
+	      We have now seen two clusterings and computed their
+	      objectives.  Recall that our data set is shown in <xref
+	      ref="fig-clustering-ex" />.  Which of clusterings feels
+	      like the better fit?  How is this fit reflected in the
+	      values of the objectives?
+	    </p>
+	  </li>
+
+	  <li xml:id="li-guess-clusters">
+	    <p>
+	      Evaluating the following cell will load and display a
+	      data set consisting of 177 data points.  This data set
+	      has the name <c>data</c>.
+	      <sage>
+		<input>
+sage.repl.load.load("http://merganser.math.gvsu.edu/david/linear.algebra/ula/python/k-means.py", globals())
+list_plot(data, color='blue', size=20, aspect_ratio=1)
+		</input>
+	      </sage>
+	      Given this plot of the data, what would seem like a
+	      reasonable number of clusters?
+	    </p>
+	  </li>
+
+	  <li>
+	    <p>
+	      In the following cell, you may choose a value of
+	      <m>k</m> and then run the algorithm to determine and
+	      display a clustering and its objective.  If you run the
+	      algorithm a few 
+	      times with the same value of <m>k</m>, you will likely
+	      see different clusterings having different objectives.
+	      Choose a value of <m>k</m> and run the algorithm a few
+	      times.  Notice that clusterings having lower objectives
+	      seem to fit the data better.  Repeat this experiment
+	      with a few different values of <m>k</m>.
+	      <sage>
+		<input>
+k = 2  # you may change the value of k here
+clusters, centroids, objective = kmeans(data, k)
+print('Objective =', objective)
+plotclusters(clusters, centroids)
+		</input>
+	      </sage>
+	    </p>
+	  </li>
+	  
+	  <li>
+	    <p>
+	      For a given value of <m>k</m>, our strategy is to run
+	      the algorithm several times and choose the clustering
+	      with the smallest objective.  After choosing a value of
+	      <m>k</m>, evaluating the following cell runs the
+	      algorithm 10 times and displays the clustering havig the
+	      smallest objective.
+	      <sage>
+		<input>
+k = 2  # you may change the value of k here
+clusters, centroids, objective = minimalobjective(data, k)
+print('Objective =', objective)
+plotclusters(clusters, centroids)
+		</input>
+	      </sage>
+	    </p>
+	    
+	    <p>
+	      For each value of <m>k</m> between 2 and 9, find the
+	      clustering having the smallest objective and plot your
+	      findings in <xref ref="fig-clustering-elbow" />.
+	    </p>
+	    
+	    <figure xml:id="fig-clustering-elbow">
+	      <sidebyside width="80%">
+		<image source="images/clustering-elbow" />
+	      </sidebyside>
+	      <caption>
+		Construct a plot of the minimal objective as it
+		depends on the choice of <m>k</m>.
+	      </caption>
+	    </figure>
+
+	    <p>
+	      This plot is called an <em>elbow plot</em> due to its
+	      shape.  Notice how the objective decreases
+	      sharply when <m>k</m> is small, but then flattens out.
+	      This leads to a location, called the elbow, where the
+	      objective transitions from being sharply decreasing to
+	      relatively flat.  This means that increasing <m>k</m>
+	      beyond the elbow does not significantly decrease the
+	      objective, which makes the elbow a good choice for
+	      <m>k</m>.
+	    </p>
+
+	    <p>
+	      Where does the elbow occur in your plot above?  How does
+	      this compare to the best value of <m>k</m> that you
+	      estimated by simply looking at the data in <xref
+	      ref="li-guess-clusters" />.
+	    </p>
+	  </li>
+	</ol>
+      </p>
+
+      <p>
+	Of course, we could increase <m>k</m> until each data
+	point is its own cluster.  However, this defeats the
+	point of the technique, which is to group together
+	nearby data points in the hope that they share common
+	features, thus providing insight into the structure
+	of the data.
+      </p>
+      
+    </activity>
+
+    <p>
+      We have now seen how the algorithm constructs clusterings and
+      then uses the objective to guide our choice of <m>k</m>, the
+      number of the clusters, and to find a good clustering having
+      <m>k</m> clusters.  Notice that we don't claim to have found the
+      best clustering as the true test of any clustering will be in how
+      it helps us understand the data set and helps us make
+      predictions for any new data that we may encounter.
+    </p>
+
+  </subsection>
+
+  <subsection>
+    <title> Summary </title>
+
+    <p>
+      This section introduced the dot product and the ability to
+      investigate geometric relationships between vectors.
+      <ul>
+	<li>
+	  <p>
+	    The dot product of two vectors <m>\vvec</m> and
+	    <m>\wvec</m> satisfies these properties:
+	    <me>
+	      \begin{array}{rcl}
+	      \vvec\cdot\vvec \amp {}={} \amp \len{\vvec}^2 \\
+	      \vvec\cdot\wvec \amp {}={} \amp
+	      \len{\vvec}\len{\wvec}\cos\theta \\
+	      \end{array}
+	    </me>
+	    where <m>\theta</m> is the angle between <m>\vvec</m> and
+	    <m>\wvec</m>.
+	  </p>
+	</li>
+
+	<li>
+	  <p>
+	    The vectors <m>\vvec</m> and <m>\wvec</m> are orthogonal
+	    when <m>\vvec\cdot\wvec= 0</m>.
+	  </p>
+	</li>
+
+	<li>
+	  <p>
+	    We explored some applications of the dot product to the
+	    similarity of vectors, correlation of time series, and
+	    <m>k</m>-means clustering.
+	  </p>
+	</li>
+      </ul>
+    </p>
+  </subsection>
+	      
+
+</section>
