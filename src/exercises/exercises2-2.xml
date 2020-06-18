@@ -42,13 +42,13 @@
 	<li><p>
 	  We have
 	  <me>
-	    \left[\begin{array}{rrrr}
+	    \left[\begin{array}{rrr|r}
 	    1 \amp 2 \amp -1 \amp 1 \\
 	    3 \amp 2 \amp 2 \amp 7 \\
 	    -1 \amp 0 \amp 4 \amp -3
 	    \end{array}\right]
 	    \sim
-	    \left[\begin{array}{rrrr}
+	    \left[\begin{array}{rrr|r}
 	    1 \amp 0 \amp 0 \amp 3 \\
 	    0 \amp 1 \amp 0 \amp -1 \\
 	    0 \amp 0 \amp 1 \amp 0
@@ -186,10 +186,14 @@
 	A = \left[\begin{array}{rr}
 	\vvec_1 \amp \vvec_2
 	\end{array}\right]
-      </me>.
-      <sidebyside width="60%">
-	<image source="images/ex-matrix-cols" />
-      </sidebyside>
+	</me>.
+	<figure>
+	  <sidebyside width="60%">
+	    <image source="images/ex-matrix-cols" />
+	  </sidebyside>
+	  <caption> Two vectors <m>\vvec_1</m> and <m>\vvec_2</m>.
+	  </caption>
+	</figure>
       </p>
 
       <p>
@@ -216,9 +220,11 @@
 	</p></li>
 	
 	<li><p> We have
+	<figure>
 	  <sidebyside width="50%">
 	    <image source="images/ex-matrix-cols-sol" />
 	  </sidebyside>
+	</figure>
 	</p></li>
 
 	<li><p>
@@ -237,9 +243,11 @@
 	</p></li>
 	
 	<li><p> We have
+	<figure>
 	  <sidebyside width="50%">
 	    <image source="images/ex-matrix-cols-sol" />
 	  </sidebyside>
+	</figure>
 	</p></li>
 
 	<li><p>
@@ -443,7 +451,7 @@
 	  <m>A \sim \left[\begin{array}{rrrr}
 	    {\mathbf 1} \amp 0 \amp 0 \amp 2 \\
 	    0 \amp {\mathbf 1} \amp 0 \amp -1 \\
-	    0 \amp 0 \amp 1 \amp {\mathbf 1} \\
+	    0 \amp 0 \amp {\mathbf 1} \amp 1 \\
 	    \end{array}\right]\text{.}
 	  </m>
 	</p></li>
@@ -1048,10 +1056,10 @@
 	</sage>
 	</p></li>
 
-	<li><p> Describe the solution space to the equation <m>\bvec =
-	\threevec{-3}{-4}{1}</m>.  What does this solution space
-	represent geometrically and how does it compare to the
-	previous solution space?
+	<li><p> Describe the solution space to the equation
+	<m>A\xvec=\bvec</m> where <m>\bvec = \threevec{-3}{-4}{1}</m>.
+	What does this solution space represent geometrically and how
+	does it compare to the previous solution space?
 	<sage>
 	  <input>
 	  </input>
@@ -1283,7 +1291,7 @@
 	</me>.
 	Show that
 	<me>
-	  A\vvec_1 = \vvec_1, A\vvec_2 = -0.3\vvec_2
+	  A\vvec_1 = \vvec_1, A\vvec_2 = 0.3\vvec_2
 	</me>.
 	</p></li>
 
@@ -1293,7 +1301,7 @@
 	  Linearity Principle expressed in <xref
 	  ref="prop-matrix-mult-prop" /> to explain why
 	  <me>
-	    \xvec_{2} = A\xvec_1 = c_1\vvec_1 -0.3c_2\vvec_2
+	    \xvec_{2} = A\xvec_1 = c_1\vvec_1 + 0.3c_2\vvec_2
 	  </me>.
 	</p></li>
 
@@ -1301,15 +1309,15 @@
 	  Continuing in this way, explain why
 	  <me>
 	    \begin{aligned}
-	    \xvec_{3} = A\xvec_2 \amp {}={} c_1\vvec_1 +(-0.3)^2c_2\vvec_2 \\
-	    \xvec_{4} = A\xvec_3 \amp {}={} c_1\vvec_1 +(-0.3)^3c_2\vvec_2 \\
-	    \xvec_{5} = A\xvec_4 \amp {}={} c_1\vvec_1 +(-0.3)^4c_2\vvec_2 \\
+	    \xvec_{3} = A\xvec_2 \amp {}={} c_1\vvec_1 +0.3^2c_2\vvec_2 \\
+	    \xvec_{4} = A\xvec_3 \amp {}={} c_1\vvec_1 +0.3^3c_2\vvec_2 \\
+	    \xvec_{5} = A\xvec_4 \amp {}={} c_1\vvec_1 +0.3^4c_2\vvec_2 \\
 	    \end{aligned}
 	    </me>.
 	</p></li>
 
 	<li> <p> Suppose that there are initially 500 bicycles at
-	location <m>B</m> and 500 at location <m>c</m>.  Write the
+	location <m>B</m> and 500 at location <m>C</m>.  Write the
 	vector <m>\xvec_1</m> and find the scalars <m>c_1</m> and
 	<m>c_2</m> such that <m>\xvec_1=c_1\vvec_1 + c_2\vvec_2</m>.
 	</p></li>
@@ -1322,7 +1330,6 @@
       </ol></p>
 	    
     </statement>
-  </exercise>
 
   <solution>
     <p><ol label="a.">
@@ -1437,6 +1444,7 @@
       </p></li>
     </ol></p>
   </answer>
+  </exercise>
 
 </exercises>
   
