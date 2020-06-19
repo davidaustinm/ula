@@ -102,7 +102,7 @@
 
     <example>
       <statement>
-	<p> We will compute the dot product between two
+	<p> We compute the dot product between two
 	four-dimensional vectors as
 	<me>
 	  \left[
@@ -126,8 +126,8 @@
       <title> Properties of dot products </title>
       <p> As with ordinary multiplication, the dot product enjoys some
       familiar algebraic properties, such as commutativity and
-      distributivity.  More specifically, it doesn't matter which order
-      we compute the dot product of vectors:
+      distributivity.  More specifically, it doesn't matter in which order
+      we compute the dot product of two vectors:
       <me>
 	\vvec\cdot\wvec = \wvec\cdot\vvec\text{.}
       </me>
@@ -161,7 +161,7 @@
     </example>
 
     <p> The most important property of the dot product, and
-    the real reason for our interest in it, is how it that it gives us
+    the real reason for our interest in it, is that it gives us
     geometric information about vectors and their relationship to one
     another.  Let's first think about the length of a vector by
     looking at the vector <m>\vvec = \twovec32</m> as shown in <xref
@@ -183,9 +183,9 @@
       2.  The length of <m>\vvec</m>, which we denote as
       <m>\len{\vvec}</m>, is therefore <m>\len{\vvec} = \sqrt{3^2 +
       2^2} = \sqrt{13}</m>.  Now notice that the dot product of
-      <m>\vvec</m> with itself:
+      <m>\vvec</m> with itself is
       <me>\vvec\cdot\vvec = 3(3) + 2(2) = 13 = \len{\vvec}^2</me>.
-      This is generally true so that we have
+      This is true in general;  that is, we have
       <me>
 	\vvec\cdot\vvec = \len{\vvec}^2\text{.}
       </me>
@@ -201,7 +201,7 @@
 	<image source="images/dot-angle" />
       </sidebyside>
       <caption>
-	The dot product <m>\vvec\cdot\wvec</m> measures the angle
+	The dot product <m>\vvec\cdot\wvec</m> measures the angle  
 	<m>\theta</m>.
       </caption>
     </figure>
@@ -306,15 +306,15 @@
     </activity>
 
     <p> As we move forward, it will be important for us to recognize
-    when vectors are perpendicular to one another.  As the activity
-    shows, vectors <m>\vvec</m> and <m>\wvec</m> are perpendicular
-    when their dot product is zero. 
-    This is because the angle between the vectors is
-    <m>\theta=90^\circ</m> so we have
+    when vectors are perpendicular to one another.  For instance, when
+    vectors <m>\vvec</m> and <m>\wvec</m> are perpendicular, the angle
+    between them <m>\theta=90^\circ</m> and we have
     <me>
       \vvec\cdot\wvec=\len{\vvec}\len{\wvec}\cos\theta =
       \len{\vvec}\len{\wvec}\cos90^\circ = 0\text{.}
     </me>
+    Therefore, the dot product between perpendicular vectors must be
+    zero. 
     This leads to the following definition.
     </p>
 
@@ -326,27 +326,23 @@
       </statement>
     </definition>
 
-    <p> In practical terms, a pair of perpendicular vectors are
+    <p> In practical terms, two perpendicular vectors are
     orthogonal.  However, the concept of orthogonality is somewhat
     more general because it allows one or both of the vectors to
     be the zero vector <m>\zerovec</m>.
     </p>
 
     <p>
-      Up to this point, the dot product is a tool for finding
-      geometric information about vectors.  We will now consider
-      some further uses as well.
-    </p>
-
-    <p>
-      To begin, we will use the dot product to compare vectors.
-      Consider the vectors <m>\uvec</m>, <m>\vvec</m>, and
-      <m>\wvec</m>, shown in <xref ref="fig-similar-vectors" />.  The
-      vectors <m>\vvec</m> and <m>\wvec</m> seem more similar as the
-      directions in which they point are closer.  By comparison,
-      <m>\uvec</m> seems rather dissimilar.  We will measure the
-      similarity of vectors by finding the angle between them;  the
-      smaller the angle, the more similar the vectors.
+      We've now seen that the dot product gives us geometric
+      information about vectors.  It also provides a way to compare
+      vectors.  For example, consider the vectors <m>\uvec</m>,
+      <m>\vvec</m>, and <m>\wvec</m>, shown in <xref
+      ref="fig-similar-vectors" />.  The vectors <m>\vvec</m> and
+      <m>\wvec</m> seem somewhat similar as the directions they define
+      are nearly the same.  By comparison, <m>\uvec</m> appears rather
+      dissimilar to both <m>\vvec</m> and <m>\wvec</m>.  We will
+      measure the similarity of vectors by finding the angle between
+      them; the smaller the angle, the more similar the vectors.
     </p>
 
     <figure xml:id="fig-similar-vectors">
@@ -366,21 +362,23 @@
 	  <p>
 	    Our first task is to assess the similarity between various
 	    Wikipedia articles by forming vectors from each of five
-	    articles.  In particular, one may download the text from
-	    articles on Veteran's Day, Memorial Day, Labor Day, the
-	    Golden Globe Awards, and the Super Bowl, remove
-	    common words, such as <q>the</q> and
-	    <q>then,</q> and count the number of times 
-	    words appeared in each article.
+	    articles.  In particular, one may download the text from a
+	    Wikipedia article, remove common words, such as <q>the</q>
+	    and <q>then,</q>, count the number of times the
+	    remaining words appear in the article, and represent
+	    these counts in a vector.
 	  </p>
 
 	  <p>
-	    To get a clearer sense, evaluate the following cell that
-	    loads in some special commands along with the Wikipedia data.
-	    For each of the five articles, you will see a list of the
-	    number of times 10 words appear in these articles.  For
-	    instance, the word <q>act</q> appears 3 times in the
-	    Veteran's Day article and 0 times in the Labor Day article.
+	    For example, evaluate the following cell that loads in
+	    some special commands along with the vectors constructed
+	    from the Wikipedia articles on Veteran's Day, Memorial
+	    Day, Labor Day, the Golden Globe Awards, and the Super
+	    Bowl.  For each of the five articles, you will see a list
+	    of the number of times 10 words appear in these articles.
+	    For instance, the word <q>act</q> appears 3 times in the
+	    Veteran's Day article and 0 times in the Labor Day
+	    article.
 
 	    <sage>
 	      <input>
@@ -389,7 +387,7 @@ events.head(int(10))
 	      </input>
 	    </sage>
 	    For each of the five articles, we obtain 604-dimensional
-	    vectors, that are named <c>veterans</c>, <c>memorial</c>,
+	    vectors, which are named <c>veterans</c>, <c>memorial</c>,
 	    <c>labor</c>, <c>golden</c>, and <c>super</c>.
 	  </p>
 
@@ -448,7 +446,7 @@ events.head(int(10))
 	    We call such a vector a <em>time series.</em>  Evaluate
 	    the Sage cell below to see a representation of two time
 	    series <m>\svec_1</m>, in blue, and <m>\svec_2</m>, in orange,
-	    which we may imagine represent the value of two 
+	    which we imagine represent the value of two 
 	    stocks over a period of time.
 
 	    <sage>
@@ -538,7 +536,7 @@ series_plot(ds1, 'blue') + series_plot(ds2, 'orange')
 		  <m>\tvec_2</m> whose
 		  demeaned time series <m>\tilde{\tvec}_1</m>
 		  and <m>\tilde{\tvec}_2</m> are positive scalar
-		  multiples of one another, what is the angle between
+		  multiples of one another.  What is the angle between
 		  the demeaned vectors?  What does this say about the
 		  correlation <m>\corr(\tvec_1, \tvec_2)</m>?
 		</p>
@@ -623,7 +621,7 @@ series_plot(s1, 'blue') + series_plot(s4, 'orange')
       are able to identify that cluster and that we are then presented
       with a new patient that has not been tested for the condition.
       If the attributes for that patient place them in that cluster, we
-      may identify them as being at risk for the condition and perhaps
+      might identify them as being at risk for the condition and perhaps
       recommend appropriate action.
     </p>
 
@@ -685,7 +683,8 @@ series_plot(s1, 'blue') + series_plot(s4, 'orange')
 	  <li>
 	    <p>
 	      Now we'll illustrate an algorithm
-	      to create clusterings.  To begin, consider the following
+	      that forms clusterings.  To begin, consider the
+	      following 
 	      points, represented as vectors,
 	      <me>
 		\vvec_1=\twovec{-2}{1},
@@ -852,7 +851,8 @@ series_plot(s1, 'blue') + series_plot(s4, 'orange')
 
     <p>
       If we instead choose the initial points to be <m>c_1 =
-      \vvec_3</m> and <m>c_2=\vvec_4</m>, we find the clustering:
+      \vvec_3</m> and <m>c_2=\vvec_4</m>, we eventually find the
+      clustering:
       <me>
 	\begin{array}{rcl}
 	C_1 \amp {}={} \amp \{\vvec_1, \vvec_2, \vvec_3\} \\
@@ -862,16 +862,16 @@ series_plot(s1, 'blue') + series_plot(s4, 'orange')
     </p>
 
     <p>
-      Is there a way that we can determine which is the better of the
-      two?  It feels like a better clustering will be one for which the
-      points in a cluster are, on average, closer to the centroid of
-      their cluster.  If we have a clustering, we therefore define a
-      function, called the <em>objective</em>, which measures the
-      average of the square of the distance from each point to the
-      centroid of the cluster to which that point belongs.  A
-      clustering with a smaller objective will have clusters more
-      tightly centered around their centroids, which should result in
-      a better clustering.
+      Is there a way that we can determine which clustering is the
+      better of the two?  It seems like a better clustering will be
+      one for which the points in a cluster are, on average, closer to
+      the centroid of their cluster.  If we have a clustering, we
+      therefore define a function, called the <em>objective</em>,
+      which measures the average of the square of the distance from
+      each point to the centroid of the cluster to which that point
+      belongs.  A clustering with a smaller objective will have
+      clusters more tightly centered around their centroids, which
+      should result in a better clustering.
     </p>
 
     <p>
@@ -903,7 +903,8 @@ series_plot(s1, 'blue') + series_plot(s4, 'orange')
 	<ol label="a.">
 	  <li>
 	    <p>
-	      In the previous activity, our algorithm found the
+	      In the previous activity, one initial choice of
+	      <m>c_1</m> and <m>c_2</m> led to the
 	      clustering:
 	      <me>
 		\begin{array}{rcl}
@@ -920,9 +921,9 @@ series_plot(s1, 'blue') + series_plot(s4, 'orange')
 	    <p>
 	      We have now seen two clusterings and computed their
 	      objectives.  Recall that our data set is shown in <xref
-	      ref="fig-clustering-ex" />.  Which of clusterings feels
-	      like the better fit?  How is this fit reflected in the
-	      values of the objectives?
+	      ref="fig-clustering-ex" />.  Which of the two
+	      clusterings feels like the better fit?  How is this fit
+	      reflected in the values of the objectives?
 	    </p>
 	  </li>
 
@@ -971,7 +972,7 @@ plotclusters(clusters, centroids)
 	      the algorithm several times and choose the clustering
 	      with the smallest objective.  After choosing a value of
 	      <m>k</m>, evaluating the following cell runs the
-	      algorithm 10 times and displays the clustering havig the
+	      algorithm 10 times and displays the clustering having the
 	      smallest objective.
 	      <sage>
 		<input>
@@ -1033,13 +1034,13 @@ plotclusters(clusters, centroids)
     </activity>
 
     <p>
-      We have now seen how the algorithm constructs clusterings and
-      then uses the objective to guide our choice of <m>k</m>, the
-      number of the clusters, and to find a good clustering having
-      <m>k</m> clusters.  Notice that we don't claim to have found the
-      best clustering as the true test of any clustering will be in how
-      it helps us understand the data set and helps us make
-      predictions for any new data that we may encounter.
+      We have now seen how our algorithm and the objective identify
+      a reasonable value for <m>k</m>, the number of the clusters, and
+      produce a good clustering having <m>k</m> clusters.  Notice that
+      we don't claim to have found the best clustering as the true
+      test of any clustering will be in how it helps us understand the
+      data set and helps us make predictions for any new data that we
+      may encounter.
     </p>
 
   </subsection>
@@ -1084,6 +1085,7 @@ plotclusters(clusters, centroids)
       </ul>
     </p>
   </subsection>
-	      
 
+  <xi:include href="exercises/exercises6-1.xml" />
+  
 </section>
