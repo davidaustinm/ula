@@ -6,33 +6,33 @@
 
   <introduction>
     <p>
-      The last section demonstrated the value of working with
+      In the last section, we saw the value of working with
       orthogonal, and especially orthonormal, bases.  If we have an
-      orthogonal basis <m>\wvec_1,\wvec_2,\ldots,\wvec_m</m> for a
+      orthogonal basis <m>\wvec_1,\wvec_2,\ldots,\wvec_n</m> for a
       subspace <m>W</m>, the projection formula of <xref
       ref="prop-proj-formula" /> tells us that the orthogonal projection
       of a vector <m>\bvec</m> onto <m>W</m> is
       <me>
 	\bhat =
-	\frac{\wvec_1\cdot\bvec}{\wvec_1\cdot\wvec_1}~\wvec_1 + 
-	\frac{\wvec_2\cdot\bvec}{\wvec_2\cdot\wvec_2}~\wvec_2 +
+	\frac{\bvec\cdot\wvec_1}{\wvec_1\cdot\wvec_1}~\wvec_1 + 
+	\frac{\bvec\cdot\wvec_2}{\wvec_2\cdot\wvec_2}~\wvec_2 +
 	\ldots + 
-	\frac{\wvec_m\cdot\bvec}{\wvec_m\cdot\wvec_m}~\wvec_m\text{.}
+	\frac{\bvec\cdot\wvec_n}{\wvec_n\cdot\wvec_n}~\wvec_n\text{.}
       </me>
-      An orthonormal basis <m>\uvec_1,\uvec_2,\ldots,\uvec_m</m>,
+      An orthonormal basis <m>\uvec_1,\uvec_2,\ldots,\uvec_n</m>,
       is even more convenient:  we form the matrix
       <m>Q=\begin{bmatrix} \uvec_1 \amp \uvec_2 \amp \ldots \amp
-      \uvec_m
-      \end{bmatrix}</m> and then <m>\bhat = QQ^T\bvec</m>.
+      \uvec_n
+      \end{bmatrix}</m> so that <m>\bhat = QQ^T\bvec</m>.
     </p>
       
     <p>
       In the examples we've seen so far, however, orthogonal bases
-      were given to us.  What we need now is a way to find
-      orthogonal bases.  In this section, we'll explore an algorithm
-      that begins with a basis for a subspace and uses it to find an
-      orthogonal basis. Once we have an orthogonal basis, we can scale
-      each of the vectors appropriately to produce an orthonormal basis.
+      were given to us.  What we need now is a way to form orthogonal
+      bases.  In this section, we'll explore an algorithm that begins
+      with a basis for a subspace and uses it to find an orthogonal
+      basis. Once we have an orthogonal basis, we can scale each of
+      the vectors appropriately to produce an orthonormal basis.
     </p>
 
     <exploration>
@@ -139,7 +139,8 @@
     <p>
       This observation guides our construction of an orthogonal
       basis for it allows us to create a vector that is orthogonal to
-      a given subspace.  Let's see how the algorithm works.
+      a given subspace.  Let's see how the Gram-Schmidt algorithm
+      works.  
     </p>
 
     <activity xml:id="activity-gram-schmidt">
@@ -233,8 +234,8 @@
 
     <p>
       As this activity illustrates, Gram-Schmidt orthogonalization
-      begins with a basis <m>\vvec_1\vvec_2,\ldots,\vvec_m</m> for a
-      subspace <m>W</m> of <m>\real^n</m> and creates an orthogonal
+      begins with a basis <m>\vvec_1\vvec_2,\ldots,\vvec_n</m> for a
+      subspace <m>W</m> of <m>\real^m</m> and creates an orthogonal
       basis for <m>W</m>.  We begin by declaring <m>\wvec_1</m> to be
       <m>\vvec_1</m> and <m>W_1</m> the line defined by
       <m>\wvec_1</m>. 
@@ -306,23 +307,23 @@
 	</mrow>
 	<mrow>
 	  \wvec_2 \amp = \vvec_2 -
-	  \frac{\wvec_1\cdot\vvec_2}{\wvec_1\cdot\wvec_1}\wvec_1
+	  \frac{\vvec_2\cdot\wvec_1}{\wvec_1\cdot\wvec_1}\wvec_1
 	</mrow>
 	<mrow>
 	  \wvec_3 \amp = \vvec_3 -
-	  \frac{\wvec_1\cdot\vvec_3}{\wvec_1\cdot\wvec_2}\wvec_1 -
-	  \frac{\wvec_2\cdot\vvec_3}{\wvec_2\cdot\wvec_2}\wvec_2
+	  \frac{\vvec_3\cdot\wvec_1}{\wvec_1\cdot\wvec_1}\wvec_1 -
+	  \frac{\vvec_3\cdot\wvec_2}{\wvec_2\cdot\wvec_2}\wvec_2
 	</mrow>
 	<mrow>
 	  \amp \vdots
 	</mrow>
 	<mrow>
-	  \wvec_m \amp = \vvec_m -
-	  \frac{\wvec_1\cdot\vvec_m}{\wvec_1\cdot\wvec_1}\wvec_1 -
-	  \frac{\wvec_2\cdot\vvec_m}{\wvec_2\cdot\wvec_2}\wvec_2 -
+	  \wvec_n \amp = \vvec_n -
+	  \frac{\vvec_n\cdot\wvec_1}{\wvec_1\cdot\wvec_1}\wvec_1 -
+	  \frac{\vvec_n\cdot\wvec_2}{\wvec_2\cdot\wvec_2}\wvec_2 -
 	  \ldots - 
-	  \frac{\wvec_{m-1}\cdot\vvec_m}
-	  {\wvec_{m-1}\cdot\wvec_{m-1}}\wvec_{m-1}
+	  \frac{\vvec_n\cdot\wvec_{n-1}}
+	  {\wvec_{n-1}\cdot\wvec_{n-1}}\wvec_{n-1}
 	  \text{.} 
 	</mrow>
       </md>
@@ -385,7 +386,8 @@ sage.repl.load.load("http://merganser.math.gvsu.edu/david/linear.algebra/ula/pyt
       </p>
 
       <p>
-	Let's now consider the subspace <m>W</m> whose basis is
+	Let's now consider <m>W</m>, the subspace of <m>\real^5</m>
+	having basis
 	<me>
 	  \vvec_1 = \fivevec{14}{-6}{8}2{-6},\hspace{24pt}
 	  \vvec_2 = \fivevec{5}{-3}{4}3{-7},\hspace{24pt}
@@ -470,11 +472,10 @@ sage.repl.load.load("http://merganser.math.gvsu.edu/david/linear.algebra/ula/pyt
     <title> <m>QR</m> factorizations </title>
 
     <p>
-      We have seen that orthonormal bases provide a convenient way
-      to find orthogonal projections and that the Gram-Schmidt algorithm
-      will produce an orthonormal basis for a given subspace.  We
-      will now see how to express the Gram-Schmidt algorithm using
-      matrices and matrix factorizations.
+      Now that we've seen how the Gram-Schmidt algorithm forms an
+      orthonormal basis for a given subspace, we will explore how the
+      algorithm leads to an important matrix factorization known as
+      the <m>QR</m> factorization.
     </p>
 
     <activity>
@@ -504,10 +505,10 @@ sage.repl.load.load("http://merganser.math.gvsu.edu/david/linear.algebra/ula/pyt
 		\begin{aligned}
 		\wvec_1 \amp = \vvec_1 \\
 		\wvec_2 \amp = \vvec_2 -
-		\frac{\wvec_1\cdot\vvec_2}{\wvec_1\cdot\wvec_1}\wvec_1 \\
+		\frac{\vvec_2\cdot\wvec_1}{\wvec_1\cdot\wvec_1}\wvec_1 \\
 		\wvec_3 \amp = \vvec_3 -
-		\frac{\wvec_1\cdot\vvec_3}{\wvec_1\cdot\wvec_2}\wvec_1 -
-		\frac{\wvec_2\cdot\vvec_3}{\wvec_2\cdot\wvec_2}\wvec_2\text{.}
+		\frac{\vvec_3\cdot\wvec_1}{\wvec_1\cdot\wvec_2}\wvec_1 -
+		\frac{\vvec_3\cdot\wvec_2}{\wvec_2\cdot\wvec_2}\wvec_2\text{.}
 		\\
 		\end{aligned}
 	      </me>
@@ -585,11 +586,12 @@ sage.repl.load.load("http://merganser.math.gvsu.edu/david/linear.algebra/ula/pyt
 	    <p>
 	      Suppose that <m>A</m> is a <m>10\times 6</m> matrix
 	      whose columns are linearly independent.  This means that
-	      the columns of <m>A</m> form a basis for a 6-dimensional
-	      subspace of <m>\real^{10}</m>.  Suppose that we apply
-	      Gram-Schmidt orthogonalization to create an orthonormal
-	      basis whose vectors form the columns of <m>Q</m>.  If
-	      <m>A=QR</m>, what are the dimensions of <m>Q</m> and
+	      the columns of <m>A</m> form a basis for
+	      <m>W=\col(A)</m>, a 6-dimensional subspace of
+	      <m>\real^{10}</m>.  Suppose that we apply Gram-Schmidt
+	      orthogonalization to create an orthonormal basis whose
+	      vectors form the columns of <m>Q</m> and that we write
+	      <m>A=QR</m>.  What are the dimensions of <m>Q</m> and
 	      what are the dimensions of <m>R</m>?
 	    </p>
 	  </li>
@@ -677,11 +679,11 @@ sage.repl.load.load("http://merganser.math.gvsu.edu/david/linear.algebra/ula/pyt
     <proposition xml:id="prop-qr">
       <title> <m>QR</m> factorization </title>
       <statement>
-	If <m>A</m> is an <m>n\times m</m> matrix whose columns are
+	If <m>A</m> is an <m>m\times n</m> matrix whose columns are
 	linearly independent, we may write
-	<m>A=QR</m> where <m>Q</m> is an <m>n\times m</m> matrix whose
+	<m>A=QR</m> where <m>Q</m> is an <m>m\times n</m> matrix whose
 	columns form an orthonormal basis for <m>\col(A)</m> and
-	<m>R</m> is an <m>m\times m</m> upper triangular matrix.
+	<m>R</m> is an <m>n\times n</m> upper triangular matrix.
       </statement>
     </proposition>
 
@@ -717,7 +719,7 @@ sage.repl.load.load("http://merganser.math.gvsu.edu/david/linear.algebra/ula/pyt
 	  <li>
 	    <p>
 	      If <m>A=QR</m>, what are the dimensions of <m>Q</m> and
-	      <m>R</m>?  What is special about the shape of <m>R</m>?
+	      <m>R</m>?  What is special about the form of <m>R</m>?
 	    </p>
 	  </li>
 
@@ -750,8 +752,8 @@ sage.repl.load.load("http://merganser.math.gvsu.edu/david/linear.algebra/ula/pyt
 
 	  <li>
 	    <p>
-	      Explain why we know that the equation
-	      <m>A\xvec=\bhat</m> is consistent and then find
+	      Explain why the equation
+	      <m>A\xvec=\bhat</m> must be consistent and then find
 	      <m>\xvec</m>.
 	    </p>
 	  </li>
@@ -783,31 +785,31 @@ sage.repl.load.load("http://merganser.math.gvsu.edu/david/linear.algebra/ula/pyt
 	<li>
 	  <p>
 	    Beginning with a basis <m>\vvec_1,
-	    \vvec_2,\ldots,\vvec_m</m> for a subspace <m>W</m>
-	    of <m>\real^n</m>, the vectors
+	    \vvec_2,\ldots,\vvec_n</m> for a subspace <m>W</m>
+	    of <m>\real^m</m>, the vectors
 	    <md>
 	      <mrow>
 		\wvec_1 \amp = \vvec_1
 	      </mrow>
 	      <mrow>
 		\wvec_2 \amp = \vvec_2 -
-		\frac{\wvec_1\cdot\vvec_2}{\wvec_1\cdot\wvec_1}\wvec_1
+		\frac{\vvec_2\cdot\wvec_1}{\wvec_1\cdot\wvec_1}\wvec_1
 	      </mrow>
 	      <mrow>
 		\wvec_3 \amp = \vvec_3 -
-		\frac{\wvec_1\cdot\vvec_3}{\wvec_1\cdot\wvec_2}\wvec_1 -
-		\frac{\wvec_2\cdot\vvec_3}{\wvec_2\cdot\wvec_2}\wvec_2
+		\frac{\vvec_3\cdot\wvec_1}{\wvec_1\cdot\wvec_1}\wvec_1 -
+		\frac{\vvec_3\cdot\wvec_2}{\wvec_2\cdot\wvec_2}\wvec_2
 	      </mrow>
 	      <mrow>
 		\amp \vdots
 	      </mrow>
 	      <mrow>
-		\wvec_m \amp = \vvec_m -
-		\frac{\wvec_1\cdot\vvec_m}{\wvec_1\cdot\wvec_1}\wvec_1 -
-		\frac{\wvec_2\cdot\vvec_m}{\wvec_2\cdot\wvec_2}\wvec_2 -
+		\wvec_n \amp = \vvec_n -
+		\frac{\vvec_n\cdot\wvec_1}{\wvec_1\cdot\wvec_1}\wvec_1 -
+		\frac{\vvec_n\cdot\wvec_2}{\wvec_2\cdot\wvec_2}\wvec_2 -
 		\ldots - 
-		\frac{\wvec_{m-1}\cdot\vvec_m}
-		{\wvec_{m-1}\cdot\wvec_{m-1}}\wvec_{m-1}
+		\frac{\vvec_n\cdot\wvec_{n-1}}
+		{\wvec_{n-1}\cdot\wvec_{n-1}}\wvec_{n-1}
 	      </mrow>
 	    </md>
 	    form an orthogonal basis for <m>W</m>.
@@ -818,14 +820,14 @@ sage.repl.load.load("http://merganser.math.gvsu.edu/david/linear.algebra/ula/pyt
 	  <p>
 	    We may scale each vector <m>\wvec_i</m> appropriately to
 	    obtain an orthonormal basis
-	    <m>\uvec_1,\uvec_2,\ldots,\uvec_m</m>.
+	    <m>\uvec_1,\uvec_2,\ldots,\uvec_n</m>.
 	  </p>
 	</li>
 
 	<li>
 	  <p>
 	    Expressing the Gram-Schmidt algorithm using matrices shows
-	    us that, if the columns of <m>A</m> are linearly
+	    that, if the columns of <m>A</m> are linearly
 	    independent, then we can write <m>A=QR</m>, where the
 	    columns of <m>Q</m> form an orthonormal basis for
 	    <m>\col(A)</m> and <m>R</m> is upper triangular.
@@ -835,6 +837,8 @@ sage.repl.load.load("http://merganser.math.gvsu.edu/david/linear.algebra/ula/pyt
     </p>
 
   </subsection>
-      
+
+  <xi:include href="exercises/exercises6-4.xml" />
+  
 </section>
 
