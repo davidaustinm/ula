@@ -1,0 +1,749 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<exercises>
+  <p>
+    Evaluating the following cell loads in some commands that will be
+    helpful in the following exercises.  In particular, there are
+    commands
+    <ul>
+      <li>
+	<p>
+	  <c>QR(A)</c> that returns the <m>QR</m> factorization of
+	  <c>A</c> as <c>Q, R = QR(A)</c>,
+	</p>
+      </li>
+      <li>
+	<p>
+	  <c>onesvec(n)</c> that returns the <m>n</m>-dimensional
+	  vector whose entries are all 1,
+	</p>
+      </li>
+      <li>
+	<p>
+	  <c>demean(v)</c> that demeans the vector <c>v</c>,
+	</p>
+      </li>
+      <li>
+	<p>
+	  <c>vandermonde(x, k)</c> that returns the Vandermonde matrix
+	  of degree <m>k</m>
+	  formed from the components of the vector <c>x</c>, and
+	</p>
+      </li>
+      <li>
+	<p>
+	  <c>plot_model(xhat, data)</c> that plots the <c>data</c> and
+	  the model <c>xhat</c>.
+	</p>
+      </li>
+    </ul>
+    <sage>
+      <input>
+sage.repl.load.load('http://merganser.math.gvsu.edu/david/linear.algebra/ula/python/orthogonality.py', globals())
+
+	
+      </input>
+    </sage>
+  </p>
+
+  <exercise>
+    <statement>
+      <p>
+	Suppose we write the linear system
+	<me>
+	  \begin{bmatrix}
+	  1 \amp -1 \\
+	  2 \amp -1 \\
+	  -1 \amp 3 
+	  \end{bmatrix}
+	  \xvec = \threevec{-8}5{-10}
+	</me>
+	as <m>A\xvec=\bvec</m>.
+	<ol label="a.">
+	  <li>
+	    <p>
+	      Find an orthogonal basis for <m>\col(A)</m>.
+	    </p>
+	  </li>
+	  <li>
+	    <p>
+	      Find <m>\bhat</m>, the orthogonal projection of
+	      <m>\bvec</m> onto <m>\col(A)</m>.
+	    </p>
+	  </li>
+	  <li>
+	    <p>
+	      Find a solution to the linear system <m>A\xvec =
+	      \bhat</m>.
+	    </p>
+	  </li>
+	  <li>
+	    <p>
+	      Find the least squares approximate solution
+	      <m>\xhat</m>.
+	    </p>
+	  </li>
+	</ol>
+      </p>
+    </statement>
+  </exercise>
+
+  <exercise xml:id="ex-lst-squares-line">
+    <statement>
+      <p>
+	Consider the data in <xref ref="table-lst-squares-line" />.
+	<table xml:id="table-lst-squares-line">
+	  <title>
+	    A data set with four points.
+	  </title>
+	  <tabular halign="center">
+            <row bottom="minor">
+	      <cell> <m>x</m> </cell>
+	      <cell> <m>y</m> </cell>
+	    </row>
+	    <row>
+	      <cell> 1 </cell>
+	      <cell> 1 </cell>
+	    </row>
+	    <row>
+	      <cell> 2 </cell>
+	      <cell> 1 </cell>
+	    </row>
+	    <row>
+	      <cell> 3 </cell>
+	      <cell> 1 </cell>
+	    </row>
+	    <row>
+	      <cell> 4 </cell>
+	      <cell> 2 </cell>
+	    </row>
+	  </tabular>
+	</table>
+	<sage>
+	  <input>
+
+	  </input>
+	</sage>
+	<ol label="a.">
+	  <li>
+	    <p>
+	      Set up the linear system <m>A\xvec=\bvec</m> that
+	      describes the line <m>b + mx = y</m> passing through
+	      these points.
+	    </p>
+	  </li>
+	  <li>
+	    <p>
+	      Write the normal equations that describe the least
+	      squares approximate solution to <m>A\xvec=\bvec</m>.
+	    </p>
+	  </li>
+	  <li>
+	    <p>
+	      Find the least squares approximate solution <m>\xhat</m> 
+	      and plot the data and the resulting line.
+	    </p>
+	  </li>
+	  <li>
+	    <p>
+	      What is your predicted <m>y</m>-value when <m>x=3.5</m>? 
+	    </p>
+	  </li>
+	  <li>
+	    <p>
+	      Find the coefficient of determination <m>R^2</m>.
+	    </p>
+	  </li>
+	</ol>
+	      
+      </p>
+    </statement>
+  </exercise>
+
+  <exercise>
+    <statement>
+      <p>
+	Consider the four points in
+	<xref ref="table-lst-squares-line" />.
+	<sage>
+	  <input>
+
+	  </input>
+	</sage>
+	<ol label="a.">
+	  <li>
+	    <p>
+	      Set up a linear system <m>A\xvec = \bvec</m> that
+	      describes a quadratic function
+	      <me>
+		\beta_0+\beta_1x+\beta_2x^2 = y
+	      </me>
+	      passing through the points.
+	    </p>
+	  </li>
+	  <li>
+	    <p>
+	      Use a <m>QR</m> factorization to find the least squares
+	      approximate solution <m>\xhat</m> and plot the data and
+	      the graph of the resulting quadratic function.
+	    </p>
+	  </li>
+	  <li>
+	    <p>
+	      What is your predicted <m>y</m>-value when <m>x=3.5</m>? 
+	    </p>
+	  </li>
+	  <li>
+	    <p>
+	      Find the coefficient of determination <m>R^2</m>.
+	    </p>
+	  </li>
+	</ol>
+      </p>
+    </statement>
+  </exercise>
+
+  <exercise>
+    <statement>
+      <p>
+	Consider the data in <xref ref="table-lst-squares-multi" />.
+	<table xml:id="table-lst-squares-multi">
+	  <title>
+	    A simple data set
+	  </title>
+	  <tabular halign="center">
+            <row bottom="minor">
+              <cell> <m>x_1</m> </cell>
+              <cell> <m>x_2</m> </cell>
+              <cell> <m>y</m> </cell>
+            </row>
+            <row>
+              <cell> 1</cell>
+              <cell> 1 </cell>
+              <cell> 4.2 </cell>
+            </row>
+            <row>
+              <cell> 1 </cell>
+              <cell> 2 </cell>
+              <cell> 3.3 </cell>
+            </row>
+            <row>
+              <cell> 2 </cell>
+              <cell> 1 </cell>
+              <cell> 5.9 </cell>
+            </row>
+            <row>
+              <cell> 2 </cell>
+              <cell> 2 </cell>
+              <cell> 5.1 </cell>
+            </row>
+            <row>
+              <cell> 3 </cell>
+              <cell> 2 </cell>
+              <cell> 7.5 </cell>
+            </row>
+            <row>
+              <cell> 3 </cell>
+              <cell> 3 </cell>
+              <cell> 6.3 </cell>
+            </row>
+          </tabular>
+	</table>
+	<sage>
+	  <input>
+
+	  </input>
+	</sage>
+	<ol label="a.">
+	  <li>
+	    <p>
+	      Set up a linear system <m>A\xvec = \bvec</m> that
+	      describes the relationship
+	      <me>
+		\beta_0 + \beta_1 x_1 + \beta_2 x_2 = y.
+	      </me>
+	    </p>
+	  </li>
+	  <li>
+	    <p>
+	      Find the least squares approximate solution
+	      <m>\xhat</m>.
+	    </p>
+	  </li>
+	  <li>
+	    <p>
+	      What is your predicted <m>y</m>-value when <m>x_1 =
+	      2.4</m> and <m>x_2=2.9</m>?
+	    </p>
+	  </li>
+
+	  <li>
+	    <p>
+	      Find the coefficient of determination <m>R^2</m>.
+	    </p>
+	  </li>
+	</ol>
+      </p>
+    </statement>
+  </exercise>
+
+  <exercise>
+    <statement>
+      <p>
+	Determine whether the following statements are true or false
+	and explain your thinking.
+	<ol label="a.">
+	  <li>
+	    <p>
+	      If <m>A\xvec=\bvec</m> is consistent, then <m>\xhat</m>
+	      is a solution to <m>A\xvec=\bvec</m>.
+	    </p>
+	  </li>
+	  <li>
+	    <p>
+	      If <m>R^2=1</m>, then the least squares approximate
+	      solution <m>\xhat</m> is also a solution to the original
+	      equation <m>A\xvec=\bvec</m>.
+	    </p>
+	  </li>
+	  <li>
+	    <p>
+	      Given the <m>QR</m> factorization <m>A=QR</m>, we have
+	      <m>A\xhat=Q^TQ\bvec</m>.
+	    </p>
+	  </li>
+	  <li>
+	    <p>
+	      A <m>QR</m> factorization provides a method
+	      method for finding the approximate least squares
+	      solution to <m>A\xvec=\bvec</m> that is more reliable
+	      than solving the normal equations.
+	    </p>
+	  </li>
+	  <li>
+	    <p>
+	      A solution to <m>AA^T\xvec = A\bvec</m> is the least
+	      squares approximate solution to <m>A\xvec = \bvec</m>.
+	    </p>
+	  </li>
+	</ol>
+      </p>
+    </statement>
+  </exercise>
+	    
+  <exercise>
+    <statement>
+      <p>
+	Explain your response to the following questions.
+	<ol label="a.">
+	  <li>
+	    <p>
+	      If <m>\xhat=\zerovec</m>, what does this say about the
+	      vector <m>\bvec</m>?
+	    </p>
+	  </li>
+	  <li>
+	    <p>
+	      If the columns of <m>A</m> are orthonormal, how can you
+	      easily find the least squares approximate solution to
+	      <m>A\xvec=\bvec</m>?
+	    </p>
+	  </li>
+	</ol>
+      </p>
+    </statement>
+  </exercise>
+
+  <exercise>
+    <statement>
+      <p>
+	The following cell loads in some data showing the number of
+	people in Bangladesh living without electricity over 27 years.
+	It also defines vectors <c>year</c>, which records the years in the
+	data set, and <c>people</c>, which records the number of people.
+	<sage>
+	  <input>
+import pandas as pd
+df = pd.read_csv('http://merganser.math.gvsu.edu/david/linear.algebra/ula/data/bangladesh.csv')
+data = [vector(row) for row in df.values]
+year = vector(df['Year'])
+people = vector(df['People'])
+print(df)
+list_plot(data, size=40, color='blue')
+
+
+	  </input>
+	</sage>
+	<ol label="a.">
+	  <li>
+	    <p>
+	      Suppose we want to write
+	      <me>
+		N = \beta_0 + \beta_1 t
+	      </me>
+	      where <m>t</m> is the year and <m>N</m> is the number of
+	      people. 
+	      Construct the matrix <m>A</m> and vector
+	      <m>\bvec</m> so that
+	      the linear system
+	      <m>A\xvec=\bvec</m> describes the vector
+	      <m>\xvec=\twovec{\beta_0}{\beta_1}</m>.
+	    </p>
+	  </li>
+	  <li>
+	    <p>
+	      Using a <m>QR</m> factorization of <m>A</m>, find
+	      the values of <m>\beta_0</m> and <m>\beta_1</m>
+	      in the least squares approximate solution
+	      <m>\xhat</m>.
+	    </p>
+	  </li>
+	  <li>
+	    <p>
+	      What is the coefficient of determination <m>R^2</m> and
+	      what does this tell us about the quality of the
+	      approximation?
+	    </p>
+	  </li>
+	  <li>
+	    <p>
+	      What is your prediction for the number of people living
+	      without electricity in 1985?
+	    </p>
+	  </li>
+	  <li>
+	    <p>
+	      Estimate the year in which there will be no people
+	      living without electricity.
+	    </p>
+	  </li>
+	</ol>
+      </p>
+    </statement>
+  </exercise>
+
+  <exercise>
+    <statement>
+      <p>
+	This problem concerns a data set describing planets in our
+	Solar system.  
+	For each planet, we have 
+	the length <m>L</m> of the semi-major axis, essentially the
+	distance from the planet to the Sun in AU (astronomical units),
+	and the period <m>P</m>, the length of time in years required
+	to completed one orbit around the Sun.
+      </p>
+
+      <p>
+	We would like to model this data using the function
+	<m>P = CL^r</m> where <m>C</m> and <m>r</m> are parameters we
+	need to determine.  Since this isn't a linear function, we
+	will transform this relationship by taking the natural
+	logarithm of both sides to obtain
+	<me>
+	  \ln(P) = \ln(C) + r\ln(L).
+	</me>
+      </p>
+
+      <p>
+	Evaluating the following cell loads the data set and defines
+	two vectors <c>logaxis</c>, whose
+	components are <m>\ln(L)</m>, and <c>logperiod</c>, whose
+	components are <m>\ln(P)</m>.	
+	<sage>
+	  <input>
+import pandas as pd
+import numpy as np	    
+df = pd.read_csv('http://merganser.math.gvsu.edu/david/linear.algebra/ula/data/planets.csv',index_col=0)
+logaxis = vector(np.log(df['Semi-major axis']))
+logperiod = vector(np.log(df['Period']))
+print(df)
+
+	  </input>
+	</sage>
+
+	<ol label="a.">
+	  <li>
+	    <p>
+	      Construct the matrix <m>A</m> and vector <m>\bvec</m> so that
+	      the solution to <m>A\xvec=\bvec</m> is the vector
+	      <m>\xvec=\twovec{\ln(C)}r</m>.
+	    </p>
+	  </li>
+	  <li>
+	    <p>
+	      Find the least squares approximate solution
+	      <m>\xhat</m>.  What does this give for the values of
+	      <m>C</m> and <m>r</m>?
+	    </p>
+	  </li>
+	  <li>
+	    <p>
+	      Find the coefficient of determination <m>R^2</m>.  What
+	      does this tell us about the quality of the
+	      approximation?
+	    </p>
+	  </li>
+	  <li>
+	    Suppose that the orbit of an asteroid has a semi-major
+	    axis whose length is <m>L=4.0</m> AU.  Estimate the period
+	    <m>P</m> of the asteroid's orbit.
+	  </li>
+
+	  <li>
+	    <p>
+	      Halley's Comet has a period of <m>P=75</m> years.
+	      Estimate the length of its semi-major axis.
+	    </p>
+	  </li>
+	</ol>
+      </p>
+    </statement>
+  </exercise>
+  
+  <exercise>
+    <statement>
+      <p>
+	Evaluating the following cell loads a data set describing the
+	temperature in the Earth's atmosphere at various altitudes.
+	There are also two vectors <c>altitude</c>, expressed in kilometers,
+	and <c>temperature</c>, in degress Celsius.
+	<sage>
+	  <input>
+import pandas as pd
+df = pd.read_csv('http://merganser.math.gvsu.edu/david/linear.algebra/ula/data/altitude-temps.csv')
+data = [vector(row) for row in df.values]
+altitude = vector(df['Altitude'])
+temperature = vector(df['Temperature'])
+print(df)
+list_plot(data, size=40, color='blue')
+
+	  </input>
+	</sage>
+	<ol label="a.">
+	  <li>
+	    <p>
+	      Describe how to form the matrix <m>A</m> and vector
+	      <m>\bvec</m> so that the linear system
+	      <m>A\xvec=\bvec</m> describes a degree <m>k</m>
+	      polynomial fitting the data.
+	    </p>
+	  </li>
+	  <li>
+	    <p>
+	      Choose a value of <m>k</m>,
+	      construct the matrix <m>A</m> and vector <m>\bvec</m>,
+	      and find the least squares approximate solution
+	      <m>\xhat</m>.
+	    </p>
+	  </li>
+	  <li>
+	    <p>
+	      Plot the polynomial and data using <c>plot_model(xhat,
+	      data)</c>.
+	    </p>
+	  </li>
+
+	  <li>
+	    <p>
+	      Now examine what happens as you vary the
+	      degree of the polynomial <m>k</m>.  Choose an
+	      appropriate value of <m>k</m> that seems to capture the
+	      most important features of the data while avoiding
+	      overfitting, and explain your choice.
+	    </p>
+	  </li>
+
+	  <li>
+	    <p>
+	      Use your value of <m>k</m> to estimate the
+	      temperature at an altitude of 55 kilometers.
+	    </p>
+	  </li>
+	</ol>
+      </p>
+    </statement>
+  </exercise>
+
+  <exercise>
+    <statement>
+      <p>
+	The following cell loads some data describing 1057 houses in a
+	particular real estate market.  For each house, we record the
+	living area in square feet, the lot size in acres, the age
+	in years, and the price in dollars.  The cell also defines
+	variables <c>area</c>, <c>size</c>, <c>age</c>, and <c>price</c>.
+
+	<sage>
+	  <input>
+import pandas as pd
+df =pd.read_csv('http://merganser.math.gvsu.edu/david/linear.algebra/ula/data/housing.csv',index_col=0)
+df = df.fillna(df.mean())
+area = vector(df['Living.Area'])
+size = vector(df['Lot.Size'])
+age = vector(df['Age'])
+price = vector(df['Price'])
+df
+
+
+	  </input>
+	</sage>
+	We will use linear regression to predict the price of
+	a house given its living area, lot size, and age:
+	<me>
+	  \beta_0 + \beta_1~\text{Living Area} +
+	  \beta_2~\text{Lot Size} + \beta_3~\text{Age} = \text{Price}.
+	</me>
+	<ol label="a.">
+	  <li>
+	    <p>
+	      Using the first data point, write an equation for
+	      <m>\beta_0</m>, <m>\beta_1</m>, <m>\beta_2</m>, and
+	      <m>\beta_3</m>.
+	    </p>
+	  </li>
+	  <li>
+	    <p>
+	      Construct a matrix <m>A</m> and vector <m>\bvec</m> so
+	      that the linear system <m>A\xvec=\bvec</m> describes the
+	      vector
+	      <m>\xvec=\fourvec{\beta_0}{\beta_1}{\beta_2}{\beta_3}</m>.
+	    </p>
+	  </li>
+	  <li>
+	    <p>
+	      Use a <m>QR</m> factorization to find the least squares
+	      approximate solution <m>\xhat</m>.
+	    </p>
+	  </li>
+
+	  <li>
+	    <p>
+	      Discuss the
+	      significance of the signs of <m>\beta_1</m>,
+	      <m>\beta_2</m>, and <m>\beta_3</m>.
+	    </p>
+	  </li>
+
+	  <li>
+	    <p>
+	      If two houses are
+	      identical except for differing in age by one year, how
+	      would you predict their prices compare to one another?
+	    </p>
+	  </li>
+	  <li>
+	    <p>
+	      Find the coefficient of determination <m>R^2</m>.  What
+	      does this say about the quality of the fit?
+	    </p>
+	  </li>
+	  <li>
+	    <p>
+	      Predict the price of a house whose living area is 2000
+	      square feet, lot size is 1.5 acres, and age is 50 years.
+	    </p>
+	  </li>
+	</ol>
+      </p>
+    </statement>
+  </exercise>
+
+  <exercise xml:id="ex-r2-meaning">
+    <statement>
+      <p>
+	This problem is about the meaning of the coefficient of
+	determination <m>R^2</m> and its connection to variance, a
+	topic that appears in the next section.  Throughout this
+	problem, we consider the linear system <m>A\xvec=\bvec</m> and
+	the approximate least squares solution <m>\xhat</m>, where
+	<m>A\xhat=\bhat</m>.  We suppose that <m>A</m> is an
+	<m>m\times n</m> matrix.  We will denote the
+	<m>m</m>-dimensional vector <m>\onevec =
+	\fourvec11{\vdots}1</m>.
+      </p>
+
+      <p>
+	<ol label="a.">
+	  <li>
+	    <p>
+	      Explain why <m>\bbar</m>, the
+	      mean of the components of <m>\bvec</m>, can be found as
+	      the dot product
+	      <me>
+		\bbar = \frac 1m \bvec\cdot\onevec.
+	      </me>
+	    </p>
+	  </li>
+
+	  <li>
+	    <p>
+	      In the examples we have seen in this section, 
+	      explain why <m>\onevec</m> is in <m>\col(A)</m>.
+	    </p>
+	  </li>
+
+	  <li>
+	    <p>
+	      If we write <m>\bvec = \bhat + \bvec^\perp</m>, we
+	      explain why
+	      <me>
+		\bvec^\perp\cdot\onevec = 0
+	      </me>
+	      and hence why the mean of the components of
+	      <m>\bvec^\perp</m> is zero.
+	    </p>
+	  </li>
+
+	  <li>
+	    <p>
+	      The variance of an <m>m</m>-dimensional vector
+	      <m>\vvec</m> is
+	      <m>\var(\vvec) = \frac1m \len{\widetilde{\vvec}}^2</m>, where
+	      <m>\widetilde{\vvec}</m> is the vector obtained by demeaning
+	      <m>\vvec</m>.
+	    </p>
+
+	    <p>
+	      Explain why
+	      <me>
+		\var(\bvec) = \var(\bhat) + \var(\bvec^\perp).
+	      </me>
+	    </p>
+	  </li>
+
+	  <li>
+	    <p>
+	      Explain why
+	      <me>
+		\frac{\len{\bvec - A\xhat}^2}{\len{\widetilde{\bvec}}^2}
+		= \frac{\var(\bvec^\perp)}{\var(\bvec)}
+	      </me>
+	      and hence
+	      <me>
+		R^2 = \frac{\var(\bhat)}{\var(\bvec)} =
+		\frac{\var(A\xhat)}{\var(\bvec)}.
+	      </me>
+	    </p>
+
+	    <p>
+	      These expressions indicate why 
+	      it is sometimes said that <m>R^2</m> measures the
+	      <q>fraction of variance explained</q> by the function we
+	      are using to fit the data.  
+	      
+	    </p>
+	  </li>
+
+	  <li>
+	    <p>
+	      Explain why <m>0\leq R^2 \leq 1</m>.
+	    </p>
+	  </li>
+	</ol>
+      </p>
+    </statement>
+  </exercise>
+
+</exercises>
+

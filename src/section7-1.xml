@@ -17,11 +17,21 @@
     </p>
 
     <p>
-        Remember that if <m>A</m> is a square matrix, we say that
-        <m>\vvec</m> is an eigenvector of <m>A</m> with associated
-        eigenvalue <m>\lambda</m> if <m>A\vvec=\lambda\vvec</m>.  In
-        other words, for these special vectors, the operation of
-        matrix multiplication simplifies to scalar multiplication.
+      In this section, we will revisit the theory of eigenvalues and
+      eigenvectors for the special class of matrices that are
+      <em>symmetric</em>, meaning that the matrix equals its
+      transpose.  This understanding of symmetric matrices will enable
+      us to form singular value decompositions later in the chapter.
+      We'll also begin studying variance in this section as it
+      provides an important context that motivates our later work.
+    </p>
+
+    <p>
+      To begin, remember that if <m>A</m> is a square matrix, we say
+      that <m>\vvec</m> is an eigenvector of <m>A</m> with associated
+      eigenvalue <m>\lambda</m> if <m>A\vvec=\lambda\vvec</m>.  In
+      other words, for these special vectors, the operation of matrix
+      multiplication simplifies to scalar multiplication.
     </p>
 
     <exploration>
@@ -180,7 +190,7 @@
 
     <p>
       In this way, we see that the transformations are equivalent
-      after a <m>45^\circ</m> rotation.  This notation of equivalence
+      after a <m>45^\circ</m> rotation.  This notion of equivalence
       is what we called <em>similarity</em> in 
       <xref ref="sec-eigen-diag" />.  There we considered a square
       <m>n\times n</m> matrix <m>A</m> that provided enough
@@ -202,12 +212,12 @@
 	0 \amp 0 \amp \ldots \amp \lambda_n
 	\end{bmatrix},
       </me>
-      gives us <m>A = PDP^{-1}</m>.  This is what it means for
-      <m>A</m> to be diagonalizable.
+      allows us to write <m>A = PDP^{-1}</m>.  This is what it means
+      for <m>A</m> to be diagonalizable.
     </p>
 
     <p>
-      In the preview activity, we have
+      For the example in the preview activity, we are led to form
       <me>
 	P = \begin{bmatrix}
 	1 \amp -1 \\
@@ -229,10 +239,11 @@
 
     <p>
       Notice that the matrix <m>A</m> has eigenvectors <m>\vvec_1</m>
-      and <m>\vvec_2</m> that form a basis for <m>\real^2</m>.  In
-      addition, this basis is orthogonal.  We begin this section by
-      asking when an <m>n\times n</m> matrix has <m>n</m> eigenvectors
-      that form an orthogonal basis for <m>\real^n</m>.
+      and <m>\vvec_2</m> that not only form a basis for <m>\real^2</m>
+      but, in fact, form an orthogonal basis for <m>\real^2</m>.
+      Given the prominent role played by orthogonal bases in the last
+      chapter, we would like to understand what conditions on a matrix
+      enable us to form an orthogonal basis of eigenvectors.
     </p>
       
   </introduction>
@@ -241,7 +252,7 @@
     <title> Symmetric matrices and orthogonal diagonalization </title>
 
     <p>
-      Let's begin by looking at some examples in the first activity.
+      Let's begin by looking at some examples in the next activity.
     </p>
 
     <activity xml:id="activity-orthog-diag-ex">
@@ -347,7 +358,7 @@
     </p>
 
     <p>
-      We will be interested in matrices for which there is an
+      We are interested in matrices for which there is an
       orthogonal basis of eigenvectors.  When this happens, we can
       create an orthonormal basis of eigenvectors by scaling each
       eigenvector in the basis appropriately.  Putting these
@@ -486,9 +497,7 @@
 
 	<p>
 	  In fact, a similar picture holds any time the matrix
-	  <m>A</m> is orthogonally diagonalizable, and this provides
-	  an intuitive understanding of how orthogonally
-	  diagonalizable matrices are related to diagonal matrices.
+	  <m>A</m> is orthogonally diagonalizable.
 	</p>
 	  
       </statement>
@@ -520,6 +529,11 @@
 	orthogonal basis for <m>\real^n</m> consisting of eigenvectors
 	of <m>A</m>.  Use this basis to write an orthogonal
 	diagonalization of <m>A</m>.
+	<sage>
+	  <input>
+
+	  </input>
+	</sage>
 	<ol label="a.">
 	  <li>
 	    <p>
@@ -591,15 +605,16 @@
     </p>
 
     <p>
-      We won't justify those first two facts here.  However, it will
+      We won't justify the first two facts here since that would
+      take us rather far afield.  However, it will
       be helpful to explain the third fact.  To begin, notice the
       following:
       <me>
 	\vvec\cdot(A\wvec) = \vvec^TA\wvec = (A^T\vvec)^T\wvec =
 	(A^T\vvec)\cdot \wvec.
       </me>
-      This is a useful fact to which we will return so let's summarize
-      it in the following proposition.  
+      This is a useful fact that we'll employ quite a bit in the
+      future so let's summarize it in the following proposition.
     </p>
 
     <proposition xml:id="prop-symmetric-dot">
@@ -657,17 +672,18 @@
     <p>
       Many of the ideas we'll encounter in this chapter, such as
       orthogonal diagonalizations, can be applied to the study of
-      data.  Consequently, we need to develop a few statistical ideas,
-      one of which is variance, the subject we'll introduce next.
-      This will provide some motivation for some of the ideas we'll
-      explore later in this chapter.
+      data.  In fact, it can be useful to understand these
+      applications because they provide an important context in which
+      mathematical ideas have a more concrete meaning and their
+      motivation appears more clearly.  For that reason, we will now
+      introduce the statistical concept of variance as a way to gain
+      insight into the significance of orthogonal diagonalizations.
     </p>
 
     <p>
-      Given a set of data points, the variance is a measure of how
-      spread out the points are.  This played a role in our discussion
-      of the coefficient of determination <m>R^2</m> when we looked at
-      least squares problems in the last chapter.
+      Given a set of data points, their variance measures how
+      spread out the points are.  The next activity looks at some
+      examples. 
     </p>
 
     <activity>
@@ -715,7 +731,7 @@
 	      </sidebyside>
 	      <caption>
 		<p>
-		  Plot the data points <m>\dtil_j</m> here.
+		  Plot the demeaned data points <m>\dtil_j</m> here.
 		</p>
 	      </caption>
 	    </figure>
@@ -730,7 +746,8 @@
 	      <me>
 		V = \frac 1N\sum_j~\len{\dtil_j}^2.
 	      </me>
-	      Find the total variance <m>V</m>.
+	      Find the total variance <m>V</m> for our set of three
+	      points. 
 	    </p>
 	  </li>
 
@@ -780,7 +797,7 @@
 	      by vectors <m>\vvec_1=\twovec11</m> and
 	      <m>\vvec_2=\twovec{-1}1</m> using <xref
 	      ref="fig-variance-projection-2" />.  Then
-	      find the variance
+	      find the variances
 	      <m>V_{\vvec_1}</m> and <m>V_{\vvec_2}</m> of these
 	      projected points.
 	    </p>
@@ -813,9 +830,9 @@
       Notice that variance enjoys an additivity property.  Consider,
       for instance, the situation where our data points are
       two-dimensional and suppose that the demeaned points are
-      <m>\dtil_j=\twovec{\tilde{x}_j}{\tilde{y}_j}</m>.  We have
+      <m>\dtil_j=\twovec{\widetilde{x}_j}{\widetilde{y}_j}</m>.  We have
       <me>
-	\len{\dtil_j}^2 = \tilde{x}_j^2 + \tilde{y}_j^2.
+	\len{\dtil_j}^2 = \widetilde{x}_j^2 + \widetilde{y}_j^2.
       </me>
       If we take the average over all data points, we find that the
       total variance <m>V</m> is the sum of the variances in the
@@ -823,8 +840,8 @@
       <md>
 	<mrow>
 	  \frac1N \sum_j~ \len{\dtil_j}^2 \amp =
-	  \frac1N \sum_j~ \tilde{x}_j^2 + 
-	  \frac1N \sum_j~ \tilde{y}_j^2 
+	  \frac1N \sum_j~ \widetilde{x}_j^2 + 
+	  \frac1N \sum_j~ \widetilde{y}_j^2 
 	</mrow>
 	<mrow>
 	  V \amp = V_x + V_y.
@@ -887,7 +904,7 @@
 
     <activity>
       <p>
-	Let's return to the dataset from the previous activity in which
+	Let's return to the data set from the previous activity in which
 	we have demeaned data points:
 	<me>
 	  \dtil_1=\twovec{-1}{-1},\hspace{24pt}
@@ -936,8 +953,8 @@
 	  <li>
 	    <p>
 	      In general, the matrix <m>C=\frac1N~AA^T</m> is called
-	      the <em>covariance</em> matrix of the dataset.  Find the
-	      matrix <m>C</m> for our dataset with three points.
+	      the <em>covariance</em> matrix of the data set.  Find the
+	      matrix <m>C</m> for our data set with three points.
 	      <sage>
 		<input>
 		</input>
@@ -974,7 +991,13 @@
     </activity>
 
     <p>
-      If <m>A</m> is the demeaned data matrix and <m>\uvec</m> is a
+      If <m>A</m> is the demeaned data matrix,
+      <me>
+	A = \begin{bmatrix}
+	\dtil_1 \amp \dtil_2 \amp \dtil_3
+	\end{bmatrix},
+      </me>
+      and <m>\uvec</m> is a
       unit vector, we have
       <me>
 	A^T\uvec =
@@ -985,9 +1008,10 @@
     </p>
 
     <p>
-      The covariance matrix is then defined to be
+      The covariance matrix is defined to be
       <m>C=\frac1N~AA^T</m>.  Notice that
-      <me>C^T = \frac1N~(AA^T)^T = \frac1N~AA^T = C
+      <me>
+	C^T = \frac1N~(AA^T)^T = \frac1N~AA^T = C,
       </me>
       which tells us that <m>C</m> is a symmetric matrix.  In
       particular, we know that it is orthogonally diagonalizable, an
@@ -1021,7 +1045,7 @@
       <statement>
 	<p>
 	  If <m>C</m> is the covariance matrix associated to a
-	  demeaned dataset and <m>\uvec</m> is a unit vector, then the
+	  demeaned data set and <m>\uvec</m> is a unit vector, then the
 	  variance of the demeaned points projected onto the line
 	  defined by <m>\uvec</m> is
 	  <me>
@@ -1044,9 +1068,9 @@
 	<ol label="a.">
 	  <li>
 	    <p>
-	      Evaluating the following Sage cell loads a dataset
+	      Evaluating the following Sage cell loads a data set
 	      consisting of 100 demeaned data points and provides a plot
-	      of them.  It also provides a demeaned data matrix
+	      of them.  It also provides the demeaned data matrix
 	      <m>A</m>.
 	      <sage>
 		<input>
@@ -1114,16 +1138,17 @@ list_plot(data, size=20, color='blue', aspect_ratio=1)
     </activity>
 
     <p>
-      This activity illustrates how we can use variance to identify a
-      line along which the data is concentrated.  When the data is
-      almost wholly contained on a line defined by a vector
-      <m>\uvec</m>, then the variance in a direction <m>\wvec</m>,
-      orthogonal to <m>\uvec</m>, is small. 
+      This activity illustrates how variance can identify a
+      line along which the data is concentrated.  When the data
+      primarily lies along a line defined by a vector
+      <m>\uvec</m>, then the variance in that direction will be large
+      while the variance in an orthogonal direction <m>\wvec</m> will
+      be small.
     </p>
 
     <p>
       Remember that variance is additive, according to <xref
-      ref="prop-variance-additivity" />, so that, if
+      ref="prop-variance-additivity" />, so that if
       <m>\uvec</m> and 
       <m>\wvec</m> are orthogonal unit vectors, then the total
       variance is
@@ -1132,14 +1157,15 @@ list_plot(data, size=20, color='blue', aspect_ratio=1)
       </me>
       Therefore, if we choose <m>\uvec</m> to be the direction where
       <m>V_{\uvec}</m> is a maximum, then <m>V_{\wvec}</m> will be a
-      minimum.  This means that the data will be concentrated near a
-      line along which the variance is greatest.  
+      minimum.  
     </p>
 
     <p>
-      In the next section, we will develop some tools that employ an
+      In the next section, we will use an
       orthogonal diagonalization of the covariance matrix <m>C</m> to
       find the directions having the greatest and smallest variances.
+      In this way, we will be able to determine when data is
+      concentrated along a line or subspace.
     </p>
 
   </subsection>
@@ -1156,20 +1182,22 @@ list_plot(data, size=20, color='blue', aspect_ratio=1)
 	    A matrix <m>A</m> is orthogonally diagonalizable if there
 	    is an orthonormal basis of eigenvectors.  In particular,
 	    we can write <m>A=QDQ^T</m>, where <m>D</m> is a diagonal
-	    matrix of eigenvalues and <m>Q</m> is orthogonal.
+	    matrix of eigenvalues and <m>Q</m> is an orthogonal matrix
+	    of eigenvectors.
 	  </p>
 	</li>
 
 	<li>
 	  <p>
-	    A matrix <m>A</m> is orthogonally diagonalizable if and
+	    The Spectral Theorem tells us that
+	    a matrix <m>A</m> is orthogonally diagonalizable if and
 	    only if it is symmetric;  that is, <m>A=A^T</m>.
 	  </p>
 	</li>
 
 	<li>
 	  <p>
-	    The variance of a dataset can be computed using the
+	    The variance of a data set can be computed using the
 	    covariance matrix <m>C=\frac1N~AA^T</m>, where <m>A</m> is
 	    the matrix of demeaned data points.  In particular, the
 	    variance of the demeaned data points projected onto the
@@ -1192,6 +1220,8 @@ list_plot(data, size=20, color='blue', aspect_ratio=1)
     </p>
 
   </subsection>
+
+  <xi:include href="exercises/exercises7-1.xml" />
 
 </section>
       

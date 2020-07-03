@@ -2,24 +2,40 @@
 
 <section xml:id="sec-least-squares"
 	 xmlns:xi="http://www.w3.org/2001/XInclude">
-  <title> Least squares problems  </title>
+  <title> Orthogonal least squares </title>
 
   <introduction>
-    <p> A linear system with more equations than unknowns usually has
-    no solutions.  Suppose, for example, that the equation
-    <m>A\xvec=\bvec</m> is formed from an <m>m\times n</m> matrix
-    <m>A</m> having more rows than columns.  Because not every row can
-    have a pivot position, the columns of <m>A</m> will not span
-    <m>\real^m</m>.  This means that for most vectors <m>\bvec</m>,
-    the equation <m>A\xvec=\bvec</m> will be inconsistent.
+    <p>
+      Suppose we collect some data when performing an experiment and
+      plot it as shown on the left of <xref ref="lst-squares-intro"
+      />.  Notice that there is no line on which all the points lie;
+      in fact, it would probably be surprising if there were since we
+      can expect there to be some uncertainty in the measurements
+      recorded.  There does, however, appear to a line, as shown on
+      the right, on which the points <em> almost</em> lie.  
     </p>
+    
+    <figure xml:id="lst-squares-intro">
+      <sidebyside widths="45% 45%">
+	<image source="images/lst-squares-1" />
+	<image source="images/lst-squares-2" />
+      </sidebyside>
+      <caption>
+	A collection of points and a line approximating the
+	linear relationship implied by them.
+      </caption>
+    </figure>
 
-    <p> Our story needn't end there, however.  When the equation
-    <m>A\xvec=\bvec</m> is inconsistent, we may instead seek the
-    vector <m>\xvec</m> where <m>A\xvec</m> is as close as possible to
-    <m>\bvec</m>.  Using the ideas we have constructed in this
-    chapter, we will see that orthogonal projections give us just the
-    right tool for doing this.
+    <p>
+      In this section, we'll explore how the techniques developed in
+      this chapter enable us to find the line that best approximates
+      the data.  More specifically, we'll see how the search for a
+      line passing through the data points leads to an inconsistent
+      system <m>A\xvec=\bvec</m>.  Since we are unable to find a
+      solution <m>\xvec</m>, we instead seek the vector <m>\xvec</m>
+      where <m>A\xvec</m> is as close as possible to <m>\bvec</m>.
+      Orthogonal projections give us just the right tool for doing
+      this.
     </p>
     
     <exploration>
@@ -84,20 +100,19 @@
     <title> A first example </title>
 
     <p>
-      The preview activity illustrates a strategy for working with
-      inconsistent systems <m>A\xvec=\bvec</m>.  If we find
-      <m>\bhat</m>, the orthogonal projection of <m>\bvec</m> onto
-      <m>\col(A)</m>, the equation <m>A\xvec=\bhat</m> admits a
-      solution <m>\xvec</m>.  Since <m>\bhat</m> is the vector in
-      <m>\col(A)</m> that is closest to <m>\bvec</m>, this solution
-      is, in a sense, the best possible.  More specifically,
-      <m>\xvec</m> is the vector for which <m>A\xvec</m> is as close to
-      <m>\bvec</m> as possible.
+      When we've encountered inconsistent systems in the past, we've
+      simply said there is no solution and moved on.  The preview
+      activity, however, shows how we can find approximate solutions
+      to an inconsistent system: if there are no solutions to
+      <m>A\xvec = \bvec</m>, we instead solve the consistent system
+      <m>A\xvec = \bhat</m>, the orthogonal projection of <m>\bvec</m>
+      onto <m>\col(A)</m>.  As we'll see, this solution is, in a
+      specific sense, the best possible.
     </p>
 
     <p>
-      We begin with an example that demonstrates how this can be
-      useful.  
+      The next activity shows how this approximate solution can
+      provide us with valuable information.
     </p>
 
     <activity>
@@ -122,17 +137,17 @@
 	  
 	  <li>
 	    <p>
-	      Let's write some conditions that would describe a line
+	      Let's write the conditions that would describe a line
 	      passing through the
 	      points.  Remember that the equation of a line can be written
-	      as <m>y=b + mx</m> where <m>m</m> is the slope and <m>b</m> is
-	      the <m>y</m>-intercept.  We will try to find <m>m</m> and
-	      <m>b</m> so that the three points lie on the line.
+	      as <m>b + mx=y</m> where <m>m</m> is the slope and <m>b</m> is
+	      the <m>y</m>-intercept.  We will try to find <m>b</m> and
+	      <m>m</m> so that the three points lie on the line.
 	    </p>
 	    
 	    <p>
-	      The first data point <m>(1,1)</m> will give us an equation
-	      for <m>m</m> and <m>b</m>.  In particular, we know that when
+	      The first data point <m>(1,1)</m> gives an equation
+	      for <m>b</m> and <m>m</m>.  In particular, we know that when
 	      <m>x=1</m>, then <m>y=1</m> so we have
 	      <m>b + m(1) = 1</m> or <m>b + m = 1</m>.  Use the other two
 	      data points to create a linear system describing <m>m</m> and
@@ -147,15 +162,25 @@
 	      point, for the two unknowns <m>b</m> and <m>m</m>.
 	      Identify a matrix <m>A</m> and vector <m>\bvec</m> so
 	      that the system has the form <m>A\xvec=\bvec</m>, where
-	      <m>\xvec=\twovec bm</m>.
+	      <m>\xvec=\twovec bm</m>.  
+	    </p>
+
+	    <p>
+	      Notice how the unknown vector <m>\xvec=\twovec bm</m>
+	      describes the line that we seek.
 	    </p>
 	  </li>
 
 	  <li>
 	    <p>
 	      Is there a solution to this linear system?  How does
-	      this relate to your attempt to draw a line through the three
-	      points above?
+	      this question relate to your attempt to draw a line
+	      through the three points above?
+	      <sage>
+		<input>
+
+		</input>
+	      </sage>
 	    </p>
 	  </li>
 
@@ -183,13 +208,8 @@
     </activity>
 
     <p>
-      The example appearing in this activity illustrates the
-      idea behind least squares problems.  When presented with a linear
-      system that has no solution, we use orthogonal projection to
-      trade it in for a new linear system that we can solve.  
-    </p>
-
-    <p>
+      This activity illustrates the idea behind a technique known as
+      <em>orthogonal least squares</em>.  
       In the example above, we call the data points
       <m>(x_i, y_i)</m> and construct the matrix <m>A</m> and
       vector <m>\bvec</m> as
@@ -203,7 +223,7 @@
 	\bvec = \threevec{y_1}{y_2}{y_3}\text{.}
       </me>
       If we represent a line using the vector <m>\xvec = \twovec
-      bm</m>, the equation <m>A\xvec=\bvec</m> seeks a line passing
+      bm</m>, the equation <m>A\xvec=\bvec</m> describes a line passing
       through all the data points.  In our example, it is visually
       apparent that there is no such line, a fact confirmed by the
       inconsistency of the equation <m>A\xvec=\bvec</m>.
@@ -237,16 +257,16 @@
 
     <p>
       The expression for <m>\len{b-A\xvec}^2</m> has additional
-      geometric meaning within the context of the problem.  If we draw
-      the line defined by the vector <m>\xvec=\twovec bm</m>, we
-      may measure by how much the line misses the data points.  For
-      instance <m>y_i - (b + mx_i)</m> is the vertical distance
+      geometric meaning within the context of the problem.  Drawing
+      the line defined by the vector <m>\xvec=\twovec bm</m>, we may
+      measure the amount by which the line misses the data points.
+      For instance <m>y_i - (b + mx_i)</m> is the vertical distance
       between the line and the data point <m>(x_i, y_i)</m>, as shown
       in <xref ref="fig-least-squares-def" />.  Seen in this way, the
       square of the distance <m>\len{\bvec-A\xvec}^2</m> measures how
       much the line defined by the vector <m>\xvec</m> misses the data
       points.  The solution to the least squares problem is the line
-      that misses the data points by the least amount possible.
+      that misses the data points by the smallest amount possible.
     </p>
 
     <figure xml:id="fig-least-squares-def">
@@ -265,49 +285,43 @@
     framework.
     </p>
 
-    <p> Given an inconsistent system <m>A\xvec =
-    \bvec</m>, we seek to find <m>\xvec</m> that minimizes the
-    distance from <m>A\xvec</m> to <m>\bvec</m>.  We find <m>\xvec</m>
-    by forming <m>\widehat\bvec</m>, the orthogonal projection of
-    <m>\bvec</m> onto the column space <m>\col(A)</m> and then solving
-    <m>A\xvec = \widehat\bvec</m>.
+    <p> Given an inconsistent system <m>A\xvec = \bvec</m>, we seek to
+    find <m>\xvec</m> that minimizes the distance from <m>A\xvec</m>
+    to <m>\bvec</m>.  We find <m>\xvec</m> by forming
+    <m>\widehat\bvec</m>, the orthogonal projection of <m>\bvec</m>
+    onto the column space <m>\col(A)</m> and then solving <m>A\xvec =
+    \widehat\bvec</m>.  Moving forward, we will denote the solution of
+    <m>A\xvec = \bhat</m> by <m>\xhat</m> and call this vector the
+    <em>least squares approximate solution</em> of <m>A\xvec=\bvec</m>
+    to distinguish it from a (non-existent) solution of
+    <m>A\xvec=\bvec</m>.
     </p>
 
-    <p> Before going further, let's take note of what a solution means
-    in this context.  For instance, we know that there is no solution
-    to the equation <m>A\xvec = \bvec</m>.  We therefore modify the
-    vector on the right-hand side to <m>\bhat</m>, the orthogonal
-    projection of <m>\bvec</m> onto <m>\col(A)</m>.  As we move
-    forward, we will denote the solution of <m>A\xvec = \bhat</m> by
-    <m>\xhat</m> and call this vector the <em>least squares
-    approximate solution</em> of <m>A\xvec=\bvec</m> to distinguish it
-    from a (non-existent) solution of <m>A\xvec=\bvec</m>.
-    </p>
-
-    <p> Let's now remember how orthogonal projection works:  the
-    orthogonal projection <m>\widehat\bvec</m> of <m>\bvec</m> onto
-    the column space <m>\col(A)</m> is defined so that
-    <m>\widehat\bvec - \bvec</m> is orthogonal to <m>\col(A)</m>.  In
-    other words, <m>\bhat-\bvec</m> is in the orthogonal complement
-    <m>\col(A)^\perp</m>.  Remember also that <m>\col(A)^\perp =
-    \nul(A^T)</m>, which implies that
-    <me>
-      A^T(\widehat\bvec-\bvec) = \zerovec\text{.}
-    </me>
-    Finally, the least squares approximate solution is the vector
-    <m>\xhat</m> such that <m>A\xhat = \widehat\bvec</m>, which gives
-    <md>
-      <mrow>
-	A^T(A\xhat - \bvec) \amp = \zerovec
-      </mrow>
-      <mrow>
-	A^TA\xhat - A^T\bvec \amp = \zerovec
-      </mrow>
-      <mrow>
-	A^TA\xhat \amp = A^T\bvec\text{.}
-      </mrow>
-    </md>
-    Let's record our work in the following proposition.
+    <p>
+      Remember that the orthogonal projection <m>\widehat\bvec</m> of
+      <m>\bvec</m> onto the column space <m>\col(A)</m> is defined so
+      that <m>\widehat\bvec - \bvec</m> is orthogonal to
+      <m>\col(A)</m>.  In other words, <m>\bhat-\bvec</m> is in the
+      orthogonal complement <m>\col(A)^\perp</m>.  If we also remember
+      that 
+      <m>\col(A)^\perp = \nul(A^T)</m>, we see that
+      <me>
+	A^T(\widehat\bvec-\bvec) = \zerovec\text{.}
+      </me>
+      Finally, the least squares approximate solution is the vector
+      <m>\xhat</m> such that <m>A\xhat = \widehat\bvec</m>, which gives
+      <md>
+	<mrow>
+	  A^T(A\xhat - \bvec) \amp = \zerovec
+	</mrow>
+	<mrow>
+	  A^TA\xhat - A^T\bvec \amp = \zerovec
+	</mrow>
+	<mrow>
+	  A^TA\xhat \amp = A^T\bvec\text{.}
+	</mrow>
+      </md>
+      Let's record our work in the following proposition.
     </p>
 
     <proposition>
@@ -325,19 +339,17 @@
 
     <p>
       The linear system represented by the normal equations will
-      always be consistent.  This is 
-      because <m>\bhat</m>, the orthogonal projection of <m>\bvec</m>
-      onto <m>\col(A)</m>, is a vector in <m>\col(A)</m> so
-      that <m>A\xhat=\bhat</m> will always have a solution.
+      always be consistent because <m>\xhat</m>, the least squares
+      approximate solution to <m>A\xvec=\bvec</m>, is also a solution
+      to the normal equations.
     </p>
 
     <p>
       If we further assume that the columns of <m>A</m> are linearly
-      independent, 
-      there is a unique solution to the normal equations.  To see
-      why, let's imagine, for the moment, that <m>\xvec</m> is a
-      solution to the homogeneous equation
-      <m>A^TA\xvec = \zerovec</m>.  Then we have
+      independent, we see that there is a unique solution to the
+      normal equations.  Imagine, for the moment,
+      that <m>\xvec</m> is a solution to the homogeneous equation
+      <m>A^TA\xvec = \zerovec</m>.  We then have
       <md>
 	<mrow>
 	  \xvec\cdot(A^TA\xvec) \amp = \xvec\cdot\zerovec = 0
@@ -362,9 +374,9 @@
       equation <m>A^TA\xvec = \zerovec</m>, then we know that <m>A\xvec
       = \zerovec</m>.  Since we are assuming that the columns of
       <m>A</m> are linearly independent, we know that the homogeneous
-      equation <m>A\xvec=\zerovec</m> has only the trivial solution
+      equation <m>A\xvec=\zerovec</m> has only the zero solution
       <m>\xvec = \zerovec</m>.  Therefore, the homogeneous equation
-      <m>A^TA\xvec=\zerovec</m> has only the trivial solution, which
+      <m>A^TA\xvec=\zerovec</m> has only the zero solution, which
       means that <m>A^TA</m> has a pivot position in every column.
       Hence, the normal equations <m>A^TA\xhat = A^T\bvec</m> must
       have a unique solution.
@@ -428,52 +440,12 @@ list_plot(data, color='blue', size=40)
 	  </li>
 	</ul>
       </p>
-	<!--
-	<me>
-	  \begin{aligned}
-	  \amp \begin{array}{|c||c|c|c|c|c|c|c|c|}
-	  \hline
-	  C \amp 20.0 \amp 16.0 \amp 19.8 \amp 18.4 \amp 17.1
-	  \amp 15.5 \amp 14.7 \amp 15.7 \\
-	  \hline
-	  T \amp 88.6 \amp 71.6 \amp 93.3 \amp 84.3 \amp 80.6 \amp 75.2
-	  \amp 69.7 \amp 71.6 \\
-	  \hline
-	  \end{array} 
-	  \\
-	  \amp
-	  \begin{array}{|c||c|c|c|c|c|c|c|}
-	  \hline
-	  C \amp 15.4
-	  \amp 16.3 \amp 15.0 \amp 17.2 \amp 16.0 \amp 17.0 \amp 14.4 \\
-	  \hline
-	  T \amp 69.4 \amp 83.3 \amp 79.6 \amp 82.6 \amp
-	  80.6 \amp 83.5 \amp 76.3 \\
-	  \hline
-	  \end{array}
-	  \end{aligned}
-	</me>
-	
-	The data is also represented graphically in <xref
-	ref="fig-crickets" />
-      </p>
-
-      <figure xml:id = "fig-crickets">
-	<sidebyside width="75%">
-	  <image source="images/ls-crickets" />
-	</sidebyside>
-	<caption>
-	  The rate at which crickets chirp <m>C</m> is related to the
-	  temperature <m>T</m>.
-	</caption>
-	</figure>
-	-->
 
       <p>
 	We would like to represent this relationship by a linear
 	function
 	<me>
-	  T = \beta_0 + \beta_1 C\text{.}
+	  \beta_0 + \beta_1 C = T\text{.}
 	</me>
 	<ol label="a.">
 	  <li>
@@ -487,10 +459,11 @@ list_plot(data, color='blue', size=40)
 	  <li>
 	    <p>
 	      Suppose that we represent the unknowns using a vector
-	      <m>\xvec = \twovec{\beta_0}{\beta_1}</m>.  Use the data to
+	      <m>\xvec = \twovec{\beta_0}{\beta_1}</m>.  Use the 15
+	      data points to
 	      create the matrix
-	      <m>A</m> and vector <m>\bvec</m> from the 15 data points
-	      such that the linear system
+	      <m>A</m> and vector <m>\bvec</m> 
+	      so that the linear system
 	      <m>A\xvec= \bvec</m> describes the unknown vector
 	      <m>\xvec</m>.
 	      <sage>
@@ -512,8 +485,8 @@ list_plot(data, color='blue', size=40)
 	    <p> Solve the normal equations to find <m>\xhat</m>, the
 	    least squares approximate solution to the equation
 	    <m>A\xvec=\bvec</m>.  Call your solution <c>xhat</c>
-	    since Sage thinks <c>x</c>
-	    has another meaning.
+	    since <c>x</c>
+	    has another meaning in Sage.
 	      <sage>
 		<input>
 		</input>
@@ -576,7 +549,7 @@ plot_model(xhat, data, domain=(12, 22))
       the size of this measure depends on the scale of the data.  For
       instance, the two lines shown in <xref
       ref="fig-regression-scale" /> seem to fit the data equally well,
-      but <m>\len{\bvec-A\xhat}^2</m> is 100 times as large on
+      but <m>\len{\bvec-A\xhat}^2</m> is 100 times larger on
       the right.
     </p>
 
@@ -608,7 +581,7 @@ plot_model(xhat, data, domain=(12, 22))
 	  The coefficient of determination is
 	  <me>
 	    R^2 = 1 - \frac{\len{\bvec - A\xhat}^2}
-	    {\len{\tilde{\bvec}}^2},
+	    {\len{\widetilde{\bvec}}^2},
 	  </me>
 	  where <m>\widetilde{\bvec}</m> is the vector obtained by
 	  demeaning 
@@ -618,8 +591,9 @@ plot_model(xhat, data, domain=(12, 22))
     </definition>
 
     <p>
-      We will provide a more complete explanation of
-      this definition when we explore variance in the next chapter.
+      A more complete explanation of
+      this definition relies on the concept of variance, which we
+      explore in <xref ref="ex-r2-meaning"/> and the next chapter. 
       For the time being, it's enough to know that <m>0\leq R^2 \leq
       1</m> and that the closer <m>R^2</m> is to 1, the better 
       the line fits the data.  
@@ -629,9 +603,9 @@ plot_model(xhat, data, domain=(12, 22))
 
     <p>
       It's important to note that assessing the confidence we have in
-      predictions made with a solution to a least squares problem can
-      require considerable thought, and it would be naive to
-      simply rely on the value of <m>R^2</m>.  
+      predictions made with an approximate solution to a least squares
+      problem can require considerable thought, and it would be naive
+      to simply rely on the value of <m>R^2</m>.
     </p>
 	
   </subsection>
@@ -646,16 +620,16 @@ plot_model(xhat, data, domain=(12, 22))
       a practical strategy in the small-scale problems we've seen so
       far.  However, numerical problems may appear when computing
       <m>A^TA</m> in larger problems; that is, small rounding errors
-      can accumulate and produce inaccurate final results.
+      can accumulate and lead to inaccurate final results.
     </p>
 
     <p>
       As the next activity demonstrates, there is an alternate method
       for finding the least squares 
       approximate solution <m>\xhat</m> using a <m>QR</m>
-      factorization of the matrix <m>A</m>, 
-      and this method is preferred
-      as it has better numerical properties.
+      factorization of the matrix <m>A</m>.
+      This method is preferred
+      as it is more numerically reliable.
     </p>
 
     <activity xml:id="activity-BFI">
@@ -666,7 +640,7 @@ plot_model(xhat, data, domain=(12, 22))
 	      Suppose we are interested in finding the least squares
 	      approximate solution to the equation <m>A\xvec =
 	      \bvec</m> and that we have the <m>QR</m> factorization
-	      of <m>A</m>:  <m>A=QR</m>.  Explain why the least
+	      <m>A=QR</m>.  Explain why the least
 	      squares approximation solution is given by solving
 	      <md>
 		<mrow>
@@ -687,9 +661,7 @@ plot_model(xhat, data, domain=(12, 22))
 		R\xhat = Q^T\bvec.
 	      </me>
 	    </p>
-	  </li>
 
-	  <li>
 	    <p>
 	      Since <m>R</m> is upper triangular, this is a relatively
 	      simple equation to solve using back substitution, as we
@@ -700,10 +672,12 @@ plot_model(xhat, data, domain=(12, 22))
 	      </me>
 	      and put this to use in the following context.
 	    </p>
+	  </li>
 	      
+	  <li>
 	    <p>
 	      Brozak’s formula, which is used to calculate a person's body fat
-	      index (<m>BFI</m>), is
+	      index <m>BFI</m>, is
 	      <me>BFI = 100 \left(\frac{4.57}{\rho} - 4.142\right)
 	      </me>
 	      where <m>\rho</m> denotes a person's body density in
@@ -712,7 +686,11 @@ plot_model(xhat, data, domain=(12, 22))
 	      requires submerging the person in water and measuring
 	      the volume of water displaced.  Instead, we will gather
 	      several other body measurements, which are more easily
-	      obtained, and use it to predict <m>BFI</m>.  For
+	      obtained, and use it to predict <m>BFI</m>.
+	    </p>
+
+	    <p>
+	      For
 	      instance, suppose we take 10 patients and measure their
 	      weight <m>w</m> in pounds, height <m>h</m> in inches,
 	      abdomen <m>a</m> in centimeters, wrist circumference
@@ -806,14 +784,15 @@ print(df)
 	    <p>
 	      Describe the linear system
 	      <m>A\xvec = \bvec</m> for 
-	      these parameters.  More specifically, how will you form
-	      the matrix <m>A</m> and the vector <m>\bvec</m>? 
+	      these parameters.  More specifically, describe how 
+	      the matrix <m>A</m> and the vector <m>\bvec</m> are
+	      formed. 
 	    </p>
 	  </li>
 
 	  <li>
 	    <p>
-	      Form the matrix <m>A</m> and find its <m>QR</m>
+	      Construct the matrix <m>A</m> and find its <m>QR</m>
 	      factorization in the cell below.
 	      <sage>
 		<input>
@@ -895,12 +874,14 @@ print(df)
 
     <proposition>
       <statement>
-	<p> Given the <m>QR</m> factorization, <m>A=QR</m>, the least
-	squares approximate solution <m>\xhat</m> to the equation
-	<m>A\xvec=\bvec</m> is given by
-	<me>
-	  R\xhat = Q^T\bvec\text{.}
-	</me>
+	<p>
+	  If the columns of <m>A</m> are linearly independent and we
+	  have the <m>QR</m> factorization <m>A=QR</m>, then the least
+	  squares approximate solution <m>\xhat</m> to the equation
+	  <m>A\xvec=\bvec</m> is given by
+	  <me>
+	    R\xhat = Q^T\bvec\text{.}
+	  </me>
 	</p>
       </statement>
     </proposition>
@@ -915,7 +896,7 @@ print(df)
       to a dataset.  Sometimes, however, a polynomial, such as a
       quadratic function, may be more appropriate.  It turns out that the
       techniques we've developed in this section are still useful.
-      Here's an example that demonstrates.
+      Here's an illustrative example.
     </p>
 
     <activity>
@@ -960,7 +941,8 @@ list_plot(data, color='blue', size=40)
 	    </p>
 
 	    <p>
-	      Write four equations, one for each data point, for the
+	      Write four equations, one for each data point, that
+	      describe the 
 	      coefficients <m>\beta_0</m>, <m>\beta_1</m>, and
 	      <m>\beta_2</m>.
 	    </p>
@@ -1075,7 +1057,7 @@ list_plot(data, color='blue', size=40) + plot( **your function here**,
     <activity>
       <p>
 	This activity explores a dataset describing 
-	Arctic sea ice.  This dataset comes from
+	Arctic sea ice and which comes from
 	<url href="http://sustainabilitymath.org/">
 	  Sustainability Math.
 	</url>
@@ -1147,9 +1129,9 @@ print(df)
 
 	  <li>
 	    <p>
-	      If your result is in the variable <c>xhat</c>, you may
-	      plot the polynomial and the data together using the
-	      following cell.
+	      If your result is stored in the variable <c>xhat</c>,
+	      you may plot the polynomial and the data together using
+	      the following cell.
 	      <sage>
 		<input>
 plot_model(xhat, data)
@@ -1188,29 +1170,27 @@ plot_model(xhat, data)
 	    </p>
 
 	    <p>
-	      It's certainly true that higher degree polynomials
-	      fit the data better, as seen by the increasing values of
-	      <m>R^2</m>, but that's not always a good
-	      thing. For instance, when <m>k=11</m>, you may notice
-	      that the polynomial wiggles a little more than it
-	      should. In this case, the polynomial is trying too hard
-	      to fit the data, which usually has some
-	      errors in it, especially if it's obtained from
-	      measurements.
-	      The error built in to the data is called
-	      <em>noise,</em> and acknowledging its presence means
-	      that we shouldn't expect our polynomial to fit the data
-	      perfectly.
-	      When we choose a polynomial whose degree is
-	      too high, we give the noise too much weight in the
-	      model, which leads to some undesirable behavior, like
-	      the wiggles in the graph.
+	      It's certainly true that higher degree polynomials fit
+	      the data better, as seen by the increasing values of
+	      <m>R^2</m>, but that's not always a good thing. For
+	      instance, when <m>k=11</m>, you may notice that the
+	      graph of the polynomial wiggles a little more than we
+	      would expect. In this case, the polynomial is trying too
+	      hard to fit the data, which usually contains some
+	      uncertainty, especially if it's obtained from
+	      measurements.  The error built in to the data is called
+	      <em>noise,</em> and its presence means that we shouldn't
+	      expect our polynomial to fit the data perfectly.  When
+	      we choose a polynomial whose degree is too high, we give
+	      the noise too much weight in the model, which leads to
+	      some undesirable behavior, like the wiggles in the
+	      graph.
 	    </p>
 
 	    <p>
-	      Choosing the degree of the polynomial to be too
+	      Fitting the data with a polynomial whose degree is too
 	      high is called <em>overfitting</em>, a phenomenon that
-	      appears in many machine learning applications.
+	      can appear in many machine learning applications.
 	      Generally speaking, we would like to choose <m>k</m>
 	      large enough to capture the essential features of the
 	      data but not so large that we overfit and build the
@@ -1279,7 +1259,13 @@ plot_model(xhat, data)
 	    modeling data.  We saw examples in
 	    this section where linear functions of several input
 	    variables and polynomials provided effective models
-	    for various datasets.  A simple 
+	    for different datasets.
+	  </p>
+	</li>
+
+	<li>
+	  <p>
+	    A simple 
 	    measure of the quality of the fit is the coefficient of
 	    determination <m>R^2</m> though some additional thought
 	    should be given in real applications.
@@ -1289,5 +1275,8 @@ plot_model(xhat, data)
     </p>
 
   </subsection>
+
+  <xi:include href="exercises/exercises6-5.xml" />
+  
 </section>
 
