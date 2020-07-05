@@ -19,8 +19,8 @@
     <p>
       In this section, we'll explore how to determine the directions
       in which the variance is as large as possible and where it is as
-      small as possible.  In fact, this is part of a larger story,
-      involving a type of function called a <em>quadratic form</em>,
+      small as possible.  This is part of a larger story
+      involving a type of function, called a <em>quadratic form</em>,
       that we'll explore here.
     </p>
 
@@ -120,13 +120,13 @@
     <title> Quadratic forms </title>
 
     <p>
-      When we have a matrix <m>A</m> of demeaned data points,
-      the symmetric covariance matrix <m>C</m> determines the
-      variance in a direction <m>\uvec</m> by
+      Given a matrix <m>A</m> of <m>N</m> demeaned data points,
+      the symmetric covariance matrix <m>C=\frac1N AA^T</m> determines
+      the variance in a particular direction
       <me>
-	V_{\uvec} = \uvec\cdot(C\uvec)
+	V_{\uvec} = \uvec\cdot(C\uvec),
       </me>
-      where <m>\uvec</m> is a unit vector.
+      where <m>\uvec</m> is a unit vector defining the direction.
     </p>
 
     <p>
@@ -192,14 +192,14 @@
 	<p>
 	  If <m>A</m> is a symmetric <m>n\times n</m> matrix, the
 	  <em>quadratic form</em> defined by <m>A</m> is the function
-	  <m>q(\xvec) = \xvec\cdot(A\xvec)</m>.
+	  <m>q_A(\xvec) = \xvec\cdot(A\xvec)</m>.  
 	</p>
       </statement>
     </definition>
 
     <activity>
       <p>
-	We will look at some more examples of quadratic forms.
+	Let's look at some more examples of quadratic forms.
 	<ol label="a.">
 	  <li>
 	    <p>
@@ -208,10 +208,10 @@
 	      3 \amp 0 \\
 	      0 \amp -1 \\
 	      \end{bmatrix}
-	      </m>.  Write the quadratic form <m>q(\xvec)</m> defined by
+	      </m>.  Write the quadratic form <m>q_D(\xvec)</m> defined by
 	      <m>D</m> in terms of the components of
 	      <m>\xvec=\twovec{x_1}{x_2}</m>.  What is the value of 
-	      <m>q\left(\twovec2{-4}\right)</m>? 
+	      <m>q_D\left(\twovec2{-4}\right)</m>? 
 	    </p>
 	  </li>
 
@@ -222,9 +222,9 @@
 	      2 \amp 5 \\
 	      5 \amp -3
 	      \end{bmatrix}
-	      </m>, write the quadratic form <m>q(\xvec)</m> defined
+	      </m>, write the quadratic form <m>q_A(\xvec)</m> defined
 	      by <m>A</m> and evaluate
-	      <m>q\left(\twovec{2}{-1}\right)</m>.
+	      <m>q_A\left(\twovec{2}{-1}\right)</m>.
 	    </p>
 	  </li>
 
@@ -246,7 +246,8 @@
 	      -2 \amp -2 \amp 4
 	      \end{bmatrix}
 	      </m>.
-	      Write the quadratic form defined by the covariance
+	      Write the quadratic form <m>q_C</m> defined by the
+	      covariance  
 	      matrix <m>C</m>.
 	    </p>
 	  </li>
@@ -262,10 +263,10 @@
 	  <li>
 	    <p>
 	      Suppose that <m>A</m> is a symmetric matrix and
-	      <m>q(\xvec)</m> is the quadratic form defined by
+	      <m>q_A(\xvec)</m> is the quadratic form defined by
 	      <m>A</m>.  Suppose that <m>\xvec</m> is an eigenvector
 	      of <m>A</m> with associated eigenvalue -4 and with
-	      length 7.  What is <m>q(\xvec)</m>?
+	      length 7.  What is <m>q_A(\xvec)</m>?
 	    </p>
 	  </li>
 
@@ -280,20 +281,20 @@
       <m>A=\begin{bmatrix} a \amp b \\ b \amp c \end{bmatrix}</m>, is
       a symmetric matrix, then the associated quadratic form is
       <me>
-	q\left(\twovec{x_1}{x_2}\right) = ax_1^2 + 2bx_1x_2 + cx_2^2.
+	q_A\left(\twovec{x_1}{x_2}\right) = ax_1^2 + 2bx_1x_2 + cx_2^2.
       </me>
       Notice how the unknowns <m>x_1</m> and <m>x_2</m> are multiplied
       together, which tells us this isn't a linear function.
     </p>
 
     <p>
-      This expression takes a notable form if <m>D</m> is a diagonal
+      This expression assumes a notable form when <m>D</m> is a diagonal
       matrix.  In particular, if
       <m>D = \begin{bmatrix}
       a \amp 0 \\
       0 \amp c \\
       \end{bmatrix}
-      </m>, then <m>q\left(\twovec{x_1}{x_2}\right) = ax_1^2 +
+      </m>, then <m>q_D\left(\twovec{x_1}{x_2}\right) = ax_1^2 +
       cx_2^2</m>.  This is special because there is no cross-term
       involving <m>x_1x_2</m>.
     </p>
@@ -303,12 +304,12 @@
       <m>T(s\xvec) = sT(s\xvec)</m>.  Quadratic forms behave
       differently:
       <me>
-	q(s\xvec) = (s\xvec)\cdot(A(s\xvec)) = s^2\xvec\cdot(A\xvec)=
-	s^2q(\xvec).
+	q_A(s\xvec) = (s\xvec)\cdot(A(s\xvec)) = s^2\xvec\cdot(A\xvec)=
+	s^2q_A(\xvec).
       </me>
       For instance, when we multiply <m>\xvec</m> by the scalar 2,
-      then <m>q(2\xvec) = 4q(\xvec)</m>.  Also, notice that
-      <m>q(-\xvec) = q(\xvec)</m> since the scalar is squared.
+      then <m>q_A(2\xvec) = 4q_A(\xvec)</m>.  Also, notice that
+      <m>q_A(-\xvec) = q_A(\xvec)</m> since the scalar is squared.
     </p>
 
     <p>
@@ -317,20 +318,23 @@
       eigenvector of <m>A</m> with associated eigenvalue
       <m>\lambda</m>.  We then have
       <me>
-	q(\xvec) = \xvec\cdot(A\xvec) = \lambda\xvec\cdot\xvec =
+	q_A(\xvec) = \xvec\cdot(A\xvec) = \lambda\xvec\cdot\xvec =
 	\lambda \len{\xvec}^2.
       </me>
     </p>
 
     <p>
-      Let's now recall our motivating question:  in which direction
-      <m>\uvec</m> is the variance of a dataset as large as possible
+      Recall our motivating question:  in which direction
+      <m>\uvec</m> is the variance <m>V_{\uvec}=\uvec\cdot(C\uvec)</m>
+      of a data set as 
+      large as possible 
       and in which is it as small as possible.  Remembering that the
       vector <m>\uvec</m> is a unit vector, we can now state a more
       general form of this question:
       <em>
-	If <m>q(\xvec)</m> is a quadratic form, for which unit
-	vectors	<m>\uvec</m> is <m>q(\uvec)</m> as large as
+	If <m>q_A(\xvec)</m> is a quadratic form, for which unit
+	vectors	<m>\uvec</m> is <m>q_A(\uvec)=\uvec\cdot(A\uvec)</m>
+	as large as 
 	possible and for which is it as small as possible?
       </em>
       Since a unit vector specifies a direction, we will often ask for
@@ -341,7 +345,7 @@
     <activity>
       <p>
 	We can gain some intuition about this problem by graphing the
-	quadratic form paying particular attention to the unit
+	quadratic form and paying particular attention to the unit
 	vectors.
 
 	<ol label="a.">
@@ -392,8 +396,8 @@ graph + curve
 	      1-u_2^2</m>.  Write the quadratic form <m>q_D(\uvec)</m>
 	      and replace <m>u_1^2</m> by <m>1-u_2^2</m>.  Now explain
 	      why the maximum of <m>q_D(\uvec)</m> is 3.  In which
-	      direction does this occur?  Does this agree with what
-	      you observed by looking at the graph above?
+	      direction does the maximum occur?  Does this agree with
+	      what you observed from the graph above?
 	    </p>
 	  </li>
 
@@ -402,7 +406,7 @@ graph + curve
 	      Write the quadratic form <m>q_D(\uvec)</m>
 	      and replace <m>u_2^2</m> by <m>1-u_1^2</m>.  What is the
 	      minimum value of <m>q_D(\uvec)</m> and in which
-	      direction does this occur?
+	      direction does the minimum occur?
 	    </p>
 	  </li>
 
@@ -430,8 +434,8 @@ graph + curve
 	      </m> is symmetric so that <m>A=QDQ^T</m> where <m>D</m>
 	      is the diagonal matrix above and <m>Q</m> is the
 	      orthogonal matrix that rotates vectors by
-	      <m>45^\circ</m>.  Write <m>\vvec = Q^T\uvec</m>.
-	      Explain why <m>\vvec</m> is also a unit vector;  that
+	      <m>45^\circ</m>.  By writing <m>\vvec = Q^T\uvec</m>,
+	      explain why <m>\vvec</m> is also a unit vector;  that
 	      is, explain why
 	      <me>\len{\vvec}^2 = \len{Q^T\uvec}^2 =
 	      (Q^T\uvec)\cdot(Q^T\uvec) = 1.
@@ -443,9 +447,9 @@ graph + curve
 	    <p>
 	      We now have <m>q_A(\uvec) = q_D(\vvec)</m>.  Explain how
 	      we now know the maximum value of <m>q_A(\uvec)</m> is 3 and
-	      determine the direction in which this occurs.  Also,
+	      determine the direction in which it occurs.  Also,
 	      determine the minumum value of <m>q_A(\uvec)</m>
-	      and determine the direction in which this occurs.
+	      and determine the direction in which it occurs.
 	    </p>
 	  </li>
 	</ol>
@@ -488,21 +492,17 @@ graph + curve
     </p>
 
     <p>
-      When <m>D</m> is a diagonal matrix, we can now answer the
-      question:  what are the maximum and minimum values of
-      <m>q_D(\uvec)</m> and in which directions do they occur.  We can
-      use this to understand the case of a more general symmetric
-      matrix.
+      When <m>D</m> is a diagonal matrix, we can now determine the
+      maximum and minimum values of <m>q_D(\uvec)</m> and in which
+      directions they occur.  This helps us to understand what happens
+      with a more general symmetric matrix.
     </p>
 
     <p>
-      For example, if
-      <m>A</m> is a symmetric matrix, we know that
-      <m>A</m> is orthogonally diagonalizable and this forms a
-      relationship between <m>q_A</m> and
-      <m>q_D</m> for some diagonal matrix <m>D</m>.  Using the example
-      in the 
-      activity, we have
+      For example, if <m>A</m> is a symmetric matrix, we know that
+      <m>A</m> is orthogonally diagonalizable and this establishes a
+      relationship between <m>q_A</m> and <m>q_D</m> for some diagonal
+      matrix <m>D</m>.  Using the example in the activity, we have
       <m>
 	A = \begin{bmatrix}
 	1 \amp 2 \\
@@ -570,7 +570,7 @@ graph + curve
 	<p>
 	  Suppose that <m>A</m> is a symmetric matrix, that we list
 	  its eigenvalues in decreasing order 
-	  <m>\lambda_1 \geq \lambda_2 \ldots \geq \lambda_n</m> and that
+	  <m>\lambda_1 \geq \lambda_2 \ldots \geq \lambda_n</m>, and that
 	  <m>\uvec_1,\uvec_2,\ldots,\uvec_n</m> is a basis
 	  of associated eigenvectors.
 	  If <m>\uvec</m> is a unit vector, then the maximum value of
@@ -639,17 +639,20 @@ graph + curve
 	  Consructing the covariance matrix <m>C=\frac13~AA^T</m> gives
 	  <m>C=\begin{bmatrix}6\amp3 \\
 	  3\amp6\end{bmatrix}</m>, which has eigenvalues <m>\lambda_1
-	  = 9</m>, with associated eigenvector <m>\twovec11</m>, and
+	  = 9</m>, with associated eigenvector
+	  <m>\twovec{1/\sqrt{2}}{1/\sqrt{2}}</m>, and 
 	  <m>\lambda_2=3</m>, with associated eigenvector
-	  <m>\twovec{-1}1</m>.
+	  <m>\twovec{-1/\sqrt{2}}{1/\sqrt{2}}</m>.
 	</p>
 
 	<p>
 	  Remember that the variance in a direction <m>\uvec</m> is
 	  <m> V_{\uvec} = \uvec\cdot(C\uvec) = q_C(\uvec)</m>.
 	  Therefore, the variance attains a maximum value of 9 in the
-	  direction <m>\twovec11</m> and a minimum value of 3 in the
-	  direction <m>\twovec{-1}1</m>.  <xref ref="fig-quad-project"
+	  direction <m>\twovec{1/\sqrt{2}}{1/\sqrt{2}}</m> and a
+	  minimum value of 3 in the 
+	  direction <m>\twovec{-1/\sqrt{2}}{1/\sqrt{2}}</m>.  <xref
+	  ref="fig-quad-project" 
 	  /> shows the data projected onto the lines defined by these
 	  vectors.
 	</p>
@@ -732,13 +735,13 @@ graph + curve
     <title>  Definite symmetric matrices </title>
 
     <p>
-      While our study of variance provides motivation for exploring 
-      quadratic forms, these functions appear in a variety of other
-      contexts so it's worth spending some more time with
-      them.  In particular, quadratic forms appear in multivariable 
-      calculus when describing the behavior of a function of
-      several variables near a critical point and in physics when
-      describing the kinetic energy of a rigid body.
+      While our questions about variance provide some motivation for
+      exploring quadratic forms, these functions appear in a variety
+      of other contexts so it's worth spending some more time with
+      them.  In particular, quadratic forms appear in multivariable
+      calculus when describing the behavior of a function of several
+      variables near a critical point and in physics when describing
+      the kinetic energy of a rigid body.
     </p>
 
     <p>
@@ -870,7 +873,7 @@ graph + curve
 
     <p>
       In the same way, we see that <m>D</m> is positive semidefinite
-      is all the diagonal entries are nonnegative.
+      if all the diagonal entries are nonnegative.
     </p>
 
     <p>
@@ -921,7 +924,7 @@ graph + curve
       mixed partials, <m>f_{xy}</m> and <m>f_{yx}</m> are equal, under
       a mild assumption on the function <m>f</m>.
       A typical question in calculus is to determine where this
-      function has its maximum and minimum values
+      function has its maximum and minimum values.
     </p>
 
     <p>
@@ -931,7 +934,7 @@ graph + curve
 	f_x(x_0,y_0) = 0,\hspace{24pt}
 	f_y(x_0,y_0) = 0.
       </me>
-      Near a critical point, the linear approximation of <m>f</m>
+      Near a critical point, the quadratic approximation of <m>f</m>
       tells us that
       <md>
 	<mrow>
@@ -1013,7 +1016,7 @@ plot3d(2*x^3 - 6*x*y + 3*y^2, (x, -2,2), (y,-2,2))
 
 	  <li>
 	    <p>
-	      Show that the function <m>g(x,y,z) = 4xyz = x^4
+	      Show that the function <m>g(x,y,z) = 4xyz - x^4
 	      -y^4-z^4</m> has a critical point at <m>(1,1,1)</m>.
 	    </p>
 	  </li>
@@ -1102,7 +1105,7 @@ plot3d(2*x^3 - 6*x*y + 3*y^2, (x, -2,2), (y,-2,2))
 	    <li>
 	      <p>
 		<m>H</m> has both positive and negative eigenvalues, the
-		critical point is neither a local maximum or minimum.
+		critical point is neither a local maximum nor minimum.
 	      </p>
 	    </li>
 	  </ul>
@@ -1131,13 +1134,13 @@ plot3d(2*x^3 - 6*x*y + 3*y^2, (x, -2,2), (y,-2,2))
 	<li>
 	  <p>	    
 	    <m>D \lt 0</m>, then <m>(x_0,y_0)</m> is neither a local
-	    maximum or minimum.
+	    maximum nor minimum.
 	  </p>
 	</li>
       </ul>
-      The conditions in this version of the second derivative test 
-      imply the corresponding conditions on the eigenvalues of
-      <m>H</m>. 
+      The conditions in this version of the second derivative test are
+      simply algebraic criteria that tell us about the definiteness of
+      the Hessian matrix <m>H</m>.
     </p>
 
   </subsection>
@@ -1151,7 +1154,7 @@ plot3d(2*x^3 - 6*x*y + 3*y^2, (x, -2,2), (y,-2,2))
       <ul>
 	<li>
 	  <p>
-	    If <m>A</m> is a symmetric matrix, when the quadratic form
+	    If <m>A</m> is a symmetric matrix, then the quadratic form
 	    defined by <m>A</m> is the function <m>q_A(\xvec) =
 	    \xvec\cdot(A\xvec)</m>.
 	  </p>
@@ -1160,7 +1163,8 @@ plot3d(2*x^3 - 6*x*y + 3*y^2, (x, -2,2), (y,-2,2))
 	    Quadratic forms appear when studying the variance of a
 	    data set.  If <m>C</m> is the covariance matrix, then the
 	    variance in the direction defined by a unit vector
-	    <m>\uvec</m> is <m>q_C(\uvec) = \uvec\cdot(C\uvec)</m>.
+	    <m>\uvec</m> is <m>q_C(\uvec) =
+	    \uvec\cdot(C\uvec)=V_{\uvec}</m>. 
 	  </p>
 
 	  <p>
@@ -1197,13 +1201,21 @@ plot3d(2*x^3 - 6*x*y + 3*y^2, (x, -2,2), (y,-2,2))
 	    positive and negative eigenvalues.
 	  </p>
 	</li>
+	<li>
+	  <p>
+	    If the Hessian <m>H</m> of a multi-variable function
+	    <m>f</m> is positive definite at a critical point, then
+	    the critical point is a local minimum.  Likewise, if the
+	    Hessian is negative definite, the critical point is a
+	    local maximum.
+	  </p>
+	</li>
       </ul>
 
     </p>
 
   </subsection>
 
-
-
+  <xi:include href="exercises/exercises7-2.xml" />
 
 </section>
