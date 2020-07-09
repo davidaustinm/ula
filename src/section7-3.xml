@@ -7,20 +7,19 @@
   <introduction>
 
     <p>
-      As previously seen, we are sometimes presented with a dataset
-      having quite a few data points that live in a high dimensional
-      space.  For instance, we looked at a dataset describing
-      the body fat index (BFI) in <xref ref="activity-BFI" /> where
-      each data point is six-dimensional.  In this case,
-      developing an intuitive understanding of the data is hampered by
-      the fact that it cannot be visualized.
+      We are sometimes presented with a dataset having many data
+      points that live in a high dimensional space.  For instance, we
+      looked at a dataset describing the body fat index (BFI) in <xref
+      ref="activity-BFI" /> where each data point is six-dimensional.
+      In this case, developing an intuitive understanding of the data
+      is hampered by the fact that it cannot be visualized.
     </p>
 
     <p>
       This section explores a technique called <em> principal
       component analysis</em>, which enables us to reduce the
       dimension of a dataset so that it may be visualized or studied
-      in some way that causes interesting features to stand out.  Our
+      in a way so that interesting features stand out.  Our
       previous work with variance and the orthogonal diagonalization
       of symmetric matrices provides the key ideas.
     </p>
@@ -96,7 +95,7 @@
       particularly useful
       here.  If <m>A</m> is a matrix of <m>N</m> demeaned data
       points, we form the covariance matrix <m>C=\frac 1N AA^T</m>.
-      If <m>\uvec</m> is a unit vector, then the variance of the
+      When <m>\uvec</m> is a unit vector, the variance of the
       demeaned data after projecting onto the line defined by
       <m>\uvec</m> is given by the quadratic form <m>V_{\uvec} =
       \uvec\cdot(C\uvec)</m>.  In particular, if <m>\uvec</m> is an
@@ -120,8 +119,8 @@
     <title> Principal Component Analysis </title>
 
     <p>
-      Let's begin by looking at example that illustrates the central
-      theme of this technique.
+      Let's begin by looking at an example that illustrates the
+      central theme of this technique.
     </p>
 
     <activity>
@@ -199,8 +198,8 @@
     </activity>
 
     <p>
-      This activity illustrates how the eigenvalues of the covariance
-      matrix tells us when data is clustered around a smaller
+      This activity demonstrates how the eigenvalues of the covariance
+      matrix show us when data is clustered around a smaller
       dimensional subspace.  In particular, the original data is
       five-dimensional, but we see that it actually lies on a
       three-dimensional subspace of <m>\real^5</m>.  Later in this
@@ -274,7 +273,8 @@
     <p>
       Of course, this is a contrived example.  Typically, the presence
       of noise in a dataset means that we do not expect all the points
-      to be wholly contained in a smaller dimensional subspace.  The
+      to be wholly contained in a smaller dimensional subspace.  In
+      fact, the
       two-dimensional subspace <m>W_2</m> captures 23/25 = 92% of the
       variance.  Depending on the situation, we may want to write off
       the remaining 8% of the variance as noise in exchange for the
@@ -283,7 +283,7 @@
 
     <p>
       The eigenvectors <m>\uvec_j</m> are called <em>principal
-      components</em>, and we order them so their associated
+      components</em>, and we will order them so their associated
       eigenvalues decrease.  Generally speaking, we hope that the
       first few principal components capture most of the variance.  In
       any case, adding more principal components captures
@@ -347,9 +347,9 @@ Q = matrix([u1,u2]).T
 	    <li>
 	      <p>
 		Use the <c>right_eigenmatrix()</c> command to find the
-		eigenvectors of <m>C</m>.  Then remember that the Sage
+		eigenvectors of <m>C</m>.  Remembering that the Sage
 		command <c>B.column(1)</c> retrieves the vector
-		represented by the second column of <c>B</c> and
+		represented by the second column of <c>B</c>,
 		define vectors <c>u1</c>, <c>u2</c>, and <c>u3</c>
 		representing the three principal components in order of
 		decreasing eigenvalues.
@@ -666,14 +666,14 @@ df
       -300</m> grams per person per week.  So roughly speaking, people
       in Northern Ireland are eating about 300 fewer grams of
       Fresh Fruit than the average across the three countries.  This is
-      borne out by looking at the origin data, which shows that the
+      borne out by looking at the original data, which show that the
       consumption of Fresh Fruit in Northern Ireland is significantly
       less than the other nations.  Examing the other components of
       <m>\uvec_1</m> shows other categories in which Northern Ireland
-      is significantly different.
+      is significantly different from the other three.
     </p>
 
-    <activity>
+    <activity xml:id="activity-pca-iris">
       <statement>
 	<p>
 	  In this activity, we're going to look at a
@@ -682,7 +682,7 @@ df
 	  </url>
 	  that records four measurements of each of 150 irises.
 	  There are three species of irises, each of which
-	  appears 50 times in the data set.  Examples of the three
+	  appears 50 times in the dataset.  Examples of the three
 	  species are shown in <xref ref="fig-iris" />.
 	  For each flower, the length and width of its sepal and the
 	  length and width of its petal, all in centimeters, are
@@ -696,7 +696,7 @@ df
 	  </sidebyside>
 	  <caption>
 	    <p>
-	      The three species of irises represented in the data set:
+	      The three species of irises represented in the dataset:
 	      iris setosa, iris
 	      versicolor, and iris virginica.  Photo credit:  <url
 	      href="https://thegoodpython.com/iris-dataset/"> The Good
@@ -706,7 +706,7 @@ df
 	</figure>
 
 	<p>
-	  Evaluating the following cell will load the data set, which
+	  Evaluating the following cell will load the dataset, which
 	  consists of 150 points in <m>\real^4</m>.  In addition,
 	  we have a vector <c>data_mean</c>, a four-dimensional
 	  vector holding the mean of the data points, and <c>A</c>,
@@ -714,7 +714,7 @@ df
 	  <sage>
 	    <input>
 sage.repl.load.load('http://merganser.math.gvsu.edu/david/linear.algebra/ula/python/pca-iris.py', globals())
-df
+df.T
 
 
 	    </input>
@@ -883,5 +883,7 @@ pca_plot(Q.T*A)
 	    
 
   </subsection>
+
+  <xi:include href="exercises/exercises7-3.xml" />
   
 </section>

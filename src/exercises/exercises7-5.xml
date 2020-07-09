@@ -5,6 +5,71 @@
   <exercise>
     <statement>
       <p>
+	Suppose that
+	<me>
+	  A = \begin{bmatrix}
+	  2.1 \amp -1.9 \amp 0.1 \amp 3.7 \\
+	  -1.5 \amp 2.7 \amp 0.9 \amp -0.6 \\
+	  -0.4 \amp 2.8 \amp -1.5 \amp 4.2 \\
+	  -0.4 \amp 2.4 \amp 1.9 \amp -1.8
+	  \end{bmatrix}.
+	</me>
+	<ol label="a.">
+	  <li>
+	    <p>
+	      Find the singular values of <m>A</m>.  What is
+	      <m>\rank(A)</m>? 
+	    </p>
+	  </li>
+	  <li>
+	    <p>
+	      Find the sequence of matrices
+	      <m>A_1</m>, <m>A_2</m>, <m>A_3</m>, and <m>A_4</m>
+	      where <m>A_k</m> is the rank <m>k</m> approximation of
+	      <m>A</m>.
+	    </p>
+	  </li>
+	</ol>
+      </p>
+    </statement>
+  </exercise>
+
+  <exercise>
+    <statement>
+      <p>
+	Suppose we would like to find the best quadratic function
+	<me>
+	  \beta_0 + \beta_1x + \beta_2x^2=y
+	</me>
+	fitting the points
+	<me>
+	  (0,1), (1,0), (2,1.5), (3,4), (4,8).
+	  <sage>
+	    <input>
+
+	    </input>
+	  </sage>
+	</me>
+	<ol label="a.">
+	  <li>
+	    <p>
+	      Set up a linear system <m>A\xvec = \bvec</m> describing
+	      the coefficients <m>\xvec =
+	      \threevec{\beta_0}{\beta_1}{\beta_2}</m>.
+	    </p>
+	  </li>
+	  <li>
+	    <p>
+	      Find the singular value decomposition of <m>A</m>.
+	    </p>
+	  </li>
+	  <li>
+	    <p>
+	      Use the singular value decomposition to find the least
+	      squares approximate solution <m>\xhat</m>.
+	    </p>
+	  </li>
+	</ol>
 
       </p>
     </statement>
@@ -13,8 +78,77 @@
   <exercise>
     <statement>
       <p>
+	Evaluating the following cell loads in a dataset recording
+	some features of 1057 houses.  Notice how the lot size varies
+	over a relatively small range compared to the other features.
+	For this reason, in addition to demeaning the data, we'll
+	scale each feature by dividing by its standard deviation so
+	that the range of values is similar for each feature.  The
+	matrix <m>A</m> holds the result.
+	<sage>
+	  <input>
+import pandas as pd
+df = pd.read_csv('http://merganser.math.gvsu.edu/david/linear.algebra/ula/data/housing.csv', index_col=0)
+df = df.fillna(df.mean())
+std = (df-df.mean())/df.std()
+A = matrix(std.values).T
+df.T
 
-	      
+	  </input>
+	</sage>
+	<ol label="a.">
+	  <li>
+	    <p>
+	      Find the singular values of <m>A</m> and use them to
+	      determine the variance in the direction of the principal
+	      components. 
+	      <sage>
+		<input>
+
+		</input>
+	      </sage>
+	    </p>
+	  </li>
+	  <li>
+	    <p>
+	      For what fraction of the variance do the first two
+	      principal components account?
+	    </p>
+	  </li>
+	  <li>
+	    <p>
+	      Find a singular value decomposition of <m>A</m> and
+	      construct the matrix <m>2\times1057</m> matrix <m>B</m>
+	      whose entries are the coordinates of the demeaned data
+	      points projected on to the two-dimensional subspace
+	      spanned by the first two principal components.  You can
+	      plot the projected data points using
+	      <c>list_plot(B.columns())</c>.
+	      <sage>
+		<input>
+		</input>
+	      </sage>
+	    </p>
+	  </li>
+
+	  <li>
+	    <p>
+	      Study the entries in the first two principal components
+	      <m>\uvec_1</m> and <m>\uvec_2</m>.  Would a more
+	      expensive house lie on the left, right, top, or bottom
+	      of the plot you constructed?
+	    </p>
+	  </li>
+
+	  <li>
+	    <p>
+	      In what ways does a house that lies on the far left of
+	      the plot you constructed differ from an average house?
+	      In what ways does a house that lies near the top of the
+	      plot you constructed differ from an average house?
+	    </p>
+	  </li>
+	</ol>
       </p>
     </statement>
   </exercise>
@@ -22,7 +156,62 @@
   <exercise>
     <statement>
       <p>
+	Let's revisit the voting records of justices on the second
+	Rehnquist court.  Evaluating the following cell will load the
+	voting records of the justices in the 188 cases decided by a
+	5-4 vote and store them in the matrix <m>A</m>.
+	<sage>
+	  <input>
+sage.repl.load.load('http://merganser.math.gvsu.edu/david/linear.algebra/ula/python/svd-supreme.py', globals())
+A = matrix(RDF, fivefour.values)
+v = vector(188*[1])
+fivefour
 
+	  </input>
+	</sage>
+	<ol label="a.">
+	  <li>
+	    <p>
+	      The cell above also defined the 188-dimensional vector 
+	      <m>\vvec</m> 
+	      whose entries are all 1.  What does the product
+	      <m>A\vvec</m> represent?  Use the following cell to
+	      evaluate this product.
+	      <sage>
+		<input>
+
+		</input>
+	      </sage>
+	    </p>
+	  </li>
+	  <li>
+	    <p>
+	      How does the product <m>A\vvec</m> tell us which justice
+	      voted in the majority most frequently?  What does this
+	      say about the presence of a swing vote on the court?
+	    </p>
+	  </li>
+	  <li>
+	    <p>
+	      How does this product tell us whether we should
+	      characterize this court as leaning conservative or
+	      progressive?
+	    </p>
+	  </li>
+	  <li>
+	    <p>
+	      How does this product tell us about the presence of a
+	      second swing vote on the court?
+	    </p>
+	  </li>
+	  <li>
+	    <p>
+	      Study the left singular vector <m>\uvec_3</m> and
+	      describe how it reinforces the fact that there was a second
+	      swing vote.  Who was this second swing vote?
+	    </p>
+	  </li>
+	</ol>
       </p>
     </statement>
   </exercise>
@@ -30,7 +219,83 @@
   <exercise>
     <statement>
       <p>
+	The following cell loads a dataset that describes the
+	percentages with which justices on the second Rehnquist court
+	agreed with one another.  For instance, the entry in the first
+	row and second column is 72.78, which means that Justices
+	Rehnquist and Scalia agreed with each other in 72.78<percent
+	/> of the cases.
+	<sage>
+	  <input>
+sage.repl.load.load('http://merganser.math.gvsu.edu/david/linear.algebra/ula/python/svd-supreme.py', globals())
+A = 1/100*matrix(RDF, agreement.values)
+agreement
 
+	  </input>
+	</sage>
+	<ol label="a.">
+	  <li>
+	    <p>
+	      Examine the matrix <m>A</m>.  What special structure
+	      does this matrix have and why should we expect it to
+	      have this structure?
+	    </p>
+	  </li>
+	  <li>
+	    <p>
+	      Plot the singular values of <m>A</m> below.  For what
+	      value of <m>k</m> would the approximation <m>A_k</m>
+	      be a reasonable approximation of <m>A</m>?
+	      <sage>
+		<input>
+plot_sv(A)
+
+		</input>
+	      </sage>
+	    </p>
+	  </li>
+	  <li>
+	    <p>
+	      Find a singular value decomposition <m>A=U\Sigma V^T</m>
+	      and examine the matrices <m>U</m> and <m>V</m> using,
+	      for instance, <c>n(U, 3)</c>.  What do you notice about
+	      the relationship between <m>U</m> and <m>V</m> and why
+	      should we expect this relationship to hold?
+	      <sage>
+		<input>
+
+		</input>
+	      </sage>
+	    </p>
+	  </li>
+	  <li>
+	    <p>
+	      The command <c>approximate(A, k)</c> will form the
+	      approximating matrix <m>A_k</m>.  Study the matrix
+	      <m>A_1</m> using the <c>display_matrix</c> command.
+	      Which justice or justices seem to be most agreeable,
+	      that is, most likely to agree with other justices?
+	      Which justice is least agreeable?
+	      <sage>
+		<input>
+
+		</input>
+	      </sage>
+	    </p>
+	  </li>
+	  <li>
+	    <p>
+	      Examine the difference <m>A_2-A_1</m> and describe how
+	      this tells us about the presence of voting blocs and
+	      swing votes on the court.
+	      <sage>
+		<input>
+
+		</input>
+	      </sage>
+	    </p>
+	  </li>
+	</ol>
       </p>
     </statement>
   </exercise>
@@ -38,39 +303,35 @@
   <exercise>
     <statement>
       <p>
-
-      </p>
-    </statement>
-  </exercise>
-	    
-  <exercise>
-    <statement>
-      <p>
-
-      </p>
-    </statement>
-  </exercise>
-
-  <exercise>
-    <statement>
-      <p>
-
-      </p>
-    </statement>
-  </exercise>
-
-  <exercise>
-    <statement>
-      <p>
-
-      </p>
-    </statement>
-  </exercise>
-  
-  <exercise>
-    <statement>
-      <p>
-
+	Suppose that <m>A=U_r\Sigma_rV_r^T</m> is a reduced singular
+	value decomposition of the <m>m\times n</m> matrix <m>A</m>.
+	The matrix <m>A^+ = V_r\Sigma_r^{-1}U_r^T</m> is called the
+	<em>Moore-Penrose inverse</em> of <m>A</m>.
+	<ol label="a.">
+	  <li>
+	    <p>
+	      Explain why <m>A^+</m> is an <m>n\times m</m> matrix.
+	    </p>
+	  </li>
+	  <li>
+	    <p>
+	      If <m>A</m> is an invertible, square matrix, explain why
+	      <m>A^+=A^{-1}</m>.
+	    </p>
+	  </li>
+	  <li>
+	    <p>
+	      Explain why <m>\xhat = A^+\bvec</m> is a least squares
+	      approximate solution of <m>A\xvec=\bvec</m>.
+	    </p>
+	  </li>
+	  <li>
+	    <p>
+	      Explain why <m>AA^+\bvec=\bhat</m>, the orthogonal
+	      projection of <m>\bvec</m> onto <m>\col(A)</m>.
+	    </p>
+	  </li>
+	</ol>
       </p>
     </statement>
   </exercise>
@@ -78,15 +339,109 @@
   <exercise>
     <statement>
       <p>
-
+	In <xref ref="subsec-partial-pivot"/>, we saw how some
+	linear algebraic computations are sensitive to round off error
+	made by a computer.  A singular value decomposition can help
+	us understand when this situation can occur.
       </p>
-    </statement>
-  </exercise>
 
-  <exercise>
-    <statement>
       <p>
+	For instance, consider the matrices
+	<me>
+	  A = \begin{bmatrix}
+	  1.0001 \amp 1 \\
+	  1 \amp 1 \\
+	  \end{bmatrix},\hspace{24pt}
+	  B = \begin{bmatrix}
+	  1 \amp 1 \\
+	  1 \amp 1 \\
+	  \end{bmatrix}.
+	</me>
+	The entries in these matrices are quite close to one another,
+	but <m>A</m> is invertible while <m>B</m> is not.  It seems
+	like <m>A</m> is <em>almost</em> singular.
+	In fact, we can measure how close
+	a matrix is to being singular by forming the <em>condition
+	number</em>, <m>\sigma_1/\sigma_n</m>, the ratio of the
+	largest to smallest singular value.  If <m>A</m> were
+	singular, the condition number would be undefined because the
+	singular value <m>\sigma_n=0</m>.  Therefore,
+	we will think of matrices with large condition numbers as
+	being close to singular. 
+	<ol label="a.">
+	  <li>
+	    <p>
+	      Define the matrix <m>A</m> and find a singular value
+	      decomposition.  What is the condition number of
+	      <m>A</m>?
+	      <sage>
+		<input>
 
+		</input>
+	      </sage>
+	    </p>
+	  </li>
+	  <li>
+	    <p>
+	      Define the left singular vectors <m>\uvec_1</m> and
+	      <m>\uvec_2</m>.  Compare the results <m>A^{-1}\bvec</m>
+	      when
+	      <ol label="i.">
+		<li>
+		  <p>
+		    <m>\bvec=\uvec_1+\uvec_2</m>.
+		  </p>
+		</li>
+		<li>
+		  <p>
+		    <m>\bvec=2\uvec_1+\uvec_2</m>.
+		  </p>
+		</li>
+	      </ol>
+	      Notice how a small change in the vector <m>\bvec</m>
+	      leads to a small change in
+	      <m>A^{-1}\bvec</m>.
+	    </p>
+	  </li>
+	  <li>
+	    <p>
+	      Now compare the results <m>A^{-1}\bvec</m> when
+	      <ol label="i.">
+		<li>
+		  <p>
+		    <m>\bvec=\uvec_1+\uvec_2</m>.
+		  </p>
+		</li>
+		<li>
+		  <p>
+		    <m>\bvec=\uvec_1+2\uvec_2</m>.
+		  </p>
+		</li>
+	      </ol>
+	      Notice now how a small change in <m>\bvec</m> leads to a
+	      large change in <m>A^{-1}\bvec</m>.
+	    </p>
+	  </li>
+	  <li>
+	    <p>
+	      Previously, we saw that, if we write <m>\xvec</m> in
+	      terms of left singular vectors
+	      <m>\xvec=c_1\vvec_1+c_2\vvec_2</m>, then we have
+	      <me>
+		\bvec=A\xvec = c_1\sigma_1\uvec_1 +
+		c_2\sigma_2\uvec_2.
+	      </me>
+	      If we write <m>\bvec=d_1\uvec_1+d_2\uvec_2</m>, explain
+	      why <m>A^{-1}\bvec</m> is sensitive to small changes in
+	      <m>d_2</m>. 
+	    </p>
+	  </li>
+	</ol>
+	Generally speaking, a square matrix <m>A</m> with a large
+	condition number will demonstrate this type of behavior so
+	that the computation of <m>A^{-1}</m> is likely to be affected
+	by round off error.  We call such a matrix
+	<em>ill-conditioned</em>. 
       </p>
     </statement>
   </exercise>

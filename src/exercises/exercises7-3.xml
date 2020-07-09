@@ -5,7 +5,44 @@
   <exercise>
     <statement>
       <p>
-
+	Suppose that
+	<me>
+	  Q = \begin{bmatrix}
+	  -1/\sqrt{2} \amp 1/\sqrt{2} \\
+	  1/\sqrt{2} \amp 1/\sqrt{2} \\
+	  \end{bmatrix}, \hspace{24pt}
+	  D_1 = \begin{bmatrix}
+	  75 \amp 0 \\
+	  0 \amp 74
+	  \end{bmatrix}, \hspace{24pt}
+	  D_2 = \begin{bmatrix}
+	  100 \amp 0 \\
+	  0 \amp 1 
+	  \end{bmatrix}
+	</me>
+	and that we have two datasets, one whose covariance matrix is 
+	<m>C_1 = QD_1Q^T</m> and one whose covariance matrix is
+	<m>C_2 = QD_2Q^T</m>.
+	For each dataset, find
+	<ol label="a.">
+	  <li>
+	    <p>
+	      the total variance.
+	    </p>
+	  </li>
+	  <li>
+	    <p>
+	      the fraction of variance represented by the first
+	      principal component.
+	    </p>
+	  </li>
+	  <li>
+	    <p>
+	      a verbal description of how the demeaned data points
+	      appear when plotted in the plane.
+	    </p>
+	  </li>
+	</ol>
       </p>
     </statement>
   </exercise>
@@ -13,8 +50,42 @@
   <exercise>
     <statement>
       <p>
+	Suppose that a dataset has mean <m>\threevec{13}{5}{7}</m>
+	and that its associated covariance matrix is
+	<m>C=\begin{bmatrix}
+	275 \amp -206 \amp 251 \\
+	-206 \amp 320 \amp -206 \\
+	251 \amp -206 \amp 275
+	\end{bmatrix}
+	</m>.
+	<sage>
+	  <input>
 
-	      
+	  </input>
+	</sage>
+	<ol label="a.">
+	  <li>
+	    <p>
+	      What fraction of the variance is represented by the
+	      first two principal components?
+	    </p>
+	  </li>
+	  <li>
+	    <p>
+	      If <m>\threevec{30}{-3}{26}</m> is one of the data
+	      points, find the coordinates when the demeaned point is
+	      projected into the plane defined by the first two
+	      principal components.
+	    </p>
+	  </li>
+	  <li>
+	    <p>
+	      If a projected data point has coordinates
+	      <m>\twovec{12}{-25}</m>, find an estimate for the original
+	      data point.
+	    </p>
+	  </li>
+	</ol>
       </p>
     </statement>
   </exercise>
@@ -22,7 +93,34 @@
   <exercise>
     <statement>
       <p>
+	Evaluating the following cell loads a <m>2\times100</m>
+	demeaned data matrix <c>A</c>.
+	<sage>
+	  <input>
+sage.repl.load.load('http://merganser.math.gvsu.edu/david/linear.algebra/ula/python/pca-ex.py', globals())
 
+
+	  </input>
+	</sage>
+	<ol label="a.">
+	  <li>
+	    <p>
+	      Find the principal components <m>\uvec_1</m> and
+	      <m>\uvec_2</m> and the variance in the direction of each
+	      principal component.
+	    </p>
+	  </li>
+	  <li>
+	    <p>
+	      What is the total variance?
+	    </p>
+	  </li>
+	  <li>
+	    <p>
+	      What can you conclude about this dataset?
+	    </p>
+	  </li>
+	</ol>
       </p>
     </statement>
   </exercise>
@@ -30,7 +128,34 @@
   <exercise>
     <statement>
       <p>
-
+	Determine whether the following statements are true or false
+	and explain your thinking.
+	<ol label="a.">
+	  <li>
+	    <p>
+	      If the eigenvalues of the covariance matrix are
+	      <m>\lambda_1</m>, <m>\lambda_2</m>, and
+	      <m>\lambda_3</m>, then <m>\lambda_3</m> is the variance
+	      of the demeaned data points when projected on the third
+	      principal component <m>\uvec_3</m>.
+	    </p>
+	  </li>
+	  <li>
+	    <p>
+	      Principal component analysis always allows us to
+	      construct 
+	      a smaller dimensional representation of a dataset
+	      without losing any information.
+	    </p>
+	  </li>
+	  <li>
+	    <p>
+	      If the eigenvalues of the covariance matrix are 56,
+	      32, and 0, then the demeaned data points all lie on a
+	      line in <m>\real^3</m>.
+	    </p>
+	  </li>
+	</ol>
       </p>
     </statement>
   </exercise>
@@ -38,7 +163,37 @@
   <exercise>
     <statement>
       <p>
-
+	In <xref ref="activity-pca-iris" />, we looked at a dataset
+	consisting of four measurements of 150 irises.  These
+	measurements are sepal length, sepal width, petal length, and
+	petal width.
+	<ol label="a.">
+	  <li>
+	    <p>
+	      Find the first principal component <m>\uvec_1</m> and
+	      describe the meaning of its four components.  Which
+	      component is most significant? What can you say
+	      about the relative importance of the four
+	      measurements?
+	    </p>
+	  </li>
+	  <li>
+	    <p>
+	      When the dataset is plotted in the plane defined by
+	      <m>\uvec_1</m> and <m>\uvec_2</m>, the specimens from
+	      the species iris-setosa lie on the left side of the
+	      plot.  What does this tell us about how iris-setosa
+	      differs from the other two species in the four
+	      measurements? 
+	    </p>
+	  </li>
+	  <li>
+	    <p>
+	      In general, which species is closest to the <q>average
+	      iris</q>? 
+	    </p>
+	  </li>
+	</ol>
       </p>
     </statement>
   </exercise>
@@ -46,46 +201,122 @@
   <exercise>
     <statement>
       <p>
-
+	This problem explores a dataset of 333 penguins.  There are
+	three species, Adelie, Chinstrap, and Gentoo, as illustrated
+	on the left of <xref ref="fig-penguins" />, as well as both
+	male and female penguins in the dataset.
       </p>
-    </statement>
-  </exercise>
+      
+      <figure xml:id="fig-penguins">
+	<sidebyside widths="55% 35%">
+	  <image source="images/lter_penguins.png" />
+	  <image source="images/culmen_depth.png" />
+	</sidebyside>
+	<caption>
+	  Artwork by <url
+	  href="https://github.com/allisonhorst/palmerpenguins/blob/master/README.md">
+	  @allison_horst </url>
+	</caption>
+      </figure>
 
-  <exercise>
-    <statement>
       <p>
+	Evaluating the next cell will load and display the data.  The
+	meaning of the culmen length and width is contained in the
+	illustration on the right of <xref ref="fig-penguins" />.
+	<sage>
+	  <input>
+sage.repl.load.load('http://merganser.math.gvsu.edu/david/linear.algebra/ula/python/pca-penguins.py', globals())
+df.T
 
-      </p>
-    </statement>
-  </exercise>
 
-  <exercise>
-    <statement>
-      <p>
+	  </input>
+	</sage>
+	This dataset is a bit different from others that we've looked
+	at because the scale of the measurements is significantly
+	different.  For instance, the measurements for the body mass
+	are roughly 100 times as large as those for the culmen
+	length.  For this reason, we will standardize the data by
+	first demeaning it, as usual, and then rescaling each
+	measurement by its standard deviation.  The result is stored
+	in the <m>4\times333</m> matrix <c>A</c>.
+	<sage>
+	  <input>
 
-      </p>
-    </statement>
-  </exercise>
-  
-  <exercise>
-    <statement>
-      <p>
+	  </input>
+	</sage>
+	<ol label="a.">
+	  <li>
+	    <p>
+	      Find the covariance matrix and its eigenvalues.
+	    </p>
+	  </li>
+	  <li>
+	    <p>
+	      What fraction of the total variance is explained by the
+	      first two principal components?
+	    </p>
+	  </li>
+	  <li>
+	    <p>
+	      Construct the <m>2\times333</m> matrix <m>B</m> whose
+	      columns are 
+	      the coordinates of the demeaned data points projected
+	      onto the first two principal components.  
+	      The following cell will create the plot.
+	      <sage>
+		<input>
 
-      </p>
-    </statement>
-  </exercise>
+pca_plot(B)		  
 
-  <exercise>
-    <statement>
-      <p>
+		  
+		</input>
+	      </sage>
+	    </p>
+	  </li>
+	  <li>
+	    <p>
+	      Examine the components of the first two principal
+	      component vectors. 
+	      How does the body mass of Gentoo penguins compare to
+	      that of the other two species?
+	    </p>
+	  </li>
+	  <li>
+	    <p>
+	      What seems to be generally true about the culmen
+	      measurements for a Chinstrap penguin compared to a
+	      Adelie?
+	    </p>
+	  </li>
+	  <li>
+	    <p>
+	      You can plot just the males or females using the
+	      following cell.
+	      <sage>
+		<input>
+pca_plot(B, sex='female')
 
-      </p>
-    </statement>
-  </exercise>
-
-  <exercise>
-    <statement>
-      <p>
+		  
+		</input>
+	      </sage>
+	      
+	    </p>
+	  </li>
+	  <li>
+	    <p>
+	      What seems to be generally true about the culmen
+	      measurements for a male compared to a
+	      female?
+	    </p>
+	  </li>
+	  <li>
+	    <p>
+	      If <m>B = Q^TA</m>, evaluate the matrix product
+	      <m>\frac{1}{333}BB^T</m> and explain why the result has
+	      the form that it does.
+	    </p>
+	  </li>
+	</ol>
 
       </p>
     </statement>

@@ -7,21 +7,20 @@
   <introduction>
     <p>
       The power of the Spectral Theorem has animated the past few
-      sections.  Because symmetric matrices are orthogonally
-      diagonalizable, we are able to understand quadratic forms, which
-      helped us develop the second derivative test in multivariable
-      calculus and principal component analysis.  More specifically,
-      the fact that the covariance matrix <m>C</m> is symmetric means
-      that we can write <m>C=QDQ^T</m>, where the columns of <m>Q</m>
-      provide the principal components and the diagonal entries of
-      <m>D</m> tell us how the relative importance of each of those 
-      components. 
+      sections.  In particular, we used the fact that symmetric
+      matrices can be orthogonally diagonalized to simplify quadratic
+      forms, which enabled us to use principal component analysis to
+      reduce the dimension of a dataset.  More specifically, the fact
+      that the covariance matrix <m>C</m> is symmetric means that we
+      can write <m>C=QDQ^T</m>, where the columns of <m>Q</m> provide
+      the principal components and the diagonal entries of <m>D</m>
+      indicate the relative importance of each of those components.
     </p>
 
     <p>
       But what about matrices that are not symmetric or even square?
-      For instance, the following matrices are not
-      diagonalizable, much less orthogonally so:
+      For instance, the following matrices are not diagonalizable,
+      much less orthogonally so:
       <me>
 	\begin{bmatrix}
 	2 \amp 1 \\
@@ -33,42 +32,25 @@
 	-1 \amp 0 \amp 1
 	\end{bmatrix}.
       </me>
-      In this section, we will begin exploring an alternative
-      description of matrices called the <em>singular value
-      decomposition</em>.  Most notably, we will see that every matrix
-      has a singular value decomposition and that the decomposition of
-      a symmetric matrix is closely related to its orthogonal
-      diagonalization.  In this way, we will see that singular value
-      decompositions provide us with a powerful tool for working with
-      general matrices that is analagous to how we use orthogonal
-      diagonalizations to work with symmetric matrices.
+      In this section, we will begin exploring a description of
+      matrices called the <em>singular value decomposition</em>.  Most
+      notably, we will see that <em>every</em> matrix has a singular
+      value decomposition, and that this decomposition is, in several
+      important ways, analogous to the orthogonal diagonalization of a
+      symmetric matrix.  Rather than writing <m>QDQ^T</m>, we will be
+      able to express any matrix as a 
+      product <m>A=U\Sigma V^T</m>, where <m>U</m> and <m>V</m> are
+      orthogonal matrices whose columns are called <em>singular
+      vectors</em>.  The entries of the diagonal matrix <m>\Sigma</m>
+      will indicate the relative importance of the singular vectors.
     </p>
 
     <exploration>
       <statement>
 	<p>
-	  It will be helpful to remember some concepts from earlier
-	  parts of the course.
+	  Before we get started, it will be helpful to remember some
+	  concepts from earlier parts of the course.
 	  <ol label="a.">
-	    <li>
-	      <p>
-		Find the orthogonal diagonalization of the symmetric
-		matrix <m>A = \begin{bmatrix} 2 \amp 1 \\ 1 \amp 2
-		\end{bmatrix}</m>.
-		<sage>
-		  <input>
-		  </input>
-		</sage>
-	      </p>
-	    </li>
-	    <li>
-	      <p>
-		What is the maximum value of the quadratic form
-		<m>q_A(\uvec)</m> where <m>\uvec</m> is a unit vector
-		and in what direction does this maximum occur?
-	      </p>
-	    </li>
-
 	    <li>
 	      <p>
 		What do we mean by the rank of a matrix <m>A</m>?
@@ -99,6 +81,26 @@
 		orthogonal complement of <m>\col(A)</m>?
 	      </p>
 	    </li>
+
+	    <li>
+	      <p>
+		Find the orthogonal diagonalization of the symmetric
+		matrix <m>A = \begin{bmatrix} 2 \amp 1 \\ 1 \amp 2
+		\end{bmatrix}</m>.
+		<sage>
+		  <input>
+		  </input>
+		</sage>
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		What is the maximum value of the quadratic form
+		<m>q_A(\uvec)</m> where <m>\uvec</m> is a unit vector
+		and in what direction does this maximum occur?
+	      </p>
+	    </li>
+	    
 	  </ol>
 	</p>
 
@@ -112,39 +114,47 @@
 
     <p>
       We will begin by explaining what a singular value decomposition
-      is and how it generalizes the notion of orthogonal diagonalization.
-      First, recall
-      how the orthogonal diagonalization of a symmetric matrix is
-      formed:  if <m>A</m> is symmetric, we write <m>A = QDQ^T</m>
+      is and how it generalizes an orthogonal diagonalization.  First,
+      recall how the orthogonal diagonalization of a symmetric matrix
+      is formed: if <m>A</m> is symmetric, we write <m>A = QDQ^T</m>
       where the diagonal entries of <m>D</m> are the eigenvalues of
       <m>A</m> and the columns of <m>Q</m> are the associated
       eigenvectors.
     </p>
 
     <p>
-      Now imagine an alternate world in which we don't have a theory
-      about the eigenvalues and eigenvectors of a <m>2\times2</m>
-      symmetric matrix <m>A</m>.  If we studied the quadratic form
-      <m>q_A</m>, however, we could detect the eigenvalues as the
-      maximum and minimum of <m>q_A</m> among all unit vectors and the
-      associated eigenvectors as the unit vectors at which the maximum
-      and minimum occur.
+      Now imagine an alternate world where we didn't know anything
+      about eigenvalues and eigenvectors.  If we have a symmetric
+      matrix <m>A</m>, we could construct its quadratic form
+      <m>q_A</m> and study the maximum and minimum values
+      <m>q_A(\uvec)</m> among all unit vectors <m>\uvec</m>.  In this
+      way, we would find the eigenvalues of <m>A</m> as the
+      maximum and minimum values and the associated eigenvectors as
+      the directions in which the extrema occur.  That is, the
+      quadratic form would lead us to discover the eigenvalues and
+      eigenvectors of a symmetric matrix.
     </p>
 
     <p>
       A general matrix, particularly a matrix that is not square, may
       not have eigenvalues and eigenvectors, but we can discover
-      analogous features called <em>singular values</em> and
-      <em>singular vectors</em>, by studying something like a quadratic
-      form.  More specifically, a matrix <m>A</m> defines a function
+      analogous features, called <em>singular values</em> and
+      <em>singular vectors</em>, by studying a function somewhat
+      similar to a quadratic form.  More specifically, any matrix
+      <m>A</m> defines a function
       <me>
 	l_A(\xvec) = \len{A\xvec},
       </me>
       that measures the length of <m>A\xvec</m>.  This
       function is not a quadratic form, but we can discover the
       singular values and vectors by looking for the maximum and
-      minimum of this function among unit vectors.  The next activity
-      introduces us to singular values and vectors in a geometric way.
+      minimum of this function <m>l_A(\uvec)</m> among all unit vectors
+      <m>\uvec</m>.
+    </p>
+    
+    <p>
+      The next activity demonstrates how we can find
+      singular values and vectors geometrically.
     </p>
 
     <activity>
@@ -179,12 +189,12 @@
 	    </sbsgroup>
 	    <instructions>
 	      <p>
-		The four sliders at the top of this figure enable us to
-		choose a <m>2\times2</m> matrix <m>A</m>.  Below on the
-		left, we see the unit circle and the red unit vector
-		<m>\xvec</m>.  Notice that we can vary <m>\xvec</m> by
-		clicking in the head of the vector and dragging it to a
-		new unit vector.  
+		The four sliders at the top of this figure enable us
+		to choose a <m>2\times2</m> matrix <m>A</m>.  Below on
+		the left, we see the unit circle and the red unit
+		vector <m>\xvec</m>, which may be varied by clicking
+		in the head of the vector and dragging it to a new
+		unit vector.
 	      </p>
 	    </instructions>
 	  </interactive>
@@ -214,7 +224,7 @@
 	      <p>
 		On the right side of the figure, you will see the
 		vector <m>A\xvec</m> in gray.  The height of the blue
-		rectangle is <m>l_A(\xvec)</m>, the length of
+		rectangle is <m>l_A(\xvec)=\len{A\xvec}</m>, the length of
 		<m>A\xvec</m>.  Move the vector <m>\xvec</m> so that
 		<m>l_A(\xvec)</m> is as large as possible.
 
@@ -308,7 +318,7 @@
 		singular value <m>\sigma_1</m>, the right singular
 		vector <m>\vvec_1</m> at which this maximum occurs,
 		and the left singular vector <m>\uvec_1</m>, the unit
-		vector which is parallel to <m>A\vvec_1</m>?
+		vector that is parallel to <m>A\vvec_1</m>?
 	      </p>
 	    </li>
 
@@ -575,8 +585,8 @@
 	      A=\begin{bmatrix} 1 \amp 0 \amp -1 \\
 	      1 \amp 1 \amp 1
 	      \end{bmatrix}
-	    </m>.  Notice that this matrix is not square so
-	    eigenvalues and eigenvectors are not associated to it.
+	    </m>.  Notice that this matrix is not square so there are
+	    no eigenvalues and eigenvectors associated to it.
 	    <ol label="a.">
 	      <li>
 		<p>
@@ -626,8 +636,8 @@
 	      <li>
 		<p>
 		  Explain why this observation tells us that the right
-		  singular vectors <m>\vvec_j</m> are orthogonal to
-		  one another.
+		  singular vectors <m>\vvec_j</m> form an orthonormal
+		  basis for <m>\real^3</m>.
 		</p>
 	      </li>
 
@@ -681,21 +691,6 @@
 		</p>
 	      </li>
 
-	      <li>
-		<p>
-		  Suppose that we also would like the singular
-		  decomposition of
-		  <m>A^T = \begin{bmatrix}
-		  1 \amp 1 \\
-		  0 \amp 1 \\
-		  -1 \amp 1
-		  \end{bmatrix}.
-		  </m>
-		  Explain how knowing the singular value decomposition
-		  of <m>A=U\Sigma V^T</m> gives us the singular value
-		  decomposition of <m>A^T=(U\Sigma V^T)^T</m>.
-		</p>
-	      </li>
 	    </ol>
 	  </p>
 	</statement>
@@ -888,9 +883,9 @@
 
 	  <li>
 	    <p>
-	      found the eigenvalues <m>\lambda_j</m>, in decreasing
-	      order, and
-	      an orthonormal basis of eigenvectors <m>\vvec_j</m>.
+	      wrote <m>\lambda_j</m>, the eigenvalues of <m>G</m>, in
+	      decreasing order, and noted that the associated
+	      eigenvectors <m>\vvec_j</m> formed an orthonormal basis.
 	    </p>
 	  </li>
 
@@ -932,7 +927,7 @@
       <theorem xml:id="theorem-svd">
 	<title> The singular value decomposition </title>
 	<statement>
-	  If <m>A</m> is an <m>m\times n</m> matrix, it may be written
+	  An <m>m\times n</m> matrix <m>A</m> may be written
 	  as <m>A=U\Sigma V^T</m> where <m>U</m> is an orthogonal
 	  <m>m\times m</m> matrix, <m>V</m> is an orthogonal
 	  <m>n\times n</m> matrix, and <m>\Sigma</m> is an <m>m\times
@@ -942,14 +937,18 @@
       </theorem>
 
       <p>
-	Notice that the singular value
-	decomposition of <m>A</m> gives us the singular value
-	decomposition of <m>A^T</m>.  For instance, if <m>A=U\Sigma
-	V^T</m>, then <m>A^T = (U\Sigma V^T)^T = V\Sigma^T U^T</m>.
-	In other words, the singular value decomposition of <m>A^T</m>
-	is obtained from that of <m>A</m> by replacing <m>\Sigma</m>
-	with <m>\Sigma^T</m> and interchanging the roles of the left
-	and right singular vectors.
+	Notice that a singular value decomposition of <m>A</m> gives
+	us a singular value decomposition of <m>A^T</m>.  More
+	specifically, if <m>A=U\Sigma V^T</m>, then
+	<me>
+	  A^T = (U\Sigma V^T)^T = V\Sigma^T U^T.
+	</me>
+	In other words, a singular
+	value decomposition of <m>A^T</m> is obtained from a
+	decomposition of
+	<m>A</m> by replacing <m>\Sigma</m> with <m>\Sigma^T</m> and
+	interchanging the roles of the left and right singular
+	vectors.
       </p>
 
       <proposition xml:id="prop-svd-transpose">
@@ -970,7 +969,7 @@
 	matrix can be written as <m>QDQ^T</m>.  Many matrices,
 	however, are not symmetric and so they are not orthogonally
 	diagonalizable.  However, every matrix has a singular value
-	decomposition <m>U\Sigma V^T</m>.  The cost of this
+	decomposition <m>U\Sigma V^T</m>.  The price of this
 	generalization is that we usually have two different
 	orthogonal matrices <m>U</m> and <m>V</m> whereas we have only
 	one orthogonal matrix <m>Q</m> in an orthogonal
@@ -983,8 +982,9 @@
       <title> The structure of singular value decompositions </title>
 
       <p>
-	Now that we have a handle on what a singular value
-	decomposition is and how to construct it, let's explore how a
+	Now that we have an understanding of what a singular value
+	decomposition is and how to construct it, let's explore the
+	ways in which a
 	singular value decomposition reveals the underlying
 	structure of the matrix.  As we'll see, the matrices <m>U</m>
 	and <m>V</m> in a singular value decomposition provide
@@ -1058,8 +1058,8 @@
 		  5c_2\uvec_2</m>.  Find the vectors <m>\xvec</m> that
 		  solve the equation <m>A\xvec = \uvec_1</m> by
 		  finding the appropriate coefficients <m>c_1</m>,
-		  <m>c_2</m>, <m>c_3</m>.  How does this help
-		  determine whether <m>\uvec_1</m> is in
+		  <m>c_2</m>, <m>c_3</m>.  What does this tell us
+		  about whether <m>\uvec_1</m> is in
 		  <m>\col(A)</m>?
 		</p>
 	      </li>
@@ -1123,7 +1123,7 @@
       </activity>
 
       <p>
-	This activity shows how the singular value decomposition of a
+	This activity shows how a singular value decomposition of a
 	matrix encodes important information about its null and
 	column spaces.  Using the example in the activity, we begin
 	by remembering that <m>A</m> has the same shape as
@@ -1179,8 +1179,10 @@
 	  20c_1\uvec_1 + 5c_2\uvec_2 = b_1\uvec_1 + b_2\uvec_2 +
 	  b_3\uvec_3 + b_4\uvec_4.
 	</me>
-	Because the left singular vectors are linearly independent, we
-	find a solution by simply equating the coefficients on the two sides:
+	Because the left singular vectors form a basis of
+	<m>\real^4</m>, we 
+	find a solution by simply equating the coefficients on the two
+	sides: 
 	<md>
 	  <mrow>
 	    20c_1 \amp = b_1
@@ -1232,7 +1234,7 @@
 	<m>\nul(A)</m>.  Notice that there are two vectors in a basis
 	for <m>\col(A)</m>, which tells us that <m>\rank(A) =
 	\dim\col(A) = 2</m>.  In fact, we have one basis vector for
-	every nonzero singular value, which shows us that the
+	every nonzero singular value meaning that, more generally,
 	<m>\rank(A)</m> is the number of nonzero singular values.
       </p>
 
@@ -1249,7 +1251,8 @@
 	  0 \amp \ldots \amp 0 \amp \ldots \amp 0 \\
 	  \end{bmatrix},
 	</me>
-	<m>U</m> holds bases for <m>\col(A)</m> and
+	The columns of
+	<m>U</m> contain bases for <m>\col(A)</m> and
 	<m>\nul(A^T)</m>,
 	<me>
 	  U = \left[
@@ -1257,7 +1260,7 @@
 	  \underbrace{\uvec_{r+1} ~ \ldots ~ \uvec_m}_{\nul(A^T)}
 	  \right]
 	</me>
-	and <m>V</m> hold a basis for <m>\nul(A)</m>:
+	and the columns of <m>V</m> contain a basis for <m>\nul(A)</m>:
 	<me>
 	  V = \left[
 	  \vvec_1 ~ \ldots ~ \vvec_r\hspace{3pt}
@@ -1301,10 +1304,10 @@
 	all four fundamental subspaces.
       </p>
 
-      <theorem>
+      <theorem xml:id="thm-four-subspaces">
 	<statement>
 	  <p>
-	    Suppose <m>A</m> is an <m>m\times n</m> matrix having the
+	    Suppose <m>A</m> is an <m>m\times n</m> matrix having a
 	    singular value decomposition <m>A=U\Sigma V^T</m>.  Then
 	    <ul>
 	      <li>
@@ -1343,33 +1346,25 @@
       </theorem>
 
       <p>
-	The procedure we've outlined for finding a singular value
-	decomposition runs into a problem if the rank of the
-	matrix is smaller than the number of rows.  In this case, we
-	cannot find all the left singular vectors using the
-	relationship <m>A\vvec_j = \sigma_j\uvec_j</m> because either
-	<m>\sigma_j = 0</m> or there are not enough right singular
-	vectors <m>\vvec_j</m>.
+	When we previously outlined a procedure for finding a singular
+	decomposition of an <m>m\times n</m> matrix <m>A</m>, we found
+	the left singular vectors <m>\uvec_j</m> using the expression
+	<m>A\vvec_j = \sigma_j\uvec_j</m>.  This produces left
+	singular vectors <m>\uvec_1, \uvec_2,\ldots,\uvec_r</m>, where
+	<m>r=\rank(A)</m>.  If <m>r\lt m</m>, however, we still need
+	to find the left singular vectors
+	<m>\uvec_{r+1},\ldots,\uvec_m</m>.  <xref
+	ref="thm-four-subspaces" /> tells us how to do that: because
+	those vectors form an orthonormal basis for <m>\nul(A^T)</m>,
+	we can find them by solving <m>A^T\xvec = \zerovec</m> to find
+	a basis for <m>\nul(A^T)</m> and
+	applying the Gram-Schmidt algorithm.
       </p>
 
       <p>
-	Our procedure will always find <m>r</m> left singular vectors,
-	however, since the first <m>r</m> singular values are nonzero.
-	We just need to find a complementary set of left singular vectors
-	<m>\uvec_{r+1}, \ldots, \uvec_m</m>.  This theorem tells us
-	how to do that: simply find an orthonormal basis for
-	<m>\nul(A^T)</m> by solving <m>A^T\xvec = \zerovec</m> and
-	applying the Gram-Schmidt algorithm.  Then use that basis as
-	the last <m>m-r</m> columns of <m>U</m> to obtain a singular
-	value decomposition.
-      </p>
-
-      <p>
-	We won't worry about this issue too much, however.  Going
-	forward, we will mainly be interested in applying singular
-	value 
-	decompositions so we will rely on software to compute
-	them for us.
+	We won't worry about this issue too much, however, as we will
+	frequently use software to find singular value decompositions
+	for us.
       </p>
 		
     </subsection>
@@ -1384,7 +1379,7 @@
 	<ul>
 	  <li>
 	    <p>
-	      The singular value decomposition of a matrix <m>A</m> is
+	      A singular value decomposition of a matrix <m>A</m> is
 	      a factorization where <m>A=U\Sigma V^T</m>.  The matrix
 	      <m>\Sigma</m> has the same shape as <m>A</m>, and its
 	      only nonzero entries are the singular values of
@@ -1427,12 +1422,7 @@
       </p>
     </subsection>
 
-<!--    
-    Exercises:  shape of \sigma when A has linear dependent columns,
-    span r^n, etc.
--->    
-
-	  
-
+   <xi:include href="exercises/exercises7-4.xml" />
+   
 </section>
 
