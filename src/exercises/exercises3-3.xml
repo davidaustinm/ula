@@ -533,7 +533,7 @@ luminance = matrix(4,4,[176, 170, 170, 169, 181, 179, 175, 167, 165,
 170, 169, 161, 139, 150,  164, 166])
 Winv = W.inverse()
 wavelet_transform = (Winv*(Winv*luminance).transpose()).transpose()
-print wavelet_transform.numerical_approx(digits=3)
+print (wavelet_transform.numerical_approx(digits=3))
 	  </input>
 	</sage>
 	</p></li>
@@ -550,7 +550,7 @@ print wavelet_transform.numerical_approx(digits=3)
 coeffs = 
 # this code will undo the wavelet transform
 approx_luminance = W*((W*(coeffs.transpose())).transpose())
-print approx_luminance.numerical_approx(digits=3)
+print (approx_luminance.numerical_approx(digits=3))
 	  </input>
 	</sage>
 	</p> </li>
