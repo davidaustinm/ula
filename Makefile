@@ -55,9 +55,11 @@ STYLE     = $(PRJ)/style
 BIN       = $(PRJ)/bin
 IMAGESSRC = $(PRJSRC)/images
 JSSRC     = $(PRJSRC)/jslibrary
+SOLNMAIN  = $(PRJSRC)/solution-manual.xml
 
 # The project's main hub file
 MAINFILE  = $(PRJSRC)/ula.xml
+WKBKMAIN  = $(PRJSRC)/activity-workbook.xml
 
 # These paths are subdirectories of
 # the Mathbook XML distribution
@@ -78,6 +80,9 @@ PGOUT      = $(OUT)/pg
 HTMLOUT    = $(OUT)/html
 PDFOUT     = $(OUT)/pdf
 IMAGESOUT  = $(OUT)/images
+WKBKOUT    = $(OUT)/workbook
+WKBKTMP    = $(OUT)/workbook-tmp
+SOLNOUT    = $(OUT)/soln-man
 
 #  HTML output 
 #  Output lands in the subdirectory:  $(HTMLOUT)
@@ -93,22 +98,14 @@ html:
 	-rm -rf $(HTMLOUT)/knowl/
 	-rm -rf $(HTMLOUT)/images/
 	-rm -rf $(HTMLOUT)/jslibrary/
+	install -b $(PRJ)/xsl/ula-html.xsl $(MBXUSR)
+	install -b $(PRJ)/xsl/ula-common.xsl $(MBXUSR)
 	install -d $(HTMLOUT)/knowl/
 	install -d $(HTMLOUT)/images/
 	install -d $(HTMLOUT)/jslibrary/
 	cp -a $(IMAGESSRC) $(HTMLOUT)
 	cd $(HTMLTMP); \
-	xsltproc -xinclude \
-	--stringparam html.knowl.exercise.inline no \
-	--stringparam html.knowl.example no \
-	--stringparam exercise.text.solution no \
-	--stringparam exercise.text.answer no \
-	--stringparam exercise.backmatter.statement no \
-	--stringparam project.text.hint no \
-	--stringparam project.text.answer no \
-	--stringparam project.text.solution no \
-	--stringparam html.css.file mathbook-4.css \
-	$(MBXXSL)/mathbook-html.xsl $(MAINFILE)
+	xsltproc -xinclude -stringparam publisher $(PRJ)/pub/html.xml $(MBXUSR)/ula-html.xsl $(MAINFILE)
 	python $(BIN)/postprocess.py -h $(HTMLTMP) $(HTMLOUT) $(PRJSRC)/inserts
 	cp $(HTMLTMP)/knowl/* $(HTMLOUT)/knowl/
 	cp $(JSSRC)/*js $(HTMLOUT)/jslibrary
@@ -124,15 +121,30 @@ latex:
 	-rm $(PDFOUT)/*.tex
 	cp -a $(IMAGESSRC) $(PDFOUT)
 	cd $(PDFTMP); \
-	xsltproc -xinclude \
-	--stringparam exercise.text.solution no \
-	--stringparam exercise.text.answer no \
-	--stringparam project.text.answer no \
-	--stringparam project.text.solution no \
-	--stringparam webwork.server.latex $(PDFOUT)/webwork-tex/ \
-	$(MBXXSL)/mathbook-latex.xsl $(MAINFILE)
+	install -b $(PRJ)/xsl/ula-latex.xsl $(MBXUSR)
+	install -b $(PRJ)/xsl/ula-common.xsl $(MBXUSR)
+	xsltproc -o $(PDFTMP)/ula.tex -xinclude -stringparam publisher $(PRJ)/pub/latex.xml $(MBXUSR)/ula-latex.xsl $(MAINFILE)
 	python $(BIN)/postprocess.py -l $(PDFTMP) $(PDFOUT) $(PRJSRC)/inserts
 
+workbook-latex:
+	install -d $(WKBKOUT)
+	install -d $(MBXUSR)
+	install -b xsl/activity-workbook.xsl $(MBXUSR)
+	install -b xsl/ula-common.xsl $(MBXUSR)
+	-rm $(WKBKOUT)/*.tex
+	cp -a $(IMAGESSRC) $(WKBKOUT)
+	cd $(WKBKTMP); \
+	xsltproc -o $(WKBKOUT)/ula-workbook.tex -xinclude $(MBXUSR)/activity-workbook.xsl $(MAINFILE) 
+
+soln-latex:
+	install -d $(SOLNOUT)
+	install -d $(MBXUSR)
+	install -b xsl/solution-manual.xsl $(MBXUSR)
+	install -b xsl/ula-common.xsl $(MBXUSR)
+	-rm $(SOLNOUT)/*.tex
+	cp -a $(IMAGESSRC) $(SOLNOUT)
+	cd $(SOLNOUT); \
+	xsltproc -o solution-manual.tex -xinclude $(MBXUSR)/solution-manual.xsl $(MAINFILE) \
 
 ###########
 # Utilities
