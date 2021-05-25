@@ -2,75 +2,431 @@
 
 <section xml:id="sec-transpose"
 	 xmlns:xi="http://www.w3.org/2001/XInclude">
-  <title> The tranpose and orthogonality  </title>
+  <title> Orthogonal complements and the matrix tranpose </title>
 
   <introduction>
 
     <p>
-      The dot product enables us to determine the angle between two
-      vectors.  Moving forward, we will be most interested in studying
-      orthogonal vectors, which are detected when their dot product is
-      zero. 
+      We've now seen how the dot product enables us to determine the
+      angle between two vectors and, more specifically, when two
+      vectors are orthogonal.  Moving forward, we will explore how the
+      orthogonality condition simplifies many common tasks, such as
+      expressing a vector as a linear combination of a given set of
+      vectors.
     </p>
 
     <p>
-      In this section, we introduce a way to describe dot products
-      using matrix products.  This allows us to study orthogonality
-      using many of the tools we have developed for understanding
-      matrix products.  To begin, let's recall some earlier concepts,
-      such as the null space, column space, and rank of a matrix,
-      topics that appeared in <xref ref="sec-subspaces" />.
+      This section introduces the notion of an orthogonal complement,
+      the set of vectors each of which is orthogonal to a prescribed
+      subspace.  We'll also find a way to describe dot products using
+      matrix products, which allows us to study orthogonality using
+      many of the tools for understanding linear systems that we
+      developed earlier.
     </p>
 
-  <exploration>
-    <p><ol label="a.">
-      <li><p> Sketch the picture of a typical <m>1</m>-dimensional
-      subspace of <m>\real^3</m>.  Then sketch the picture of a
-      typical <m>2</m>-dimensional subspace of <m>\real^3</m>.
-      </p></li>
+    <exploration>
+      <p><ol label="a.">
+	<li><p> Sketch the vector <m>\vvec=\twovec{-1}2</m> on
+	<xref ref="fig-pa-6-2" /> and one vector that is orthogonal to it.
+	<figure xml:id="fig-pa-6-2">
+	  <sidebyside width="50%">
+	    <image source="images/empty-4" />
+	  </sidebyside>
+	  <caption>
+	    Sketch the vector <m>\vvec</m> and one vector
+	    orthogonal to it.
+	  </caption>
+	</figure>
+	</p></li>
+	
+	<li><p>
+	  If a vector <m>\xvec</m> is orthogonal to
+	  <m>\vvec</m>, what do we know about the dot product
+	  <m>\vvec\cdot\xvec</m>?
+	</p></li>
 
-      <li><p> How is the null space of a matrix <m>\nul(A)</m>
-      defined?
-      </p></li>
+	<li><p>
+	  If we write <m>\xvec=\twovec xy</m>, use the dot product to
+	  write an equation for the vectors orthogonal to <m>\vvec</m>
+	  in terms of <m>x</m> and <m>y</m>.
+	</p></li>
 
-      <li><p> How is the column space of a matrix <m>\col(A)</m>
-      defined?
-      </p></li>
+	<li><p>
+	  Use this equation to sketch the set of all vectors orthogonal
+	  to <m>\vvec</m> in <xref ref="fig-pa-6-2" />.
+	</p></li>
+	
+	<li><p>
+	  <xref ref="sec-subspaces" /> introduced the 
+	  column space <m>\col(A)</m> and null space
+	  <m>\nul(A)</m> of a matrix <m>A</m>.  
+	  Suppose that <m>A</m> is a matrix and <m>\xvec</m> is a vector
+	  satisfying <m>A\xvec=\zerovec</m>.  Does <m>\xvec</m>
+	  belong to <m>\nul(A)</m> or <m>\col(A)</m>?
+	</p></li>
 
-      <li><p> Suppose that <m>A\xvec=\zerovec</m>.  Does <m>\xvec</m>
-      belong to <m>\nul(A)</m> or <m>\col(A)</m>?
-      </p></li>
-
-      <li><p> Suppose that the equation <m>A\xvec=\bvec</m> is
-      consistent.  Does <m>\bvec</m> belong to <m>\nul(A)</m> or
-      <m>\col(A)</m>?
-      </p></li>
-
-      <li><p> How is the rank of a matrix defined?  For instance, what
-      is the rank of
-      <m>
-	A = \begin{bmatrix}
-	2 \amp 0 \amp -4 \amp -6 \amp 0 \\
-	-4 \amp -1 \amp 7 \amp 11 \amp 2 \\
-	0 \amp -1 \amp -1 \amp -1 \amp 2 \\
-	\end{bmatrix}
-	</m>?
-      </p></li>
-
-      <li><p> If <m>A</m> is a <m>17\times14</m> matrix and
-      <m>\rank(A) = 5</m>, what is <m>\dim\col(A)</m>?  What is
-      <m>\dim\nul(A)</m>?
-      </p></li>
+	<li><p>
+	  Suppose that the equation <m>A\xvec=\bvec</m> is
+	  consistent.  Does <m>\bvec</m> belong to <m>\nul(A)</m> or
+	  <m>\col(A)</m>?
+	</p></li>
       </ol></p>
-  </exploration>
+    </exploration>
   </introduction>
+  
+  <subsection>
+    <title> Orthogonal complements </title>
+
+    <p>
+      The preview activity presented us with a vector <m>\vvec</m> and
+      led us through the process of describing all the vectors
+      orthogonal to <m>\vvec</m>.  Notice that the set of scalar
+      multiples of <m>\vvec</m>
+      describes a line <m>L</m>, a
+      1-dimensional subspace of <m>\real^2</m>.
+      We then described a second line consisting of all the vectors
+      orthogonal to <m>\vvec</m>.  Notice that every vector on this
+      line is orthogonal to every vector on the line <m>L</m>.  We
+      call this new line the <em>orthogonal complement</em> of
+      <m>L</m> and denote it by <m>L^\perp</m>.  The lines <m>L</m>
+      and <m>L^\perp</m> are illustrated on the left of <xref
+      ref="fig-orthog-comps" />.
+    </p>
+
+    <figure xml:id="fig-orthog-comps">
+      <sidebyside widths="45% 45%">
+	<image source="images/orthog-lines" />
+	<image source="images/orthog-comp" />
+      </sidebyside>
+      <caption>
+	On the left is a line <m>L</m> and its orthogonal complement
+	<m>L^\perp</m>.  On the right is a plane <m>W</m> and its
+	orthogonal complement <m>W^\perp</m>.
+      </caption>
+    </figure>
+
+    <p>
+      The next definition places this example into a more general context.
+    </p>
+
+    <definition>
+      <idx>orthogonal complement</idx>
+      <statement>
+	<p>
+	  Given a subspace <m>W</m> of <m>\real^m</m>, the orthogonal
+	  complement of <m>W</m> is the set of vectors in
+	  <m>\real^m</m> each of which
+	  is orthogonal to every vector in <m>W</m>.  We denote the
+	  orthogonal complement by <m>W^\perp</m>.
+	</p>
+      </statement>
+    </definition>
+
+    <p>
+      A typical example appears on the right of <xref
+      ref="fig-orthog-comps" />.  Here we see a plane <m>W</m>, a
+      two-dimensional subspace of <m>\real^3</m>, and its orthogonal
+      complement <m>W^\perp</m>, which is a line in <m>\real^3</m>.
+    </p>
+
+    <p>
+      As we'll soon see, the orthogonal complement of a subspace
+      <m>W</m> is itself a subspace of <m>\real^m</m>.
+    </p>
+
+    <activity>
+      <statement>
+	<p>
+	  Suppose that <m>\wvec_1=\threevec10{-2}</m> and
+	  <m>\wvec_2=\threevec11{-1}</m> form a basis for
+	  <m>W</m>, a two-dimensional subspace of
+	  <m>\real^3</m>.  We will find a description of the
+	  orthogonal complement <m>W^\perp</m>. 
+	  <ol label="a.">
+	    <li>
+	      <p>
+		Suppose that the vector <m>\xvec</m> is orthogonal to
+		<m>\wvec_1</m>.  If we write
+		<m>\xvec=\threevec{x_1}{x_2}{x_3}</m>,
+		use the fact that <m>\wvec_1\cdot\xvec =
+		0</m> to write a linear
+		equation for <m>x_1</m>, <m>x_2</m>, and <m>x_3</m>.
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		Suppose that <m>\xvec</m> is also orthogonal to
+		<m>\wvec_2</m>.  In the same way, write a linear
+		equation for <m>x_1</m>, <m>x_2</m>, and <m>x_3</m>
+		that arises from the fact that <m>\wvec_2\cdot\xvec =
+		0</m>.
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		If <m>\xvec</m> is orthogonal to both <m>\wvec_1</m>
+		and <m>\wvec_2</m>, these two equations give us a
+		linear system <m>B\xvec=\zerovec</m> for some matrix
+		<m>B</m>.  Identify the matrix <m>B</m> and write a
+		parametric description of the solution space to the
+		equation <m>B\xvec = \zerovec</m>.
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		Since <m>\wvec_1</m> and <m>\wvec_2</m> form a basis
+		for the two-dimensional subspace <m>W</m>, any vector
+		in <m>\wvec</m> in <m>W</m> can be written as a linear
+		combination
+		<me>
+		  \wvec = c_1\wvec_1 + c_2\wvec_2\text{.}
+		</me>
+		If <m>\xvec</m> is orthogonal to both <m>\wvec_1</m>
+		and <m>\wvec_2</m>, use the distributive property of
+		dot products to explain why <m>\xvec</m> is orthogonal
+		to <m>\wvec</m>.
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		Give a basis for the orthogonal complement
+		<m>W^\perp</m> and state the dimension <m>\dim W^\perp</m>.
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		Describe <m>(W^\perp)^\perp</m>, the orthogonal
+		complement of <m>W^\perp</m>.
+	      </p>
+	    </li>
+	  </ol>
+	</p>
+      </statement>
+
+      <solution>
+	<p>
+	  <ol label="a.">
+	    <li>
+	      <p>
+		We have the equation <m>\wvec_1\cdot\xvec = x_1 - 2x_3
+		= 0</m>. 
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		We have the equation <m>\wvec_2\cdot\xvec = x_1+x_2 - x_3
+		= 0</m>.
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		These two equations give <m>B\xvec=\zerovec</m> where
+		<me>
+		  B = \begin{bmatrix}
+		  1 \amp 0 \amp -2 \\
+		  1 \amp 1 \amp -1 \\
+		  \end{bmatrix}
+		  \sim
+		  \begin{bmatrix}
+		  1 \amp 0 \amp -2 \\
+		  0 \amp 1 \amp 1 \\
+		  \end{bmatrix}\text{,}
+		</me>
+		whose solutions have the parametric form
+		<m>\xvec=x_3\threevec2{-1}1</m>.
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		By distributivity,
+		<m>(c_1\wvec_1+c_2\wvec_2)\cdot\xvec=
+		c_1\wvec_1\cdot\xvec + c_2\wvec_2\cdot\xvec = 0</m>.
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		<m>W^\perp</m> is the solution space to the equation
+		<m>B\xvec=\zerovec</m>.  Therefore, a basis consists
+		of the single vector
+		<m>\threevec1{-1}1</m>, and <m>W^\perp</m> is
+		one-dimensional.
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		Since every vector in <m>W^\perp</m> is orthogonal to
+		every vector in <m>W</m>, the orthogonal complement of
+		<m>W^\perp</m> is <m>W</m>.
+	      </p>
+	    </li>
+	  </ol>
+	</p>
+      </solution>
+
+      <answer>
+	<p>
+	  <ol label="a.">
+	    <li>
+	      <p>
+		<m>\wvec_1\cdot\xvec = x_1 - 2x_3
+		= 0</m>. 
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		<m>\wvec_2\cdot\xvec = x_1+x_2 - x_3
+		= 0</m>.
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		<m>
+		  B = \begin{bmatrix}
+		  1 \amp 0 \amp -2 \\
+		  1 \amp 1 \amp -1 \\
+		  \end{bmatrix}
+		</m>
+		so
+		<m>\xvec=x_3\threevec2{-1}1</m>.
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		By distributivity,
+		<m>(c_1\wvec_1+c_2\wvec_2)\cdot\xvec=
+		c_1\wvec_1\cdot\xvec + c_2\wvec_2\cdot\xvec = 0</m>.
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		A basis consists of
+		<m>\threevec1{-1}1</m>, and <m>W^\perp</m> is
+		one-dimensional.
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		The orthogonal complement of
+		<m>W^\perp</m> is <m>W</m>.
+	      </p>
+	    </li>
+	  </ol>
+	</p>
+      </answer>
+    </activity>
+
+    <example xml:id="example-orthog-comp-line">
+      <statement>
+	<p>
+	  If <m>L</m> is the line 
+	  defined by <m>\vvec=\threevec1{-2}3</m> in <m>\real^3</m>,
+	  we will describe the orthogonal complement <m>L^\perp</m>,
+	  the set of vectors orthogonal to <m>L</m>.
+	</p>
+
+	<p>
+	  If <m>\xvec</m> is orthogonal to <m>L</m>, it must be
+	  orthogonal to <m>\vvec</m> so we have
+	  <me>
+	    \vvec\cdot\xvec = x_1-2x_2+3x_3 = 0\text{.}
+	  </me>
+	</p>
+
+	<p>
+	  We can describe the solutions to this equation
+	  parametrically as
+	<me>
+	  \xvec=\threevec{x_1}{x_2}{x_3} =
+	  \threevec{2x_2-3x_3}{x_2}{x_3} = 
+	  x_2\threevec210+x_3\threevec{-3}01\text{.}
+	</me>
+	Therefore, the orthogonal complement <m>L^\perp</m> is a
+	plane, a two-dimensional subspace of <m>\real^3</m>,
+	spanned by the vectors <m>\threevec210</m> and
+	<m>\threevec{-3}01</m>. 
+	</p>
+      </statement>
+    </example>
+
+    <example xml:id="example-orthog-comp-gen">
+      <statement>
+	<p>
+	  Suppose that <m>W</m> is the <m>2</m>-dimensional subspace
+	  of <m>\real^5</m> with basis
+	  <me>
+	    \wvec_1=\fivevec{-1}{-2}23{-4},\hspace{24pt}
+	    \wvec_2=\fivevec24202\text{.}
+	  </me>
+	  We will give a description of the orthogonal complement
+	  <m>W^\perp</m>.
+	</p>
+
+	<p>
+	  If <m>\xvec</m> is in <m>W^\perp</m>, we know that
+	  <m>\xvec</m> is orthogonal to both <m>\wvec_1</m> and
+	  <m>\wvec_2</m>.  Therefore,
+	  <md>
+	    <mrow>
+	      \wvec_1\cdot\xvec \amp {}={}-x_1-2x_2+2x_3+3x_4-4x_5
+	      \amp {}={} 0
+	    </mrow>
+	    <mrow>
+	      \wvec_2\cdot\xvec \amp {}={} 2x_1+4x_2+2x_3+0x_4+2x_5
+	      \amp {}={} 0
+	    </mrow>
+	  </md>
+	  In other words, <m>B\xvec=\zerovec</m> where
+	<me>
+	  B = 
+	  \begin{bmatrix}
+	  -1 \amp -2 \amp 2 \amp 3 \amp -4 \\
+	  2 \amp 4 \amp 2 \amp 0 \amp 2
+	  \end{bmatrix}
+	  \sim
+	  \begin{bmatrix}
+	  1 \amp 2 \amp 0 \amp -1 \amp 2 \\
+	  0 \amp 0 \amp 1 \amp 1 \amp -1
+	  \end{bmatrix}\text{.}
+	</me>
+	The solutions may be described parametrically as
+	<me>
+	  \xvec=\fivevec{x_1}{x_2}{x_3}{x_4}{x_5}
+	  =x_2\fivevec{-2}1000 + x_4\fivevec10{-1}10 +
+	  x_5\fivevec{-2}0101\text{.}
+	</me>
+	The distributive property of dot products implies that any
+	vector that is orthogonal to both <m>\wvec_1</m> and
+	<m>\wvec_2</m> is also orthogonal to any linear combination of
+	<m>\wvec_1</m> and <m>\wvec_2</m> since
+	<me>
+	  (c_1\wvec_1 + c_2\wvec_2)\cdot\xvec = c_1\wvec_1\cdot\xvec +
+	  c_2\wvec_2\cdot\xvec = 0\text{.}
+	</me>
+	Therefore, <m>W^\perp</m> is a <m>3</m>-dimensional subspace
+	of <m>\real^5</m> with basis
+	<me>
+	  \vvec_1=\fivevec{-2}1000, \hspace{24pt}
+	  \vvec_2=\fivevec10{-1}10, \hspace{24pt}
+	  \vvec_3=\fivevec{-2}0101\text{.}
+	</me>
+	One may easily check that the vectors <m>\vvec_1</m>,
+	<m>\vvec_2</m>, and <m>\vvec_3</m> are orthogonal to both
+	<m>\wvec_1</m> and <m>\wvec_2</m>.
+	</p>
+      </statement>
+    </example>
+
+  </subsection>
   
   <subsection>
     <title> The matrix transpose </title>
 
-    <p> We begin by defining a new matrix
-    operation called the <em>transpose</em>, which 
-    provides a convenient way to discuss orthogonality.
+    <p>
+      The previous activity and examples show how we can describe the
+      orthogonal complement of a subspace as the solution set of a
+      particular linear system.  We will make this connection more
+      explicit by defining a new matrix operation called the
+      <em>transpose</em>.
     </p>
 
     <definition>
@@ -103,209 +459,300 @@
     </example>
 
     <activity>
-      <p> This activity illustrates how the transpose may be used to
-      describe orthogonal vectors.  You'll develop a better
-      understanding of the connections if you complete this activity
-      without using technology.
-      <ol label="a.">
-	<li><p> If
-	<m>A =
-	\begin{bmatrix}
-	3 \amp 4 \\
-	-1 \amp 2 \\
-	0 \amp -2 \\
-	\end{bmatrix}
-	</m>, write the matrix <m>A^T</m>.
-	</p></li>
+      <statement>
+	<p> This activity illustrates how multiplying a vector by
+	<m>A^T</m> is related to computing dot products with the columns
+	of <m>A</m>.  You'll develop a better understanding of this
+	relationship if you compute the dot products and matrix products
+	in this activity without using technology.
+	<ol label="a.">
+	  <li><p> If
+	  <m>B =
+	  \begin{bmatrix}
+	  3 \amp 4 \\
+	  -1 \amp 2 \\
+	  0 \amp -2 \\
+	  \end{bmatrix}
+	  </m>, write the matrix <m>B^T</m>.
+	  </p></li>
 
-	<li><p> Suppose that
-	<me>
-	  \vvec_1=\threevec20{-2},\hspace{24pt}
-	  \vvec_2=\threevec112,\hspace{24pt}
-	  \wvec=\threevec{-2}23\text{.}
-	</me>
-	Find the dot products <m>\vvec_1\cdot\wvec</m> and
-	<m>\vvec_2\cdot\wvec</m>.
-	</p></li>
+	  <li><p> Suppose that
+	  <me>
+	    \vvec_1=\threevec20{-2},\hspace{24pt}
+	    \vvec_2=\threevec112,\hspace{24pt}
+	    \wvec=\threevec{-2}23\text{.}
+	  </me>
+	  Find the dot products <m>\vvec_1\cdot\wvec</m> and
+	  <m>\vvec_2\cdot\wvec</m>.
+	  </p></li>
 
-	<li><p> Now write the matrix
-	<m>A = \begin{bmatrix} \vvec_1 \amp \vvec_2 \end{bmatrix}</m> and
-	its transpose <m>A^T</m>.  Find the product <m>A^T\wvec</m> and
-	describe how this product computes both dot products
-	<m>\vvec_1\cdot\wvec</m> and <m>\vvec_2\cdot\wvec</m>.
-	</p></li>
+	  <li><p> Now write the matrix
+	  <m>A = \begin{bmatrix} \vvec_1 \amp \vvec_2 \end{bmatrix}</m> and
+	  its transpose <m>A^T</m>.  Find the product <m>A^T\wvec</m> and
+	  describe how this product computes both dot products
+	  <m>\vvec_1\cdot\wvec</m> and <m>\vvec_2\cdot\wvec</m>.
+	  </p></li>
 
-	<li><p> Suppose that <m>\xvec</m> is a vector that is
-	orthogonal to both <m>\vvec_1</m> and <m>\vvec_2</m>.  What
-	does this say about the dot products <m>\vvec_1\cdot\xvec</m>
-	and <m>\vvec_2\cdot\xvec</m>?  What does this say about the
-	product <m>A^T\xvec</m>?
-	</p></li>
+	  <li><p> Suppose that <m>\xvec</m> is a vector that is
+	  orthogonal to both <m>\vvec_1</m> and <m>\vvec_2</m>.  What
+	  does this say about the dot products <m>\vvec_1\cdot\xvec</m>
+	  and <m>\vvec_2\cdot\xvec</m>?  What does this say about the
+	  product <m>A^T\xvec</m>?
+	  </p></li>
 
-	<li><p> Use the matrix <m>A^T</m> to give a parametric
-	description of all the vectors <m>\xvec</m> that are
-	orthogonal to <m>\vvec_1</m>
-	and <m>\vvec_2</m>.  Give a geometric description of such
-	vectors <m>\xvec</m>.
-	</p></li>
+	  <li><p> Use the matrix <m>A^T</m> to give a parametric
+	  description of all the vectors <m>\xvec</m> that are
+	  orthogonal to <m>\vvec_1</m>
+	  and <m>\vvec_2</m>.  
+	  </p></li>
 
-	<li><p> Remember that dot products satisfy the distributive
-	property:
-	<me>
-	  (c_1\vvec_1 + c_2\vvec_2)\cdot\xvec =
-	  c_1\vvec_1\cdot\xvec + c_2\vvec_2\cdot\xvec\text{.}
-	</me>
-	If <m>\xvec</m> is orthogonal to both <m>\vvec_1</m> and
-	<m>\vvec_2</m>, explain why <m>\xvec</m> is orthogonal to any
-	linear combination of <m>\vvec_1</m> and <m>\vvec_2</m>.
-	</p></li>
+	  <li>
+	    <p>
+	      Remember that <m>\nul(A^T)</m>, the null space of
+	      <m>A^T</m>, is the solution set of the equation
+	      <m>A^T\xvec=\zerovec</m>.  If <m>\xvec</m> is a vector in
+	      <m>\nul(A^T)</m>, explain why <m>\xvec</m> must be
+	      orthogonal to both <m>\vvec_1</m> and <m>\vvec_2</m>.
+	    </p>
+	  </li>
+	  <li>
+	    <p>
+	      Remember that <m>\col(A)</m>, the column space of <m>A</m>,
+	      is the set of linear combinations of the columns of
+	      <m>A</m>.  Therefore, any vector in <m>\col(A)</m> can be
+	      written as <m>c_1\vvec_1+c_2\vvec_2</m>.
+	      If <m>\xvec</m> is a vector in <m>\nul(A^T)</m>, explain
+	      why <m>\xvec</m> is orthogonal to every vector in
+	      <m>\col(A)</m>.
+	    </p>
+	  </li>
+	</ol>
+	</p>
+      </statement>
 
-	<li><p> If <m>\vvec</m> is in <m>\col(A)</m> and
-	<m>\xvec</m> is in <m>\nul(A^T)</m>, what is
-	<m>\vvec\cdot\xvec</m>?
-	</p></li>
+      <solution>
+	<p>
+	  <ol label="a.">
+	    <li>
+	      <p>
+		<m>A^T = \begin{bmatrix}
+		3 \amp -1 \amp 0 \\
+		4 \amp 2 \amp -2
+		\end{bmatrix}
+		</m>
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		<md>
+		  <mrow>
+		    \vvec_1\cdot\wvec \amp{}={} 2(-2) + 0(2) + (-2)3
+		    \amp{}={} -10
+		  </mrow>
+		  <mrow>
+		    \vvec_2\cdot\wvec \amp{}={} 1(-2) + 1(2) + 2(3)
+		    \amp{}={} 6
+		  </mrow>
+		</md>
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		<me>A^T\wvec =
+		\twovec{2(-2)+0(2)+(-2)3}{1(-2)+1(2)+2(3)} =
+		\twovec{-10}{6}
+		=\twovec{\vvec_1\cdot\wvec}{\vvec_2\cdot\wvec}
+		</me>
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		Both dot products are 0 so we have <m>A^T\xvec =
+		\zerovec</m>.
+	      </p>
+	    </li>
+	    <li>
+	      <p> We need to solve the equation <m>A^T\xvec =
+	      \zerovec</m> so we find the reduced row echelon form 
+	      <me>A^T \sim \begin{bmatrix}
+		1 \amp 0 \amp -1 \\
+		0 \amp 1 \amp 3\\
+		\end{bmatrix}\text{.}
+	      </me>
+	      The vectors orthogonal to both <m>\vvec_1</m> and
+	      <m>\vvec_2</m> have the form
+	      <m>\xvec=x_3\threevec1{-3}1</m>.
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		<m>A^T\xvec =
+		\twovec{\vvec_1\cdot\xvec}{\vvec_2\cdot\xvec} =
+		\twovec00</m> tells us that <m>\vvec_1\cdot\xvec=0</m>
+		and <m>\vvec_2\cdot\xvec=0</m>.
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		Since <m>\xvec</m> is orthogonal to both
+		<m>\vvec_1</m> and <m>\vvec_2</m>, we have
+		<me>
+		  (c_1\vvec_1+c_2\vvec_2)\cdot\xvec =
+		  c_1\vvec_1\cdot\xvec + c_2\vvec_2\cdot\xvec = 0
+		</me>
+	      </p>
+	    </li>
+	  </ol>
+	</p>
+      </solution>
 
-	<!--
-	<li><p> Because the rank of <m>A</m> is 2, the column space
-	<m>\col(A)</m> is a 2-dimensional subspace of
-	<m>\real^3</m>.  The null space <m>\nul(A^T)</m> is a
-	1-dimensional subspace of <m>\real^3</m>.  Indicate with a
-	sketch how these two subspaces, <m>\col(A)</m> and
-	<m>\nul(A^T)</m> are related to one another.
-	</p></li>
-	-->
-      </ol></p>
+      <answer>
+	<p>
+	  <ol label="a.">
+	    <li>
+	      <p>
+		<m>A^T = \begin{bmatrix}
+		3 \amp -1 \amp 0 \\
+		4 \amp 2 \amp -2
+		\end{bmatrix}
+		</m>
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		<m>\vvec_1\cdot\wvec =-10</m>,
+		<m>\vvec_2\cdot\wvec =6</m>.
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		<me>A^T\wvec 
+		=\twovec{\vvec_1\cdot\wvec}{\vvec_2\cdot\wvec}
+		</me>
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		<m>A^T\xvec =
+		\zerovec</m>.
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		<m>\xvec=x_3\threevec1{-3}1</m>.
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		<m>A^T\xvec =
+		\twovec{\vvec_1\cdot\xvec}{\vvec_2\cdot\xvec} =
+		\twovec00</m>.
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		Apply the distributive property of dot products.
+	      </p>
+	    </li>
+	  </ol>
+	</p>
+      </answer>
+		    
     </activity>
 
     <p>
-      To understand this activity more fully, we will consider a
-      vector <m>\vvec</m> to be a matrix with one column.  The
-      tranpose <m>\vvec^T</m> is therefore a vector with a single row.
-      For instance, if
-      <me>
-	\vvec=\threevec1{-1}2,
-	\hspace{24pt}
-	\xvec=\threevec{3}01,
-      </me>
-      it follows that
-      <me>
-	\vvec^T\xvec =
-	\begin{bmatrix}
-	1 \amp -1 \amp 2 \\
-	\end{bmatrix}
-	\threevec301
-	=
-	[
-	1(3) + (-1)0 + 2(1)
-	]
-	=
-	[5]
-	=
-	[\vvec\cdot\xvec].
-      </me>
-      Viewing the resulting <m>1\times1</m> matrix as a
-      scalar, we simply write
-      <m>\vvec^T\xvec = \vvec\cdot\xvec</m>.
+      The previous activity demonstrates an important connection
+      between the matrix transpose and dot products.  More
+      specifically, the components of the product <m>A^T\xvec</m> are
+      simply the dot products of the columns of <m>A</m> with
+      <m>\xvec</m>.  We will put this observation to use quite often
+      so let's record it as a proposition.
     </p>
 
-    <p>
-      In our usual way, we will view a matrix as the
-      collection of vectors that form its columns.
-      Therefore, if
-      <m>A=\begin{bmatrix}
-      \vvec_1 \amp \vvec_2 \amp \ldots \amp \vvec_n
-      \end{bmatrix}
-      </m>, then
-      <m>A^T=
-      \begin{bmatrix}
-      \vvec_1^T \\ \vvec_2^T \\ \vdots \\ \vvec_n^T
-      \end{bmatrix}
-      </m>, which leads to
-      <me>
-	A^T\xvec =
-	\begin{bmatrix}
-	\vvec_1^T \\ \vvec_2^T \\ \vdots \\ \vvec_n^T
-	\end{bmatrix}
-	\xvec =
-	\begin{bmatrix}
-	\vvec_1^T\xvec \\ \vvec_2^T\xvec \\ \vdots \\ \vvec_n^T\xvec
-	\end{bmatrix}
-	=
-	\begin{bmatrix}
-	\vvec_1\cdot\xvec \\ \vvec_2\cdot\xvec \\ \vdots \\
-	\vvec_n\cdot\xvec 
-	\end{bmatrix}\text{.}
-      </me>
-      In other words, the components of the product <m>A^T\xvec</m> are
-      simply the dot products of <m>\xvec</m> with the columns of
-      <m>A</m>. 
-    </p>
- 
-    <p>
-      Suppose that <m>A^T\xvec=\zerovec</m>.  It follows that
-      <m>\vvec_j\cdot\xvec = 0</m> for every vector <m>\vvec_j</m>,
-      which means that <m>\xvec</m>
-      is orthogonal to every column of <m>A</m>.  Applying the
-      distributive property of dot products, we see that
-      <m>\xvec</m> is orthogonal to every linear combination of the
-      columns of <m>A</m>.  Therefore, <m>\xvec</m> is orthogonal to
-      every vector in <m>\col(A)</m>.
-    </p>
-
-    <p>
-      Conversely, if <m>\xvec</m> is orthogonal to every vector in
-      <m>\col(A)</m>, it must be orthogonal to every column of
-      <m>A</m>, which implies that <m>A^T\xvec=\zerovec</m>.
-    </p>
-
-    <p>
-      Remembering that <m>\nul(A^T)</m> consists of all the vectors
-      <m>\xvec</m> for which <m>A^T\xvec=\zerovec</m>, we see that
-      <m>\nul(A^T)</m>
-      consists of the vectors that are orthogonal to every vector in
-      <m>\col(A)</m>.  This is a useful concept so we will give a name
-      to it.
-    </p>
-
-    <definition>
-      <idx>orthogonal complement</idx>
+    <proposition xml:id="prop-transpose-multiplication">
       <statement>
-	<p> Suppose <m>W</m> is a subspace of <m>\real^p</m>.  The
-	set of vectors that are orthogonal to every vector in <m>W</m>
-	is called the orthogonal complement of <m>W</m> and denoted by
-	<m>W^\perp</m>.
+	<p>
+	  If <m>A</m> is the matrix whose columns are
+	  <m>\vvec_1,\vvec_2,\ldots,\vvec_n</m>, then <me>A^T\xvec =
+	  \begin{bmatrix}
+	  \vvec_1\cdot\xvec \\
+	  \vvec_2\cdot\xvec \\
+	  \vdots \\
+	  \vvec_n\cdot\xvec \\
+	  \end{bmatrix}
+	</me>
 	</p>
       </statement>
-    </definition>
-
-    <figure xml:id="orthog-comp">
-      <sidebyside widths="45% 45%">
-	<image source = "images/orthog-comp" />
-	<image source = "images/nul-at" />
-      </sidebyside>
-      <caption>
-	<p> 
-	  The left figure represents the relationship between
-	  a subspace <m>W</m> and its orthogonal complement
-	  <m>W^\perp</m>.  The right figure shows how this applies
-	  when <m>W=\col(A)</m>.
+    </proposition>
+	  
+    <example>
+      <statement>
+	<p>
+	  Suppose that <m>W</m> is a subspace of <m>\real^4</m> having
+	  basis 
+	  <me>
+	    \wvec_1=\fourvec1021,\hspace{24pt}
+	    \wvec_2=\fourvec2134\text{,}
+	  </me>
+	  and we wish to describe the orthogonal complement
+	  <m>W^\perp</m>.
 	</p>
-      </caption>
-    </figure>
-	
+
+	<p>
+	  If <m>A</m> is 
+	  the matrix <m>A = \begin{bmatrix}\wvec_1 \amp
+	  \wvec_2\end{bmatrix}</m> and <m>\xvec</m> is in
+	  <m>W^\perp</m>, we have
+	  <me>
+	    A^T\xvec = \twovec{\wvec_1\cdot\xvec}{\wvec_2\cdot\xvec} =
+	    \twovec00\text{.}
+	  </me>
+	  Describing vectors <m>\xvec</m> that are orthogonal to both
+	  <m>\wvec_1</m> and <m>\wvec_2</m> is therefore equivalent to
+	  the more familiar task of describing the solution set
+	  <m>A^T\xvec = \zerovec</m>.  To do so, we find the reduced
+	  row echelon form of <m>A^T</m> and write the solution set
+	  parametrically as
+	  <me>
+	    \xvec = x_3\fourvec{-2}{1}10 +
+	    x_4\fourvec{-1}{-2}01\text{.}
+	  </me>
+	  Once again, the distributive property of dot products tells
+	  us that such a vector is also orthogonal to any linear
+	  combination of <m>\wvec_1</m> and <m>\wvec_2</m> so this
+	  solution set is, in fact, the orthogonal complement
+	  <m>W^\perp</m>.  Indeed, we see that the vectors
+	  <me>
+	    \vvec_1=\fourvec{-2}110,\hspace{24pt}
+	    \vvec_2=\fourvec{-1}{-2}01
+	  </me>
+	  form a basis for <m>W^\perp</m>, which is a two-dimensional
+	  subspace of <m>\real^4</m>.
+	</p>
+      </statement>
+    </example>
+
     <p>
-      The relationship between a subspace <m>W</m> and its orthogonal
-      complement <m>W^\perp</m> is shown on the left in <xref
-      ref="orthog-comp" />.  In the specific case that
-      <m>W=\col(A)</m>, we have seen that <m>W^\perp = \col(A)^\perp =
-      \nul(A^T)</m>, as shown on the right of 
-      <xref ref="orthog-comp" />.  We record this observation as 
-      <xref ref="prop-col-orthog" />.
+      To place this example in a slightly more general context, note that
+      <m>\wvec_1</m> and <m>\wvec_2</m>, the columns of
+      <m>A</m>, form a basis of <m>W</m>.  Since <m>\col(A)</m>, the
+      column space of <m>A</m> is the subspace of linear combinations
+      of the columns of <m>A</m>, we have <m>W=\col(A)</m>.
+    </p>
+    
+    <p>
+      This example also shows that the orthogonal complement
+      <m>W^\perp = \col(A)^\perp</m> is described by the solution set
+      of <m>A^T\xvec = \zerovec</m>.  This solution set is what we
+      have called <m>\nul(A^T)</m>, the null space of <m>A^T</m>.  In
+      this way, we see the following proposition, which is illustrated
+      in <xref ref="fig-orthog-comp" />.
     </p>
 
     <proposition xml:id="prop-col-orthog">
       <statement>
-	<p> The orthogonal complement of <m>\col(A)</m> is
+	<p> For any matrix <m>A</m>, the orthogonal complement of
+	<m>\col(A)</m> is 
 	<m>\nul(A^T)</m>; that is,
 	<me>
 	  \col(A)^\perp = \nul(A^T)\text{.}
@@ -314,132 +761,16 @@
       </statement>
     </proposition>
  	
-    <example xml:id="example-orthog-comp-line">
-      <statement>
-	<p>
-	  If <m>L</m> is the line 
-	  defined by <m>\vvec=\threevec1{-2}3</m> in <m>\real^3</m>,
-	  we will describe <m>L^\perp</m>, the set of vectors
-	  orthogonal to <m>L</m>.
-	</p>
-
-	<p> We define the matrix
-	<me>
-	  A = \left[\begin{array}{c} \vvec \\ \end{array}\right] =
-	  \threevec1{-2}3\text{,} 
-	</me>
-	so that the line defined by <m>\vvec</m> is <m>L=\col(A)</m>.
-	This means that the
-	vectors orthogonal to the line satisfy <m>L^\perp=\col(A)^\perp
-	= \nul(A^T)</m>, as recorded in
-	<xref ref="prop-col-orthog" />.
-	</p>
-
-	<p> The null space <m>\nul(A^T)</m> is the set of
-	vectors <m>\xvec</m> such that <m>A^T\xvec = \zerovec</m> 
-	so we have
-	<me>
-	  A^T\xvec =
-	  \left[\begin{array}{r} 1 \amp -2 \amp 3 \\ \end{array}\right]
-	  \threevec xyz = x - 2y + 3z = 0\text{.}
-	</me>
-	In other words, the vectors <m>\xvec=\threevec xyz</m> that
-	are orthogonal to the line satisfy the equation
-	<m>x-2y+3z=0</m>, which describes a plane in
-	<m>\real^3</m>.  Parametrically, we describe the null space
-	<m>\nul(A^T)</m> as
-	<me>
-	  \xvec=\threevec xyz = \threevec{2y-3z}yz =
-	  y\threevec210+z\threevec{-3}01\text{.}
-	</me>
-	Therefore, the plane <m>L^\perp</m> is
-	spanned by the vectors <m>\threevec210</m> and
-	<m>\threevec{-3}01</m>. 
-	</p>
-
-	<p>
-	  Notice how the observation <m>\col(A)^\perp=\nul(A^T)</m>
-	  enables us to describe the orthogonal complement as the
-	  solution set of <m>A^T\xvec=\zerovec</m>, which is
-	  convenient since we have
-	  considerable experience solving equations like this.
-	</p>
-      </statement>
-    </example>
-
-    <example xml:id="example-orthog-comp-gen">
-      <statement>
-	<p> Suppose that <m>W</m> is the <m>2</m>-dimensional subspace
-	of <m>\real^5</m> with a basis
-	<me>
-	  \wvec_1=\fivevec{-1}{-2}23{-4},\hspace{24pt}
-	  \wvec_2=\fivevec24202\text{.}
-	</me>
-	We will give a description of the orthogonal complement
-	<m>W^\perp</m>. </p>
-
-	<p> We begin by recognizing that <m>W=\col(A)</m> where
-	<m>A</m> is the matrix whose columns are <m>\wvec_1</m> and
-	<m>\wvec_2</m> so that
-	<me>
-	  A=\begin{bmatrix}
-	  -1 \amp 2 \\
-	  -2 \amp 4 \\
-	  2 \amp 2 \\
-	  3 \amp 0 \\
-	  -4 \amp 2 \\
-	  \end{bmatrix}\text{.}
-	</me>
-	The orthogonal complement <m>W^\perp = \col(A)^\perp =
-	\nul(A^T)</m> so we form the tranpose
-	<me>
-	  A^T =
-	  \begin{bmatrix}
-	  -1 \amp -2 \amp 2 \amp 3 \amp -4 \\
-	  2 \amp 4 \amp 2 \amp 0 \amp 2
-	  \end{bmatrix}
-	  \sim
-	  \begin{bmatrix}
-	  1 \amp 2 \amp 0 \amp -1 \amp 2 \\
-	  0 \amp 0 \amp 1 \amp 1 \amp -1
-	  \end{bmatrix}\text{.}
-	</me>
-	The null space <m>\nul(A^T)</m> is described parametrically as
-	<me>
-	  \xvec=\fivevec{x_1}{x_2}{x_3}{x_4}{x_5}
-	  =x_2\fivevec{-2}1000 + x_4\fivevec10{-1}10 +
-	  x_5\fivevec{-2}0101\text{.}
-	</me>
-	Therefore, <m>W^\perp</m> is a <m>3</m>-dimensional subspace
-	of <m>\real^5</m> with basis
-	<me>
-	  \vvec_1=\fivevec{-2}1000, \hspace{24pt}
-	  \vvec_2=\fivevec10{-1}10, \hspace{24pt}
-	  \vvec_3=\fivevec{-2}0101\text{.}
-	</me>
-	You may easily check that the vectors <m>\vvec_1</m>,
-	<m>\vvec_2</m>, and <m>\vvec_3</m> are orthogonal to
-	<m>\wvec_1</m> and <m>\wvec_2</m>.
-	</p>
-      </statement>
-    </example>
-
-    <p> Any subspace <m>W</m> of <m>\real^p</m> is the column space of
-    a matrix <m>A</m> whose columns form a basis for <m>W</m>.
-    Therefore, <m>W^\perp=\nul(A^T)</m>, which shows that the
-    orthogonal subspace of <m>W</m> is always itself a subspace of
-    <m>\real^p</m>.
-    </p>
-
-    <p> In both of the examples above, notice that the dimension of a
-    subspace of <m>\real^p</m> and the dimension of its orthgonal
-    complement add to <m>p</m>.  For instance, in the second example,
-    <m>W</m> is subspace of <m>\real^5</m> with
-    <m>\dim W = 2</m>.  We found that <m>\dim W^\perp = 3</m> so that
-    the dimensions of <m>W</m> and <m>W^\perp</m> add to give
-    <m>5</m>.  We will see that this is generally true in the next
-    subsection. 
-    </p>
+    <figure xml:id="fig-orthog-comp">
+      <sidebyside width="45%">
+	<image source = "images/nul-at" />
+      </sidebyside>
+      <caption>
+	The orthogonal complement of the column space of <m>A</m> is
+	the null space of <m>A^T</m>.
+      </caption>
+    </figure>
+	
 
   </subsection>
 
@@ -451,82 +782,177 @@
     </p>
 
     <activity>
-      <p> In Sage, the transpose of a matrix <c>A</c> is given by
-      <c>A.T</c>.  Define the matrices
-      <me>
-	A =
-	\begin{bmatrix}
-	1 \amp 0 \amp -3 \\
-	2 \amp -2 \amp 1 \\
-	\end{bmatrix},
-	\hspace{6pt}
-	B =
-	\begin{bmatrix}
-	3 \amp -4 \amp 1 \\
-	0 \amp 1 \amp 2 \\
-	\end{bmatrix},
-	\hspace{6pt}
-	C=
-	\begin{bmatrix}
-	1 \amp 0 \amp -3 \\
-	2 \amp -2 \amp 1 \\
-	3 \amp 2 \amp 0 \\
-	\end{bmatrix}\text{.}
-      </me>
-      <sage>
-	<input>
-	</input>
-      </sage>
-      <ol label="a.">
-	<li><p> Evaluate <m>(A+B)^T</m> and <m>A^T+B^T</m>.  What do
-	you notice about the relationship between these two matrices?
-	</p></li>
-
-	<li><p> What happens if you transpose a matrix twice;  that
-	is, what is <m>(A^T)^T</m>?
-	</p></li>
-
-	<li><p> Find <m>\det(C)</m> and <m>\det(C^T)</m>.  What do you
-	notice about the relationship between these determinants?
-	</p></li>
-
-	<li><p>
-	  <ol label="i."> 
-	  <li><p> Find the product <m>AC</m> and its transpose
-	  <m>(AC)^T</m>.
-	  </p></li>
-	  <li><p> Is it possible to compute the product <m>A^TC^T</m>?
-	  Explain why or why not.
-	  </p></li>
-	  <li><p> Find the product <m>C^TA^T</m> and compare it to
-	  <m>(AC)^T</m>.  What do you notice about the relationship
-	  between these two matrices?
-	  </p></li>
-	</ol> </p></li>
-
-	<li><p> What is the transpose of the identity matrix
-	<m>I</m>?
-	</p></li>
-
-	<li><p> If a square matrix <m>C</m> is invertible, explain why
-	you can guarantee that <m>C^T</m> is invertible and why
-	<m>(C^T)^{-1} = (C^{-1})^T</m>.
-	</p></li>
-
-	<li><p> Suppose that
-	<m>
-	  A=\begin{bmatrix}
-	  -1 \amp 2 \\
-	  -2 \amp 4 \\
-	  2 \amp 2 \\
-	  3 \amp 0 \\
-	  -4 \amp 2 \\
+      <statement>
+	<p> In Sage, the transpose of a matrix <c>A</c> is given by
+	<c>A.T</c>.  Define the matrices
+	<me>
+	  A =
+	  \begin{bmatrix}
+	  1 \amp 0 \amp -3 \\
+	  2 \amp -2 \amp 1 \\
+	  \end{bmatrix},
+	  \hspace{6pt}
+	  B =
+	  \begin{bmatrix}
+	  3 \amp -4 \amp 1 \\
+	  0 \amp 1 \amp 2 \\
+	  \end{bmatrix},
+	  \hspace{6pt}
+	  C=
+	  \begin{bmatrix}
+	  1 \amp 0 \amp -3 \\
+	  2 \amp -2 \amp 1 \\
+	  3 \amp 2 \amp 0 \\
 	  \end{bmatrix}\text{.}
-	</m>  Find <m>\rank(A)</m> and <m>\rank(A^T)</m>.  What do you
-	notice about the relationship between these two quantities?
-	</p></li>
+	</me>
+	<sage>
+	  <input>
+	  </input>
+	</sage>
+	<ol label="a.">
+	  <li><p> Evaluate <m>(A+B)^T</m> and <m>A^T+B^T</m>.  What do
+	  you notice about the relationship between these two matrices?
+	  </p></li>
 
-      </ol></p>
+	  <li><p> What happens if you transpose a matrix twice;  that
+	  is, what is <m>(A^T)^T</m>?
+	  </p></li>
+
+	  <li><p> Find <m>\det(C)</m> and <m>\det(C^T)</m>.  What do you
+	  notice about the relationship between these determinants?
+	  </p></li>
+
+	  <li><p>
+	    <ol label="i."> 
+	      <li><p> Find the product <m>AC</m> and its transpose
+	      <m>(AC)^T</m>.
+	      </p></li>
+	      <li><p> Is it possible to compute the product <m>A^TC^T</m>?
+	      Explain why or why not.
+	      </p></li>
+	      <li><p> Find the product <m>C^TA^T</m> and compare it to
+	      <m>(AC)^T</m>.  What do you notice about the relationship
+	      between these two matrices?
+	      </p></li>
+	  </ol> </p></li>
+
+	  <li><p> What is the transpose of the identity matrix
+	  <m>I</m>?
+	  </p></li>
+
+	  <li><p> If a square matrix <m>D</m> is invertible, explain why
+	  you can guarantee that <m>D^T</m> is invertible and why
+	  <m>(D^T)^{-1} = (D^{-1})^T</m>.
+	  </p></li>
+
+	</ol></p>
+      </statement>
+
+      <solution>
+	<p>
+	  <ol label="a.">
+	    <li>
+	      <p>
+		<m>(A+B)^T = A^T + B^T</m>.
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		<m>(A^T)^T = A</m>.
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		<m>\det(C^T) = \det(C)</m>
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		<ol label="i.">
+		  <li>
+		    <p>
+		      <m> AC = \begin{bmatrix}
+		      -8 \amp -6 \amp -3 \\
+		      1 \amp 6 \amp -8
+		      \end{bmatrix}
+		      </m> and
+		      <m>(AC)^T = \begin{bmatrix}
+		      -8 \amp 1 \\
+		      -6 \amp 6 \\
+		      -3 \amp -8
+		      \end{bmatrix}
+		      </m>
+		    </p>
+		  </li>
+		  <li>
+		    <p>
+		      The product <m>A^TC^T</m> is not defined because
+		      <m>A^T</m> has two columns and <m>C^T</m> has
+		      three rows.
+		    </p>
+		  </li>
+		  <li>
+		    <p>
+		      <m>(AC)^T=C^TA^T</m>
+		    </p>
+		  </li>
+		</ol>
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		<m>I^T=I</m>
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		We have <m>DD^{-1} = I</m> so <m>(DD^{-1})^T =
+		(D^{-1})^TD^T = 
+		I^T=I</m>.  This means that <m>(D^T)^{-1} =
+		(D^{-1})^T</m>.
+	      </p>
+	    </li>
+	  </ol>
+	</p>
+      </solution>
+	    
+      <answer>
+	<p>
+	  <ol label="a.">
+	    <li>
+	      <p>
+		<m>(A+B)^T = A^T + B^T</m>.
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		<m>(A^T)^T = A</m>.
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		<m>\det(C^T) = \det(C)</m>
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		<m>(AC)^T=C^TA^T</m>.
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		<m>I^T=I</m>
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		<m>(D^T)^{-1} = (D^{-1})^T</m>.
+	      </p>
+	    </li>
+	  </ol>
+	</p>
+      </answer>
+		      
     </activity>
 	
     <p> In spite of the fact that we are looking at some specific
@@ -563,230 +989,14 @@
 	<li><p> <m>(C^T)^{-1} = (C^{-1})^T</m>.
 	</p></li>
 
-	<li><p> <m>\rank(A) = \rank(A^T)</m>.
-	</p></li>  
       </ul></p>
     </assemblage>
 
-    <p> The last property is important so we will explain it in more
-    depth.  It helps to remember a few things about an <m>m\times
-    n</m> matrix <m>A</m>:
-    <ul>
-      <li><p> <m>\rank(A)</m> is the number of pivots in <m>A</m>,
-      </p></li>
-      <li><p> <m>\dim\col(A)=\rank(A)</m>, and
-      </p></li>
-      <li><p> <m>\dim\nul(A) = n - \rank(A)</m>.
-      </p></li>
-    </ul></p>
-
-    <activity>
-      <p> We wish to explain why <m>\rank(A) = \rank(A^T)</m>.  As an
-      example, we will consider the matrix
-      <me>S =
-      \begin{bmatrix}
-      1 \amp -1 \amp 0 \amp 1 \amp 2 \\
-      -1 \amp 1 \amp -2 \amp -3 \amp 0 \\
-      2 \amp -2 \amp 0 \amp 2 \amp 4 \\
-      -1 \amp 1 \amp -2 \amp -3 \amp 0
-      \end{bmatrix}
-      \sim
-      \begin{bmatrix}
-      1 \amp -1 \amp 0 \amp 1 \amp 2 \\
-      0 \amp 0 \amp 1 \amp 1 \amp -1 \\
-      0 \amp 0 \amp 0 \amp 0 \amp 0 \\
-      0 \amp 0 \amp 0 \amp 0 \amp 0
-      \end{bmatrix}\text{,}
-      </me> which shows that <m>\rank(S)=2</m>.
-      <ol label="a.">
-	<li><p> Find the reduced row echelon form of <m>S^T</m> to
-	verify that <m>\rank(S^T)=2</m>.  For this example, we see
-	that <m>\rank(S)=\rank(S^T) = 2</m>, which is the result we
-	would like to explain.
-	<sage>
-	  <input>
-	  </input>
-	</sage>
-	</p></li>
-
-	<li><p> Suppose that <m>A</m> is some matrix whose <m>LU</m>
-	factorization is <m>A=LU</m>.  Remember that the
-	lower-triangular matrix <m>L</m> is invertible.
-	<ol label="i.">
-	  <li><p> Suppose that <m>\xvec</m> is in <m>\nul(U)</m> so
-	  that <m>U\xvec=\zerovec</m>.  Explain why <m>\xvec</m> is
-	  also in <m>\nul(A)</m>.
-	  </p></li>
-
-	  <li><p> Suppose that <m>\xvec</m> is in <m>\nul(A)</m> so
-	  that <m>A\xvec = \zerovec</m>.  Use the fact that
-	  <m>U=L^{-1}A</m> to explain why
-	  <m>U\xvec= \zerovec</m> and hence <m>\xvec</m>
-	  is also in <m>\nul(U)</m>.
-	  </p></li>
-
-	  <li><p> Explain why <m>\nul(A) = \nul(U)</m>. </p></li>
-
-	  <li><p> Remembering that the rank is related to the
-	  dimension of the null space, explain why <m>\rank(A) =
-	  \rank(U)</m>. </p></li> 
-	</ol>
-	</p></li>
-
-	<li><p> Suppose that <m>U</m> is an upper-triangular matrix,
-	such as
-	<m>U=
-	\begin{bmatrix}
-	1 \amp -1 \amp 0 \amp 1 \amp 2 \\
-	0 \amp 0 \amp -2 \amp -2 \amp 2 \\
-	0 \amp 0 \amp 0 \amp 0 \amp 0 \\
-	0 \amp 0 \amp 0 \amp 0 \amp 0
-	\end{bmatrix}</m>.
-	<ol label="i.">
-	  <li><p> Explain why <m>\rank(U)</m> equals the number of
-	  nonzero rows of <m>U</m>.
-	  </p></li>
-
-	  <li><p> If <m>U</m> is the matrix above, write the matrix
-	  <m>U^T</m>. Explain why <m>\rank(U^T)</m> equals the number
-	  of nonzero columns of <m>U^T</m>.
-	  </p></li>
-
-	  <li><p> Explain why <m>\rank(U)=\rank(U^T)</m>.
-	  </p></li>
-	</ol>
-	</p></li>
-
-	<li><p> Since <m>A=LU</m>, we will write <m>A^T=U^TL^T</m> and
-	remember that <m>L</m>, and hence <m>L^T</m>, is invertible.
-	<ol label="i.">
-	  <li><p> Suppose that <m>\bvec</m> is in <m>\col(A^T)</m> so
-	  that <m>A^T\xvec=\bvec</m> is consistent.  Explain why
-	  <m>U^T\yvec=\bvec</m> is also consistent and therefore
-	  <m>\bvec</m> is in <m>\col(U^T)</m>.
-	  </p></li>
-
-	  <li><p> Suppose that <m>\bvec</m> is in <m>\col(U^T)</m> so
-	  that <m>U^T\yvec=\bvec</m> is consistent.  Use the fact that
-	  <m>U^T = A^T(L^T)^{-1}</m> to explain why
-	  <m>A^T\xvec=\bvec</m> is also consistent and therefore
-	  <m>\bvec</m> is in <m>\col(A^T)</m>.
-	  </p></li>
-
-	  <li><p> This shows that <m>\col(A^T)=\col(U^T)</m>.
-	  Remembering the relationship between the rank and the
-	  dimension of the column space, explain
-	  why <m>\rank(A^T) = \rank(U^T)</m>.
-	  </p></li>
-	</ol>
-	We have now seen that
-	<me>
-	  \rank(A)=\rank(U)=\rank(U^T)=\rank(A^T)\text{.}
-	</me>
-	This tells us that <m>\rank(A)=\rank(A^T)</m>, the fact that
-	we originally set out to explain.
-	</p></li>
-
-	</ol>
-      </p>
-    </activity>
-
-    <!--
-
-    <p> To begin, we will find the <m>LU</m> factorization of <m>A</m>
-    and write <m>A = LU</m>.  Remember that <m>L</m> is invertible and
-    that <m>A</m> and <m>U</m> have the same dimensions.  In our
-    example, we have
-    <me>
-      A = LU = 
-      \begin{bmatrix}
-      1 \amp 0 \amp 0 \amp 0 \\
-      -1 \amp 1 \amp 0 \amp 0 \\
-      2 \amp 0 \amp 0 \amp 0 \\
-      -1 \amp 1 \amp 0 \amp 1 \\
-      \end{bmatrix}
-      \begin{bmatrix}
-      1 \amp -1 \amp 0 \amp 1 \amp 2 \\
-      0 \amp 0 \amp -2 \amp -2 \amp 2 \\
-      0 \amp 0 \amp 0 \amp 0 \amp 0 \\
-      0 \amp 0 \amp 0 \amp 0 \amp 0
-      \end{bmatrix}\text{.}
-    </me>
+    <p>
+      There is one final property we wish to record though we will
+      wait until <xref ref="sec-svd-intro" /> to explain why it is
+      true.
     </p>
-
-    <p> Our first step is to notice that <m>\rank(A) = \rank(U)</m>.
-    This is because <m>U</m> is the result of the forward-elimination
-    step of the Gaussian elimination algorithm applied to <m>A</m>.
-    To obtain the reduced row echelon form of <m>A</m> from <m>U</m>,
-    we perform back-substitution to complete the Gaussian elimination
-    algorithm.  This shows that the number of pivots of <m>A</m>
-    equals the number of nonzero rows of <m>U</m>, which is the number
-    of pivots of <m>U</m> since <m>U</m> is upper triangular.
-    Therefore, <m>\rank(A) = \rank(U)</m>.
-    </p>
-
-    <p> Next, we note that <m>\rank(U) = \rank(U^T)</m>.  If we look
-    at our example, we have
-    <me>
-      U = \begin{bmatrix}
-      1 \amp -1 \amp 0 \amp 1 \amp 2 \\
-      0 \amp 0 \amp -2 \amp -2 \amp 2 \\
-      0 \amp 0 \amp 0 \amp 0 \amp 0 \\
-      0 \amp 0 \amp 0 \amp 0 \amp 0
-      \end{bmatrix}\text{,}\hspace{6pt}
-      U^T=\begin{bmatrix}
-      1 \amp 0 \amp 0 \amp 0 \\
-      -1 \amp 0 \amp 0 \amp 0 \\
-      0 \amp -2 \amp 0 \amp 0 \\
-      1 \amp -2 \amp 0 \amp 0 \\
-      2 \amp 2 \amp 0 \amp 0
-      \end{bmatrix}
-      \sim
-      \begin{bmatrix}
-      1 \amp 0 \amp 0 \amp 0 \\
-      0 \amp 1 \amp 0 \amp 0 \\
-      0 \amp 0 \amp 0 \amp 0 \\
-      0 \amp 0 \amp 0 \amp 0 \\
-      0 \amp 0 \amp 0 \amp 0
-      \end{bmatrix}\text{,}
-    </me>
-    which demonstrates that <m>\rank(U^T) = 2 = \rank(U)</m>.  If we
-    look at the form of <m>U^T</m> in this example, we can see why
-    <m>\rank(U^T) = \rank(U)</m> in general:  we may use row
-    replacement operations to create a row-equivalent matrix having
-    only a single one in each nonzero column.</p>
-
-    <p> Finally, we will explain why <m>\rank(U^T) = \rank(A^T)</m>.
-    Remember that <m>A=LU</m> so we have <m>A^T = U^TL^T</m>.
-    Remember also that <m>L</m> is invertible, which also tells us
-    that <m>L^T</m> is invertible.
-    </p>
-
-    <p> Suppose <m>\bvec</m> is in <m>\col(A^T)</m> meaning that the
-    equation <m>A^T\xvec = U^T(L^T\xvec)=\bvec</m> is consistent.  If
-    we denote <m>\yvec = L^T\xvec</m>, then the equation
-    <m>U^T\yvec=\bvec</m> is consistent and so <m>\bvec</m> is also in
-    <m>\col(U^T)</m>.
-    </p>
-
-    <p> In the same way, we can write <m>U^T = A^T(L^T)^{-1}</m> and
-    suppose that <m>\bvec</m> is in <m>\col(U^T)</m>.  This means that
-    <m>U^T\yvec = A^T(L^T)^{-1}\yvec=\bvec</m> is consistent.  If we
-    denote <m>\xvec = (L^T)^{-1}\yvec</m>, we see that <m>A\xvec =
-    \bvec</m> is also consistent.  Therefore, <m>\bvec</m> is in
-    <m>\col(A^T)</m> as well.</p>
-
-    <p> Putting these statements together, we have <m>\col(U^T) =
-    \col(A^T)</m>.  Since <m>\rank(A^T) = \dim\col(A^T)</m>, this
-    explains why <m>\rank(U^T) = \rank(A^T)</m>.  Now we have
-    <me>
-      \rank(A) = \rank(U) = \rank(U^T) = \rank(A^T)\text{,}
-    </me>
-    from which we conclude:
-    </p>
-    -->
-
-    <p> To summarize, this activity explains the proposition: </p>
 
     <proposition xml:id="prop-col-row-rank">
       <statement>
@@ -798,67 +1008,35 @@
     <p>
       This proposition is important because it implies a relationship
       between the dimensions of a subspace and its orthogonal
-      complement.  The next two examples illustrate.
-    </p>
-
-    <example>
-      <p> In <xref ref="example-orthog-comp-line"/>, we
-      constructed the orthogonal complement of a line in
-      <m>\real^3</m> and found it to be a plane in <m>\real^3</m>.
-      We expect this intuitively, but <xref ref="prop-col-row-rank" />
-      explains this observation.
-      </p>
-
-      <p> If we choose a basis vector <m>\vvec</m> for the line and
-      define the matrix <m>A=\begin{bmatrix}\vvec\end{bmatrix}</m>,
-      then the line is <m>\col(A)</m>.  Since <m>A</m> is a <m>3\times1</m>
-      matrix, <m>A^T</m> is a <m>1\times3</m> matrix, and we know that
-      <m>\rank(A)= \rank(A^T)=1</m>.
-      </p>
-
-      <p> Remember that the dimension of the null space of a matrix
-      equals the number of columns in the matrix minus its rank.
-      Therefore, the orthogonal complement of the line is <m>\nul(A^T)</m>
-      whose dimension is <m>3-\rank(A^T) = 2</m>.  This shows that the
-      orthogonal complement of the line is a plane, which we expect
-      geometrically.
-      </p>
-    </example>
-
-    <example>
-      <p> In <xref ref="example-orthog-comp-gen" />, we looked at
-      <m>W</m>, a <m>2</m>-dimensional subspace of <m>\real^5</m>
-      and constructed the <m>5\times2</m> matrix <m>A</m> whose two
-      columns are a basis of <m>W</m>.  We have <m>\rank(A)=2</m>.
-      </p>
-
-      <p> We also see that <m>A^T</m> is a <m>2\times5</m> matrix
-      having <m>\rank(A^T) = \rank(A) = 2</m>.  Therefore, <m>\dim
-      W^\perp = \dim\nul(A^T) = 5-\rank(A^T) = 3</m>, just as we found in
-      that example. 
-      </p>
-    </example>
-
-    <p>
-      To summarize, suppose that <m>W</m> is an <m>n</m>-dimensional
-      subspace of <m>\real^m</m>.  After choosing a basis <m>\wvec_1,
-      \wvec_2, \ldots,\wvec_n</m> for <m>W</m>, we construct the
-      <m>m\times n</m> matrix <m>A</m> whose columns are
-      <m>\wvec_i</m>.  We then have <m>W=\col(A)</m> and <m>\dim W =
-      \rank(A) = n</m>.
+      complement.  For instance, if <m>A</m> is an <m>m\times n</m>
+      matrix, we saw in <xref ref="sec-subspaces" /> that
+      <m>\dim\col(A) = \rank(A)</m> and <m>\dim\nul(A) =
+      n-\rank(A)</m>.
     </p>
 
     <p>
-      We may describe the orthogonal complement of <m>W</m> as
-      <m>W^\perp = \col(A)^\perp = \nul(A^T)</m>. Since <m>A^T</m> is
-      an <m>n\times m</m> matrix, we have
+      Now suppose that <m>W</m> is an <m>n</m>-dimensional subspace of
+      <m>\real^m</m> with basis
+      <m>\wvec_1,\wvec_2,\ldots,\wvec_n</m>.  If we form the
+      <m>m\times n</m> matrix <m>A=\begin{bmatrix}\wvec_1 \amp \wvec_2
+      \amp \ldots \amp \wvec_n\end{bmatrix}</m>, then <m>\col(A) = W</m> so that
       <me>
-	\dim W^\perp = \dim N(A^T) = m - \rank(A) = m - \dim W.
+	\rank(A) = \dim\col(A) = \dim W = n\text{.}
       </me>
-      This leads us to the proposition:
     </p>
 
-    <proposition>
+    <p>
+      The transpose <m>A^T</m> is an <m>n\times m</m> matrix having
+      <m>\rank(A^T) = \rank(A)= n</m>.  Since <m>W^\perp =
+      \nul(A^T)</m>, we have
+      <me>
+	\dim W^\perp = \dim\nul(A^T) = m - \rank(A^T) = m-n =
+	m-\dim W\text{.}
+      </me>
+      This explains the following proposition.
+    </p>
+
+    <proposition xml:id="prop-orthog-dim">
       <statement>
 	<p> If <m>W</m> is a subspace of <m>\real^m</m>, then
 	<me>
@@ -868,75 +1046,238 @@
       </statement>
     </proposition>
 
+    <example>
+      <statement>
+	<p> In <xref ref="example-orthog-comp-line"/>, we
+	constructed the orthogonal complement of a line in
+	<m>\real^3</m>.  The dimension of the orthogonal complement
+	should be <m>3 - 1 = 2</m>, which explains why we found the
+	orthogonal complement to be a plane.
+	</p>
+      </statement>
+    </example>
+
+    <example>
+      <statement>
+	<p> In <xref ref="example-orthog-comp-gen" />, we looked at
+	<m>W</m>, a <m>2</m>-dimensional subspace of <m>\real^5</m>
+	and found its orthogonal complement <m>W^\perp</m> to be a
+	<m>5-2=3</m>-dimensional subspace of <m>\real^5</m>.
+	</p>
+      </statement>
+    </example>
+
     <activity>
-      <p>
-	<ol label="a.">
-	  <li>
-	    <p>
-	      Suppose that <m>W</m> is a <m>5</m>-dimensional
-	      subspace of <m>\real^9</m> and that <m>A</m> is a matrix whose
-	      columns form a basis for <m>W</m>;  that is, <m>\col(A) =
-	      W</m>.
-	      <ol label="i.">
-		<li><p> What are the dimensions of <m>A</m>? </p></li>
-		
-		<li><p> What is the rank of <m>A</m>? </p></li>
-		
-		<li><p> What are the dimensions of <m>A^T</m>? </p></li>
-		
-		<li><p> What is the rank of <m>A^T</m>? </p></li>
-		
-		<li><p> What is <m>\dim\nul(A^T)</m>?  </p></li>
-		
-		<li><p> What is <m>\dim W^\perp</m>? </p></li>
-		
-		<li><p> How are the dimensions of <m>W</m> and
-		<m>W^\perp</m> related? </p></li>
-	      </ol>
-	    </p>
-	  </li>
+      <statement>
+	<p>
+	  <ol label="a.">
+	    <li>
+	      <p>
+		Suppose that <m>W</m> is a <m>5</m>-dimensional
+		subspace of <m>\real^9</m> and that <m>A</m> is a matrix whose
+		columns form a basis for <m>W</m>;  that is, <m>\col(A) =
+		W</m>.
+		<ol label="i.">
+		  <li><p> What are the dimensions of <m>A</m>? </p></li>
+		  
+		  <li><p> What is the rank of <m>A</m>? </p></li>
+		  
+		  <li><p> What are the dimensions of <m>A^T</m>? </p></li>
+		  
+		  <li><p> What is the rank of <m>A^T</m>? </p></li>
+		  
+		  <li><p> What is <m>\dim\nul(A^T)</m>?  </p></li>
+		  
+		  <li><p> What is <m>\dim W^\perp</m>? </p></li>
+		  
+		  <li><p> How are the dimensions of <m>W</m> and
+		  <m>W^\perp</m> related? </p></li>
+		</ol>
+	      </p>
+	    </li>
 
-	  <li>
-	    <p>
-	      Suppose that <m>W</m> is a subspace of <m>\real^4</m>
-	      having basis
-	      <me>
-		\wvec_1 = \fourvec102{-1},\hspace{24pt}
-		\wvec_2 = \fourvec{-1}2{-6}3.
-	      </me>
-	      <ol label="i.">
-		<li>
-		  <p>
-		    Find the dimensions <m>\dim W</m> and <m>\dim
-		    W^\perp</m>.
-		  </p>
-		</li>
+	    <li>
+	      <p>
+		Suppose that <m>W</m> is a subspace of <m>\real^4</m>
+		having basis
+		<me>
+		  \wvec_1 = \fourvec102{-1},\hspace{24pt}
+		  \wvec_2 = \fourvec{-1}2{-6}3.
+		</me>
+		<ol label="i.">
+		  <li>
+		    <p>
+		      Find the dimensions <m>\dim W</m> and <m>\dim
+		      W^\perp</m>.
+		    </p>
+		  </li>
 
-		<li>
-		  <p>
-		    Find a basis for <m>W^\perp</m>.  It may be
-		    helpful to know that the Sage command
-		    <c>A.right_kernel()</c> produces a basis for
-		    <m>\nul(A)</m>.
-		    <sage>
-		      <input>
-		      </input>
-		    </sage>
-		  </p>
-		</li>
+		  <li>
+		    <p>
+		      Find a basis for <m>W^\perp</m>.  It may be
+		      helpful to know that the Sage command
+		      <c>A.right_kernel()</c> produces a basis for
+		      <m>\nul(A)</m>.
+		      <sage>
+			<input>
+			</input>
+		      </sage>
+		    </p>
+		  </li>
 
-		<li>
-		  <p>
-		    Verify that each of the basis vectors you found
-		    for <m>W^\perp</m> are orthogonal to the basis
-		    vectors for <m>W</m>.
-		  </p>
-		</li>
-	      </ol>
-	    </p>
-	  </li>
-	</ol>
-      </p>
+		  <li>
+		    <p>
+		      Verify that each of the basis vectors you found
+		      for <m>W^\perp</m> are orthogonal to the basis
+		      vectors for <m>W</m>.
+		    </p>
+		  </li>
+		</ol>
+	      </p>
+	    </li>
+	  </ol>
+	</p>
+      </statement>
+      <solution>
+	<p>
+	  <ol label="a.">
+	    <li>
+	      <p>
+		<ol label="i.">
+		  <li>
+		    <p>
+		      <m>A</m> is <m>9\times 5</m>.
+		    </p>
+		  </li>
+		  <li>
+		    <p>
+		      <m>\rank(A) = 5</m>.
+		    </p>
+		  </li>
+		  <li>
+		    <p>
+		      <m>A^T</m> is <m>5\times 9</m>.
+		    </p>
+		  </li>
+		  <li>
+		    <p>
+		      <m>\rank(A^T) = 5</m>
+		    </p>
+		  </li>
+		  <li>
+		    <p>
+		      <m>\dim \nul(A^T) = 9 - 5 = 4</m>
+		    </p>
+		  </li>
+		  <li>
+		    <p>
+		      <m>\dim W^\perp = \dim\nul(A^T) = 4</m>
+		    </p>
+		  </li>
+		  <li>
+		    <p>
+		      <m>\dim W + \dim W^\perp = 9 </m> since the
+		      subspaces live in <m>\real^9</m>.
+		    </p>
+		  </li>
+		</ol>
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		<ol label="i.">
+		  <li>
+		    <p>
+		      <m>\dim W = 2</m> so <m>\dim W^\perp =
+		      4-2=2</m>.
+		    </p>
+		  </li>
+		  <li>
+		    <p>A basis is
+		    <m>\vvec_1=\fourvec1{-1}01</m> and
+		    <m>\vvec_2=\fourvec0012</m> .
+		    </p>
+		  </li>
+		  <li>
+		    <p>You can verify by computing the four dot
+		    products.
+		    </p>
+		  </li>
+		</ol>
+	      </p>
+	    </li>
+	  </ol>
+	</p>
+      </solution>
+      <answer>
+	<p>
+	  <ol label="a.">
+	    <li>
+	      <p>
+		<ol label="i.">
+		  <li>
+		    <p>
+		      <m>9\times 5</m>
+		    </p>
+		  </li>
+		  <li>
+		    <p>
+		      <m>5</m>
+		    </p>
+		  </li>
+		  <li>
+		    <p>
+		      <m>5\times 9</m>
+		    </p>
+		  </li>
+		  <li>
+		    <p>
+		      <m>5</m>
+		    </p>
+		  </li>
+		  <li>
+		    <p>
+		      <m>4</m>
+		    </p>
+		  </li>
+		  <li>
+		    <p>
+		      <m>4</m>
+		    </p>
+		  </li>
+		  <li>
+		    <p>
+		      <m>\dim W + \dim W^\perp = 9 </m>
+		    </p>
+		  </li>
+		</ol>
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		<ol label="i.">
+		  <li>
+		    <p>
+		      <m>2</m> 
+		    </p>
+		  </li>
+		  <li>
+		    <p>
+		    <m>\fourvec1{-1}01</m> and
+		    <m>\fourvec0012</m> .
+		    </p>
+		  </li>
+		  <li>
+		    <p>Verify by computing the four dot
+		    products.
+		    </p>
+		  </li>
+		</ol>
+	      </p>
+	    </li>
+	  </ol>
+	</p>
+      </answer>
     </activity>
 
   </subsection>

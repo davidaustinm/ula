@@ -4,6 +4,12 @@ var reset = document.getElementById("reset");
 reset.onclick = function() {
     left.resetBaseTransform();
     right.resetBaseTransform();
+    sliders[0].reset(1);
+    sliders[1].reset(0);
+    sliders[2].reset(0);
+    sliders[3].reset(0);
+    sliders[4].reset(1);
+    sliders[5].reset(0);
     update();
 }
 var compose = document.getElementById("compose");
