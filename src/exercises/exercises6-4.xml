@@ -37,26 +37,136 @@
 	</ol>
       </p>
     </statement>
+
+    <solution>
+      <p>
+	<ol label="a.">
+	  <li>
+	    <p>
+	      <m>\wvec_1=\threevec111</m> and <m>\wvec_2 =
+	      \threevec2{-1}{-1}</m>
+	    </p>
+	  </li>
+	  <li>
+	    <p>
+	      <m>\uvec_1=\threevec{1/\sqrt{3}}{1/\sqrt{3}}{1/\sqrt{3}}</m>
+	      and <m>\uvec_2 =
+	      \threevec{2/\sqrt{6}}{-1/\sqrt{6}}{-1/\sqrt{6}}</m>
+	    </p>
+	  </li>
+	  <li>
+	    <p>
+	      <m>P = \begin{bmatrix}
+	      1 \amp 0 \amp 0 \\
+	      0 \amp 1/2 \amp 1/2 \\
+	      0 \amp 1/2 \amp 1/2 \\
+	      \end{bmatrix}
+	      </m>
+	    </p>
+	  </li>
+	  <li>
+	    <p>
+	      <m>\threevec311</m>
+	    </p>
+	  </li>
+	</ol>
+      </p>
+    </solution>
+		
+    <answer>
+      <p>
+	<ol label="a.">
+	  <li>
+	    <p>
+	      <m>\wvec_1=\threevec111</m> and <m>\wvec_2 =
+	      \threevec2{-1}{-1}</m>
+	    </p>
+	  </li>
+	  <li>
+	    <p>
+	      <m>\uvec_1=\threevec{1/\sqrt{3}}{1/\sqrt{3}}{1/\sqrt{3}}</m>
+	      and <m>\uvec_2 =
+	      \threevec{2/\sqrt{6}}{-1/\sqrt{6}}{-1/\sqrt{6}}</m>
+	    </p>
+	  </li>
+	  <li>
+	    <p>
+	      <m>P = \begin{bmatrix}
+	      1 \amp 0 \amp 0 \\
+	      0 \amp 1/2 \amp 1/2 \\
+	      0 \amp 1/2 \amp 1/2 \\
+	      \end{bmatrix}
+	      </m>
+	    </p>
+	  </li>
+	  <li>
+	    <p>
+	      <m>\threevec311</m>
+	    </p>
+	  </li>
+	</ol>
+      </p>
+    </answer>
+		
   </exercise>
 
   <exercise>
     <statement>
       <p>
-	Suppose that
+	Find the <m>QR</m> factorization of 
 	<m>A=\begin{bmatrix}
 	4 \amp 7 \\
 	-2 \amp 4 \\
 	4 \amp 4
 	\end{bmatrix}
-	</m> and 
+	</m>.
+      </p>
+    </statement>
+
+    <solution>
+      <p>
+	Applying Gram-Schmidt, we have
+	<m>\wvec_1=\threevec4{-2}4</m> and
+	<m>\wvec_2=\threevec360</m>, which
+	leads to
+	<m>\uvec_1=\threevec{2/3}{-1/3}{2/3}</m>
+	and
+	<m>\uvec_2=\threevec{1/\sqrt{5}}{2/\sqrt{5}}0</m>.
+	It therefore follows that
+	<m>\vvec_1 = 6\uvec_1</m> and 
+	<m>\vvec_2 = 6\uvec_1 + 3\sqrt{5}\uvec_2</m>.
+      </p>
+      <p>
+	This leads to <m>A=QR</m> where
 	<m>Q=\begin{bmatrix}
 	2/3 \amp 1/\sqrt{5} \\
 	-1/3 \amp 2/\sqrt{5} \\
 	2/3 \amp 0 
+	\end{bmatrix}</m> and
+	<m>
+	R = \begin{bmatrix}
+	6 \amp 6 \\
+	0 \amp 3\sqrt{5}
 	\end{bmatrix}
-	</m>, find the matrix <m>R</m> such that <m>A=QR</m>.
+	</m>.
       </p>
-    </statement>
+      
+    </solution>
+
+    <answer>
+      <p>
+	<m>Q=\begin{bmatrix}
+	2/3 \amp 1/\sqrt{5} \\
+	-1/3 \amp 2/\sqrt{5} \\
+	2/3 \amp 0 
+	\end{bmatrix}</m>
+	and <m>R = \begin{bmatrix}
+	6 \amp 6 \\
+	0 \amp 3\sqrt{5}
+	\end{bmatrix}
+	</m>
+      </p>
+    </answer>
   </exercise>
 
   <exercise>
@@ -119,6 +229,117 @@
 	</ol>
       </p>
     </statement>
+
+    <solution>
+      <p>
+	<ol label="a.">
+	  <li>
+	    <p>
+	      We find that
+	      <me>
+		\uvec_1=\threevec{1/\sqrt{3}}{-1/\sqrt{3}}{1/\sqrt{3}},
+		\hspace{24pt}
+		\uvec_2=\threevec{-1/\sqrt{2}}{-1/\sqrt{2}}{0},
+		\hspace{24pt}
+		\uvec_3=\threevec{1/\sqrt{6}}{-1/\sqrt{6}}{-2/\sqrt{6}},
+	      </me>
+	    </p>
+	  </li>
+	  <li>
+	    <p>
+	      <me>
+		Q = \begin{bmatrix}
+		1/\sqrt{3} \amp -1/\sqrt{2} \amp 1/\sqrt{6} \\
+		-1/\sqrt{3} \amp -1/\sqrt{2} \amp -1/\sqrt{6} \\
+		1/\sqrt{3} \amp 0 \amp -2/\sqrt{6} \\
+		\end{bmatrix},\hspace{24pt}
+		R = \begin{bmatrix}
+		2\sqrt{3} \amp \sqrt{3} \amp -\sqrt{3} \\
+		0 \amp 2\sqrt{2} \amp -\sqrt{2} \\
+		0 \amp 0 \amp 2\sqrt{6}
+		\end{bmatrix}
+	      </me>
+	    </p>
+	  </li>
+	  <li>
+	    <p>
+	      <ol label="i.">
+		<li>
+		  <p>		    
+		    Since <m>Q^TQ = I</m>, we have <m>\yvec = Q^T\bvec</m>.
+		  </p>
+		</li>
+		<li>
+		  <p>
+		    <m>R</m> is upper triangular so this equation can
+		    be solved using back substitution.
+		  </p>
+		</li>
+		<li>
+		  <p>
+		    <m>\xvec = \threevec{-2}1{-2}</m>
+		  </p>
+		</li>
+	      </ol>
+	    </p>
+	  </li>
+	</ol>
+      </p>
+    </solution>
+    <answer>
+      <p>
+	<ol label="a.">
+	  <li>
+	    <p>
+	      <me>
+		\uvec_1=\threevec{1/\sqrt{3}}{-1/\sqrt{3}}{1/\sqrt{3}},
+		\hspace{24pt}
+		\uvec_2=\threevec{-1/\sqrt{2}}{-1/\sqrt{2}}{0},
+		\hspace{24pt}
+		\uvec_3=\threevec{1/\sqrt{6}}{-1/\sqrt{6}}{-2/\sqrt{6}},
+	      </me>
+	    </p>
+	  </li>
+	  <li>
+	    <p>
+	      <me>
+		Q = \begin{bmatrix}
+		1/\sqrt{3} \amp -1/\sqrt{2} \amp 1/\sqrt{6} \\
+		-1/\sqrt{3} \amp -1/\sqrt{2} \amp -1/\sqrt{6} \\
+		1/\sqrt{3} \amp 0 \amp -2/\sqrt{6} \\
+		\end{bmatrix},\hspace{24pt}
+		R = \begin{bmatrix}
+		2\sqrt{3} \amp \sqrt{3} \amp -\sqrt{3} \\
+		0 \amp 2\sqrt{2} \amp -\sqrt{2} \\
+		0 \amp 0 \amp 2\sqrt{6}
+		\end{bmatrix}
+	      </me>
+	    </p>
+	  </li>
+	  <li>
+	    <p>
+	      <ol label="i.">
+		<li>
+		  <p>		    
+		    <m>\yvec = Q^T\bvec</m>.
+		  </p>
+		</li>
+		<li>
+		  <p>
+		    <m>R</m> is upper triangular
+		  </p>
+		</li>
+		<li>
+		  <p>
+		    <m>\xvec = \threevec{-2}1{-2}</m>
+		  </p>
+		</li>
+	      </ol>
+	    </p>
+	  </li>
+	</ol>
+      </p>
+    </answer>
   </exercise>
 	    
   <exercise>
@@ -165,6 +386,88 @@
 	</ol>
       </p>
     </statement>
+
+    <solution>
+      <p>
+	<ol label="a.">
+	  <li>
+	    <p>
+	      Applying Gram-Schmidt gives us
+	      <me>
+		\wvec_1 =\fivevec1{-1}{-1}11,\hspace{24pt}
+		\wvec_2 =\fivevec303{-3}3,\hspace{24pt}
+		\wvec_3 =\fivevec2022{-2},\hspace{24pt}
+	      </me>
+	    </p>
+	  </li>
+	  <li>
+	    <p>
+	      Let <m>Q</m> be the matrix whose columns are the
+	      orthonormal basis that results from Gram-Schmidt.  Then
+	      <me>
+		QQ^T = \begin{bmatrix}
+		7/10 \amp -1/5 \amp 3/10 \amp 1/5 \amp 1/5 \\
+		-1/5 \amp 1/5 \amp 1/5 \amp -1/5\amp -1/5 \\
+		3/10 \amp 1/5 \amp 7/10 \amp -1/5 \amp -1/5 \\
+		1/5 \amp -1/5 \amp -1/5 \amp 7/10 \amp -3/10 \\
+		1/5 \amp -1/5 \amp -1/5 \amp -3/10 \amp 7/10 \\
+		\end{bmatrix}
+	      </me>
+	    </p>
+	  </li>
+	  <li>
+	    <p>
+	      <m>\bhat = QQ^T\bvec = \fivevec{-9}{-1}{-11}{7}{-5}</m>
+	    </p>
+	  </li>
+	  <li>
+	    <p>
+	      <m>\bhat = \vvec_1 - \frac83\vvec_2 -\vvec_3</m>
+	    </p>
+	  </li>
+	</ol>
+      </p>
+    </solution>
+	      
+    <answer>
+      <p>
+	<ol label="a.">
+	  <li>
+	    <p>
+	      <me>
+		\wvec_1 =\fivevec1{-1}{-1}11,\hspace{24pt}
+		\wvec_2 =\fivevec303{-3}3,\hspace{24pt}
+		\wvec_3 =\fivevec2022{-2},\hspace{24pt}
+	      </me>
+	    </p>
+	  </li>
+	  <li>
+	    <p>
+	      <me>
+		\begin{bmatrix}
+		7/10 \amp -1/5 \amp 3/10 \amp 1/5 \amp 1/5 \\
+		-1/5 \amp 1/5 \amp 1/5 \amp -1/5\amp -1/5 \\
+		3/10 \amp 1/5 \amp 7/10 \amp -1/5 \amp -1/5 \\
+		1/5 \amp -1/5 \amp -1/5 \amp 7/10 \amp -3/10 \\
+		1/5 \amp -1/5 \amp -1/5 \amp -3/10 \amp 7/10 \\
+		\end{bmatrix}
+	      </me>
+	    </p>
+	  </li>
+	  <li>
+	    <p>
+	      <m>\bhat = \fivevec{-9}{-1}{-11}{7}{-5}</m>
+	    </p>
+	  </li>
+	  <li>
+	    <p>
+	      <m>\bhat = \vvec_1 - \frac83\vvec_2 -\vvec_3</m>
+	    </p>
+	  </li>
+	</ol>
+      </p>
+    </answer>
+	      
   </exercise>
 
   <exercise>
@@ -192,6 +495,54 @@
 	</ol>
       </p>
     </statement>
+
+    <solution>
+      <p>
+	<ol label="a.">
+	  <li>
+	    <p>
+	      We find
+	      <me>
+		\wvec_1 = \threevec211,\hspace{24pt}
+		\wvec_2 = \threevec{-1}11,\hspace{24pt}
+		\wvec_3 = \threevec000
+	      </me>
+	      Since <m>\wvec_3=\zerovec</m>, this does not produce a
+	      basis for <m>\real^3</m>.
+	    </p>
+	  </li>
+	  <li>
+	    <p>
+	      The vector <m>\vvec_3=2\vvec_1-\vvec_2</m> so this set
+	      of vectors is linearly dependent.  Since <m>\vvec_3</m>
+	      is in the span of <m>\vvec_1</m> and <m>\vvec_2</m>,
+	      projecting <m>\vvec_3</m> into that subspace gives
+	      <m>\widehat{\vvec}_3 = \vvec_3</m> so that
+	      <m>\wvec_3 = \vvec_3 - \widehat{\vvec}_3 =
+	      \zerovec</m>.
+	    </p>
+	  </li>
+	</ol>
+      </p>
+    </solution>
+
+    <answer>
+      <p>
+	<ol label="a.">
+	  <li>
+	    <p>
+	      We find <m>\wvec=\zerovec</m>.
+	    </p>
+	  </li>
+	  <li>
+	    <p>
+	      This set
+	      of vectors is linearly dependent.
+	    </p>
+	  </li>
+	</ol>
+      </p>
+    </answer>
   </exercise>
 
   <exercise>
@@ -235,6 +586,58 @@
 	</ol>
       </p>
     </statement>
+    <solution>
+      <p>
+	<ol label="a.">
+	  <li>
+	    <p>
+	      True.  Since <m>Q^TQ=I</m>, we have <m>Q^TA = Q^TQR =
+	      R</m>.
+	    </p>
+	  </li>
+	  <li>
+	    <p>
+	      True.  Since <m>R</m> is upper triangular and the
+	      diagonal entries of <m>R</m> are the lengths of the
+	      nonzero vectors <m>\wvec_j</m>, we have <m>\det(R)\neq
+	      0</m>, which means that <m>R</m> is invertible.
+	    </p>
+	  </li>
+	  <li>
+	    <p>
+	      False, because <m>Q^TQ=I</m>.
+	    </p>
+	  </li>
+	  <li>
+	    <p>
+	      True. In fact, they are an orthonormal basis for
+	      <m>\col(A)</m>.
+	    </p>
+	  </li>
+	  <li>
+	    <p>
+	      True.  If <m>Q^T\xvec = \zerovec</m>, then
+	      <m>\uvec_i\cdot\xvec=0</m> for every vector in an
+	      orthonormal basis of <m>\col(A)</m>.  Therefore,
+	      <m>\xvec</m> is orthogonal to <m>\col(A)</m>.
+	    </p>
+	  </li>
+	</ol>
+      </p>
+    </solution>
+
+    <answer>
+      <p>
+	<ol label="a.">
+	  <li><p> True </p></li>
+	  <li><p> True </p></li>
+	  <li><p> False </p></li>
+	  <li><p> True </p></li>
+	  <li><p> True </p></li>
+	</ol>
+      </p>
+    </answer>
+	      
   </exercise>
   
   <exercise>
@@ -245,20 +648,20 @@
 	<ol label="a.">
 	  <li>
 	    <p>
-	      What is the shape of the product <m>QQ^T</m>?  Explain
+	      What are the dimensions of the product <m>QQ^T</m>?  Explain
 	      the significance of this product.
 	    </p>
 	  </li>
 
 	  <li>
 	    <p>
-	      What is the shape of the product <m>Q^TQ</m>?  Explain
+	      What are the dimensions of the product <m>Q^TQ</m>?  Explain
 	      the significance of this product.
 	    </p>
 	  </li>
 	  <li>
 	    <p>
-	      What is the shape of the matrix <m>R</m>?
+	      What are the dimensions of the matrix <m>R</m>?
 	    </p>
 	  </li>
 	  <li>
@@ -270,6 +673,63 @@
 	</ol>
       </p>
     </statement>
+    <solution>
+      <p>
+	<ol label="a.">
+	  <li>
+	    <p>
+	      <m>QQ^T</m> is <m>7\times7</m> and projects vectors
+	      orthogonally onto <m>\col(A)</m>.
+	    </p>
+	  </li>
+	  <li>
+	    <p>
+	      <m>Q^TQ</m> is the <m>4\times4</m> identity matrix
+	      because the product computes dot products between the
+	      columns of <m>Q</m>.
+	    </p>
+	  </li>
+	  <li>
+	    <p>
+	      <m>R</m> is a <m>4\times4</m> upper triangular matrix.
+	    </p>
+	  </li>
+	  <li>
+	    <p>
+	      The columns of <m>A</m> are orthogonal to one another.
+	    </p>
+	  </li>
+	</ol>
+      </p>
+    </solution>
+
+    <answer>
+      <p>
+	<ol label="a.">
+	  <li>
+	    <p>
+	      <m>7\times7</m>
+	    </p>
+	  </li>
+	  <li>
+	    <p>
+	      <m>4\times4</m>
+	    </p>
+	  </li>
+	  <li>
+	    <p>
+	      <m>4\times4</m>
+	    </p>
+	  </li>
+	  <li>
+	    <p>
+	      They are orthogonal.
+	    </p>
+	  </li>
+	</ol>
+      </p>
+    </answer>
+	    
   </exercise>
 
   <exercise>
@@ -299,14 +759,71 @@
 	  </li>
 	  <li>
 	    <p>
-	      Explain why the angle between <m>\avec_i</m> and
-	      <m>\avec_j</m> is the same as the angle between
-	      <m>\rvec_i</m> and <m>\rvec_j</m>.
+	      Explain why the dot product <m>\avec_i\cdot\avec_j =
+	      \rvec_i\cdot\rvec_j</m>. 
 	    </p>
 	  </li>
 	</ol>
       </p>
     </statement>
+
+    <solution>
+      <p>
+	<ol label="a.">
+	  <li>
+	    <p>
+	      The entries of <m>A^TA</m> are the dot products
+	      <m>\avec_i\cdot\avec_j</m>.
+	    </p>
+	  </li>
+	  <li>
+	    <p>
+	      The entries of <m>R^TR</m> are the dot products
+	      <m>\rvec_i\cdot\rvec_j</m>.
+	    </p>
+	  </li>
+	  <li>
+	    <p>
+	      <m>A^TA = (QR)^T(QR) = R^TQ^TQR = R^TIR = R^TR</m>
+	    </p>
+	  </li>
+	  <li>
+	    <p>
+	      This follows from the previous parts of this exercise.
+	    </p>
+	  </li>
+	</ol>
+      </p>
+    </solution>
+
+    <answer>
+      <p>
+	<ol label="a.">
+	  <li>
+	    <p>
+	      <m>\avec_i\cdot\avec_j</m>
+	    </p>
+	  </li>
+	  <li>
+	    <p>
+	      <m>\rvec_i\cdot\rvec_j</m>
+	    </p>
+	  </li>
+	  <li>
+	    <p>
+	      <m>A^TA = (QR)^T(QR) = R^TR</m>
+	    </p>
+	  </li>
+	  <li>
+	    <p>
+	      This follows from the previous parts of this exercise.
+	    </p>
+	  </li>
+	</ol>
+      </p>
+    </answer>
+	      
+    
   </exercise>
 
 </exercises>

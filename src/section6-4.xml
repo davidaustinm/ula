@@ -6,11 +6,12 @@
 
   <introduction>
     <p>
-      In the last section, we saw the value of working with
-      orthogonal, and especially orthonormal, bases.  If we have an
+      The last section demonstrated the value of working with
+      orthogonal, and especially orthonormal, sets.  If we have an
       orthogonal basis <m>\wvec_1,\wvec_2,\ldots,\wvec_n</m> for a
-      subspace <m>W</m>, the projection formula of <xref
-      ref="prop-proj-formula" /> tells us that the orthogonal projection
+      subspace <m>W</m>, the <xref
+      ref="prop-proj-formula">Projection Formula</xref>
+      tells us that the orthogonal projection
       of a vector <m>\bvec</m> onto <m>W</m> is
       <me>
 	\bhat =
@@ -19,20 +20,21 @@
 	\ldots + 
 	\frac{\bvec\cdot\wvec_n}{\wvec_n\cdot\wvec_n}~\wvec_n\text{.}
       </me>
-      An orthonormal basis <m>\uvec_1,\uvec_2,\ldots,\uvec_n</m>,
-      is even more convenient:  we form the matrix
+      An orthonormal basis <m>\uvec_1,\uvec_2,\ldots,\uvec_n</m>
+      is even more convenient:  after forming the matrix
       <m>Q=\begin{bmatrix} \uvec_1 \amp \uvec_2 \amp \ldots \amp
       \uvec_n
-      \end{bmatrix}</m> so that <m>\bhat = QQ^T\bvec</m>.
+      \end{bmatrix}</m>, we have <m>\bhat = QQ^T\bvec</m>.
     </p>
       
     <p>
       In the examples we've seen so far, however, orthogonal bases
       were given to us.  What we need now is a way to form orthogonal
       bases.  In this section, we'll explore an algorithm that begins
-      with a basis for a subspace and uses it to find an orthogonal
-      basis. Once we have an orthogonal basis, we can scale each of
-      the vectors appropriately to produce an orthonormal basis.
+      with a basis for a subspace and creates an
+      orthogonal basis. Once we have an orthogonal basis, we can scale
+      each of the vectors appropriately to produce an orthonormal
+      basis.
     </p>
 
     <exploration>
@@ -117,7 +119,7 @@
       <idx>Gram-Schmidt</idx> The preview activity illustrates the
       main idea behind an algorithm, known as <em>Gram-Schmidt
       orthogonalization</em>, that begins with a basis for some subspace
-      of <m>\real^n</m> and produces an orthogonal or orthonormal basis.
+      of <m>\real^m</m> and produces an orthogonal or orthonormal basis.
       The algorithm relies on our construction of the orthogonal
       projection.  Remember that we formed the orthogonal projection
       <m>\bhat</m> of <m>\bvec</m> onto a subspace <m>W</m> by requiring
@@ -144,163 +146,303 @@
     </p>
 
     <activity xml:id="activity-gram-schmidt">
-      <p>
-	Suppose that <m>W</m> is a three-dimensional subspace of
-	<m>\real^4</m> with basis:
-	<me>
-	  \vvec_1 = \fourvec1111,\hspace{24pt}
-	  \vvec_2 = \fourvec1322,\hspace{24pt}
-	  \vvec_3 = \fourvec1{-3}{-3}{-3}\text{.}
-	</me>
-	Our goal is to create an orthogonal basis <m>\wvec_1</m>,
-	<m>\wvec_2</m>, and <m>\wvec_3</m> for the subspace <m>W</m>.
-	<sage>
-	  <input>
-	  </input>
-	</sage>
-	<ol label="a.">
-	  <li>
-	    <p>
-	      First, notice that the original basis <m>\vvec_1</m>,
-	      <m>\vvec_2</m>, and <m>\vvec_3</m> is not orthogonal by
-	      computing <m>\vvec_1\cdot\vvec_2</m>.
-	    </p>
-	  </li>
+      <statement>
+	<p>
+	  Suppose that <m>W</m> is a three-dimensional subspace of
+	  <m>\real^4</m> with basis:
+	  <me>
+	    \vvec_1 = \fourvec1111,\hspace{24pt}
+	    \vvec_2 = \fourvec1322,\hspace{24pt}
+	    \vvec_3 = \fourvec1{-3}{-3}{-3}\text{.}
+	  </me>
+	  We can see that this basis is not orthogonal by noting that
+	  <m>\vvec_1\cdot\vvec_2 = 8</m>.  Our goal is to create an
+	  orthogonal basis <m>\wvec_1</m>, <m>\wvec_2</m>, and
+	  <m>\wvec_3</m> for <m>W</m>.
+	</p>
+	<p>
+	  To begin, we declare that <m>\wvec_1=\vvec_1</m>, and we
+	  call <m>W_1</m> the line defined by <m>\wvec_1</m>.
+	</p>
+	<p>
+	  <sage>
+	    <input>
+	    </input>
+	  </sage>
+	  <ol label="a.">
+	    <li>
+	      <p>
+		Find the vector <m>\vhat_2</m> that is the orthogonal
+		projection of <m>\vvec_2</m> onto <m>W_1</m>, the line
+		defined by <m>\wvec_1</m>.
+	      </p>
+	    </li>
 
-	  <li>
-	    <p>
-	      We will now begin to create our new basis
-	      <m>\wvec_1</m>, <m>\wvec_2</m>, and <m>\wvec_3</m> by
-	      declaring <m>\wvec_1=\vvec_1</m>.  We call <m>W_1</m> the line
-	      defined by <m>\wvec_1</m>.
-	    </p>
+	    <li>
+	      <p>
+		Form the vector <m>\wvec_2 = \vvec_2-\vhat_2</m> and
+		verify that it is orthogonal to <m>\wvec_1</m>.
+	      </p>
+	    </li>
+	    
+	    <li>
+	      <p>
+		Explain why <m>\laspan{\wvec_1,\wvec_2} =
+		\laspan{\vvec_1,\vvec_2}</m> by showing that any linear
+		combination of <m>\vvec_1</m> and <m>\vvec_2</m> can be
+		written as a linear combination of <m>\wvec_1</m> and
+		<m>\wvec_2</m> and vice versa.
+	      </p>
+	    </li>
 
-	    <p>
-	      Find the vector <m>\vhat_2</m> that is the orthogonal
-	      projection of <m>\vvec_2</m> onto <m>W_1</m>, the line
-	      defined by <m>\wvec_1</m>.
-	    </p>
-	  </li>
+	    <li>
+	      <p>
+		The vectors <m>\wvec_1</m> and <m>\wvec_2</m> are an
+		orthogonal basis for a two-dimensional subspace <m>W_2</m> of
+		<m>\real^4</m>.  Find the vector <m>\vhat_3</m> that is the
+		orthogonal projection of <m>\vvec_3</m> onto <m>W_2</m>.
+	      </p>
+	    </li>
 
-	  <li>
-	    <p>
-	      Form the vector <m>\wvec_2 = \vvec_2-\vhat_2</m> and
-	      verify that it is orthogonal to <m>\wvec_1</m>.
-	    </p>
-	  </li>
-	  
-	  <li>
-	    <p>
-	      Explain why <m>\span{\wvec_1,\wvec_2} =
-	      \span{\vvec_1,\vvec_2}</m> by showing that any linear
-	      combination of <m>\vvec_1</m> and <m>\vvec_2</m> can be
-	      written as a linear combination of <m>\wvec_1</m> and
-	      <m>\wvec_2</m> and vice versa.
-	    </p>
-	  </li>
+	    <li>
+	      <p>
+		Verify that <m>\wvec_3 = \vvec_3-\vhat_3</m> is
+		orthogonal to both <m>\wvec_1</m> and
+		<m>\wvec_2</m>.
+	      </p>
+	    </li>
 
-	  <li>
-	    <p>
-	      The vectors <m>\wvec_1</m> and <m>\wvec_2</m> are an
-	      orthogonal basis for a two-dimensional subspace <m>W_2</m> of
-	      <m>\real^4</m>.  Find the vector <m>\vhat_3</m> that is the
-	      orthogonal projection of <m>\vvec_3</m> onto <m>W_2</m>.
-	    </p>
-	  </li>
+	    <li>
+	      <p>
+		Explain why <m>\wvec_1</m>, <m>\wvec_2</m>, and
+		<m>\wvec_3</m> form an orthogonal basis for <m>W</m>.
+	      </p>
+	    </li>
 
-	  <li>
-	    <p>
-	      Verify that <m>\wvec_3 = \vvec_3-\vhat_3</m> is
-	      orthogonal to both <m>\wvec_1</m> and
-	      <m>\wvec_2</m>.
-	    </p>
-	  </li>
+	    <li>
+	      <p>
+		Now find an orthonormal basis for <m>W</m>.
+	      </p>
+	    </li>
+	  </ol>
+	</p>
+      </statement>
 
-	  <li>
-	    <p>
-	      Explain why <m>\wvec_1</m>, <m>\wvec_2</m>, and
-	      <m>\wvec_3</m> form an orthogonal basis for <m>W</m>.
-	    </p>
-	  </li>
-
-	  <li>
-	    <p>
-	      Now find an orthonormal basis for <m>W</m>.
-	    </p>
-	  </li>
-	</ol>
-      </p>
+      <solution>
+	<p>
+	  <ol label="a.">
+	    <li>
+	      <p>
+		<m>\widehat{\vvec}_2 = \frac{\vvec_2\cdot\wvec_1}
+		{\wvec_1\cdot\wvec_1}\wvec_1=\fourvec2222</m>.
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		<m>\wvec_2 = \fourvec{-1}100</m>
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		We have <m>\vvec_1 = \wvec_1</m> and <m>\vvec_2 =
+		\wvec_2 + 2\wvec_1</m>.  Therefore, a linear
+		combination of <m>\vvec_1</m> and <m>\vvec_1</m> can
+		be rewritten as
+		<me>
+		  c_1\vvec_1+c_2\vvec_2 =
+		  c_1\wvec_1+c_2(\wvec_2+2\wvec_1) =
+		  (c_1+2c_2)\wvec_1 + c_2\wvec_2\text{.}
+		</me>
+		In the same way, <m>\wvec_1=\vvec_1</m> and <m>\wvec_2
+		= \vvec_2-2\vvec_1</m> so any linear combination of
+		<m>\wvec_1</m> and <m>\wvec_2</m> can be rewritten as
+		a linear combination of <m>\vvec_1</m> and
+		<m>\vvec_1</m>.
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		By the Projection Formula, <m>\widehat{\vvec}_3 =
+		\fourvec0{-4}{-2}{-2}</m>.
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		<m>\wvec_3 = \fourvec11{-1}{-1}</m>
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		We can check that <m>\wvec_1</m>, <m>\wvec_2</m>, and
+		<m>\wvec_3</m> form an orthogonal set.  Since
+		<m>\vvec_i</m> can be written in terms of
+		<m>\wvec_j</m> and vice-versa, these new vectors form
+		a basis for <m>W</m>.
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		<me>
+		  \uvec_1=\fourvec{1/2}{1/2}{1/2}{1/2},\hspace{24pt}
+		  \uvec_2=\fourvec{-1/\sqrt{2}}{1/\sqrt{2}}00,\hspace{24pt}
+		  \uvec_3=\fourvec{1/2}{1/2}{-1/2}{-1/2}
+		</me>
+	      </p>
+	    </li>
+	  </ol>
+	</p>
+      </solution>
+		
+      <answer>
+	<p>
+	  <ol label="a.">
+	    <li>
+	      <p>
+		<m>\widehat{\vvec}_2 = \fourvec2222</m>.
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		<m>\wvec_2 = \fourvec{-1}100</m>
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		We have <m>\vvec_1 = \wvec_1</m> and <m>\vvec_2 =
+		\wvec_2 + 2\wvec_1</m> so a linear
+		combination of <m>\vvec_1</m> and <m>\vvec_1</m> can
+		be rewritten as a linear combination of <m>\wvec_1</m>
+		and <m>\wvec_2</m>.
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		<m>\widehat{\vvec}_3 =
+		\fourvec0{-4}{-2}{-2}</m>.
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		<m>\wvec_3 = \fourvec11{-1}{-1}</m>
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		Since
+		<m>\vvec_i</m> can be written in terms of
+		<m>\wvec_j</m> and vice-versa, these new vectors form
+		a basis for <m>W</m>.
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		<me>
+		  \uvec_1=\fourvec{1/2}{1/2}{1/2}{1/2},\hspace{24pt}
+		  \uvec_2=\fourvec{-1/\sqrt{2}}{1/\sqrt{2}}00,\hspace{24pt}
+		  \uvec_3=\fourvec{1/2}{1/2}{-1/2}{-1/2}
+		</me>
+	      </p>
+	    </li>
+	  </ol>
+	</p>
+      </answer>
+		
     </activity>
 
     <p>
       As this activity illustrates, Gram-Schmidt orthogonalization
       begins with a basis <m>\vvec_1\vvec_2,\ldots,\vvec_n</m> for a
       subspace <m>W</m> of <m>\real^m</m> and creates an orthogonal
-      basis for <m>W</m>.  We begin by declaring <m>\wvec_1</m> to be
-      <m>\vvec_1</m> and <m>W_1</m> the line defined by
-      <m>\wvec_1</m>. 
+      basis for <m>W</m>.  Let's work through a second example.
     </p>
 
-    <p>
-      We form <m>\wvec_2 = \vvec_2-\vhat_2</m> where <m>\vhat_2</m> is
-      the orthogonal projection of <m>\vvec_2</m> onto <m>W_1</m>.
-      By the construction of the orthogonal projection, we know that
-      <m>\wvec_2</m> is orthogonal to the line <m>W_1</m> and hence to
-      the vector <m>\wvec_1</m>.
-    </p>
+    <example xml:id="example-gram-schmidt">
+      <statement>
+	<p>
+	  Let's start with the basis 
+	  <me>
+	    \vvec_1=\threevec{2}{-1}2,\hspace{24pt}
+	    \vvec_2=\threevec{-3}{3}0,\hspace{24pt}
+	    \vvec_3=\threevec{-2}71\text{,}
+	  </me>
+	  which is a basis for <m>\real^3</m>.
+	</p>
+
+	<p>
+	  To get started, we'll simply set
+	  <m>\wvec_1=\vvec_1=\threevec{2}{-1}2</m>.
+	  We construct <m>\wvec_2</m> from <m>\vvec_2</m> by
+	  subtracting its orthogonal projection onto <m>W_1</m>, the
+	  line defined 
+	  by <m>\wvec_1</m>.  This gives
+	  <me>
+	    \wvec_2 = \vvec_2 -
+	    \frac{\vvec_2\cdot\wvec_1}{\wvec_1\cdot\wvec_1}\wvec_1 =
+	    \vvec_2 + \wvec_1 = \threevec{-1}22\text{.}
+	  </me>
+	</p>
+
+	<p>
+	  Notice that we found <m>\vvec_2 = -\wvec_1 + \wvec_2</m>.
+	  Therefore, we can rewrite any linear combination of
+	  <m>\vvec_1</m> and <m>\vvec_2</m> as
+	  <me>
+	    c_1\vvec_1 + c_2\vvec_2 = c_1\wvec_1 + c_2(-\wvec_1+\wvec_2)
+	    = (c_1-c_2)\wvec_1 + c_2\wvec_2\text{,}
+	  </me>
+	  a linear combination of <m>\wvec_1</m> and <m>\wvec_2</m>.
+	  This tells us that
+	  <me>
+	    W_2 = \laspan{\wvec_1,\wvec_2} = 
+	    \laspan{\vvec_1,\vvec_2}\text{.}
+	  </me>
+	  In other words, <m>\wvec_1</m> and <m>\wvec_2</m> is a basis
+	  for the same 2-dimensional subsapce as <m>\vvec_1</m> and
+	  <m>\vvec_2</m>.
+	</p>
+
+	<p>
+	  Finally, we form <m>\wvec_3</m> from <m>\vvec_3</m> by
+	  subtracting its orthogonal projection onto <m>W_2</m>:
+	  <me>
+	    \wvec_3 = \vvec_3 -
+	    \frac{\vvec_3\cdot\wvec_1}{\wvec_1\cdot\wvec_1}\wvec_1 -
+	    \frac{\vvec_3\cdot\wvec_2}{\wvec_2\cdot\wvec_2}\wvec_1
+	    = \vvec_3 + \wvec_1 - 2\wvec_2
+	    = \threevec22{-1}\text{.}
+	  </me>
+	</p>
+
+	<p>
+	  We can now check that
+	  <me>
+	    \wvec_1=\threevec2{-1}2,\hspace{24pt}
+	    \wvec_2=\threevec{-1}22,\hspace{24pt}
+	    \wvec_3=\threevec22{-1},\hspace{24pt}
+	  </me>
+	  is an orthogonal set.  Furthermore, we find that,
+	  as before, <m>\laspan{\wvec_1,\wvec_2,\wvec_3}
+	  = \laspan{\vvec_1,\vvec_2,\vvec_3}</m> so that we have found
+	  a new orthogonal basis for <m>\real^3</m>.
+	</p>
+
+	<p>
+	  To create an orthonormal basis, we form unit vectors
+	  parallel to each of the vectors in the orthogonal basis:
+	  <me>
+	    \uvec_1 = \threevec{2/3}{-1/3}{2/3},\hspace{24pt}
+	    \uvec_2 = \threevec{-1/3}{2/3}{2/3},\hspace{24pt}
+	    \uvec_3 = \threevec{2/3}{2/3}{-1/3}\text{.}
+	  </me>
+	</p>
+      </statement>
+    </example>
 
     <p>
-      In our example, we find that <m>\vhat_2 = 2\wvec_1</m> so that 
-      <md>
-	<mrow>
-	  \wvec_1 \amp = \vvec_1
-	</mrow>
-	<mrow>
-	  \wvec_2 \amp = \vvec_2 - 2\wvec_1,
-	</mrow>
-      </md>
-      which may also be expressed by writing
-      <md>
-	<mrow>
-	  \vvec_1 \amp = \wvec_1
-	</mrow>
-	<mrow>
-	  \vvec_2 \amp = 2\wvec_1 + \wvec_2 
-	</mrow>
-      </md>
-      Therefore, the vectors <m>\vvec_1</m> and <m>\vvec_2</m> are
-      linear combinations of <m>\wvec_1</m> and <m>\wvec_2</m>.  This
-      means that any linear combination of <m>\vvec_1</m> and
-      <m>\vvec_2</m> can be written as a linear combination of
-      <m>\wvec_1</m> and <m>\wvec_2</m>:
-      <me>
-	c_1\vvec_1 + c_2\vvec_2 = c_1\wvec_1 + c_2(2\wvec_1+\wvec_2)
-	= (c_1+2c_2)\wvec_1 + c_2\wvec_2.
-      </me>
-      Similarly, any linear combination of <m>\wvec_1</m> and
-      <m>\wvec_2</m> can be rewritten as a linear combination of
-      <m>\vvec_1</m> and <m>\vvec_2</m> so we have the two-dimensional
-      subspace
-      <me>
-	W_2 = \span{\vvec_1,\vvec_2} =
-	\span{\wvec_1,\wvec_2},
-      </me>
-      and <m>\wvec_1</m> and <m>\wvec_2</m> form an orthogonal basis
-      for <m>W_2</m>.
-    </p>
-
-    <p>
-      We continue using the same idea to expand the list of orthogonal
-      vectors.  We form <m>\vhat_3</m>,
-      the orthogonal projection of <m>\vvec_3</m> onto <m>W_2</m> and
-      define <m>\wvec_3 = \vvec_3 - \vhat_3</m>, which we know will be
-      orthogonal to <m>W_2</m> and hence to both <m>\wvec_1</m> and
-      <m>\wvec_2</m>.
-    </p>
-
-    <p>
-      Continuing in this way by applying the projection formula at
-      each step, we find
+      More generally, if we have a basis
+      <m>\vvec_1,\vvec_2,\ldots,\vvec_n</m> for a subspace <m>W</m> of
+      <m>\real^m</m>, the Gram-Schmidt algorithm creates an orthogonal
+      basis for <m>W</m> in the following way:
       <md>
 	<mrow>
 	  \wvec_1 \amp = \vvec_1
@@ -330,140 +472,245 @@
     </p>
 
     <p>
-      From here, we may form an orthonormal basis by multiplying
-      each orthogonal basis vector <m>\wvec_j</m> by a scalar to obtain
-      a unit vector <m>\uvec_j</m>.  In particular, we have
+      From here, we may form an orthonormal basis by constructing a
+      unit vector parallel to each vector in the orthogonal basis:
       <m>\uvec_j = 1/\len{\wvec_j}~\wvec_j</m>.
     </p>
 
     <activity>
-      <p>
-	Sage can automate these computations for us.  Before
-	we begin, however, it will be helpful to understand how we can
-	combine things using a <c>list</c> in Python.  For
-	instance, if the vectors <c>v1</c>, <c>v2</c>, and <c>v3</c>
-	form a basis for a subspace, we can bundle them together using
-	square brackets: <c>[v1, v2, v3]</c>.  Furthermore, we could
-	assign this to a variable, such as, <c>basis = [v1, v2, v3]</c>.
-      </p>
-
-      <p>
-	Evaluating the following cell will load in some special
-	commands.  
-	<sage>
-	  <input>
+      <statement>
+	<p>
+	  Sage can automate these computations for us.  Before
+	  we begin, however, it will be helpful to understand how we can
+	  combine things using a <c>list</c> in Python.  For
+	  instance, if the vectors <c>v1</c>, <c>v2</c>, and <c>v3</c>
+	  form a basis for a subspace, we can bundle them together using
+	  square brackets: <c>[v1, v2, v3]</c>.  Furthermore, we could
+	  assign this to a variable, such as <c>basis = [v1, v2, v3]</c>.
+	</p>
+	
+	<p>
+	  Evaluating the following cell will load in some special
+	  commands.  
+	  <sage>
+	    <input>
 sage.repl.load.load("https://raw.githubusercontent.com/davidaustinm/ula_modules/master/orthogonality.py", globals())
-	  </input>
-	</sage>
-	<ul>
-	    I
-	  <li>
-	    <p>
-	      There is a command to apply the projection formula:
-	      <c>projection(b, basis)</c> returns the orthogonal
-	      projection of <c>b</c> onto the subspace spanned by
-	      <c>basis</c>, which is a list of vectors.
-	    </p>
-	  </li>
-	  <li>
-	    <p>
-	      The command <c>unit(w)</c> returns a unit vector
-	      parallel to <c>w</c>.
-	    </p>
-	  </li>
-	  <li>
-	    <p>
-	      Given a collection of vectors, say, <c>v1</c> and
-	      <c>v2</c>, we can form the matrix whose columns are
-	      <c>v1</c> and <c>v2</c> using
-	      <c>matrix([v1, v2]).T</c>.  When given a <c>list</c> of
-	      vectors, Sage constructs a matrix whose <em>rows</em>
-	      are the given vectors.  For this reason, we need to apply
-	      the tranpose.
-	    </p>
-	  </li>
-	</ul>
-      </p>
+	    </input>
+	  </sage>
+	  <ul>
+	    <li>
+	      <p>
+		There is a command to apply the projection formula:
+		<c>projection(b, basis)</c> returns the orthogonal
+		projection of <c>b</c> onto the subspace spanned by
+		<c>basis</c>, which is a list of vectors.
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		The command <c>unit(w)</c> returns a unit vector
+		parallel to <c>w</c>.
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		Given a collection of vectors, say, <c>v1</c> and
+		<c>v2</c>, we can form the matrix whose columns are
+		<c>v1</c> and <c>v2</c> using
+		<c>matrix([v1, v2]).T</c>.  When given a <c>list</c> of
+		vectors, Sage constructs a matrix whose <em>rows</em>
+		are the given vectors.  For this reason, we need to apply
+		the tranpose.
+	      </p>
+	    </li>
+	  </ul>
+	</p>
 
-      <p>
-	Let's now consider <m>W</m>, the subspace of <m>\real^5</m>
-	having basis
-	<me>
-	  \vvec_1 = \fivevec{14}{-6}{8}2{-6},\hspace{24pt}
-	  \vvec_2 = \fivevec{5}{-3}{4}3{-7},\hspace{24pt}
-	  \vvec_3 = \fivevec{2}30{-2}1.
-	</me>
+	<p>
+	  Let's now consider <m>W</m>, the subspace of <m>\real^5</m>
+	  having basis
+	  <me>
+	    \vvec_1 = \fivevec{14}{-6}{8}2{-6},\hspace{24pt}
+	    \vvec_2 = \fivevec{5}{-3}{4}3{-7},\hspace{24pt}
+	    \vvec_3 = \fivevec{2}30{-2}1.
+	  </me>
 	  
-	<ol label="a.">
-	  <li>
-	    <p>
-	      Apply the Gram-Schmidt algorithm to find an orthogonal
-	      basis <m>\wvec_1</m>, <m>\wvec_2</m>, and <m>\wvec_3</m>
-	      for <m>W</m>.
-	    </p>
-	    <sage>
-	      <input>
-	      </input>
-	    </sage>
-	  </li>
+	  <ol label="a.">
+	    <li>
+	      <p>
+		Apply the Gram-Schmidt algorithm to find an orthogonal
+		basis <m>\wvec_1</m>, <m>\wvec_2</m>, and <m>\wvec_3</m>
+		for <m>W</m>.
+	      </p>
+	      <sage>
+		<input>
+		</input>
+	      </sage>
+	    </li>
 
-	  <li>
-	    <p>
-	      Find <m>\bhat</m>,
-	      the orthogonal projection of <m>\bvec = 
-	      \fivevec{-5}{11}0{-1}5</m> onto <m>W</m>.
-	    </p>
-	  </li>
+	    <li>
+	      <p>
+		Find <m>\bhat</m>,
+		the orthogonal projection of <m>\bvec = 
+		\fivevec{-5}{11}0{-1}5</m> onto <m>W</m>.
+	      </p>
+	    </li>
 
-	  <li>
-	    <p>
-	      Explain why we know that <m>\bhat</m> is a linear
-	      combination of the 
-	      original vectors <m>\vvec_1</m>, <m>\vvec_2</m>, and
-	      <m>\vvec_3</m> and then find weights so that
-	      <me>
-		\bhat = c_1\vvec_1 + c_2\vvec_2 + c_3\vvec_3.
-	      </me>
-	    </p>
-	  </li>
+	    <li>
+	      <p>
+		Explain why we know that <m>\bhat</m> is a linear
+		combination of the 
+		original vectors <m>\vvec_1</m>, <m>\vvec_2</m>, and
+		<m>\vvec_3</m> and then find weights so that
+		<me>
+		  \bhat = c_1\vvec_1 + c_2\vvec_2 + c_3\vvec_3.
+		</me>
+	      </p>
+	    </li>
 
-	  <li>
-	    <p>
-	      Find an orthonormal basis <m>\uvec_1</m>,
-	      <m>\uvec_2</m>, for <m>\uvec_3</m> for <m>W</m> and form
-	      the matrix <m>Q</m> whose columns are these vectors.
-	    </p>
-	    <sage>
-	      <input>
-	      </input>
-	    </sage>
-	  </li>
+	    <li>
+	      <p>
+		Find an orthonormal basis <m>\uvec_1</m>,
+		<m>\uvec_2</m>, for <m>\uvec_3</m> for <m>W</m> and form
+		the matrix <m>Q</m> whose columns are these vectors.
+	      </p>
+	      <sage>
+		<input>
+		</input>
+	      </sage>
+	    </li>
 
-	  <li>
-	    <p>
-	      Find the product <m>Q^TQ</m> and explain the result.
-	    </p>
-	  </li>
+	    <li>
+	      <p>
+		Find the product <m>Q^TQ</m> and explain the result.
+	      </p>
+	    </li>
 
-	  <li>
-	    <p>
-	      Find the matrix <m>P</m> that projects vectors
-	      orthogonally onto <m>W</m> and verify that <m>P\bvec</m>
-	      gives <m>\bhat</m>, the orthogonal projection that you
-	      found earlier.
-	    </p>
-	  </li>
+	    <li>
+	      <p>
+		Find the matrix <m>P</m> that projects vectors
+		orthogonally onto <m>W</m> and verify that <m>P\bvec</m>
+		gives <m>\bhat</m>, the orthogonal projection that you
+		found earlier.
+	      </p>
+	    </li>
 
-	  <li>
-	    <p>
-	      Find a basis for the orthogonal complement
-	      <m>W^\perp</m>.
-	    </p>
-	  </li>
+	  </ol>
+	</p>
+      </statement>
 
-	</ol>
-      </p>
-
+      <solution>
+	<p>
+	  <ol label="a.">
+	    <li>
+	      <p>
+		<me>
+		  \wvec_1=\fivevec{14}{-6}82{-6},\hspace{24pt}
+		  \wvec_2=\fivevec{-2}{0}02{-4},\hspace{24pt}
+		  \wvec_3=\fivevec130{-1}{-1}
+		</me>
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		<m>\bhat=\fivevec{-4}9{-4}{-4}3</m>
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		We know that <m>\bhat</m> is in <m>W</m> and
+		<m>\vvec_1</m>, <m>\vvec_2</m>, and <m>\vvec_3</m> is
+		a basis for <m>W</m>.  We find
+		<m>\bhat=-\frac34\vvec_1+\frac12\vvec_2+2\vvec_3</m>.
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		<me>
+		  \uvec_1=\fivevec{14/\sqrt{336}}{-6\sqrt{336}}{8/\sqrt{336}}
+		  {2/\sqrt{336}}{-6/\sqrt{336}},\hspace{24pt}
+		  \uvec_2=\fivevec{-2/\sqrt{24}}{0}0{2/\sqrt{24}}{-4/\sqrt{24}},\hspace{24pt}
+		  \uvec_3=\fivevec{1/\sqrt{12}}{3/\sqrt{12}}0{-1/\sqrt{12}}{-1/\sqrt{12}}
+		</me>
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		<m>Q^TQ=I</m> since the matrix product computes the
+		dot products of the columns of <m>Q</m>.
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		<m>P = QQ^T = \begin{bmatrix}
+		5/6 \amp 0 \amp 1/3 \amp -1/6 \amp 0 \\
+		0 \amp 6/7 \amp -1/7 \amp -2/7 \amp -1/7 \\
+		1/3 \amp -1/7 \amp 4/21 \amp 1/21 \amp -1/7 \\
+		-1/6 \amp -2/7 \amp 1/21 \amp 11/42 \amp -2/7 \\
+		0 \amp -1/7 \amp -1/7 \amp -2/7 \amp 6/7
+		\end{bmatrix}
+		</m>
+	      </p>
+	    </li>
+	  </ol>
+	</p>
+      </solution>
+		
+      <answer>
+	<p>
+	  <ol label="a.">
+	    <li>
+	      <p>
+		<me>
+		  \wvec_1=\fivevec{14}{-6}82{-6},\hspace{24pt}
+		  \wvec_2=\fivevec{-2}{0}02{-4},\hspace{24pt}
+		  \wvec_3=\fivevec130{-1}{-1}
+		</me>
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		<m>\bhat=\fivevec{-4}9{-4}{-4}3</m>
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		<m>\bhat=-\frac34\vvec_1+\frac12\vvec_2+2\vvec_3</m>.
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		<me>
+		  \uvec_1=\fivevec{14/\sqrt{336}}{-6\sqrt{336}}{8/\sqrt{336}}
+		  {2/\sqrt{336}}{-6/\sqrt{336}},\hspace{24pt}
+		  \uvec_2=\fivevec{-2/\sqrt{24}}{0}0{2/\sqrt{24}}
+		  {-4/\sqrt{24}},\hspace{24pt}
+		  \uvec_3=\fivevec{1/\sqrt{12}}{3/\sqrt{12}}0
+		  {-1/\sqrt{12}}{-1/\sqrt{12}}
+		</me>
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		<m>Q^TQ=I</m>
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		<m>P = QQ^T = \begin{bmatrix}
+		5/6 \amp 0 \amp 1/3 \amp -1/6 \amp 0 \\
+		0 \amp 6/7 \amp -1/7 \amp -2/7 \amp -1/7 \\
+		1/3 \amp -1/7 \amp 4/21 \amp 1/21 \amp -1/7 \\
+		-1/6 \amp -2/7 \amp 1/21 \amp 11/42 \amp -2/7 \\
+		0 \amp -1/7 \amp -1/7 \amp -2/7 \amp 6/7
+		\end{bmatrix}
+		</m>
+	      </p>
+	    </li>
+	  </ol>
+	</p>
+      </answer>
+		
     </activity>
 
   </subsection>
@@ -479,201 +726,276 @@ sage.repl.load.load("https://raw.githubusercontent.com/davidaustinm/ula_modules/
     </p>
 
     <activity>
-      <p>
-	Suppose that <m>A</m> is the <m>4\times3</m> matrix whose
-	columns are
-	<me>
-	  \vvec_1 = \fourvec1111,\hspace{24pt}
-	  \vvec_2 = \fourvec1322,\hspace{24pt}
-	  \vvec_3 = \fourvec1{-3}{-3}{-3}\text{.}
-	</me>
-	These vectors form a basis for <m>W</m>, the subspace of
-	<m>\real^4</m> that we encountered in <xref
-	ref="activity-gram-schmidt" />.  Since these vectors are the
-	columns of <m>A</m>, we have <m>\col(A) = W</m>.
-	<sage>
-	  <input>
-	  </input>
-	</sage>
-	<ol label="a.">
-	  <li>
-	    <p>
-	      When we implemented Gram-Schmidt, we first found an
-	      orthogonal basis <m>\wvec_1</m>, <m>\wvec_2</m>, and
-	      <m>\wvec_3</m> using
-	      <me>
-		\begin{aligned}
-		\wvec_1 \amp = \vvec_1 \\
-		\wvec_2 \amp = \vvec_2 -
-		\frac{\vvec_2\cdot\wvec_1}{\wvec_1\cdot\wvec_1}\wvec_1 \\
-		\wvec_3 \amp = \vvec_3 -
-		\frac{\vvec_3\cdot\wvec_1}{\wvec_1\cdot\wvec_2}\wvec_1 -
-		\frac{\vvec_3\cdot\wvec_2}{\wvec_2\cdot\wvec_2}\wvec_2\text{.}
-		\\
-		\end{aligned}
-	      </me>
-	      Use these expressions to write <m>\vvec_1</m>,
-	      <m>\vvec_1</m>, and 
-	      <m>\vvec_3</m> as linear combinations of <m>\wvec_1</m>,
-	      <m>\wvec_2</m>, and <m>\wvec_3</m>.
-	    </p>
-	  </li>
+      <statement>
+	<p>
+	  Suppose that <m>A</m> is the <m>4\times3</m> matrix whose
+	  columns are
+	  <me>
+	    \vvec_1 = \fourvec1111,\hspace{24pt}
+	    \vvec_2 = \fourvec1322,\hspace{24pt}
+	    \vvec_3 = \fourvec1{-3}{-3}{-3}\text{.}
+	  </me>
+	  These vectors form a basis for <m>W</m>, the subspace of
+	  <m>\real^4</m> that we encountered in <xref
+	  ref="activity-gram-schmidt" />.  Since these vectors are the
+	  columns of <m>A</m>, we have <m>\col(A) = W</m>.
+	  <sage>
+	    <input>
+	    </input>
+	  </sage>
+	  <ol label="a.">
+	    <li>
+	      <p>
+		When we implemented Gram-Schmidt, we first found an
+		orthogonal basis <m>\wvec_1</m>, <m>\wvec_2</m>, and
+		<m>\wvec_3</m> using
+		<me>
+		  \begin{aligned}
+		  \wvec_1 \amp = \vvec_1 \\
+		  \wvec_2 \amp = \vvec_2 -
+		  \frac{\vvec_2\cdot\wvec_1}{\wvec_1\cdot\wvec_1}\wvec_1 \\
+		  \wvec_3 \amp = \vvec_3 -
+		  \frac{\vvec_3\cdot\wvec_1}{\wvec_1\cdot\wvec_2}\wvec_1 -
+		  \frac{\vvec_3\cdot\wvec_2}{\wvec_2\cdot\wvec_2}\wvec_2\text{.}
+		  \\
+		  \end{aligned}
+		</me>
+		Use these expressions to write <m>\vvec_1</m>,
+		<m>\vvec_1</m>, and 
+		<m>\vvec_3</m> as linear combinations of <m>\wvec_1</m>,
+		<m>\wvec_2</m>, and <m>\wvec_3</m>.
+	      </p>
+	    </li>
 
-	  <li>
-	    <p>
-	      We next normalized the orthogonal basis
-	      <m>\wvec_1</m>, <m>\wvec_2</m>, and <m>\wvec_3</m> to obtain
-	      an orthonormal basis <m>\uvec_1</m>, <m>\uvec_2</m>, and
-	      <m>\uvec_3</m>.
-	    </p>
+	    <li>
+	      <p>
+		We next normalized the orthogonal basis
+		<m>\wvec_1</m>, <m>\wvec_2</m>, and <m>\wvec_3</m> to obtain
+		an orthonormal basis <m>\uvec_1</m>, <m>\uvec_2</m>, and
+		<m>\uvec_3</m>.
+	      </p>
 
-	    <p>
-	      Write the vectors <m>\wvec_i</m> as scalar multiples of
-	      <m>\uvec_i</m>.
-	      Then use these expressions to write
-	      <m>\vvec_1</m>, <m>\vvec_1</m>, and
-	      <m>\vvec_3</m> as linear combinations of <m>\uvec_1</m>,
-	      <m>\uvec_2</m>, and <m>\uvec_3</m>.
-	    </p>
-	  </li>
-	  
-	  <li>
-	    <p>
-	      Suppose that
-	      <m>Q =
-	      \left[
-	      \begin{array}{ccc}
-	      \uvec_1 \amp \uvec_2 \amp \uvec_3
-	      \end{array}
-	      \right]</m>.  Use the result of the previous part to find a
-	      vector <m>\rvec_1</m> so that <m>Q\rvec_1 = \vvec_1</m>.
-	    </p>
-	  </li>
+	      <p>
+		Write the vectors <m>\wvec_i</m> as scalar multiples of
+		<m>\uvec_i</m>.
+		Then use these expressions to write
+		<m>\vvec_1</m>, <m>\vvec_1</m>, and
+		<m>\vvec_3</m> as linear combinations of <m>\uvec_1</m>,
+		<m>\uvec_2</m>, and <m>\uvec_3</m>.
+	      </p>
+	    </li>
+	    
+	    <li>
+	      <p>
+		Suppose that
+		<m>Q =
+		\left[
+		\begin{array}{ccc}
+		\uvec_1 \amp \uvec_2 \amp \uvec_3
+		\end{array}
+		\right]</m>.  Use the result of the previous part to find a
+		vector <m>\rvec_1</m> so that <m>Q\rvec_1 = \vvec_1</m>.
+	      </p>
+	    </li>
 
-	  <li>
-	    <p>
-	      Then find vectors <m>\rvec_2</m> and <m>\rvec_3</m>
-	      such that <m>Q\rvec_2 = \vvec_2</m> and <m>Q\rvec_3 =
-	      \vvec_3</m>.
-	    </p>
-	  </li>
+	    <li>
+	      <p>
+		Then find vectors <m>\rvec_2</m> and <m>\rvec_3</m>
+		such that <m>Q\rvec_2 = \vvec_2</m> and <m>Q\rvec_3 =
+		\vvec_3</m>.
+	      </p>
+	    </li>
 
-	  <li>
-	    <p>
-	      Construct the matrix
-	      <m>R =
-	      \left[
-	      \begin{array}{ccc}
-	      \rvec_1 \amp \rvec_2 \amp \rvec_3
-	      \end{array}
-	      \right]</m>.  Remembering that
-	      <m>A =
-	      \left[
-	      \begin{array}{ccc}
-	      \vvec_1 \amp \vvec_2 \amp \vvec_3
-	      \end{array}
-	      \right]</m>, explain why <m>A = QR</m>.
-	    </p>
-	  </li>
+	    <li>
+	      <p>
+		Construct the matrix
+		<m>R =
+		\left[
+		\begin{array}{ccc}
+		\rvec_1 \amp \rvec_2 \amp \rvec_3
+		\end{array}
+		\right]</m>.  Remembering that
+		<m>A =
+		\left[
+		\begin{array}{ccc}
+		\vvec_1 \amp \vvec_2 \amp \vvec_3
+		\end{array}
+		\right]</m>, explain why <m>A = QR</m>.
+	      </p>
+	    </li>
 
-	  <li>
-	    <p>
-	      What is special about the shape of <m>R</m>?
-	    </p>
-	  </li>
+	    <li>
+	      <p>
+		What is special about the shape of <m>R</m>?
+	      </p>
+	    </li>
 
-	  <li>
-	    <p>
-	      Suppose that <m>A</m> is a <m>10\times 6</m> matrix
-	      whose columns are linearly independent.  This means that
-	      the columns of <m>A</m> form a basis for
-	      <m>W=\col(A)</m>, a 6-dimensional subspace of
-	      <m>\real^{10}</m>.  Suppose that we apply Gram-Schmidt
-	      orthogonalization to create an orthonormal basis whose
-	      vectors form the columns of <m>Q</m> and that we write
-	      <m>A=QR</m>.  What are the dimensions of <m>Q</m> and
-	      what are the dimensions of <m>R</m>?
-	    </p>
-	  </li>
+	    <li>
+	      <p>
+		Suppose that <m>A</m> is a <m>10\times 6</m> matrix
+		whose columns are linearly independent.  This means that
+		the columns of <m>A</m> form a basis for
+		<m>W=\col(A)</m>, a 6-dimensional subspace of
+		<m>\real^{10}</m>.  Suppose that we apply Gram-Schmidt
+		orthogonalization to create an orthonormal basis whose
+		vectors form the columns of <m>Q</m> and that we write
+		<m>A=QR</m>.  What are the dimensions of <m>Q</m> and
+		what are the dimensions of <m>R</m>?
+	      </p>
+	    </li>
 
-	</ol>
-      </p>
+	  </ol>
+	</p>
+      </statement>
+
+      <solution>
+	<p>
+	  <ol label="a.">
+	    <li>
+	      <p>
+		<me>
+		  \begin{aligned}
+		  \wvec_1 \amp = \vvec_1 \\
+		  \wvec_2 \amp = \vvec_2 - 2\wvec_1 \\
+		  \wvec_3 \amp = \vvec_3 + 2\wvec_1 + 2\wvec_2 \\
+		  \end{aligned}
+		</me>
+		Therefore,
+		<me>
+		  \begin{aligned}
+		  \vvec_1 \amp = \wvec_1 \\
+		  \vvec_2 \amp = 2\wvec_1 + \wvec_2 \\
+		  \vvec_3 \amp = -2\wvec_1 - 2\wvec_2 + \wvec_3 \\
+		  \end{aligned}
+		</me>
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		<m>\wvec_i = \len{\wvec_i}\uvec_i</m> so we have
+		<me>
+		  \wvec_1 = 2\uvec_1,\hspace{24pt}
+		  \wvec_1 = \sqrt{2}\uvec_2,\hspace{24pt}
+		  \wvec_1 = 2\uvec_3\text{.}
+		</me>
+		This leads to
+		<me>
+		  \begin{aligned}
+		  \vvec_1 \amp = 2\uvec_1 \\
+		  \vvec_2 \amp = 4\uvec_1 + \sqrt{2}\uvec_2 \\
+		  \vvec_3 \amp = -4\uvec_1 - 2\sqrt{2}\uvec_2 + 2\uvec_3 \\
+		  \end{aligned}
+		</me>
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		Since <m>\vvec_1 = 2\uvec_1</m>, we have <m>\vvec_1 =
+		Q\threevec{2}00</m>.
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		In the same way, we have <m>\vvec_2 =
+		Q\threevec4{\sqrt{2}}0</m> and
+		<m>\vvec_3=Q\threevec{-4}{-2\sqrt{2}}2</m>.
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		We have <m>QR = \begin{bmatrix} Q\rvec_1 \amp Q\rvec_2
+		\amp Q\rvec_3 \end{bmatrix} = A</m>.
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		<m>R=\begin{bmatrix}
+		2 \amp 4 \amp -4 \\
+		0 \amp \sqrt{2} \amp -2\sqrt{2} \\
+		0 \amp 0 \amp 2 \\
+		\end{bmatrix}
+		</m> so <m>R</m> is upper triangular.
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		<m>Q</m> will be <m>10\times6</m> and <m>R</m> will be a
+		<m>6\times 6</m> upper triangular matrix.
+	      </p>
+	    </li>
+	  </ol>
+	</p>
+      </solution>
+
+      <answer>
+	<p>
+	  <ol label="a.">
+	    <li>
+	      <p>
+		<me>
+		  \begin{aligned}
+		  \vvec_1 \amp = \wvec_1 \\
+		  \vvec_2 \amp = 2\wvec_1 + \wvec_2 \\
+		  \vvec_3 \amp = -2\wvec_1 - 2\wvec_2 + \wvec_3 \\
+		  \end{aligned}
+		</me>
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		<me>
+		  \begin{aligned}
+		  \vvec_1 \amp = 2\uvec_1 \\
+		  \vvec_2 \amp = 4\uvec_1 + \sqrt{2}\uvec_2 \\
+		  \vvec_3 \amp = -4\uvec_1 - 2\sqrt{2}\uvec_2 + 2\uvec_3 \\
+		  \end{aligned}
+		</me>
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		<m>\vvec_1 =
+		Q\threevec{2}00</m>.
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		<m>\vvec_2 =
+		Q\threevec4{\sqrt{2}}0</m> and
+		<m>\vvec_3=Q\threevec{-4}{-2\sqrt{2}}2</m>.
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		We have <m>QR = \begin{bmatrix} Q\rvec_1 \amp Q\rvec_2
+		\amp Q\rvec_3 \end{bmatrix} = A</m>.
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		<m>R</m> is upper triangular.
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		<m>Q</m> will be <m>10\times6</m> and <m>R</m> will be
+		<m>6\times 6</m>.
+	      </p>
+	    </li>
+	  </ol>
+	</p>
+      </answer>
+		
     </activity>
 
     <p>
-      To summarize the results of this activity, we see that the
-      Gram-Schmidt algorithm produces the orthogonal basis for
-      <m>\col(A)</m>. 
-      <me>
-	\begin{aligned}
-	\wvec_1 \amp = \vvec_1 \\
-	\wvec_2 \amp = \vvec_2 - 2\wvec_1 \\
-	\wvec_3 \amp = \vvec_3 + 2\wvec_1 + 2\wvec_2\text{.} \\
-	\end{aligned}
-      </me>
-      Rearranging these expressions allows us to write <m>\vvec_i</m>
-      in terms of this orthogonal basis.
-      <me>
-	\begin{aligned}
-	\vvec_1 \amp = \wvec_1 \\
-	\vvec_2 \amp = 2\wvec_1 + \wvec_2 \\
-	\vvec_3 \amp = -2\wvec_1 -2\wvec_2 + \wvec_3\text{.} \\
-	\end{aligned}
-      </me>
-      Once we normalize the vectors, we have
-      <me>
-	\wvec_1 = 2\uvec_1,\hspace{24pt} 
-	\wvec_2 = \sqrt{2}\uvec_2,\hspace{24pt} 
-	\wvec_3 = 2\uvec_2\text{,}
-      </me>
-      which leads to 
-      <me>
-	\begin{aligned}
-	\vvec_1 \amp = 2\uvec_1 \\
-	\vvec_2 \amp = 4\uvec_1 + \sqrt{2}\uvec_2 \\
-	\vvec_3 \amp = -4\uvec_1 -2\sqrt{2}\uvec_2 + 2\uvec_3\text{.} \\ 
-	\end{aligned}
-      </me>
-      If we call <m>Q</m> the matrix whose columns are <m>\uvec_1</m>,
-      <m>\uvec_2</m>, and <m>\uvec_3</m>, we have
-      <me>
-	\vvec_1 = Q\threevec200,\hspace{24pt}
-	\vvec_2 = Q\threevec4{\sqrt{2}}0,\hspace{24pt}
-	\vvec_3 = Q\threevec{-4}{-2\sqrt{2}}2\text{.}
-      </me>
-      Expressing this in matrix form, we have
-      <me>
-	A =
-	\left[
-	\begin{array}{ccc}
-	\vvec_1 \amp \vvec_2 \amp \vvec_3 \\
-	\end{array}
-	\right] =
-	\left[
-	\begin{array}{ccc}
-	\uvec_1 \amp \uvec_2 \amp \uvec_3 \\
-	\end{array}
-	\right]
-	\begin{bmatrix}
-	2 \amp 4 \amp -4 \\
-	0 \amp \sqrt{2} \amp -2\sqrt{2} \\
-	0 \amp 0 \amp 2
-	\end{bmatrix}
-      </me>
-      or <m>A=QR</m> where
-      <m>R =
-      \begin{bmatrix}
-      2 \amp 4 \amp -4 \\
-      0 \amp \sqrt{2} \amp -2\sqrt{2} \\
-      0 \amp 0 \amp 2
-      \end{bmatrix}
-      </m> is a <m>3\times3</m> upper triangular matrix.
-    </p>
-
-    <p>
-      We may apply the same thinking to any matrix whose columns are
-      linearly independent and therefore form a basis for
-      <m>\col(A)</m>. 
+      When the columns of a matrix <m>A</m> are linearly independent,
+      they form a basis for <m>\col(A)</m> so that we
+      can perform the Gram-Schmidt algorithm.  The previous activity
+      shows how this leads to a factorization of <m>A</m> as the
+      product of a matrix <m>Q</m> whose columns are an orthonormal
+      basis for <m>\col(A)</m> and an upper triangular matrix
+      <m>R</m>. 
     </p>
 
     <proposition xml:id="prop-qr">
@@ -687,88 +1009,259 @@ sage.repl.load.load("https://raw.githubusercontent.com/davidaustinm/ula_modules/
       </statement>
     </proposition>
 
+    <example>
+      <statement>
+	<p>
+	  We'll consider the matrix <m>A=\begin{bmatrix}
+	  2 \amp -3 \amp -2 \\
+	  -1 \amp 3 \amp 7 \\
+	  2 \amp 0 \amp 1 \\
+	  \end{bmatrix}</m>
+	  whose columns, which we'll denote <m>\vvec_1</m>,
+	  <m>\vvec_2</m>, and <m>\vvec_3</m>, are the basis of
+	  <m>\real^3</m> that we 
+	  considered in <xref ref="example-gram-schmidt" />.
+	  There we found an orthogonal basis <m>\wvec_1</m>,
+	  <m>\wvec_2</m>, and <m>\wvec_3</m> that satisfied
+	  <md>
+	    <mrow>
+	      \vvec_1 \amp {}={} \wvec_1
+	    </mrow>
+	    <mrow>
+	      \vvec_2 \amp {}={} -\wvec_1 + \wvec_2
+	    </mrow>
+	    <mrow>
+	      \vvec_3 \amp {}={} -\wvec_1 + 2\wvec_2 + \wvec _3\text{.}
+	    </mrow>
+	  </md>
+	</p>
+
+	<p>
+	  In terms of the resulting orthonormal basis <m>\uvec_1</m>,
+	  <m>\uvec_2</m>, and <m>\uvec_3</m>, we had
+	  <me>
+	    \wvec_1 = 3 \uvec_1,\hspace{24pt}
+	    \wvec_2 = 3 \uvec_2,\hspace{24pt}
+	    \wvec_3 = 3 \uvec_3
+	  </me>
+	  so that
+	  <md>
+	    <mrow>
+	      \vvec_1 \amp {}={} 3\uvec_1
+	    </mrow>
+	    <mrow>
+	      \vvec_2 \amp {}={} -3\uvec_1 + 3\uvec_2
+	    </mrow>
+	    <mrow>
+	      \vvec_3 \amp {}={} -3\uvec_1 + 6\uvec_2 + 3\uvec _3\text{.}
+	    </mrow>
+	  </md>
+	</p>
+
+	<p>
+	  Therefore, if <m>Q=\begin{bmatrix} \uvec_1 \amp \uvec_2 \amp
+	  \uvec_3 \end{bmatrix}</m>, we have the <m>QR</m> factorization
+	  <me>
+	    A = Q\begin{bmatrix}
+	    3 \amp -3 \amp -3 \\
+	    0 \amp 3 \amp 6 \\
+	    0 \amp 0 \amp 3 \\
+	    \end{bmatrix}
+	    =QR\text{.}
+	  </me>
+	</p>
+      </statement>
+    </example>
+
     <activity>
-      <p>
-	As before, we would like to use Sage to automate the process
-	of finding and using the <m>QR</m> factorization of a matrix
-	<m>A</m>. 
-	Evaluating the following cell provides a command <c>QR(A)</c>
-	that returns the factorization, which may be stored using,
-	say, 
-	<c>Q, R = QR(A)</c>.
-	<sage>
-	  <input>
+      <statement>
+	<p>
+	  As before, we would like to use Sage to automate the process
+	  of finding and using the <m>QR</m> factorization of a matrix
+	  <m>A</m>. 
+	  Evaluating the following cell provides a command <c>QR(A)</c>
+	  that returns the factorization, which may be stored using,
+	  for example, 
+	  <c>Q, R = QR(A)</c>.
+	  <sage>
+	    <input>
 sage.repl.load.load("https://raw.githubusercontent.com/davidaustinm/ula_modules/master/orthogonality.py", globals())
-	  </input>
-	</sage>
-      </p>
+	    </input>
+	  </sage>
+	</p>
+	
+	<p>
+	  Suppose that <m>A</m> is the following matrix whose columns
+	  are linearly independent.
+	  <me>
+	    A =
+	    \begin{bmatrix}
+	    1 \amp 0 \amp -3 \\
+	    0 \amp 2 \amp -1 \\
+	    1 \amp 0 \amp 1 \\
+	    1 \amp 3 \amp 5 \\
+	    \end{bmatrix}.
+	  </me>
+	  <ol label="a.">
+	    <li>
+	      <p>
+		If <m>A=QR</m>, what are the dimensions of <m>Q</m> and
+		<m>R</m>?  What is special about the form of <m>R</m>?
+	      </p>
+	    </li>
+	    
+	    <li>
+	      <p>
+		Find the <m>QR</m> factorization using <c>Q, R =
+		QR(A)</c> and verify that <m>R</m> has the predicted
+		shape and that <m>A=QR</m>.
+		<sage>
+		  <input>
+		  </input>
+		</sage>
+	      </p>
+	    </li>
+	    
+	    <li>
+	      <p>
+		Find the matrix <m>P</m> that orthogonally projects
+		vectors onto <m>\col(A)</m>.
+	      </p>
+	    </li>
+	    
+	    <li>
+	      <p>
+		Find <m>\bhat</m>, the orthogonal projection of
+		<m>\bvec=\fourvec4{-17}{-14}{22}</m> onto
+		<m>\col(A)</m>.
+	      </p>
+	    </li>
+	    
+	    <li>
+	      <p>
+		Explain why the equation
+		<m>A\xvec=\bhat</m> must be consistent and then find
+		<m>\xvec</m>.
+	      </p>
+	    </li>
+	  </ol>
+	</p>
+      </statement>
 
-      <p>
-	Suppose that <m>A</m> is the following matrix whose columns
-	are linearly independent.
-	<me>
-	  A =
-	  \begin{bmatrix}
-	  1 \amp 0 \amp -3 \\
-	  0 \amp 2 \amp -1 \\
-	  1 \amp 0 \amp 1 \\
-	  1 \amp 3 \amp 5 \\
-	  \end{bmatrix}.
-	</me>
-	<ol label="a.">
-	  <li>
-	    <p>
-	      If <m>A=QR</m>, what are the dimensions of <m>Q</m> and
-	      <m>R</m>?  What is special about the form of <m>R</m>?
-	    </p>
-	  </li>
-
-	  <li>
-	    <p>
-	      Find the <m>QR</m> factorization using <c>Q, R =
-	      QR(A)</c> and verify that <m>R</m> has the predicted
-	      shape and that <m>A=QR</m>.
-	      <sage>
-		<input>
-		</input>
-	      </sage>
-	    </p>
-	  </li>
-
-	  <li>
-	    <p>
-	      Find the matrix <m>P</m> that orthogonally projects
-	      vectors onto <m>\col(A)</m>.
-	    </p>
-	  </li>
-
-	  <li>
-	    <p>
-	      Find <m>\bhat</m>, the orthogonal projection of
-	      <m>\bvec=\fourvec4{-17}{-14}{22}</m> onto
-	      <m>\col(A)</m>.
-	    </p>
-	  </li>
-
-	  <li>
-	    <p>
-	      Explain why the equation
-	      <m>A\xvec=\bhat</m> must be consistent and then find
-	      <m>\xvec</m>.
-	    </p>
-	  </li>
-	</ol>
-      </p>
+      <solution>
+	<p>
+	  <ol label="a.">
+	    <li>
+	      <p>
+		<m>Q</m> is <m>4\times3</m> and <m>R</m> is a
+		<m>3\times3</m> upper triangular matrix.
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		We see that
+		<me>
+		  Q=\begin{bmatrix}
+		  1/\sqrt{3} \amp -1/\sqrt{10} \amp -3/\sqrt{23} \\
+		  0 \amp 2/\sqrt{10} \amp -3/\sqrt{23} \\
+		  1/\sqrt{3} \amp -1/\sqrt{10} \amp 1/\sqrt{23} \\
+		  1/\sqrt{3} \amp 2/\sqrt{10} \amp 2/\sqrt{23} \\
+		  \end{bmatrix},\hspace{24pt}
+		  R = \begin{bmatrix}
+		  \sqrt{3} \amp \sqrt{3} \amp \sqrt{3} \\
+		  0 \amp \sqrt{10} \amp \sqrt{10} \\
+		  0 \amp 0 \amp \sqrt{23}
+		  \end{bmatrix}
+		</me>
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		<m>P=QQ^T = \begin{bmatrix}
+		569/690 \amp 22/115 \amp 209/690 \amp -44/345 \\
+		22/115 \amp 91/115 \amp -38/115 \amp 16/115 \\
+		209/690 \amp -38/115 \amp 329/690 \amp 76/345 \\
+		-44/345 \amp 16/115 \amp 76/345 \amp 313/345 \\
+		\end{bmatrix}
+		</m>
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		<m>\bhat = QQ^T\bvec = \fourvec{-7}{-5}5{14}</m>
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		Since <m>\bhat</m> is in <m>\col(A)</m>, the system
+		<m>A\xvec=\bhat</m> must be consistent.  We find a
+		solution by augmenting <m>A</m> by <m>\bhat</m> and
+		row reducing:  <m>\xvec = \threevec2{-1}3</m>.
+	      </p>
+	    </li>
+	  </ol>
+	</p>
+      </solution>
+	    
+      <answer>
+	<p>
+	  <ol label="a.">
+	    <li>
+	      <p>
+		<m>Q</m> is <m>4\times3</m> and <m>R</m> is a
+		<m>3\times3</m> upper triangular matrix.
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		We see that
+		<me>
+		  Q=\begin{bmatrix}
+		  1/\sqrt{3} \amp -1/\sqrt{10} \amp -3/\sqrt{23} \\
+		  0 \amp 2/\sqrt{10} \amp -3/\sqrt{23} \\
+		  1/\sqrt{3} \amp -1/\sqrt{10} \amp 1/\sqrt{23} \\
+		  1/\sqrt{3} \amp 2/\sqrt{10} \amp 2/\sqrt{23} \\
+		  \end{bmatrix},\hspace{24pt}
+		  R = \begin{bmatrix}
+		  \sqrt{3} \amp \sqrt{3} \amp \sqrt{3} \\
+		  0 \amp \sqrt{10} \amp \sqrt{10} \\
+		  0 \amp 0 \amp \sqrt{23}
+		  \end{bmatrix}
+		</me>
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		<m>P=QQ^T = \begin{bmatrix}
+		569/690 \amp 22/115 \amp 209/690 \amp -44/345 \\
+		22/115 \amp 91/115 \amp -38/115 \amp 16/115 \\
+		209/690 \amp -38/115 \amp 329/690 \amp 76/345 \\
+		-44/345 \amp 16/115 \amp 76/345 \amp 313/345 \\
+		\end{bmatrix}
+		</m>
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		<m>\bhat = \fourvec{-7}{-5}5{14}</m>
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		<m>\xvec = \threevec2{-1}3</m>.
+	      </p>
+	    </li>
+	  </ol>
+	</p>
+      </answer>
+	    
     </activity>
 
     <p>
       In fact, Sage provides its own version of the <m>QR</m>
-      factorization, but its use requires a little care.  For
-      instance, if the entries in <m>A</m> are all integers, the Sage
-      algorithm will often be unable to compute the factorization that
-      we want.  When Sage does return a factorization, columns are
-      added to the matrix <m>Q</m> to make it square. For this reason,
-      we have provided our own version of the factorization here.
+      factorization that is a bit different than the way we've
+      developed the factorization here.  For this reason, we have
+      provided our own version of the factorization.
     </p>
 
   </subsection>
@@ -826,7 +1319,7 @@ sage.repl.load.load("https://raw.githubusercontent.com/davidaustinm/ula_modules/
 
 	<li>
 	  <p>
-	    Expressing the Gram-Schmidt algorithm using matrices shows
+	    Expressing the Gram-Schmidt algorithm in matrix form shows
 	    that, if the columns of <m>A</m> are linearly
 	    independent, then we can write <m>A=QR</m>, where the
 	    columns of <m>Q</m> form an orthonormal basis for
