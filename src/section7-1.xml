@@ -6,24 +6,14 @@
 
   <introduction>
     <p>
-      We have seen that diagonal matrices are relatively easy to work
-      with.  For instance, the matrix transformation represented by a
-      <m>2\times2</m> diagonal matrix just stretches, and possibly
-      reflects, the plane along the horizontal and vertical axes.  In
-      <xref ref="chap4" />, we explored how eigenvectors and
-      eigenvalues can, in many cases, relate square matrices to
-      diagonal ones and how this observation is useful in some
-      important applications, such as the study of dynamical systems.
-    </p>
-
-    <p>
       In this section, we will revisit the theory of eigenvalues and
       eigenvectors for the special class of matrices that are
       <em>symmetric</em>, meaning that the matrix equals its
       transpose.  This understanding of symmetric matrices will enable
       us to form singular value decompositions later in the chapter.
       We'll also begin studying variance in this section as it
-      provides an important context that motivates our later work.
+      provides an important context that motivates some of our later
+      work.
     </p>
 
     <p>
@@ -47,10 +37,8 @@
 	    <image source="images/empty-5" />
 	  </sidebyside>
 	  <caption>
-	    <p>
 	      Use these plots to sketch the vectors requested
 	      in the preview activity.
-	    </p>
 	  </caption>
 	</figure>
 	
@@ -164,17 +152,15 @@
 	<image source="images/eigen-diag-D" />
       </sidebyside>
       <caption>
-	<p>
 	  The matrix transformation defined by <m>D</m>.
-	</p>
       </caption>
     </figure>
 
     <p>
       By contrast, the transformation defined by <m>A</m> stretches
       the plane by a factor of 3 in the direction of <m>\vvec_1</m>
-      and reflects in <m>\vvec_1</m>, as seen in <xref
-      ref="fig-eigen-diag-A" />.
+      and reflects in the line defined by <m>\vvec_1</m>, as seen in
+      <xref ref="fig-eigen-diag-A" />.
     </p>
 
     <figure xml:id="fig-eigen-diag-A">
@@ -182,37 +168,36 @@
 	<image source="images/eigen-diag-A" />
       </sidebyside>
       <caption>
-	<p>
 	  The matrix transformation defined by <m>A</m>.
-	</p>
       </caption>
     </figure>
 
     <p>
-      In this way, we see that the transformations are equivalent
+      In this way, we see that the matrix transformations defined by
+      these two matrices are equivalent 
       after a <m>45^\circ</m> rotation.  This notion of equivalence
       is what we called <em>similarity</em> in 
       <xref ref="sec-eigen-diag" />.  There we considered a square
-      <m>n\times n</m> matrix <m>A</m> that provided enough
-      eigenvectors to form a basis of <m>\real^n</m>.  For example,
-      suppose we can construct a basis for <m>\real^n</m> using
-      eigenvectors <m>\vvec_1,\vvec_2,\ldots,\vvec_n</m> having
+      <m>m\times m</m> matrix <m>A</m> that provided enough
+      eigenvectors to form a basis of <m>\real^m</m>.  For example,
+      suppose we can construct a basis for <m>\real^m</m> using
+      eigenvectors <m>\vvec_1,\vvec_2,\ldots,\vvec_m</m> having
       associated eigenvalues
-      <m>\lambda_1,\lambda_2,\ldots,\lambda_n</m>.  Forming the
+      <m>\lambda_1,\lambda_2,\ldots,\lambda_m</m>.  Forming the
       matrices,
       <me>
 	P = \begin{bmatrix}
-	\vvec_1\amp\vvec_2\amp\ldots\amp\vvec_n
+	\vvec_1\amp\vvec_2\amp\ldots\amp\vvec_m
 	\end{bmatrix},
 	\hspace{24pt}
 	D = \begin{bmatrix}
 	\lambda_1 \amp 0 \amp \ldots \amp 0 \\
 	0 \amp \lambda_2 \amp \ldots \amp 0 \\
 	\vdots\amp\vdots\amp\ddots\amp\vdots\\
-	0 \amp 0 \amp \ldots \amp \lambda_n
+	0 \amp 0 \amp \ldots \amp \lambda_m
 	\end{bmatrix},
       </me>
-      allows us to write <m>A = PDP^{-1}</m>.  This is what it means
+      enables us to write <m>A = PDP^{-1}</m>.  This is what it means
       for <m>A</m> to be diagonalizable.
     </p>
 
@@ -255,97 +240,270 @@
       Let's begin by looking at some examples in the next activity.
     </p>
 
-    <activity xml:id="activity-orthog-diag-ex">
-      <p>
-	Remember that the Sage command <c>A.right_eigenmatrix()</c>
-	tries to find a basis for <m>\real^n</m> consisting of
-	eigenvectors of <m>A</m>.  In particular, <c>D, P =
-	A.right_eigenmatrix()</c> provides a diagonal matrix <m>D</m>
-	constructed from the eigenvalues of <m>A</m> with the columns
-	of <m>P</m> containing associated eigenvectors.
-	<sage>
-	  <input>
-	  </input>
-	</sage>
-	<ol label="a.">
-	  <li>
-	    <p>
-	      For each of the following matrices, determine whether
-	      there is a basis for <m>\real^2</m> consisting of
-	      eigenvectors of <m>A</m>.  When there is such a basis,
-	      form the matrices <m>P</m> and <m>D</m> and verify that
-	      <m>A=PDP^{-1}</m>.  
-	      <ol label="i.">
-		<li>
-		  <p>
-		    <m>A = \begin{bmatrix}
-		    3 \amp -4 \\
-		    4 \amp 3
-		    \end{bmatrix}
-		    </m>.
-		  </p>
-		</li>
-		<li>
-		  <p>
-		    <m>A = \begin{bmatrix}
-		    1 \amp 1 \\
-		    -1 \amp 3
-		    \end{bmatrix}
-		    </m>.
-		  </p>
-		</li>
-		<li>
-		  <p>
-		    <m>A = \begin{bmatrix}
-		    1 \amp 0\\
-		    -1 \amp 2
-		    \end{bmatrix}
-		    </m>.
-		  </p>
-		</li>
-		<li>
-		  <p>
-		    <m>A = \begin{bmatrix}
-		    9 \amp 2 \\
-		    2 \amp 6
-		    \end{bmatrix}
-		    </m>.
-		  </p>
-		</li>
-	      </ol>
-	    </p>
-	  </li>
+    <activity>
+      <statement>
+	<p>
+	  Remember that the Sage command <c>A.right_eigenmatrix()</c>
+	  attempts to find a basis for <m>\real^m</m> consisting of
+	  eigenvectors of <m>A</m>.  In particular, <c>D, P =
+	  A.right_eigenmatrix()</c> provides a diagonal matrix <m>D</m>
+	  constructed from the eigenvalues of <m>A</m> with the columns
+	  of <m>P</m> containing the associated eigenvectors.
+	  <sage>
+	    <input>
+	    </input>
+	  </sage>
+	  <ol label="a.">
+	    <li>
+	      <p>
+		For each of the following matrices, determine whether
+		there is a basis for <m>\real^2</m> consisting of
+		eigenvectors of that matrix.  When there is such a
+		basis, form the matrices <m>P</m> and <m>D</m> and
+		verify that the matrix equals <m>PDP^{-1}</m>.
+		<ol label="i.">
+		  <li>
+		    <p>
+		      <m>\begin{bmatrix}
+		      3 \amp -4 \\
+		      4 \amp 3
+		      \end{bmatrix}
+		      </m>.
+		    </p>
+		  </li>
+		  <li>
+		    <p>
+		      <m>\begin{bmatrix}
+		      1 \amp 1 \\
+		      -1 \amp 3
+		      \end{bmatrix}
+		      </m>.
+		    </p>
+		  </li>
+		  <li>
+		    <p>
+		      <m>\begin{bmatrix}
+		      1 \amp 0\\
+		      -1 \amp 2
+		      \end{bmatrix}
+		      </m>.
+		    </p>
+		  </li>
+		  <li>
+		    <p>
+		      <m>\begin{bmatrix}
+		      9 \amp 2 \\
+		      2 \amp 6
+		      \end{bmatrix}
+		      </m>.
+		    </p>
+		  </li>
+		</ol>
+	      </p>
+	    </li>
 
-	  <li>
-	    <p>
-	      For which of these examples is it possible to form an
-	      orthogonal basis for <m>\real^2</m> consisting of
-	      eigenvectors of <m>A</m>?
-	    </p>
-	  </li>
+	    <li>
+	      <p>
+		For which of these examples is it possible to form an
+		orthogonal basis for <m>\real^2</m> consisting of
+		eigenvectors?
+	      </p>
+	    </li>
 
-	  <li>
-	    <p>
-	      For any such matrix, find an orthonormal basis of
-	      eigenvectors and explain why <m>A = QDQ^{-1}</m> where
-	      <m>Q</m> is an orthogonal matrix.
-	    </p>
-	  </li>
+	    <li>
+	      <p>
+		For any such matrix <m>A</m>, find an orthonormal basis
+		of eigenvectors and explain why <m>A=QDQ^{-1}</m> where
+		<m>Q</m> is an orthogonal matrix.
+	      </p>
+	    </li>
 
-	  <li>
-	    <p>
-	      Finally, explain why <m>A=QDQ^T</m> in this case.
-	    </p>
-	  </li>
+	    <li>
+	      <p>
+		Finally, explain why <m>A=QDQ^T</m> in this case.
+	      </p>
+	    </li>
 
-	  <li>
-	    <p>
-	      When <m>A=QDQ^T</m>, what is the relationship between
-	      <m>A</m> and <m>A^T</m>?
-	    </p>
-	  </li>
-	</ol>
-      </p>
+	    <li>
+	      <p>
+		When <m>A=QDQ^T</m>, what is the relationship between
+		<m>A</m> and <m>A^T</m>?
+	      </p>
+	    </li>
+	  </ol>
+	</p>
+      </statement>
+
+      <solution>
+	<p>
+	  <ol label="a.">
+	    <li>
+	      <p>
+		<ol label="i.">
+		  <li>
+		    <p>
+		      The eigenvalues of this matrix are complex so
+		      there is no such basis.
+		    </p>
+		  </li>
+		  <li>
+		    <p>
+		      There is one eigenvalue <m>\lambda=2</m> with
+		      multiplicity two.  The associated eigenspace
+		      <m>E_2</m> is one-dimensional so there is not a
+		      basis of <m>\real^2</m> consisting of
+		      eigenvectors.
+		    </p>
+		  </li>
+		  <li>
+		    <p>
+		      This matrix is diagonalizable with
+		      <me>
+			D = \begin{bmatrix}
+			2 \amp 0 \\
+			0 \amp 1 \\
+			\end{bmatrix},
+			\hspace{24pt}
+			P = \begin{bmatrix}
+			0 \amp 1 \\
+			1 \amp 1 \\
+			\end{bmatrix}\text{.}
+		      </me>
+		    </p>
+		  </li>
+		  <li>
+		    <p>
+		      This matrix is also diagonalizable with
+		      <me>
+			D = \begin{bmatrix}
+			10 \amp 0 \\
+			0 \amp 5 \\
+			\end{bmatrix},
+			\hspace{24pt}
+			P = \begin{bmatrix}
+			2 \amp 1 \\
+			1 \amp -2 \\
+			\end{bmatrix}\text{.}
+		      </me>
+		    </p>
+		  </li>
+		</ol>
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		Only the last matrix <m>A=\begin{bmatrix}
+		9 \amp 2 \\
+		2 \amp 6
+		\end{bmatrix}</m>.
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		We form an orthonormal basis by scaling the
+		eigenvectors to have length 1.  This gives
+		<m>Q = \begin{bmatrix}
+		2/\sqrt{5} \amp 1/\sqrt{5} \\
+		1/\sqrt{5} \amp -2/\sqrt{5} \\
+		\end{bmatrix}</m>, which is orthogonal since the
+		columns form an orthonormal basis of <m>\real^2</m>.
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		Orthogonal matrices are invertible and have <m>Q^{-1}
+		= Q^T</m>
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		If <m>A=QDQ^T</m>, we have <m>A^T=(QDQ^T)^T =
+		(Q^T)^TD^TQ^T = QDQ^T = A</m>.  This means that the
+		matrix is symmetric.
+	      </p>
+	    </li>
+	  </ol>
+	</p>
+      </solution>
+
+      <answer>
+	<p>
+	  <ol label="a.">
+	    <li>
+	      <p>
+		<ol label="i.">
+		  <li>
+		    <p>
+		      There is no such basis.
+		    </p>
+		  </li>
+		  <li>
+		    <p>
+		      There is no such basis.
+		    </p>
+		  </li>
+		  <li>
+		    <p>
+		      This matrix is diagonalizable with
+		      <me>
+			D = \begin{bmatrix}
+			2 \amp 0 \\
+			0 \amp 1 \\
+			\end{bmatrix},
+			\hspace{24pt}
+			P = \begin{bmatrix}
+			0 \amp 1 \\
+			1 \amp 1 \\
+			\end{bmatrix}\text{.}
+		      </me>
+		    </p>
+		  </li>
+		  <li>
+		    <p>
+		      This matrix is also diagonalizable with
+		      <me>
+			D = \begin{bmatrix}
+			10 \amp 0 \\
+			0 \amp 5 \\
+			\end{bmatrix},
+			\hspace{24pt}
+			P = \begin{bmatrix}
+			2 \amp 1 \\
+			1 \amp -2 \\
+			\end{bmatrix}\text{.}
+		      </me>
+		    </p>
+		  </li>
+		</ol>
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		Only the last matrix.
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		<m>Q = \begin{bmatrix}
+		2/\sqrt{5} \amp 1/\sqrt{5} \\
+		1/\sqrt{5} \amp -2/\sqrt{5} \\
+		\end{bmatrix}</m>
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		<m>Q^{-1} =  Q^T</m>
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		<m>A=A^T</m>
+	      </p>
+	    </li>
+	  </ol>
+	</p>
+      </answer>
+			
     </activity>
 
     <p>
@@ -358,13 +516,12 @@
     </p>
 
     <p>
-      We are interested in matrices for which there is an
-      orthogonal basis of eigenvectors.  When this happens, we can
-      create an orthonormal basis of eigenvectors by scaling each
-      eigenvector in the basis appropriately.  Putting these
-      orthonormal vectors into a matrix <m>Q</m> produces an
-      orthogonal matrix, which means that <m>Q^T=Q^{-1}</m>.  We then
-      have
+      We are interested in matrices for which there is an orthogonal
+      basis of eigenvectors.  When this happens, we can create an
+      orthonormal basis of eigenvectors by scaling each eigenvector in
+      the basis so that its length is 1.  Putting these orthonormal
+      vectors into a matrix <m>Q</m> produces an orthogonal matrix,
+      which means that <m>Q^T=Q^{-1}</m>.  We then have
       <me>
 	A = QDQ^{-1} = QDQ^T.
       </me>
@@ -373,6 +530,7 @@
     </p>
 
     <definition xml:id="def-orthog-diag">
+      <idx> orthogonal diagonalization </idx>
       <statement>
 	<p>
 	  If there is an orthonormal basis of <m>\real^n</m>
@@ -393,25 +551,35 @@
       <m>A=A^T</m> and we say that <m>A</m> is <em>symmetric</em>. 
     </p>
 
+    <definition>
+      <idx> symmetric matrix </idx>
+      <statement>
+	<p>
+	  A <em>symmetric</em> matrix <m>A</m> is one for which
+	  <m>A=A^T</m>.
+	</p>
+      </statement>
+    </definition>
+
     <example>
       <statement>
 	<p>
-	  The matrix
+	  Consider the matrix
 	  <m>A =
 	  \begin{bmatrix}
-	  9 \amp 2 \\
-	  2 \amp 6
+	  -2 \amp 36 \\
+	  36 \amp -23
 	  \end{bmatrix}
-	  </m> has eigenvectors <m>\vvec_1 = \twovec21</m>, with
-	  associated eigenvalue <m>\lambda_1=10</m>, and
-	  <m>\vvec_2=\twovec{-1}{2}</m>, with associated eigenvalue 
-	  <m>\lambda_2=5</m>.  Notice that <m>\vvec_1</m> and
+	  </m>, which has eigenvectors <m>\vvec_1 = \twovec43</m>, with
+	  associated eigenvalue <m>\lambda_1=25</m>, and
+	  <m>\vvec_2=\twovec{3}{-4}</m>, with associated eigenvalue 
+	  <m>\lambda_2=-50</m>.  Notice that <m>\vvec_1</m> and
 	  <m>\vvec_2</m> are orthogonal so we can form an orthonormal
 	  basis of eigenvectors:
 	  <me>
-	    \uvec_1 = \twovec{2/\sqrt{5}}{1/\sqrt{5}},
+	    \uvec_1 = \twovec{4/5}{3/5},
 	    \hspace{24pt}
-	    \uvec_1 = \twovec{-1/\sqrt{5}}{2/\sqrt{5}}.
+	    \uvec_1 = \twovec{3/5}{-4/5}\text{.}
 	  </me>
 	</p>
 
@@ -419,13 +587,13 @@
 	  In this way, we construct the matrices
 	  <me>
 	    Q = \begin{bmatrix}
-	    2/\sqrt{5} \amp -1/\sqrt{5} \\
-	    1/\sqrt{5} \amp 2/\sqrt{5}
+	    4/5 \amp 3/5 \\
+	    3/5 \amp -4/5 \\
 	    \end{bmatrix},
 	    \hspace{24pt}
 	    D = \begin{bmatrix}
-	    10 \amp 0 \\
-	    0 \amp 5 
+	    25 \amp 0 \\
+	    0 \amp -50
 	    \end{bmatrix}
 	  </me>
 	  and note that <m>A = QDQ^T</m>.
@@ -467,7 +635,7 @@
 	<p>
 	  Notice that the matrix transformation represented by
 	  <m>Q</m> is a <m>45^\circ</m> rotation while that
-	  represented by <m>Q^T</m> is a <m>-45^\circ</m> rotation.
+	  represented by <m>Q^T=Q^{-1}</m> is a <m>-45^\circ</m> rotation.
 	  Therefore, if we multiply a vector <m>\xvec</m> by <m>A</m>,
 	  we can decompose the multiplication as
 	  <me>
@@ -485,13 +653,11 @@
 	    <image source="images/eigen-diag" />
 	  </sidebyside>
 	  <caption>
-	    <p>
-	      The transformation defined by <m>A=QDQ^T</m> can be
-	      interpreted as a sequence of simple transformations:
-	      <m>Q^T</m> rotates by <m>-45^\circ</m>, <m>D</m>
-	      stretches and reflects, and <m>Q</m> rotates by
-	      <m>45^\circ</m>. 
-	    </p>
+	    The transformation defined by <m>A=QDQ^T</m> can be
+	    interpreted as a sequence of simple transformations:
+	    <m>Q^T</m> rotates by <m>-45^\circ</m>, <m>D</m>
+	    stretches and reflects, and <m>Q</m> rotates by
+	    <m>45^\circ</m>. 
 	  </caption>
 	</figure>
 
@@ -504,10 +670,10 @@
     </example>
 
     <p>
-      We have seen that, if <m>A</m> is orthogonally diagonalizable,
-      then <m>A</m> is symmetric.  It turns out, in fact, that if
-      <m>A</m> is symmetric, then <m>A</m> is orthogonally
-      diagonalizable.  We record this fact in the next theorem.
+      We have seen that a matrix that is orthogonally diagonalizable
+      must be symmetric.  In fact, it turns out that any symmetric
+      matrix is orthogonally diagonalizable.  We record this fact in
+      the next theorem.
     </p>
 
     <theorem>
@@ -520,69 +686,249 @@
       </statement>
     </theorem>
 
-    <activity>
-      <p>
-	Each of the following matrices <m>A</m> are symmetric.  For
-	each, find a basis for
-	each eigenspace.  Use this basis to find an orthogonal basis for
-	each eigenspace and then put these together to find an
-	orthogonal basis for <m>\real^n</m> consisting of eigenvectors
-	of <m>A</m>.  Use this basis to write an orthogonal
-	diagonalization of <m>A</m>.
-	<sage>
-	  <input>
+    <activity xml:id="activity-orthog-diag">
+      <statement>
+	<p>
+	  Each of the following matrices is symmetric so the Spectral
+	  Theorem tells us that each is orthogonally diagonalizable.
+	  The point of this activity is to find an orthogonal
+	  diagonalization for each matrix.
+	</p>
 
-	  </input>
-	</sage>
-	<ol label="a.">
-	  <li>
-	    <p>
-	      <m> A = \begin{bmatrix}
-	      0 \amp 2 \\
-	      2 \amp 3
-	      \end{bmatrix}
-	      </m>.
-	    </p>
-	  </li>
-	  <li>
-	    <p>
-	      <m> A = \begin{bmatrix}
-	      28 \amp -8 \amp -4 \\
-	      -8 \amp -17 \amp 14 \\
-	      -76 \amp 86 \amp -2
-	      \end{bmatrix}
-	      </m>.
-	    </p>
-	  </li>
-	  <li>
-	    <p>
-	      <m> A = \begin{bmatrix}
-	      5 \amp 4 \amp 2 \\
-	      2 \amp 5 \amp 2 \\
-	      2 \amp 2 \amp 2
-	      \end{bmatrix}
-	      </m>.
-	    </p>
-	  </li>
-	  <li>
-	    <p> Consider the matrix <m>A = B^TB</m> where
+	<p>
+	  To begin, find a basis for each eigenspace.  Use this basis to
+	  find an orthogonal basis for each eigenspace and put these
+	  bases together to find an orthogonal basis for <m>\real^m</m>
+	  consisting of eigenvectors.  Use this basis to write an
+	  orthogonal diagonalization of the matrix.
+	  <sage>
+	    <input>
+
+	    </input>
+	  </sage>
+	  <ol label="a.">
+	    <li>
+	      <p>
+		<m>\begin{bmatrix}
+		0 \amp 2 \\
+		2 \amp 3
+		\end{bmatrix}
+		</m>.
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		<m>\begin{bmatrix}
+		4 \amp -2 \amp 14 \\
+		-2 \amp 19 \amp -16 \\
+		-14 \amp -16 \amp 13
+		\end{bmatrix}
+		</m>.
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		<m>\begin{bmatrix}
+		5 \amp 4 \amp 2 \\
+		4 \amp 5 \amp 2 \\
+		2 \amp 2 \amp 2
+		\end{bmatrix}
+		</m>.
+	      </p>
+	    </li>
+	    <li>
+	      <p> Consider the matrix <m>A = B^TB</m> where
 	      <m> B = \begin{bmatrix}
 	      0 \amp 1 \amp 2 \\
 	      2 \amp 0 \amp 1 
 	      \end{bmatrix}
 	      </m>.
-	    Explain how we know that <m>A</m> is symmetric and then
-	    find an orthogonal diagonalization of <m>A</m>.
-	    </p>
-	  </li>
-	</ol>
-      </p>
+	      Explain how we know that <m>A</m> is symmetric and then
+	      find an orthogonal diagonalization of <m>A</m>.
+	      </p>
+	    </li>
+	  </ol>
+	</p>
+      </statement>
+
+      <solution>
+	<p>
+	  <ol label="a.">
+	    <li>
+	      <p>
+		We have eigenvectors <m>\vvec_1=\twovec12</m> and
+		<m>\vvec_2 = \twovec{2}{-1}</m> with associated
+		eigenvalues <m>\lambda_1 = 4</m> and
+		<m>\lambda_2=-1</m>.  We form an orthonormal basis of
+		eigenvectors,
+		<m>\uvec_1=\twovec{1/\sqrt{5}}{2/\sqrt{5}}</m> and 
+		<m>\uvec_2=\twovec{2/\sqrt{5}}{-1/\sqrt{5}}</m>. This
+		gives
+		<me>
+		  D = \begin{bmatrix}
+		  4 \amp 0 \\
+		  0 \amp -1 \\
+		  \end{bmatrix},
+		  \hspace{24pt}
+		  Q = \begin{bmatrix}
+		  1/\sqrt{5} \amp 2/\sqrt{5} \\
+		  2/\sqrt{5} \amp -1/\sqrt{5} \\
+		  \end{bmatrix}\text{.}
+		</me>
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		We find
+		<me>
+		  D = \begin{bmatrix}
+		  36 \amp 0 \amp 0 \\
+		  0 \amp 9 \amp 0 \\
+		  0 \amp 0 \amp -9 \\
+		  \end{bmatrix},
+		  \hspace{24pt}
+		  Q = \begin{bmatrix}
+		  1/3 \amp 2/3 \amp 2/3 \\
+		  -2/3 \amp 2/3 \amp -1/3 \\
+		  2/3 \amp 1/3 \amp -2/3 \\
+		  \end{bmatrix}\text{.}
+		</me>
+	      </p>
+	    </li>
+
+	    <li>
+	      <p>
+		We have eigenvalues <m>\lambda_1=10</m> with
+		associated eigenvector <m>\vvec_1=\threevec211</m> and
+		<m>\lambda_2 = 1</m> with associated eigenvectors
+		<m>\vvec_2=\threevec10{-2}</m> and
+		<m>\vvec_3=\threevec01{-2}</m>.  Notice that
+		<m>\vvec_1</m> is orthogonal to both <m>\vvec_2</m>
+		and <m>\vvec_3</m>, but
+		<m>\vvec_2</m> and <m>\vvec_3</m> are not orthogonal
+		to one another.  We can, however,
+		apply Gram-Schmidt to create an orthogonal
+		basis of the eigenspace <m>E_1</m>.  We can then form
+		an orthonormal basis so that
+		<me>
+		  D = \begin{bmatrix}
+		  10 \amp 0 \amp 0 \\
+		  0 \amp 1 \amp 0 \\
+		  0 \amp 0 \amp 1 \\
+		  \end{bmatrix},
+		  \hspace{24pt}
+		  Q = \begin{bmatrix}
+		  2/3 \amp 1/\sqrt{5} \amp -4/\sqrt{45} \\
+		  2/3 \amp 0 \amp 5/\sqrt{45} \\
+		  1/3 \amp -2/\sqrt{5} \amp -2/\sqrt{45} \\
+		  \end{bmatrix}\text{.}
+		</me>
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		We have <m>A^T = (B^TB)^T = B^T(B^T)^T=B^TB = A</m> so
+		<m>A</m> must be symmetric.  Then we find the
+		orthogonal diagonalization
+		<me>
+		  D = \begin{bmatrix}
+		  7 \amp 0 \amp 0 \\
+		  0 \amp 3 \amp 0 \\
+		  0 \amp 0 \amp 0 \\
+		  \end{bmatrix},
+		  \hspace{24pt}
+		  Q = \begin{bmatrix}
+		  2/\sqrt{14} \amp 2/\sqrt{6} \amp 1/\sqrt{21} \\
+		  1/\sqrt{14} \amp -1/\sqrt{6} \amp 4/\sqrt{21} \\
+		  3/\sqrt{14} \amp -1/\sqrt{6} \amp -2/\sqrt{21} \\
+		  \end{bmatrix}\text{.}
+		</me>
+	      </p>
+	    </li>
+	  </ol>
+	</p>
+      </solution>
+
+      <answer>
+	<p>
+	  <ol label="a.">
+	    <li>
+	      <p>
+		<me>
+		  D = \begin{bmatrix}
+		  4 \amp 0 \\
+		  0 \amp -1 \\
+		  \end{bmatrix},
+		  \hspace{24pt}
+		  Q = \begin{bmatrix}
+		  1/\sqrt{5} \amp 2/\sqrt{5} \\
+		  2/\sqrt{5} \amp -1/\sqrt{5} \\
+		  \end{bmatrix}\text{.}
+		</me>
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		<me>
+		  D = \begin{bmatrix}
+		  36 \amp 0 \amp 0 \\
+		  0 \amp 9 \amp 0 \\
+		  0 \amp 0 \amp -9 \\
+		  \end{bmatrix},
+		  \hspace{24pt}
+		  Q = \begin{bmatrix}
+		  1/3 \amp 2/3 \amp 2/3 \\
+		  -2/3 \amp 2/3 \amp -1/3 \\
+		  2/3 \amp 1/3 \amp -2/3 \\
+		  \end{bmatrix}\text{.}
+		</me>
+	      </p>
+	    </li>
+
+	    <li>
+	      <p>
+		<me>
+		  D = \begin{bmatrix}
+		  10 \amp 0 \amp 0 \\
+		  0 \amp 1 \amp 0 \\
+		  0 \amp 0 \amp 1 \\
+		  \end{bmatrix},
+		  \hspace{24pt}
+		  Q = \begin{bmatrix}
+		  2/3 \amp 1/\sqrt{5} \amp -4/\sqrt{45} \\
+		  2/3 \amp 0 \amp 5/\sqrt{45} \\
+		  1/3 \amp -2/\sqrt{5} \amp -2/\sqrt{45} \\
+		  \end{bmatrix}\text{.}
+		</me>
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		<me>
+		  D = \begin{bmatrix}
+		  7 \amp 0 \amp 0 \\
+		  0 \amp 3 \amp 0 \\
+		  0 \amp 0 \amp 0 \\
+		  \end{bmatrix},
+		  \hspace{24pt}
+		  Q = \begin{bmatrix}
+		  2/\sqrt{14} \amp 2/\sqrt{6} \amp 1/\sqrt{21} \\
+		  1/\sqrt{14} \amp -1/\sqrt{6} \amp 4/\sqrt{21} \\
+		  3/\sqrt{14} \amp -1/\sqrt{6} \amp -2/\sqrt{21} \\
+		  \end{bmatrix}\text{.}
+		</me>
+	      </p>
+	    </li>
+	  </ol>
+	</p>
+      </answer>
+		
     </activity>
 	  
     <p>
-      As the examples in <xref ref="activity-orthog-diag-ex" />
+      As the examples in <xref ref="activity-orthog-diag" />
       illustrate, the Spectral Theorem implies a number of things.
-      Namely, if <m>A</m> is a symmetric <m>n\times n</m> matrix, then 
+      Namely, if <m>A</m> is a symmetric <m>m\times m</m> matrix, then 
       <ul>
 	<li>
 	  <p>
@@ -591,7 +937,7 @@
 	</li>
 	<li>
 	  <p>
-	    there is a basis of <m>\real^n</m> consisting of
+	    there is a basis of <m>\real^m</m> consisting of
 	    eigenvectors.
 	  </p>
 	</li>
@@ -687,143 +1033,251 @@
     </p>
 
     <activity>
-      <p> We'll begin with a set of three data points
-      <me>
-	\dvec_1=\twovec11, \hspace{24pt}
-	\dvec_2=\twovec21, \hspace{24pt}
-	\dvec_3=\twovec34.
-      </me>
-	<ol label="a.">
-	  <li>
-	    <p>
-	      Find the centroid, or mean, <m>\overline{\dvec} =
-	      \frac1N\sum_j \dvec_j</m>.  Then plot the data points
-	      and their centroid in <xref ref="fig-variance-data" />.
-	    </p>
+      <statement>
+	<p>
+	  We'll begin with a set of three data points
+	  <me>
+	    \dvec_1=\twovec11, \hspace{24pt}
+	    \dvec_2=\twovec21, \hspace{24pt}
+	    \dvec_3=\twovec34.
+	  </me>
+	  <ol label="a.">
+	    <li>
+	      <p>
+		Find the centroid, or mean, <m>\overline{\dvec} =
+		\frac1N\sum_j \dvec_j</m>.  Then plot the data points
+		and their centroid in <xref ref="fig-variance-data" />.
+	      </p>
 
-	    <figure xml:id="fig-variance-data">
-	      <sidebyside width="50%">
-		<image source="images/empty-4" />
-	      </sidebyside>
-	      <caption>
-		<p>
+	      <figure xml:id="fig-variance-data">
+		<sidebyside width="50%">
+		  <image source="images/empty-4" />
+		</sidebyside>
+		<caption>
 		  Plot the data points and their centroid here.
-		</p>
-	      </caption>
-	    </figure>
+		</caption>
+	      </figure>
 
-	  </li>
+	    </li>
 
-	  <li>
-	    <p>
-	      Notice that the centroid lies in the center of the
-	      data so that the spread of the data will be measured by
-	      how far away the points are from the centroid.
-	      To simplify our work, find the demeaned data points
-	      <me>
-		\dtil_j = \dvec_j - \overline{\dvec}
-	      </me>
-	      and plot them in <xref ref="fig-variance-demeaned" />.
-	    </p>
-	    <figure xml:id="fig-variance-demeaned">
-	      <sidebyside width="50%">
-		<image source="images/empty-4" />
-	      </sidebyside>
-	      <caption>
-		<p>
+	    <li>
+	      <p>
+		Notice that the centroid lies in the center of the
+		data so the spread of the data will be measured by how
+		far away the points are from the centroid.  To
+		simplify our calculations, find the demeaned data
+		points
+		<me>
+		  \dtil_j = \dvec_j - \overline{\dvec}
+		</me>
+		and plot them in <xref ref="fig-variance-demeaned" />.
+	      </p>
+	      <figure xml:id="fig-variance-demeaned">
+		<sidebyside width="50%">
+		  <image source="images/empty-4" />
+		</sidebyside>
+		<caption>
 		  Plot the demeaned data points <m>\dtil_j</m> here.
-		</p>
-	      </caption>
-	    </figure>
-	  </li>
+		</caption>
+	      </figure>
+	    </li>
 
-	  <li>
-	    <p>
-	      Now that the data has been demeaned, we will define the
-	      total variance as the average of the squares of the
-	      distances from the origin; that is, the total variance
-	      is
-	      <me>
-		V = \frac 1N\sum_j~\len{\dtil_j}^2.
-	      </me>
-	      Find the total variance <m>V</m> for our set of three
-	      points. 
-	    </p>
-	  </li>
+	    <li>
+	      <p>
+		Now that the data has been demeaned, we will define the
+		total variance as the average of the squares of the
+		distances from the origin; that is, the total variance
+		is
+		<me>
+		  V = \frac 1N\sum_j~|\dtil_j|^2.
+		</me>
+		Find the total variance <m>V</m> for our set of three
+		points. 
+	      </p>
+	    </li>
 
-	  <li>
-	    <p>
-	      Now plot the projections of the demeaned data onto the
-	      <m>x</m> and <m>y</m> axes using <xref
-	      ref="fig-variance-projection" />.  Then find the
-	      variances <m>V_x</m> and <m>V_y</m> of the projected
-	      points. 
-	    </p>
+	    <li>
+	      <p>
+		Now plot the projections of the demeaned data onto the
+		<m>x</m> and <m>y</m> axes using <xref
+		ref="fig-variance-projection" />.  Then find the
+		variances <m>V_x</m> and <m>V_y</m> of the projected
+		points. 
+	      </p>
 
-	    <figure xml:id="fig-variance-projection">
-	      <sidebyside widths="45% 45%">
-		<image source = "images/x-axis-4" />
-		<image source = "images/y-axis-4" />
-	      </sidebyside>
-	      <caption>
-		<p>
+	      <figure xml:id="fig-variance-projection">
+		<sidebyside widths="45% 45%">
+		  <image source = "images/x-axis-4" />
+		  <image source = "images/y-axis-4" />
+		</sidebyside>
+		<caption>
 		  Plot the projections of the deameaned data onto the
 		  <m>x</m> and <m>y</m> axes.
-		</p>
-	      </caption>
-	    </figure>
-	  </li>
+		</caption>
+	      </figure>
+	    </li>
 
-	  <li>
-	    <p>
-	      Which of the variances, <m>V_x</m> and <m>V_y</m>, is
-	      larger and how does the plot of the projected points
-	      explain your response?
-	    </p>
-	  </li>
+	    <li>
+	      <p>
+		Which of the variances, <m>V_x</m> and <m>V_y</m>, is
+		larger and how does the plot of the projected points
+		explain your response?
+	      </p>
+	    </li>
 
-	  <li>
-	    <p>
-	      What do you notice about the relationship between
-	      <m>V</m>, <m>V_x</m>, and <m>V_y</m>?  How does the
-	      Pythagorean theorem explain this relationship?
-	    </p>
-	  </li>
+	    <li>
+	      <p>
+		What do you notice about the relationship between
+		<m>V</m>, <m>V_x</m>, and <m>V_y</m>?  How does the
+		Pythagorean theorem explain this relationship?
+	      </p>
+	    </li>
 
-	  <li>
-	    <p>
-	      Plot the projections of the demeaned data points onto
-	      the lines defined 
-	      by vectors <m>\vvec_1=\twovec11</m> and
-	      <m>\vvec_2=\twovec{-1}1</m> using <xref
-	      ref="fig-variance-projection-2" />.  Then
-	      find the variances
-	      <m>V_{\vvec_1}</m> and <m>V_{\vvec_2}</m> of these
-	      projected points.
-	    </p>
-	    
-	    <figure xml:id="fig-variance-projection-2">
-	      <sidebyside widths="50%">
-		<image source = "images/empty-4-diag" />
-	      </sidebyside>
-	      <caption>
-		<p>
-		  Plot the projections of the deameaned data onto the
-		  lines defined by <m>\vvec_1</m> and <m>\vvec_2</m>.
-		</p>
-	      </caption>
-	    </figure>
-	  </li>
+	    <li>
+	      <p>
+		Plot the projections of the demeaned data points onto
+		the lines defined 
+		by vectors <m>\vvec_1=\twovec11</m> and
+		<m>\vvec_2=\twovec{-1}1</m> using <xref
+		ref="fig-variance-projection-2" />.  Then
+		find the variances
+		<m>V_{\vvec_1}</m> and <m>V_{\vvec_2}</m> of these
+		projected points.
+	      </p>
+	      
+	      <figure xml:id="fig-variance-projection-2">
+		<sidebyside widths="50%">
+		  <image source = "images/empty-4-diag" />
+		</sidebyside>
+		<caption>
+		    Plot the projections of the deameaned data onto the
+		    lines defined by <m>\vvec_1</m> and <m>\vvec_2</m>.
+		</caption>
+	      </figure>
+	    </li>
 
-	  <li>
-	    <p>
-	      What is the relationship between the total variance
-	      <m>V</m> and <m>V_{\vvec_1}</m> and <m>V_{\vvec_2}</m>?
-	      How does the Pythagorean theorem explain your response?
-	    </p>
-	  </li>
-	</ol>
-      </p>
+	    <li>
+	      <p>
+		What is the relationship between the total variance
+		<m>V</m> and <m>V_{\vvec_1}</m> and <m>V_{\vvec_2}</m>?
+		How does the Pythagorean theorem explain your response?
+	      </p>
+	    </li>
+	  </ol>
+	</p>
+      </statement>
+
+      <solution>
+	<p>
+	  <ol label="a.">
+	    <li>
+	      <p>
+		The centroid is <m>\overline{d} = \twovec22</m>.
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		The demeaned data points are
+		<me>
+		  \dtil_1=\twovec{-1}{-1},\hspace{24pt}
+		  \dtil_2=\twovec{0}{-1},\hspace{24pt}
+		  \dtil_3=\twovec{1}{2}\text{.}
+		</me>
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		The total variance is <m>V=8/3</m>.
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		We find <m>V_x = 2/3</m> and <m>V_y=2</m>.  Notice
+		that <m>V_y</m> is larger because the points are more
+		spread out in the vertical direction.
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		We have <m>V=V_x+V_y</m> due to the Pythagorean
+		theorem.
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		The points projected onto the line defined by
+		<m>\vvec_1</m> are <m>\twovec{-1}{-1}</m>,
+		<m>\twovec{-1/2}{-1/2}</m>, and
+		<m>\twovec{3/2}{3/2}</m>.  This gives the variance
+		<m>V_{\vvec_1} = 7/3</m>.
+	      </p>
+	      <p>
+		The points projected onto the line defined by
+		<m>\vvec_2</m> are <m>\twovec{0}{0}</m>,
+		<m>\twovec{1/2}{-1/2}</m>, and
+		<m>\twovec{-1/2}{1/2}</m>.  This gives the variance
+		<m>V_{\vvec_2} = 1/3</m>.
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		Once again, <m>V = V_{\vvec_1} + V_{\vvec_2}</m>
+		because of the Pythagorean theorem.
+	      </p>
+	    </li>
+	  </ol>
+	</p>
+      </solution>
+
+      <answer>
+	<p>
+	  <ol label="a.">
+	    <li>
+	      <p>
+		<m>\overline{d} = \twovec22</m>.
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		<me>
+		  \dtil_1=\twovec{-1}{-1},\hspace{24pt}
+		  \dtil_2=\twovec{0}{-1},\hspace{24pt}
+		  \dtil_3=\twovec{1}{2}\text{.}
+		</me>
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		<m>V=8/3</m>.
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		<m>V_x = 2/3</m> and <m>V_y=2</m>
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		<m>V=V_x+V_y</m>
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		<m>V_{\vvec_1} = 7/3</m>
+	      </p>
+	      <p>
+		<m>V_{\vvec_2} = 1/3</m>
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		<m>V = V_{\vvec_1} + V_{\vvec_2}</m>
+	      </p>
+	    </li>
+	  </ol>
+	</p>
+      </answer>
+		
     </activity>
 
     <p>
@@ -832,14 +1286,14 @@
       two-dimensional and suppose that the demeaned points are
       <m>\dtil_j=\twovec{\widetilde{x}_j}{\widetilde{y}_j}</m>.  We have
       <me>
-	\len{\dtil_j}^2 = \widetilde{x}_j^2 + \widetilde{y}_j^2.
+	|\dtil_j|^2 = \widetilde{x}_j^2 + \widetilde{y}_j^2.
       </me>
       If we take the average over all data points, we find that the
       total variance <m>V</m> is the sum of the variances in the
       <m>x</m> and <m>y</m> directions:
       <md>
 	<mrow>
-	  \frac1N \sum_j~ \len{\dtil_j}^2 \amp =
+	  \frac1N \sum_j~ |\dtil_j|^2 \amp =
 	  \frac1N \sum_j~ \widetilde{x}_j^2 + 
 	  \frac1N \sum_j~ \widetilde{y}_j^2 
 	</mrow>
@@ -857,21 +1311,21 @@
       <m>(\dtil_j\cdot\uvec_1)\uvec_1</m> so that
       <me>
 	V_{\uvec_1} = \frac1N\sum_j
-	~\len{(\dtil_j\cdot\uvec_1)~\uvec_1}^2 =
+	~|(\dtil_j\cdot\uvec_1)~\uvec_1|^2 =
 	\frac1N~(\dtil_j\cdot\uvec_1)^2.
       </me>
     </p>
 
     <p>
-      For each of our demeaned data points, we
-      have
+      For each of our demeaned data points, the Projection Formula
+      tells us that
       <me>
 	\dtil_j = (\dtil_j\cdot\uvec_1)~\uvec_1 + 
 	(\dtil_j\cdot\uvec_2)~\uvec_2.
       </me>
       We then have
       <me>
-	\len{\dtil_j}^2 = \dtil_j\cdot\dtil_j =
+	|\dtil_j|^2 = \dtil_j\cdot\dtil_j =
 	(\dtil_j\cdot\uvec_1)^2 + (\dtil_j\cdot\uvec_2)^2
       </me>
       since <m>\uvec_1\cdot\uvec_2 = 0</m>.  When we average over all
@@ -897,148 +1351,239 @@
     </proposition>
 
     <p>
-      The next activity demonstrates an more efficient way to find the
+      The next activity demonstrates a more efficient way to find the
       variance <m>V_{\uvec}</m> in a particular direction and 
       connects our discussion of variance with symmetric matrices.
     </p>
 
     <activity>
-      <p>
-	Let's return to the dataset from the previous activity in which
-	we have demeaned data points:
-	<me>
-	  \dtil_1=\twovec{-1}{-1},\hspace{24pt}
-	  \dtil_2=\twovec{0}{-1},\hspace{24pt}
-	  \dtil_3=\twovec{1}{2}.
-	</me>
-	Our goal is to compute the variance <m>V_{\uvec}</m> in the
-	direction defined by the unit vector
-	<m>\uvec</m>.
-      </p>
+      <statement>
+	<p>
+	  Let's return to the dataset from the previous activity in which
+	  we have demeaned data points:
+	  <me>
+	    \dtil_1=\twovec{-1}{-1},\hspace{24pt}
+	    \dtil_2=\twovec{0}{-1},\hspace{24pt}
+	    \dtil_3=\twovec{1}{2}.
+	  </me>
+	  Our goal is to compute the variance <m>V_{\uvec}</m> in the
+	  direction defined by a unit vector
+	  <m>\uvec</m>.
+	</p>
 
-      <p>
-	To begin, form the demeaned data matrix
-	<me>
-	  A = \begin{bmatrix}
-	  \dtil_1 \amp \dtil_2 \amp \dtil_3
-	  \end{bmatrix}
-	</me>
-	and suppose that <m>\uvec</m> is a unit vector.  
-	<ol label="a.">
-	  <li>
-	    <p>
-	      Write the vector <m>A^T\uvec</m> in terms of
-	      the dot products <m>\dtil_j\cdot\uvec</m>.
-	    </p>
-	  </li>
+	<p>
+	  To begin, form the demeaned data matrix
+	  <me>
+	    A = \begin{bmatrix}
+	    \dtil_1 \amp \dtil_2 \amp \dtil_3
+	    \end{bmatrix}
+	  </me>
+	  and suppose that <m>\uvec</m> is a unit vector.  
+	  <ol label="a.">
+	    <li>
+	      <p>
+		Write the vector <m>A^T\uvec</m> in terms of
+		the dot products <m>\dtil_j\cdot\uvec</m>.
+	      </p>
+	    </li>
 
-	  <li>
-	    <p>
-	      Explain why <m>V_{\uvec} = \frac13\len{A^T\uvec}^2</m>.
-	    </p>
-	  </li>
+	    <li>
+	      <p>
+		Explain why <m>V_{\uvec} = \frac13|A^T\uvec|^2</m>.
+	      </p>
+	    </li>
 
-	  <li>
-	    <p>
-	      Apply <xref ref="prop-symmetric-dot" /> to explain why
-	      <me>
-		V_{\uvec} =
-		\frac13\len{A^T\uvec}^2 = 
-		\frac13 (A^T\uvec)\cdot(A^T\uvec) =
-		\uvec^T\left(\frac13 AA^T\right)\uvec.
-	      </me>
-	    </p>
-	  </li>
+	    <li>
+	      <p>
+		Apply <xref ref="prop-symmetric-dot" /> to explain why
+		<me>
+		  V_{\uvec} =
+		  \frac13|A^T\uvec|^2 = 
+		  \frac13 (A^T\uvec)\cdot(A^T\uvec) =
+		  \uvec^T\left(\frac13 AA^T\right)\uvec.
+		</me>
+	      </p>
+	    </li>
 
-	  <li>
-	    <p>
-	      In general, the matrix <m>C=\frac1N~AA^T</m> is called
-	      the <em>covariance</em> matrix of the dataset.  Find the
-	      matrix <m>C</m> for our dataset with three points.
-	      <sage>
-		<input>
-		</input>
-	      </sage>
-	    </p>
-	  </li>
+	    <li>
+	      <p>
+		In general, the matrix <m>C=\frac1N~AA^T</m> is called
+		the <em>covariance</em> matrix of the dataset, and it
+		is useful because the variance <m>V_{\uvec} =
+		\uvec\cdot(C\uvec)</m>, as we have just seen.  Find
+		the matrix <m>C</m> for our dataset with three points.
+		<sage>
+		  <input>
+		  </input>
+		</sage>
+	      </p>
+	    </li>
 
-	  <li>
-	    <p>
-	      Use the covariance matrix to find the variance
-	      <m>V_{\uvec}</m> when
-	      <m>\uvec=\twovec{1/\sqrt{5}}{2/\sqrt{5}}</m>.
-	    </p>
-	  </li>
+	    <li>
+	      <p>
+		Use the covariance matrix to find the variance
+		<m>V_{\uvec_1}</m> when
+		<m>\uvec_1=\twovec{1/\sqrt{5}}{2/\sqrt{5}}</m>.
+	      </p>
+	    </li>
 
-	  <li>
-	    <p>
-	      Use the covariance matrix to find the variance
-	      <m>V_{\uvec}</m> when
-	      <m>\uvec=\twovec{-2/\sqrt{5}}{1/\sqrt{5}}</m> and verify
-	      that the sum of these two variances add to the total
-	      variance. 
-	    </p>
-	  </li>
+	    <li>
+	      <p>
+		Use the covariance matrix to find the variance
+		<m>V_{\uvec_2}</m> when
+		<m>\uvec_2=\twovec{-2/\sqrt{5}}{1/\sqrt{5}}</m>.
+		Since <m>\uvec_1</m> and <m>\uvec_2</m> are
+		orthogonal, verify that the sum of <m>V_{\uvec_1}</m> and
+		<m>V_{\uvec_2}</m> 
+		gives the total variance.
+	      </p>
+	    </li>
 
-	  <li>
-	    <p>
-	      Explain why the covariance matrix <m>C</m> is a
-	      symmetric matrix.
-	    </p>
-	  </li>
-	</ol>
-      </p>
+	    <li>
+	      <p>
+		Explain why the covariance matrix <m>C</m> is a
+		symmetric matrix.
+	      </p>
+	    </li>
+	  </ol>
+	</p>
+      </statement>
+
+      <solution>
+	<p>
+	  <ol label="a.">
+	    <li>
+	      <p>
+		<m>A^T\uvec=\threevec{\dtil_1\cdot\uvec}
+		{\dtil_2\cdot\uvec}
+		{\dtil_3\cdot\uvec}
+		</m>
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		Projecting <m>\dtil_j</m> onto <m>\uvec</m> gives
+		<m>(\dtil_j\cdot\uvec)\uvec</m>, whose length squared is
+		<m>(\dtil_j\cdot\uvec)^2</m>.  Then
+		<me>
+		  V_{\uvec} = \frac13\left((\dtil_1\cdot\uvec)^2 +
+		  (\dtil_2\cdot\uvec)^2 + (\dtil_3\cdot\uvec)^2\right)
+		  = \frac13|A^T\uvec|^2\text{.}
+		</me>
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		<me>
+		  \frac13(A^T\uvec)\cdot(A^T\uvec) =
+		  \frac13\uvec\cdot(A^T)^TA^T\uvec =
+		  \uvec\cdot\left(\frac13AA^T\right)\uvec
+		</me>
+	      </p>
+	    </li>
+	    <li>
+	      <m>C=\begin{bmatrix}
+	      2/3 \amp 1 \\
+	      1 \amp 2
+	      \end{bmatrix}
+	      </m>
+	    </li>
+	    <li>
+	      <p>
+		<m>V_{\uvec_1} = 38/15</m>
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		<m>V_{\uvec_2} = 2/15</m>.  Then
+		<m>V_{\uvec_1}+V_{\uvec_2} = 8/3</m>, which is the
+		total variance.
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		<m>C^T = \left(\frac13 AA^T\right)^T = \frac13(A^T)^TA^T
+		= \frac13 AA^T = C</m>
+	      </p>
+	    </li>
+	  </ol>
+	</p>
+      </solution>
+		
+      <answer>
+	<p>
+	  <ol label="a.">
+	    <li>
+	      <p>
+		<m>A^T\uvec=\threevec{\dtil_1\cdot\uvec}
+		{\dtil_2\cdot\uvec}
+		{\dtil_3\cdot\uvec}
+		</m>
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		<me>
+		  V_{\uvec} = \frac13\left((\dtil_1\cdot\uvec)^2 +
+		  (\dtil_2\cdot\uvec)^2 + (\dtil_3\cdot\uvec)^2\right)
+		  = \frac13|A^T\uvec|^2\text{.}
+		</me>
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		<me>
+		  \frac13(A^T\uvec)\cdot(A^T\uvec) =
+		  \frac13\uvec\cdot(A^T)^TA^T\uvec =
+		  \uvec\cdot\left(\frac13AA^T\right)\uvec
+		</me>
+	      </p>
+	    </li>
+	    <li>
+	      <m>C=\begin{bmatrix}
+	      2/3 \amp 1 \\
+	      1 \amp 2
+	      \end{bmatrix}
+	      </m>
+	    </li>
+	    <li>
+	      <p>
+		<m>V_{\uvec_1} = 38/15</m>
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		<m>V_{\uvec_2} = 2/15</m>.  
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		<m>C^T = \left(\frac13 AA^T\right)^T = \frac13(A^T)^TA^T
+		= \frac13 AA^T = C</m>
+	      </p>
+	    </li>
+	  </ol>
+	</p>
+      </answer>
+		
     </activity>
 
     <p>
-      If <m>A</m> is the demeaned data matrix,
-      <me>
-	A = \begin{bmatrix}
-	\dtil_1 \amp \dtil_2 \amp \dtil_3
-	\end{bmatrix},
-      </me>
-      and <m>\uvec</m> is a
-      unit vector, we have
-      <me>
-	A^T\uvec =
-	\threevec{\dtil_1\cdot\uvec}{\dtil_2\cdot\uvec}{\dtil_2\cdot\uvec},
-      </me>
-      which shows that, in general, <m>V_{\uvec} =
-      \frac1N~\len{A^T\uvec}^2</m>. 
-    </p>
-
-    <p>
-      The covariance matrix is defined to be
-      <m>C=\frac1N~AA^T</m>.  Notice that
+      This activity introduced the covariance matrix of a dataset,
+      which is defined to be 
+      <m>C=\frac1N~AA^T</m> where <m>A</m> is the matrix of demeaned
+      data points.  Notice that
       <me>
 	C^T = \frac1N~(AA^T)^T = \frac1N~AA^T = C,
       </me>
-      which tells us that <m>C</m> is a symmetric matrix.  In
+      which tells us that <m>C</m> is symmetric.  In
       particular, we know that it is orthogonally diagonalizable, an
       observation that will play an important role in the future.
     </p>
 
     <p>
-      The significance of the covariance matrix is that
-      <md>
-	<mrow>
-	  \uvec\cdot C\uvec = \amp \frac1N~\uvec^T AA^T\uvec
-	</mrow>
-	<mrow>
-	  \amp = \frac
-	  1N~(A^T\uvec)^T(A^T\uvec)
-	</mrow>
-	<mrow>
-	  \amp = \frac1N (A^T\uvec)\cdot(A^T\uvec)
-	</mrow>
-	<mrow>
-	  \amp = \frac1N~\len{A^T\uvec}^2
-	</mrow>
-	<mrow>
-	  \amp = V_{\uvec}.
-	</mrow>
-      </md>
-      Let's record this fact in the following proposition.
+      This activity also demonstrates the significance of the
+      covariance matrix, which is recorded in the following proposition.
     </p>
 
     <proposition xml:id="prop-covariance">
@@ -1063,100 +1608,202 @@
     </p>
       
     <activity>
-      <p>
+      <statement>
+	<p>
 	
-	<ol label="a.">
-	  <li>
-	    <p>
-	      Evaluating the following Sage cell loads a dataset
-	      consisting of 100 demeaned data points and provides a plot
-	      of them.  It also provides the demeaned data matrix
-	      <m>A</m>.
-	      <sage>
-		<input>
+	  <ol label="a.">
+	    <li>
+	      <p>
+		Evaluating the following Sage cell loads a dataset
+		consisting of 100 demeaned data points and provides a plot
+		of them.  It also provides the demeaned data matrix
+		<m>A</m>.
+		<sage>
+		  <input>
 import pandas as pd
 df = pd.read_csv('https://raw.githubusercontent.com/davidaustinm/ula_modules/master/data/variance-data.csv', header=None)
 data = [vector(row) for row in df.values]
 A = matrix(data).T
 list_plot(data, size=20, color='blue', aspect_ratio=1)
-		</input>
-	      </sage>
-	    </p>
+		  </input>
+		</sage>
+	      </p>
+	      
+	      <p>
+		What are the dimensions of the covariance matrix
+		<m>C</m>?  Find <m>C</m> and verify your response.
+		<sage>
+		  <input>
+		  </input>
+		</sage>
+	      </p>
+	    </li>
+	    
+	    <li>
+	      <p>
+		By visually inspecting the data, determine which is
+		larger, <m>V_x</m> or <m>V_y</m>.  Then compute both
+		of these quantities to verify your response.
+	      </p>
+	    </li>
+	    
+	    <li>
+	      <p>
+		What is the total variance <m>V</m>?
+	      </p>
+	    </li>
+	    
+	    <li>
+	      <p>
+		In approximately what direction is the variance
+		greatest?  Choose a reasonable vector <m>\uvec</m> that
+		points in approximately that direction 
+		and find <m>V_{\uvec}</m>.
+	      </p>
+	    </li>
+	    
+	    <li>
+	      <p>
+		In approximately what direction is the variance
+		smallest?  Choose a reasonable vector <m>\wvec</m> that
+		points in approximately that direction
+		and find <m>V_{\wvec}</m>.
+	      </p>
+	    </li>
+	    
+	    <li>
+	      <p>
+		How are the directions <m>\uvec</m> and <m>\wvec</m> in
+		the last two parts of this 
+		problem related to one another?  Why does this
+		relationship hold?
+	      </p>
+	    </li>
+	  </ol>
+	</p>
+      </statement>
 
-	    <p>
-	      What are the dimensions of the covariance matrix
-	      <m>C</m>?  Find <m>C</m> and verify your response.
-	      <sage>
-		<input>
-		</input>
-	      </sage>
-	    </p>
-	  </li>
+      <solution>
+	<p>
+	  <ol label="a.">
+	    <li>
+	      <p>
+		<m>C</m> will be the <m>2\times2</m> matrix
+		<m>C=\begin{bmatrix}
+		1.38 \amp 0.70 \\
+		0.70 \amp 0.37
+		\end{bmatrix}
+		</m>
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		<m>V_x = 1.38</m> and <m>V_y=0.37</m>, which agrees
+		with the fact that the data is more spread out in the
+		horizontal than vertical direction.
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		<m>V=V_x+V_y=1.75</m>
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		It looks like the direction <m>\twovec21</m> defined
+		by the unit vector
+		<m>\uvec_1=\twovec{2/\sqrt{5}}{1/\sqrt{5}}</m>.  We
+		find that <m>V_{\uvec_1} = 1.74</m>, which is almost
+		all of the total variance.
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		It looks like the direction <m>\twovec{-1}{2}</m> defined
+		by the unit vector
+		<m>\uvec_2=\twovec{-1/\sqrt{5}}{2/\sqrt{5}}</m>.  We
+		find that <m>V_{\uvec_2} = 0.01</m>.
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		They are orthogonal to one another.  Since the total
+		variance <m>V=V_{\uvec_1}+V_{\uvec_2}</m> when
+		<m>\uvec_1</m> and <m>\uvec_2</m> are orthogonal,
+		<m>V_{\uvec_1}</m> will be as large as possible when
+		<m>V_{\uvec_2}</m> is as small as possible.
+	      </p>
+	    </li>
+	  </ol>
+	</p>
+      </solution>
 
-	  <li>
-	    <p>
-	      By visually inspecting the data, determine which is
-	      larger, <m>V_x</m> or <m>V_y</m>.  Then compute both
-	      of these quantities to verify your response.
-	    </p>
-	  </li>
+      <answer>
+	<p>
+	  <ol label="a.">
+	    <li>
+	      <p>
+		<m>C=\begin{bmatrix}
+		1.38 \amp 0.70 \\
+		0.70 \amp 0.37
+		\end{bmatrix}
+		</m>
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		<m>V_x = 1.38</m> and <m>V_y=0.37</m>
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		<m>V=1.75</m>
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		If <m>\uvec_1=\twovec{2/\sqrt{5}}{1/\sqrt{5}}</m>,
+		then <m>V_{\uvec_1} = 1.74</m>.
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		If <m>\uvec_2=\twovec{-1/\sqrt{5}}{2/\sqrt{5}}</m>,
+		then <m>V_{\uvec_2} = 0.01</m>.
 
-	  <li>
-	    <p>
-	      What is the total variance <m>V</m>?
-	    </p>
-	  </li>
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		They are orthogonal to one another.
+	      </p>
+	    </li>
+	  </ol>
+	</p>
+      </answer>
 
-	  <li>
-	    <p>
-	      In approximately what direction is the variance
-	      greatest?  Choose a reasonable vector <m>\uvec</m> that
-	      points in approximately that direction 
-	      and find <m>V_{\uvec}</m>.
-	    </p>
-	  </li>
-
-	  <li>
-	    <p>
-	      In approximately what direction is the variance
-	      smallest?  Choose a reasonable vector <m>\wvec</m> that
-	      points in approximately that direction
-	      and find <m>V_{\wvec}</m>.
-	    </p>
-	  </li>
-
-	  <li>
-	    <p>
-	      How are the directions <m>\uvec</m> and <m>\wvec</m> in
-	      the last two parts of this 
-	      problem related to one another?  Why does this
-	      relationship hold?
-	    </p>
-	  </li>
-	</ol>
-      </p>
     </activity>
 
     <p>
       This activity illustrates how variance can identify a
       line along which the data is concentrated.  When the data
       primarily lies along a line defined by a vector
-      <m>\uvec</m>, then the variance in that direction will be large
-      while the variance in an orthogonal direction <m>\wvec</m> will
+      <m>\uvec_1</m>, then the variance in that direction will be large
+      while the variance in an orthogonal direction <m>\uvec_2</m> will
       be small.
     </p>
 
     <p>
       Remember that variance is additive, according to <xref
       ref="prop-variance-additivity" />, so that if
-      <m>\uvec</m> and 
-      <m>\wvec</m> are orthogonal unit vectors, then the total
+      <m>\uvec_1</m> and 
+      <m>\uvec_2</m> are orthogonal unit vectors, then the total
       variance is
       <me>
-	V = V_{\uvec} + V_{\wvec}.
+	V = V_{\uvec_1} + V_{\uvec_2}.
       </me>
-      Therefore, if we choose <m>\uvec</m> to be the direction where
-      <m>V_{\uvec}</m> is a maximum, then <m>V_{\wvec}</m> will be a
+      Therefore, if we choose <m>\uvec_1</m> to be the direction where
+      <m>V_{\uvec_1}</m> is a maximum, then <m>V_{\uvec_2}</m> will be a
       minimum.  
     </p>
 
