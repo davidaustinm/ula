@@ -7,21 +7,12 @@
   <introduction>
 
     <p>
-      In the last section, we saw that symmetric matrices can be
-      orthogonally diagonalized and that the variance of a dataset is
-      described using a symmetric matrix, the covariance matrix
-      <m>C</m>.  In addition, we saw how an understanding of
-      directions where the variance is large and where it is small can
-      help us understand when the data is concentrated along, say, a
-      line.
-    </p>
-
-    <p>
-      In this section, we'll explore how to determine the directions
-      in which the variance is as large as possible and where it is as
-      small as possible.  This is part of a larger story
+      With our understanding of symmetric matrices and variance in
+      hand, we'll now explore how to determine the directions in which
+      the variance of a dataset is as large as possible and where it
+      is as small as possible.  This is part of a much larger story
       involving a type of function, called a <em>quadratic form</em>,
-      that we'll explore here.
+      that we'll introduce here.
     </p>
 
     <exploration xml:id="preview-quadforms">
@@ -31,15 +22,17 @@
 	  data points that form the demeaned data matrix
 	  <me>
 	    A = \begin{bmatrix}
-	    3 \amp 0 \amp -3 \\
-	    0 \amp 3 \amp -3 \\
+	    2 \amp 1 \amp -3 \\
+	    1 \amp 2 \amp -3 \\
 	    \end{bmatrix}
 	  </me>
 	  <ol label="a.">
 	    <li>
 	      <p>
 		Plot the demeaned data points in <xref
-		ref="fig-quad-preview" />.
+		ref="fig-quad-preview" />.  In which direction does
+		the variance appear to be largest and in which does it
+		appear to be smallest?
 	      </p>
 
 	      <figure xml:id="fig-quad-preview">
@@ -47,26 +40,17 @@
 		  <image source="images/empty-4" />
 		</sidebyside>
 		<caption>
-		  <p>
-		    Use this coordinate grid to plot the demeaned data
-		    points.
-		  </p>
+		  Use this coordinate grid to plot the demeaned data
+		  points.
 		</caption>
 	      </figure>
 	    </li>
 
 	    <li>
 	      <p>
-		Based on this sketch, which direction would you
-		estimate to have the greatest variance?  Which
-		direction would you estimate to have the smallest
-		variance?
-	      </p>
-	    </li>
-
-	    <li>
-	      <p>
-		Construct the covariance matrix <m>C</m>.
+		Construct the covariance matrix <m>C</m> and determine
+		the variance in the direction of <m>\twovec11</m> and
+		the variance in the direction of <m>\twovec{-1}1</m>.
 		<sage>
 		  <input>
 		  </input>
@@ -76,36 +60,16 @@
 
 	    <li>
 	      <p>
-		Find a basis of <m>\real^2</m> consisting of
-		eigenvectors of <m>C</m>.  Use this to construct an
-		orthogonal diagonalization of <m>C</m>.
+		What is the total variance of this dataset?
 	      </p>
 	    </li>
 
 	    <li>
 	      <p>
-		Suppose that <m>\uvec_1</m> is an eigenvector having
-		unit length associated with the largest eigenvalue of
-		<m>C</m>.  Sketch the line defined by <m>\uvec_1</m>
-		and determine the variance <m>V_{\uvec_1}</m>.
-	      </p>
-	    </li>
-
-	    <li>
-	      <p>
-		Suppose that <m>\uvec_2</m> is an eigenvector having
-		unit length associated with the smallest eigenvalue of
-		<m>C</m>.  Sketch the line defined by <m>\uvec_2</m>
-		and determine the variance <m>V_{\uvec_2}</m>.
-	      </p>
-	    </li>
-
-	    <li>
-	      <p>
-		Generally speaking, if <m>C</m> is a covariance matrix
-		and <m>\uvec</m> an eigenvector of <m>C</m> having
-		unit length and with associated eigenvalue
-		<m>\lambda</m>, what is <m>V_{\uvec}</m>?
+		Generally speaking, if <m>C</m> is the covariance matrix
+		of a dataset and <m>\uvec</m> is an eigenvector of
+		<m>C</m> having unit length and with associated
+		eigenvalue <m>\lambda</m>, what is <m>V_{\uvec}</m>?
 	      </p>
 	    </li>
 		  
@@ -130,8 +94,8 @@
     </p>
 
     <p>
-      More generally, a symmetric <m>n\times n</m> matrix
-      <m>A</m> defines a function <m>q:\real^n \to \real</m>
+      More generally, a symmetric <m>m\times m</m> matrix
+      <m>A</m> defines a function <m>q:\real^m \to \real</m>
       by
       <me>
 	q(\xvec) = \xvec\cdot(A\xvec).
@@ -168,7 +132,7 @@
 	      \twovec{x_1 + 2x_2}{2x_1 + x_2}
 	    </mrow>
 	    <mrow>
-	      \amp = x_1^2 + 2xy + 2x_1x_2 + x_2^2
+	      \amp = x_1^2 + 2x_1x_2 + 2x_1x_2 + x_2^2
 	    </mrow>
 	    <mrow>
 	      \amp = x_1^2 + 4x_1x_2 + x_2^2.
@@ -183,14 +147,16 @@
 	    q\left(\twovec 11\right) = 6, \hspace{24pt}
 	    q\left(\twovec 24\right) = 52.
 	  </me>
+	  Notice that the value of the quadratic form is a scalar.
 	</p>
       </statement>
     </example>
 
     <definition>
+      <idx> quadratic form </idx>
       <statement>
 	<p>
-	  If <m>A</m> is a symmetric <m>n\times n</m> matrix, the
+	  If <m>A</m> is a symmetric <m>m\times m</m> matrix, the
 	  <em>quadratic form</em> defined by <m>A</m> is the function
 	  <m>q_A(\xvec) = \xvec\cdot(A\xvec)</m>.  
 	</p>
@@ -198,80 +164,148 @@
     </definition>
 
     <activity>
-      <p>
-	Let's look at some more examples of quadratic forms.
-	<ol label="a.">
-	  <li>
-	    <p>
-	      Consider the symmetric matrix
-	      <m>D = \begin{bmatrix}
-	      3 \amp 0 \\
-	      0 \amp -1 \\
-	      \end{bmatrix}
-	      </m>.  Write the quadratic form <m>q_D(\xvec)</m> defined by
-	      <m>D</m> in terms of the components of
-	      <m>\xvec=\twovec{x_1}{x_2}</m>.  What is the value of 
-	      <m>q_D\left(\twovec2{-4}\right)</m>? 
-	    </p>
-	  </li>
+      <statement>
+	<p>
+	  Let's look at some more examples of quadratic forms.
+	  <ol label="a.">
+	    <li>
+	      <p>
+		Consider the symmetric matrix
+		<m>D = \begin{bmatrix}
+		3 \amp 0 \\
+		0 \amp -1 \\
+		\end{bmatrix}
+		</m>.  Write the quadratic form <m>q_D(\xvec)</m> defined by
+		<m>D</m> in terms of the components of
+		<m>\xvec=\twovec{x_1}{x_2}</m>.  What is the value of 
+		<m>q_D\left(\twovec2{-4}\right)</m>? 
+	      </p>
+	    </li>
 
-	  <li>
-	    <p>
-	      Given the symmetric matrix
-	      <m>A=\begin{bmatrix}
-	      2 \amp 5 \\
-	      5 \amp -3
-	      \end{bmatrix}
-	      </m>, write the quadratic form <m>q_A(\xvec)</m> defined
-	      by <m>A</m> and evaluate
-	      <m>q_A\left(\twovec{2}{-1}\right)</m>.
-	    </p>
-	  </li>
+	    <li>
+	      <p>
+		Given the symmetric matrix
+		<m>A=\begin{bmatrix}
+		2 \amp 5 \\
+		5 \amp -3
+		\end{bmatrix}
+		</m>, write the quadratic form <m>q_A(\xvec)</m> defined
+		by <m>A</m> and evaluate
+		<m>q_A\left(\twovec{2}{-1}\right)</m>.
+	      </p>
+	    </li>
 
-	  <li>
-	    <p>
-	      Suppose that <m>q\left(\twovec{x_1}{x_2}\right) = 3x_1^2
-	      - 4x_1x_2 + 4x_2^2</m>.  Find a symmetric matrix
-	      <m>A</m> 
-	      such that <m>q</m> is the quadratic form defined by
-	      <m>A</m>.
-	    </p>
-	  </li>
+	    <li>
+	      <p>
+		Suppose that <m>q\left(\twovec{x_1}{x_2}\right) = 3x_1^2
+		- 4x_1x_2 + 4x_2^2</m>.  Find a symmetric matrix
+		<m>A</m> 
+		such that <m>q</m> is the quadratic form defined by
+		<m>A</m>.
+	      </p>
+	    </li>
 
-	  <li>
-	    <p>
-	      Suppose that we have a demeaned data matrix
-	      <m>A = \begin{bmatrix}
-	      2 \amp 5 \amp -7 \\
-	      -2 \amp -2 \amp 4
-	      \end{bmatrix}
-	      </m>.
-	      Write the quadratic form <m>q_C</m> defined by the
-	      covariance  
-	      matrix <m>C</m>.
-	    </p>
-	  </li>
+	    <li>
+	      <p>
+		Suppose that <m>q</m> is a quadratic form and that
+		<m>q(\xvec) = 3</m>.  What is <m>q(2\xvec)</m>? 
+		<m>q(-\xvec)</m>? <m>q(10\xvec)</m>?
+	      </p>
+	    </li>
 
-	  <li>
-	    <p>
-	      Suppose that <m>q</m> is a quadratic form and that
-	      <m>q(\xvec) = 3</m>.  What is <m>q(2\xvec)</m>? 
-	      <m>q(-\xvec)</m>? <m>q(10\xvec)</m>?
-	    </p>
-	  </li>
+	    <li>
+	      <p>
+		Suppose that <m>A</m> is a symmetric matrix and
+		<m>q_A(\xvec)</m> is the quadratic form defined by
+		<m>A</m>.  Suppose that <m>\xvec</m> is an eigenvector
+		of <m>A</m> with associated eigenvalue -4 and with
+		length 7.  What is <m>q_A(\xvec)</m>?
+	      </p>
+	    </li>
 
-	  <li>
-	    <p>
-	      Suppose that <m>A</m> is a symmetric matrix and
-	      <m>q_A(\xvec)</m> is the quadratic form defined by
-	      <m>A</m>.  Suppose that <m>\xvec</m> is an eigenvector
-	      of <m>A</m> with associated eigenvalue -4 and with
-	      length 7.  What is <m>q_A(\xvec)</m>?
-	    </p>
-	  </li>
+	  </ol>
+	</p>
+      </statement>
 
-	</ol>
-      </p>
+      <solution>
+	<p>
+	  <ol label="a.">
+	    <li>
+	      <p>
+		<m>q_D(\xvec) = 3x_1^2 - x_2^2</m> and
+		<m>q_D\left(\twovec2{-4}\right) = -4</m>
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		<m>q_A(\xvec) = 2x_1^2 + 10x_1x_2-3x_2^2</m> and 
+		<m>q_A\left(\twovec2{-1}\right) = -15</m>
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		<m>A=\begin{bmatrix}
+		3 \amp -2 \\
+		-2 \amp 4 \\
+		\end{bmatrix}</m>
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		Notice that <m>q(2\xvec) = (2\xvec)\cdot(A(2\xvec)) =
+		4\xvec\cdot(A\xvec) = 4q(\xvec)</m>.  In the same way,
+		we have <m>q(-\xvec) = q(\xvec)</m> and <m>q(10\xvec)
+		= 100q(\xvec)</m>.
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		<m>q_A(\xvec) = \xvec\cdot(A\xvec) = -4\xvec\cdot\xvec
+		= -4(49) = -196</m>
+	      </p>
+	    </li>
+	  </ol>
+	</p>
+      </solution>
+	      
+      <answer>
+	<p>
+	  <ol label="a.">
+	    <li>
+	      <p>
+		<m>q_D(\xvec) = 3x_1^2 - x_2^2</m> and
+		<m>q_D\left(\twovec2{-4}\right) = -4</m>
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		<m>q_A(\xvec) = 2x_1^2 + 10x_1x_2-3x_2^2</m> and 
+		<m>q_A\left(\twovec2{-1}\right) = -15</m>
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		<m>A=\begin{bmatrix}
+		3 \amp -2 \\
+		-2 \amp 4 \\
+		\end{bmatrix}</m>
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		<m>q(2\xvec) = 12</m>, 
+		<m>q(-\xvec) = 3</m> and <m>q(10\xvec)=300</m>
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		<m>q_A(\xvec) = -196</m>
+	      </p>
+	    </li>
+	  </ol>
+	</p>
+      </answer>
+	      
     </activity>
 
     <p>
@@ -288,8 +322,8 @@
     </p>
 
     <p>
-      This expression assumes a notable form when <m>D</m> is a diagonal
-      matrix.  In particular, if
+      This expression assumes an especially simple form form when
+      <m>D</m> is a diagonal matrix.  In particular, if
       <m>D = \begin{bmatrix}
       a \amp 0 \\
       0 \amp c \\
@@ -301,7 +335,7 @@
 
     <p>
       Remember that matrix transformations have the property that
-      <m>T(s\xvec) = sT(s\xvec)</m>.  Quadratic forms behave
+      <m>T(s\xvec) = sT(\xvec)</m>.  Quadratic forms behave
       differently:
       <me>
 	q_A(s\xvec) = (s\xvec)\cdot(A(s\xvec)) = s^2\xvec\cdot(A\xvec)=
@@ -324,7 +358,7 @@
     </p>
 
     <p>
-      Recall our motivating question:  in which direction
+      Let's now return to our motivating question:  in which direction
       <m>\uvec</m> is the variance <m>V_{\uvec}=\uvec\cdot(C\uvec)</m>
       of a dataset as 
       large as possible 
@@ -343,27 +377,30 @@
     </p>
 
     <activity>
-      <p>
-	We can gain some intuition about this problem by graphing the
-	quadratic form and paying particular attention to the unit
-	vectors.
-
-	<ol label="a.">
-	  <li>
-	    <p>
-	      Evaluating the following cell defines the matrix
-	      <m>D = \begin{bmatrix}
-	      3 \amp 0 \\
-	      0 \amp -1
-	      \end{bmatrix}
-	      </m> and displays the graph of the associated quadratic form
-	      <m>q_D(\xvec)</m>.  In addition, the points corresponding
-	      to vectors <m>\uvec</m> with unit length are displayed
-	      as a curve. 
-	      <sage>
-		<input>
+      <statement>
+	<p>
+	  We can gain some intuition about this problem by graphing the
+	  quadratic form and paying particular attention to the unit
+	  vectors.
+	  
+	  <ol label="a.">
+	    <li>
+	      <p>
+		Evaluating the following cell defines the matrix
+		<m>D = \begin{bmatrix}
+		3 \amp 0 \\
+		0 \amp -1
+		\end{bmatrix}
+		</m> and displays the graph of the associated quadratic form
+		<m>q_D(\xvec)</m>.  In addition, the points corresponding
+		to vectors <m>\uvec</m> with unit length are displayed
+		as a curve. 
+		<sage>
+		  <input>
+		    <!-->
 x, y, t = var('x', 'y', 't')
 
+## We define our matrix here
 A = matrix(2, 2, [3,0,0,-1])    
 
 def q(x,y):
@@ -371,195 +408,352 @@ def q(x,y):
 graph = plot3d(q(x,y), (x,-1.2,1.2), (y,-1.2,1.2), color='orange', opacity=0.9, aspect_ratio=(1,1,1/max(matrix(RDF, A).singular_values())))
 curve = parametric_plot3d([cos(t), sin(t), q(cos(t), sin(t))], (t,0,2*pi), thickness=3)   
 graph + curve
-		</input>
-	      </sage>
-	      Notice that the matrix <m>D</m> is diagonal.  In which
-	      directions does the quadratic form have its maximum and
-	      minimum values? 
-	    </p>
-	  </li>
+		    -->
+sage.repl.load.load('https://raw.githubusercontent.com/davidaustinm/ula_modules/master/quad_plot.py', globals())
 
-	  <li>
-	    <p>
-	      Write the quadratic form <m>q_D</m> associated to
-	      <m>D</m>.  What is the value of
-	      <m>q_D\left(\twovec10\right)</m>?  What is the value of
-	      <m>q_D\left(\twovec01\right)</m>? 
-	    </p>
-	  </li>
+## We define our matrix here
+A = matrix(2, 2, [3, 0, 0, -1])
 
-	  <li>
-	    <p>
-	      Consider a unit vector
-	      <m>\uvec=\twovec{u_1}{u_2}</m> so that <m>u_1^2+u_2^2 =
-	      1</m>, an expression we can rewrite as <m>u_1^2 =
-	      1-u_2^2</m>.  Write the quadratic form <m>q_D(\uvec)</m>
-	      and replace <m>u_1^2</m> by <m>1-u_2^2</m>.  Now explain
-	      why the maximum of <m>q_D(\uvec)</m> is 3.  In which
-	      direction does the maximum occur?  Does this agree with
-	      what you observed from the graph above?
-	    </p>
-	  </li>
+quad_plot(A)
 
-	  <li>
-	    <p>
-	      Write the quadratic form <m>q_D(\uvec)</m>
-	      and replace <m>u_2^2</m> by <m>1-u_1^2</m>.  What is the
-	      minimum value of <m>q_D(\uvec)</m> and in which
-	      direction does the minimum occur?
-	    </p>
-	  </li>
+		  </input>
+		</sage>
+		Notice that the matrix <m>D</m> is diagonal.  In which
+		directions does the quadratic form have its maximum and
+		minimum values? 
+	      </p>
+	    </li>
 
-	  <li>
-	    <p>
-	      Use the previous Sage cell to change the matrix to
-	      <m>A=\begin{bmatrix}
-	      1 \amp 2 \\
-	      2 \amp 1
-	      \end{bmatrix}
-	      </m> and display the graph of the quadratic form
-	      <m>q_A(\xvec) = \xvec\cdot(A\xvec)</m>.
-	      Determine the directions in which the maximum 
-	      and minimum occur?  
-	    </p>
-	  </li>
+	    <li>
+	      <p>
+		Write the quadratic form <m>q_D</m> associated to
+		<m>D</m>.  What is the value of
+		<m>q_D\left(\twovec10\right)</m>?  What is the value of
+		<m>q_D\left(\twovec01\right)</m>? 
+	      </p>
+	    </li>
 
-	  <li>
-	    <p>
-	      Remember that
-	      <m>A=\begin{bmatrix}
-	      1 \amp 2 \\
-	      2 \amp 1
-	      \end{bmatrix}
-	      </m> is symmetric so that <m>A=QDQ^T</m> where <m>D</m>
-	      is the diagonal matrix above and <m>Q</m> is the
-	      orthogonal matrix that rotates vectors by
-	      <m>45^\circ</m>.  By writing <m>\vvec = Q^T\uvec</m>,
-	      explain why <m>\vvec</m> is also a unit vector;  that
-	      is, explain why
-	      <me>\len{\vvec}^2 = \len{Q^T\uvec}^2 =
-	      (Q^T\uvec)\cdot(Q^T\uvec) = 1.
-	      </me>
-	    </p>
-	  </li>
+	    <li>
+	      <p>
+		Consider a unit vector
+		<m>\uvec=\twovec{u_1}{u_2}</m> so that <m>u_1^2+u_2^2 =
+		1</m>, an expression we can rewrite as <m>u_1^2 =
+		1-u_2^2</m>.  Write the quadratic form <m>q_D(\uvec)</m>
+		and replace <m>u_1^2</m> by <m>1-u_2^2</m>.  Now explain
+		why the maximum of <m>q_D(\uvec)</m> is 3.  In which
+		direction does the maximum occur?  Does this agree with
+		what you observed from the graph above?
+	      </p>
+	    </li>
 
-	  <li>
-	    <p>
-	      We now have <m>q_A(\uvec) = q_D(\vvec)</m>.  Explain how
-	      we now know the maximum value of <m>q_A(\uvec)</m> is 3 and
-	      determine the direction in which it occurs.  Also,
-	      determine the minumum value of <m>q_A(\uvec)</m>
-	      and determine the direction in which it occurs.
-	    </p>
-	  </li>
-	</ol>
-      </p>
+	    <li>
+	      <p>
+		Write the quadratic form <m>q_D(\uvec)</m>
+		and replace <m>u_2^2</m> by <m>1-u_1^2</m>.  What is the
+		minimum value of <m>q_D(\uvec)</m> and in which
+		direction does the minimum occur?
+	      </p>
+	    </li>
+
+	    <li>
+	      <p>
+		Use the previous Sage cell to change the matrix to
+		<m>A=\begin{bmatrix}
+		1 \amp 2 \\
+		2 \amp 1
+		\end{bmatrix}
+		</m> and display the graph of the quadratic form
+		<m>q_A(\xvec) = \xvec\cdot(A\xvec)</m>.
+		Determine the directions in which the maximum 
+		and minimum occur?  
+	      </p>
+	    </li>
+
+	    <li>
+	      <p>
+		Remember that
+		<m>A=\begin{bmatrix}
+		1 \amp 2 \\
+		2 \amp 1
+		\end{bmatrix}
+		</m> is symmetric so that <m>A=QDQ^T</m> where <m>D</m>
+		is the diagonal matrix above and <m>Q</m> is the
+		orthogonal matrix that rotates vectors by
+		<m>45^\circ</m>.  Notice that
+		<me>
+		  q_A(\uvec) = \uvec\cdot(A\uvec) =
+		  \uvec\cdot(QDQ^T\uvec) = (Q^T\uvec)\cdot(DQ^T\uvec)
+		  = q_D(\vvec)
+		</me>
+		where <m>\vvec=Q^T\uvec</m>.  That is, we have
+		<m>q_A(\uvec) = q_D(\vvec)</m>.
+	      </p>
+	      <p>
+		Explain why <m>\vvec = Q^T\uvec</m> is also a unit
+		vector;  that
+		is, explain why
+		<me>|\vvec|^2 = |Q^T\uvec|^2 =
+		(Q^T\uvec)\cdot(Q^T\uvec) = 1.
+		</me>
+	      </p>
+	    </li>
+
+	    <li>
+	      <p>
+		Using the fact that <m>q_A(\uvec) = q_D(\vvec)</m>,
+		explain how we now know the maximum value of
+		<m>q_A(\uvec)</m> is 3 and determine the direction in
+		which it occurs.  Also, determine the minumum value of
+		<m>q_A(\uvec)</m> and determine the direction in which
+		it occurs.
+	      </p>
+	    </li>
+	  </ol>
+	</p>
+      </statement>
+
+      <solution>
+	<p>
+	  <ol label="a.">
+	    <li>
+	      <p>
+		The maximum appears to occur in the direction of
+		<m>\twovec10</m> and the minimum appears to occur in
+		the direction of <m>\twovec01</m>.
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		<m>q_D(\xvec) = 3x_1^2 - x_2^2</m> so that
+		<m>q_D\left(\twovec10\right) = 3</m> and 
+		<m>q_D\left(\twovec01\right) = -1</m>.
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		We have <m>q_D(\uvec) = 3u_1^2 - u_2^2 = 3 -
+		4u_2^2</m> so that the quadratic form only depends on
+		<m>u_2</m>.  The graph of this function of <m>u_2</m>
+		is a parabola that has a maximum of <m>3</m> when
+		<m>u_2=0</m>.  Since <m>u_1^2 = 1-u_2^2</m>, this
+		means that the maximum occurs when <m>u_1=\pm 1</m>.
+		We therefore see that the maximum value of
+		<m>q_D(\uvec)</m> is <m>3</m> in the direction
+		<m>\twovec10</m> as we saw from the graph.
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		Now <m>q_D(\uvec) = -1 + 4u_1^2</m>, which has a
+		minimum value of <m>-1</m> when <m>u_1=0</m>.
+		Therefore, the minimum value of <m>q_D(\uvec)</m> is
+		<m>-1</m> in the direction <m>\twovec01</m>.
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		The graph of <m>q_A</m> appears to be similar to the
+		graph of <m>q_D</m> only rotated by
+		<m>45^\circ</m>. This means the maximum appears to
+		occur in the direction <m>\twovec11</m> and the
+		minimum in the direction <m>\twovec{-1}1</m>.
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		Since <m>Q</m> is orthogonal, we have <m>QQ^T=I</m> so
+		that 
+		<me>|\vvec|^2 = (Q^T\uvec)\cdot(Q^T\uvec) =
+		\uvec\cdot(QQ^T\uvec) = \uvec\cdot\uvec = |\uvec|^2 =
+		1\text{.}</me>
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		Since <m>q_A(\uvec) = q_D(\vvec)</m>, the maximum of
+		<m>q_A(\uvec)</m> is <m>3</m>, which occurs when
+		<m>\vvec = Q^T\uvec = \twovec10</m>.  This means that
+		<m>\uvec=Q\twovec10 =
+		\twovec{1/\sqrt{2}}{1/\sqrt{2}}</m>, the eigenvector
+		of <m>A</m> associated to <m>\lambda=3</m>.
+	      </p>
+	      <p>
+		In the same way, the minimum value of
+		<m>q_A(\uvec)</m> is <m>-1</m>, which occurs when 
+		<m>\uvec=\twovec{1/\sqrt{2}}{1/\sqrt{2}}</m>, the
+		eigenvector of <m>A</m> associated to
+		<m>\lambda=-1</m>.
+	      </p>
+	    </li>
+	  </ol>
+	</p>
+      </solution>
+
+      <answer>
+	<p>
+	  <ol label="a.">
+	    <li>
+	      <p>
+		The maximum appears to occur in the direction of
+		<m>\twovec10</m> and the minimum appears to occur in
+		the direction of <m>\twovec01</m>.
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		<m>q_D(\xvec) = 3x_1^2 - x_2^2</m> so that
+		<m>q_D\left(\twovec10\right) = 3</m> and 
+		<m>q_D\left(\twovec01\right) = -1</m>.
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		The maximum value of
+		<m>q_D(\uvec)</m> is <m>3</m> in the direction
+		<m>\twovec10</m>.
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		The minimum value of
+		<m>q_D(\uvec)</m> is <m>-1</m> in the direction
+		<m>\twovec01</m>.
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		The maximum appears to occur in the
+		direction <m>\twovec11</m> and the minimum in the
+		direction <m>\twovec{-1}1</m>.
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		Use the fact that <m>QQ^T=I</m>
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		The maximum of
+		<m>q_A(\uvec)</m> is <m>3</m>, which occurs when
+		<m>\uvec=
+		\twovec{1/\sqrt{2}}{1/\sqrt{2}}</m>.
+	      </p>
+	      <p>
+		The maximum of
+		<m>q_A(\uvec)</m> is <m>-1</m>, which occurs when
+		<m>\uvec=
+		\twovec{-1/\sqrt{2}}{1/\sqrt{2}}</m>.
+	      </p>
+	    </li>
+	  </ol>
+	</p>
+      </answer>
     </activity>
 
     <p>
-      There's a lot in this activity so let's take some time to unpack
-      it.  First off, diagonal matrices are relatively easy to work
-      with.  For instance, the diagonal matrix
-      <m>
-	D=\begin{bmatrix}
-	3 \amp 0 \\
-	0 \amp -1
-	\end{bmatrix}
-      </m>
-      defines the associated quadratic form
-      <m>q_D(\xvec) = 3x_1^2 - x_2^2</m>,
-      which has no cross term.  For this reason, we may determine
-      where the maxima and minima of <m>q(\uvec)</m> occur when
-      <m>\uvec=\twovec{u_1}{u_2}</m> is a unit vector.  In that case,
-      we have <m>u_1^2 + u_2^2 = 1</m> so that we can rewrite
-      <me>
-	q_D(\uvec) = 3u_1^2 - u_2^2 = 3(1-u_2^2) - u_2^2 = 3 - 4u_2^2.
-      </me>
-      Seen in terms of <m>u_2</m>, <m>q_D(\uvec)</m> is a quadratic
-      function that has a maximum of 3 when <m>u_2=0</m>.  Therefore,
-      the maximum value of <m>q_D(\uvec)</m> is 3, which occurs in the
-      direction <m>\uvec=\pm\twovec10</m>.
+      This activity demonstrates how the eigenvalues of <m>A</m>
+      determine the maximum and minimum values of the quadratic form
+      <m>q_A(\uvec)</m> when evaluated on unit vectors and how the
+      associated eigenvectors determine the directions in which the
+      maximum and minimum values occur.  Let's look at another example
+      so that this connection is clear.
     </p>
 
-    <p>
-      Similarly, we can rewrite
-      <me>
-	q_D(\uvec) = 3u_1^2 - u_2^2 = 3u_1^2 - (1-u_1^2) = 4u_1^2 - 1.
-      </me>
-      This shows us that <m>q_D(\uvec)</m> has a minimum
-      value of -1, which occurs when <m>u_1=0</m> or when
-      <m>\uvec=\pm\twovec01</m>.
-    </p>
+    <example>
+      <statement>
+	<p>
+	  Consider the symmetric matrix
+	  <m>A=\begin{bmatrix}
+	  -7 \amp -6 \\
+	  -6 \amp 2 \\
+	  \end{bmatrix}</m>.  Because <m>A</m> is symmetric, we know
+	  that it can be orthogonally diagonalized.  In fact, we have
+	  <m>A=QDQ^T</m> where
+	  <me>
+	    D = \begin{bmatrix}
+	    5 \amp 0 \\
+	    0 \amp -10 \\
+	    \end{bmatrix},\hspace{24pt}
+	    Q = \begin{bmatrix}
+	    1/\sqrt{5} \amp 2/\sqrt{5} \\
+	    -2/\sqrt{5} \amp 1/\sqrt{5} \\
+	    \end{bmatrix}\text{.}
+	  </me>
+	  From this diagonalization, we know that <m>\lambda_1=5</m> is
+	  the largest eigenvalue of <m>A</m> with associated
+	  eigenvector <m>\uvec_1 =
+	  \twovec{1/\sqrt{5}}{-2/\sqrt{5}}</m> and that <m>\lambda_2 =
+	  -10</m> is the smallest eigenvalue with associated
+	  eigenvector <m>\uvec_2 =
+	  \twovec{2/\sqrt{5}}{1/\sqrt{5}}</m>.
+	</p>
 
-    <p>
-      When <m>D</m> is a diagonal matrix, we can now determine the
-      maximum and minimum values of <m>q_D(\uvec)</m> and in which
-      directions they occur.  This helps us to understand what happens
-      with a more general symmetric matrix.
-    </p>
+	<p>
+	  Let's first study the quadratic form <m>q_D(\uvec) = 5u_1^2
+	  - 10u_2^2</m> because the absence of the cross-term makes it
+	  comparatively simple.  Remembering that <m>\uvec</m> is a unit
+	  vector, we have <m>u_1^2+u_2^2=1</m>, which means that
+	  <m>u_1^2 = 1-u_2^2</m>.  Therefore,
+	  <me>
+	    q_D(\uvec) = 5u_1^2 - 10u_2^2 = 5(1-u_2^2)-10u_2^2 = 5 -
+	    15u_2^2\text{.}
+	  </me>
+	  This tells us that <m>q_D(\uvec)</m> has a maximum value of
+	  <m>5</m>, which occurs when <m>u_2=0</m> or in the direction
+	  <m>\twovec10</m>.
+	</p>
 
-    <p>
-      For example, if <m>A</m> is a symmetric matrix, we know that
-      <m>A</m> is orthogonally diagonalizable and this establishes a
-      relationship between <m>q_A</m> and <m>q_D</m> for some diagonal
-      matrix <m>D</m>.  Using the example in the activity, we have
-      <m>
-	A = \begin{bmatrix}
-	1 \amp 2 \\
-	2 \amp 1
-	\end{bmatrix} = QDQ^T
-      </m>
-      where <m>Q=\begin{bmatrix}\uvec_1 \amp \uvec_2 \end{bmatrix}</m>
-      and <m>D=\begin{bmatrix} 3 \amp 0 \\ 0 \amp -1
-      \end{bmatrix}</m>.  Recall that <m>\uvec_1</m> and
-      <m>\uvec_2</m> are eigenvectors of <m>A</m> having associated
-      eigenvalues 3 and -1, respectively.
-    </p>
+	<p>
+	  In the same way, rewriting <m>u_2^2 = 1-u_1^2</m> allows us
+	  to conclude that the minimum value of <m>q_D(\uvec)</m> is
+	  <m>-10</m>, which occurs in the direction <m>\twovec01</m>.
+	</p>
 
-    <p>
-      Since <m>Q</m> is orthogonal, it preserves the lengths of
-      vectors;  that is,
-      <me>
-	\len{Q\vvec}^ 2 = (Q\vvec)\cdot(Q\vvec) =
-	Q^TQ\vvec\cdot\vvec = \vvec\cdot\vvec=\len{\vvec}^2.
-      </me>
-      Therefore, if <m>\uvec</m> is a unit vector, then so is
-      <m>Q\uvec</m>.
-    </p>
+	<p>
+	  Let's now return to the matrix <m>A</m> whose quadratic form
+	  <m>q_A</m> is related to <m>q_D</m> because <m>A =
+	  QDQ^T</m>.  In particular, we have
+	  <me>
+	    q_A(\uvec) = \uvec\cdot(A\uvec) = \uvec\cdot(QDQ^T\uvec) =
+	    (Q^T\uvec)\cdot(DQ^T\uvec) = \vvec\cdot(D\vvec) =
+	    q_D(\vvec)\text{.} 
+	  </me>
+	  In other words, we have <m>q_A(\uvec) = q_D(\vvec)</m>
+	  where <m>\vvec=Q^T\uvec</m>.  This is quite useful because
+	  it allows us to relate the values of <m>q_A</m> to those of
+	  <m>q_D</m>, which we already understand quite well.
+	</p>
 
-    <p>
-      If <m>\uvec</m> is a unit vector, then 
-      <me>
-	q_A(\uvec) = \uvec\cdot(A\uvec) = \uvec\cdot(QDQ^T\uvec) =
-	(Q^T\uvec)\cdot (DQ^T\uvec) = q_D(Q^T\uvec).
-      </me>
-      If we define <m>\vvec=Q^T\uvec</m>, or equivalently,
-      <m>\uvec=Q\vvec</m>, then <m>\vvec</m> is also a 
-      unit vector, and we have
-      <m>q_A(\uvec) = q_D(\vvec)</m>.  In other words, <m>q_A</m> and
-      <m>q_D</m> are the same function after a change of coordinates.
-    </p>
+	<p>
+	  Now it turns out that <m>\vvec</m> is also a unit vector
+	  because
+	  <me>
+	    |\vvec|^2 = \vvec\cdot\vvec = (Q^T\uvec)\cdot(Q^T\uvec) =
+	    \uvec\cdot(QQ^T\uvec) = \uvec\cdot\uvec = |\uvec|^2 = 1\text.
+	  </me>
+	  Therefore, the maximum value of <m>q_A(\uvec)</m> is the
+	  same as <m>q_D(\vvec)</m>, which we know to be <m>5</m> and
+	  which occurs in the direction <m>\vvec=\twovec10</m>.  This
+	  means that the maximum value of <m>q_A(\uvec)</m> is also
+	  <m>5</m> and that this occurs in the direction <m>\uvec =
+	  Q\vvec = Q\twovec10 = \twovec{1/\sqrt{5}}{-2/\sqrt{5}}</m>.
+	  We now know that the maximum value of <m>q_A(\uvec)</m> is
+	  the largest eigenvalue <m>\lambda_1=5</m> and that this
+	  maximum value occurs in the direction of an associated
+	  eigenvector. 
+	</p>
 
-    <p>
-      We know that <m>q_D(\vvec)</m> has a maximum value of 3
-      when <m>\vvec=\pm\twovec10</m>.  This says that
-      <m>q_A(\uvec)</m> has 
-      a maximum value of 3 when
-      <m>\uvec=Q\vvec=\pm Q\twovec10=\pm\uvec_1</m>.  Similarly, 
-      <m>q_A(\uvec)</m> has a minimum value of -1 when
-      <m>\uvec=Q\vvec=\pm Q\twovec01 =\pm\uvec_2</m>.
-    </p>
-
-    <p>
-      The essential thing to note is the role of the eigenvectors:
-      the maximum value of <m>q_A(\uvec)</m> is the largest eigenvalue
-      of <m>A</m> and that maximum occurs in the direction of
-      <m>\uvec_1</m>, the eigenvector associated to the largest
-      eigenvalue.  In the same way, the minimum value of
-      <m>q_A(\uvec)</m> is the smallest eigenvalue and that minimum
-      occurs in the direction of <m>\uvec_2</m>, the eigenvector
-      associated to the smallest eigenvalue.
-    </p>
+	<p>
+	  In the same way, we see that the minimum value of
+	  <m>q_A(\uvec)</m> is the smallest eigenvalue
+	  <m>\lambda_2=-10</m> and that this minimum occurs in the
+	  direction of <m>\uvec=Q\twovec01 =
+	  \twovec{2/\sqrt{5}}{1/\sqrt{5}}</m>, an associated
+	  eigenvector.
+	</p>
+      </statement>
+    </example>
 
     <p>
       More generally, we have
@@ -570,15 +764,15 @@ graph + curve
 	<p>
 	  Suppose that <m>A</m> is a symmetric matrix, that we list
 	  its eigenvalues in decreasing order 
-	  <m>\lambda_1 \geq \lambda_2 \ldots \geq \lambda_n</m>, and that
-	  <m>\uvec_1,\uvec_2,\ldots,\uvec_n</m> is a basis
+	  <m>\lambda_1 \geq \lambda_2 \ldots \geq \lambda_m</m>, and that
+	  <m>\uvec_1,\uvec_2,\ldots,\uvec_m</m> is a basis
 	  of associated eigenvectors.
-	  If <m>\uvec</m> is a unit vector, then the maximum value of
-	  <m>q_A(\uvec)</m> is 
+	  The maximum value of
+	  <m>q_A(\uvec)</m> among all unit vectors <m>\uvec</m> is 
 	  <m>\lambda_1</m>, which occurs in the directions
-	  <m>\pm\uvec_1</m>.  Similarly, the minimum value of
-	  <m>q_A(\uvec)</m> is <m>\lambda_n</m>, which occurs in the
-	  directions <m>\pm\uvec_n</m>.
+	  <m>\uvec_1</m>.  Similarly, the minimum value of
+	  <m>q_A(\uvec)</m> is <m>\lambda_m</m>, which occurs in the
+	  directions <m>\uvec_m</m>.
 	</p>
       </statement>
     </proposition>
@@ -586,27 +780,30 @@ graph + curve
     <example>
       <statement>
 	<p>
-	  Consider the matrix
+	  Suppose that <m>A</m> is the symmetric matrix
 	  <m>A=\begin{bmatrix}
-	  2 \amp 2 \\
-	  2 \amp -1
+	  0 \amp 6 \amp 3 \\
+	  6 \amp 3 \amp 6 \\
+	  0 \amp 6 \amp 6 \\
 	  \end{bmatrix}</m>, which may be orthogonally diagonalized as
 	  <m>A=QDQ^T</m> where
 	  <me>
-	    Q = \begin{bmatrix}
-	    2/\sqrt{5} \amp -1/\sqrt{5} \\
-	    1/\sqrt{5} \amp 2/\sqrt{5}
-	    \end{bmatrix}, \hspace{24pt}
 	    D = \begin{bmatrix}
-	    3 \amp 0 \\
-	    0 \amp -2
-	    \end{bmatrix}.
+	    12 \amp 0 \amp 0 \\
+	    0 \amp 3 \amp 0 \\
+	    0 \amp 0 \amp -6 \\
+	    \end{bmatrix}, \hspace{24pt}
+	    Q = \begin{bmatrix}
+	    1/3 \amp 2/3 \amp 2/3 \\
+	    2/3 \amp 1/3 \amp -2/3 \\
+	    2/3 \amp -2/3 \amp 1/3 \\
+	    \end{bmatrix}\text{.}
 	  </me>
-	  We see that the maximum value of <m>q_A(\uvec)</m> is 3, which
+	  We see that the maximum value of <m>q_A(\uvec)</m> is 12, which
 	  occurs in the direction 
-	  <m>\pm\twovec{2/\sqrt{5}}{1/\sqrt{5}}</m>, and the minimum value
-	  is -2, which occurs in the direction
-	  <m>\pm\twovec{-1/\sqrt{5}}{2/\sqrt{5}}</m>.
+	  <m>\threevec{1/3}{2/3}{2/3}</m>, and the minimum value
+	  is -6, which occurs in the direction
+	  <m>\threevec{2/3}{-2/3}{1/3}</m>.
 	</p>
       </statement>
     </example>
@@ -616,8 +813,8 @@ graph + curve
 	<p>
 	  Suppose we have the matrix of demeaned data points
 	  <m>A = \begin{bmatrix}
-	    3 \amp 0 \amp -3 \\
-	    0 \amp 3 \amp -3 \\
+	    2 \amp 1 \amp -3 \\
+	    1 \amp 2 \amp -3 \\
 	    \end{bmatrix}</m> that we considered in <xref
 	    ref="preview-quadforms" />.  The data points are shown in
 	    <xref ref="fig-covariance-quad" />.
@@ -628,20 +825,20 @@ graph + curve
 	    <image source="images/quad-variance-data" />
 	  </sidebyside>
 	  <caption>
-	    <p>
 	      The set of demeaned data points from <xref
 	      ref="preview-quadforms" />.
-	    </p>
 	  </caption>
 	</figure>
 
 	<p>
 	  Consructing the covariance matrix <m>C=\frac13~AA^T</m> gives
-	  <m>C=\begin{bmatrix}6\amp3 \\
-	  3\amp6\end{bmatrix}</m>, which has eigenvalues <m>\lambda_1
+	  <m>C=\begin{bmatrix}
+	  14/3 \amp 13/3 \\
+	  13/3 \amp 14/3 \end{bmatrix}</m>,
+	  which has eigenvalues <m>\lambda_1
 	  = 9</m>, with associated eigenvector
 	  <m>\twovec{1/\sqrt{2}}{1/\sqrt{2}}</m>, and 
-	  <m>\lambda_2=3</m>, with associated eigenvector
+	  <m>\lambda_2=1/3</m>, with associated eigenvector
 	  <m>\twovec{-1/\sqrt{2}}{1/\sqrt{2}}</m>.
 	</p>
 
@@ -650,7 +847,7 @@ graph + curve
 	  <m> V_{\uvec} = \uvec\cdot(C\uvec) = q_C(\uvec)</m>.
 	  Therefore, the variance attains a maximum value of 9 in the
 	  direction <m>\twovec{1/\sqrt{2}}{1/\sqrt{2}}</m> and a
-	  minimum value of 3 in the 
+	  minimum value of 1/3 in the 
 	  direction <m>\twovec{-1/\sqrt{2}}{1/\sqrt{2}}</m>.  <xref
 	  ref="fig-quad-project" 
 	  /> shows the data projected onto the lines defined by these
@@ -663,18 +860,16 @@ graph + curve
 	    <image source="images/quad-variance-b" />
 	  </sidebyside>
 	  <caption>
-	    <p>
-	      The demeaned data from <xref ref="preview-quadforms" />
-	      is shown projected onto the lines of maximal and minimal
-	      variance.
-	    </p>
+	    The demeaned data from <xref ref="preview-quadforms" />
+	    is shown projected onto the lines of maximal and minimal
+	    variance.
 	  </caption>
 	</figure>
 
 	<p>
 	  Remember that variance is additive, as stated in <xref
 	  ref="prop-variance-additivity" />, which tells us that the
-	  total variance is <m>V = 9 + 3 = 12</m>.
+	  total variance is <m>V = 9 + 1/3 = 28/3</m>.
 	</p>
       </statement>
     </example>
@@ -700,7 +895,7 @@ graph + curve
       form has no cross terms, we obtain
       <me>
 	q_A(\xvec) = q_D(\yvec) =
-	\lambda_1y_1^2 + \lambda_2y_2^2 + \ldots + \lambda_ny_n^2.
+	\lambda_1y_1^2 + \lambda_2y_2^2 + \ldots + \lambda_my_m^2.
       </me>
       In other words, after a change of coordinates, the quadratic
       form <m>q_A</m> can be written without cross terms.  This is
@@ -711,15 +906,15 @@ graph + curve
       <title> Principle Axes Theorem </title>
       <statement>
 	<p>
-	  If <m>A</m> is a symmetric <m>n\times n</m> matrix with
-	  eigenvalues <m>\lambda_1,\lambda_2,\ldots,\lambda_n</m>,
+	  If <m>A</m> is a symmetric <m>m\times m</m> matrix with
+	  eigenvalues <m>\lambda_1,\lambda_2,\ldots,\lambda_m</m>,
 	  then the quadratic form <m>q_A</m> can be written, after an
 	  orthogonal 
 	  change of coordinates <m>\yvec=Q\xvec</m>, as
 	  <me>
 	    q_A(\xvec) = 
 	    \lambda_1^2y_1 + \lambda_2^2y_2 + \ldots +
-	    \lambda_ny_n^2.
+	    \lambda_my_m^2.
 	  </me>
 	</p>
       </statement>
@@ -738,7 +933,7 @@ graph + curve
       While our questions about variance provide some motivation for
       exploring quadratic forms, these functions appear in a variety
       of other contexts so it's worth spending some more time with
-      them.  In particular, quadratic forms appear in multivariable
+      them.  For example, quadratic forms appear in multivariable
       calculus when describing the behavior of a function of several
       variables near a critical point and in physics when describing
       the kinetic energy of a rigid body.
@@ -774,88 +969,230 @@ graph + curve
     </definition>
 
     <activity>
-      <p>
-	This activity explores the relationship between the
-	eigenvalues 
-	of a symmetric matrix and its definiteness.
-	<ol label="a.">
-	  <li>
-	    <p>
-	      Consider the diagonal matrix
-	      <m>D=\begin{bmatrix}
-	      4 \amp 0 \\
-	      0 \amp 2 \\
-	      \end{bmatrix}
-	      </m>
-	      and write its quadratic form <m>q_D(\xvec)</m> in terms
-	      of the components of <m>\xvec=\twovec{x_1}{x_2}</m>.
-	      How does this help you decide whether <m>D</m> is
-	      positive definite or not?
-	    </p>
-	  </li>
+      <statement>
+	<p>
+	  This activity explores the relationship between the
+	  eigenvalues 
+	  of a symmetric matrix and its definiteness.
+	  <ol label="a.">
+	    <li>
+	      <p>
+		Consider the diagonal matrix
+		<m>D=\begin{bmatrix}
+		4 \amp 0 \\
+		0 \amp 2 \\
+		\end{bmatrix}
+		</m>
+		and write its quadratic form <m>q_D(\xvec)</m> in terms
+		of the components of <m>\xvec=\twovec{x_1}{x_2}</m>.
+		How does this help you decide whether <m>D</m> is
+		positive definite or not?
+	      </p>
+	    </li>
 
-	  <li>
-	    <p>
-	      Now consider
-	      <m>D=\begin{bmatrix}
-	      4 \amp 0 \\
-	      0 \amp 0 \\
-	      \end{bmatrix}
-	      </m>
-	      and write its quadratic form <m>q_D(\xvec)</m> in terms
-	      of <m>x_1</m> and <m>x_2</m>.  What can you say about
-	      the definiteness of <m>D</m>?
-	    </p>
-	  </li>
+	    <li>
+	      <p>
+		Now consider
+		<m>D=\begin{bmatrix}
+		4 \amp 0 \\
+		0 \amp 0 \\
+		\end{bmatrix}
+		</m>
+		and write its quadratic form <m>q_D(\xvec)</m> in terms
+		of <m>x_1</m> and <m>x_2</m>.  What can you say about
+		the definiteness of <m>D</m>?
+	      </p>
+	    </li>
 
-	  <li>
-	    <p>
-	      If <m>D</m> is a diagonal matrix, what condition on the
-	      diagonal entries guarantee that <m>D</m> is
-	      <ol label="i.">
-		<li> <p> positive definite?</p></li>
-		<li> <p> positive semidefinite?</p></li>
-		<li> <p> negative definite?</p></li>
-		<li> <p> negative semidefinite?</p></li>
-		<li> <p> indefinite?</p></li>
-	      </ol>
-	    </p>
-	  </li>
+	    <li>
+	      <p>
+		If <m>D</m> is a diagonal matrix, what condition on the
+		diagonal entries guarantee that <m>D</m> is
+		<ol label="i.">
+		  <li> <p> positive definite?</p></li>
+		  <li> <p> positive semidefinite?</p></li>
+		  <li> <p> negative definite?</p></li>
+		  <li> <p> negative semidefinite?</p></li>
+		  <li> <p> indefinite?</p></li>
+		</ol>
+	      </p>
+	    </li>
 
-	  <li>
-	    <p>
-	      Suppose that <m>A</m> is a symmetric matrix with
-	      eigenvalues 4 and 2 so that <m>A=QDQ^T</m> where
-	      <m>D=\begin{bmatrix}4 \amp 0 \\ 0 \amp 2
-	      \end{bmatrix}</m>.  If <m>\yvec = Q^T\xvec</m>, then we
-	      have <m>q_A(\xvec) = q_D(\yvec)</m>.  Explain why this
-	      tells us that <m>A</m> is positive definite.
-	    </p>
-	  </li>
+	    <li>
+	      <p>
+		Suppose that <m>A</m> is a symmetric matrix with
+		eigenvalues 4 and 2 so that <m>A=QDQ^T</m> where
+		<m>D=\begin{bmatrix}4 \amp 0 \\ 0 \amp 2
+		\end{bmatrix}</m>.  If <m>\yvec = Q^T\xvec</m>, then we
+		have <m>q_A(\xvec) = q_D(\yvec)</m>.  Explain why this
+		tells us that <m>A</m> is positive definite.
+	      </p>
+	    </li>
 
-	  <li>
-	    <p>
-	      Suppose that <m>A</m> is a symmetric matrix with
-	      eigenvalues 4 and 0.  What can you say about the
-	      definiteness of <m>A</m> in this case?
-	    </p>
-	  </li>
+	    <li>
+	      <p>
+		Suppose that <m>A</m> is a symmetric matrix with
+		eigenvalues 4 and 0.  What can you say about the
+		definiteness of <m>A</m> in this case?
+	      </p>
+	    </li>
 
-	  <li>
-	    <p>
-	      What condition on the eigenvalues of a symmetric matrix
-	      <m>A</m> guarantee that <m>A</m> is 
-	      <ol label="i.">
-		<li> <p> positive definite?</p></li>
-		<li> <p> positive semidefinite?</p></li>
-		<li> <p> negative definite?</p></li>
-		<li> <p> negative semidefinite?</p></li>
-		<li> <p> indefinite?</p></li>
-	      </ol>
-	    </p>
-	  </li>
-	</ol>
-      </p>
+	    <li>
+	      <p>
+		What condition on the eigenvalues of a symmetric matrix
+		<m>A</m> guarantee that <m>A</m> is 
+		<ol label="i.">
+		  <li> <p> positive definite?</p></li>
+		  <li> <p> positive semidefinite?</p></li>
+		  <li> <p> negative definite?</p></li>
+		  <li> <p> negative semidefinite?</p></li>
+		  <li> <p> indefinite?</p></li>
+		</ol>
+	      </p>
+	    </li>
+	  </ol>
+	</p>
+      </statement>
+
+      <solution>
+	<p>
+	  <ol label="a.">
+	    <li>
+	      <p>
+		<m>q_D(\xvec) = 4x_1^2 + 2x_2^2</m>.  Both addends are
+		nonnegative, and one of them is positive if
+		<m>\xvec</m> is nonzero.  This means that
+		<m>q_D(\xvec) \gt 0</m> when <m>\xvec</m> is nonzero
+		and so <m>D</m> is positive definite.
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		<m>q_D(\xvec) = 4x_1^2</m>, which is always
+		nonnegative.  However, <m>q_D\left(\twovec01\right) =
+		0</m> so <m>D</m> is positive semidefinite.
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		<ol label="i.">
+		  <li>
+		    <p>
+		      They are all positive.
+		    </p>
+		  </li>
+		  <li>
+		    <p>
+		      They are all nonnegative.
+		    </p>
+		  </li>
+		  <li>
+		    <p>
+		      They are all negative. 
+		    </p>
+		  </li>
+		  <li>
+		    <p>
+		      They are all nonpositive.
+		    </p>
+		  </li>
+		  <li>
+		    <p>
+		      They are some positive eigenvalues and some
+		      negative ones .
+		    </p>
+		  </li>
+		</ol>
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		Since we know that <m>q_D(\yvec) \gt 0</m> when
+		<m>\yvec</m> is nonzero, we know that <m>q_A(\xvec)
+		\gt 0</m> when <m>\xvec</m> is nonzero.  Therefore,
+		<m>A</m> is positive definite.
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		It will be positive semidefinite.
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		They will be the same as before.
+	      </p>
+	    </li>
+	  </ol>
+	</p>
+      </solution>
+		      
+      <answer>
+	<p>
+	  <ol label="a.">
+	    <li>
+	      <p>
+		<m>q_D(\xvec) = 4x_1^2 + 2x_2^2</m>
+		so <m>D</m> is positive definite.
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		<m>q_D(\xvec) = 4x_1^2</m>
+		so <m>D</m> is positive semidefinite.
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		<ol label="i.">
+		  <li>
+		    <p>
+		      They are all positive.
+		    </p>
+		  </li>
+		  <li>
+		    <p>
+		      They are all nonnegative.
+		    </p>
+		  </li>
+		  <li>
+		    <p>
+		      They are all negative. 
+		    </p>
+		  </li>
+		  <li>
+		    <p>
+		      They are all nonpositive.
+		    </p>
+		  </li>
+		  <li>
+		    <p>
+		      They are some positive eigenvalues and some
+		      negative ones .
+		    </p>
+		  </li>
+		</ol>
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		<m>A</m> is positive definite.
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		<m>A</m> is positive semidefinite.
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		They will be the same as before.
+	      </p>
+	    </li>
+	  </ol>
+	</p>
+      </answer>
+		      
     </activity>
 
     <p>
@@ -869,9 +1206,6 @@ graph + curve
       This shows that <m>q_D(\xvec) \gt 0</m> when either <m>x_1</m>
       or <m>x_2</m> is not zero so we conclude that <m>D</m> is
       positive definite.
-    </p>
-
-    <p>
       In the same way, we see that <m>D</m> is positive semidefinite
       if all the diagonal entries are nonnegative.
     </p>
@@ -908,10 +1242,11 @@ graph + curve
     </proposition>
 
     <p>
-      This observation is useful when studying the nature of critical
-      points in multivariable calculus.  The rest of this section
-      assumes that the reader is familiar with ideas from
-      multivariable calculus and can be skipped by others.
+      We will now apply what we've learned about quadratic forms to
+      study the nature of critical points in multivariable calculus.
+      The rest of this section assumes that the reader is familiar
+      with ideas from multivariable calculus and can be skipped by
+      others.
     </p>
 
     <p>
@@ -921,7 +1256,7 @@ graph + curve
       Similarly, <m>f_{xx}</m>, <m>f_{xy}</m>, <m>f_{yx}</m> and
       <m>f_{yy}</m> denote the second partial derivatives.  You may
       recall that the 
-      mixed partials, <m>f_{xy}</m> and <m>f_{yx}</m> are equal, under
+      mixed partials, <m>f_{xy}</m> and <m>f_{yx}</m> are equal under
       a mild assumption on the function <m>f</m>.
       A typical question in calculus is to determine where this
       function has its maximum and minimum values.
@@ -949,98 +1284,207 @@ graph + curve
     </p>
 
     <activity>
-      <p>
-	Let's explore how our understanding of quadratic forms helps
-	us understand how <m>f</m> behaves near a critical point.
-	<ol label="a.">
-	  <li>
-	    <p>
-	      Consider the function <m>f(x,y) = 2x^3 - 6xy +
-	      3y^2</m>.  Find the partial derivatives <m>f_{x}</m> and
-	      <m>f_y</m>.  Then use these expressions to determine
-	      that the critical points of <m>f</m> are <m>(0,0)</m>
-	      and <m>(1,1)</m>.
-	    </p>
-	  </li>
+      <statement>
+	<p>
+	  Let's explore how our understanding of quadratic forms helps
+	  us determine the behavior of a function <m>f</m> near a
+	  critical point. 
+	  <ol label="a.">
+	    <li>
+	      <p>
+		Consider the function <m>f(x,y) = 2x^3 - 6xy +
+		3y^2</m>.  Find the partial derivatives <m>f_{x}</m> and
+		<m>f_y</m> and use these expressions to determine
+		the critical points of <m>f</m>.
+	      </p>
+	    </li>
 
-	  <li>
-	    <p>
-	      Evaluate the second partial derivatives <m>f_{xx}</m>,
-	      <m>f_{xy}</m>, and <m>f_{yy}</m>.
-	    </p>
-	  </li>
+	    <li>
+	      <p>
+		Evaluate the second partial derivatives <m>f_{xx}</m>,
+		<m>f_{xy}</m>, and <m>f_{yy}</m>.
+	      </p>
+	    </li>
 
-	  <li>
-	    <p>
-	      Let's first consider the critical point <m>(1,1)</m>.
-	      Use the linear approximation as written above
-	      to find an expression
-	      approximating <m>f</m> near the critical point.
-	    </p>
-	  </li>
+	    <li>
+	      <p>
+		Let's first consider the critical point <m>(1,1)</m>.
+		Use the quadratic approximation as written above to
+		find an expression approximating <m>f</m> near the
+		critical point.
+	      </p>
+	    </li>
 
-	  <li>
-	    <p>
-	      Using the vector <m>\wvec = \twovec{x-1}{y-1}</m>,
-	      rewrite your approximation as
-	      <me>
-		f(x,y) \approx f(1,1) + q_A(\wvec)
-	      </me>
-	      for some matrix <m>A</m>.  What is the matrix <m>A</m>
-	      in this case?
-	    </p>
-	  </li>
+	    <li>
+	      <p>
+		Using the vector <m>\wvec = \twovec{x-1}{y-1}</m>,
+		rewrite your approximation as
+		<me>
+		  f(x,y) \approx f(1,1) + q_A(\wvec)
+		</me>
+		for some matrix <m>A</m>.  What is the matrix <m>A</m>
+		in this case?
+	      </p>
+	    </li>
 
-	  <li>
-	    <p>
-	      Find the eigenvalues of <m>A</m>.  What can you conclude
-	      about the definiteness of <m>A</m>?
-	    </p>
-	  </li>
+	    <li>
+	      <p>
+		Find the eigenvalues of <m>A</m>.  What can you conclude
+		about the definiteness of <m>A</m>?
+	      </p>
+	    </li>
 
-	  <li>
-	    <p>
-	      Recall that <m>(x_0,y_0)</m> is a local minimum for
-	      <m>f</m> if <m>f(x,y) \gt f(x_0,y_0)</m> for nearby
-	      points <m>(x,y)</m>.
-	      Explain why our understanding of the eigenvalues of
-	      <m>A</m> shows that <m>(1,1)</m> is a local
-	      minimum for <m>f</m>.
-	      <sage>
-		<input>
+	    <li>
+	      <p>
+		Recall that <m>(x_0,y_0)</m> is a local minimum for
+		<m>f</m> if <m>f(x,y) \gt f(x_0,y_0)</m> for nearby
+		points <m>(x,y)</m>.
+		Explain why our understanding of the eigenvalues of
+		<m>A</m> shows that <m>(1,1)</m> is a local
+		minimum for <m>f</m>.
+		<sage>
+		  <input>
 plot3d(2*x^3 - 6*x*y + 3*y^2, (x, -2,2), (y,-2,2))
-		</input>
-	      </sage>
-	    </p>
-	  </li>
+		  </input>
+		</sage>
+	      </p>
+	    </li>
 
-	  <li>
-	    <p>
-	      Show that the function <m>g(x,y,z) = 4xyz - x^4
-	      -y^4-z^4</m> has a critical point at <m>(1,1,1)</m>.
-	    </p>
-	  </li>
+	  </ol>
+	</p>
+      </statement>
 
-	  <li>
-	    <p>
-	      Use the linear approximation to write
-	      <me>
-		g(x,y,z) \approx g(1,1,1) + q_A(\wvec)
-	      </me>
-	      for some matrix <m>A</m> when <m>\wvec =
-	      \threevec{x-1}{y-1}{z-1}</m>. 
-	    </p>
-	  </li>
-
-	  <li>
-	    <p>
-	      Determine the matrix <m>A</m> and its eigenvalues.  What
-	      does this say about whether <m>g</m> has a local maximum
-	      or minimum at <m>(1,1,1)</m>?
-	    </p>
-	  </li>
-	</ol>
-      </p>
+      <solution>
+	<p>
+	  <ol label="a.">
+	    <li>
+	      <p>
+		We have
+		<md>
+		  <mrow>
+		    f_x \amp {}={} 6x^2 - 6y = 0
+		  </mrow>
+		  <mrow>
+		    f_y \amp {}={} -6x + 6y = 0
+		  </mrow>
+		  which leads to the conditions <m>y=x^2</m> and
+		  <m>y=x</m>.  This gives the critical points
+		  <m>(0,0)</m> and <m>(1,1)</m>.
+		</md>
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		We have
+		<me>
+		  f_{xx} = 12x, \hspace{24pt}
+		  f_{xy} = -6, \hspace{24pt}
+		  f_{yy} = 6
+		</me>
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		This gives
+		<me>
+		  f(x,y)\approx -1 + \frac12 12(x-1)^2 -6(x-1)(y-1) +
+		  \frac12 6(y-1)^2
+		</me>
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		The matrix is <m>A = \begin{bmatrix}
+		6 \amp -3 \\
+		-3 \amp 3
+		\end{bmatrix}
+		</m>.
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		The eigenvalues are <m>\lambda_1=7.85</m> and
+		<m>\lambda_2=1.15</m>, both of which are positive,
+		which means that <m>A</m> is positive definite.
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		We have <m>q_A(\wvec) \gt 0</m> if <m>\wvec</m> is
+		nonzero so
+		<me>
+		  f(x,y) \approx f(1,1) + q_A(\wvec) \gt f(1,1)
+		</me>
+		for points <m>(x,y)</m> near to <m>(1,1)</m>.
+	      </p>
+	    </li>
+	  </ol>
+	</p>
+      </solution>
+	  
+      <answer>
+	<p>
+	  <ol label="a.">
+	    <li>
+	      <p>
+		We have
+		<md>
+		  <mrow>
+		    f_x \amp {}={} 6x^2 - 6y = 0
+		  </mrow>
+		  <mrow>
+		    f_y \amp {}={} -6x + 6y = 0
+		  </mrow>
+		  with critical points
+		  <m>(0,0)</m> and <m>(1,1)</m>.
+		</md>
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		We have
+		<me>
+		  f_{xx} = 12x, \hspace{24pt}
+		  f_{xy} = -6, \hspace{24pt}
+		  f_{yy} = 6
+		</me>
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		This gives
+		<me>
+		  f(x,y)\approx -1 + \frac12 12(x-1)^2 -6(x-1)(y-1) +
+		  \frac12 6(y-1)^2
+		</me>
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		<m>A = \begin{bmatrix}
+		6 \amp -3 \\
+		-3 \amp 3
+		\end{bmatrix}
+		</m>.
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		<m>A</m> is positive definite.
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		<m>
+		  f(x,y) \approx f(1,1) + q_A(\wvec) \gt f(1,1)
+		</m>
+		for points <m>(x,y)</m> near to <m>(1,1)</m>.
+	      </p>
+	    </li>
+	  </ol>
+	</p>
+      </answer>
+	      
     </activity>
 
     <p>
@@ -1115,7 +1559,7 @@ plot3d(2*x^3 - 6*x*y + 3*y^2, (x, -2,2), (y,-2,2))
 
     <p>
       Most multivariable calculus texts assume that the reader is not
-      familiar with eigenvalues and so write the second derivative test
+      familiar with linear algebra and so write the second derivative test
       for functions of two variables
       in terms of <m>D=\det(H)</m>.  If
       <ul>
@@ -1177,9 +1621,9 @@ plot3d(2*x^3 - 6*x*y + 3*y^2, (x, -2,2), (y,-2,2))
 	<li>
 	  <p>
 	    If <m>\lambda_1</m> is the largest eigenvalue of a
-	    symmetric matrix <m>A</m> and <m>\lambda_n</m> the
-	    smallest, then the maximum value of <m>q_A(\uvec)</m>,
-	    when <m>\uvec</m> is a unit vector, is <m>\lambda_1</m>,
+	    symmetric matrix <m>A</m> and <m>\lambda_m</m> the
+	    smallest, then the maximum value of <m>q_A(\uvec)</m>
+	    among unit vectors <m>\uvec</m>, is <m>\lambda_1</m>,
 	    and this maximum value occurs in the direction of
 	    <m>\uvec_1</m>, a unit eigenvector associated to
 	    <m>\lambda_1</m>.
@@ -1187,9 +1631,9 @@ plot3d(2*x^3 - 6*x*y + 3*y^2, (x, -2,2), (y,-2,2))
 
 	  <p>
 	    Similarly, the minimum value of <m>q_A(\uvec)</m> is
-	    <m>\lambda_n</m>, which appears in the direction of
-	    <m>\uvec_n</m>, an eigenvector associated to
-	    <m>\lambda_n</m>.
+	    <m>\lambda_m</m>, which appears in the direction of
+	    <m>\uvec_m</m>, an eigenvector associated to
+	    <m>\lambda_m</m>.
 	  </p>
 	</li>
 
@@ -1203,7 +1647,7 @@ plot3d(2*x^3 - 6*x*y + 3*y^2, (x, -2,2), (y,-2,2))
 	</li>
 	<li>
 	  <p>
-	    If the Hessian <m>H</m> of a multi-variable function
+	    If the Hessian <m>H</m> of a multivariable function
 	    <m>f</m> is positive definite at a critical point, then
 	    the critical point is a local minimum.  Likewise, if the
 	    Hessian is negative definite, the critical point is a
