@@ -9,19 +9,19 @@
     <p>
       We are sometimes presented with a dataset having many data
       points that live in a high dimensional space.  For instance, we
-      looked at a dataset describing the body fat index (BFI) in <xref
-      ref="activity-BFI" /> where each data point is six-dimensional.
-      In this case, developing an intuitive understanding of the data
-      is hampered by the fact that it cannot be visualized.
+      earlier looked at a dataset describing body fat index (BFI) in
+      <xref ref="activity-BFI" /> where each data point is
+      six-dimensional.  Developing an intuitive understanding of the
+      data is hampered by the fact that it cannot be visualized.
     </p>
 
     <p>
       This section explores a technique called <em> principal
       component analysis</em>, which enables us to reduce the
       dimension of a dataset so that it may be visualized or studied
-      in a way so that interesting features stand out.  Our
-      previous work with variance and the orthogonal diagonalization
-      of symmetric matrices provides the key ideas.
+      in a way so that interesting features more readily stand out.
+      Our previous work with variance and the orthogonal
+      diagonalization of symmetric matrices provides the key ideas.
     </p>
 
     <exploration>
@@ -37,28 +37,6 @@
 	    \end{bmatrix}.
 	  </me>
 	  <ol label="a.">
-	    <li>
-	      <p>
-		What is the variance in the direction <m>\uvec =
-		\twovec10</m>;  that is, what is the variance of the
-		demeaned data when projected onto the line defined by
-		<m>\uvec</m>?
-	      </p>
-	    </li>
-
-	    <li>
-	      <p>
-		What is the variance in the direction
-		<m>\uvec=\twovec01</m>?
-	      </p>
-	    </li>
-
-	    <li>
-	      <p>
-		What is the total variance?
-	      </p>
-	    </li>
-
 	    <li>
 	      <p>
 		Suppose that <m>\uvec</m> is an eigenvalue of <m>C</m>
@@ -79,10 +57,24 @@
 
 	    <li>
 	      <p>
+		What is the total variance?
+	      </p>
+	    </li>
+
+	    <li>
+	      <p>
 		In
 		which direction is the variance greatest and what is
 		the variance in this direction?  If we project the
 		data onto this line, how much variance is lost?
+	      </p>
+	    </li>
+
+	    <li>
+	      <p>
+		In which direction is the variance smallest and how is
+		this direction related to the direction of maximum
+		variance? 
 	      </p>
 	    </li>
 	  </ol>
@@ -91,26 +83,40 @@
     </exploration>
 
     <p>
-      There are some ideas from our previous work that will be
-      particularly useful
-      here.  If <m>A</m> is a matrix of <m>N</m> demeaned data
-      points, we form the covariance matrix <m>C=\frac 1N AA^T</m>.
-      When <m>\uvec</m> is a unit vector, the variance of the
-      demeaned data after projecting onto the line defined by
-      <m>\uvec</m> is given by the quadratic form <m>V_{\uvec} =
-      \uvec\cdot(C\uvec)</m>.  In particular, if <m>\uvec</m> is an
-      eigenvector of <m>C</m> with eigenvalue <m>\lambda</m>, then
-      <m>V_{\uvec} = \lambda</m>.
-    </p>
-
-    <p>
-      Moreover, variance is additive, as we recorded in <xref
-      ref="prop-variance-additivity" />:  if <m>W</m> is a subspace
-      having orthonormal basis <m>\uvec_1,\uvec_2,\ldots,\uvec_n</m>,
-      then the variance
-      <me>
-	V_W = V_{\uvec_1} + V_{\uvec_2} + \ldots + V_{\uvec_n}.
-      </me>
+      Here are some ideas we've seen previously that will be
+      particularly useful for us in this section.  Remember that 
+      the covariance matrix of a dataset is <m>C=\frac 1N AA^T</m>
+      where <m>A</m> is the matrix of <m>N</m> demeaned
+      data points.
+      <ul>
+	<li>
+	  <p>
+	    When <m>\uvec</m> is a unit vector, the variance of the
+	    demeaned data after projecting onto the line defined by
+	    <m>\uvec</m> is given by the quadratic form <m>V_{\uvec} =
+	    \uvec\cdot(C\uvec)</m>.
+	  </p>
+	</li>
+	<li>
+	  <p>
+	    In particular, if <m>\uvec</m> is a unit eigenvector of
+	    <m>C</m> with associated eigenvalue <m>\lambda</m>, then
+	    <m>V_{\uvec} = \lambda</m>.
+	  </p>
+	</li>
+	<li>
+	  <p>
+	    Moreover, variance is additive, as we recorded in <xref
+	    ref="prop-variance-additivity" />: if <m>W</m> is a subspace
+	    having an orthonormal basis
+	    <m>\uvec_1,\uvec_2,\ldots,\uvec_n</m>, then the variance
+	    <me>
+	      V_W = V_{\uvec_1} + V_{\uvec_2} + \ldots +
+	      V_{\uvec_n}\text{.} 
+	    </me>
+	  </p>
+	</li>
+      </ul>
     </p>
 
   </introduction>
@@ -129,11 +135,10 @@
 	  Suppose that we work with a dataset having 100
 	  five-dimensional data points.  The demeaned data matrix
 	  <m>A</m> is therefore <m>5\times100</m> and leads to the
-	  covariance matrix <m>C=\frac1{100}~AA^T</m>, which is
-	  <m>5\times5</m>.  Because <m>C</m> is symmetric, the
-	  Spectral Theorem tells us
-	  it is orthogonally diagonalizable so suppose that <m>C =
-	  QDQ^T</m> where
+	  covariance matrix <m>C=\frac1{100}~AA^T</m>, which is a
+	  <m>5\times5</m> matrix.  Because <m>C</m> is symmetric, the
+	  Spectral Theorem tells us it is orthogonally diagonalizable
+	  so suppose that <m>C = QDQ^T</m> where
 	  <me>
 	    Q = \begin{bmatrix}
 	    \uvec_1 \amp \uvec_2 \amp \uvec_3 \amp \uvec_4 \amp \uvec_5
@@ -170,7 +175,7 @@
 	    
 	    <li>
 	      <p>
-		Consider the two-dimensional subspace spanned by
+		Consider the 2-dimensional subspace spanned by
 		<m>\uvec_1</m> and <m>\uvec_2</m>.  If we project the
 		data onto this subspace, what fraction 
 		of the total variance is represented by the variance of the
@@ -181,7 +186,7 @@
 	    <li>
 	      <p>	    
 		How does this question change if we project onto the
-		three-dimensional subspace 
+		3-dimensional subspace 
 		spanned by <m>\uvec_1</m>, <m>\uvec_2</m>, and
 		<m>\uvec_3</m>?
 	      </p>
@@ -195,102 +200,176 @@
 	  </ol>
 	</p>
       </statement>
+
+      <solution>
+	<p>
+	  <ol label="a.">
+	    <li>
+	      <p>
+		<m>V_{\uvec_2} = \lambda_2 = 10</m>
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		<m>V_{\uvec_4} = \lambda_4 = 0</m>, which tells us
+		there is no variance in the <m>\uvec_4</m> direction.
+		Therefore, when we project onto the line defined by
+		<m>\uvec_4</m>, every data point projects to
+		<m>\zerovec</m> so every data point is in the
+		orthogonal complement of <m>\uvec_4</m>.
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		<m>V = V_{\uvec_1} + V_{\uvec_2} + V_{\uvec_3} +
+		V_{\uvec_4} + V_{\uvec_5}  = 13+10+2+0+0 = 25</m>.
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		The variance of the data projected onto this subspace
+		is <m>13+10=23</m>, which represents <m>23/25=92\%</m>
+		of the variance.
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		Projecting on this 3-dimensional subspace retains
+		all of the variance.
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		All of the data lies in the <m>3</m>-dimensional
+		subspace spanned by
+		<m>\uvec_1</m>, <m>\uvec_1</m>, and <m>\uvec_1</m>.
+	      </p>
+	    </li>
+	  </ol>
+	</p>
+      </solution>
+      
+      <answer>
+	<p>
+	  <ol label="a.">
+	    <li>
+	      <p>
+		<m>10</m>
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		<m>0</m>, which tells us
+		every data point is in the
+		orthogonal complement of <m>\uvec_4</m>.
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		<m>25</m>
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		<m>92\%</m> of the variance
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		<m>100\%</m> of the variance.
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		All of the data lies in the <m>3</m>-dimensional
+		subspace spanned by
+		<m>\uvec_1</m>, <m>\uvec_1</m>, and <m>\uvec_1</m>.
+	      </p>
+	    </li>
+	  </ol>
+	</p>
+      </answer>
+	  
     </activity>
 
     <p>
       This activity demonstrates how the eigenvalues of the covariance
-      matrix show us when data is clustered around a smaller
-      dimensional subspace.  In particular, the original data is
-      five-dimensional, but we see that it actually lies on a
-      three-dimensional subspace of <m>\real^5</m>.  Later in this
-      section, we'll see how to use this observation to work with the
-      data as if it were three-dimensional, an idea known as
-      <em>dimensional reduction</em>.
+      matrix can tell us when data is clustered around, or even wholly
+      contained within, a smaller dimensional subspace.  In
+      particular, the original data is 5-dimensional, but we see
+      that it actually lies in a 3-dimensional subspace of
+      <m>\real^5</m>.  Later in this section, we'll see how to use
+      this observation to work with the data as if it were
+      three-dimensional, an idea known as <em>dimensional
+      reduction</em>.
     </p>
 
     <p>
-      To be more specific, remember that the variance in the direction
-      of an eigenvector of the covariance matrix <m>C</m> equals its
-      associated eigenvalue.  Now consider the sequence of subspaces
+      <idx> principal components</idx> The eigenvectors <m>\uvec_j</m>
+      of the covariance matrix are called <em>principal
+      components</em>, and we will order them so that their associated
+      eigenvalues decrease.  Generally speaking, we hope that the
+      first few principal components retain most of the variance, as
+      the example in the activity demonstrates.  In that example, we
+      have the sequence of subspaces
       <ul>
 	<li>
 	  <p>
-	    <m>W_1</m>, the one-dimensional subspace spanned by
-	    <m>\uvec_1</m>.
+	    <m>W_1</m>, the 1-dimensional subspace spanned by
+	    <m>\uvec_1</m>, which retained <m>13/25 = 52\%</m> of the
+	    total variance,
 	  </p>
 	</li>
 	<li>
 	  <p>
-	    <m>W_2</m>, the two-dimensional subspace spanned by
-	    <m>\uvec_1</m> and <m>\uvec_2</m>.
+	    <m>W_2</m>, the 2-dimensional subspace spanned by
+	    <m>\uvec_1</m> and <m>\uvec_2</m>, which retained <m>23/25
+	    = 92\%</m> of the variance,
 	  </p>
 	</li>
 	<li>
 	  <p>
-	    <m>W_3</m>, the three-dimensional subspace spanned by
-	    <m>\uvec_1</m>, <m>\uvec_2</m>, and <m>\uvec_3</m>.
+	    <m>W_3</m>, the 3-dimensional subspace spanned by
+	    <m>\uvec_1</m>, <m>\uvec_2</m>, and <m>\uvec_3</m>, which
+	    retains all of the variance.
 	  </p>
 	</li>
       </ul>
-      Since variance is additive, we have
-      <md>
-	<mrow>
-	  V_{W_1} = \amp V_{\uvec_1} = 13
-	</mrow>
-	<mrow>
-	  V_{W_2} = \amp V_{\uvec_1} + V_{\uvec_2} = 23
-	</mrow>
-	<mrow>
-	  V_{W_3} = \amp V_{\uvec_1} + V_{\uvec_2} + V_{\uvec_3} = 25
-	</mrow>
-      </md>
     </p>
 
     <p>
-      Notice how we capture more of the total variance as we increase
+      Notice how we retain more of the total variance as we increase
       the dimension of the subspace onto which the data is projected.
-      Eventually, projecting the data onto <m>W_3</m> gives the total
-      variance 25.  Since we don't lose any of the variance projecting
-      onto <m>W_3</m>, the data must already lie in <m>W_3</m>.
+      Eventually, projecting the data onto <m>W_3</m> retains all the
+      variance, which tells us the data must lie in <m>W_3</m>, a
+      smaller dimensional subspace of <m>\real^5</m>.
     </p>
 
     <p>
-      Another way to think about this is to notice that the eigenvalue
-      associated to the eigenvector <m>\uvec_4</m> is zero; this means
-      that the variance of the data projected along the line defined
-      by <m>\uvec_4</m> is zero so all the points project to the zero
-      vector.  From this, we conclude that the data must lie in the
-      orthogonal complement of <m>\uvec_4</m>.
-      Similarly, the eigenvalue associated to <m>\uvec_5</m> is zero
-      so the data must lie in the orthogonal complement of
-      <m>\uvec_5</m> as well.  Since the data lies in the orthogonal
-      complements of both <m>\uvec_4</m> and <m>\uvec_5</m>, it must
-      lie in <m>W_3</m>, the three-dimensional subspace spanned by
-      <m>\uvec_1</m>, 
-      <m>\uvec_2</m>, and <m>\uvec_3</m>.
+      In fact, these subspaces are the best possible.  We know that
+      the first principal component <m>\uvec_1</m> is the eigenvector
+      of <m>C</m> associated to the largest eigenvalue.  This means
+      that the variance is as large as possible in the <m>\uvec_1</m>
+      direction.  In other words, projecting onto any other line
+      retains a smaller amount of variance.  Similarly, projecting
+      onto any other 2-dimensional subspace besides <m>W_2</m> will
+      retain less variance than projecting onto <m>W_2</m>.  The
+      principal components have the wonderful ability to pick out the
+      best possible subspaces to retain as much variance as
+      possible.
     </p>
 
     <p>
       Of course, this is a contrived example.  Typically, the presence
       of noise in a dataset means that we do not expect all the points
       to be wholly contained in a smaller dimensional subspace.  In
-      fact, the
-      two-dimensional subspace <m>W_2</m> captures 23/25 = 92% of the
-      variance.  Depending on the situation, we may want to write off
-      the remaining 8% of the variance as noise in exchange for the
-      convenience of working with a smaller dimensional subspace.
-    </p>
-
-    <p>
-      The eigenvectors <m>\uvec_j</m> are called <em>principal
-      components</em>, and we will order them so their associated
-      eigenvalues decrease.  Generally speaking, we hope that the
-      first few principal components capture most of the variance.  In
-      any case, adding more principal components captures
-      more of the variance but at the expense of working with a higher
+      fact, the 2-dimensional subspace <m>W_2</m> retains
+      <m>92\%</m> of the variance.  Depending on the situation, we may
+      want to write off the remaining <m>8\%</m> of the variance as
+      noise in exchange for the convenience of working with a smaller
       dimensional subspace.  As we'll see later, we will seek a
       balance using a number of principal components large enough to
-      capture most of the variance but small enough to be easy to work
+      retain most of the variance but small enough to be easy to work
       with. 
     </p>
 
@@ -319,13 +398,7 @@ sage.repl.load.load('https://raw.githubusercontent.com/davidaustinm/ula_modules/
 		<m>\uvec=\threevec{1/3}{2/3}{2/3}</m>?
 		<sage>
 		  <input>
-<!--
-C = 1/100*A*A.T
-D, P = C.right_eigenmatrix()		    
-u1 = P.column(0)
-u2 = P.column(2)
-Q = matrix([u1,u2]).T
--->
+
 		  </input>
 		</sage>
 	      </p>
@@ -352,16 +425,17 @@ Q = matrix([u1,u2]).T
 		represented by the second column of <c>B</c>,
 		define vectors <c>u1</c>, <c>u2</c>, and <c>u3</c>
 		representing the three principal components in order of
-		decreasing eigenvalues.
-	      </p>
+		decreasing eigenvalues.  How can you check if these
+		vectors are an orthonormal basis for <m>\real^3</m>?
+	      </p>  
 	    </li>
 
 	    <li>
 	      <p>
-		What fraction of the total variance is captured by
+		What fraction of the total variance is retained by
 		projecting the data onto <m>W_1</m>, the subspace
 		spanned by <m>\uvec_1</m>?  What fraction of the total
-		variance is captured by projecting onto <m>W_2</m>,
+		variance is retained by projecting onto <m>W_2</m>,
 		the subspace spanned by <m>\uvec_1</m> and
 		<m>\uvec_2</m>?  What fraction of the total variance
 		do we lose by projecting onto <m>W_2</m>?
@@ -371,7 +445,7 @@ Q = matrix([u1,u2]).T
 	    <li>
 	      <p>
 		If we project a data point <m>\xvec</m> onto
-		<m>W_2</m>, the projection formula tells us we obtain
+		<m>W_2</m>, the Projection Formula tells us we obtain
 		<me>
 		  \xhat = (\uvec_1\cdot\xvec) \uvec_1 +
 		  (\uvec_2\cdot\xvec) \uvec_2.
@@ -413,20 +487,114 @@ Q = matrix([u1,u2]).T
 
 	</p>
       </statement>
+
+      <solution>
+	<p>
+	  <ol label="a.">
+	    <li>
+	      <p>
+		After constructing the covariance matrix <m>C =
+		\frac{1}{100}AA^T</m>, we find that <m>V_{\uvec} =
+		\uvec\cdot(C\uvec) = 7885</m>.
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		The total variance <m>V</m> is the sum of the
+		eigenvalues of <m>C</m> so we obtain
+		<m>V=12195</m>.
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		If we obtain <m>P</m>, the matrix of eigenvectors,
+		from Sage, computing <m>P^TP</m> evaluates the dot
+		products between the columns.  Since <m>P^TP=I</m>,
+		the basis provided by Sage is orthonormal.
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		Projecting onto <m>W_1</m>, we see that
+		<m>\lambda_1/V = 0.83</m> so <m>W_1</m> retains about
+		<m>83\%</m> of the total variance.  The subspace
+		<m>W_2</m> retains <m>(\lambda_1+\lambda_2)/V=0.98</m>
+		or <m>98\%</m> of the total variance.  If we project
+		onto <m>W_2</m> we lose less than <m>2\%</m> of the
+		variance. 
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		<m>Q=\begin{bmatrix}\uvec_1\amp\uvec_2\end{bmatrix}</m>
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		The plot is wider because the variance in the
+		<m>\uvec_1</m> direction, which corresponds to the
+		horizontal coordinate, is greater than the variance in
+		the <m>\uvec_2</m> direction.
+	      </p>
+	    </li>
+	  </ol>
+	</p>
+      </solution>
+      <answer>
+	<p>
+	  <ol label="a.">
+	    <li>
+	      <p>
+		<m>V_{\uvec} = 7885</m>
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		<m>V=12195</m>
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		If <m>P</m> is the matrix of eigenvectors, evaluate
+		<m>P^TP</m>.
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		<m>W_1</m> retains 
+		<m>83\%</m> of the total variance, and 
+		<m>W_2</m> retains <m>98\%</m>.
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		<m>Q=\begin{bmatrix}\uvec_1\amp\uvec_2\end{bmatrix}</m>
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		Because the variance in the <m>\uvec_1</m> direction
+		is greater than the variance in the <m>\uvec_2</m>
+		direction.
+	      </p>
+	    </li>
+	  </ol>
+	</p>
+      </answer>
     </activity>
 
     <p>
-      This example is a more realistic illustration of principal component
-      analysis.  Starting with the <m>3\times100</m> matrix of
-      demeaned data <m>A</m>, we construct the covariance matrix
-      <m>C=\frac{1}{100} ~AA^T</m> and study its eigenvalues.  
-      Notice that the first two principal components account for more
-      than 98% of the variance, which means we can expect the points
-      to lie close to <m>W_2</m>, the two-dimensional subspace
-      spanned by <m>\uvec_1</m> and <m>\uvec_2</m>.  In fact, the
-      plot of the three-dimensional data appears to show that the data
-      lies close to a plane.  The analysis we are performing helps us
-      to identify that plane quantitatively. 
+      This example is a more realistic illustration of principal
+      component analysis.  The plot of the 3-dimensional data
+      appears to show that the data lies close to a plane, and the
+      principal components will identify this plane.  Starting with
+      the <m>3\times100</m> matrix of demeaned data <m>A</m>, we
+      construct the covariance matrix <m>C=\frac{1}{100} ~AA^T</m> and
+      study its eigenvalues.  Notice that the first two principal
+      components account for more than 98% of the variance, which
+      means we can expect the points to lie close to <m>W_2</m>, the
+      two-dimensional subspace spanned by <m>\uvec_1</m> and
+      <m>\uvec_2</m>.
     </p>
 
     <p>
@@ -453,12 +621,10 @@ Q = matrix([u1,u2]).T
 	<image source = "images/pca-coords" />
       </sidebyside>
       <caption>
-	<p>
-	  The projection <m>\xhat</m> of a data point <m>\xvec</m>
-	  onto <m>W_2</m> is a three-dimensional vector, which may be
-	  represented by the two coordinates describing this vector as
-	  a linear combination of <m>\uvec_1</m> and <m>\uvec_2</m>.
-	</p>
+	The projection <m>\xhat</m> of a data point <m>\xvec</m> onto
+	<m>W_2</m> is a three-dimensional vector, which may be
+	represented by the two coordinates describing this vector as a
+	linear combination of <m>\uvec_1</m> and <m>\uvec_2</m>.
       </caption>
     </figure>
 
@@ -498,10 +664,10 @@ Q = matrix([u1,u2]).T
     <activity>
       <statement>
 	<p>
-	  The next cell will load a dataset describing the dietary
-	  habits of citizens in each of the four nations of the United
-	  Kingdom.  The units for each entry are grams per person per
-	  week.  
+	  The next cell will load a dataset describing the average
+	  consumption of various food groups for citizens in each of
+	  the four nations of the United Kingdom.  The units for each
+	  entry are grams per person per week.
 	  <sage>
 	    <input>
 import pandas as pd
@@ -512,7 +678,7 @@ df
 
 	    </input>
 	  </sage>
-	  We will view this as a dataset having four points in
+	  We will view this as a dataset consisting of four points in
 	  <m>\real^{17}</m>.  As such, it is impossible to visualize
 	  and studying the numbers themselves doesn't lead to much
 	  insight.
@@ -540,7 +706,7 @@ df
 		Find the covariance matrix <m>C</m> and its
 		eigenvalues.  Because there are four points in
 		<m>\real^{17}</m> whose mean is zero, there are only
-		three nonzero eigenvalues.  State their values.
+		three nonzero eigenvalues.  
 	      </p>
 	    </li>
 
@@ -564,10 +730,8 @@ df
 		  <image source = "images/pca-plot-1" />
 		</sidebyside>
 		<caption>
-		  <p>
-		    A plot of the demeaned data projected onto the
-		    first principal component.
-		  </p>
+		  A plot of the demeaned data projected onto the
+		  first principal component.
 		</caption>
 	      </figure>
 	    </li>
@@ -600,10 +764,8 @@ df
 		  <image source="images/pca-plot-2" />
 		</sidebyside>
 		<caption>
-		  <p>
-		    The coordinates of the demeaned data points
-		    projected onto the first two principal components.
-		  </p>
+		  The coordinates of the demeaned data points
+		  projected onto the first two principal components.
 		</caption>
 	      </figure>
 	    </li>
@@ -630,13 +792,223 @@ df
 	  </ol>
 	</p>
       </statement>
+
+      <solution>
+	<p>
+	  <ol label="a.">
+	    <li>
+	      <p>
+		Beverages is the second category so this would be the
+		second component of the <c>data_mean</c> vector,
+		which is <m>57.5</m>.
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		The three nonzero eigenvalues are <m>78805</m>,
+		<m>33946</m>, and <m>4093</m>.
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		The total variance <m>V=116844</m> is the sum of the
+		eigenvalues so the first principal component accounts
+		for <m>\lambda_1/V = 67\%</m> of the total variance.
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		The coordinates are
+		<table>
+		  <tabular halign="right">
+		    <row bottom="minor">
+		      <cell> Nation </cell>
+		      <cell> Coordinate </cell>
+		    </row>
+		    <row>
+		      <cell> England </cell>
+		      <cell> <m>-145</m> </cell>
+		    </row>
+		    <row>
+		      <cell> Northern Ireland </cell>
+		      <cell> <m>477</m> </cell>
+		    </row>
+		    <row>
+		      <cell> Scotland </cell>
+		      <cell> <m>-92</m> </cell>
+		    </row>
+		    <row>
+		      <cell> Wales </cell>
+		      <cell> <m>-241</m> </cell>
+		    </row>
+		  </tabular>
+		</table>
+	      </p>
+	    </li>
+
+	    <li>
+	      <p>
+		The first two principal components account for
+		<m>96\%</m> of the total variance.
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		The coordinates are
+		<table>
+		  <tabular halign="right">
+		    <row bottom="minor">
+		      <cell> Nation </cell>
+		      <cell> Coordinates </cell>
+		    </row>
+		    <row>
+		      <cell> England </cell>
+		      <cell> <m>(-145, 3)</m> </cell>
+		    </row>
+		    <row>
+		      <cell> Northern Ireland </cell>
+		      <cell> <m>(477, 59)</m> </cell>
+		    </row>
+		    <row>
+		      <cell> Scotland </cell>
+		      <cell> <m>(-92, -286)</m> </cell>
+		    </row>
+		    <row>
+		      <cell> England </cell>
+		      <cell> <m>(-241, 225)</m> </cell>
+		    </row>
+		  </tabular>
+		</table>
+	      </p>
+	    </li>
+
+	    <li>
+	      <p>
+		Northern Ireland appears to be significantly different
+		from the other three nations.  There are many possible
+		reasons for this, both historical and geographical,
+		that we might explore.
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		The first component of <m>\uvec_1</m> is negative.
+		Therefore, if a nation is on the right side of this
+		plot, the average consumption of Alcoholic Drinks will
+		be less than the mean.  This can be confirmed by
+		looking at the original data.
+	      </p>
+	    </li>
+	  </ol>
+	</p>
+      </solution>
+
+      <answer>
+	<p>
+	  <ol label="a.">
+	    <li>
+	      <p>
+		<m>57.5</m>
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		<m>78805</m>,
+		<m>33946</m>, and <m>4093</m>
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		<m>67\%</m>
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		The coordinates are
+		<table>
+		  <tabular halign="right">
+		    <row bottom="minor">
+		      <cell> Nation </cell>
+		      <cell> Coordinate </cell>
+		    </row>
+		    <row>
+		      <cell> England </cell>
+		      <cell> <m>-145</m> </cell>
+		    </row>
+		    <row>
+		      <cell> Northern Ireland </cell>
+		      <cell> <m>477</m> </cell>
+		    </row>
+		    <row>
+		      <cell> Scotland </cell>
+		      <cell> <m>-92</m> </cell>
+		    </row>
+		    <row>
+		      <cell> Wales </cell>
+		      <cell> <m>-241</m> </cell>
+		    </row>
+		  </tabular>
+		</table>
+	      </p>
+	    </li>
+
+	    <li>
+	      <p>
+		<m>96\%</m>
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		The coordinates are
+		<table>
+		  <tabular halign="right">
+		    <row bottom="minor">
+		      <cell> Nation </cell>
+		      <cell> Coordinates </cell>
+		    </row>
+		    <row>
+		      <cell> England </cell>
+		      <cell> <m>(-145, 3)</m> </cell>
+		    </row>
+		    <row>
+		      <cell> Northern Ireland </cell>
+		      <cell> <m>(477, 59)</m> </cell>
+		    </row>
+		    <row>
+		      <cell> Scotland </cell>
+		      <cell> <m>(-92, -286)</m> </cell>
+		    </row>
+		    <row>
+		      <cell> England </cell>
+		      <cell> <m>(-241, 225)</m> </cell>
+		    </row>
+		  </tabular>
+		</table>
+	      </p>
+	    </li>
+
+	    <li>
+	      <p>
+		Northern Ireland appears to be significantly different
+		from the other three nations.
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		The average consumption of Alcoholic Drinks will
+		be less than the mean.
+	      </p>
+	    </li>
+	  </ol>
+	</p>
+      </answer>
     </activity>
 
     <p>
       This activity demonstrates how principal component analysis
       enables us to extract information from a dataset that may not be
-      readily apparent otherwise.  As in our previous example, we see
-      that the data points lie, on average, quite close to a
+      easily obtained otherwise.  As in our previous example, we see
+      that the data points lie quite close to a
       two-dimensional subspace of <m>\real^{17}</m>.  In fact,
       <m>W_2</m>, the subspace spanned by the first two principal
       components, accounts for more than 96% of the variance.
@@ -648,60 +1020,62 @@ df
     <p>
       With some additional thought, we can determine more specific
       ways in which Northern Ireland is different.  On the
-      two-dimensional 
-      plot, Northern Ireland lies far to the right compared to the
-      other three nations.  Since the data has been demeaned, the
-      origin <m>(0,0)</m> in this plot corresponds to the average of
-      the four nations.  The coordinates of the point representing
-      Northern Ireland are about <m>(477, 59)</m>, meaning that the
-      projected data point differs from the mean by about
-      <m>477\uvec_1+59\uvec_2</m>.
+      <m>2</m>-dimensional plot, Northern Ireland lies far to the right
+      compared to the other three nations.  Since the data has been
+      demeaned, the origin <m>(0,0)</m> in this plot corresponds to
+      the average of the four nations.  The coordinates of the point
+      representing Northern Ireland are about <m>(477, 59)</m>,
+      meaning that the projected data point differs from the mean by
+      about <m>477\uvec_1+59\uvec_2</m>.
     </p>
 
     <p>
       Let's just focus on the contribution from <m>\uvec_1</m>.  We
       see that the ninth component of <m>\uvec_1</m>, the one that
-      describes Fresh Fruit, is about -0.63.  This means that
-      <m>477\uvec_1</m> differs from the mean by about <m>477(-0.63) =
-      -300</m> grams per person per week.  So roughly speaking, people
-      in Northern Ireland are eating about 300 fewer grams of
-      Fresh Fruit than the average across the three countries.  This is
-      borne out by looking at the original data, which show that the
-      consumption of Fresh Fruit in Northern Ireland is significantly
-      less than the other nations.  Examing the other components of
-      <m>\uvec_1</m> shows other categories in which Northern Ireland
-      is significantly different from the other three.
+      describes Fresh Fruit, is about <m>-0.63</m>.  This means that
+      the ninth component of <m>477\uvec_1</m> differs from the mean
+      by about <m>477(-0.63) = -300</m> grams per person per week.  So
+      roughly speaking, people in Northern Ireland are eating about
+      300 fewer grams of Fresh Fruit than the average across the four
+      nations.  This is borne out by looking at the original data,
+      which show that the consumption of Fresh Fruit in Northern
+      Ireland is significantly less than the other nations.  Examing
+      the other components of <m>\uvec_1</m> shows other ways in
+      which Northern Ireland differs from the other three nations.
     </p>
 
     <activity xml:id="activity-pca-iris">
       <statement>
 	<p>
-	  In this activity, we're going to look at a
+	  In this activity, we'll look at a
 	  <url href="https://archive.ics.uci.edu/ml/datasets/Iris">
 	  well-known dataset 
 	  </url>
-	  that records four measurements of each of 150 irises.
-	  There are three species of irises, each of which
-	  appears 50 times in the dataset.  Examples of the three
-	  species are shown in <xref ref="fig-iris" />.
-	  For each flower, the length and width of its sepal and the
-	  length and width of its petal, all in centimeters, are
-	  recorded. 
+	  that describes 150 irises representing three specieis of
+	  iris: Iris setosa, Iris versicolor, and Iris virginica.
+	  For each flower, the length and width of
+	  its sepal and the length and width of its petal, all in
+	  centimeters, are recorded. 
 	</p>
 
 	<figure xml:id="fig-iris">
-	  <sidebyside width="90%">
+	  <sidebyside width="70%">
 	    <image
-		source="https://thegoodpython.com/assets/images/iris-species.png"/>
+		source="images/Iris_versicolor.jpg"/>
 	  </sidebyside>
 	  <caption>
-	    <p>
-	      The three species of irises represented in the dataset:
-	      iris setosa, iris
-	      versicolor, and iris virginica.  Photo credit:  <url
-	      href="https://thegoodpython.com/iris-dataset/"> The Good
-	      Python </url>
-	    </p>
+	    One of the three species, iris versicolor, represented
+	    in the dataset showing three shorter petals and three
+	    longer sepals.  
+	    (Source:
+	    <url
+		href="https://commons.wikimedia.org/wiki/File:Iris_versicolor_3.jpg">
+	      Wikipedia
+	      </url>,
+	      License:
+	      <url
+		  href="https://commons.wikimedia.org/wiki/Commons:GNU_Free_Documentation_License,_version_1.2">
+		GNU Free DOcumetation License</url>)	      
 	  </caption>
 	</figure>
 
@@ -752,7 +1126,7 @@ sepal_plot()
 	    <li>
 	      <p>
 		Find the fraction of variance for which the first two
-		principal components account?
+		principal components account.
 	      </p>
 	    </li>
 
@@ -826,6 +1200,117 @@ pca_plot(Q.T*A)
       
 	</p>
       </statement>
+
+      <solution>
+	<p>
+	  <ol label="a.">
+	    <li>
+	      <p>
+		The second component of <c>data_mean</c>, which is the
+		one corresponding to sepal width, is <m>3.05</m>.
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		The eigenvalues are <m>4.20</m>, <m>0.24</m>,
+		<m>0.08</m>, and <m>0.02</m>.
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		The first two principal components account for
+		<m>97.8\%</m> of the variance.
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		If <m>P</m> is the matrix whose columns are an
+		orthonormal basis of eigenvectors, then <m>Q</m> is
+		formed from the first two columns of <m>P</m>.
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		This would most likely belong to Iris setosa.  To find
+		its measurements, we evaluate <m>-2.5\uvec_1 -
+		0.75\uvec_2 + \mvec</m> where <m>\mvec</m> is the
+		vector of means.  This is the same as
+		<m>Q\twovec{-2.5}{-0.75} + \mvec</m>, which
+		gives the vector of
+		measurements <m>\fourvec{5.43}{3.81}{1.49}{0.25}</m>.
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		Subtracting the mean sepal length and sepal width, we
+		have <m>(-0.19, -0.30)</m>.  Then the first two
+		components of <m>c_1\uvec_1+c_2\uvec_2 =
+		Q\twovec{c_1}{c_2} = \twovec{-0.19}{-0.30}</m>.  This
+		gives <m>(c_1, c_2) = (0.18, 0.40)</m>.  This looks
+		like an Iris versicolor.  As in the
+		previous part, we can now find the petal length to be
+		<m>3.99</m> and the petal width to be <m>1.29</m>.
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		Using the same approach as the last part, we find
+		<m>(c_1,c_2)=(2.90, -0.53)</m>, which gives a sepal
+		length of <m>7.23</m> and a petal length of
+		<m>6.15</m>.  Most likely, this flower belongs to Iris
+		virginica. 
+	      </p>
+	    </li>
+	  </ol>
+	</p>
+      </solution>
+      <answer>
+	<p>
+	  <ol label="a.">
+	    <li>
+	      <p>
+		<m>3.05</m>.
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		<m>4.20</m>, <m>0.24</m>,
+		<m>0.08</m>, <m>0.02</m>.
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		<m>97.8\%</m>
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		The columns of <m>Q</m> are for the first two
+		principal components.
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		Iris setosa and the vector of measurements is
+		<m>\fourvec{5.43}{3.81}{1.49}{0.25}</m>.
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		The petal length is
+		<m>3.99</m> and the petal width is <m>1.29</m>.
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		The sepal length is <m>7.23</m> and the petal length
+		is <m>6.15</m>.
+	      </p>
+	    </li>
+	  </ol>
+	</p>
+      </answer>
+		
     </activity>
       
 
@@ -855,7 +1340,9 @@ pca_plot(Q.T*A)
 	    If <m>W_n</m> is the subspace spanned by the first
 	    <m>n</m> principal components, then the variance of the
 	    demeaned data projected onto <m>W_n</m> is the sum of the
-	    first <m>n</m> eigenvalues.
+	    first <m>n</m> eigenvalues of <m>C</m>.  No other
+	    <m>n</m>-dimensional subspace retains more variance when
+	    the data is projected onto it.
 	  </p>
 	</li>
 
@@ -871,16 +1358,13 @@ pca_plot(Q.T*A)
 
 	<li>
 	  <p>
-	    We hope to use a number of principal components that is
-	    large enough to capture most
-	    of the variance in the dataset but small enough to be
-	    manageable.
+	    Our goal is to use a number of principal components that
+	    is large enough to retain most of the variance in the
+	    dataset but small enough to be manageable.
 	  </p>
 	</li>
       </ul>
     </p>
-	    
-	    
 
   </subsection>
 
