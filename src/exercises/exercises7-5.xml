@@ -14,6 +14,10 @@
 	  -0.4 \amp 2.4 \amp 1.9 \amp -1.8
 	  \end{bmatrix}.
 	</me>
+	<sage>
+	  <input>
+	  </input>
+	</sage>
 	<ol label="a.">
 	  <li>
 	    <p>
@@ -32,6 +36,79 @@
 	</ol>
       </p>
     </statement>
+
+    <solution>
+      <p>
+	<ol label="a.">
+	  <li>
+	    <p>
+	      The singular values are
+	      <m>6.4</m>, <m>5.2</m>, <m>2.1</m>, and <m>0.5</m> so we
+	      have <m>\rank(A) = 4</m>.
+	    </p>
+	  </li>
+	  <li>
+	    <p>
+	      <m>A_1=\begin{bmatrix}
+	      1.3 \amp -1.2 \amp -1.2 \amp 3.8 \\
+	      -0.58 \amp 0.56 \amp 0.56 \amp -1.7 \\
+	      0.92 \amp -0.90 \amp -0.89 \amp 2.7 \\
+	      -0.84 \amp 0.83 \amp 0.82 \amp -2.5
+	      \end{bmatrix}</m>,
+	      <m>A_2=\begin{bmatrix}
+	      1.5 \amp -2.0 \amp -1.2 \amp 3.4 \\
+	      -1.3 \amp 2.8 \amp 0.43 \amp -0.77 \\
+	      -0.32 \amp 2.8 \amp -1.1 \amp 4.3 \\
+	      -1.3 \amp 2.1 \amp 0.75 \amp -2.0
+	      \end{bmatrix}</m>,
+	    </p>
+	    <p>
+	      <m>A_3=\begin{bmatrix}
+	      2.2 \amp -1.9 \amp 0.048 \amp 3.7 \\
+	      -1.2 \amp 2.9 \amp 0.72 \amp -0.72 \\
+	      -0.51 \amp 2.8 \amp -1.4 \amp 4.2 \\
+	      -0.60 \amp 2.3 \amp 2.0 \amp -1.7
+	      \end{bmatrix}</m>, <m>A_4=A</m>
+	    </p>
+	  </li>
+	</ol>
+      </p>
+    </solution>
+    <answer>
+      <p>
+	<ol label="a.">
+	  <li>
+	    <p>
+	      <m>\rank(A) = 4</m>.
+	    </p>
+	  </li>
+	  <li>
+	    <p>
+	      <m>A_1=\begin{bmatrix}
+	      1.3 \amp -1.2 \amp -1.2 \amp 3.8 \\
+	      -0.58 \amp 0.56 \amp 0.56 \amp -1.7 \\
+	      0.92 \amp -0.90 \amp -0.89 \amp 2.7 \\
+	      -0.84 \amp 0.83 \amp 0.82 \amp -2.5
+	      \end{bmatrix}</m>,
+	      <m>A_2=\begin{bmatrix}
+	      1.5 \amp -2.0 \amp -1.2 \amp 3.4 \\
+	      -1.3 \amp 2.8 \amp 0.43 \amp -0.77 \\
+	      -0.32 \amp 2.8 \amp -1.1 \amp 4.3 \\
+	      -1.3 \amp 2.1 \amp 0.75 \amp -2.0
+	      \end{bmatrix}</m>,\
+	    </p>
+	    <p>
+	      <m>A_3=\begin{bmatrix}
+	      2.2 \amp -1.9 \amp 0.048 \amp 3.7 \\
+	      -1.2 \amp 2.9 \amp 0.72 \amp -0.72 \\
+	      -0.51 \amp 2.8 \amp -1.4 \amp 4.2 \\
+	      -0.60 \amp 2.3 \amp 2.0 \amp -1.7
+	      \end{bmatrix}</m>, <m>A_4=A</m>
+	    </p>
+	  </li>
+	</ol>
+      </p>
+    </answer>
   </exercise>
 
   <exercise>
@@ -44,12 +121,12 @@
 	fitting the points
 	<me>
 	  (0,1), (1,0), (2,1.5), (3,4), (4,8).
-	  <sage>
-	    <input>
-
-	    </input>
-	  </sage>
 	</me>
+	<sage>
+	  <input>
+	    
+	  </input>
+	</sage>
 	<ol label="a.">
 	  <li>
 	    <p>
@@ -73,7 +150,177 @@
 
       </p>
     </statement>
+    <solution>
+      <p>
+	<ol label="a.">
+	  <li>
+	    <p>
+	      The linear system is
+	      <me>
+		\begin{bmatrix}
+		1 \amp 0 \amp 0 \\
+		1 \amp 1 \amp 1 \\
+		1 \amp 2 \amp 4 \\
+		1 \amp 3 \amp 9 \\
+		1 \amp 4 \amp 16 \\
+		\end{bmatrix}
+		\xvec
+		=
+		\fivevec10{1.5}48
+	      </me>
+	    </p>
+	  </li>
+	  <li>
+	    <p>
+	      <m>U</m> is a <m>5\times5</m> matrix, <m>\Sigma</m> is
+	      <m>5\times3</m>, and <m>V</m> is <m>3\times3</m>
+	    </p>
+	  </li>
+	  <li>
+	    <p>
+	      The rank of <m>A</m> is 3 so we'll
+	      form the reduced singular value decomposition
+	      <m>A=U_3\Sigma_3V_3^T</m>.  Then <m>\xhat =
+	      V_3\Sigma_3^{-1}U_3^T\bvec =
+	      \threevec{0.87}{-1.34}{0.79}</m>
+	    </p>
+	  </li>
+	</ol>
+      </p>
+    </solution>
+    <answer>
+      <p>
+	<ol label="a.">
+	  <li>
+	    <p>
+	      The linear system is
+	      <me>
+		\begin{bmatrix}
+		1 \amp 0 \amp 0 \\
+		1 \amp 1 \amp 1 \\
+		1 \amp 2 \amp 4 \\
+		1 \amp 3 \amp 9 \\
+		1 \amp 4 \amp 16 \\
+		\end{bmatrix}
+		\xvec
+		=
+		\fivevec10{1.5}48
+	      </me>
+	    </p>
+	  </li>
+	  <li>
+	    <p>
+	      <m>U</m> is a <m>5\times5</m> matrix, <m>\Sigma</m> is
+	      <m>5\times3</m>, and <m>V</m> is <m>3\times3</m>
+	    </p>
+	  </li>
+	  <li>
+	    <p>
+	      <m>\xhat=\threevec{0.87}{-1.34}{0.79}</m>
+	    </p>
+	  </li>
+	</ol>
+      </p>
+    </answer>
+		
   </exercise>
+
+  <exercise>
+    <statement>
+      <p>
+	Remember that the outer product of two vector <m>\uvec</m> and
+	<m>\vvec</m> is the matrix <m>\uvec~\vvec^T</m>.
+	<ol label="a.">
+	  <li>
+	    <p>
+	      Suppose that <m>\uvec = \twovec{2}{-3}</m> and
+	      <m>\vvec=\threevec201</m>.  Evaluate the outer product
+	      <m>\uvec~\vvec^T</m>.  To get a clearer sense of how this
+	      works, perform this operation without using technology.
+	    </p>
+	    <p>
+	      How is each of the columns of <m>\uvec~\vvec^T</m>
+	      related to <m>\uvec</m>?
+	    </p>
+	  </li>
+	  <li>
+	    <p>
+	      Suppose <m>\uvec</m> and <m>\vvec</m> are general
+	      vectors.  What is <m>\rank(\uvec~\vvec^T)</m> and what is
+	      a basis for its column space <m>\col(\uvec~\vvec^T)</m>?
+	    </p>
+	  </li>
+	  <li>
+	    <p>
+	      Suppose that <m>\uvec</m> is a unit vector.  What is the
+	      effect of multiplying a vector by the matrix
+	      <m>\uvec~\uvec^T</m>?
+	    </p>
+	  </li>
+	</ol>
+      </p>
+    </statement>
+
+    <solution>
+      <p>
+	<ol label="a.">
+	  <li>
+	    <p>
+	      <m>\uvec~\vvec^T = \begin{bmatrix}
+	      2\uvec \amp 0\uvec \amp \uvec
+	      \end{bmatrix} = \begin{bmatrix}
+	      4 \amp 0 \amp 2 \\
+	      -6 \amp 0 \amp -3
+	      \end{bmatrix}</m>
+	    </p>
+	  </li>
+	  <li>
+	    <p>
+	      Since each column of <m>\uvec~\vvec^T</m> is a scalar
+	      multiple of <m>\uvec</m>, the rank of the matrix is
+	      <m>1</m> and <m>\uvec</m> forms a basis.
+	    </p>
+	  </li>
+	  <li>
+	    <p>
+	      This matrix projects vectors orthogonally onto the line
+	      defined by <m>\uvec</m>.
+	    </p>
+	  </li>
+	</ol>
+      </p>
+    </solution>
+	  
+    <answer>
+      <p>
+	<ol label="a.">
+	  <li>
+	    <p>
+	      <m>\uvec~\vvec^T =
+	      \begin{bmatrix}
+	      4 \amp 0 \amp 2 \\
+	      -6 \amp 0 \amp -3
+	      \end{bmatrix}</m>
+	    </p>
+	  </li>
+	  <li>
+	    <p>
+	      The rank is <m>1</m> and <m>\uvec</m> forms a basis.
+	    </p>
+	  </li>
+	  <li>
+	    <p>
+	      This matrix projects vectors orthogonally onto the line
+	      defined by <m>\uvec</m>.
+	    </p>
+	  </li>
+	</ol>
+      </p>
+    </answer>
+		
+  </exercise>
+	  
+	  
 
   <exercise>
     <statement>
@@ -151,6 +398,96 @@ df.T
 	</ol>
       </p>
     </statement>
+
+    <solution>
+      <p>
+	<ol label="a.">
+	  <li>
+	    <p>
+	      The singular values <m>\sigma_i</m> are <m>45.5</m>, <m>32.6</m>,
+	      <m>28.9</m>, and <m>15.9</m>.  Therefore, the variances
+	      in the direction of the principal components are
+	      given by <m>\frac{1}{1057}\sigma_i^2</m> and are
+	      <m>1.96</m>, <m>1.01</m>, <m>0.79</m>, and <m>0.24</m>.
+	    </p>
+	  </li>
+	  <li>
+	    <p>
+	      The first two principal components retain <m>74\%</m> of
+	      the total variance.
+	    </p>
+	  </li>
+	  <li>
+	    <p>
+	      The matrix <m>B</m> is formed from the first two rows of
+	      the product <m>\Sigma V^T</m>.
+	    </p>
+	  </li>
+	  <li>
+	    <p>
+	      The fourth components, the ones that correspond to house
+	      prices, of <m>\uvec_1</m> and <m>\uvec_2</m> are
+	      <m>-0.65</m> and <m>-0.03</m> respectively.  This shows
+	      us that <m>\uvec_2</m> doesn't contribute much to the
+	      house price.  Moving in the negative <m>\uvec_1</m>
+	      direction causes the house price to go up so the more
+	      expensive homes are on the left.
+	    </p>
+	  </li>
+	  <li>
+	    <p>
+	      The first principal component is <m>\uvec_1 =
+	      \fourvec{-0.64}{-0.20}{0.36}{-0.65}</m>.  If we move to
+	      the left, this vector is multiplied by a negative number
+	      so the living area, lot size, and price go up while the
+	      age of the house decreases.
+	    </p>
+	    <p>
+	      The second principal component is
+	      <m>\uvec_2=\fourvec{0.05}{0.86}{0.51}{-0.03}</m>.  If we
+	      move up, this is multiplied by a positive number so the
+	      lot size and the age of the house increase.
+	    </p>
+	  </li>
+	</ol>
+      </p>
+    </solution>
+    <answer>
+      <p>
+	<ol label="a.">
+	  <li>
+	    <p>
+	      The variances are
+	      <m>1.96</m>, <m>1.01</m>, <m>0.79</m>, and <m>0.24</m>.
+	    </p>
+	  </li>
+	  <li>
+	    <p>
+	      <m>74\%</m>
+	    </p>
+	  </li>
+	  <li>
+	    <p>
+	      The matrix <m>B</m> is formed from the first two rows of
+	      the product <m>\Sigma V^T</m>.
+	    </p>
+	  </li>
+	  <li>
+	    <p>
+	      Left
+	    </p>
+	  </li>
+	  <li>
+	    <p>
+	      Houses on the left have larger living area, lot sizes,
+	      and prices and are newer.  Houses near the top have
+	      larger lot sizes and ages.
+	    </p>
+	  </li>
+	</ol>
+      </p>
+    </answer>
+	      
   </exercise>
 
   <exercise>
@@ -214,6 +551,89 @@ fivefour
 	</ol>
       </p>
     </statement>
+
+    <solution>
+      <p>
+	<ol label="a.">
+	  <li>
+	    <p>
+	      <m>A\vvec</m> is a 9-dimensional vector.  For each
+	      justice, it tells us the number of times that justice
+	      voted with the majority minus the number of times they
+	      voted in the minority.
+	    </p>
+	  </li>
+	  <li>
+	    <p>
+	      Out of 188 cases, the fifth justice Sandra Day O'Connor
+	      voted with the majority 94 more times than with the
+	      minority.  Since a swing vote will often vote in the
+	      majority, this gives additional evidence that Sandra Day
+	      O'Connor is a swing vote.
+	    </p>
+	  </li>
+	  <li>
+	    <p>
+	      The first five justices more often vote with the
+	      majority and the last four more often with the
+	      minority.  This means the court leans toward the first
+	      five justices, who are the more conservative ones.
+	    </p>
+	  </li>
+	  <li>
+	    <p>
+	      The fourth justice Anthony Kennedy voted with the
+	      majority 84 times more than with the minority.  He is a
+	      potential swing vote.
+	    </p>
+	  </li>
+	  <li>
+	    <p>
+	      The third singular vector
+	      <m>\uvec_3</m> effectively records his vote and not the
+	      votes of the other justices.  This lends support to the
+	      claim that Anthony Kennedy is a second, somewhat less
+	      influential, swing vote.
+	    </p>
+	  </li>
+	</ol>
+      </p>
+    </solution>
+    <answer>
+      <p>
+	<ol label="a.">
+	  <li>
+	    <p>
+	      For each justice, it tells us the number of times that
+	      justice voted with the majority minus the number of
+	      times they voted in the minority.
+	    </p>
+	  </li>
+	  <li>
+	    <p>
+	      The justice that most often votes with the majority
+	      could be a swing vote.
+	    </p>
+	  </li>
+	  <li>
+	    <p>
+	      The first five justices usually vote in the majority.
+	    </p>
+	  </li>
+	  <li>
+	    <p>
+	      A second justice voted with the
+	      majority 84 times more than with the minority.
+	    </p>
+	  </li>
+	  <li>
+	    <p>
+	      Anthony Kennedy
+	    </p>
+	  </li>
+	</ol>
+      </p>
+    </answer>
   </exercise>
 
   <exercise>
@@ -298,6 +718,83 @@ plot_sv(A)
 	</ol>
       </p>
     </statement>
+
+    <solution>
+      <p>
+	<ol label="a.">
+	  <li>
+	    <p>
+	      The matrix is symmetric because the number of times
+	      Justice A votes with Justice B is the same as the number
+	      of times Justice B votes with Justice A.
+	    </p>
+	  </li>
+	  <li>
+	    <p>
+	      The first two singular values appear to be most
+	      important so <m>A_2</m> should be a good approximation
+	      to <m>A</m>.
+	    </p>
+	  </li>
+	  <li>
+	    <p>
+	      <m>U=V</m> since <m>A</m> is a positive definite,
+	      symmetric matrix.
+	    </p>
+	  </li>
+	  <li>
+	    <p>
+	      The sixth justice, John Paul Stevens, is the least
+	      agreeable.
+	    </p>
+	  </li>
+	  <li>
+	    <p>
+	      The fourth and fifth justices, Anthony Kennedy and
+	      Sandra Day O'Connor are less inclined to agree with the
+	      others so they form swing votes.
+	    </p>
+	  </li>
+	</ol>
+      </p>
+    </solution>
+	      
+    <answer>
+      <p>
+	<ol label="a.">
+	  <li>
+	    <p>
+	      The matrix is symmetric.
+	    </p>
+	  </li>
+	  <li>
+	    <p>
+	      <m>A_2</m> should be a good approximation
+	      to <m>A</m>.
+	    </p>
+	  </li>
+	  <li>
+	    <p>
+	      <m>U=V</m>
+	    </p>
+	  </li>
+	  <li>
+	    <p>
+	     John Paul Stevens, is the least
+	      agreeable.
+	    </p>
+	  </li>
+	  <li>
+	    <p>
+	      The fourth and fifth justices, Anthony Kennedy and
+	      Sandra Day O'Connor are less inclined to agree with the
+	      others.
+	    </p>
+	  </li>
+	</ol>
+      </p>
+    </answer>
+	      
   </exercise>
 
   <exercise>
@@ -321,19 +818,89 @@ plot_sv(A)
 	  </li>
 	  <li>
 	    <p>
-	      Explain why <m>\xhat = A^+\bvec</m> is a least squares
-	      approximate solution of <m>A\xvec=\bvec</m>.
+	      Explain why <m>AA^+\bvec=\bhat</m>, the orthogonal
+	      projection of <m>\bvec</m> onto <m>\col(A)</m>.
 	    </p>
 	  </li>
 	  <li>
 	    <p>
-	      Explain why <m>AA^+\bvec=\bhat</m>, the orthogonal
-	      projection of <m>\bvec</m> onto <m>\col(A)</m>.
+	      Explain why <m>A^+A\xvec=\xhat</m>, the orthogonal
+	      projection of <m>\xvec</m> onto <m>\col(A^T)</m>.
 	    </p>
 	  </li>
 	</ol>
       </p>
     </statement>
+
+    <solution>
+      <p>
+	<ol label="a.">
+	  <li>
+	    <p>
+	      The number of columns of <m>A^+</m> is the number of
+	      columns of <m>U_r^T</m>, which is <m>m</m>, and the
+	      number of rows is the number of rows of <m>V_r</m>,
+	      which is <m>n</m>.
+	    </p>
+	  </li>
+	  <li>
+	    <p>
+	      If <m>A</m> is invertible, then <m>A</m> is an
+	      <m>m\times m</m> matrix whose rank is <m>m</m>.  The
+	      reduced singular value decomposition is therefore
+	      <m>A=U\Sigma V^T</m> so that <m>A^+=V\Sigma^{-1}U^T =
+	      (U\Sigma V^T)^{-1}=A^{-1}</m>.
+	    </p>
+	  </li>
+	  <li>
+	    <p>
+	      <m>AA^{+} = (U_r\Sigma_rV_r^T)(V_r\Sigma^{-1}U_r^T) =
+	      U_rU_r^T</m>, which projects vectors orthogonal onto
+	      <m>\col(A)</m> since the columns of <m>U_r</m> are an
+	      orthonormal basis for <m>\col(A)</m>.
+	    </p>
+	  </li>
+	  <li>
+	    <p>
+	      <m>AA^{+} = (V_r\Sigma^{-1}U_r^T)(U_r\Sigma_rV_r^T)
+	      V_rV_r^T</m>, which projects vectors orthogonal onto
+	      <m>\col(A^T)</m> since the columns of <m>V_r</m> are an
+	      orthonormal basis for <m>\col(A^T)</m>.
+	    </p>
+	  </li>
+	</ol>
+      </p>
+    </solution>
+    <answer>
+      <p>
+	<ol label="a.">
+	  <li>
+	    <p>
+	      Find the number of columns of <m>U_r^T</m> and the
+	      number of rows of <m>V_r</m>.
+	    </p>
+	  </li>
+	  <li>
+	    <p>
+	      If <m>A</m> is invertible, then <m>A</m> is an
+	      <m>m\times m</m> matrix whose rank is <m>m</m>.
+	    </p>
+	  </li>
+	  <li>
+	    <p>
+	      <m>AA^{+} = (U_r\Sigma_rV_r^T)(V_r\Sigma^{-1}U_r^T) =
+	      U_rU_r^T</m>
+	    </p>
+	  </li>
+	  <li>
+	    <p>
+	      <m>AA^{+} = (V_r\Sigma^{-1}U_r^T)(U_r\Sigma_rV_r^T)
+	      V_rV_r^T</m>
+	    </p>
+	  </li>
+	</ol>
+      </p>
+    </answer>
   </exercise>
 
   <exercise>
@@ -444,6 +1011,112 @@ plot_sv(A)
 	<em>ill-conditioned</em>. 
       </p>
     </statement>
+
+    <solution>
+      <p>
+	<ol label="a.">
+	  <li>
+	    <p>
+	      The singular values of <m>A</m> are <m>2</m> and
+	      <m>5\times10^{-5}</m>, which means the condition number
+	      is <m>40,000</m>.
+	    </p>
+	  </li>
+	  <li>
+	    <p>
+	      <ol label="i.">
+		<li>
+		  <p>
+		    <m>A^{-1}\bvec = \twovec{-14142.5}{14142.5}</m>
+		  </p>
+		</li>
+		<li>
+		  <p>
+		    <m>A^{-1}\bvec = \twovec{-14142.8}{14142.8}</m>
+		  </p>
+		</li>
+	      </ol>
+	    </p>
+	  </li>
+	  <li>
+	    <p>
+	      <ol label="i.">
+		<li>
+		  <p>
+		    <m>A^{-1}\bvec = \twovec{-14142.5}{14142.5}</m>
+		  </p>
+		</li>
+		<li>
+		  <p>
+		    <m>A^{-1}\bvec = \twovec{-28284.6}{28285.3}</m>
+		  </p>
+		</li>
+	      </ol>
+	    </p>
+	  </li>
+	  <li>
+	    <p>
+	      We have <m>d_i = \sigma_ic_i</m> so
+	      <m>c_i=\frac{d_i}{\sigma_i}</m>.  Since <m>\sigma_2</m>
+	      is so much smaller than <m>\sigma_1</m>,
+	      even small changes in <m>d_2</m> can have relatively
+	      large changes in <m>c_2</m>.
+	    </p>
+	  </li>
+	</ol>
+      </p>
+    </solution>
+
+    <answer>
+      <p>
+	<ol label="a.">
+	  <li>
+	    <p>
+	      The condition number
+	      is <m>40,000</m>
+	    </p>
+	  </li>
+	  <li>
+	    <p>
+	      <ol label="i.">
+		<li>
+		  <p>
+		    <m>A^{-1}\bvec = \twovec{-14142.5}{14142.5}</m>
+		  </p>
+		</li>
+		<li>
+		  <p>
+		    <m>A^{-1}\bvec = \twovec{-14142.8}{14142.8}</m>
+		  </p>
+		</li>
+	      </ol>
+	    </p>
+	  </li>
+	  <li>
+	    <p>
+	      <ol label="i.">
+		<li>
+		  <p>
+		    <m>A^{-1}\bvec = \twovec{-14142.5}{14142.5}</m>
+		  </p>
+		</li>
+		<li>
+		  <p>
+		    <m>A^{-1}\bvec = \twovec{-28284.6}{28285.3}</m>
+		  </p>
+		</li>
+	      </ol>
+	    </p>
+	  </li>
+	  <li>
+	    <p>
+	      <m>c_2=\frac{d_2}{\sigma_2}</m>
+	    </p>
+	  </li>
+	</ol>
+      </p>
+    </answer>
+	  
   </exercise>
 
 </exercises>
