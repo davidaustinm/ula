@@ -133,7 +133,7 @@ workbook-latex:
 	install -b xsl/ula-common.xsl $(MBXUSR)
 	-rm $(WKBKOUT)/*.tex
 	cp -a $(IMAGESSRC) $(WKBKOUT)
-	xsltproc -o $(WKBKOUT)/ula-workbook.tex -xinclude $(MBXUSR)/activity-workbook.xsl $(MAINFILE) 
+	xsltproc -o $(WKBKOUT)/ula-workbook.tex -xinclude -stringparam publisher $(PRJ)/pub/workbook.xml $(MBXUSR)/activity-workbook.xsl $(MAINFILE) 
 
 soln-latex:
 	install -d $(SOLNOUT)
