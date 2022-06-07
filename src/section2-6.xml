@@ -113,10 +113,42 @@
     
     <activity xml:id="activity-linear-trans-geom">
       <statement>
-	<p xml:id="INSERT-MATRIX-MULT-2">
-	  MATRIX-MULT-2
-	</p>
 
+	<figure xml:id="js-matrix-mult">
+	  <caption>
+	    The geometric effect of a matrix transformation.
+	  </caption>
+	  
+	  <interactive xml:id="interactive-matrix-mult"
+		       platform="javascript" width="100%"
+		       aspect="14:9"
+		       source="jslibrary/figures.js
+			       jslibrary/mult.c.js">
+	    <sbsgroup>
+	      <sidebyside width="80%">
+		<slate xml:id="bottomsliders"
+		       aspect="10:2"
+		       surface="canvas" />
+	      </sidebyside>
+	      <sidebyside widths="45% 45%" margins="2% 2%">
+		<slate xml:id="bottomleft" aspect="1:1" surface="canvas" />
+		<slate xml:id="bottomright" aspect="1:1" surface="canvas" />
+	      </sidebyside>
+	    </sbsgroup>
+	    <instructions>
+	      <p>
+		The diagram below demonstrates the effect of a matrix
+		transformation on the plane.  You may modify the matrix
+		<m>A</m> defining the matrix transformation <m>T</m> through
+		the sliders at the top.  You may also move the red
+		vector <m>\xvec</m> on the left, by clicking in the
+		head of the vector, and observe <m>T(\xvec)</m> on
+		the right.
+	      </p>
+	    </instructions>
+	  </interactive>
+	</figure>
+	
 	<p>
 	  For the following matrices <m>A</m> given below, use the
 	  diagram to study the effect of the corresponding matrix
@@ -819,11 +851,62 @@
 	  Express the coordinates of the resulting point <m>x'</m> and
 	  <m>y'</m> in terms of the coordinates of the
 	  original point <m>x</m> and <m>y</m>.
-	</p>	
-
-	<p xml:id="INSERT-ANIMATE">
-	  ANIMATE
 	</p>
+
+
+	<figure xml:id="figure-animation">
+          <caption>
+	    The matrix transformation acting on homogeneous
+	    coordinates. 
+	  </caption>
+          <interactive xml:id="interactive-animation"
+		       platform="javascript"
+		       width="100%"
+		       aspect="48:33"
+		       source="jslibrary/animate.js"
+		       preview="preview/animation-preview.jpg">
+            <sbsgroup>
+              <sidebyside widths="30% 30% 30%">
+                <slate xml:id="a" surface="canvas" aspect="5:1" />
+                <slate xml:id="b" surface="canvas" aspect="5:1" />
+                <slate xml:id="c" surface="canvas" aspect="5:1" />
+              </sidebyside>
+              <sidebyside widths="30% 30% 30%">
+                <slate xml:id="d" surface="canvas" aspect="5:1" />
+                <slate xml:id="e" surface="canvas" aspect="5:1" />
+                <slate xml:id="f" surface="canvas" aspect="5:1" />
+              </sidebyside>
+              <sidebyside widths="45% 45%">
+                <slate xml:id="left"  surface="canvas" aspect="6:6" />
+                <slate xml:id="right" surface="canvas" aspect="6:6" />
+              </sidebyside>
+              <sidebyside widths="15% 15%" margins="33% 33%">
+                <slate surface="html" aspect="2:1">
+                  <button type="button"
+			  id="compose"
+			  xmlns="http://www.w3.org/1999/xhtml">
+		    Compose
+		  </button>
+                </slate>
+                <slate surface="html" aspect="2:1">
+                  <button type="button"
+			  id="reset"
+			  xmlns="http://www.w3.org/1999/xhtml">
+		    Reset
+		  </button>
+                </slate>
+              </sidebyside>
+            </sbsgroup>
+            <instructions>
+              <p>
+		The diagram below allows you to choose
+		parameters <m>a, b, \ldots, f</m> defining a matrix
+		transformation of homogeneous coordinates and observe
+		its affect on our character.
+	      </p>
+            </instructions>
+          </interactive>
+        </figure>
 
 	</li>
 
