@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    This file provides the overall configuration for your PreTeXt
+    project. To edit the content of your document, open `source/main.ptx`
+    (default location).
+-->
+<project>
+  <targets>
+    <target name="html">
+      <format>html</format>
+      <source>src/ula.xml</source>
+      <publication>publication/publication.ptx</publication>
+      <output-dir>output/html</output-dir>
+      <xsl>xsl/html.xsl</xsl>
+    </target>
+    <target name="latex">
+      <format>latex</format>
+      <source>src/ula.xml</source>
+      <publication>publication/publication.ptx</publication>
+      <output-dir>output/latex</output-dir>
+      <xsl>xsl/latex.xsl</xsl>      
+    </target>
+    <target name="pdf" pdf-method="xelatex">
+      <format>pdf</format>
+      <source>src/ula.xml</source>
+      <publication>publication/publication.ptx</publication>
+      <output-dir>output/pdf</output-dir>
+      <xsl>xsl/latex.xsl</xsl>
+    </target>
+    <target name="solutions" pdf-method="xelatex">
+      <format>pdf</format>
+      <source>src/solution-manual.ptx</source>
+      <publication>publication/publication-solutions.ptx</publication>
+      <output-dir>output/solutions-pdf</output-dir>
+      <xsl>xsl/solution-manual.xsl</xsl>      
+    </target>
+    <target name="solutions-latex">
+      <format>latex</format>
+      <source>src/solution-manual.ptx</source>
+      <publication>publication/publication-solutions.ptx</publication>
+      <output-dir>output/solutions-latex</output-dir>
+      <xsl>xsl/solution-manual.xsl</xsl>
+    </target>
+    <target name="subset">
+      <format>html</format>
+      <source>src/ula.xml</source>
+      <publication>publication/publication.ptx</publication>
+      <output-dir>output/subset</output-dir>
+      <stringparam key="debug.skip-knowls" value="yes"/>
+      <!-- edit this to change the section/chapter/etc. to include
+           in your subset build. Use the xml:id, not the file name! -->
+      <xmlid-root>sec-expect</xmlid-root>
+      <xsl>xsl/html.xsl</xsl>
+    </target>
+  </targets>
+  <executables>
+      <latex>latex</latex>
+      <pdflatex>pdflatex</pdflatex>
+      <xelatex>xelatex</xelatex>
+      <pdfsvg>pdf2svg</pdfsvg>
+      <asy>asy</asy>
+      <sage>sage</sage>
+      <pdfpng>convert</pdfpng>
+      <pdfeps>pdftops</pdfeps>
+      <pdfcrop>pdf-crop-margins</pdfcrop>
+      <pageres>pageres</pageres>
+      <node>node</node>
+      <liblouis>file2brl</liblouis>
+    </executables>
+</project>
+
