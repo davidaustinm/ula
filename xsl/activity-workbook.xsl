@@ -16,7 +16,7 @@
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
 
 <!-- Next paths assume current file has been copied to mathbook/user -->
-<xsl:import href="../xsl/mathbook-latex.xsl" />
+<xsl:import pretext-href="pretext-solution-manual-latex.xsl" />
 <xsl:import href="common.xsl" />
 <xsl:param name="toc.level" select="'3'" />
 
