@@ -11,8 +11,8 @@ var mkslider = function(xr, y, canvas, method) {
     return s;
 }
 
-var topmatrix = new Canvas("topsliders", [0,0, 2,2]);
-var topcanvas = new Canvas("topcanvas", [-4,-4,4,4]);
+var topmatrix = new Canvas("linearcomb-sliders", [0,0, 2,2]);
+var topcanvas = new Canvas("linearcomb-canvas", [-4,-4,4,4]);
 
 topmatrix.margins = [20,5,20,5];
 topmatrix.setUpCoordinates();

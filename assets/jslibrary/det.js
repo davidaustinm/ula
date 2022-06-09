@@ -1,5 +1,5 @@
-var bottommatrix = new Canvas("bottomsliders", [0,0, 2,2]);
-var bottomright = new Canvas("bottomright", [-4,-4,4,4]);
+var bottommatrix = new Canvas("det-sliders", [0,0, 2,2]);
+var bottomright = new Canvas("det-canvas", [-4,-4,4,4]);
 
 bottommatrix.margins = [20,5,20,5];
 bottommatrix.setUpCoordinates();

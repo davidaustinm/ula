@@ -1,6 +1,6 @@
-var bottommatrix = new Canvas("bottomsliders", [0,0, 2,2]);
-var bottomleft = new Canvas("bottomleft", [-4,-4,4,4]);
-var bottomright = new Canvas("bottomright", [-4,-4,4,4]);
+var bottommatrix = new Canvas("mult-sliders", [0,0, 2,2]);
+var bottomleft = new Canvas("mult-left", [-4,-4,4,4]);
+var bottomright = new Canvas("mult-right", [-4,-4,4,4]);
 
 bottommatrix.margins = [20,5,20,5];
 bottommatrix.setUpCoordinates();

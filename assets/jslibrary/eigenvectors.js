@@ -1,5 +1,5 @@
-var matrix = new Canvas("sliders", [0,0, 2,2]);
-var canvas = new Canvas("eigenvector", [-4,-4,4,4]);
+var matrix = new Canvas("eigenvectors-sliders", [0,0, 2,2]);
+var canvas = new Canvas("eigenvectors-canvas", [-4,-4,4,4]);
 
 matrix.margins = [20,5,20,5];
 matrix.setUpCoordinates();

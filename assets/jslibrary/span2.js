@@ -1,5 +1,5 @@
-var topmatrix = new Canvas("topsliders", [0,0, 2,2]);
-var topcanvas = new Canvas("topcanvas", [-4,-4,4,4]);
+var topmatrix = new Canvas("span2-sliders", [0,0, 2,2]);
+var topcanvas = new Canvas("span2-canvas", [-4,-4,4,4]);
 
 topmatrix.margins = [20,5,20,5];
 topmatrix.setUpCoordinates();
