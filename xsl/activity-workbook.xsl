@@ -18,21 +18,8 @@
 <!-- Next paths assume current file has been copied to mathbook/user -->
 <xsl:import pretext-href="pretext-solution-manual-latex.xsl" />
 <xsl:import href="common.xsl" />
-<xsl:param name="toc.level" select="'3'" />
 
 <xsl:output method="text" />
-
-<!-- These switches will control what we include -->
-<xsl:param name="exercise.divisional.hint" select="'no'" />
-<xsl:param name="exercise.divisional.answer" select="'no'" />
-<xsl:param name="exercise.divisional.solution" select="'no'" />
-
-<xsl:param name="exercise.reading.statement" select="'no'" />
-
-<!-- Preview activities and activities are project-like. -->
-<xsl:param name="project.hint" select="'no'" />
-<xsl:param name="project.answer" select="'no'" />
-<xsl:param name="project.solution" select="'no'" />
 
 <!-- Superfluous frontmatter for workbook -->
 <!-- So we don't bother and kill first two pages   -->
@@ -42,7 +29,6 @@
 <!-- Chapters: default presentation, we have them all, so numbers OK     -->
 <!-- Sections and Equivalents: kill them, except for specific ones below -->
 <xsl:template match="conclusion|exercises|references|objectives|appendix|index|solutions|reading-questions" />
-
 
 <!-- As a subset of full content, we can't         -->
 <!-- point to much of the content with hyperlinks  -->

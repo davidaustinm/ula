@@ -20,7 +20,7 @@
 <!-- Assumes current file is in mathbook/user, so it must be copied there -->
 <xsl:import href="../xsl/pretext-html.xsl" pretext-href="pretext-html.xsl"/>
 <!-- Assumes next file can be found in mathbook/user, so it must be copied there -->
-<!--<xsl:import href="common.xsl" />-->
+<xsl:import href="common.xsl" />
 
 <!-- Specify options for WeBWorK exercises -->
 <xsl:param name="webwork.divisional.static" select="'no'" />

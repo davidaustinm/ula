@@ -10,12 +10,12 @@
   <introduction>
     <p>
       At its heart, the subject of linear algebra is about linear
-      equations and, more specifically, collections of linear
-      equations.  Google routinely deals with a collection of
+      equations and, more specifically, sets of two or more linear
+      equations.  Google routinely deals with a set of
       trillions of equations each of which has trillions of unknowns.
       We will eventually understand how to deal with that kind of
       complexity.  To begin, however, we will look at a more familiar
-      situation where we have a small number of equations and a small
+      situation in which there are a small number of equations and a small
       number of unknowns.  In spite of its relative simplicity, this
       situation is rich enough to demonstrate some fundamental
       concepts that will motivate much of our exploration.
@@ -30,14 +30,16 @@
 
     <activity>
       <statement>
-	<p> With a small number of unknowns, we are able to graph the
-	sets of solutions to linear equations.  Here, we will consider
-	collections of equations having two unknowns.
+	<p>
+	  In this activity, we consider sets of linear equations
+	  having just two unknowns.  In this case, we can graph the
+	  solutions sets for the equations, which allows us to
+	  visualize different types of behavior.
 	</p>
 	<p><ol marker="a.">
 	  <li>
 	    <p>
-	      On the plot below, graph the lines
+	      On the grid below, graph the lines
 	      <me>
 		\begin{aligned}
 		y \amp = x+1 \\
@@ -56,7 +58,7 @@
 	  </li>
 	  <li>
 	    <p>
-	      On the plot below, graph the lines
+	      On the grid below, graph the lines
 	      <me>
 		\begin{aligned}
 		y \amp = x+1 \\
@@ -75,7 +77,7 @@
 	  </li>
 	  <li>
 	    <p>
-	      On the plot below, graph the line
+	      On the grid below, graph the line
 	      <me>
 		y = x+1
 		</me>.
@@ -90,7 +92,7 @@
 	  </li>
 	  <li>
 	    <p>
-	      On the plot below, graph the lines
+	      On the grid below, graph the lines
 	      <me>
 		\begin{aligned}
 		y \amp = x+1 \\
@@ -193,21 +195,25 @@
     </activity>
 
     <p>
-      The examples in this introductory activity demonstrate three
-      possible outcomes, which are represented in the three figures
-      below.
+      The examples in this introductory activity demonstrate several
+      possible outcomes for the solutions to a set of linear
+      equations.  Notice that we are interested in points that satisfy
+      each equation in the set and that these are seen as intersection
+      points of the lines.  Similar to the examples considered in the
+      activity, three types of outcomes are seen in <xref
+      ref="fig-three-possibilities"/>.
     </p>
 
     <figure xml:id = "fig-three-possibilities">
-      <image source="images/three-possibilities" />
+      <image source="images/three-possibilities-2" />
       <caption>
-	Three possibilities for collections of linear equations
+	Three possible graphs for sets of linear equations
 	in two unknowns.
       </caption>
     </figure>
 
     <p>
-      In this example, we see that
+      In this figure, we see that
     </p>
     
     <ul>
@@ -218,16 +224,15 @@
       on the points <m>(x,y)</m> resulting in a single point
       that satisfies both equations.</li>
       <li>Adding a third equation adds a third condition on the
-      points <m>(x,y)</m>, and it is no longer possible to satisfy
-      all three conditions.</li>
+      points <m>(x,y)</m>, and there is no point that satisfies
+      all three equations.</li>
     </ul>
     <p>
       Generally speaking, a single equation will have many solutions,
       in fact, infinitely many.  As we add equations, we add
-      conditions which lead to, in a sense we will make precise later,
+      conditions which lead, in a sense we will make precise later, to
       a smaller number of solutions.  Eventually, we have too many
-      equations and find that no points satisfy all of them at the
-      same time.
+      equations and find there are no points that satisfy all of them.
     </p>
 
     <p>
@@ -235,15 +240,16 @@
       frequently return.  
     </p>
 
-    <assemblage>
-      <title> Solutions of linear equations </title>
+    <assemblage xml:id="solution-possibilities">
+      <title> Solutions to sets of linear equations </title>
       <p>
-	Given a collection of linear equations, there are either:
+	Given a set of linear equations, there are either:
 	<ul>
-	  <li> <p> infinitely many solutions,</p> </li>
-	  <li> <p> exactly one solution, or</p> </li>
-	  <li> <p> no solutions. </p></li>
+	  <li> <p> infinitely many points,</p> </li>
+	  <li> <p> exactly one point, or</p> </li>
+	  <li> <p> no points </p></li>
 	</ul>
+	that satisfy every equation in the set.
       </p>
     </assemblage>
 
@@ -258,19 +264,30 @@
       </ul>
     </p>
 
-    <sidebyside widths="50% 40%" margins="0%" valign="top">
-      <p>
+    <p>
       It seems reasonable to wonder if the number of solutions depends
       on whether the number of equations is less than, equal to, or
-      greater than the number of unknowns.  Of course, this cannot
-      always be the case;  remember that one of our examples consisted of
-      two equations that were graphically represented by parallel
-      lines and that therefore had no solutions.  Still, it seems safe
-      to think that the more equations we have, the smaller the set of
-      solutions will be.
-      </p>
-      <image source="images/intro-parallel" />
-    </sidebyside>
+      greater than the number of unknowns.  Of course, one of the
+      examples in the activity shows that there are exceptions to this
+      simple rule, as seen in <xref ref="solution-exceptions"/>.  For
+      instance, two equations in two unknowns may correspond to
+      parallel lines so that the set of equations has no solutions.
+      It may also happen that a set of three equations in two unknowns
+      has a single solution.  However, it seems safe to think that the
+      more equations we have, the smaller the set of solutions will
+      be.
+    </p>
+
+    <figure xml:id="solution-exceptions">
+      <caption>
+	A set of two equations in two unknowns can have no solutions,
+	and a set of three equations can have one solution.
+      </caption>
+      <sidebyside widths="40% 40%" margins="8% 8%">
+	<image source="images/intro-parallel" />
+	<image source="images/intro-coincident" />
+      </sidebyside>
+    </figure>
     
     <p>
       Let's also consider some examples of equations having three
@@ -353,26 +370,26 @@
 
     <activity>
       <statement>
-      <p> This activity begins with equations having three unknowns.
-      In this case, we know that the solutions of a single equation
-      form a plane.  If it helps with visualization, consider using
-      <m>3\times5</m> inch index cards to represent planes.
+      <p> This activity considers sets of equations having three
+      unknowns.  In this case, we know that the solutions of a single
+      equation form a plane.  If it helps with visualization, consider
+      using <m>3\times5</m>-inch index cards to represent planes.
       <ol marker="a.">
 	<li> <p>
 	  Is it possible that there are no solutions to two linear
 	  equations in three unknowns?  Either sketch
-	  an example or give a reason why it can't happen.
+	  an example or state a reason why it can't happen.
 	</p> </li>
 
 	<li> <p>
 	  Is it possible that there is exactly one solution to 
 	  two linear equations in three unknowns?  Either
-	  sketch an example or give a reason why it can't happen.
+	  sketch an example or state a reason why it can't happen.
 	</p> </li>
 
 	<li> <p> Is it possible that the solutions to
 	  four equations in three unknowns form a line?  Either sketch 
-	  an example or give a reason why it can't happen.
+	  an example or state a reason why it can't happen.
 	</p> </li>
 
 	<li> <p>
@@ -380,16 +397,17 @@
 	  four equations in three unknowns?
 	</p> </li>
 
-	<li> <p>
-	  Suppose we have 500 linear equations in 10
-	  unknowns.  What would be a reasonable guess for which of
-	  the three possibilities for the set of solutions holds?
+	<li> <p> Suppose we have a set of 500 linear equations in 10
+	unknowns.  Which of the
+	<xref ref="solution-possibilities" text="custom">
+	  three possibilities
+	</xref>
+	would you expect to hold?
 	</p></li>
 
-	<li> <p>
-	  Suppose we have 10 linear equations in 500
-	  unknowns.  What would be a reasonable guess for which of
-	  the three possibilities for the set of solutions holds?
+	<li> <p> Suppose we have a set of 10 linear equations in 500
+	unknowns.  Which of the three possibilities would you expect
+	to hold?
 	</p></li>
 
       </ol></p>
@@ -466,8 +484,9 @@
     </title>
 
     <p>
-      Now that we have seen some simple examples, let's clarify
-      what we mean by a system of linear equations.
+      Now that we have seen some simple examples, let's agree on some
+      terminology to help us think more precisely about sets of
+      equations. 
     </p>
 
     <p>
@@ -475,8 +494,10 @@
       <me> y = 2x - 1</me>.  It will be convenient for us to rewrite
       this so that all the unknowns are on one side of the equation:
       <me> -2x + y = -1</me>.
-      Thinking graphically, this gives us the flexibility to describe
-      all lines;  for 
+      More generally, the equation of a line can always be expressed
+      in the form <me>ax + by = c,</me> which
+      gives us the flexibility to describe
+      all lines.  For 
       instance, vertical lines, such as <m>x=3</m>, may be represented
       in this form.
     </p>
@@ -497,16 +518,20 @@
 	<me>
 	  a_1x_1 + a_2x_2 + \ldots + a_nx_n = b
 	  </me>, where <m>a_1,a_2,\ldots,a_n</m> are real numbers known
-	  as <em>coefficients</em>.
+	  as <em>coefficients</em>.  We also say that
+	  <m>x_1,x_2,\ldots,x_n</m> are the <em>variables</em> in the
+	  equation. 
       </p>
-    </definition>
-
-    <p>
+      <p>
       By a <term>system of linear equations</term> or a
       <idx> <h> linear system</h></idx>
       <term>linear system</term>, we mean a
-      collection of linear equations written in a common set of
-      unknowns.  For example,
+      set of linear equations written in a common set of
+      unknowns.
+      </p>
+    </definition>
+    <p>
+      For instance,
       <me>
 	\begin{alignedat}{4}
 	2x_1 \amp {} + \amp {} 1.2x_2 \amp {}-{} \amp 4x_3 \amp {}={}
@@ -514,16 +539,19 @@
 	-0.1x_1 \amp {} \amp {}  \amp {}  + {} \amp x_3 \amp {}={}
 	\amp 2 \\
 	x_1 \amp {}+{} \amp x_2 \amp {}-{} \amp x_3 \amp {}={} \amp
-	1.4. \\
+	1.4 \\
 	\end{alignedat}
       </me>
+      is an example of a linear system.
     </p>
 
-    <p>
-      A <em> solution </em> to a linear system is simply 
+    <definition>
+      <p><idx><h>solution</h></idx>
+      A <term> solution </term> to a linear system is simply 
       a set of numbers <m>x_1 = s_1, x_2 = s_2, \ldots, x_n=s_n</m>
       that satisfy all the equations in the system.
-    </p>
+      </p>
+    </definition>
 
     <p>
       For instance, we earlier considered the linear system
@@ -534,7 +562,7 @@
 	\end{alignedat}
       </me>
       To check that <m>(x,y) = (2,3)</m> is a solution, we verify that the
-      following equations are valid.
+      following equations are true.
       <me>
 	\begin{alignedat}{3}
 	-2 \amp {}+{} \amp 3 \amp {} = {} \amp 1 \\
@@ -543,11 +571,13 @@
       </me>
     </p>
 
-    <p>
-      <idx> solution space </idx>
-      We call the set of all solutions the <em> solution space </em>
-      of the linear system.
-    </p>
+    <definition>
+      <p>
+	<idx><h> solution space</h> </idx>
+	We call the set of all solutions the <term> solution space
+      </term> of the linear system.
+      </p>
+    </definition>
 
     <activity>
       <title> Linear equations and their solutions </title>
@@ -557,7 +587,7 @@
 	  <li><p>
 	    Which of the following equations are linear?  Please provide
 	    a justification for your response.
-	    <ol marker="i.">
+	    <ol marker="1.">
 	      <li> <p><me> 2x + xy -3y^2 = 2 </me>. </p></li>
 	      <li> <p><me> -2x_1 + 3x_2 +4x_3 - x_5 = 0 </me>. </p></li>
 	      <li> <p><me> x = 3z - 4y </me>. </p></li>
@@ -575,7 +605,7 @@
 	    4. \\
 	    \end{alignedat}
 	  </me>
-	  <ol marker="i.">
+	  <ol marker="1.">
 	    <li> <p>Is <m>(x,y,z) = (1,2,0)</m> a solution? </p></li>
 	    <li> <p>Is <m>(x,y,z) = (-2,1,0)</m> a solution?</p> </li>
 	    <li> <p>Is <m>(x,y,z) = (0,-3,1)</m> a solution? </p></li>
@@ -591,7 +621,7 @@
       <solution>
 	<p><ol marker="a.">
 	  <li><p> There are two linear equations in this list.
-	    <ol marker="i.">
+	    <ol marker="1.">
 	      <li><p>
 		This is not a linear equation due to the presence of
 		<m>y^2</m> in the third term on the left.
@@ -611,7 +641,7 @@
 
 	  <li><p> We will see that the system of linear equations has
 	  infinitely many solutions. 
-	    <ol marker="i.">
+	    <ol marker="1.">
 	      <li><p> Yes, this is a solution since all three
 	      equations are satisfied if we set <m>x=1</m>,
 	      <m>y=2</m>, and <m>z=0</m>.
@@ -655,7 +685,7 @@
       <answer>
 	<p><ol marker="a.">
 	  <li><p> There are two linear equations in this list.
-	    <ol marker="i.">
+	    <ol marker="1.">
 	      <li><p> This is not a linear equation. </p></li>
 	      <li><p> This is a linear equation. </p></li>
 	      <li><p> This is a linear equation. </p></li>
@@ -665,7 +695,7 @@
 
 	  <li><p> We will see that the system of linear equations has
 	  infinitely many solutions. 
-	    <ol marker="i.">
+	    <ol marker="1.">
 	      <li><p> This is a solution. </p></li>
 	      <li><p> This is a not solution. </p></li>
 	      <li><p> This is a not solution. </p></li>
@@ -701,8 +731,8 @@
 	  </me>.
       </p></li>
 
-      <li><p> A linear system is a collection of linear equations and
-      a solution is a set of values assigned to each of the unknowns
+      <li><p> A linear system is a set of linear equations and
+      a solution is a set of values assigned to the unknowns
       that make each equation true.
       </p></li>
 

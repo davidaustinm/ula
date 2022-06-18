@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!-- **********************************************************************-->
-<!-- Copyright 2012-2018                                                   -->
-<!-- Matthew Boelkins                                                      -->
+<!-- Copyright 2022                                                        -->
+<!-- David Austin                                                          -->
 <!--                                                                       -->
-<!-- This file is part of Active Calculus.                                 -->
+<!-- This file is part of Understanding Linear Algebra.  It is heavily     -->
+<!-- derived from Mitch Keller's work on Matt Boelkins' Active Calculus    -->
 <!--                                                                       -->
 <!-- Permission is granted to copy, distribute and/or modify this document -->
 <!-- under the terms of the Creative Commons BY-SA license.  The work      -->
@@ -29,19 +30,7 @@
 <!-- Assumes next file can be found in mathbook/user, so it must be copied there -->
 <xsl:import href="common.xsl" />
 
-<!-- Exercises have hint (sporadically), answer, and solution -->
-<!-- Hint can be displayed where born, but otherwise suppress -->
-<!-- These configurations live here because workbook and solutions manual need -->
-<!-- different settings. -->
-<xsl:param name="exercise.divisional.hint" select="'yes'" />
-<xsl:param name="exercise.divisional.answer" select="'no'" />
-<xsl:param name="exercise.divisional.solution" select="'no'" />
 
-<!-- activity is a project-like, so we need to set those stringparams -->
-<!-- to control hints, answers, and solutions -->
-<xsl:param name="project.hint" select="'no'" />
-<xsl:param name="project.answer" select="'no'" />
-<xsl:param name="project.solution" select="'no'" />
 
 <!-- LaTeX formatting commands we can inject here without incident -->
 <!-- Different products have different page sizes, so this stays here -->

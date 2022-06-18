@@ -10,11 +10,11 @@
   <introduction>
     <p>
       Linear algebra owes its prominence as a powerful scientific tool
-      to the ever-growing power of computers.  Carl Cowen, the former
+      to the ever-growing power of computers.  Carl Cowen, a former
       president of the Mathematical Association of America, has said,
       <q> No serious application of linear algebra happens without a
       computer.</q> Indeed, Cowen notes that, in the 1950s, working
-      with a system of 100 equations in 100 unknowns was difficult.
+      with a system of 100 equations in 100 variables was difficult.
       Today, scientists and mathematicians routinely work on problems
       that are vastly larger.  This is only possible because of today's
       computing power.
@@ -41,13 +41,14 @@
 	    <p> If you are reading this book online, there will be
 	    embedded <q>Sage cells</q> at appropriate places in the
 	    text.  You have the opportunity to type Sage commands into
-	    this cell and execute them, provided you are connected to
-	    the Internet.
+	    these cells and execute them, provided you are connected to
+	    the Internet.  Please be aware that your
+	    work will be lost if you reload the page.  
 	    </p>
 
-	    <p> For instance, here is a Sage cell with a command that
-	    asks Sage to multiply 5 and 3.  You may execute the
-	    command by pressing the button that says <q>Evaluate.</q>
+	    <p> Here is a Sage cell containing a command
+	    that asks Sage to multiply 5 and 3.  You may execute the
+	    command by pressing the <em>Evaluate</em> button.
 	    
 	    <sage>
 	      <input>
@@ -59,113 +60,185 @@
 
 	  <li>
 	    <p>
-	      You may also go to the website
-	      <url href="https://cocalc.com" visual="cocalc.com">
-		https://cocalc.com</url>, sign up for an account, 
+	      You may also go to 
+	      <url href="https://cocalc.com" visual="cocalc.com"/>,
+	      sign up for an account, 
 	      open a new project, and create a <q>Sage worksheet.</q>
-	      Once inside the worksheet, you may enter commands, as
+	      Once inside the worksheet, you may enter commands as
 	      shown here, and
 	      evaluate them by pressing <em>Enter</em> on your keyboard
 	      while holding down the <em>Shift</em> key.
 	    </p>
 	  </li>
+	  <li>
+	    <p>
+	      There is a page of Sage cells at
+	      <url href="http://gvsu.edu/s/0Ng"
+		   visual="gsvu.edu/s/0Ng"/>.  Any results obtained by
+	      evaluating one cell are available in other cells.
+	      However, your work will be lost when the page is
+	      reloaded.
+	    </p>
+	  </li>
 	</ul>
+    </p>
+
+    <p>
+      Throughout the text, we will introduce new Sage commands that
+      allow us to explore linear algebraic concepts.  These commands
+      are collected and summarized in the reference found in <xref
+      ref="app-sage-reference" text="custom"> Appendix A</xref>.
     </p>
 
     <activity>
       <title> Basic Sage commands </title>
 
-      <ol marker="a.">
-	<li>
-	  <p> Sage uses the standard operators +, -, *, /, and ^
-	  for the usual arithmetic operations.  By entering text in
-	  the cell below, ask Sage to evaluate
-	  <me>
-	    3 + 4(2^4 - 1)
-	  </me>
-	  <sage>
-	    <input>
-	    </input>
-	  </sage>
-	  </p>
-	</li>
-	<li>
-	  <p>
-	    Notice that we can create new lines by pressing
-	    <em>Enter</em> and enter additional commands on them.
-	    What happens when you evaluate this Sage cell?
-	    <sage>
-	      <input>
-		5 * 3
-		10 - 4
-	      </input>
-	    </sage>
-	  </p>
+      <statement>
+	<p>
+	  <ol marker="a.">
+	    <li>
+	      <p> Sage uses the standard operators +, -, *, /, and ^
+	      for the usual arithmetic operations.  By entering text in
+	      the cell below, ask Sage to evaluate
+	      <me>
+		3 + 4(2^4 - 1)
+	      </me>
+	      <sage>
+		<input>
+		</input>
+	      </sage>
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		Notice that we can create new lines by pressing
+		<em>Enter</em> and entering additional commands on
+		them. 	What happens when you evaluate this Sage cell?
+		<sage>
+		  <input>
+		    5 * 3
+		    10 - 4
+		  </input>
+		</sage>
+	      </p>
+	      
+	      <p>
+		Notice that we only see the result from the last command.
+		With the <c>print</c> command, we may see earlier results,
+		if we wish. 
+		<sage>
+		  <input>
+		    print(5 * 3)
+		    print(10 - 4)
+		  </input>
+		</sage>
+	      </p>
+	    </li>
+	    
+	    <li>
+	      <p> We may give a name to the result of one command and
+	      refer to it in a later command.
+	      <sage>
+		<input>
+		  income = 1500 * 12
+		  taxes = income * 0.15
+		  print(taxes)
+		</input>
+	      </sage>
+	      </p>
+	      
+	      <p> Suppose you have three tests in your linear algebra
+	      class and your scores are 90, 100, and 98.  In the Sage cell
+	      below, add your scores together and call the result
+	      <c>total</c>.  On the next line, find the average of your
+	      test scores and print it.
+	      <sage>
+		<input>
+		</input>
+	      </sage>
+	      </p>
+	    </li>
+	    
+	    <li>
+	      <p> If you are not a programmer, you may ignore this part.
+	      If you are an experienced programmer, however, you should
+	      know that Sage is written in the Python programming
+	      language and that you may enter Python code into a Sage
+	      cell.
+	      <sage>
+		<input>
+for i in range(10):
+    print(i)
+		</input>
+	      </sage>
+	      </p>
+	    </li>
+	  </ol>
+	</p>
+      </statement>
+      <solution>
+	<ol marker="a.">
+	  <li>
+	    <p>
+	      <cd>
+3 + 4*(2^4 - 1)
+	      </cd>
+	    </p>
+	  </li>
+	  <li>
+	    <p>
+	      Only the results of the last line are displayed.
+	    </p>
+	  </li>
 
-	  <p>
-	    Notice that we only see the result from the last command.
-	    With the <c>print</c> command, we may see earlier results,
-	    if we wish.  Note that we must enclose the things we want
-	    printed in parentheses.   
-	    <sage>
-	      <input>
-		print (5 * 3)
-		print (10 - 4)
-	      </input>
-	    </sage>
-	  </p>
-	</li>
+	  <li>
+	    <p>
+	      <cd>
+total = 90 + 100 + 98
+average = total / 3
+print(average)
+	      </cd>
+	    </p>
+	  </li>
+	  <li>
+	    <p>
+	      This cells print the integers from 0 to 9.
+	    </p>
+	  </li>
+	</ol>
+      </solution>
+      <answer>
+	<ol marker="a.">
+	  <li>
+	    <p>
+	      <cd>
+3 + 4*(2^4 - 1)
+	      </cd>
+	    </p>
+	  </li>
+	  <li>
+	    <p>
+	      Only the results of the last line are displayed.
+	    </p>
+	  </li>
 
-	<li>
-	  <p> We may give a name to the result of one command and
-	  refer to it in a later command.
-	  <sage>
-	    <input>
-	      income = 1500 * 12
-	      taxes = income * 0.15
-	      print (taxes)
-	    </input>
-	  </sage>
-	  </p>
+	  <li>
+	    <p>
+	      <cd>
+total = 90 + 100 + 98
+average = total / 3
+print(average)
+	      </cd>
+	    </p>
+	  </li>
+	  <li>
+	    <p>
+	      This cells print the integers from 0 to 9.
+	    </p>
+	  </li>
+	</ol>
+      </answer>
 
-	  <p> Suppose you have three tests in your linear algebra
-	  class and your scores are 90, 100, and 98.  In the Sage cell
-	  below, add your scores together and call the result
-	  <c>total</c>.  On the next line, find the average of your
-	  test scores and print it.
-	  <sage>
-	    <input>
-	    </input>
-	  </sage>
-	  </p>
-	</li>
-
-	<li>
-	  <p> If you are evaluating Sage cells
-	  inside an online version of this book, please be aware that
-	  your work will be lost if you reload the page.  If you are
-	  working online at
-	  <url href="https://cocalc.com" visual="cocalc.com">
-	    cocalc.com</url>, however,
-	  your results will be saved.
-	  </p>
-	</li>
-
-	<li>
-	  <p> If you are not a programmer, you may ignore this part.
-	  If you are an experienced programmer, however, you should
-	  know that Sage is written in the Python programming
-	  language and that you may enter Python code into a Sage
-	  cell.
-	  <sage>
-	    <input>
-	      for i in range(10):
-	          print (i)
-	    </input>
-	  </sage>
-	  </p>
-	</li>
-      </ol>
     </activity>
   </subsection>
 
@@ -180,13 +253,13 @@
     </p>
     
     <p>
-      In fact, the uniqueness of this reduced row echelon matrix is what
-      motivates us to define this particular form.  When solving a
-      system of linear equations using Gaussian elimination, there are
-      many possible matrices that reveal the structure of the solution
-      space.  The reduced row echelon matrix is simply a convenience as
-      it is an agreement we make with one another to seek the same
-      matrix.  
+      In fact, the uniqueness of this reduced row echelon matrix is
+      what motivates us to define this particular form.  When solving
+      a system of linear equations using Gaussian elimination, there
+      are other row equivalent matrices that reveal the structure of
+      the solution space.  The reduced row echelon matrix is simply a
+      convenience as it is an agreement we make with one another to
+      seek the same matrix.
     </p>
 
     <p>
@@ -213,7 +286,7 @@
     <m>3\times 5</m> matrix.
     </p>
 
-    <p> We may tell Sage about the <m>2\times4</m> matrix
+    <p> We may ask Sage to create the <m>2\times4</m> matrix
     <me>
       \left[
       \begin{array}{rrrr}
@@ -239,10 +312,11 @@
     entries of the matrix listed by row inside square brackets.  These three
     arguments are separated by commas.  Notice that there is no way of
     specifying whether this is an augmented or coefficient matrix so
-    it will be up to us to remember.
+    it will be up to us to interpret our results appropriately.
     </p>
 
     <assemblage>
+      <title> Sage syntax </title>
       <p> Some common mistakes are
       <ul>
 	<li> <p>
@@ -266,162 +340,293 @@
       </p>
     </assemblage>
 
+    <p>
+      Alternatively, you can create a matrix by simply listing its
+      rows, like this
+      <cd>
+matrix([ [-1, 0, 2, 7],	
+	 [ 2, 1,-3,-1] ])
+      </cd>
+    </p>
+    
     <activity>
       <title> Using Sage to find row reduced echelon matrices </title>
 
-      <ol marker="a.">
-	<li xml:id = "li-example-rref">
-	  <p>
-	    Enter the following matrix into Sage.
-	    <me>
-	      \left[
-	      \begin{array}{rrrr}
-	      -1 \amp -2 \amp 2 \amp -1 \\
-	      2 \amp 4 \amp -1 \amp 5 \\
-	      1 \amp 2 \amp 0 \amp 3
-	      \end{array}
-	      \right]
-	    </me>
-	  <sage>
-	    <input> 
-	    </input>
-	  </sage>
-
-	  </p>
-	</li>
-
-	<li>
-	  <p> Let's give our matrix the name <m>A</m> by entering
-	  <cd>
+      <statement>
+	<p>
+	  <ol marker="a.">
+	    <li xml:id = "li-example-rref">
+	      <p>
+		Enter the following matrix into Sage.
+		<me>
+		  \left[
+		  \begin{array}{rrrr}
+		  -1 \amp -2 \amp 2 \amp -1 \\
+		  2 \amp 4 \amp -1 \amp 5 \\
+		  1 \amp 2 \amp 0 \amp 3
+		  \end{array}
+		  \right]
+		</me>
+		<sage>
+		  <input> 
+		  </input>
+		</sage>
+		
+	      </p>
+	    </li>
+	    
+	    <li>
+	      <p> Give the matrix the name <m>A</m> by entering
+	      <cd>
 A = matrix( ..., ..., [ ... ])
-	  </cd>
-	  We may then find the reduced row echelon by entering
-	  <cd>
+	      </cd>
+	      We may then find its reduced row echelon form by
+	      entering 
+	      <cd>
 A = matrix( ..., ..., [ ... ])
 A.rref()
-	  </cd>
-	  </p>
-
-	  <p> Use Sage to find the reduced row echelon form of the
-	  matrix from <xref ref="li-example-rref" /> of this activity.
-	  <sage>
-	    <input>
-	    </input>
-	  </sage>
-	  Another common mistake is to forget the parentheses after
-	  <c>rref</c>.
-	  </p>
-
+	      </cd>
+	      A common mistake is to forget the parentheses after
+	      <c>rref</c>.
+	      </p>
+	      
+	      <p> Use Sage to find the reduced row echelon form of the
+	      matrix from <xref ref="li-example-rref" /> of this activity.
+	      <sage>
+		<input>
+		</input>
+	      </sage>
+	      </p>
+	    </li>
+	    
+	    <li xml:id = "li-rref-solve">
+	      <p> Use Sage to describe the
+	      solution space of the system 
+	      of linear equations
+	      <me>
+		\begin{alignedat}{5}
+		-x_1 \amp  \amp  \amp  \amp  \amp  {}+{}  \amp 2x_4 \amp
+		{}={}  \amp 4 \\ 
+		\amp  \amp 3x_2 \amp  {}+{}  \amp x_3 \amp  {}+{}  \amp 2x_4
+		\amp  {}={}  \amp 3 \\ 
+		4x_1 \amp  {}-{}  \amp 3x_2 \amp  \amp  \amp  {}+{}  \amp
+		x_4 \amp  {}={}  \amp 14 \\ 
+		\amp  \amp 2x_2 \amp  {}+{}  \amp 2x_3 \amp  {}+{}  \amp x_4
+		\amp  {}={}  \amp 1 \\ 
+		\end{alignedat}
+	      </me>
+	      <sage>
+		<input>
+		</input>
+	      </sage>
+	      </p>
+	    </li>
+	    <li xml:id = "li-augmentation-principle">
+	      <p> Consider the two matrices:
+	      <me>
+		\begin{array}{rcl}
+		A \amp = \amp \left[
+		\begin{array}{rrrr}
+		1 \amp -2 \amp 1 \amp -3 \\
+		-2 \amp 4 \amp 1 \amp 1 \\
+		-4 \amp 8 \amp -1 \amp 7 \\
+		\end{array}\right] \\
+		B \amp = \amp \left[
+		\begin{array}{rrrrrr}
+		1 \amp -2 \amp 1 \amp -3 \amp 0 \amp 3 \\
+		-2 \amp 4 \amp 1 \amp 1 \amp 1 \amp -1 \\
+		-4 \amp 8 \amp -1 \amp 7 \amp 3 \amp 2 \\
+		\end{array}\right] \\
+		\end{array}
+	      </me>
+	      We say that <m>B</m> is an <em>augmentation</em> of <m>A</m>
+	      because it is obtained from <m>A</m> by adding some more
+	      columns.  
+	      </p>
+	      <p> Using Sage, define the matrices and compare their reduced
+	      row echelon forms.  What do you notice about the relationship
+	      between the two reduced row echelon forms?
+	      </p>
+	      <p>
+		<sage>
+		  <input>
+		  </input>
+		</sage>
+	      </p>
+	    </li>
+	    
+	    <li>
+	      <p> Using the system of equations in <xref
+	      ref="li-rref-solve" />, write the
+	      augmented matrix corresponding to the system of equations.
+	      What did you find for the
+	      reduced row echelon form of the augmented matrix?
+	      </p>
+	      
+	      <p> Now write the coefficient matrix of this system of
+	      equations.  What does <xref ref="li-augmentation-principle" />
+	      of this activity tell you about its reduced row echelon form?
+	    </p> </li>
+	  </ol>
+	</p>
+      </statement>
+      <solution>
 	<p>
-	  <assemblage>
-	    <p> Here are some practices that you may find helpful when
-	    working with matrices in Sage.
-	    <ul>
-	      <li> <p> Break the matrix entries across lines, one for each row,
-	      for better readability by pressing <em>Enter</em> between rows.
-	      <cd>
+	  <ol marker="a.">
+	    <li>
+	      <p>
+		<cd>
+matrix(3, 4, [-1,-2, 2,-1,
+               2, 4,-1, 5,
+               1, 2, 0, 3])
+		</cd>
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		The reduced row echelon form of the matrix is
+		<me>
+		  \begin{bmatrix}
+		  1 \amp 2 \amp 0 \amp 3 \\
+		  0 \amp 0 \amp 1 \amp 1 \\
+		  0 \amp 0 \amp 0 \amp 0
+		  \end{bmatrix}.
+		</me>
+	      </p>
+	    </li>
+
+	    <li>
+	      <p>
+		Sage tells us that the reduced row echelon form of the
+		corresponding augmented matrix is
+		<me>
+		  \begin{bmatrix}
+		  1 \amp 0 \amp 0 \amp 0 \amp -2 \\
+		  0 \amp 1 \amp 0 \amp 0 \amp -1 \\
+		  0 \amp 0 \amp 1 \amp 0 \amp 0 \\
+		  0 \amp 0 \amp 0 \amp 1 \amp 3 \\
+		  \end{bmatrix}
+		</me>
+		so there is a unique solution <m>(x_1,x_2,x_3,x_4) =
+		(-2,-1,0,3)</m>.
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		The first four columns of the reduced row echelon form
+		of <m>B</m> form the reduced row echelon form of
+		<m>A</m>.
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		The reduced row echelon form of the coefficient matrix
+		is 
+		<me>
+		  \begin{bmatrix}
+		  1 \amp 0 \amp 0 \amp 0 \\
+		  0 \amp 1 \amp 0 \amp 0 \\
+		  0 \amp 0 \amp 1 \amp 0 \\
+		  0 \amp 0 \amp 0 \amp 1 \\
+		  \end{bmatrix}.
+		</me>
+	      </p>
+	    </li>
+	  </ol>
+	</p>
+      </solution>
+      <answer>
+	<p>
+	  <ol marker="a.">
+	    <li>
+	      <p>
+		<cd>
+matrix(3, 4, [-1,-2, 2,-1,
+               2, 4,-1, 5,
+               1, 2, 0, 3])
+		</cd>
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		The reduced row echelon form of the matrix is
+		<me>
+		  \begin{bmatrix}
+		  1 \amp 2 \amp 0 \amp 3 \\
+		  0 \amp 0 \amp 1 \amp 1 \\
+		  0 \amp 0 \amp 0 \amp 0
+		  \end{bmatrix}.
+		</me>
+	      </p>
+	    </li>
+
+	    <li>
+	      <p>
+		There is a unique solution <m>(x_1,x_2,x_3,x_4) =
+		(-2,-1,0,3)</m>.
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		The first four columns of the reduced row echelon form
+		of <m>B</m> form the reduced row echelon form of
+		<m>A</m>.
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		The reduced row echelon form of the coefficient matrix
+		is 
+		<me>
+		  \begin{bmatrix}
+		  1 \amp 0 \amp 0 \amp 0 \\
+		  0 \amp 1 \amp 0 \amp 0 \\
+		  0 \amp 0 \amp 1 \amp 0 \\
+		  0 \amp 0 \amp 0 \amp 1 \\
+		  \end{bmatrix}.
+		</me>
+	      </p>
+	    </li>
+	  </ol>
+	</p>
+      </answer>
+    </activity>
+
+    <assemblage>
+      <title> Sage practices </title>
+      <p> Here are some practices that you may find helpful when
+      working with matrices in Sage.
+      <ul>
+	<li> <p> Break the matrix entries across lines, one for each row,
+	for better readability by pressing <em>Enter</em> between rows.
+	<cd>
 A = matrix(2, 4, [ 1, 2, -1, 0,
                   -3, 0,  4, 3 ])
-              </cd>
-	      </p></li>
-	      <li> <p> Print your original matrix to check that you have
-	      entered it correctly.  You may want to also print a dividing
-	      line to separate matrices.
-	      <cd>
+	</cd>
+	</p></li>
+	<li> <p> Print your original matrix to check that you have
+	entered it correctly.  You may want to also print a dividing
+	line to separate matrices.
+	<cd>
 A = matrix(2, 2, [ 1, 2,
                    2, 2])
 print (A)
 print ("---------")
 A.rref()
-	      </cd>
-	    </p>
-	      </li>
-	    </ul>
-	    </p>
-	  </assemblage>
-	</p>
-	
-	</li>
-	
-	<li xml:id = "li-rref-solve"> <p> Use Sage to describe the
-	solution space of the system 
-	of linear equations
-	<me>
-	  \begin{alignedat}{5}
-	  -x_1 \amp  \amp  \amp  \amp  \amp  {}+{}  \amp 2x_4 \amp
-	  {}={}  \amp 4 \\ 
-	  \amp  \amp 3x_2 \amp  {}+{}  \amp x_3 \amp  {}+{}  \amp 2x_4
-	  \amp  {}={}  \amp 3 \\ 
-	  4x_1 \amp  {}-{}  \amp 3x_2 \amp  \amp  \amp  {}+{}  \amp
-	  x_4 \amp  {}={}  \amp 14 \\ 
-	  \amp  \amp 2x_2 \amp  {}+{}  \amp 2x_3 \amp  {}+{}  \amp x_4
-	  \amp  {}={}  \amp 1 \\ 
-	  \end{alignedat}
-	</me>
-	<sage>
-	  <input>
-	  </input>
-	</sage>
+	</cd>
       </p>
 	</li>
-	<li xml:id = "li-augmentation-principle">
-	  <p> Consider the two matrices:
-	<me>
-	  \begin{array}{rcl}
-	  A \amp = \amp \left[
-	  \begin{array}{rrrr}
-	  1 \amp -2 \amp 1 \amp -3 \\
-	  -2 \amp 4 \amp 1 \amp 1 \\
-	  -4 \amp 8 \amp -1 \amp 7 \\
-	  \end{array}\right] \\
-	  B \amp = \amp \left[
-	  \begin{array}{rrrrrr}
-	  1 \amp -2 \amp 1 \amp -3 \amp 0 \amp 3 \\
-	  -2 \amp 4 \amp 1 \amp 1 \amp 1 \amp -1 \\
-	  -4 \amp 8 \amp -1 \amp 7 \amp 3 \amp 2 \\
-	  \end{array}\right] \\
-	  \end{array}
-	</me>
-	We say that <m>B</m> is an <em>augmented</em> matrix of <m>A</m>
-	because it is obtained from <m>A</m> by adding some more
-	columns.  
+      </ul>
       </p>
-      <p> Using Sage, define the matrices and compare their reduced
-      row echelon forms.  What do you notice about the relationship
-      between the two reduced row echelon forms?
-      </p>
-	<p>
-	  <sage>
-	    <input>
-	    </input>
-	  </sage>
-	</p>
-	  
-	</li>
-
-	<li> <p> Using the system of equations in <xref
-	ref="li-rref-solve" />, write the
-	augmented matrix corresponding to the system of equations.
-	What did you find for the
-	reduced row echelon form of the augmented matrix?
-      </p>
-
-      <p> Now write the coefficient matrix of this system of
-      equations.  What does <xref ref="li-augmentation-principle" />
-      of this activity tell you about its reduced row echelon form?
-      </p>
-      </li>
-	
-      </ol>
-    </activity>
+    </assemblage>
 
     <p> The last part of the previous activity, <xref
-    ref="li-augmentation-principle" />, demonstrates something that will
-    be helpful for us in the future.  In that activity, we started
-    with a matrix <m>A</m>, which we augmented by adding some columns
-    to obtain a matrix <m>B</m>.  We then noticed that the reduced row
-    echelon form of <m>B</m> is obtained by augmenting the reduced row
-    echelon form of <m>A</m>.
+    ref="li-augmentation-principle" />, demonstrates something that
+    will be helpful for us in the future.  In that activity, we
+    started with a matrix <m>A</m>, which we augmented by adding some
+    columns to obtain a matrix <m>B</m>.  We then noticed that the
+    reduced row echelon form of <m>B</m> is itself an augmentation of
+    the reduced row echelon form of <m>A</m>.
     </p>
 
     <p>
@@ -541,7 +746,7 @@ A.rref()
 	We roughly perform one replacement operation for every 0 entry
 	in the reduced row echelon matrix.  When <m>n</m> is very
 	large, most of the <m>n^2</m> entries in the reduced row
-	echelon form are 0, which will require roughly <m>n^2</m>
+	echelon form are 0 so we need roughly <m>n^2</m>
 	replacements.  Since each replacement operation
 	requires <m>2n</m> operations, the number of operations
 	resulting from the needed replacements is roughly <m>n^2(2n) =
@@ -577,7 +782,7 @@ A.rref()
       the number of arithmetic operations is roughly <m>\frac23
       n^3</m>.  As we have seen, some matrices 
       require more effort than others, but the upshot of this
-      observation is that the effort is proportional of <m>n^3</m>.
+      observation is that the effort is proportional to <m>n^3</m>.
       We can think of this in the following way: If the size of the
       matrix grows by a factor of 10, then the effort required
       grows by a factor of <m>10^3 = 1000</m>.
@@ -594,8 +799,8 @@ A.rref()
 
     <p>
       To put this into context, imagine we need to solve a linear
-      system with a trillion equations and a trillion unknowns and
-      that we had a computer that could perform a trillion,
+      system with a trillion equations and a trillion variables and
+      that we have a computer that can perform a trillion,
       <m>10^{12}</m>, operations every second.  Finding the reduced
       row echelon form would take about <m>10^{16}</m> years.  At this
       time, the universe is estimated to be approximately
@@ -628,7 +833,10 @@ A.rref()
       echelon form using the <c>rref</c> command.
       </p></li>
       
-      <li> <p> We saw an example of the Augmentation Principle, which
+      <li> <p> We saw an example of the
+      <xref ref="principle-augmentation-principle" text="custom">
+	Augmentation Principle
+      </xref>, which
       we then stated as a general principle. 
       </p></li>
 
@@ -637,6 +845,9 @@ A.rref()
       proportional to <m>n^3</m>.
       </p></li>
     </ul>
+    <xref ref="app-sage-reference" text="custom"> Appendix A</xref>
+    contains a reference outlining the Sage commands that we have
+    encountered. 
     </p>
   </subsection>
 

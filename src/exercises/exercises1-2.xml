@@ -210,7 +210,8 @@
       <p> Consider each matrix below and determine if it is in reduced
       row echelon form.  If not, indicate the reason and apply a
       sequence of row operations to find its reduced row echelon
-      matrix. For each matrix, indicate whether the linear system
+      matrix. For each matrix, indicate whether the corresponding
+      linear system  
       has infinitely many solutions, exactly one solution, or no
       solutions.
       <ol marker="a.">
@@ -417,7 +418,7 @@
 	  and this linear system has a single solution.
 	</p> </li>
 
-	<li> <p> The reduced row echleon form is
+	<li> <p> The reduced row echelon form is
 	  <me>
 	    \left[
 	    \begin{array}{rrrr|r}
@@ -442,23 +443,23 @@
       is not possible to find such an example, explain why not.
 	<ol marker="a.">
 	  <li> <p> Write a reduced row echelon matrix for a linear
-	  system having five equations and three unknowns and having
+	  system having five equations and three variables and having
 	  exactly one solution. </p></li>
 
 	  <li> <p> Write a reduced row echelon matrix for a linear
-	  system having three equations and three unknowns and having
+	  system having three equations and three variables and having
 	  no solution. </p></li>
 
 	  <li> <p> Write a reduced row echelon matrix for a linear
-	  system having three equations and five unknowns and having
+	  system having three equations and five variables and having
 	  infinitely many solutions. </p></li>
 
 	  <li> <p> Write a reduced row echelon matrix for a linear
-	  system having three equations and four unknowns and having
+	  system having three equations and four variables and having
 	  exactly one solution. </p></li>
 
 	  <li> <p> Write a reduced row echelon matrix for a linear
-	  system having four equations and four unknowns and having
+	  system having four equations and four variables and having
 	  exactly one solution. </p></li>
 	</ol>
       </p>
@@ -578,6 +579,185 @@
 
   <exercise>
     <statement>
+      <p>
+	For any given matrix, <xref ref="thm-rref-is-unique"/> tells
+	us that there is a reduced row echelon matrix that is row
+	equivalent to it.  This exercise demonstrates why this is the
+	case.  Each of the following matrices satisfies three of the
+	four conditions required of a reduced row echelon matrix as
+	prescribed by <xref ref="reduced-row-echelon" />.  For each,
+	indicate how a sequence of row operations  can be applied to
+	form a row equivalent reduced row echelon matrix.
+	<ol marker="a.">
+	  <li>
+	    <p>
+	      <me>
+		\begin{bmatrix}
+		1 \amp 0 \amp 2 \amp 3 \\
+		0 \amp 0 \amp 0 \amp 0 \\
+		0 \amp 1 \amp -2 \amp 1 \\
+		\end{bmatrix}
+	      </me>
+	    </p>
+	  </li>
+	  <li>
+	    <p>
+	      <me>
+		\begin{bmatrix}
+		1 \amp 0 \amp 0 \amp 2 \\
+		0 \amp -2 \amp 0 \amp -4 \\
+		0 \amp 0 \amp 1 \amp 1 \\
+		\end{bmatrix}
+	      </me>
+	    </p>
+	  </li>
+	  <li>
+	    <p>
+	      <me>
+		\begin{bmatrix}
+		0 \amp 1 \amp 0 \amp -2 \\
+		0 \amp 0 \amp 1 \amp 4 \\
+		1 \amp 0 \amp 0 \amp 3 \\
+		0 \amp 0 \amp 0 \amp 0 \\
+		0 \amp 0 \amp 0 \amp 0 \\
+		\end{bmatrix}
+	      </me>
+	    </p>
+	  </li>
+	  <li>
+	    <p>
+	      <me>
+		\begin{bmatrix}
+		1 \amp 0 \amp 2 \amp 3 \\
+		0 \amp 1 \amp 3 \amp 0 \\
+		0 \amp 0 \amp 1 \amp -1 \\
+		0 \amp 0 \amp 0 \amp 0 \\
+		\end{bmatrix}
+	      </me>
+	    </p>
+	  </li>
+	</ol>
+      </p>
+    </statement>
+    <solution>
+      <p>
+	<ol marker="a.">
+	  <li>
+	    <p>
+	      Interchange the second and third rows to form
+	      <me>
+		\begin{bmatrix}
+		1 \amp 0 \amp 2 \amp 3 \\
+		0 \amp 0 \amp 0 \amp 0 \\
+		0 \amp 1 \amp -2 \amp 1 \\
+		\end{bmatrix}
+		\sim
+		\begin{bmatrix}
+		1 \amp 0 \amp 2 \amp 3 \\
+		0 \amp 1 \amp -2 \amp 1 \\
+		0 \amp 0 \amp 0 \amp 0 \\
+		\end{bmatrix}
+	      </me>
+	    </p>
+	  </li>
+	  <li>
+	    <p>
+	      Scale the second row by <m>-1/2</m> to form
+	      <me>
+		\begin{bmatrix}
+		1 \amp 0 \amp 0 \amp 2 \\
+		0 \amp -2 \amp 0 \amp -4 \\
+		0 \amp 0 \amp 1 \amp 1 \\
+		\end{bmatrix}
+		\sim
+		\begin{bmatrix}
+		1 \amp 0 \amp 0 \amp 2 \\
+		0 \amp 1 \amp 0 \amp 2 \\
+		0 \amp 0 \amp 1 \amp 1 \\
+		\end{bmatrix}
+		
+	      </me>
+	    </p>
+	  </li>
+	  <li>
+	    <p>
+	      Perform interchanges among the first three rows so that
+	      <me>
+		\begin{bmatrix}
+		0 \amp 1 \amp 0 \amp -2 \\
+		0 \amp 0 \amp 1 \amp 4 \\
+		1 \amp 0 \amp 0 \amp 3 \\
+		0 \amp 0 \amp 0 \amp 0 \\
+		0 \amp 0 \amp 0 \amp 0 \\
+		\end{bmatrix}
+		\sim
+		\begin{bmatrix}
+		1 \amp 0 \amp 0 \amp 3 \\
+		0 \amp 1 \amp 0 \amp -2 \\
+		0 \amp 0 \amp 1 \amp 4 \\
+		0 \amp 0 \amp 0 \amp 0 \\
+		0 \amp 0 \amp 0 \amp 0 \\
+		\end{bmatrix}
+	      </me>
+	    </p>
+	  </li>
+	  <li>
+	    <p>
+	      Perform row replacement operations so that the leading
+	      entry in the third row is the only nonzero entry in its
+	      column. 
+	      <me>
+		\begin{bmatrix}
+		1 \amp 0 \amp 2 \amp 3 \\
+		0 \amp 1 \amp 3 \amp 0 \\
+		0 \amp 0 \amp 1 \amp -1 \\
+		0 \amp 0 \amp 0 \amp 0 \\
+		\end{bmatrix}
+		\sim
+		\begin{bmatrix}
+		1 \amp 0 \amp 0 \amp 5 \\
+		0 \amp 1 \amp 0 \amp 3 \\
+		0 \amp 0 \amp 1 \amp -1 \\
+		0 \amp 0 \amp 0 \amp 0 \\
+		\end{bmatrix}
+	      </me>
+	    </p>
+	  </li>
+	</ol>
+      </p>
+    </solution>
+    <answer>
+      <p>
+	<ol marker="a.">
+	  <li>
+	    <p>
+	      Interchange the second and third rows.
+	    </p>
+	  </li>
+	  <li>
+	    <p>
+	      Scale the second row by <m>-1/2</m>.
+	    </p>
+	  </li>
+	  <li>
+	    <p>
+	      Perform interchanges among the first three rows.
+	    </p>
+	  </li>
+	  <li>
+	    <p>
+	      Perform row replacement operations so that the leading
+	      entry in the third row is the only nonzero entry in its
+	      column. 
+	    </p>
+	  </li>
+	</ol>
+      </p>
+    </answer>
+  </exercise>
+
+  <exercise>
+    <statement>
       <p> For each of the questions below, provide a justification
       for your response.
       <ol marker="a.">
@@ -594,7 +774,7 @@
 	echelon matrix? </p></li>
 
 	<li> <p> What can you say the solution space of a linear
-	system if there are more unknowns than equations and at
+	system if there are more variables than equations and at
 	least one solution exists? </p></li>
       </ol>
       </p>
@@ -661,11 +841,11 @@
 	are no solutions to the linear system. </p></li>
 
 	<li> <p> If a linear system has exactly one solution, then
-	it must have the same number of equations as unknowns. </p>
+	it must have the same number of equations as variables. </p>
 	</li>
 
 	<li> <p> If a linear system has the same number of equations
-	as unknowns, then it has exactly one solution. </p></li>
+	as variables, then it has exactly one solution. </p></li>
       </ol>
     </statement>
 
@@ -696,7 +876,7 @@
 	  0 \amp 0 \amp 0 \\
 	  \end{array}\right]\text{.}
 	</me>
-	In this case, there are three equations in two unknowns, and
+	In this case, there are three equations in two variables, and
 	the system has exactly one solution.
 	</p></li>
 

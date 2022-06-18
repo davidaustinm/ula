@@ -8,25 +8,45 @@
   </title>
 
   <introduction>
-    <p> By now, we have seen many examples illustrating how the
-    reduced row echelon matrix provides a convenient description of
-    the solution space to a system of linear equations.  In this
+    <p> By now, we have seen several examples illustrating how the
+    reduced row echelon matrix leads to a convenient description of
+    the solution space to a linear system.  In this
     section, we will use this understanding to make some general
     observations about how certain features of the reduced row echelon
     matrix reflect the nature of the solution space.
     </p>
 
     <p>
-      We begin with the following definition.
+      Remember that a leading entry in a reduced row echelon matrix is
+      the leftmost nonzero entry in a row of the matrix.  As we'll
+      see, the positions of these leading entries encode a lot of
+      information about the solution space of the corresponding linear
+      system.  For this reason, we make the following definition.
     </p>
 
     <definition>
       <idx> pivot position </idx>
-      <p> A <em> pivot position </em> in a matrix <m>A</m> is the
+      <p> A <term> pivot position </term> in a matrix <m>A</m> is the
       position of a leading entry in the reduced row echelon matrix of
       <m>A</m>.  
       </p>
     </definition>
+
+    <p>
+      For instance, in this reduced row echelon matrix, the pivot
+      positions are indicated in bold:
+      <me>
+	\begin{bmatrix}
+	{\mathbf 1} \amp \gray{0} \amp \gray{*} \amp \gray{0} \\
+	\gray{0} \amp {\mathbf 1} \amp \gray{*} \amp \gray{0} \\
+	\gray{0} \amp \gray{0} \amp \gray{0} \amp {\mathbf 1} \\
+	\gray{0} \amp \gray{0} \amp \gray{0} \amp \gray{0} \\
+	\end{bmatrix}.
+      </me>
+      We can refer to pivot positions by their row and column number
+      saying, for instance, that there is a pivot position in the
+      second row and fourth column.
+    </p>
 
     <exploration>
       <title> Some basic observations about pivots </title>
@@ -34,7 +54,7 @@
       <statement>
       <p> 
       <ol marker="a.">
-	<li> <p>  Given below is a matrix and its reduced row echelon
+	<li> <p>  Shown below is a matrix and its reduced row echelon
 	form.  Indicate the pivot positions.
 	<me>
 	  \left[
@@ -57,13 +77,15 @@
 
 	<li> <p> How many pivot positions can there be in one row?  In
 	a <m>3\times5</m> matrix, what is the largest possible number
-	of pivot positions?  Give an example of a matrix that has the
+	of pivot positions?  Give an example of a
+	<m>3\times5</m> matrix that has the 
 	largest possible number of pivot positions.
 	</p></li>
 
 	<li> <p> How many pivots can there be in one column?  In a
 	<m>5\times3</m> matrix, what is the largest possible number of
-	pivot positions?  Give an example of a matrix that has the
+	pivot positions?  Give an example of a <m>5\times3</m> matrix
+	that has the 
 	largest possible number of pivot positions. </p></li>
 
 	<li> <p> Give an example of a matrix with a pivot position in
@@ -187,19 +209,20 @@
       </answer>
     </exploration>
 
-    <p> When we have looked at solution spaces of systems of linear
-    equations, we have frequently asked whether there are infinitely
+    <p> When we have looked at solution spaces of linear systems,
+    we have frequently asked whether there are infinitely
     many solutions, exactly one solution, or no solutions.  We will
-    now break this question down into two separate questions.
+    now break this question into two separate questions.
     </p>
 
     <question xml:id="fundamental-questions">
+      <title> Two Fundamental Questions </title>
       <p>
 	When we
-	encounter a system of linear equations, we will ask
+	encounter a linear system, we often ask
 	<dl>
 	  <li> <title> Existence </title>
-	  <p> Is there a solution to the system of linear equations?  If
+	  <p> Is there a solution to the linear system?  If
 	  so, we say that the system is <em> consistent </em>; if not,
 	  we say it is <em> inconsistent</em>.
 	  <idx> consistent system </idx>
@@ -208,7 +231,7 @@
 	  </li>
 	  
 	  <li> <title> Uniqueness </title>
-	  <p> If the system of equations is consistent, is the solution
+	  <p> If the linear system is consistent, is the solution
 	  unique or are there infinitely many solutions?
 	  </p>
 	  </li>
@@ -219,8 +242,8 @@
     <p> These two questions represent two sides of a coin that appear
     in many variations throughout our explorations.  In this section, we
     will study how the location of the pivots influence the answers to
-    these two questions.  We begin by considering the question
-    concerning  the existence of solutions.
+    these two questions.  We begin by considering the first question
+    concerning the existence of solutions.
     </p>
 
   </introduction>
@@ -279,12 +302,12 @@
 	<p>
 	  For each matrix, identify the pivot positions and determine if
 	  the corresponding linear system is consistent.
-	  Explain how the location of the pivots determine
-	  consistency or inconsistency.
+	  Explain how the location of the pivots determines whether
+	  the system is consistent or inconsistent.
 	</p>
 	</li>
 	
-	<li> <p> Each of these augmented matrices above has a row in
+	<li> <p> Each of the augmented matrices above has a row in
 	which each entry is zero.  What, if anything, does the
 	presence of such a row tell us about the consistency of the
 	corresponding linear system?  </p></li>
@@ -306,8 +329,10 @@
 
 	<li> <p> Write the reduced row echelon form of the coefficient
 	matrix of the corresponding linear system in
-	<xref ref="li-pivots-existence" />?  (Remember that <xref
-	ref="principle-augmentation-principle" /> says that the
+	<xref ref="li-pivots-existence" />?  (Remember that the
+	<xref ref="principle-augmentation-principle" text="custom">
+	Augmentation Principle </xref>
+	says that the
 	reduced row echelon form of the coefficient matrix simply
 	consists of the first four columns of the augmented matrix.)
 	What do you notice about the pivot positions in this
@@ -390,9 +415,9 @@
 
 	    <li><p>
 	      A row in which every entry is zero corresponds to the
-	      equation <m>0=0</m>, which is always true.  Such a row
-	      does not tell us whether the linear system is
-	      inconsistent or not.
+	      equation <m>0=0</m>, which is always true.  Such an
+	      equation has no bearing on the consistency of the linear
+	      system. 
 	    </p></li>
 
 	    <li><p>
@@ -428,7 +453,8 @@
 		0 \amp 0 \amp 0 \amp 0 \\
 		\end{array}\right]
 	      </me>
-	      In the coefficient matrix, there is a row in which each
+	      In the coefficient matrix, there is a row without a
+	      pivot position so that each
 	      entry is <m>0</m>.  This allows a pivot position to
 	      appear in the rightmost column of the augmented matrix.
 	    </p></li>
@@ -446,19 +472,19 @@
     </activity>
 
     <p>
-      The third example in <xref ref="li-existence-examples" /> above
-      asks us to consider the reduced row echelon matrix
+      Let's summarize the results of this activity by considering the
+      following reduced row echelon matrix:
       <me>
 	\left[
 	\begin{array}{rrr|r}
-	1 \amp 0 \amp * \amp 0 \\
-	0 \amp 1 \amp * \amp 0 \\
+	1 \amp * \amp 0 \amp 0 \\
+	0 \amp 0 \amp 1 \amp 0 \\
 	0 \amp 0 \amp 0 \amp 1 \\
 	0 \amp 0 \amp 0 \amp 0 \\
 	\end{array}
 	\right]
 	</me>.
-      In terms of the variables <m>x</m>, <m>y</m>, and <m>z</m>,
+      In terms of variables <m>x</m>, <m>y</m>, and <m>z</m>,
       the final equation says
       <me>
 	0x + 0y + 0z = 0
@@ -474,8 +500,8 @@
     </me>.  Again, if we evaluate the left-hand side with any values
     of <m>x</m>, <m>y</m>, and <m>z</m>, we get 0 so this equation 
     cannot be satisfied for any <m>(x,y,z)</m>.  This means that the
-    entire 
-    system of equations has no solution and is therefore inconsistent.
+    entire linear 
+    system has no solution and is therefore inconsistent.
     </p>
 
     <p>
@@ -483,15 +509,16 @@
       as
       <me>
 	\left[
-	\begin{array}{rrrr|r}
+	\begin{array}{cccc|c}
 	\vdots \amp \vdots \amp \vdots \amp \vdots \amp \vdots \\
-	0 \amp 0 \amp \ldots \amp 0 \amp 1 \\
+	0 \amp 0 \amp \cdots \amp 0 \amp 1 \\
 	\vdots \amp \vdots \amp \vdots \amp \vdots \amp \vdots \\
 	\end{array}
 	\right]
 	</me>.
 	The pivot positions make this condition clear:
-	<em>the system is inconsistent if there is a pivot in the
+	<em>the system is inconsistent if there is a pivot position in
+	the 
 	rightmost column of the corresponding augmented matrix.</em>
     </p>
 
@@ -504,7 +531,7 @@
     <proposition xml:id="thm-pivot-inconsistency">
       <statement>
 	<p>
-	  A system of linear equations is inconsistent if and only if
+	  A linear system is inconsistent if and only if
 	  there is a pivot position in the rightmost column of the
 	  corresponding augmented matrix.
 	</p>
@@ -524,8 +551,10 @@
 	0 \amp 0 \amp 0 \amp 1 \\
 	\end{array}
 	\right]
-	</me>.
-	<xref ref="principle-augmentation-principle" /> says that 
+	</me>. The
+	<xref ref="principle-augmentation-principle" text="custom">
+	  Augmentation Principle
+	</xref> says that 
 	that the reduced row echelon form of the
 	coefficient matrix is
       <me>
@@ -535,14 +564,14 @@
 	0 \amp 1 \amp * \\
 	0 \amp 0 \amp 0 \\
 	\end{array}
-	\right]
-	</me>.
-	This situation can only happen if the coefficient matrix has a
-	row without a pivot position.  To turn this around, we see:
-	<em> if every row of the coefficient matrix has a pivot
-	position, then the system must be consistent. </em> For
-	instance, if our system of equations has a coefficient matrix
-	whose reduced row echelon form is
+	\right],
+      </me>
+      which shows that the coefficient matrix has a row without a
+      pivot position.  To turn this around, we see that <em> if every row
+      of the coefficient matrix has a pivot position, then the system
+      must be consistent. </em> For instance, if our linear system 
+      has a coefficient matrix whose reduced row echelon
+      form is
       <me>
 	\left[
 	\begin{array}{ccc}
@@ -552,7 +581,7 @@
 	\end{array}
 	\right]
 	</me>,
-	then we can guarantee that the system of equations is
+	then we can guarantee that the linear system is
 	consistent because there is no way to obtain a pivot in the
 	rightmost column of the augmented matrix.
     </p>
@@ -624,7 +653,7 @@
 	  </p>
 	  <p>
 	    For each matrix, identify the pivot positions and state
-	    whether the corresponding system of linear equations is
+	    whether the corresponding linear system is
 	    consistent.  If the system is consistent, explain whether
 	    the solution is unique or whether there are infinitely many
 	    solutions.  
@@ -632,24 +661,24 @@
 	  </li>
 
 	  <li><p> If possible, give an example of a <m>3\times5</m>
-	  augmented matrix that corresponds to a system of linear equations
+	  augmented matrix that corresponds to a linear system
 	  having a unique solution.  If it is not possible, explain why.
 	  </p></li>
 
 	  <li><p> If possible, give an example of a <m>5\times3</m>
-	  augmented matrix that corresponds to a system of linear equations
+	  augmented matrix that corresponds to a linear system
 	  having a unique solution.  If it is not possible, explain why.
 	  </p></li>
 
 	  <li> <p>
-	    What condition on the pivot positions guarantees that a system
-	    of linear equations has a unique solution?
+	    What condition on the pivot positions guarantees that a
+	    linear system has a unique solution?
 	  </p></li>
 
 	  <li> <p>
-	    If a system of linear equations has a unique solution, what
+	    If a linear system has a unique solution, what
 	    can we say about the relationship between the number of
-	    equations and the number of unknowns?
+	    equations and the number of variables?
 	  </p></li>
 	</ol>
 	</p>
@@ -749,7 +778,7 @@
 	      pivot position in every column, there must be at least
 	      many rows as columns.  Therefore, the number of
 	      equations must be less than or equal to 
-	      the number of unknowns.
+	      the number of variables.
 	    </p></li>
 	  </ol>
 	</p>
@@ -768,10 +797,9 @@
 	  <me>
 	    \left[
 	    \begin{array}{rrr|r}
-	    1 \amp 0 \amp 0 \amp 3 \\
-	    0 \amp 1 \amp 0 \amp 0 \\
-	    0 \amp 0 \amp 1 \amp -2 \\
-	    0 \amp 0 \amp 0 \amp 0 \\
+	    1 \amp 0 \amp 0 \amp 4 \\
+	    0 \amp 1 \amp 0 \amp -1 \\
+	    0 \amp 0 \amp 1 \amp 2 \\
 	    \end{array}
 	    \right]
 	  </me>
@@ -781,9 +809,8 @@
 	  <me>
 	    \left[
 	    \begin{array}{rrr|r}
-	    1 \amp 0 \amp 2 \amp 3 \\
-	    0 \amp 1 \amp -1 \amp 0 \\
-	    0 \amp 0 \amp 0 \amp 0 \\
+	    1 \amp 0 \amp 2 \amp -2 \\
+	    0 \amp 1 \amp 1 \amp 4 \\
 	    0 \amp 0 \amp 0 \amp 0 \\
 	    \end{array}
 	    \right]
@@ -797,31 +824,31 @@
       In the first example, we have the equations
       <me>
 	\begin{alignedat}{4}
-	x_1 \amp \amp \amp \amp \amp {}={} \amp 3 \\
-	\amp \amp x_2 \amp \amp \amp {}={} \amp 0 \\
-	\amp \amp \amp \amp x_3\amp {}={} \amp -2 \\
+	x_1 \amp {}={} \amp 4 \\
+	x_2 \amp {}={} \amp -1 \\
+	x_3 \amp {}={} \amp 2 \\
 	\end{alignedat}
       </me>
       demonstrating the fact that there is a unique solution
-      <m>(x_1,x_2,x_3) = (3,0,-2)</m>.
+      <m>(x_1,x_2,x_3) = (4,-1,2)</m>.
     </p>
 
     <p>
       In the second example, we have the equations
       <me>
 	\begin{alignedat}{4}
-	x_1 \amp \amp \amp {}+{} \amp 2x_3\amp {}={} \amp 3 \\
-	\amp \amp x_2 \amp {}-{} \amp x_3\amp {}={} \amp 0 \\
+	x_1 \amp \amp \amp {}+{} \amp 2x_3\amp {}={} \amp -2 \\
+	\amp \amp x_2 \amp {}+{} \amp x_3\amp {}={} \amp 4 \\
 	\end{alignedat}
       </me>
-      that we may rewrite as
+      that we may rewrite in parametric form as
       <me>
 	\begin{alignedat}{4}
-	x_1 \amp \amp \amp \amp \amp {}={} \amp 3-2x_3 \\
-	\amp \amp x_2 \amp \amp \amp {}={} \amp x_3 \\
+	x_1 \amp {}={} \amp -2-2x_3 \\
+	x_2 \amp {}={} \amp 4-x_3 \\
 	\end{alignedat}
       </me>.
-      From here, we see that <m>x_1</m> and <m>x_2</m> are basic
+      Here we see that <m>x_1</m> and <m>x_2</m> are basic
       variables that may be expressed in terms of the free variable
       <m>x_3</m>.  In this case, the presence of the free variable
       leads to infinitely many solutions.
@@ -849,7 +876,7 @@
 	  is a column in the coefficient matrix that contains no pivot
 	  position, then the system has infinitely many solutions.
 	  </p></li>
-	  <li><p> Moreover, columns that contain a pivot position
+	  <li><p> Columns that contain a pivot position
 	  correspond to basic variables while columns that do not
 	  correspond to free variables.
 	  </p></li>
@@ -863,7 +890,7 @@
       coefficient matrix has a pivot position.  Since every row
       contains at most one pivot position, there must be at least as
       many rows as columns in the coefficient matrix.  Therefore, the
-      linear system has at least as many equations as unknowns, which
+      linear system has at least as many equations as variables, which
       is something we intuitively suspected in <xref ref="sec-expect" />.
     </p>
 
@@ -886,12 +913,12 @@
     </p>
 
     <p>
-      We will see in the future that we are more interested in the
+      As we'll see in the future, we are more interested in the
       <em>number</em> of free variables rather than in their choice.
-      For convenience, we will adopt the convention of calling the
-      variables corresponding to columns that contain no pivot
-      position free, which allows us to quickly identify them.  In
-      particular, the variables <m>x_2</m> and <m>x_4</m> appear as
+      For convenience, we will adopt the convention that free
+      variables correspond to columns without a pivot
+      position, which allows us to quickly identify them.  For
+      example, the variables <m>x_2</m> and <m>x_4</m> appear as
       free variables in the following linear system:
       <me>
 	\left[
@@ -908,8 +935,8 @@
   <subsection>
     <title> Summary </title>
 
-    <p> We have seen how the location of pivot positions, in both the
-    augmented and coefficient matrices, gives vital information about
+    <p> We have seen how the locations of pivot positions, in both the
+    augmented and coefficient matrices, give vital information about
     the existence and uniqueness of solutions to linear systems.  More
     specifically,
     </p>
@@ -925,7 +952,7 @@
 	when there is a column of the <em>coefficient</em> matrix
 	without a pivot position.  </p></li>
 
-	<li> <p> If a linear system if consistent, the columns of the
+	<li> <p> If a linear system is consistent, the columns of the
 	coefficient matrix containing pivot positions correspond to
 	basic variables and the columns without pivot positions
 	correspond to free variables. </p></li>

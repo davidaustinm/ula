@@ -4,43 +4,44 @@
 	 xmlns:xi="http://www.w3.org/2001/XInclude">
 
   <title>
-    Finding solutions to systems of linear equations
+    Finding solutions to linear systems
   </title>
 
   <introduction>
     <p> In the previous section, we looked at systems of linear
     equations from a graphical perspective.  Since the equations had
-    only two or three  
-    unknowns, we could study the solution spaces as the intersections
-    of lines and planes.</p>
+    only two or three variables, we could study the solution spaces as
+    the intersections of lines and planes.</p>
 
-    <p> Remembering that we will eventually consider many more
-    equations and unknowns, this will, in general, not be a useful
-    strategy.  Instead, we will approach this problem algebraically
-    and develop a technique to understand the solution spaces of
-    general systems of linear equations.</p>
+    <p> Because we will eventually consider systems with many
+    equations and many variables, this graphical approach will not
+    generally be a useful strategy.  Instead, we will approach this
+    problem algebraically and develop a technique to describe the
+    solution spaces of general linear systems.</p>
   </introduction>
 
   <subsection>
     <title> Gaussian elimination </title>
 
     <p>
-      We will develop an algorithm, which is usually called <em>Gaussian
+      <idx><h>Gaussian elimination</h></idx> We will develop an
+      algorithm, which is usually called <em>Gaussian
       elimination</em>, that allows us to describe the solution space
-      to a system of linear equations.
+      of a linear system.  This algorithm plays a central role in much
+      of what is to come.
     </p>
 
     <exploration>
       <statement>
-      <p> Let's begin by considering some simple examples that will
-      guide us in finding a more general approach. </p>
-      <ol order="a.">
+      <p> In this activity, we will consider some simple examples that
+      will guide us in finding a more general approach. </p>
+      <ol marker="a.">
 	<li> <p> Give a description of the solution space to the
 	linear system:
 	<me>
 	  \begin{alignedat}{3}
-	  x \amp \amp \amp {}={} \amp 2 \\
-	  \amp \amp y \amp {}={} \amp -1. \\
+	  x \amp = \amp 2 \\
+	  y \amp = \amp -1. \\
 	  \end{alignedat}
 	</me>
 	</p></li>
@@ -51,7 +52,7 @@
 	  \begin{alignedat}{4}
 	  -x \amp {} + {} \amp 2y \amp {}-{} \amp z \amp {}={}
 	  \amp -3 \\
-	  \amp \amp 3y \amp {}+{} \amp z \amp {}={} \amp -1. \\
+	  \amp \amp 3y \amp {}+{} \amp z \amp {}={} \amp -1 \\
 	  \amp \amp \amp \amp 2z \amp {}={} \amp 4. \\
 	  \end{alignedat}
 	</me>
@@ -61,8 +62,8 @@
 	linear system:
 	<me> 
 	  \begin{alignedat}{3}
-	  x \amp {} + {} \amp 2y \amp {}={} \amp 2 \\
-	  2x\amp {}+{} \amp 2y \amp {}={} \amp 0. \\
+	  x \amp {} + {} \amp 3y \amp {}={} \amp -1 \\
+	  2x\amp {}+{} \amp y \amp {}={} \amp 3. \\
 	  \end{alignedat}
 	</me>
 	</p></li>
@@ -75,28 +76,67 @@
       </statement>
 
       <solution>
-	<p> Solutions to the first three parts of this activity are
-	presented below.  It is also important to consider the fourth
-	and fifth parts.
-	</p>
-
-	<p> No matter the value of <m>x</m>, we have <m>0x = 0</m>.
-	Therefore, the solution space to the equation <m>0x=0</m> is
-	all real numbers <m>x</m>.  In other words, this equation
-	does not place a restriction on the value of <m>x</m>.
-	</p>
-
-	<p> By contrast, the equation <m>0x=5</m> has no solutions
-	since no value of <m>x</m>, when multiplied by <m>0</m>, can
-	produce <m>5</m>.
-	</p>
+	<ol marker="a.">
+	  <li>
+	    <p>
+	      The equations tell us the value of both variables so
+	      there is only one solution  <m>(x,y) = (2,-1)</m>.
+	    </p>
+	  </li>
+	  <li>
+	    <p>
+	      We first use the third equation to determine that
+	      <m>z=2</m>.  We next substitute this value into the first
+	      two equations to obtain
+	      <me>
+		\begin{alignedat}{3}
+		-x \amp {} + {} \amp 2y \amp {}={} \amp -1 \\
+		\amp \amp 3y \amp {}={} \amp -3. \\
+		\end{alignedat}
+	      </me>
+	      Now we can use the second equation to determine that
+	      <m>y=-1</m>, substitute that value into the first
+	      equation, and determine that <m>x=-1</m>.  This tells us
+	      that the linear system has one solution <m>(x,y,z) =
+	      (-1,-1,2)</m>.
+	    </p>
+	  </li>
+	  <li>
+	    <p>
+	      Notice that we can rewrite the first equation as
+	      <m>x=-1-3y</m> and substitute this into the second
+	      equation to obtain
+	      <me>
+		2(-1-3y)+y = -2 -5y = 3.
+	      </me>
+	      This tells us that <m>y=-1</m> and <m>x=-1-3y
+	      = 2</m>.  The linear system therefore has one solution
+	      <m>(x,y) = (2,-1)</m>.
+	    </p>
+	  </li>
+	  <li>
+	    <p>
+	      No matter the value of <m>x</m>, we have <m>0x = 0</m>.
+	      Therefore, the solution space to the equation
+	      <m>0x=0</m> is all real numbers <m>x</m>.  In other
+	      words, this equation does not place a restriction on the
+	      value of <m>x</m>.
+	    </p>
+	  </li>
+	  <li>
+	    <p> By contrast, the equation <m>0x=5</m> has no solutions
+	    since no value of <m>x</m>, when multiplied by <m>0</m>,
+	    can produce <m>5</m>.
+	    </p>
+	  </li>
+	</ol>
       </solution>
 
       <answer>
 	<p><ol marker="a.">
 	  <li><p> <m>(x,y) = (2,-1)</m>. </p></li>
 	  <li><p> <m>(x,y,z) = (-1,-1,2)</m>. </p></li>
-	  <li><p> <m>(x,y) = (-2,2)</m>. </p></li>
+	  <li><p> <m>(x,y) = (2,-1)</m>. </p></li>
 	  <li><p> Any real number is a solution. </p></li>
 	  <li><p> There are no solutions. </p></li>
 	</ol></p>
@@ -104,179 +144,194 @@
       
     </exploration>
 
-    <p> As the examples in this preview activity provide some motivation
-    for the general approach we will develop, we wish to call particular
-    attention to two of the examples.
+    <p>
+      These examples lead to a few observations that motivate
+      a general approach to finding solutions of linear
+      systems.
     </p>
 
     <observation>
-      <p> 
-	Let's look more carefully at two examples.
-      </p>
-
-      <p><ul>
-	<li>
-	  First, finding the solution space to some systems is simple.
-	  For instance, each equation in the following system
-	  <me>
-	    \begin{alignedat}{3}
-	    x \amp \amp \amp {}={} \amp 2 \\
-	    \amp \amp y \amp {}={} \amp -1. \\
-	    \end{alignedat}
-	  </me>
-	  has only one unknown so we can see that there is exactly one
-	  solution, which is <m>(x,y) = (2,-1)</m>.  We call such a
-	  system <em>decoupled</em>.
-	  <idx> decoupled system </idx>
-	</li>
-
-	<li><p> Second, we may operate on a linear system transforming
-	it into a new system that has the same solution space.  For
-	instance, given the system
+      <p>
+	First, finding the solution space to some systems is simple.
+	For example, because each equation in the following system
 	<me>
-	  \begin{alignedat}{4}
-	  -x \amp {} + {} \amp 2y \amp {}-{} \amp z \amp {}={}
-	  \amp -3 \\
-	  \amp \amp 3y \amp {}+{} \amp z \amp {}={} \amp -1. \\
-	  \amp \amp \amp \amp 2z \amp {}={} \amp 4, \\
+	  \begin{alignedat}{3}
+	  x \amp {}={} \amp -4 \\
+	  y \amp {}={} \amp 2. \\
 	  \end{alignedat}
 	</me>
-	we may multiply the third equation by <m>1/2</m> to obtain
-	<me>
-	  \begin{alignedat}{4}
-	  -x \amp {} + {} \amp 2y \amp {}-{} \amp z \amp {}={}
-	  \amp -3 \\
-	  \amp \amp 3y \amp {}+{} \amp z \amp {}={} \amp -1. \\
-	  \amp \amp \amp \amp z \amp {}={} \amp 2. \\
-	  \end{alignedat}
-	</me>
-	Any solution to this system of equations must then have
-	<m>z=2</m>.
+	has only one variable, it prescribes a specific value for
+	that variable.  We therefore see that there is exactly one
+	solution, which is <m>(x,y) = (-4,2)</m>.  We call such a
+	system <em>decoupled</em>.
+	<idx> decoupled system </idx>
       </p>
+    </observation>
 
-      <p> Once we know that, we may substitute <m>z=2</m> into the
-      first and second equation and simplify to obtain a new system
-      of equations having the same solutions:
+    <observation>
+      <p> Second, there is a process that can be used to find
+      solutions to certain types of linear systems.
+      For
+      instance, let's consider the system
       <me>
 	\begin{alignedat}{4}
-	-x \amp {} + {} \amp 2y \amp {}{} \amp \amp {}={}
-	\amp -1 \\
-	\amp \amp 3y \amp {}{} \amp  \amp {}={} \amp -3. \\
-	\amp \amp \amp \amp z \amp {}={} \amp 2. \\
+	x \amp {} + {} \amp 2y \amp {}-{} \amp 2z \amp {}={}
+	\amp -4 \\
+	\amp \amp -y \amp {}+{} \amp z \amp {}={} \amp 3 \\
+	\amp \amp \amp \amp 3z \amp {}={} \amp 3. \\
 	\end{alignedat}
       </me>
-      Continuing in this way, we eventually obtain a decoupled system
-      showing that there is exactly one solution, which is
-      <m>(x,y,z)=(-1,-1,2)</m>.
+      Multiplying both sides of the last equation by 
+      <m>1/3</m> gives us
+      <me>
+	\begin{alignedat}{4}
+	x \amp {} + {} \amp 2y \amp {}-{} \amp 2z \amp {}={}
+	\amp -4 \\
+	\amp \amp -y \amp {}+{} \amp z \amp {}={} \amp 3 \\
+	\amp \amp \amp \amp z \amp {}={} \amp 1. \\
+	\end{alignedat}
+      </me>
+      Any solution to this linear system must then have
+      <m>z=1</m>.
       </p>
-
+      
+      <p> Once we know that, we can substitute <m>z=1</m> into the
+      first and second equations and simplify to obtain a new system
+      of equations having the same solutions:
+      <me>
+	\begin{alignedat}{3}
+	x \amp {} + {} \amp 2y {}={} \amp -2 \\
+	\amp \amp -y {}={} \amp 2. \\
+	\end{alignedat}
+      </me>
+      The second equation, after multiplying both sides by <m>-1</m>,
+      tells us that <m>y=-2</m>.  We can then substitute this value
+      into the first equation to determine that <m>x=2</m>.
+      </p>
+      
+      <p>In this way, we arrive at a decoupled system, which shows
+      that there is exactly one
+      solution, namely
+      <m>(x,y,z)=(2,-2,1)</m>.
+      </p>
+      
       <p>
 	Our original system,
 	<me>
 	  \begin{alignedat}{4}
-	  -x \amp {} + {} \amp 2y \amp {}-{} \amp z \amp {}={}
-	  \amp -3 \\
-	  \amp \amp 3y \amp {}+{} \amp z \amp {}={} \amp -1 \\
-	  \amp \amp \amp \amp 2z \amp {}={} \amp 4, \\
+	  x \amp {} + {} \amp 2y \amp {}-{} \amp 2z \amp {}={}
+	  \amp -4 \\
+	  \amp \amp -y \amp {}+{} \amp z \amp {}={} \amp 3 \\
+	  \amp \amp \amp \amp 3z \amp {}={} \amp 3, \\
 	  \end{alignedat}
 	</me>
 	<idx> triangular system </idx>
 	<idx> back substitution </idx>
 	is called a <em> triangular </em> system due to the shape
 	formed by the coefficients.  As this example demonstrates,
-	triangular systems are easily solved by a process called <em>
-	back substitution</em>.
+	triangular systems are easily solved by this process, which is
+	called <em> back substitution</em>.
       </p>
-	</li>
-      </ul> </p>	  
     </observation>
 
-    <p>
-      Let's look at the process of substitution a little more
-      carefully.  A natural approach to the system
-      <me> 
-	\begin{alignedat}{3}
-	x \amp {} + {} \amp 2y \amp {}={} \amp 2 \\
-	2x\amp {}+{} \amp 2y \amp {}={} \amp 0. \\
-	\end{alignedat}
-      </me>
-      is to use the first equation to express <m>x</m> in terms of
-      <m>y</m>:
-      <me>
-	x = 2-2y
-      </me>
-      and then substitute this into the second equation and simplify:
-      <me>
-	\begin{alignedat}{2}
-	2x + 2y \amp {}= \amp 0 \\
-	2(2-2y) + 2y \amp {}={} \amp 0 \\
-	4-4y + 2y \amp {}={} \amp 0 \\
-	-2y \amp {}={} \amp -4. \\
-	\end{alignedat}
-      </me>
-    </p>
-
-    <p>
-      The two-step process of solving for <m>x</m> and substituting
-      into the second equation may be performed more efficiently by adding a
-      multiple of the first equation to the second.  More specifically,
-      we multiply the first equation by -2 and add to the second equation
-      <me>
-	\begin{array}{cr}
-	\amp -2(\text{equation 1}) \\
-	+ \amp \text{equation 2} \\
-	\hline
-	\end{array}
-      </me>
-      to obtain
-      <sidebyside widths="30% 30% 30%" valign="middle">
-	<p>
-	  <me>
-	    \begin{array}{cr}
-	    \amp -2(x+2y=2) \\
-	    + \amp 2x+2y = 0 \\
-	    \hline
-	    \\
-	    \end{array}
-	  </me>
-	</p>
-	<p> which gives us </p>
-	<p>
-	  <me>
-	    \begin{array}{crcr}
-	    \amp -2x-4y \amp = \amp -4 \\
-	    + \amp 2x+2y \amp = \amp 0 \\
-	    \hline
-	    \amp -2y \amp = \amp -4. \\
-	    \end{array}
-	  </me>
-	</p>
-      </sidebyside>
-    </p>
-
-    <p>
-      In this way, the system
-      <me> 
-	\begin{alignedat}{3}
-	x \amp {} + {} \amp 2y \amp {}={} \amp 2 \\
-	2x\amp {}+{} \amp 2y \amp {}={} \amp 0. \\
-	\end{alignedat}
-      </me>
-      is transformed into the system
-      <me> 
-	\begin{alignedat}{3}
-	x \amp {} + {} \amp 2y \amp {}={} \amp 2 \\
-	\amp \amp -2y \amp {}={} \amp -4, \\
-	\end{alignedat}
-      </me>
-      which has the same solution space.
-      Of course, the choice to multiply the first equation by -2 was
-      made so that terms involving <m>x</m> in the two equations will
-      cancel when added.  Notice that this operation transforms our
-      original system into a triangular one;  we may now perform back
-      substitution to arrive at a decoupled system.
-    </p>
-
+    <observation>
+      <p>
+	We can use substitution in a more general way to solve linear
+	systems.  For example, a natural approach to the system
+	<me> 
+	  \begin{alignedat}{3}
+	  x \amp {} + {} \amp 2y \amp {}={} \amp 1 \\
+	  2x\amp {}+{} \amp 3y \amp {}={} \amp 3. \\
+	  \end{alignedat}
+	</me>
+	is to use the first equation to express <m>x</m> in terms of
+	<m>y</m>:
+	<me>
+	  x = 1-2y
+	</me>
+	and then substitute this into the second equation and simplify:
+	<me>
+	  \begin{alignedat}{2}
+	  2x + 3y \amp {}= \amp 3 \\
+	  2(1-2y) + 3y \amp {}={} \amp 3 \\
+	  2-4y + 3y \amp {}={} \amp 3 \\
+	  -y \amp {}={} \amp 1 \\
+	  y \amp {}={} \amp -1 \\
+	  \end{alignedat}
+	</me>
+	From here, we can substitute <m>y=-1</m> into the first equation
+	to arrive at the solution <m>(x,y)=(3,-1)</m>.
+      </p>
+      <p>
+	However, the
+	two-step process of solving for <m>x</m> in terms of <m>y</m>
+	and substituting into the second equation may be performed more
+	efficiently by adding a multiple of the first equation to the
+	second.  In this case, we will multiply the first equation by -2
+	and add to the second equation
+	<me>
+	  \begin{array}{cr}
+	  \amp -2(\text{equation 1}) \\
+	  + \amp \text{equation 2} \\
+	  \hline
+	  \end{array}
+	</me>
+	to obtain
+	<sidebyside widths="30% 30% 30%" valign="middle">
+	  <p>
+	    <me>
+	      \begin{array}{cr}
+	      \amp -2(x+2y=1) \\
+	      + \amp 2x+3y = 3 \\
+	      \hline
+	      \\
+	      \end{array}
+	    </me>
+	  </p>
+	  <p> which gives us </p>
+	  <p>
+	    <me>
+	      \begin{array}{crcr}
+	      \amp -2x-4y \amp = \amp -2 \\
+	      + \amp 2x+3y \amp = \amp 3 \\
+	      \hline
+	      \amp -y \amp = \amp 1. \\
+	      \end{array}
+	    </me>
+	  </p>
+	</sidebyside>
+      </p>
+      
+      <p>
+	In this way, the system
+	<me> 
+	  \begin{alignedat}{3}
+	  x \amp {} + {} \amp 2y \amp {}={} \amp 1 \\
+	  2x\amp {}+{} \amp 3y \amp {}={} \amp 3 \\
+	  \end{alignedat}
+	</me>
+	is transformed into the new triangular system
+	<me> 
+	  \begin{alignedat}{3}
+	  x \amp {} + {} \amp 2y \amp {}={} \amp 1 \\
+	  \amp \amp -y \amp {}={} \amp 1. \\
+	  \end{alignedat}
+	</me>
+	Notice that this process can be reversed.  Beginning with the
+	triangular system, we can recover the original system by
+	multiplying the first equation by 2 and adding it to the
+	second.  Because of this, the two systems have the same
+	solution space.  We will revisit this point later and give
+	what may be a more convincing explanation.
+      </p>
+      <p>
+	Of course, the choice to multiply the first equation by -2 was
+	made so that the terms involving <m>x</m> in the two equations
+	will cancel leading to a triangular system that
+	can be solved using back substitution.
+      </p>
+    </observation>
+      
     <p>
       Based on these observations, we take note of three operations that
       transform a system of linear equations into a new system of equations
@@ -286,7 +341,7 @@
       system's and may be easily described.
       <dl>
 	<li> <title> Scaling </title>
-	<p>We may multiply one equation by a nonzero number.  For
+	<p>We can multiply one equation by a nonzero number.  For
 	instance,
 	<me> 2x -4y = 6 </me>
 	has the same set of solutions as 
@@ -297,21 +352,23 @@
 	</li>
 
 	<li> <title> Interchange</title>
-	Interchanging equations will not change the set of
-	solutions. For instance,
-	<me>
-	  \begin{alignedat}{3}
-	  2x \amp  {}+{}  \amp 4y \amp  {}={}  \amp 1 \\
-	  x \amp  {}-{}  \amp 3y \amp  {}={}  \amp 0 \\
-	  \end{alignedat}
-	</me>
-	has the same set of solutions as
-	<me>
-	  \begin{alignedat}{3}
-	  x \amp  {}-{}  \amp 3y \amp  {}={}  \amp 0 \\
-	  2x \amp  {}+{}  \amp 4y \amp  {}={}  \amp 1. \\
-	  \end{alignedat}
-	</me>
+	<p>
+	  Interchanging equations will not change the set of
+	  solutions. For instance,
+	  <me>
+	    \begin{alignedat}{3}
+	    2x \amp  {}+{}  \amp 4y \amp  {}={}  \amp 1 \\
+	    x \amp  {}-{}  \amp 3y \amp  {}={}  \amp 0 \\
+	    \end{alignedat}
+	  </me>
+	  has the same set of solutions as
+	  <me>
+	    \begin{alignedat}{3}
+	    x \amp  {}-{}  \amp 3y \amp  {}={}  \amp 0 \\
+	    2x \amp  {}+{}  \amp 4y \amp  {}={}  \amp 1. \\
+	    \end{alignedat}
+	  </me>
+	</p>
 	</li>
 
 	<li> <title> Replacement </title>
@@ -362,26 +419,25 @@
 
       <p>
 	<sidebyside valign="middle">
-	  <p> Scale the second equation by multiplying it by
-	  <m>-1/3</m>. </p>
+	  <p> Another replacement operation eliminates <m>x</m> from the
+	  third equation.  We multiply the first equation by 
+	  3 and add to the third. </p>
 	  <p>
 	    <me>
 	      \begin{alignedat}{4}
 	      x \amp  {}+{}  \amp 2y \amp  \amp  \amp  {}={}  \amp 4 \\
-	      \amp \amp y \amp  {}+{}  \amp z \amp  {}={}  \amp -1 \\
-	      -3x \amp  {}-{}  \amp 2y \amp  {}+{}  \amp z \amp  {}={}
-	      \amp -10 \\ 
+	      \amp \amp -3y \amp  {}-{}  \amp 3z \amp  {}={}  \amp 3 \\
+	      \amp \amp 4y \amp  {}+{}  \amp z \amp  {}={}  \amp 2 \\
 	      \end{alignedat}
 	    </me>
 	  </p>
 	</sidebyside>
       </p>
-
+      
       <p>
 	<sidebyside valign="middle">
-	  <p> Another replacement operation eliminates <m>x</m> from the
-	  third equation.  We multiply the first equation by 
-	  3 and add to the third. </p>
+	  <p> Scale the second equation by multiplying it by
+	  <m>-1/3</m>. </p>
 	  <p>
 	    <me>
 	      \begin{alignedat}{4}
@@ -393,11 +449,14 @@
 	  </p>
 	</sidebyside>
       </p>
-      
+
       <p>
 	<sidebyside valign="middle">
 	  <p> Eliminate <m>y</m> from the third equation by multiplying
-	  the second equation by -4 and adding it to the third. </p>
+	  the second equation by -4 and adding it to the third.
+	  Notice that we now have a triangular system that can be
+	  solved using back substitution.
+	  </p>
 	  <p>
 	    <me>
 	      \begin{alignedat}{4}
@@ -412,8 +471,8 @@
 
       <p>
 	<sidebyside valign="middle">
-	  <p> After scaling the third equation by <m>-1/3</m>, we have
-	  found the value for <m>z</m>. </p>
+	  <p> After scaling the third equation by
+	  <m>-1/3</m>, we have found the value for <m>z</m>. </p>
 	  <p>
 	    <me>
 	      \begin{alignedat}{4}
@@ -428,8 +487,8 @@
       
       <p>
 	<sidebyside valign="middle">
-	  <p> The system now has a triangular form so we will begin the
-	  process of back substitution by multiplying the third equation
+	  <p> We eliminate <m>z</m> from the second equation
+	  by multiplying the third equation
 	  by -1 and adding to the second. </p>
 	  <p>
 	    <me>
@@ -449,10 +508,10 @@
 	  first to obtain: </p>
 	  <p>
 	    <me>
-	      \begin{alignedat}{4}
-	      x \amp \amp \amp  \amp  \amp  {}={}  \amp 2 \\
-	      \amp \amp y \amp \amp \amp  {}={}  \amp 1 \\
-	      \amp \amp \amp \amp z \amp  {}={}  \amp -2 \\
+	      \begin{alignedat}{3}
+	      x \amp {}={}  \amp 2 \\
+	      y \amp  {}={} \amp 1 \\
+	      z \amp  {}={} \amp -2. \\
 	      \end{alignedat}
 	    </me>
 	  </p>
@@ -472,10 +531,10 @@
       of replacement and scaling operations.  However, we chose this
       particular sequence guided by our desire to first transform the
       system into a triangular one.  To do this, we eliminated the
-      first unknown <m>x</m> from all but one equation and then
-      proceeded to the next unknowns working left to right.  Once we
+      first variable <m>x</m> from all but one equation and then
+      proceeded to the next variables working left to right.  Once we
       had a triangular system, we used back substitution moving
-      through the unknowns right to left.
+      through the variables right to left.
     </p>
 
     <p>
@@ -488,44 +547,41 @@
 	Gaussian Elimination
       </title>
       <statement>
-      <p>
-	Use Gaussian elimination to describe the solutions to the
-	following systems of linear equations.
+	<p>
+	  For each of the following linear systems, 
+	  use Gaussian elimination to describe the solutions to the
+	  following systems of linear equations.  In particular,
+	  determine whether each linear system has exactly one
+	  solution, infinitely many solutions, or no solutions.
       <ol marker="a.">
-	<li> <p>
-	  Does the following linear system have exactly one solution,
-	  infinitely many solutions, or no solutions?
-	  <me>
+	<li align="top"> <p>
+	  <m>
 	    \begin{alignedat}{4}
 	    x \amp  {}+{}  \amp y \amp  {}+{}  \amp 2z \amp  {}={}  \amp 1 \\
 	    2x \amp  {}-{}  \amp y \amp  {}-{}  \amp 2z \amp  {}={}  \amp 2 \\
 	    -x \amp  {}+{}  \amp y \amp  {}+{}  \amp z \amp  {}={}  \amp 0 \\
 	    \end{alignedat}
-	  </me>
+	  </m>
 	</p></li>
 	
 	<li> <p>
-	  Does the following linear system have exactly one solution,
-	  infinitely many solutions, or no solutions?
-	  <me>
+	  <m>
 	    \begin{alignedat}{4}
 	    -x \amp  {}-{}  \amp 2y \amp  {}+{}  \amp 2z \amp  {}={}  \amp -1 \\
 	    2x \amp  {}+{}  \amp 4y \amp  {}-{}  \amp z \amp  {}={}  \amp 5 \\
 	    x \amp  {}+{}  \amp 2y \amp  \amp  \amp  {}={}  \amp 3 \\
 	    \end{alignedat}
-	  </me>
+	  </m>
 	</p></li>
 	
 	<li> <p>
-	  Does the following linear system have exactly one solution,
-	  infinitely many solutions, or no solutions?
-	  <me>
+	  <m>
 	    \begin{alignedat}{4}
 	    -x \amp  {}-{}  \amp 2y \amp  {}+{}  \amp 2z \amp  {}={}  \amp -1 \\
 	    2x \amp  {}+{}  \amp 4y \amp  {}-{}  \amp z \amp  {}={}  \amp 5 \\
 	    x \amp  {}+{}  \amp 2y \amp  \amp  \amp  {}={}  \amp 2 \\
 	    \end{alignedat}
-	  </me>
+	  </m>
 	</p></li>
       </ol></p>
       </statement>
@@ -549,7 +605,7 @@
 		\end{alignedat}
 	      </me>
 	      We will now apply a scaling operation to make the
-	      coefficients of <m>y</m> equal <m>1</m> in the second
+	      coefficient of <m>y</m> equal <m>1</m> in the second
 	      equation.
 	      <me>
 		\begin{alignedat}{4}
@@ -579,15 +635,15 @@
 		\amp  \amp \amp  \amp z \amp  {}={}  \amp -1 \\
 		\end{alignedat}
 	      </me>
-	      Finally, we have the decopled system
+	      Finally, we have the decoupled system
 	      <me>
 		\begin{alignedat}{4}
 		x \amp  \amp \amp  \amp \amp  {}={}  \amp 1 \\
 		\amp  \amp y \amp \amp \amp  {}={}  \amp 2 \\
-		\amp  \amp \amp  \amp z \amp  {}={}  \amp -1 \\
+		\amp  \amp \amp  \amp z \amp  {}={}  \amp -1, \\
 		\end{alignedat}
 	      </me>
-	      From this, we see that the solution space consists of the
+	      which tells us that the solution space consists of the
 	      single solution <m>(1,2,-1)</m>.
 	  </p></li>
 
@@ -602,7 +658,7 @@
 	      \amp  \amp \amp  \amp 0 \amp  {}={}  \amp 0 \\
 	      \end{alignedat}
 	    </me>
-	    Back substituion gives us the system
+	    Back substitution gives us the system
 	    <me>
 	      \begin{alignedat}{4}
 	      x \amp  {}+{}  \amp 2y \amp  \amp \amp
@@ -665,17 +721,17 @@
     <p>
       After performing Gaussian elimination a few times, you probably
       noticed that you spent most of the time concentrating on the
-      coefficients and simply recorded the unknowns as place holders.
-      For convenience, we will therefore introduce a shorthand
+      coefficients and simply recorded the variables as place holders.
+      Based on this observation, we will introduce a shorthand
       description of linear systems.
     </p>
 
     <p>
       <idx> augmented matrix </idx>
       When writing a linear system, we always write the
-      unknowns in the same order in each equation.  We then construct
+      variables in the same order in each equation.  We then construct
       an <em> augmented matrix </em> by simply forgetting about the
-      unknowns and recording the numerical data in a rectangular
+      variables and recording the numerical data in a rectangular
       array.  For instance, the system of equations below has the
       following augmented matrix
       <sidebyside>
@@ -702,12 +758,12 @@
       </sidebyside>
     </p>
 
-    <p> The vertical line reminds us where the equals signs
-    appear in the equations.  Entries to the left corresponds to
-    coefficients of the equations.  We will sometimes choose to focus
-    only on the coefficients of the system in which we case we write
-    the <em>coefficient matrix</em> as
-    <idx> coefficient matrix
+    <p> The vertical line reminds us where the equals signs appear in
+    the equations.  Entries in the matrix to the left of the vertical
+    line correspond to coefficients of the equations.  We 
+    sometimes choose to focus only on the coefficients of the system
+    in which case we write the <em>coefficient matrix</em> as <idx>
+    coefficient matrix
     </idx>
 	  <me>
 	    \left[
@@ -724,7 +780,9 @@
     <p> The three operations we perform on systems of equations
     translate naturally into operations on matrices.  For
     instance, the replacement operation that multiplies the first
-    equation by 2 and adds it to the second may be recorded as
+    equation by 2 and adds it to the second may be performed by
+    multiplying the first row of the augmented matrix by 2 and adding it
+    to the second row:
     <sidebyside>
       <p> 
 	<me>
@@ -754,7 +812,9 @@
     the two matrices are related by a sequence of scaling,
     interchange, and replacement operations.  Since these operations
     act on the rows of the matrices, we say
-    that the matrices are <em> row equivalent</em>.
+    that the matrices are <em> row equivalent</em>.  Notice that the
+    linear systems corresponding to two row equivalent augmented matrices
+    have the same solution space.
     <idx> row equivalent </idx>
     </p>
 
@@ -765,7 +825,7 @@
 
       <statement>
 	<p> <ol marker="a.">
-	<li> <p> Write the augmented matrix for the system of equations
+	<li> <p> Write the augmented matrix for the linear system
 	<me>
 	  \begin{alignedat}{4}
 	  x \amp  {}+{}  \amp 2y \amp  {}-{}  \amp z \amp  {}={}  \amp 1 \\
@@ -774,12 +834,12 @@
 	  \end{alignedat}
 	</me>
 	and perform Gaussian elimination to describe the solution space
-	of the system of equations in as much detail as you can.
+	in as much detail as you can.
 	</p> </li>
 
 	<li> <p>
-	  Suppose that you have a system of linear equations in the
-	  unknowns <m>x</m> and <m>y</m> whose
+	  Suppose that you have a linear system in the variables
+	  <m>x</m> and <m>y</m> whose
 	  augmented matrix is row equivalent to 
 	  <me>
 	    \left[
@@ -790,15 +850,15 @@
 	    \end{array}
 	    \right].
 	  </me>
-	  Write the system of linear equations corresponding to the
-	  augmented matrix.  Then describe the solution set of the
-	  system of equations in as much detail as you can.
+	  Write the linear system corresponding to this
+	  augmented matrix and describe its solution set 
+	  in as much detail as you can.
 	</p>
 	</li>
 
 	<li> <p>
-	  Suppose that you have a system of linear equations in the
-	  unknowns <m>x</m> and <m>y</m> whose
+	  Suppose that you have a linear system in the
+	  variables <m>x</m> and <m>y</m> whose
 	  augmented matrix is row equivalent to 
 	  <me>
 	    \left[
@@ -809,15 +869,15 @@
 	    \end{array}
 	    \right].
 	  </me>
-	  Write the system of linear equations corresponding to the
-	  augmented matrix.  Then describe the solution set of the
-	  system of equations in as much detail as you can.
+	  Write the linear system corresponding to this
+	  augmented matrix and describe its solution set 
+	  in as much detail as you can.
 	</p>
 	</li>
 
 	<li> <p>
-	  Suppose that the augmented matrix of a system of linear
-	  equations has the following shape where <m>*</m> could be
+	  Suppose that the augmented matrix of a linear system
+	  has the following shape where <m>*</m> could be
 	  any real number.
 	  <me>
 	    \left[
@@ -828,10 +888,10 @@
 	    \end{array}
 	    \right].
 	  </me>
-	  <ol marker="i.">
+	  <ol marker="1.">
 	    <li> <p>
 	      How many equations are there in this system and how many
-	      unknowns?
+	      variables?
 	    </p></li>
 	    <li> <p> Based on our earlier discussion in <xref
 	    ref="sec-expect" />, do you think it's possible that this
@@ -848,10 +908,10 @@
 		\end{array}
 		\right].
 	      </me>
-	      Make a choice for the names of the unknowns and write
-	      the corresponding system of linear equations.  Does the
-	      system have exactly one solution, infinitely many
-	      solutions, or no solutions?
+	      Make a choice for the names of the variables and write
+	      the corresponding linear system.  Does the system have
+	      exactly one solution, infinitely many solutions, or no
+	      solutions?
 	    </p></li>
 	  </ol>
 	</p>
@@ -878,26 +938,28 @@
 	  </me>
 	  This corresponds to the system of equations 
 	  <me>
-	    \begin{alignedat}{4}
-	    x \amp  \amp \amp \amp \amp  {}={}  \amp 3 \\
-	    \amp  \amp y \amp \amp \amp  {}={}  \amp -1 \\
-	    \amp  \amp  \amp  \amp z \amp  {}={}  \amp 0 \\
+	    \begin{alignedat}{}
+	    x \amp  {}={}  \amp 3 \\
+	    y \amp  {}={}  \amp -1 \\
+	    z \amp  {}={}  \amp 0 \\
 	    \end{alignedat}
 	  </me>
-	  showing that there is a single solution <m>(3,-1,0)</m>.
+	  showing that there is a single solution <m>(x,y,z) =
+	  (3,-1,0)</m>. 
 	  </p></li>
 
 	  <li><p> 
 	    The corresponding system of equations is
 	    <me>
 	      \begin{alignedat}{3}
-	      x \amp  \amp \amp {}={}  \amp 3 \\
-	      \amp  \amp y \amp {}={}  \amp 0 \\
-	      \amp  \amp 0 \amp {}={}  \amp 0 \\
+	      x \amp {}={}  \amp 3 \\
+	      y \amp {}={}  \amp 0 \\
+	      0 \amp {}={}  \amp 0 \\
 	      \end{alignedat}
 	    </me>
 	    The third equation is satisfied for any values of <m>x</m>
-	    and <m>y</m>.  Therefore, we see that the only solution is
+	    and <m>y</m>.  Therefore, we see that the only solution to
+	    the system is
 	    <m>(x,y) = (3,0)</m>.
 	  </p></li>
 
@@ -905,9 +967,9 @@
 	    Here, the corresponding system of equations is
 	    <me>
 	      \begin{alignedat}{3}
-	      x \amp  \amp \amp {}={}  \amp 3 \\
-	      \amp  \amp y \amp {}={}  \amp 0 \\
-	      \amp  \amp 0 \amp {}={}  \amp 1 \\
+	      x \amp {}={}  \amp 3 \\
+	      y \amp {}={}  \amp 0 \\
+	      0 \amp {}={}  \amp 1 \\
 	      \end{alignedat}
 	    </me>
 	    Since the third equation is not satisfied for any values
@@ -917,7 +979,7 @@
 
 	  <li><p>
 	    The system corresponding to this augmented matrix has
-	    three equations and five unknowns.  Our first guess is 
+	    three equations and five variables.  Our first guess is 
 	    there are infinitely many solutions.  If we write out the
 	    equations corresponding to the augmented matrix, we find
 	    <me>
@@ -947,8 +1009,8 @@
 
 	  <li><p> There are no solutions. </p></li>
 
-	  <li><p> This system has three equations in five unknowns,
-	  and there are no solutions. </p></li>
+	  <li><p> This system has three equations in five variables,
+	  and there are infinitely many solutions. </p></li>
 
 	</ol></p>
       </answer>
@@ -979,26 +1041,32 @@
       </me>      
     </p>
 
-    <definition>
+    <definition xml:id="reduced-row-echelon">
       <idx> reduced row echelon form </idx>
       <p> We say that a matrix is in <em>reduced row echelon form</em>
       if the following properties are satisfied.
       <ul>
-	<li> Any rows in which all the entries are zero are at the
-	bottom of the matrix.
+	<li>
+	  <p>
+	    If the entries in a row are all zero, then the same is
+	    true of any row below it.
+	  </p>
 	</li>
 
-	<li> If we move across a row from left to right, the first nonzero
-	entry we encounter is 1.  We call this entry the <em> leading
-	entry</em> in the row.
+	<li>
+	  <p>
+	    If we move across a row from left to right, the first nonzero
+	    entry we encounter is 1.  We call this entry the <em> leading
+	    entry</em> in the row.
+	  </p>
 	</li>
 
-	<li> The leading entry in one row is to the right of the
-	leading entry in any row above.
+	<li> <p>The leading entry in any row is to the right of the
+	leading entries in all the rows above it.</p>
 	</li>
 
-	<li> A leading entry is the only nonzero entry in its
-	column.
+	<li> <p>A leading entry is the only nonzero entry in its
+	column.</p>
 	</li>
       </ul>
       <idx> reduced row echelon matrix </idx>
@@ -1010,8 +1078,8 @@
     <p>
       We have been intentionally vague about whether the matrix we are
       considering is an augmented matrix corresponding to a linear
-      system or a coefficient matrix since we will eventually consider
-      both possibilities.
+      system or a coefficient matrix since we will consider
+      both possibilities in the future.
     </p>
 
     <activity>
@@ -1157,7 +1225,7 @@
 	<li> <p> This is not in reduced row echelon form because the
 	leading entry in the second and third rows are not the only
 	nonzero elements in their columns.  We can use replacement
-	operations to remedy this.
+	operations to remedy this
 	<me>
 	  \left[
 	  \begin{array}{rrr|r}
@@ -1173,9 +1241,10 @@
 	  0 \amp 1 \amp 0 \amp 2 \\
 	  0 \amp 0 \amp 1 \amp 1 \\
 	  \end{array}
-	  \right].
+	  \right]
 	</me>
-	This system has the single solution <m>(-1,2,1)</m>.
+	and see that the system has the single solution
+	<m>(-1,2,1)</m>. 
 	</p></li>
       </ol></p>
       </solution>
@@ -1234,16 +1303,16 @@
     </activity>
 
     <p>
-      If we are given a matrix, the examples in the previous activity
-      indicate that there is a sequence of row operations that produces
-      a matrix in reduced row echelon form.  Moreover, the conditions
-      that define reduced row echelon matrices guarantee that this
-      matrix is unique.  
+      The examples in the previous activity indicate that there is a
+      sequence of row operations that transforms any matrix into one
+      in reduced row echelon form.  Moreover, the conditions that
+      define reduced row echelon matrices guarantee that this matrix
+      is unique.
     </p>
 
     <theorem xml:id = "thm-rref-is-unique">
       <p>
-	Given a matrix, there is exactly one reduced row
+	For any given matrix, there is exactly one reduced row
 	echelon matrix to which it is row equivalent.
       </p>
     </theorem>
@@ -1258,19 +1327,19 @@
       <title> Describing the solution space from a reduced row echelon
       matrix </title>
       <p>
-	<ol>
+	<ol marker="a.">
 	  <li>
 	    <p>
-	      Consider the row reduced echelon matrix
+	      Consider the reduced row echelon matrix
 	      <me>
 		\left[
 		\begin{array}{rrr|r}
 		1 \amp 0 \amp 2 \amp -1 \\
 		0 \amp 1 \amp 1 \amp 2 \\
 		\end{array}
-		\right].
+		\right]
 	      </me>
-	      Its corresponding linear system may be written
+	      and its corresponding linear system
 	      as
 	      <me>
 		\begin{alignedat}{4}
@@ -1328,8 +1397,8 @@
 	      The last equation gives
 	      <me> 0x +0y+0z = 0</me>,
 	      which is true for any <m>(x,y,z)</m>.  We may safely
-	      ignore this equation since it does not provide a
-	      restriction on the choice of <m>(x,y,z)</m>.  We then
+	      ignore this equation since it does not impose a
+	      restriction on <m>(x,y,z)</m>.  We then
 	      see that there is a unique solution <m>(x,y,z) =
 	      (4,-3,1)</m>.
 	    </p>
@@ -1365,19 +1434,20 @@
     <title> Summary </title>
 
     <p>
-      We saw several importants concepts in this chapter.
+      We saw several important concepts in this chapter.
       <ul>
 	<li><p> We can describe the solution space to a linear system
-	by transforming it into a new linear system through a
-	sequence of scaling, interchange, and replacement operations.
-	</p></li>
-	<li><p> We represented a system of linear equations by an
+	by transforming it into a new linear system having the same
+	solution space through a sequence of scaling, interchange, and
+	replacement operations.  </p></li>
+	<li><p> We can represent a linear system by an
 	augmented matrix.  Using scaling, interchange, and replacement
 	operations, the augmented matrix is row equivalent to exactly
-	one reduced row echelon matrix.
+	one reduced row echelon matrix.  The process of constructing
+	this reduced row echelon matrix is called Gaussian elimination.
 	</p></li>
 	<li><p> The reduced row echelon matrix allows us to easily
-	describe the solution space to a system of linear equations.
+	describe the solution space of a linear system.
 	</p></li>
       </ul>
     </p>

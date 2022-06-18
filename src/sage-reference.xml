@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<appendix xml:id="app-sage-reference"
+	  xmlns:xi="http://www.w3.org/2001/XInclude">
+
+  <title>
+    Sage Reference
+  </title>
+
+  <p>
+    As we have introduced a number of Sage commands throughout the
+    text, it could be helpful to have the most important ones summarized
+    in a single place.  That is the aim of this appendix.
+  </p>
+
+  <p>
+    <dl>
+      <li><title> Accessing Sage </title>
+      <p> In addition to the Sage cellls included throughout the book,
+      there are a number of ways to access Sage. 
+      <ol marker="a.">
+	<li><p> There is a freely available Sage cell at  
+	<url href="https://sagecell.sagemath.org/"
+	     visual="sagecell.sagemath.org" />.
+	</p></li>
+	<li><p> You can save your Sage work by creating an account at
+	<url href="https://cocalc.com"
+	     visual="cocalc.com"/>
+	and working in a Sage worksheet.
+	</p></li>
+	<li><p> There is a page of Sage cells at
+	<url href="http://gvsu.edu/s/0Ng"
+	     visual="gvsu.edu/s/0Ng"/>.
+	The results obtained from
+	evaluating one cell are available in other cells on that page.
+	However, you will lose any work once
+	the page is reloaded.  
+      </p></li>
+      </ol>
+      </p></li>
+
+      <li><title> Creating matrices </title>
+      <p> There are a couple of ways to create matrices.  For
+      instance, the matrix
+      <me>
+	\begin{bmatrix}
+	-2 \amp 3 \amp 0 \amp 4 \\
+	1 \amp -2 \amp 1 \amp -3 \\
+	0 \amp 2 \amp 3 \amp 0 \\
+	\end{bmatrix}
+      </me>
+      can be created in either of the two following ways.
+	<ol marker="a.">
+	  <li> <p>
+	    <cd>
+matrix(3, 4, [-2, 3, 0, 4,
+               1,-2, 1,-3,
+	       0, 2, 3, 0])
+	    </cd>
+	  </p>
+	  </li>
+	  <li> <p>
+	    <cd>
+matrix([ [-2, 3, 0, 4],
+         [ 1,-2, 1,-3],
+	 [ 0, 2, 3, 0] ])
+	    </cd>
+	  </p>
+	  </li>
+	</ol>
+      </p>
+      <p>
+	Be aware that Sage can treat mathematically equivalent
+	matrices in different ways depending on how they are entered. 
+	For instance, the matrix
+	<cd>
+matrix([ [1, 2],
+         [2, 1] ])
+	</cd>
+	has integer entries while
+	<cd>
+matrix([ [1.0, 2.0],
+         [2.0, 1.0] ])
+	</cd>
+	has floating point entries.
+      </p>
+
+      <p>
+	If you would like the entries to be considered as floating
+	point numbers, you can include <c>RDF</c> in the definition
+	of the matrix.
+	<cd>
+matrix(RDF, [ [1, 2],
+              [2, 1] ])
+	</cd>
+      </p>
+      </li>
+
+      <li>
+	<title>Reduced row echelon form</title>
+	<p>
+	  The reduced row echelon form of a matrix can be obtained
+	  using the <c>rref()</c> function.  For instance,
+	  <cd>
+A = matrix([ [1,2], [2,1] ])
+A.rref()
+	  </cd>
+	</p>
+      </li>
+    </dl>
+  </p>
+      
+
+</appendix>
+
+  

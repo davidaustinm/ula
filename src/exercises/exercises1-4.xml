@@ -5,7 +5,7 @@
     <statement>
       <p> For each of the augmented matrices in reduced row echelon
       form given below, determine whether the corresponding linear
-      system is consistent and, if it is, determine whether the
+      system is consistent and, if so, determine whether the
       solution is unique.  If the system is consistent, identify the
       free variables and the basic variables and give a description of
       the solution space in parametric form. 
@@ -131,15 +131,184 @@
 
   <exercise>
     <statement>
+      <p>
+	For each of the following linear systems, determine whether
+	the system is consistent, and, if so, determine whether there
+	are infinitely many solutions.
+	<sage>
+	  <input>
+	  </input>
+	</sage>
+	<ol marker="a.">
+	  <li>
+	    <p>
+	      <me>
+		\begin{alignedat}{5}
+		2x_1\amp{}-{}\amp x_2\amp {}+{}\amp 3x_3 \amp {}{}
+		\amp \amp {}={} \amp 10 \\
+		-x_1\amp{}+{}\amp x_2\amp \amp \amp {}+{}
+		\amp 3x_4 \amp {}={} \amp 8 \\
+		\amp{}{}\amp 2x_2\amp {}+{}\amp 2x_3 \amp {}-{}
+		\amp x_4 \amp {}={} \amp -4 \\
+		3x_1\amp{}+{}\amp 2x_2\amp {}-{}\amp x_3 \amp {}+{}
+		\amp x_4 \amp {}={} \amp 10 \\
+		\end{alignedat}
+	      </me>
+	    </p>
+	  </li>
+	  <li>
+	    <p>
+	      <me>
+		\begin{alignedat}{5}
+		2x_1\amp{}-{}\amp x_2\amp {}+{}\amp 3x_3 \amp {}+{}
+		\amp 3x_4 \amp {}={} \amp 8 \\
+		-x_1\amp{}+{}\amp x_2\amp \amp \amp {}+{}
+		\amp 2x_4 \amp {}={} \amp -1 \\
+		\amp{}{}\amp 2x_2\amp {}+{}\amp 2x_3 \amp {}+{}
+		\amp 6x_4 \amp {}={} \amp 4 \\
+		3x_1\amp{}+{}\amp 2x_2\amp {}-{}\amp x_3 \amp {}-{}
+		\amp 3x_4 \amp {}={} \amp 1 \\
+		\end{alignedat}
+	      </me>
+	    </p>
+	  </li>
+	  <li>
+	    <p>
+	      <me>
+		\begin{alignedat}{5}
+		2x_1\amp{}-{}\amp x_2\amp {}+{}\amp 3x_3 \amp {}+{}
+		\amp 3x_4 \amp {}={} \amp 8 \\
+		-x_1\amp{}+{}\amp x_2\amp \amp \amp {}+{}
+		\amp 2x_4 \amp {}={} \amp -1 \\
+		\amp{}{}\amp 2x_2\amp {}+{}\amp 2x_3 \amp {}+{}
+		\amp 6x_4 \amp {}={} \amp 4 \\
+		3x_1\amp{}+{}\amp 2x_2\amp {}-{}\amp x_3 \amp {}-{}
+		\amp 3x_4 \amp {}={} \amp 0 \\
+		\end{alignedat}
+	      </me>
+	    </p>
+	  </li>
+	</ol>
+      </p>
+    </statement>
+    <solution>
+      <p>
+	<ol marker="a.">
+	  <li>
+	    <p>
+	      The corresponding augmented matrix is
+	      <me>
+		\left[
+		\begin{array}{rrrr|r}
+		2 \amp -1 \amp 3 \amp 0 \amp 10 \\
+		-1 \amp 1 \amp 0 \amp 3 \amp 8 \\
+		0 \amp 2 \amp 2 \amp -1 \amp -4 \\
+		3 \amp 2 \amp -1 \amp 1 \amp 10 \\
+		\end{array}
+		\right]
+		\sim
+		\left[
+		\begin{array}{rrrr|r}
+		1 \amp 0 \amp 0 \amp 0 \amp 3 \\
+		0 \amp 1 \amp 0 \amp 0 \amp -1 \\
+		0 \amp 0 \amp 1 \amp 0 \amp 1 \\
+		0 \amp 0 \amp 0 \amp 1 \amp 4 \\
+		\end{array}
+		\right]
+	      </me>
+	      so this linear system is consistent with a unique solution.
+	    </p>
+	  </li>
+	  <li>
+	    <p>
+	      The corresponding augmented matrix is
+	      <me>
+		\left[
+		\begin{array}{rrrr|r}
+		2 \amp -1 \amp 3 \amp 3 \amp 8 \\
+		-1 \amp 1 \amp 0 \amp 2 \amp -1 \\
+		0 \amp 2 \amp 2 \amp 6 \amp 4 \\
+		3 \amp 2 \amp -1 \amp -3 \amp 1 \\
+		\end{array}
+		\right]
+		\sim
+		\left[
+		\begin{array}{rrrr|r}
+		1 \amp 0 \amp 0 \amp -1 \amp 1 \\
+		0 \amp 1 \amp 0 \amp 1 \amp 0 \\
+		0 \amp 0 \amp 1 \amp 2 \amp 2 \\
+		0 \amp 0 \amp 0 \amp 0 \amp 0 \\
+		\end{array}
+		\right]
+	      </me>
+	      so this linear system is consistent with infinitely many
+	      solutions.
+	    </p>
+	  </li>
+	  <li>
+	    <p>
+	      The corresponding augmented matrix is
+	      <me>
+		\left[
+		\begin{array}{rrrr|r}
+		2 \amp -1 \amp 3 \amp 3 \amp 8 \\
+		-1 \amp 1 \amp 0 \amp 2 \amp -1 \\
+		0 \amp 2 \amp 2 \amp 6 \amp 4 \\
+		3 \amp 2 \amp -1 \amp -3 \amp 0 \\
+		\end{array}
+		\right]
+		\sim
+		\left[
+		\begin{array}{rrrr|r}
+		1 \amp 0 \amp 0 \amp -1 \amp 0 \\
+		0 \amp 1 \amp 0 \amp 1 \amp 0 \\
+		0 \amp 0 \amp 1 \amp 2 \amp 0 \\
+		0 \amp 0 \amp 0 \amp 0 \amp 1 \\
+		\end{array}
+		\right]
+	      </me>
+	      so this linear system is inconsistent.
+	    </p>
+	  </li>	  
+	</ol>
+      </p>
+    </solution>
+    <answer>
+      <p>
+	<ol marker="a.">
+	  <li>
+	    <p>
+	      The linear system is consistent with a unique solution.
+	    </p>
+	  </li>
+	  <li>
+	    <p>
+	      The linear system is consistent with infinitely many
+	      solutions. 
+	    </p>
+	  </li>
+	  <li>
+	    <p>
+	      The linear system is inconsistent.
+	    </p>
+	  </li>
+	</ol>
+      </p>
+    </answer>
+  </exercise>
+
+
+  <exercise>
+    <statement>
       <p> Include an example of an appropriate matrix as you
       justify your responses to the following questions.
       <ol marker="a.">
 	<li><p> Suppose a linear system having six equations and
-	three unknowns is consistent.  Can you guarantee that 
+	three variables is consistent.  Can you guarantee that 
 	the solution is unique? Can you guarantee that there are
 	infinitely solutions?  </p></li>
 	<li><p> Suppose that a linear system having three equations
-	and six unknowns is consistent.  Can you guarantee that
+	and six variables is consistent.  Can you guarantee that
 	the solution is unique? Can you guarantee that there are
 	infinitely solutions?  </p></li>
 	<li><p> Suppose that a linear system is consistent and has a
@@ -156,28 +325,38 @@
 	  <li><p>
 	    Consider the augmented matrices
 	    <me>
-	      \begin{array}{cc}
+	      \begin{array}{ccc}
 	      \left[\begin{array}{rrr|r}
-	      1 \amp -2 \amp 1 \\
-	      0 \amp 0 \amp 0 \\
-	      0 \amp 0 \amp 0 \\
-	      0 \amp 0 \amp 0 \\
-	      0 \amp 0 \amp 0 \\
-	      0 \amp 0 \amp 0 \\
+	      1 \amp 0 \amp 0 \amp 0 \\
+	      0 \amp 1 \amp 0 \amp 0 \\
+	      0 \amp 0 \amp 1 \amp 0 \\
+	      0 \amp 0 \amp 0 \amp 1 \\
+	      0 \amp 0 \amp 0 \amp 0 \\
+	      0 \amp 0 \amp 0 \amp 0 \\
 	      \end{array}\right]
 	      \amp
 	      \left[\begin{array}{rrr|r}
-	      1 \amp 0 \amp 1 \\
-	      0 \amp 1 \amp 3 \\
-	      0 \amp 0 \amp 0 \\
-	      0 \amp 0 \amp 0 \\
-	      0 \amp 0 \amp 0 \\
-	      0 \amp 0 \amp 0 \\
+	      1 \amp -2 \amp 0 \amp 2 \\
+	      0 \amp 0 \amp 1 \amp -3 \\
+	      0 \amp 0 \amp 0 \amp 0 \\
+	      0 \amp 0 \amp 0 \amp 0 \\
+	      0 \amp 0 \amp 0 \amp 0 \\
+	      0 \amp 0 \amp 0 \amp 0 \\
+	      \end{array}\right]
+	      \amp
+	      \left[\begin{array}{rrr|r}
+	      1 \amp 0 \amp 0 \amp 1 \\
+	      0 \amp 1 \amp 0 \amp -2 \\
+	      0 \amp 0 \amp 1 \amp 3 \\
+	      0 \amp 0 \amp 0 \amp 0 \\
+	      0 \amp 0 \amp 0 \amp 0 \\
+	      0 \amp 0 \amp 0 \amp 0 \\
 	      \end{array}\right]\text{.}
 	      \end{array}
 	    </me>
-	    It is possible that the solution is unique and that there
-	    are infinitely many solutions.
+	    These examples show that anything is possible:  the system
+	    may or may not be consistent, and, if it is consistent,
+	    there may or may not be a unique solution.
 	  </p></li>
 
 	  <li><p>
@@ -205,7 +384,7 @@
 	    </me>
 	    We know that every column of the coefficient matrix has a
 	    pivot position and that the rightmost column does not.
-	    There must be at least as many equations as unknowns.
+	    There must be at least as many equations as variables.
 	  </p></li>
 	</ol>
       </p>
@@ -237,31 +416,32 @@
       true or false and provide a justification for your response.
       <ol marker="a.">
 	<li><p>
-	  If the coefficient matrix of a system of linear equations
+	  If the coefficient matrix of a linear system
 	  has a pivot in the rightmost column, then the system is
 	  inconsistent. 
 	</p></li>
 
 	<li><p>
-	  If a system of equations has two equations and four
-	  unknowns, then it must be consistent.
+	  If a linear system has two equations and four
+	  variables, then it must be consistent.
 	</p></li>
 
 	<li><p>
-	  If a system of equations having four equations and three
-	  unknowns is consistent, then the solution is unique.
+	  If a linear system having four equations and three
+	  variables is consistent, then the solution is unique.
 	</p></li>
 
 	<li><p>
 	  Suppose that a linear system has four equations and four
-	  unknowns and that the coefficient matrix has four pivots.
+	  variables and that the coefficient matrix has four pivots.
 	  Then the linear system is consistent and has a unique
 	  solution. 
 	</p></li>
 
 	<li><p>
 	  Suppose that a linear system has five equations and three
-	  unknowns and that the coefficient matrix has a pivot in
+	  variables and that the coefficient matrix has a pivot
+	  position in
 	  every column.  Then the linear system is consistent and has a
 	  unique solution.
 	</p></li>
@@ -316,10 +496,10 @@
 	    This statement is false as illustrated by the matrix
 	    <me>
 	      \left[\begin{array}{rrr|r}
-	      1 \amp 0 \amp 0 \amp 1 \\
-	      0 \amp 1 \amp 0 \amp -2 \\
-	      0 \amp 0 \amp 1 \amp 1 \\
-	      0 \amp 0 \amp 0 \amp 1\\
+	      1 \amp 0 \amp 0 \amp 0 \\
+	      0 \amp 1 \amp 0 \amp 0 \\
+	      0 \amp 0 \amp 1 \amp 0 \\
+	      0 \amp 0 \amp 0 \amp 0 \\
 	      0 \amp 0 \amp 0 \amp 0 \\
 	      \end{array}\right]\text{.}
 	    </me>
@@ -344,7 +524,146 @@
 
   <exercise>
     <statement>
-      <p> The following systems contain either one or two parameters.
+      <p>
+	We began our explorations in <xref ref="sec-expect" /> by
+	noticing that the solution spaces of linear systems with more
+	equations seem to be smaller.  Let's reexamine this idea
+	using what we know about pivot positions.
+	<ol marker="a.">
+	  <li>
+	    <p>
+	      Remember that the solution space of a single linear
+	      equation in three variables is a plane.  Can two planes
+	      ever intersect in a single point?  What are the possible
+	      ways in which two planes can intersect?  How can our
+	      understanding of pivot positions help answer these
+	      questions? 
+	    </p>
+	  </li>
+	  <li>
+	    <p>
+	      Suppose that a consistent linear system has more
+	      variables than equations.  By considering the possible
+	      pivot positions, what can you say with
+	      certainty about the
+	      solution space?
+	    </p>
+	  </li>
+	  <li>
+	    <p>
+	      If a linear system has many more equations than
+	      variables, why is it reasonable to expect the system to
+	      be inconsistent?
+	    </p>
+	  </li>
+	</ol>
+      </p>
+    </statement>
+
+    <solution>
+      <p>
+	<ol marker="a.">
+	  <li>
+	    <p>
+	      The intersection of two planes are described by a linear
+	      system having two equations and three variables.  Two
+	      possible reduced row echelon forms are
+	      <me>
+		\begin{array}{cc}
+		\left[
+		\begin{array}{rrr|r}
+		1 \amp 0 \amp * \amp * \\
+		0 \amp 1 \amp * \amp * \\
+		\end{array}
+		\right]
+		\amp
+		\left[
+		\begin{array}{rrr|r}
+		1 \amp * \amp * \amp * \\
+		0 \amp 0 \amp 0 \amp 1 \\
+		\end{array}
+		\right]
+		\end{array}
+	      </me>
+	      indicating that the planes either intersect in a line or
+	      do not intersect at all.  In particular, it is not
+	      possible for there to be a single point of intersection.
+	    </p>
+	  </li>
+	  <li>
+	    <p>
+	      If there are more variables than equations, there must
+	      be a column in the coefficient matrix that does not
+	      contain a pivot position:
+	      <me>
+		\left[
+		\begin{array}{rrr|r}
+		1 \amp 0 \amp * \amp * \\
+		0 \amp 1 \amp * \amp * \\
+		\end{array}
+		\right]
+	      </me>
+	      so we can guarantee that there are infinitely many
+	      solutions. 
+	    </p>
+	  </li>
+	  <li>
+	    <p>
+	      If there are many more equations than variables, the
+	      coefficient matrix will have many rows without a pivot
+	      position:
+	      <me>
+		\left[
+		\begin{array}{rrr|r}
+		1 \amp 0 \amp * \\
+		0 \amp 1 \amp * \\
+		0 \amp 0 \amp * \\
+		0 \amp 0 \amp * \\
+		0 \amp 0 \amp * \\
+		0 \amp 0 \amp * \\
+		0 \amp 0 \amp * \\
+		\end{array}
+		\right]
+	      </me>	      
+	      This makes it likely that there will be a pivot position
+	      in the rightmost column of the augmented matrix, which
+	      means that the linear system is inconsistent.
+	    </p>
+	  </li>
+	</ol>
+      </p>
+    </solution>
+    <answer>
+      <p>
+	<ol marker="a.">
+	  <li>
+	    <p>
+	      The planes will most likely intersect either in a line
+	      or not at all.
+	    </p>
+	  </li>
+	  <li>
+	    <p>
+	      There must be infinitely many solutions.
+	    </p>
+	  </li>
+	  <li>
+	    <p>
+	      There will most likely be a pivot position in the
+	      rightmost column of the augmented matrix.
+	    </p>
+	  </li>
+	</ol>
+      </p>
+    </answer>
+  </exercise>
+	      
+
+
+  <exercise>
+    <statement>
+      <p> The following linear systems contain either one or two
+      parameters.  
       <ol marker="a.">
 	<li><p> For what values of the parameter <m>k</m> is the
 	following system
@@ -436,7 +755,7 @@
 
   <exercise>
     <statement>
-      <p> Consider the system of equations described by the following
+      <p> Consider the linear system described by the following
       augmented matrix.
       <me>
 	\left[
@@ -527,7 +846,7 @@
   
   <exercise>
     <statement>
-      <p> A system of equations where the right hand side of every
+      <p> A linear system where the right hand side of every
       equation is 0 is called <em>homogeneous</em>.  The augmented
       matrix of a homogeneous system, for instance, has the following
       form:
@@ -542,20 +861,20 @@
 	</me>.
 	<ol marker="a.">
 	  <li> <p> Using the concepts we've seen in this section,
-	  explain why a  homogeneous system of equations must be
+	  explain why a homogeneous linear system must be
 	  consistent.
 	  </p> </li>
 
 	  <li> <p>
-	  What values for the unknowns are guaranteed to give a
+	  What values for the variables are guaranteed to give a
 	  solution?  Use this to offer another explanation for why a
-	  homogeneous 
-	  system of equations is consistent.
+	  homogeneous linear
+	  system is consistent.
 	  </p></li>
 
-	  <li> <p> Suppose that a homogeneous system of equations has
+	  <li> <p> Suppose that a homogeneous linear system has
 	  a unique solution.
-	  <ol>
+	  <ol marker="1.">
 	    <li> <p> Give an example of such a system by
 	    writing its augmented matrix in reduced row echelon
 	    form. </p></li>
@@ -564,9 +883,9 @@
 	    pivot positions in the coefficient matrix?  Explain why
 	    your observation must hold for any homogeneous system
 	    having a unique solution.  </p></li>
-	    <li> <p> If a homogenous system of equations has a unique
+	    <li> <p> If a homogeneous system of equations has a unique
 	    solution, what can you say about the number of equations
-	    compared to the number of unknowns?  
+	    compared to the number of variables?  
 	    </p></li>
 	  </ol>
 	  </p></li>
@@ -601,7 +920,7 @@
 	    Since every column of the coefficient matrix has a pivot
 	    position, there must be at least as many rows as columns.
 	    This means that there must be at least as many equations
-	    as unknowns.
+	    as variables.
 	  </p></li>
 	</ol>
       </p>
@@ -617,7 +936,7 @@
 	  to zero.
 	  </p></li>
 
-	  <li><p> There are at least as many equations as unknowns.
+	  <li><p> There are at least as many equations as variables.
 	  </p></li>
 	</ol>
       </p>
@@ -685,7 +1004,7 @@
 	    <me>
 	      p(x) = a + bx + cx^2
 	      </me>.
-	      Solve the system of equations for the coefficients.
+	      Solve the linear system for the coefficients.
 	      What can you say about the existence and uniqueness of
 	      a degree two polynomial passing through these four points?
 	      <sage>
@@ -702,7 +1021,7 @@
 	    <me>
 	      p(x) = a + bx + cx^2 + dx^3 + ex^4
 	      </me>.
-	      Solve the system of equations for the coefficients.
+	      Solve the linear system for the coefficients.
 	      What can you say about the existence and uniqueness of
 	      a degree four polynomial passing through these four points?
 	      <sage>
@@ -786,7 +1105,7 @@
 	      \end{array}\right]\text{.}
 	    </me>
 	    This system is therefore inconsistent, which means there
-	    is no degree 2 polynomial passes through the four points.
+	    is no degree 2 polynomial passing through the four points.
 	  </p></li>
 
 	  <li><p>
