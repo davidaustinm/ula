@@ -18,10 +18,10 @@
 
     <exploration>
       <statement>
-      <p> Suppose that we wish to describe the geometric operation
-      that reflects 2-dimensional vectors in the horiztonal axis.  For
+      <p> We will describe the matrix transformation <m>T</m> that
+      reflects 2-dimensional vectors across the horizontal axis.  For
       instance, <xref ref="fig-reflect-intro" /> illustrates how a
-      vector <m>\xvec</m> is reflected into the vector
+      vector <m>\xvec</m> is reflected onto the vector
       <m>T(\xvec)</m>. </p>
 
       <figure xml:id="fig-reflect-intro">
@@ -29,7 +29,7 @@
 	  <image source="images/reflect-intro" />
 	</sidebyside>
 	<caption> A vector <m>\xvec</m> and its reflection
-	<m>T(\xvec)</m> in the horizontal axis. </caption>
+	<m>T(\xvec)</m> across the horizontal axis. </caption>
       </figure>
 
       <p><ol marker="a.">
@@ -99,24 +99,23 @@
     <title> The geometry of <m>2\times2</m> matrix transformations
     </title>
     
-    <p> The preview activity demonstrates how the matrix
-    <m>\left[\begin{array}{rr}
-    1 \amp 0 \\
-    0 \amp -1 \\
-    \end{array}\right]
-    </m>
-    defines a matrix transformation that has the effect of reflecting
-    2-dimensional vectors in the horizontal axis.  The following
-    activity shows, more generally, that matrix transformations
-    can perform a variety of important geometric operations.
+    <p> We have now seen how a few geometric operations, such as
+    rotations and reflections, can be described using matrix
+    transformations.  The following activity shows, more generally,
+    that matrix transformations can perform a variety of important
+    geometric operations.
     </p>
     
     <activity xml:id="activity-linear-trans-geom">
+      <title>
+	Using matrix transformations to describe geometric operations
+      </title> 
       <statement>
 
 	<figure xml:id="js-matrix-mult">
 	  <caption>
-	    The geometric effect of a matrix transformation.
+	    The matrix transformation <m>T</m> transforms features
+	    shown on the left into features shown on the right.
 	  </caption>
 	  
 	  <interactive xml:id="interactive-matrix-mult"
@@ -139,26 +138,43 @@
 	    <instructions>
 	      <p>
 		The diagram below demonstrates the effect of a matrix
-		transformation on the plane.  You may modify the matrix
-		<m>A</m> defining the matrix transformation <m>T</m> through
-		the sliders at the top.  You may also move the red
-		vector <m>\xvec</m> on the left, by clicking in the
-		head of the vector, and observe <m>T(\xvec)</m> on
-		the right.
+		transformation <m>T</m> on the plane.  You may modify
+		the matrix <m>A=\begin{bmatrix} a \amp b \\ c \amp c
+		\\ \end{bmatrix}</m> defining <m>T</m>
+		through the sliders at the top.
+	      </p>
+	      <p>
+		Since a matrix transformation takes a vector as input
+		and produces a vector as output, we will show the
+		inputs and outputs on separate sets of axes.  In
+		particular, the axes on the left represent the inputs
+		while the axes on the right illustrate how input
+		features are transformed by <m>T</m>.
 	      </p>
 	    </instructions>
+	    <static>
+	      <sidebyside width="100%">
+		<p>
+		  This activity uses an interactive diagram that is
+		  available at <url href="http://gvsu.edu/s/0Jf"
+		  visual="gvsu.edu/s/0Jf"/>.
+		</p>
+	      </sidebyside>
+	      <sidebyside width="75%">
+		<image source="preview/mult-preview.png"/>
+	      </sidebyside>
+	    </static>
 	  </interactive>
 	</figure>
 	
 	<p>
-	  For the following matrices <m>A</m> given below, use the
-	  diagram to study the effect of the corresponding matrix
-	  transformation <m>T(\xvec) = A\xvec</m>.  For each
-	  transformation, describe the geometric effect of the
-	  transformation on the plane.
+	  For the following <m>2\times2</m> matrices <m>A</m>,
+	  use the diagram to study the effect of the
+	  corresponding matrix transformation <m>T(\xvec) =
+	  A\xvec</m>.  For each transformation, describe the geometric
+	  effect the transformation has on the plane.
 	  <ol marker="a.">
 	    <li><p>
-	      The matrix
 	      <m>A=\left[\begin{array}{rr}
 	      2 \amp 0 \\
 	      0 \amp 1 \\
@@ -166,7 +182,6 @@
 	    </p></li>
 
 	    <li><p>
-	      The matrix
 	      <m>A=\left[\begin{array}{rr}
 	      2 \amp 0 \\
 	      0 \amp 2 \\
@@ -174,15 +189,13 @@
 	    </p></li>
 
 	    <li><p>
-	      The matrix
 	      <m>A=\left[\begin{array}{rr}
-	      0 \amp -1 \\
-	      1 \amp 0 \\
+	      0 \amp 1 \\
+	      -1 \amp 0 \\
 	      \end{array}\right]</m>.
 	    </p></li>
 
 	    <li><p>
-	      The matrix
 	      <m>A=\left[\begin{array}{rr}
 	      1 \amp 1 \\
 	      0 \amp 1 \\
@@ -190,7 +203,6 @@
 	    </p></li>
 
 	    <li><p>
-	      The matrix
 	      <m>A=\left[\begin{array}{rr}
 	      -1 \amp 0 \\
 	      0 \amp 1 \\
@@ -198,7 +210,6 @@
 	    </p></li>
 
 	    <li><p>
-	      The matrix
 	      <m>A=\left[\begin{array}{rr}
 	      1 \amp 0 \\
 	      0 \amp 0 \\
@@ -206,7 +217,6 @@
 	    </p></li>
 
 	    <li><p>
-	      The matrix
 	      <m>A=\left[\begin{array}{rr}
 	      1 \amp 0 \\
 	      0 \amp 1 \\
@@ -214,7 +224,6 @@
 	    </p></li>
 
 	    <li><p>
-	      The matrix
 	      <m>A=\left[\begin{array}{rr}
 	      1 \amp -1 \\
 	      -2 \amp 2 \\
@@ -235,7 +244,7 @@
 	  uniformly in all directions.
 	  </p></li>
 
-	  <li><p> This is a <m>90^\circ</m> counterclockwise rotation.
+	  <li><p> This is a <m>90^\circ</m> clockwise rotation.
 	  </p></li>
 
 	  <li><p> This transformation is called a <em>shear</em>;  it
@@ -265,18 +274,21 @@
     </activity>
 
     <p>
-      The previous activity presented some examples in which matrix
-      transformations perform
-      interesting geometric actions, such as rotations, scalings, and
-      reflections.  Let's turn this question around: Suppose we have a
-      specific geometric action that we would like to perform.  Can we
-      find a matrix <m>A</m> that represents this action through the
-      matrix transformation <m>T(\xvec) = A\xvec</m>?
+      The previous activity presented some examples showing that
+      matrix transformations can perform interesting geometric
+      operations, such as rotations, scalings, and reflections.
+      Before we go any further, we should explain why it is possible
+      to represent these operations by matrix transformations.  In
+      fact, we ask more generally: what types of functions
+      <m>T:\real^n\to\real^m</m> are represented as matrix
+      transformations?
     </p>
-
     <p>
-      The linearity of matrix-vector multiplication <xref
-      ref="prop-matrix-mult-prop" /> provides the key to answering
+      The 
+      <xref ref="prop-matrix-mult-prop" text="custom">
+	linearity of matrix-vector multiplication
+      </xref>
+      provides the key to answering
       this question.  Remember that
       if <m>A</m> is a matrix, <m>\vvec</m> and <m>\wvec</m> vectors,
       and <m>c</m> a scalar, then
@@ -360,27 +372,20 @@
     </proposition>
 
     <p>
-      We will put this proposition to use in the following example by
-      finding the matrix whose matrix transformation performs a
-      specific geometric operation.
+      Said simply, this proposition means says that if have a function
+      <m>T:\real^n\to\real^m</m> and can verify the two linearity
+      properties stated in the proposition, then we know
+      that <m>T</m> is a matrix transformation.  Let's see how this
+      works in practice.
     </p>
-    
+
     <example>
       <statement>
 	<p>
-	  In this example, we will find the matrix defining a matrix
-	  transformation that performs a
-	  <m>45^\circ</m> counterclockwise rotation.
-	</p>
-
-	<p>
-	  We first need to know that this
-	  geometric operation can be represented by a matrix
-	  transformation.  To begin, we will define the function
-	  <m>T:\real^2\to\real^2</m> where <m>T(\xvec)</m> is obtained
-	  by rotating 
-	  <m>\xvec</m> counterclockwise by <m>45^\circ</m>, as shown
-	  in <xref ref="fig-45-rotation" />.
+	  We will consider the function <m>T:\real^2\to\real^2</m>
+	  that rotates a vector <m>\xvec</m> by <m>45^\circ</m> in the
+	  counterclockwise direction to obtain <m>T(\xvec)</m> as seen
+	  in <xref ref="fig-45-rotation"/>.
 	</p>
 
 	<figure xml:id="fig-45-rotation">
@@ -393,23 +398,27 @@
 	  </caption>
 	</figure>
 	
-	<p>	  
-	  We need to check that <m>T</m> is a matrix
-	  transformation; by <xref
-	  ref="prop-linear-trans-characterization" />, this means that
-	  we should make sure that
+	<p>
+	  We first need to know that <m>T</m> can be represented by a
+	  matrix transformation, which means,
+	  by <xref
+	  ref="prop-linear-trans-characterization" />, that we
+	  need to verify the linearity properties:
 	  <me>
 	    \begin{aligned}
 	    T(c\vvec) \amp {}={} cT(\vvec) \\
 	    T(\vvec + \wvec) \amp {}={} T(\vvec) + T(\wvec)\text{.}
 	    \end{aligned}
 	  </me>
-	  The next two figures illustrate these properties.  For
-	  instance, <xref ref="fig-45-rotation-linear-mult" /> shows
-	  that relationship between <m>T(\vvec)</m> and
-	  <m>T(c\vvec)</m> when <m>c</m> is a scalar.  We easily see
-	  that <m>T(c\vvec)</m> is a scalar multiple of
-	  <m>T(\vvec)</m> and hence that <m>T(c\vvec) = cT(\vvec)</m>.
+	</p>
+	<p>
+	  The next two figures illustrate why these properties hold.
+	  For instance, <xref ref="fig-45-rotation-linear-mult" />
+	  shows the relationship between <m>T(\vvec)</m> and
+	  <m>T(c\vvec)</m> when <m>c</m> is a scalar.  In particular,
+	  scaling a vector and then rotating it is the same as
+	  rotating and then scaling it, which means that <m>T(c\vvec)
+	  = cT(\vvec)</m>.
 	</p>
 
 	<figure xml:id="fig-45-rotation-linear-mult">
@@ -426,8 +435,14 @@
 	<p>
 	  Similarly, <xref ref="fig-45-rotation-linear-add" /> shows the
 	  relationship between <m>T(\vvec+\wvec)</m>,
-	  <m>T(\vvec)</m>, and <m>T(\wvec)</m>.  In this way, we see
-	  that <m>T(\vvec+\wvec) = T(\vvec) + T(\wvec)</m>.
+	  <m>T(\vvec)</m>, and <m>T(\wvec)</m>.  Remember that the
+	  sum of two vectors is represented by the diagonal of the
+	  parallelogram defined by the two vectors.  The rotation
+	  <m>T</m> has the effect of rotating the parallelogram
+	  defined by <m>\vvec</m> and <m>\wvec</m> into the
+	  parallelogram defined by <m>T(\vvec)</m> and
+	  <m>T(\wvec)</m>, explaining why
+	  <m>T(\vvec+\wvec) = T(\vvec) + T(\wvec)</m>.
 	</p>
 	
 	<figure xml:id="fig-45-rotation-linear-add">
@@ -442,14 +457,15 @@
 	</figure>
 
 	<p>
-	  This shows that the function <m>T</m>, which rotates vectors
+	  Having verified these two properties, we now know that the
+	  function <m>T</m> that rotates vectors 
 	  by <m>45^\circ</m> is a matrix transformation.  We may
 	  therefore write it as <m>T(\xvec) = A\xvec</m> where
 	  <m>A</m> is the <m>2\times2</m> matrix
 	  <m>A=\left[\begin{array}{rr} T(\evec_1) \amp T(\evec_2)
 	  \end{array}\right]</m>.  The columns of this matrix,
 	  <m>T(\evec_1)</m> and <m>T(\evec_2)</m>, 
-	  are shown in <xref ref="fig-45-rotation-basis" />.
+	  are shown on the right of <xref ref="fig-45-rotation-basis" />.
 	</p>
 
 	<figure xml:id="fig-45-rotation-basis">
@@ -457,16 +473,17 @@
 	    <image source="images/45-rotation-basis" />
 	  </sidebyside>
 	  <caption>
-	    The effect of <m>T</m> on <m>\evec_1</m> and
-	    <m>\evec_2</m>.
+	    The matrix transformation <m>T</m> rotates <m>\evec_1</m>
+	    and <m>\evec_2</m> by <m>45^\circ</m>.
 	  </caption>
 	</figure>
 
-	<p> To find the components of these vectors, notice
-	that they form an isosceles right triangle, as shown in <xref
-	ref="fig-45-rotation-e1" />.  Since the length of
-	<m>\evec_1</m> is 1, the length of <m>T(\evec_1)</m>, the
-	hypotenuse of the triangle, is 1.
+	<p> Notice that <m>T(\evec_1)</m> forms an isosceles right
+	triangle, as shown in <xref ref="fig-45-rotation-e1" />.
+	Since the length of <m>\evec_1</m> is 1, the length of
+	<m>T(\evec_1)</m>, the hypotenuse of the triangle, is also 1,
+	and by Pythagoras' theorem, the lengths of its legs are
+	<m>1/\sqrt{2}</m>.
 	</p>
 
 	<figure xml:id="fig-45-rotation-e1">
@@ -474,20 +491,20 @@
 	    <image source="images/45-rotation-e1" />
 	  </sidebyside>
 	  <caption>
-	    The vector <m>T(\evec_1)</m> forms a right isosceles
-	    triangle whose hypotenuse has length 1.
+	    The vector <m>T(\evec_1)</m> has length 1 and is the
+	    hypotenuse of a right isosceles
+	    triangle.
 	  </caption>
 	</figure>
 
 	<p>
 	  This leads to
-	  <me>
-	    T(\evec_1) = \twovec{\frac1{\sqrt{2}}}
-	    {\frac1{\sqrt{2}}},
-	    T(\evec_2) = \twovec{-\frac1{\sqrt{2}}}
-	    {\frac1{\sqrt{2}}}
-	  </me>.
-	  Hence, the matrix <m>A</m> is
+	  <m>T(\evec_1) = \twovec{\frac1{\sqrt{2}}}
+	  {\frac1{\sqrt{2}}}</m>.
+	  In the same way, we find that
+	  <m>T(\evec_2) = \twovec{-\frac1{\sqrt{2}}}
+	  {\frac1{\sqrt{2}}}</m> so that
+	  the matrix <m>A</m> is
 	  <me>
 	    A = \left[\begin{array}{rr}
 	    \frac{1}{\sqrt{2}} \amp 
@@ -505,19 +522,20 @@
     </example>
 
     <p>
-      In this example, we found that the desired
-      geometric operation, a rotation in the plane, was in fact a
-      matrix transformation <m>T</m> by checking that
+      In this example, we found that <m>T</m>, a function describing 
+      a rotation in the plane, was in fact a matrix transformation
+      by checking that
       <me>
 	\begin{aligned}
 	T(c\vvec) \amp {}={} cT(\vvec) \\
 	T(\vvec + \wvec) \amp {}={} T(\vvec) + T(\wvec)\text{.}
-	\end{aligned}
-      </me>.
-      In general, the same kind of thinking applies to show that
-      rotations, reflections, and scalings
-      are matrix transformations so we will not bother with that step
-      in the future.
+	\end{aligned}.
+      </me>
+      The same kind of thinking applies more generally to show that
+      rotations, reflections, and scalings are matrix
+      transformations.  Similarly, we could revisit the functions in
+      <xref ref="activity-mt-intro"/> and verify that they are matrix
+      transformations.  
     </p>
 
     <activity>
@@ -528,17 +546,16 @@
       have the form <m>T:\real^2\to\real^2</m>.
       <ol marker="a.">
 	<li><p> Find the matrix of the transformation that has no
-	effect on vectors;  that is, <m>T(\xvec) = \xvec</m>.  We call
-	this matrix the <em>identity</em> and denote it by
-	<m>I</m>. </p></li>
+	effect on vectors;  that is, <m>T(\xvec) = \xvec</m>.
+	</p></li>
 
 	<li><p> Find the matrix of the transformation that reflects
-	vectors in <m>\real^2</m> over the line <m>y=x</m>. </p></li>
+	vectors in <m>\real^2</m> across the line <m>y=x</m>. </p></li>
 
 	<li><p> What is the result of composing the reflection you
 	found in the previous part with itself;  that is, what is the
-	effect of reflecting in the line <m>y=x</m> and then
-	reflecting in this line again.  Provide a geometric
+	effect of reflecting across the line <m>y=x</m> and then
+	reflecting across this line again?  Provide a geometric
 	explanation for your result as well as an algebraic one
 	obtained by multiplying matrices. </p></li>
 
@@ -550,10 +567,6 @@
 	reflecting in the line <m>y=x</m> to the result of first
 	reflecting in <m>y=x</m> and then rotating
 	<m>90^\circ</m>. </p></li>
-
-	<li><p> Find the matrix that results from composing a
-	<m>90^\circ</m> rotation with itself.  Explain the geometric
-	meaning of this operation.</p></li>
 
 	<li><p> Find the matrix that results from composing a
 	<m>90^\circ</m> rotation with itself four times; that is, if
@@ -655,24 +668,6 @@
 	  </p></li>
 
 	  <li><p>
-	    <m>
-	      \left[\begin{array}{rr}
-	      0 \amp -1 \\
-	      1 \amp 0 \\
-	      \end{array}\right]
-	      \left[\begin{array}{rr}
-	      0 \amp -1 \\
-	      1 \amp 0 \\
-	      \end{array}\right]
-	      =
-	      \left[\begin{array}{rr}
-	      -1 \amp 0 \\
-	      0 \amp -1 \\
-	      \end{array}\right]
-	    </m>, which represents a <m>180^\circ</m> rotation.
-	  </p></li>
-
-	  <li><p>
 	    Composing four times corresponds to raising the matrix to
 	    the fourth power, which gives us the identity matrix
 	    <m>I</m>. 
@@ -688,27 +683,6 @@
       </solution>
 	    
     </activity>
-
-    <p> In the first part of this activity, we encountered the
-    <em>identity</em> matrix, which, as an 
-    <m>n\times n</m> matrix, has the form
-    <me>
-      I = \left[\begin{array}{cccc}
-      1 \amp 0 \amp \ldots \amp 0 \\
-      0 \amp 1 \amp \ldots \amp 0 \\
-      \vdots \amp \vdots \amp \vdots \amp 0 \\
-      0 \amp 0 \amp \ldots \amp 1 \\
-      \end{array}\right]
-      = \left[\begin{array}{rrrr}
-      \evec_1 \amp \evec_2 \amp \ldots \amp \evec_n \\
-      \end{array}\right]
-    </me>.
-    The matrix transformation <m>T(\xvec) = I\xvec</m> leaves vectors
-    unchanged;  that is, <m>T(\xvec) = \xvec</m> so that <m>I\xvec =
-    \xvec</m>. 
-    Notice that the columns of <m>I</m> are simply the vectors
-    <m>\evec_j</m>.
-    </p>
 
   </subsection>
 
@@ -729,8 +703,7 @@
       moved into a different pose.  To make it appear that the
       character is moving, animators create a sequence of frames in
       which the character's pose is modified slightly from one frame
-      to the next.  Matrix transformations play an important role
-      in doing this.
+      to the next often using matrix transformations.
     </p>
 
     <figure xml:id="fig-blob-man">
@@ -744,6 +717,8 @@
 	<copyright /> Disney/Pixar
       </caption>
     </figure>
+
+    <!--
 
     <p>
       For instance, <xref ref="fig-remy" /> shows the character Remy
@@ -762,7 +737,8 @@
 	Remy from the Pixar movie <em>Ratatouille</em>.  <copyright />
 	Disney/Pixar.
       </caption>
-    </figure>
+      </figure>
+    -->
     
     <sidebyside widths="45% 35%">
       <p> Of course, realistic characters will be drawn in
@@ -793,27 +769,29 @@
     <p>
       This presents a problem because
       a matrix transformation <m>T:\real^2\to\real^2</m> has the
-      property that <m>T(\zerovec) = \zerovec</m>.  This means that a
+      property that <m>T(\zerovec) = A\zerovec = \zerovec</m>.  This
+      means that a 
       matrix transformation cannot move the origin of the coordinate
       plane.  To address this restriction, animators use
       <em>homogeneous coordinates</em>, which are formed by placing
       the two-dimensional coordinate plane inside <m>\real^3</m> as the
-      plane <m>z=1</m>.  This is shown in <xref
+      plane <m>z=1</m>, as shown in <xref
       ref="fig-animate-homogeneous" />.
     </p>
 
     <figure xml:id="fig-animate-homogeneous">
-      <sidebyside width="70%">
+      <sidebyside width="60%">
 	<image source="images/animate-homogeneous" />
       </sidebyside>
       <caption>
-	Include the plane in <m>\real^3</m> as the plane <m>z=1</m> so
-	that we can translate the character.
+	Include the two-dimensional coordinate plane in <m>\real^3</m>
+	as the plane <m>z=1</m> so that we can translate the
+	character.
       </caption>
     </figure>
 
     <p>
-      Therefore, rather than describing points in the plane as
+      As a result, rather than describing points in the plane as
       vectors <m>\twovec{x}{y}</m>, we describe them as
       three-dimensional 
       vectors <m>\threevec{x}{y}{1}</m>.  As we see in the next
@@ -839,7 +817,7 @@
 	    \end{array}\right]
 	  </me>.
 	  Verify that such a matrix transformation transforms points
-	  in the plane <m>z=1</m> into other points in this plane;
+	  in the plane <m>z=1</m> into points in the same plane;
 	  that is, verify that
 	  <me>
 	    \left[\begin{array}{rrr}
@@ -857,8 +835,8 @@
 
 	<figure xml:id="figure-animation">
           <caption>
-	    The matrix transformation acting on homogeneous
-	    coordinates. 
+	    An interactive diagram that allows us to move the
+	    character using homogeneous coordinates.
 	  </caption>
           <interactive xml:id="interactive-animation"
 		       platform="javascript"
@@ -901,11 +879,36 @@
             <instructions>
               <p>
 		The diagram below allows you to choose
-		parameters <m>a, b, \ldots, f</m> defining a matrix
-		transformation of homogeneous coordinates and observe
-		its affect on our character.
+		parameters <m>a, b, \ldots, f</m> to define the matrix
+		associated to the matrix <m>\begin{bmatrix}
+		a \amp b \amp c \\
+		d \amp e \amp f \\
+		0 \amp 0 \amp 1 \\
+		\end{bmatrix}</m>.
+		The transformation's effect on our character is shown
+		on the right.
 	      </p>
             </instructions>
+	    <static>
+	      <sidebyside width="100%">
+		<p>
+		  This activity uses an interactive diagram that is
+		  available at
+		  <url href="http://gvsu.edu/s/0Jb"
+		       visual="gvsu.edu/s/0Jb"/>.  Using the six
+		  sliders, you may choose the matrix
+		  <m> \begin{bmatrix}
+		  a \amp b \amp c \\
+		  d \amp e \amp f \\
+		  0 \amp 0 \amp 1 \\
+		  \end{bmatrix}</m>
+		  that will move our character in the plane.
+		</p>
+	      </sidebyside>
+	      <sidebyside width="75%">
+		<image source="preview/animation-preview.png"/>
+	      </sidebyside>
+	    </static>
           </interactive>
         </figure>
 
@@ -929,7 +932,7 @@
 
 	<li><p>
 	  As originally drawn, our character is waving with one of their hands.
-	  In one of the movie's scenes, we would like her to wave with their
+	  In one of the movie's scenes, we would like them to wave with their
 	  other hand, as shown in <xref ref="fig-animate-reflect" />.
 	  Find the matrix transformation that moves them into this pose.
 	</p>
@@ -945,7 +948,7 @@
 	</figure>
 	</li>
 
-	<li><p> Later, our chracter performs a cartwheel by moving through the
+	<li><p> Later, our character performs a cartwheel by moving through the
 	sequence of poses shown in <xref ref="fig-animate-rotate" />.
 	Find the matrix transformations that create these poses.
 	</p>
@@ -999,7 +1002,7 @@
 	<li><p> We would also like to create our character's shadow, shown in
 	the sequence of poses in <xref ref="fig-animate-shadow" />.
 	Find the sequence of matrix transformations that achieves
-	this.  In particular, find the matrix transformation that take
+	this.  In particular, find the matrix transformation that takes
 	our character from their original pose to their shadow in the
 	lower right.  
       </p>
@@ -1039,7 +1042,7 @@
 	  0 \amp 0 \amp 1 \\
 	  \end{array}\right]
 	  \threevec{x}{y}{1} =
-	  \threevec{ax+by+c}{dx+ey+f}{1}\text{,}
+	  \cthreevec{ax+by+c}{dx+ey+f}{1}\text{,}
 	</me>
 	which shows that
 	<me>
@@ -1050,7 +1053,7 @@
 	</me>
       </p></li>
 
-      <p><li>
+      <li><p>
 	Notice that the entries <m>c</m> and <m>f</m> are responsible
 	for the translation.  Therefore, we need the matrix
 	transformation defined by
@@ -1060,7 +1063,7 @@
 	0 \amp 0 \amp 1 \\
 	\end{array}\right]
 	</m>.
-      </li></p>
+      </p></li>
 
       <li><p>
 	We would like to reflect in the vertical axis so we use the
@@ -1151,23 +1154,6 @@
 	
 </activity>
 
-    <!--
-    <figure xml:id="fig-animage-dream">
-      <sbsgroup>
-	<sidebyside widths="35% 35%" margins="15%">
-	  <image source="images/animate-dream-a" />
-	  <image source="images/animate-dream-b" />
-	</sidebyside>
-	<sidebyside widths="35% 35%" margins="15%">
-	  <image source="images/animate-dream-c" />
-	  <image source="images/animate-dream-d" />
-	</sidebyside>
-      </sbsgroup>
-      <caption>
-	Dream sequence
-      </caption>
-      </figure>
-      -->
 
   </subsection>
   
@@ -1176,37 +1162,33 @@
       Summary
     </title>
 
-    <p>This section explored how geometric operations, such as
-    rotations, reflections, and scalings, are performed by matrix
+    <p>This section explored how geometric operations
+    are performed by matrix
     transformations.  
 
     <ul>
-      <li><p> A matrix of the form
-      <m>\left[\begin{array}{rr}
-      a \amp 0 \\
-      0 \amp b \\
-      \end{array}\right]
-      </m>
-      represents a horizontal scaling by a factor <m>a</m> and a
-      vertical scaling by <m>b</m>.
+      <li><p>
+	A function <m>T:\real^n\to\real^m</m> is a matrix
+	transformation if and only if these properties are satisfied:
+	<me>
+	  \begin{aligned}
+	  T(c\vvec) \amp = cT(\vvec) \\
+	  T(\vvec+\wvec) \amp = T(\vvec)+T(\wvec). \\
+	  \end{aligned}
+	</me>
       </p></li>
 
-      <li><p> A matrix of the form
-      <m>\left[\begin{array}{rr}
-      \cos\theta \amp -\sin\theta \\
-      \sin\theta \amp \cos\theta \\
-      \end{array}\right]
-      </m>
-      defines a rotation by an angle <m>\theta</m>.
+      <li><p>
+	Geometric operations, such as rotations, reflections, and
+	scalings, can be represented as matrix transformations.
       </p></li>
 
       <li><p> Composing geometric operations corresponds to
       matrix multiplication.</p></li>
 
-      <li><p> Computer animators use matrix transformations to create
-      the illusion of motion.  Homogeneous coordinates are used so
-      that translations can be realized as matrix
-      transformations. </p></li> 
+      <li><p> Computer animators use homogeneous coordinates and
+      matrix transformations to create 
+      the illusion of motion. </p></li>
 
     </ul>
     </p>

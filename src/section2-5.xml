@@ -9,13 +9,15 @@
 
   <introduction>
     <p>
-      The past few sections introduced us to vectors and linear
-      combinations as a means of thinking geometrically about the
-      solutions to a linear system.  Using matrix-vector
-      multiplication, we rewrote a linear system as a
-      matrix equation <m>A\xvec = \bvec</m> and used the concepts of
-      span and linear independence to understand when solutions exist
-      and when they are unique.
+      The past few sections introduced us to matrix-vector
+      multiplication as a means of thinking geometrically about the
+      solutions to a linear system.  In particular, we rewrote a
+      linear system as a matrix equation <m>A\xvec = \bvec</m> and
+      developed the concepts of span and linear independence in
+      response to our
+      <xref ref="fundamental-questions" text="custom">
+	two fundamental questions.
+      </xref>
     </p>
 
     <p>
@@ -56,10 +58,6 @@
 	</figure>
 	</p></li>
 
-	<li><p> Remember that the range of a function is the set of
-	all possible outputs.  What is the range of the function
-	<m>f</m>? </p></li>
-	
 	<li><p>
 	  We will now consider functions having the form
 	  <m>g(x)=mx</m>.  Draw a graph of the function
@@ -77,14 +75,13 @@
 	  </figure>
 	</p></li>
 	
-	<li><p> Draw a graph of the funcion <m>h(x) = -\frac13 x</m>
+	<li><p> Draw a graph of the function <m>h(x) = -\frac13 x</m>
 	on the right of <xref ref="fig-graph-linear" />.  </p></li>
 
 	<li><p> Remember that composing two functions means we use the
 	output from one function as the input into the
-	other.  That is, <m>g\circ h(x) = g(h(x))</m>.  What function
-	results from composing <m>g\circ h(x)</m>?  How is the composite
-	function related to the two functions <m>g</m> and <m>h</m>?
+	other; that is, <m>(g\circ h)(x) = g(h(x))</m>.  What function
+	results from composing <m>(g\circ h)(x)</m>?  
 	</p></li>
       </ol></p>
       </statement>
@@ -103,10 +100,6 @@
 	    <sidebyside width="50%">
 	      <image source="images/ex-graph-x-squared" />
 	    </sidebyside>
-	  </p></li>
-
-	  <li><p> From the graph, we see that the range of <m>f</m> is
-	  the set of all nonnegative real numbers.
 	  </p></li>
 
 	  <li><p> The graph is shown on the left below.
@@ -129,38 +122,123 @@
     </exploration>
   </introduction>
 
-    <subsection>
-      <title> Matrix transformations </title>
+  <subsection>
+    <title> Matrix transformations </title>
 
-      <p> In the preview activity, we considered simple linear
-      functions, such as <m>g(x) = \frac12 x</m> whose graph is the
-      line shown in <xref ref="fig-graph-line" />.  We construct a
-      function like this by choosing a number <m>m</m>;  when given
-      an input
-      <m>x</m>, the output <m>g(x) = mx</m> is formed by multiplying
-      <m>x</m> by <m>m</m>.
-      <figure xml:id="fig-graph-line">
-	<sidebyside width="50%">
-	  <image source="images/graph-line" />
-	</sidebyside>
-	<caption>
-	  The graph of the function <m>g(x) = \frac12 x</m>. 
-	</caption>
-      </figure>
-      </p>
+    <p>
+      In the preview activity, we considered familiar linear
+      functions of a single variable, such as <m>g(x) = 2x</m>.
+      We construct a function like this by choosing a number <m>m</m>;
+      when given an input <m>x</m>, the output <m>g(x) = mx</m> is
+      formed by multiplying <m>x</m> by <m>m</m>.
+    </p>
 
-      <p>
+    <p>
+      In this section, we will consider functions whose inputs are
+      vectors and whose outputs are vectors defined through
+      matrix-vector multiplication.  That is, if
+      <m>A</m> is a matrix and <m>\xvec</m> is a vector, 
+      the function <m>T(\xvec) = A\xvec</m> forms the product
+      <m>A\xvec</m> as its output.  Such a function is called a
+      matrix transformation.  
+    </p>
+
+    <definition>
+      <statement>
 	<idx> matrix transformation </idx>
-	In this section, we will consider functions defined through
-	matrix-vector multiplication.  That is, we will
-	choose a matrix <m>A</m>; when given an input <m>\xvec</m>,
-	the function <m>T(\xvec) = A\xvec</m> forms the product
-	<m>A\xvec</m> as its output.  Such a function is called a
-	<em>matrix transformation</em>.  
-      </p>
+	<p>
+	  The <term> matrix transformation</term> associated to the
+	  matrix <m>A</m> is the function that assigns to the vector
+	  <m>\xvec</m> the vector <m>A\xvec</m>; that is,
+	  <m>T(\xvec) = A\xvec</m>.
+	</p>
+      </statement>
+    </definition>
 
-      <activity>
-	<statement>
+    <example xml:id="example-matrix-to-mt">
+      <statement>
+	<p>
+	  The matrix
+	  <m>A =
+	  \begin{bmatrix} 3 \amp -2 \\
+	  1 \amp 2 \\
+	  0 \amp 3
+	  \end{bmatrix}
+	  </m>
+	  defines a matrix transformation <m>T(\xvec) =
+	  A\xvec</m> in the following way:
+	  <me>
+	    T\left(\twovec{x_1}{x_2}\right) =
+	    \begin{bmatrix} 3 \amp -2 \\
+	    1 \amp 2 \\
+	    0 \amp 3
+	    \end{bmatrix}
+	    \twovec{x_1}{x_2} = 
+	    \cthreevec{3x_1 - 2x_2}{x_1 + 2x_2}{3x_2}.
+	  </me>
+	</p>
+	<p>
+	  Notice that the input to <m>T</m> is a two-dimensional
+	  vector <m>\twovec{x_1}{x_2}</m> and the output is a
+	  three-dimensional vector <m>\cthreevec{3x_1 - 2x_2}{x_1 +
+	  2x_2}{3x_2}</m>.  As a shorthand, we will write
+	  <me>
+	    T:\real^2\to\real^3
+	  </me>
+	  to indicate that the inputs are two-dimensional vectors
+	  and the outputs are three-dimensional vectors.
+	</p>
+      </statement>
+    </example>
+
+    <example xml:id="example-mt-to-matrix">
+      <statement>
+	<p>
+	  Suppose we have a function <m>T:\real^3\to\real^2</m> that
+	  has the form
+	  <me>
+	    T\left(\threevec{x_1}{x_2}{x_3}\right) =
+	    \begin{bmatrix}
+	    -4x_1 -x_2 + 2x_3 \\
+	    x_1 + 2x_2 - x_3 \\
+	    \end{bmatrix}.
+	  </me>
+	  We may write
+	  <me>
+	    \begin{aligned}
+	    T\left(\threevec{x_1}{x_2}{x_3}\right) 
+	    \amp {}={}
+	    \begin{bmatrix}
+	    -4x_1 -x_2 + 2x_3 \\
+	    x_1 + 2x_2 - x_3 \\
+	    \end{bmatrix} \\
+	    \amp {}={} 
+	    \twovec{-4x_1}{x_1} + \twovec{-x_2}{2x_2} +
+	    \twovec{2x_3}{-x_3}  \\
+	    \amp {}={}
+	    x_1\twovec{-4}1 + x_2\twovec{-1}2 + x_3\twovec2{-1}  \\
+	    \amp{}={}
+	    \begin{bmatrix}
+	    -4 \amp -1 \amp 2 \\
+	    1 \amp 2 \amp -1 \\
+	    \end{bmatrix}
+	    \threevec{x_1}{x_2}{x_3}.
+	    \end{aligned}
+	  </me>
+	  This shows that <m>T</m> is a matrix transformation
+	  <m>T(\xvec) = A\xvec</m> associated to the matrix
+	  <m>A = 
+	  \begin{bmatrix}
+	  -4 \amp -1 \amp 2 \\
+	  1 \amp 2 \amp -1 \\
+	  \end{bmatrix}.
+	  </m>
+	</p>
+      </statement>
+    </example>
+
+    <activity>
+      <statement>
 	<p> In this activity, we will look at some examples of matrix
 	transformations. 
 	<ol marker="a."> 
@@ -169,539 +247,856 @@
 	    <me>A = \left[\begin{array}{rr}
 	    2 \amp 1 \\
 	    1 \amp 2 \\
-	    \end{array}\right]
-	    </me>.
-	    We define the matrix transformation <m>T(\xvec) =
-	    A\xvec</m> so that 
-	    <me>
-	      T\left(\twovec{-2}{3}\right) =
-	      A\twovec{-2}{3} =
-	      \left[\begin{array}{rr}
-	      2 \amp 1 \\
-	      1 \amp 2 \\
-	      \end{array}\right]
-	      \twovec{-2}{3} =
-	      \twovec{-1}{4}
-	    </me>.
-	    The function <m>T</m> takes the vector
-	    <m>\twovec{-2}{3}</m> as 
-	    an input and gives us <m>\twovec{-1}{4}</m> as the
-	    output.
-	    </p>
+	    \end{array}\right].
+	    </me>
+	    with associated matrix transformation <m>T(\xvec) =
+	    A\xvec</m>.
 
-	    <p> <ol marker="i.">
-	      <li><p>What is <m>T\left(\twovec{1}{-2}\right)</m>?</p></li>
+	    <ol marker="1.">
+	      <li><p>What is
+	      <m>T\left(\twovec{1}{-2}\right)</m>?</p></li> 
 
-	      <li><p>What is <m>T\left(\twovec{1}{0}\right)</m>?</p></li>
+	      <li><p>What is
+	      <m>T\left(\twovec{1}{0}\right)</m>?</p></li> 
 
 	      <li><p>What is
 	      <m>T\left(\twovec{0}{1}\right)</m>?</p></li>
 
 	      <li><p> Is there a vector <m>\xvec</m> such that
 	      <m>T(\xvec) = \twovec{3}{0}</m>? </p></li>
-	    </ol></p>
-	    </li>
 
-	    <li> <p> Suppose that <m>T(\xvec) = A\xvec</m> where
-	    <me>
-	      A=\left[\begin{array}{rrrr}
-	      3 \amp 3 \amp -2 \amp 1 \\
-	      0 \amp 2 \amp 1 \amp -3 \\
-	      -2 \amp 1 \amp 4 \amp -4
-	      \end{array}\right]
+	      <li><p>
+		Write <m>T\left(\twovec xy\right)</m> as a
+		two-dimensional vector.
+	      </p>
+	      </li>
+	    </ol></p>
+	  </li>
+
+	  <li> <p> Suppose that <m>T(\xvec) = A\xvec</m> where
+	  <me>
+	    A=\left[\begin{array}{rrrr}
+	    3 \amp 3 \amp -2 \amp 1 \\
+	    0 \amp 2 \amp 1 \amp -3 \\
+	    -2 \amp 1 \amp 4 \amp -4
+	    \end{array}\right]
 	    </me>.
-	    <ol marker="i.">  
+	    <ol marker="1.">  
 	      <li><p> What is the dimension of the vectors
 	      <m>\xvec</m> that are inputs for <m>T</m>?  </p></li>
 
 	      <li><p> What is the dimension of the vectors
 	      <m>T(\xvec)=A\xvec</m> that are outputs? </p></li>
 
+	      <li><p> If we describe this transformation as
+	      <m>T:\real^n\to\real^m</m>, what are the values of
+	      <m>n</m> and <m>m</m> and how do they relate to the
+	      shape of <m>A</m>? </p></li>
+
 	      <li><p> Describe the vectors <m>\xvec</m> for which
 	      <m>T(\xvec) = \zerovec</m>. </p></li>
-	    </ol></p></li>
+	  </ol></p></li>
 
-	    <li><p> If <m>A</m> is the matrix
-	    <m>A=\left[\begin{array}{rr} \vvec_1 \amp \vvec_2
-	    \end{array}\right]</m>,
-	    what is <m>T\left(\twovec{0}{1}\right)</m> in terms of the
-	    vectors <m>\vvec_1</m> and <m>\vvec_2</m>?</p></li>
+	  <li><p> If <m>A</m> is the matrix
+	  <m>A=\left[\begin{array}{rr} \vvec_1 \amp \vvec_2
+	  \end{array}\right]</m>,
+	  what is <m>T\left(\twovec10\right)</m> in terms of the
+	  vectors <m>\vvec_1</m> and <m>\vvec_2</m>?
+	  What about
+	  <m>T\left(\twovec{0}{1}\right)</m>?
+	  </p></li>
 
-	    <li><p> Suppose that <m>A</m> is a <m>3\times 2</m> matrix
-	    and that <m>T(\xvec)=A\xvec</m>.  If
-	    <me>
-	      T\left(\twovec{1}{0}\right) = \threevec{3}{-1}{1},
-	      T\left(\twovec{0}{1}\right) = \threevec{2}{2}{-1}
+	  <li><p> Suppose that <m>A</m> is a <m>3\times 2</m> matrix
+	  and that <m>T(\xvec)=A\xvec</m>.  If
+	  <me>
+	    T\left(\twovec{1}{0}\right) = \threevec{3}{-1}{1},
+	    T\left(\twovec{0}{1}\right) = \threevec{2}{2}{-1}
 	    </me>,
 	    what is the matrix <m>A</m>?
-	    </p></li>
+	  </p></li>
 
 	</ol></p>
-	</statement>
+      </statement>
 
-	<solution>
-	  <p><ol marker="a.">
-	    <li><p> If <m>A = \left[\begin{array}{rr} 2 \amp 1 \\
-	    1 \amp 2 \end{array}\right]</m>, then
-	    <ol marker="i.">
-	      <li><p> <m>T\left(\twovec{1}{-2}\right) =
-	      A\twovec{1}{-2} = \twovec{0}{-3}</m>.
-	      </p></li>
-
-	      <li><p> <m>T\left(\twovec{1}{0}\right) =
-	      A\twovec{1}{0} = \twovec{2}{1}</m>.
-	      </p></li>
-
-	      <li><p> <m>T\left(\twovec{0}{1}\right) =
-	      A\twovec{0}{1} = \twovec{1}{2}</m>.
-	      </p></li>
-
-	      <li><p> We seek a vector <m>\xvec</m> such that
-	      <m>T(\xvec) = A\xvec=\twovec{3}{0}</m>.  We can solve
-	      this equation to find the unique solution
-	      <m>\xvec=\twovec{2}{-1}</m>.
-	      </p></li>
-	    </ol>
+      <solution>
+	<p><ol marker="a.">
+	  <li><p> If <m>A = \left[\begin{array}{rr} 2 \amp 1 \\
+	  1 \amp 2 \end{array}\right]</m>, then
+	  <ol marker="1.">
+	    <li><p> <m>T\left(\twovec{1}{-2}\right) =
+	    A\twovec{1}{-2} = \twovec{0}{-3}</m>.
 	    </p></li>
 
-	    <li><p> Now if
-	    <me>
-	      A=\left[\begin{array}{rrrr}
-	      3 \amp 3 \amp -2 \amp 1 \\
-	      0 \amp 2 \amp 1 \amp -3 \\
-	      -2 \amp 1 \amp 4 \amp -4
-	      \end{array}\right]\text{,}
-	    </me>
-	    the matrix has dimensions <m>3\times4</m>.
-	    <ol marker="i.">
-	      <li><p> <m>\xvec</m> must be a four-dimensional
-	      vector. </p></li>
-
-	      <li><p> <m>A\xvec</m> must be a three-dimensional
-	      vector. </p></li>
-
-	      <li><p> If we solve the homogeneous equation
-	      <m>A\xvec=\zerovec</m>, we find that
-	      <m>\xvec=x_4\fourvec{-3}{2}{-1}{1}</m>.
-	      </p></li>
-	    </ol>
+	    <li><p> <m>T\left(\twovec{1}{0}\right) =
+	    A\twovec{1}{0} = \twovec{2}{1}</m>.
 	    </p></li>
 
-	    <li><p> <m>T\left(\twovec{0}{1}\right) = \vvec_2</m>,
-	    the second column of the matrix.  Similarly,
-	    <m>T\left(\twovec{1}{0}\right)</m> gives the first column
-	    of the matrix.
+	    <li><p> <m>T\left(\twovec{0}{1}\right) =
+	    A\twovec{0}{1} = \twovec{1}{2}</m>.
 	    </p></li>
 
-	    <li><p> The matrix is
-	    <m>A=\left[
-	    \begin{array}{rr}
-	    3 \amp 2 \\
-	    -1 \amp 2 \\
-	    1 \amp -1 \\
-	    \end{array}\right]\text{.}
-	    </m>
+	    <li><p> <m>T\left(\twovec xy\right) =
+	    \twovec{2x+y}{x+2y}</m>.
 	    </p></li>
-	  </ol></p>
-	</solution>
-	      
-      </activity>
 
-      <p>
-	Let's discuss a few of the issues that appear in this
-	activity.  First, if <m>A</m> is an <m>m\times n</m> matrix,
-	we can form the matrix product <m>A\xvec</m> when <m>\xvec</m>
-	is an <m>n</m>-dimensional vector in <m>\real^n</m>.  The
-	resulting product <m>A\xvec</m> is an <m>m</m>-dimensional
-	vector in <m>\real^m</m>.  If
-	<m>T(\xvec) = A\xvec</m>, we therefore write
-	<m>T:\real^n\to\real^m</m> meaning <m>T</m> takes vectors in
-	<m>\real^n</m> as inputs and produces vectors in
-	<m>\real^m</m> as outputs.  For instance, if
-	<me>
-	  A=\left[\begin{array}{rrrr}
-	  4 \amp 0 \amp -3 \amp 2 \\
-	  0 \amp 1 \amp 3 \amp 1 \\
-	  \end{array}\right]
+	    <li><p> We seek a vector <m>\xvec</m> such that
+	    <m>T(\xvec) = A\xvec=\twovec{3}{0}</m>.  We can solve
+	    this equation to find the unique solution
+	    <m>\xvec=\twovec{2}{-1}</m>.
+	    </p></li>
+	  </ol>
+	  </p></li>
+
+	  <li><p> Now if
+	  <me>
+	    A=\left[\begin{array}{rrrr}
+	    3 \amp 3 \amp -2 \amp 1 \\
+	    0 \amp 2 \amp 1 \amp -3 \\
+	    -2 \amp 1 \amp 4 \amp -4
+	    \end{array}\right]\text{,}
+	  </me>
+	  the matrix has dimensions <m>3\times4</m>.
+	  <ol marker="1.">
+	    <li><p> <m>\xvec</m> must be a four-dimensional
+	    vector. </p></li>
+
+	    <li><p> <m>A\xvec</m> must be a three-dimensional
+	    vector. </p></li>
+
+	    <li><p> For this matrix, we have
+	    <m>T:\real^4\to\real^3</m>.  In general, if <m>A</m>
+	    is an <m>m\times n</m> matrix,
+	    <m>T:\real^n\to\real^m</m>.
+	    </p></li>
+
+	    <li><p> If we solve the homogeneous equation
+	    <m>A\xvec=\zerovec</m>, we find that
+	    <m>\xvec=x_4\fourvec{-3}{2}{-1}{1}</m>.
+	    </p></li>
+	  </ol>
+	  </p></li>
+
+	  <li><p> <m>T\left(\twovec{1}{0}\right) = \vvec_1</m>, the
+	  first column of the matrix.  Similarly,
+	  <m>T\left(\twovec{0}{1}\right)</m> gives the second column
+	  of the matrix.  </p></li>
+
+	  <li><p> The matrix is
+	  <m>A=\left[
+	  \begin{array}{rr}
+	  3 \amp 2 \\
+	  -1 \amp 2 \\
+	  1 \amp -1 \\
+	  \end{array}\right]\text{.}
+	  </m>
+	  </p></li>
+	</ol></p>
+      </solution>
+      
+    </activity>
+
+    <p>
+      Let's discuss a few of the issues that appear in this
+      activity.  First, notice that the shape of the matrix <m>A</m>
+      and the dimension of the input vector <m>\xvec</m> must be
+      compatible if the product <m>A\xvec</m> is to be defined.  In
+      particular, if <m>A</m> is an <m>m\times n</m> matrix,
+      <m>\xvec</m> needs to be an <m>n</m>-dimensional vector, and
+      the resulting product <m>A\xvec</m> will be an
+      <m>m</m>-dimensional vector.  For the associated matrix
+      transformation, we
+      therefore write <m>T:\real^n\to\real^m</m> meaning <m>T</m>
+      takes vectors in <m>\real^n</m> as inputs and produces vectors
+      in <m>\real^m</m> as outputs.  For instance, if
+      <me>
+	A=\left[\begin{array}{rrrr}
+	4 \amp 0 \amp -3 \amp 2 \\
+	0 \amp 1 \amp 3 \amp 1 \\
+	\end{array}\right]
 	</me>,
 	then <m>T:\real^4\to\real^2</m>.
-      </p>
+    </p>
 
-      <p>
-	If we know the matrix <m>A</m>, then we can form the matrix
-	transformation <m>T(\xvec) = A\xvec</m>.  However, if we only
-	know the values of the matrix transformation <m>T</m>, we
-	can reconstruct the matrix <m>A</m>.  The key is to remember
-	that matrix-vector multiplication constructs a linear
-	combination.  For instance, if <m>A</m> is a
-	<m>m\times2</m> matrix <m>A=\left[\begin{array}{rr} \vvec_1
-	\amp \vvec_2 \end{array}\right]</m>, then
-	<me>
-	  T\left(\twovec{1}{0}\right) =
-	  \left[\begin{array}{rr}
-	  \vvec_1 \amp \vvec_2
-	  \end{array}\right]\twovec{1}{0} = 1\vvec_1 + 0\vvec_2 =
-	  \vvec_1
+    <p>
+      Second, we can often reconstruct the matrix <m>A</m> if we
+      only know some output values from its associated linear
+      transformation <m>T</m> by remembering that matrix-vector
+      multiplication constructs linear combinations.
+      For instance, if <m>A</m> is an
+      <m>m\times2</m> matrix <m>A=\left[\begin{array}{rr} \vvec_1
+      \amp \vvec_2 \end{array}\right]</m>, then
+      <me>
+	T\left(\twovec{1}{0}\right) =
+	\left[\begin{array}{rr}
+	\vvec_1 \amp \vvec_2
+	\end{array}\right]\twovec{1}{0} = 1\vvec_1 + 0\vvec_2 =
+	\vvec_1
 	</me>.
-	  That is, we can find the first column of <m>A</m> by
-	  evaluating <m>T\left(\twovec{1}{0}\right)</m>.  Similarly,
-	  the second column of <m>A</m> is found by evaluating
-	  <m>T\left(\twovec{0}{1}\right)</m>. 
-      </p>
+	That is, we can find the first column of <m>A</m> by
+	evaluating <m>T\left(\twovec{1}{0}\right)</m>.  Similarly,
+	the second column of <m>A</m> is found by evaluating
+	<m>T\left(\twovec{0}{1}\right)</m>. 
+    </p>
 
-      <p>
-	More generally, we will write
-	<me>
-	  \evec_1 = \left[\begin{array}{r}
-	  1 \\ 0 \\ \vdots \\ 0 \end{array}\right],
-	  \evec_2 = \left[\begin{array}{r}
-	  0 \\ 1 \\ \vdots \\ 0 \end{array}\right],
-	  \ldots,
-	  \evec_n = \left[\begin{array}{r}
-	  0 \\ 0 \\ \vdots \\ 1 \end{array}\right]
-	</me>
-	so that
-	<me>
-	  T(\evec_j) = \left[\begin{array}{rrrr}
-	  \vvec_1 \amp \vvec_2 \amp \ldots \amp \vvec_n
-	  \end{array}\right]
-	  \evec_j = \vvec_j
+    <p>
+      More generally, we will write the columns of the <m>n\times
+      n</m> identity matrix as
+      <me>
+	\evec_1 = \left[\begin{array}{c}
+	1 \\ 0 \\ \vdots \\ 0 \end{array}\right],~~~
+	\evec_2 = \left[\begin{array}{c}
+	0 \\ 1 \\ \vdots \\ 0 \end{array}\right],~~~
+	\ldots,~~~
+	\evec_n = \left[\begin{array}{c}
+	0 \\ 0 \\ \vdots \\ 1 \end{array}\right]
+      </me>
+      so that
+      <me>
+	T(\evec_j) = \left[\begin{array}{rrrr}
+	\vvec_1 \amp \vvec_2 \amp \ldots \amp \vvec_n
+	\end{array}\right]
+	~\evec_j = \vvec_j
 	</me>.
 	This means that the <m>j^{th}</m> column of <m>A</m> is found
 	by evaluating <m>T(\evec_j)</m>.  We record this fact in the
 	following proposition.
-      </p>
+    </p>
 
-      <proposition xml:id="prop-linear-trans-columns">
-	<statement>
-	  <p> If <m>T:\real^n\to\real^m</m> is a matrix
-	  transformation given by <m>T(\xvec) = A\xvec</m>,
-	  then the matrix <m>A</m> has columns <m>T(\evec_j)</m>;
-	  that is,
-	  <me>
-	    A = \left[\begin{array}{rrrr}
-	    T(\evec_1) \amp T(\evec_2) \amp \ldots \amp T(\evec_n)
-	    \end{array}\right]
+    <proposition xml:id="prop-linear-trans-columns">
+      <statement>
+	<p> If <m>T:\real^n\to\real^m</m> is a matrix
+	transformation given by <m>T(\xvec) = A\xvec</m>,
+	then the matrix <m>A</m> has columns <m>T(\evec_j)</m>;
+	that is,
+	<me>
+	  A = \left[\begin{array}{rrrr}
+	  T(\evec_1) \amp T(\evec_2) \amp \cdots \amp T(\evec_n)
+	  \end{array}\right]
 	  </me>.
-	  </p>
-	</statement>
-      </proposition>
+	</p>
+      </statement>
+    </proposition>
 
-      <p> We will look at some examples of matrix transformations in
-      the following activity.</p>
+    <activity xml:id="activity-mt-intro">
+      <statement>
+	<p>
+	  Let's look at some examples and apply these observations.
+	  <ol marker="a.">
+	    <li>
+	      <p>
+		To begin, suppose that <m>T</m> is the matrix
+		transformation that takes a two-dimensional vector
+		<m>\xvec</m> as an input and outputs
+		<m>T(\xvec)</m>, the two-dimensional vector
+		obtained by rotating <m>\xvec</m> counterclockwise by
+		<m>90^\circ</m>, as shown in <xref
+		ref="fig-mt-rotate"/>.
+	      </p>
+	      <figure xml:id="fig-mt-rotate">
+		<caption>
+		  The matrix transformation <m>T</m> takes
+		  two-dimensional vectors on the left and rotates
+		  them by <m>90^\circ</m> counterclockwise into the
+		  vectors on the right.
+		</caption>
+		<sidebyside widths="45% 45%" margins="2% 2%">
+		  <image source = "images/two-dim-basis"/>
+		  <image source = "images/two-dim-basis-rotate"/>
+		</sidebyside>
+	      </figure>
+	      <p>
+		We will see in the next section that many geometric
+		operations like this one can be performed by matrix
+		transformations. 
+		<ol marker="1.">
+		  <li>
+		    <p>
+		      If we write <m>T:\real^n\to\real^m</m>, what are the
+		      values of <m>m</m> and <m>n</m>, and what is the 
+		      shape of the associated matrix <m>A</m>?
+		    </p>
+		  </li>
+		  <li>
+		    <p>
+		      Determine the matrix <m>A</m> 
+		      by applying <xref ref="prop-linear-trans-columns"/>.
+		    </p>
+		  </li>
+		  <li>
+		    <p>
+		      If <m>\vvec=\twovec{-2}{-1}</m> as shown on the left
+		      in <xref ref="fig-mt-rotate"/>, use your matrix to
+		      determine <m>T(\vvec)</m> and verify that it agrees
+		      with that shown on the right of <xref
+		      ref="fig-mt-rotate"/>.
+		    </p>
+		  </li>
+		  <li>
+		    <p>
+		      If <m>\xvec=\twovec xy</m>, determine the vector
+		      <m>T(\xvec)</m> obtained by rotating <m>\xvec</m>
+		      counterclockwise by <m>90^\circ</m>.
+		    </p>
+		  </li>
+		</ol>
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		Suppose that we work for a company that makes baked
+		goods, including cakes, doughnuts, and eclairs.  The
+		company operates two bakeries, Bakery 1 and Bakery
+		2.  In one hour of operation,
+		<ul>
+		  <li><p> Bakery 1 produces 10 cakes, 50 doughnuts,
+		  and 30 eclairs. </p></li>
+		  
+		  <li><p> Bakery 2 produces 20 cakes, 30 doughnuts,
+		  and 30 eclairs. </p></li>
+		</ul>
+		If Bakery 1 operates for <m>x_1</m> hours and
+		Bakery 2 for <m>x_2</m> hours, we will use the
+		vector <m>\xvec=\twovec{x_1}{x_2}</m> to describe
+		the operation of the two bakeries.
+	      </p>
+	      <p>
+		We would like to describe a matrix transformation
+		<m>T</m> where <m>\xvec</m> describes the number of
+		hours the bakeries operate and <m>T(\xvec)</m>
+		describes the total number of cakes, doughnuts, and
+		eclairs produced.  That is,
+		<m>T(\xvec) = \threevec{y_1}{y_2}{y_3}</m> where
+		<m>y_1</m> is the number of cakes, <m>y_2</m> is the
+		number of doughnuts, and <m>y_3</m> is the number of
+		eclairs produced.
+		<ol marker="1.">
+		  <li>
+		    <p>
+		      If <m>T:\real^n\to\real^m</m>, what are the
+		      values of <m>m</m> and <m>n</m>, and what is
+		      the shape of the associated matrix <m>A</m>?
+		    </p>
+		  </li>
+		  <li>
+		    <p>
+		      We can determine the matrix <m>A</m> using 
+		      <xref ref="prop-linear-trans-columns"/>.  For
+		      instance, <m>T\left(\twovec10\right)</m> will
+		      describe the number of cakes, doughnuts, and
+		      eclairs produced when Bakery 1 operates for
+		      one hour and Bakery 2 sits idle.  What is this
+		      vector?
+		    </p>
+		  </li>
+		  <li>
+		    <p>
+		      In the same way, determine
+		      <m>T\left(\twovec01\right)</m>.  What is the
+		      matrix <m>A</m>?
+		    </p>
+		  </li>
+		  <li>
+		    <p>
+		      If Bakery 1 operates for 120 hours and Bakery
+		      2 for 180 hours, what is the total number of
+		      cakes, doughnuts, and eclairs produced?
+		      <sage>
+			<input>
+			</input>
+		      </sage>
+		    </p>
+		  </li>
+		  <li>
+		    <p>
+		      Suppose that in one period of time, the
+		      company produces 5060 cakes, 14310 doughnuts,
+		      and 10470 eclairs.  How long did each bakery
+		      operate? 
+		    </p>
+		  </li>
+		  <li>
+		    <p>
+		      Suppose that the company receives an order for
+		      a certain number of cakes, doughnuts, and
+		      eclairs.  Can you guarantee that you can fill
+		      the order without having leftovers?
+		    </p>
+		  </li>
+		</ol>
+	      </p>
+	    </li>
+	  </ol>
+	</p>
+      </statement>
+      <solution>
+	<p>
+	  <ol marker="a.">
+	    <li>
+	      <p>
+		<ol marker="1.">
+		  <li>
+		    <p>
+		      Since both the inputs and the outputs of
+		      <m>T</m> are two-dimensional, it follows that
+		      <m>T:\real^2\to\real^2</m> and that <m>A</m>
+		      is a <m>2\times2</m> matrix.
+		    </p>
+		  </li>
+		  <li>
+		    <p>
+		      Since
+		      <me>
+			T\left(\twovec10\right) = \twovec01,~~~
+			T\left(\twovec01\right) = \twovec{-1}0,
+		      </me>
+		      we have <m>A=\begin{bmatrix}
+		      0 \amp -1 \\
+		      1 \amp 0 \\
+		      \end{bmatrix}</m>.
+		    </p>
+		  </li>
+		  <li>
+		    <p>
+		      Multiplying <m>T(\vvec) = A\vvec =
+		      \twovec{1}{-2}</m>, 
+		      which agrees with the vector shown in the
+		      figure.
+		    </p>
+		  </li>
+		  <li>
+		    <p>
+		      <m>T\left(\twovec xy\right) =
+		      \twovec{-y}{x}</m>.
+		    </p>
+		  </li>
+		</ol>
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		<ol marker="1.">
+		  <li>
+		    <p>
+		      The shape of matrix <m>A</m> is <m>3\times
+		      2</m>, and <m>T:\real^2\to\real^3</m>.
+		    </p>
+		  </li>
+		  <li>
+		    <p>
+		      <m>T\left(\twovec10\right) =
+		      \threevec{10}{50}{30}</m>.
+		    </p>
+		  </li>
+		  <li>
+		    <p>
+		      <m>A = \begin{bmatrix}
+		      10 \amp 20 \\
+		      50 \amp 30 \\
+		      30 \amp 30 \\
+		      \end{bmatrix}
+		      </m>.
+		    </p>
+		  </li>
+		  <li>
+		    <p>
+		      <m>T\left(\twovec{120}{180}\right) =
+		      \threevec{4800}{11400}{9000}</m>.
+		    </p>
+		  </li>
+		  <li>
+		    <p>
+		      We solve the equation <m>T(\xvec) = A\xvec =
+		      \threevec{5060}{14310}{10470}</m> to obtain
+		      <m>\xvec = \twovec{192}{157}.
+		      </m>
+		    </p>
+		  </li>
+		  <li>
+		    <p>
+		      No, you cannot guarantee this because the two
+		      columns of <m>A</m> cannot span
+		      <m>\real^3</m>.  If we view an 
+		      order received as a three-dimensional vector
+		      <m>\bvec</m>, then a solution to the equation
+		      <m>A\xvec = \bvec</m> tells us how long to
+		      operate the two bakeries to produce this
+		      order.  However, since <m>A</m> is a
+		      <m>3\times 2</m> matrix, it must have a row
+		      without a pivot position, which means that
+		      the equation <m>A\xvec = \bvec</m> will be
+		      inconsistent for some vectors <m>\bvec</m>.
+		    </p>
+		  </li>
+		</ol>
+	      </p>
+	    </li>
+	  </ol>
+	</p>
+      </solution>
+    </activity>
 
-      <activity>
-	<statement>
-	<p> Suppose that we work for a company that produces baked
-	goods, including cakes, donuts, and eclairs.  Our company
-	operates two plants, Plant 1 and Plant 2.  In
-	one hour of operation,
-	<ul>
-	  <li><p> Plant 1 produces 10 cakes, 50
-	  donuts, and 30 eclairs. </p></li>
+    <p>
+      In these examples, we glided over an important point: how do we
+      know these functions <m>T:\real^n\to\real^m</m> can be expressed
+      as matrix transformations?  We will take up this question in
+      detail in the next section and not worry about it for now.
+    </p>
 
-	  <li><p> Plant 2 produces 20 cakes, 30 donuts, and
-	  30 eclairs. </p></li>
-	</ul>
+  </subsection>
 
-	<ol marker="a.">
-	  <li><p> If plant 1 operates for <m>x_1</m> hours and Plant 2
-	  for <m>x_2</m> hours, how many cakes
-	  <m>C</m> does the company produce?  How many donuts
-	  <m>D</m>?  How many eclairs <m>E</m>?  </p></li>
+  <subsection>
+    <title> Composing matrix transformations </title>
 
-	  <p> We combine the number of hours the two plants operate
-	  into a vector
-	  <m>\xvec=\twovec{x_1}{x_2}</m>.  Likewise, we use a vector
-	  <m>\threevec{C}{D}{E}</m> to denote the number 
-	  of cakes <m>C</m>, donuts <m>D</m>, and eclairs <m>E</m> our
-	  company produces. 
-	  </p>
+    <p>
+      It sometimes happens that we want to combine matrix
+      transformations by performing one and then another.  In the last
+      activity, for instance, we considered the matrix transformation
+      where <m>T(\xvec)</m> is the result of rotating the
+      two-dimensional vector <m>\xvec</m> by <m>90^\circ</m>. 
+      Now suppose we are interested in rotating that vector twice;  that is,
+      we take a vector <m>\xvec</m>, rotate it by <m>90^\circ</m> to
+      obtain <m>T(\xvec)</m>, and then rotate the result by
+      <m>90^\circ</m> again to obtain <m>T(T(\xvec))</m>.
+    </p>
 
-	  <li><p> We define a matrix transformation <m>T(\xvec) =
-	  \threevec{C}{D}{E}</m> where <m>\threevec{C}{D}{E}</m>
-	  represents the number of baked goods produced when the
-	  plants are operated for times
-	  <m>\xvec=\twovec{x_1}{x_2}</m>.  If <m>T(\xvec) 
-	  = A\xvec</m>, what are the dimensions of the matrix
-	  <m>A</m>? </p></li>
-
-	  <li><p> Find the vector
-	  <m>T\left(\twovec{1}{0}\right)</m> and the vector 
-	  <m>T\left(\twovec{0}{1}\right)</m> and use your results to
-	  write the matrix <m>A</m>.  </p></li>
-
-	  <li><p> If we operate Plant 1 for 40 hours and Plant 2 for
-	  50 hours, how many baked goods have we produced? </p></li>
-
-	  <li><p> Suppose the marketing department says we need to
-	  produce 1500 cakes, 4700 donuts, and 3300 eclairs.
-	  Is it possible to meet this order?  If so, how long should
-	  the two plants operate? </p></li>
-
-	  <li><p> Let's now consider the needed ingredients:
-	  <ul>
-	    <li><p> Each cake requires 4 units of flour and
-	    and 2 units of sugar. </p></li>
-
-	    <li><p> Each donut requires 1 unit of flour and 1 unit of
-	    sugar. </p></li>
-
-	    <li><p> Each eclair requires 1 units of flour and 2 units
-	    of sugar. </p></li>
-	  </ul></p>
-
-	  <p> Suppose we make <m>C</m> cakes, <m>D</m> donuts, and
-	  <m>E</m> eclairs.  How many units of flour <m>F</m> are
-	  required? How many units of sugar <m>S</m>? </p></li>
-
-	  <li><p> Write a matrix <m>B</m> that defines the matrix
-	  transformation <m>R\left(\threevec{C}{D}{E}\right) =
-	  \twovec{F}{S}</m>. </p></li>
-
-	  <li><p> If Plant 1 operates for 30 hours and Plant 2
-	  operates for 20 
-	  hours, how many units of flour and sugar are required?
-	  </p></li>
-
-	  <li><p> We can consider the matrix transformation
-	  <m>P(\xvec) = \twovec{F}{S}</m> that tells us how many units
-	  of flour and sugar are required when we operate the plants for
-	  <m>x_1</m> and <m>x_2</m> hours.  Find the matrix that
-	  defines the transformation <m>P</m>. </p></li>
-	    
-	</ol></p>
-	</statement>
-
-	<solution>
-	  <p><ol marker="a.">
-	    <li><p> We have
-	    <me>
-	      \begin{alignedat}{3}
-	      C \amp {}={} \amp 10x_1 \amp {}+{} 20x_2 \\
-	      D \amp {}={} \amp 50x_1 \amp {}+{} 30x_2 \\
-	      E \amp {}={} \amp 30x_1 \amp {}+{} 30x_2\text{.} \\
-	      \end{alignedat}
-	    </me>
-	    </p></li>
-
-	    <li><p> Since the matrix transformation <m>T</m> accepts
-	    two-dimensional vectors as inputs and produces
-	    three-dimensional vectors as outputs, the dimensions of
-	    <m>A</m> are <m>3\times2</m>.
-	    </p></li>
-
-	    <li><p>
-	      <m>T\left(\twovec{1}{0}\right) =
-	      \threevec{10}{50}{30}</m> and 
-	      <m>T\left(\twovec{0}{1}\right) =
-	      \threevec{20}{30}{30}</m>.  This shows that
-	      <m>A=\left[\begin{array}{rr}
-	      10 \amp 20 \\
-	      50 \amp 30 \\
-	      30 \amp 30 \\
-	      \end{array}\right]\text{.}
-	      </m>
-	    </p></li>
-
-	    <li><p>
-	      <m>T\left(\twovec{40}{50}\right) = A\twovec{40}{50} =
-	      \threevec{1400}{3500}{2700}</m>.
-	    </p></li>
-
-	    <li><p> We solve the equation <m>T(\xvec) = A\xvec =
-	    \threevec{1500}{4700}{3300}</m> to find
-	    <m>\xvec=\twovec{70}{40}</m>.
-	    </p></li>
-
-	    <li><p>
-	      We have
-	      <me>
-		\begin{alignedat}{4}
-		F \amp {}={} \amp 4C \amp {}+{} \amp D \amp {}+{} \amp
-		E \\
-		S \amp {}={} \amp 2C \amp {}+{} \amp D \amp {}+{} \amp
-		2E\text{.} \\
-		\end{alignedat}
-	      </me>
-	    </p></li>
-
-	    <li><p>
-	      As before, we have <m>B=\left[\begin{array}{rrr}
-	      4 \amp 1 \amp 1 \\
-	      2 \amp 1 \amp 2 \\
-	      \end{array}\right]</m>.
-	    </p></li>
-
-	    <li><p> We begin with <m>\xvec=\twovec{30}{20}</m> so that
-	    <m>\threevec{C}{D}{E} = T(\xvec)=A\xvec</m>.  Then the
-	    amount of ingredients required is <m>R(T(\xvec)) =
-	    BA\xvec</m>.  We find that <m>BA\xvec =
-	    \twovec{6400}{6500}</m>.
-	    </p></li>
-
-	    <li><p>
-	      The matrix defining <m>P</m> is
-	      <m>BA =
-	      \left[\begin{array}{rr}
-	      120 \amp 140 \\
-	      130 \amp 130 \\
-	      \end{array}\right]\text{.}
-	      </m>
-	    </p></li>
-	  </ol></p>
-	</solution>
-	      
-      </activity>
-
-      <p> In this activity, we considered two matrix transformations
-      and constructed a third using composition.  We began with the
-      matrix transformation <m>T</m> that tells us the number of baked
-      goods produced when the plants are operated for a certain amount
-      of time.  If we write the times as <m>\xvec =
-      \twovec{x_1}{x_2}</m>, then <m>\twovec{1}{0}</m> represents the
-      situation where Plant 1 operates for one hour and Plant 2 is not
-      operated.  We are told that, in this one hour, Plant 1 produces
-      10 cakes, 50 donuts, and 30 eclairs.  We therefore have
+    <p>
+      This process is called function <em>composition</em> and 
+      likely appeared in an earlier algebra course.  For
+      instance, if <m>g(x) = 2x + 1</m> and <m>h(x) = x^2</m>, the
+      composition of these functions obtained by first performing
+      <m>g</m> and then performing <m>h</m> is denoted by
       <me>
-	T\left(\twovec{1}{0}\right) = \threevec{10}{50}{30}
-      </me>.
-      Similarly, 
-      <me>
-	T\left(\twovec{0}{1}\right) = \threevec{20}{30}{30}
-      </me>,
-      which tells us that the matrix <m>A</m> that defines <m>T</m> is
-      <me>
-	A=\left[\begin{array}{rr}
-	10 \amp 20 \\
-	50 \amp 30 \\
-	30 \amp 30 \\
-	\end{array}\right]\text{.}
+	(h\circ g)(x) = h(g(x)) = h(2x+1) = (2x+1)^2.
       </me>
-      </p>
+    </p>
 
-      <p> In the same way, we use the matrix transformation
-      <m>R\left(\threevec{C}{D}{E}\right) = \twovec{F}{S}</m> to
-      describe the ingredients
-      required to make a certain number of cakes, donuts, and
-      eclairs.  We see that
+    <p>
+      Composing matrix transformations is similar.  Suppose that we
+      have two matrix transformations, <m>T:\real^n\to\real^m</m> and
+      <m>S:\real^m\to\real^p</m>.  Their associated matrices will be
+      denoted by <m>A</m> and <m>B</m> so that <m>T(\xvec) =
+      A\xvec</m> and <m>S(\xvec) = B\xvec</m>.  If we apply <m>T</m>
+      to a vector <m>\xvec</m> to obtain <m>T(\xvec)</m> and then
+      apply <m>S</m> to the result, we have
       <me>
-	R\left(\threevec{1}{0}{0}\right) = \twovec{4}{2},\qquad
-	R\left(\threevec{0}{1}{0}\right) = \twovec{1}{1},\qquad
-	R\left(\threevec{0}{0}{1}\right) = \twovec{1}{2}\text{,}
+	(S\circ T)(\xvec) = S(T(\xvec)) = S(A\xvec) = BA\xvec =
+	(BA)\xvec.
       </me>
-      which means that the matrix defining <m>R</m> is
-      <me>
-	B = \left[\begin{array}{rrr}
-	4 \amp 1 \amp 1 \\
-	2 \amp 1 \amp 2 \\
-	\end{array}\right]\text{.}
-      </me>
-      </p>
+      Notice that this implies that the composition <m>(S\circ T)</m>
+      is itself a matrix transformation and that the associated matrix
+      is the product <m>BA</m>.
+    </p>
 
-      <p> Finally, we wish to compose these two matrix
-      transformations.  For instance, if we operate the plants for times
-      given by the vector <m>\xvec</m>, we would like to know the
-      required amounts of the ingredients.  To determine this, notice
-      that <m>T(\xvec) = A\xvec</m> tells us how many cakes, donuts,
-      and eclairs we produce.  The ingredients required are then given
-      by
-      <me>R(T(\xvec)) = R(A\xvec) = B(A\xvec) = BA\xvec</me>.
-      Notice that the
-      matrix that defines the composition is given by the product of
-      the two matrices defining the matrix transformations.</p>
+    <proposition>
+      <statement>
+	If <m>T:\real^n\to\real^m</m> and <m>S:\real^m\to\real^p</m>
+	are matrix transformations with associated matrices <m>A</m>
+	and <m>B</m> respectively, then the composition <m>(S\circ
+	T)</m> is also a matrix transformation whose associated matrix
+	is the product <m>BA</m>.
+      </statement>
+    </proposition>
 
-      <p> In this case, we have
-      <me>
-	BA =
-	\left[\begin{array}{rrr}
-	4 \amp 1 \amp 1 \\
-	2 \amp 1 \amp 2 \\
-	\end{array}\right]
-	\left[\begin{array}{rr}
-	10 \amp 20 \\
-	50 \amp 30 \\
-	30 \amp 30 \\
-	\end{array}\right]
-	= \left[\begin{array}{rr}
-	120 \amp 140 \\
-	130  \amp 130 \\
-	\end{array}\right]
-      </me>.
-      This means that the matrix transformation that tells us the
-      required amount of ingredients given the amount of time that the
-      plants are operated is described by
-      <me>
-	P(\xvec) = R\circ T(\xvec)= \left[\begin{array}{rr}
-	120 \amp 140 \\
-	130 \amp 130 \\
-	\end{array}\right]
-	\twovec{x_1}{x_2}
-	= \twovec{F}{S}\text{.}
-      </me>
-      For instance, if Plant 1 operates for 30 hours and Plant 2
-      for 20 hours, we have
-      <me>
-	P\left(\twovec{30}{20}\right) =
-	\left[\begin{array}{rr}
-	120 \amp 140 \\
-	130 \amp 130 \\
-	\end{array}\right]
-	\twovec{30}{20}
-	= \twovec{6400}{6500}\text{.}
-      </me>
-      In other words, we need 6400 units of flour and 6500 units of
-      sugar. </p>
-	
-      <p> This activity shows that the composition of matrix
-      transformations corresponds to the product of matrices, 
-      an important observation that we summarize in
-      the following proposition. </p>
+    <p>
+      Notice that the matrix transformations must be compatible if
+      they are to be composed.  In particular, 
+      the vector <m>T(\xvec)</m>, an <m>m</m>-dimensional
+      vector, must be a suitable input vector for <m>S</m>, which
+      means that the inputs to <m>S</m> must be <m>m</m>-dimensional.
+      In fact, this is the same condition we need to form the product
+      <m>BA</m> of their associated matrices, namely, that the
+      number of columns of <m>B</m> is the same as the number of
+      rows of <m>A</m>.
+    </p>
 
-      <proposition>
-	<statement>
-	  <p> If we have a matrix transformation <m>T</m> defined by
-	  the matrix <m>A</m> and a matrix transformation <m>S</m>
-	  defined by the matrix <m>B</m>, then the composition of the
-	  matrix transformations is a new matrix transformation
-	  <m>S\circ T</m> defined by the matrix <m>BA</m>.
-	  </p>
-	</statement>
-      </proposition>
-      
-    </subsection>
 
-    <subsection xml:id="subsec-dynamical-systems">
-      <title> Discrete Dynamical Systems </title>
+    <activity>
+      <statement>
+	<p>
+	  We will explore the composition of matrix transformations by
+	  revisiting the matrix transformations from <xref 
+	  ref="activity-mt-intro"/>.
+	  <ol marker="a.">
+	    <li>
+	      <p>
+		Let's begin with the matrix transformation
+		<m>T:\real^2\to\real^2</m> that rotates a
+		two-dimensional vector <m>\xvec</m> by <m>90^\circ</m>
+		to produce <m>T(\xvec)</m>.  We saw in the earlier
+		activity that the associated matrix is
+		<m>A = \begin{bmatrix}
+		0 \amp -1 \\
+		1 \amp 0 \\
+		\end{bmatrix}
+		</m>.
+		Suppose that we compose this matrix transformation
+		with itself to obtain <m>(T\circ T)(\xvec) =
+		T(T(\xvec))</m>, which is the result of rotating
+		<m>\xvec</m> by <m>90^\circ</m> twice.
+		<ol marker="1.">
+		  <li>
+		    <p>
+		      What is the matrix associated to the composition
+		      <m>(T\circ T)</m>?
+		    </p>
+		  </li>
+		  <li>
+		    <p>
+		      What is the result of rotating
+		      <m>\vvec=\twovec{-2}{-1}</m> twice?
+		    </p>
+		  </li>
+		  <li>
+		    <p>
+		      Suppose that 
+		      <m>R:\real^2\to\real^2</m> is the matrix
+		      transformation that rotates vectors by
+		      <m>180^\circ</m>, as shown in <xref
+		      ref="fig-mt-180"/>.
+		    </p>
+		    <figure xml:id="fig-mt-180">
+		      <caption>
+			The matrix transformation <m>R</m> takes
+			two-dimensional vectors on the left and rotates
+			them by <m>180^\circ</m> into the
+			vectors on the right.
+		      </caption>
+		      <sidebyside widths="45% 45%" margins="2% 2%">
+			<image source = "images/two-dim-basis"/>
+			<image source = "images/two-dim-basis-180"/>
+		      </sidebyside>
+		    </figure>
+		    <p>
+		      Use <xref ref="prop-linear-trans-columns"/> to
+		      find the matrix associated to <m>R</m> and
+		      explain why it is the same matrix associated to
+		      <m>(T\circ T)</m>.
+		    </p>
+		  </li>
+		  <li>
+		    <p>
+		      Write the two-dimensional vector <m>(T\circ
+		      T)\left(\twovec xy\right)</m>.  How might this
+		      vector be expressed in terms of scalar
+		      multiplication and why does this make sense
+		      geometrically?
+		    </p>
+		  </li>
+		</ol>
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		In the previous activity, we imagined a company that
+		operates two bakeries.
+		We found the matrix transformation
+		<m>T:\real^2\to\real^3</m> where
+		<m>T\left(\twovec{x_1}{x_2}\right)</m> describes the
+		number of cakes, doughnuts, and eclairs when Bakery1
+		runs for <m>x_1</m> hours and Bakery 2 runs for
+		<m>x_2</m> hours.  The associated matrix is
+		<m>A = \begin{bmatrix}
+		10 \amp 20 \\
+		50 \amp 30 \\
+		30 \amp 30 \\
+		\end{bmatrix}
+		</m>.
+	      </p>
+	      <p> Suppose now that 
+	      <ul>
+		<li><p> Each cake requires 4 cups of flour and
+		and 2 cups of sugar. </p></li>
+		
+		<li><p> Each doughnut requires 1 cup of flour and 1 cup of 
+		sugar. </p></li>
+		
+		<li><p> Each eclair requires 1 cup of flour and 2 cups
+		of sugar. </p></li>
+	      </ul>
+	      We will describe a matrix transformation
+	      <m>S:\real^3\to\real^2</m> where
+	      <m>S\left(\threevec{y_1}{y_2}{y_3}\right)</m> is a
+	      two-dimensional vector describing the number of cups of
+	      flour and sugar required to make <m>y_1</m> cakes,
+	      <m>y_2</m> doughnuts, and <m>y_3</m> eclairs.
+	      <ol marker="1.">
+		<li>
+		  <p>
+		    Use <xref ref="prop-linear-trans-columns"/> to
+		    write the matrix <m>B</m> associated to the
+		    transformation <m>S</m>.
+		  </p>
+		</li>
+		<li>
+		  <p>
+		    If we make 1200 cakes, 2850 doughnuts, and 2250
+		    eclairs, how many cups of flour and sugar are
+		    required?
+		    <sage>
+		      <input>
+		      </input>
+		    </sage>
+		  </p>
+		</li>
+		<li>
+		  <p>
+		    Suppose that Bakery 1 operates for 75 hours and
+		    Bakery 2 operates for 53 hours.  How many cakes,
+		    doughnuts, and eclairs are produced?  How many
+		    cups of flour and sugar are required?
+		  </p>
+		</li>
+		<li>
+		  <p>
+		    What is the meaning of the composition <m>(S\circ
+		    T)</m> and what is its associated matrix?
+		  </p>
+		</li>
+		<li>
+		  <p>
+		    In a certain time interval, both bakeries 
+		    use a total of 5800 cups of flour and 5980 cups of
+		    sugar.  How long have the two bakeries been
+		    operating?
+		  </p>
+		</li>
+	      </ol>
+	      </p>
+	    </li>
+	  </ol>
+	</p>
+      </statement>
 
-      <p> In <xref ref="sec-dynamical" />, we will give considerable attention
-      to a specific type of matrix transformation, which is
-      illustrated in the next activity. </p>
+      <solution>
+	<p>
+	  <ol marker="a.">
+	    <li>
+	      <p>
+		<ol marker="1.">
+		  <li>
+		    <p>
+		      The matrix is <m>B=AA=A^2 = \begin{bmatrix}
+		      -1 \amp 0 \\
+		      0 \amp -1 \\
+		      \end{bmatrix}
+		      </m>.
+		    </p>
+		  </li>
+		  <li>
+		    <p>
+		      <m>(T\circ T)(\vvec) = A^2\vvec = \twovec21</m>.
+		    </p>
+		  </li>
+		  <li>
+		    <p>
+		      The matrix associated to <m>R</m> is also
+		      <m>A^2</m> since rotating by <m>90^\circ</m>
+		      twice is the same as rotating once by
+		      <m>180^\circ</m>.
+		    </p>
+		  </li>
+		  <li>
+		    <p>
+		      <m>(T\circ T)(\xvec) = R(\xvec) = -\xvec</m>,
+		      which makes sense because multiplying a vector
+		      by <m>-1</m> simply changes its direction.
+		    </p>
+		  </li>
+		</ol>
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		<ol marker="1.">
+		  <li>
+		    <p>
+		      <m>B = \begin{bmatrix}
+		      4 \amp 1 \amp 1 \\
+		      2 \amp 1 \amp 2 \\
+		      \end{bmatrix}
+		      </m>.
+		    </p>
+		  </li>
+		  <li>
+		    <p>
+		      <m>S\left(\threevec{1200}{2850}{2250}\right) =
+		      B\threevec{1200}{2850}{2250} =
+		      \twovec{9900}{9750}</m>.
+		    </p>
+		  </li>
+		  <li>
+		    <p>
+		      <m>T\left(\twovec{75}{53}\right) =
+		      \threevec{1810}{5340}{3840}</m> and
+		      <m>S\left(\threevec{1810}{5340}{3840}\right) =
+		      \twovec{16430}{16640}</m>.
+		    </p>
+		  </li>
+		  <li>
+		    <p>
+		      <m>(S\circ T)</m> takes as input a vector
+		      <m>\xvec</m> that records the number of hours
+		      both bakeries operate and outputs a vector
+		      <m>(S\circ T)(\xvec)</m> that tells us the total
+		      number of cups of flour and sugar used.  The
+		      associated matrix is
+		      <m>BA=\begin{bmatrix}
+		      120 \amp 140 \\
+		      130 \amp 130 \\
+		      \end{bmatrix}</m>.
+		    </p>
+		  </li>
+		  <li>
+		    <p>
+		      We want to find the vector <m>\xvec</m> for
+		      which
+		      <m>(S\circ T)(\xvec) = BA\xvec =
+		      \twovec{5800}{5980}</m>.  Solving this equation
+		      gives <m>\xvec=\twovec{32}{14}</m>.
+		    </p>
+		  </li>
+		</ol>
+	      </p>
+	    </li>
+	  </ol>
+	</p>
+      </solution>
+    </activity>
+		
+  </subsection>
 
-      <activity>
-	<statement>
+  <subsection xml:id="subsec-dynamical-systems">
+    <title> Discrete Dynamical Systems </title>
+
+    <p> In <xref ref="chap4" />, we will give considerable
+    attention to a specific type of matrix transformation, which is
+    illustrated in the next activity. </p>
+    
+    <activity>
+      <statement>
 	<p> Suppose we run a company that has two warehouses, which we
 	will call
 	<m>P</m> and <m>Q</m>, and a fleet of 1000 delivery trucks.
-	Every day, a delivery truck goes out from one of the
-	warehouses and returns every evening to one of the
-	warehouses.  Every evening,
+	Every morning, a delivery truck goes out from one of the
+	warehouses and returns in the evening to one of the
+	warehouses.  It is observed that
 	<ul>
 	  <li><p> 70% of the trucks that leave <m>P</m> return to
 	  <m>P</m>.  The other 30% return to <m>Q</m>. </p></li>
-
+	  
 	  <li><p> 50% of the trucks that leave <m>Q</m> return to
 	  <m>Q</m> and 50% return to <m>P</m>. </p></li>
-
+	  
 	</ul></p>
-
-	<p> We will use the vector <m>\xvec=\twovec{P}{Q}</m> to
-	represent the number of trucks at location <m>P</m> and
-	<m>Q</m> in the morning.  We consider the matrix
-	transformation <m>T(\xvec) = \twovec{P'}{Q'}</m> that
-	describes the number of trucks at location <m>P</m> and
-	<m>Q</m> in the evening.
-
+	
+	<p> The distribution of trucks is represented by the
+	vector <m>\xvec=\twovec{x_1}{x_2}</m> when there are
+	<m>x_1</m> trucks at location <m>P</m> and <m>x_2</m> trucks
+	at <m>Q</m>.  If <m>\xvec</m> describes the distribution of
+	trucks in the morning, then the matrix transformation
+	<m>T(\xvec)</m> will describe the distribution in the
+	evening. 
+	
 	<sage>
 	  <input>
 	  </input>
@@ -709,35 +1104,35 @@
 
 	<ol marker="a.">
 	  <li><p> Suppose that all 1000 trucks begin the day at
-	  location <m>P</m> and none at <m>Q</m>.  How many trucks
-	  are at each location at the end of the day? 
-	  Therefore, what is the vector
-	  <m>T\left(\ctwovec{1000}{0}\right)</m>? </p> 
-
-	  <p> Using this result, what is
-	  <m>T\left(\twovec{1}{0}\right)</m>?
-	  </p></li>
+	  location <m>P</m> and none at <m>Q</m>.  How many trucks are
+	  at each location that evening?  Using our vector
+	  representation, what is 
+	  <m>T\left(\ctwovec{1000}{0}\right)</m>?</p>
+	  <p> So that we can find the matrix <m>A</m> associated to
+	  <m>T</m>, what does this tell us about
+	  <m>T\left(\twovec{1}{0}\right)</m>?  </p></li>
 
 	  <li><p> In the same way, suppose that all 1000 trucks begin
 	  the day at location <m>Q</m> and none at <m>P</m>.  How many
-	  trucks are at each location at the end of the day?
-	  What is the result <m>T\left(\ctwovec{0}{1000}\right)</m>?
+	  trucks are at each location that evening?
+	  What is the result <m>T\left(\ctwovec{0}{1000}\right)</m>
+	  and what is <m>T\left(\twovec01\right)</m>?
 	  </p></li>
 
 	  <li><p> Find the matrix <m>A</m> such that <m>T(\xvec) =
 	  A\xvec</m>.  </p></li>
 
 	  <li><p> Suppose that there are 100 trucks at <m>P</m> and
-	  900 at <m>Q</m> at the beginning of the day.  How many are
-	  there at the two locations at the end of the day? </p></li>
+	  900 at <m>Q</m> in the morning.  How many are
+	  there at the two locations in the evening? </p></li>
 
 	  <li><p> Suppose that there are 550 trucks at <m>P</m> and
-	  450 at <m>Q</m> at the end of the day.  How many trucks were
-	  there at the two locations at the beginning of the day? </p></li>
+	  450 at <m>Q</m> in the evening.  How many trucks were
+	  there at the two locations that morning? </p></li>
 
 	  <li><p> Suppose that all of the trucks are at location
-	  <m>Q</m> on Monday morning?
-	  <ol marker="a.">
+	  <m>Q</m> on Monday morning.
+	  <ol marker="1.">
 	    <li><p> How many trucks are at each location Monday
 	    evening? </p></li>
 
@@ -746,191 +1141,123 @@
 
 	    <li><p> How many trucks are at each location Wednesday
 	    evening? </p></li>
+
 	  </ol></p></li>
 
 	  <li><p> Suppose that <m>S</m> is the matrix transformation
 	  that transforms the distribution of trucks <m>\xvec</m> one
-	  morning into the distribution of trucks two mornings later.
-	  What is the matrix that defines the transformation <m>S</m>?
-	  </p></li>
-
-	  <li><p> Suppose that <m>R</m> is the matrix transformation
-	  that transforms the distribution of trucks <m>\xvec</m> one
-	  morning into the distribution of trucks one week later.
-	  What is the matrix that defines the transformation <m>R</m>?
-	  </p></li>
-
-	  <li><p> What happens to the distribution of trucks after a
-	  very long time? </p></li>
+	  morning into the distribution of trucks in the morning one
+	  week (seven days) later.  What is the matrix that defines
+	  the transformation <m>S</m>?  </p></li>
 
 	</ol></p>
-	</statement>
+      </statement>
 
-	<solution>
-	  <p><ol marker="a.">
-	    <li><p> If 1000 trucks begin at <m>P</m>, that evening we
-	    find that 70% of them are at <m>P</m> with the
-	    remaining 30% at <m>Q</m>.  Therefore,
-	    <m>T\left(\twovec{1000}{0}\right) =
-	    \twovec{700}{300}</m>.  Since
-	    <m>T\left(\twovec{1000}{0}\right) =
-	    1000T\left(\twovec{1}{0}\right)</m>, we see that
-	    <m>T\left(\twovec{1}{0}\right) = \twovec{0.7}{0.3}</m>.
+      <solution>
+	<p><ol marker="a.">
+	  <li><p> If 1000 trucks begin at <m>P</m>, that evening we
+	  find that 70% of them are at <m>P</m> with the
+	  remaining 30% at <m>Q</m>.  Therefore,
+	  <m>T\left(\ctwovec{1000}{0}\right) =
+	  \twovec{700}{300}</m>.  Since
+	  <m>T\left(\ctwovec{1000}{0}\right) =
+	  1000A\twovec{1}{0}</m>, we see that
+	  <m>T\left(\twovec{1}{0}\right) = \twovec{0.7}{0.3}</m>.
+	  </p></li>
+
+	  <li><p> In the same way, we see that
+	  <m>T\left(\ctwovec{0}{1000}\right) = \twovec{500}{500}</m>
+	  so that <m>T\left(\twovec{0}{1}\right) =
+	  \twovec{0.5}{0.5}</m>.
+	  </p></li>
+
+	  <li><p> The columns of <m>A</m> are
+	  <m>T\left(\twovec{1}{0}\right)</m> and
+	  <m>T\left(\twovec{0}{1}\right)</m> so that
+	  <m>A=\left[\begin{array}{rr}
+	  0.7 \amp 0.5 \\
+	  0.3 \amp 0.5 \\
+	  \end{array}\right]
+	  </m>.
+	  </p></li>
+
+	  <li><p>
+	    Evaluate <m>T\left(\twovec{100}{900}\right) =
+	    A\twovec{100}{900} = \twovec{520}{480}</m>.
+	  </p></li>
+
+	  <li><p>
+	    We solve <m>T(\xvec) = A\xvec = \twovec{550}{450}</m> to
+	    find <m>\xvec=\twovec{250}{750}</m>.
+	  </p></li>
+
+	  <li><p> We denote the distribution of trucks Monday
+	  morning by
+	  <m>\xvec_0 = \ctwovec{0}{1000}</m>.
+	  <ol marker="i.">
+	    <li><p> Monday evening, we have <m>\xvec_1=A\xvec_0 =
+	    \twovec{500}{500}</m>.
 	    </p></li>
 
-	    <li><p> In the same way, we see that
-	    <m>T\left(\twovec{0}{1000}\right) = \twovec{500}{500}</m>
-	    so that <m>T\left(\twovec{0}{1}\right) =
-	    \twovec{0.5}{0.5}</m>.
+	    <li><p> Tuesday evening, we have 
+	    <m>\xvec_2=A\xvec_1 =
+	    \twovec{600}{400}</m>.
 	    </p></li>
 
-	    <li><p> The columns of <m>A</m> are
-	    <m>T\left(\twovec{1}{0}\right)</m> and
-	    <m>T\left(\twovec{0}{1}\right)</m> so that
-	    <m>A=\left[\begin{array}{rr}
-	    0.7 \amp 0.5 \\
-	    0.3 \amp 0.5 \\
-	    \end{array}\right]
-	    </m>.
+	    <li><p> Wednesday evening, we have 
+	    <m>\xvec_3=A\xvec_2 =
+	    \twovec{620}{380}</m>.
 	    </p></li>
+	  </ol>
+	  </p></li>
 
-	    <li><p>
-	      Evaluate <m>T\left(\twovec{100}{900}\right) =
-	      A\twovec{100}{900} = \twovec{520}{480}</m>.
-	    </p></li>
+	  <li><p> The matrix is <m>A^7 = \left[\begin{array}{rr}
+	  0.625 \amp 0.625 \\
+	  0.375 \amp 0.375 \\
+	  \end{array}\right]
+	  </m>.
+	  </p></li>
 
-	    <li><p>
-	      We solve <m>T(\xvec) = A\xvec = \twovec{550}{450}</m> to
-	      find <m>\xvec=\twovec{250}{750}</m>.
-	    </p></li>
+	</ol></p>
+      </solution>
 
-	    <li><p> We denote the distribution of trucks Monday
-	    morning by
-	    <m>\xvec_0 = \twovec{0}{1000}</m>.
-	    <ol marker="i.">
-	      <li><p> Monday evening, we have <m>\xvec_1=A\xvec_0 =
-	      \twovec{500}{500}</m>.
-	      </p></li>
+    </activity>
 
-	      <li><p> Tuesday evening, we have 
-	      <m>\xvec_2=A\xvec_1 =
-	      \twovec{600}{400}</m>.
-	      </p></li>
+    <p> As we will see later, this type of situation occurs
+    frequently.  We have a vector 
+    <m>\xvec</m> that describes the state of some system; in this
+    case, <m>\xvec</m> describes the distribution of trucks between
+    the two locations at a particular time.  Then there is a matrix
+    transformation  <m>T(\xvec) = A\xvec</m> that describes the
+    state at some later time.  We call <m>\xvec</m> the
+    <em>state</em> vector and <m>T</m> the <em>transition</em>
+    function, as it describes the transition of the state vector
+    from one time to the next.  <idx> state vector </idx> <idx>
+    transition function </idx>
+    </p>
 
-	      <li><p> Wednesday evening, we have 
-	      <m>\xvec_3=A\xvec_2 =
-	      \twovec{620}{380}</m>.
-	      </p></li>
-	    </ol>
-	    </p></li>
+    <p> Beginning with an initial state <m>\xvec_0</m>,
+    we would like to know how the state evolves over time.  For instance,
+    <me>
+      \begin{aligned}
+      \xvec_1 \amp = T(\xvec_0)=A\xvec_0 \\
+      \xvec_2 \amp = T(\xvec_1) = (T\circ T)(\xvec_0)= A^2\xvec_0 \\
+      \xvec_3 \amp = T(\xvec_2) = A^3\xvec_0
+      \end{aligned}
+    </me>
+    and so on.
+    </p>
+    
+    <p>
+      <idx> discrete dynamical system </idx> We call this situation
+      where the state of a system evolves from one time to the
+      next according to the rule <m>\xvec_{k+1}=A\xvec_k</m> a
+      <em>discrete dynamical system</em>.  In <xref ref="chap4" />,
+      we will develop a theory that enables us to make
+      long-term predictions about the evolution of the state vector.
+    </p>
 
-	    <li><p> Because <m>S(\xvec) = T(T(\xvec)) = AA\xvec =
-	    A^2\xvec</m>, the matrix representing <m>S</m> is <m>A^2 =
-	    \left[\begin{array}{rr}
-	    0.64 \amp 0.60 \\
-	    0.36 \amp 0.40 \\
-	    \end{array}\right]
-	    </m>.
-	    </p></li>
-
-	    <li><p> The matrix is <m>A^7 \approx \left[\begin{array}{rr}
-	    0.625 \amp 0.625 \\
-	    0.375 \amp 0.375 \\
-	    \end{array}\right]
-	    </m>.
-	    </p></li>
-
-	    <li><p> If we compute <m>A^k\xvec_0</m> for some very
-	    large powers <m>k</m>, we find that
-	    <m>\xvec\approx\twovec{625}{375}</m> so there are 625
-	    trucks at location <m>P</m> and 375 at <m>Q</m>.
-	    </p></li>
-	  </ol></p>
-	</solution>
-
-      </activity>
-
-      <p> This is type of situation occurs frequently.  We have
-      a vector <m>\xvec</m> that describes the state of some system;
-      in this case, <m>\xvec</m> describes the distribution of trucks
-      between the two locations at a particular time.  Then we have a
-      matrix <m>A</m> that  
-      defines a matrix transformation with <m>T(\xvec) =
-      A\xvec</m> describing the state at some later time.  We 
-      call <m>\xvec</m> the <em>state</em> vector and
-      <m>T</m> the <em>transition</em> function, as it describes the
-      transition of the state vector from one time to the next.
-      <idx> state vector </idx>
-      <idx> transition function </idx>
-      </p>
-
-      <p> We begin in an initial state <m>\xvec_0=
-      \ctwovec{0}{1000}</m>.  The state one day later will be the
-      vector <m>\xvec_1 = T(\xvec_0) = A\xvec_0</m>.  In the example
-      from our activity, we have
-      <me>
-	A = \left[\begin{array}{rr}
-	0.7 \amp 0.5 \\
-	0.3 \amp 0.5 \\
-	\end{array}\right]
-      </me>.
-      Therefore,
-      <me>
-	\xvec_1 = A\xvec_0 = 
-	\left[\begin{array}{rr}
-	0.7 \amp 0.5 \\
-	0.3 \amp 0.5 \\
-	\end{array}\right]
-	\ctwovec{0}{1000}
-	=\ctwovec{500}{500}\text{.}
-      </me>
-      </p>
-
-      <p> We can, of course, repeat this process.  The vector
-      <m>\xvec_1</m> describes the state after one day.  After a
-      second day, we have the state vector
-      <me>\xvec_2 = T(\xvec_1) = A\xvec_1 = A^2\xvec_0 =
-      \ctwovec{600}{400}\text{.}
-      </me>
-      We can continue this process finding <m>\xvec_k</m>, the state
-      after <m>k</m> days using <m>\xvec_k = A\xvec_{k-1} =
-      A^k\xvec_0</m>.  In this way, we see that the long-term behavior
-      of the state vector is determined by the powers of the matrix
-      <m>A</m>.  </p>
-
-      <p> Using Sage, we can compute <m>A^k</m> for some very large
-      powers of <m>A</m>.  For instance,
-      <me>
-	A^{100} \approx \left[\begin{array}{rr}
-	0.625 \amp 0.625 \\
-	0.375 \amp 0.375 \\
-	\end{array}\right]\text{.}
-      </me>
-      In fact, all large powers of <m>A</m> look very close to this
-      matrix.  Therefore, after a very long time, the state vector is
-      very close to
-      <me>
-	\left[\begin{array}{rr}
-	0.625 \amp 0.625 \\
-	0.375 \amp 0.375 \\
-	\end{array}\right]
-	\ctwovec{0}{1000}
-	= \ctwovec{625}{375}\text{.}
-      </me>
-      This means that, eventually, 625 cars are at location <m>P</m>
-      every day and 375 are at <m>Q</m>.</p>
-
-      <p>
-	<idx> discrete dynamical system </idx> We call this sitution
-	in which the state of a system evolves from one time to the
-	next according to the rule <m>\xvec_{k+1}=A\xvec_k</m> a
-	<em>discrete dynamical system</em>.  In <xref ref="chap4" />,
-	we will develop a theory that enables us to easily make
-	long-term predictions without needing to compute
-	large powers of the matrix. </p>
-
-    </subsection>
-
+  </subsection>
   
   <subsection>
     <title>
@@ -950,7 +1277,7 @@
       <m>\evec_j</m>;  that is,
       <me>
 	A=\left[\begin{array}{rrrr}
-	T(\evec_1) \amp T(\evec_2) \amp \ldots \amp T(\evec_n)
+	T(\evec_1) \amp T(\evec_2) \amp \cdots \amp T(\evec_n)
 	\end{array}\right]
       </me>. </p></li>
 

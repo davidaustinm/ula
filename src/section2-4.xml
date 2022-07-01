@@ -9,44 +9,31 @@
 
   <introduction>
     <p>
-      In the previous section, we studied our question concerning the
-      existence of solutions to a linear system by inquiring about the
-      span of a set of vectors.  In particular, the span of a set of
-      vectors <m>\vvec_1,\vvec_2,\ldots,\vvec_n</m> is the set of
-      vectors <m>\bvec</m> for which a solution to the linear system
-      <m> \left[\begin{array}{rrrr}
-      \vvec_1\amp\vvec_2\amp\ldots\amp\vvec_n
-      \end{array}\right]
-      \xvec
-      =
-      \bvec
-      </m> exists.  
+      In the previous section, questions about the existence of
+      solutions of a linear system led to the concept of the span of
+      a set of vectors.  In particular, the span of a set of vectors
+      <m>\vvec_1,\vvec_2,\ldots,\vvec_n</m> is the set of vectors
+      <m>\bvec</m> for which a solution to the linear system <m>
+      \left[\begin{array}{rrrr}
+      \vvec_1\amp\vvec_2\amp\ldots\amp\vvec_n \end{array}\right] ~\xvec
+      = \bvec </m> exists.
     </p>
 
     <p>
-      In this section, our focus turns to the uniqueness of
-      solutions of a linear system, the second of our two fundamental
-      questions asked in <xref ref="fundamental-questions" />.  This
-      will lead us to the concept of linear independence.
+      In this section, we turn to the uniqueness of solutions of a
+      linear system, the second of our <xref
+      ref="fundamental-questions" text="custom"> two fundamental
+      questions</xref>.  This will lead us to the concept of linear
+      independence.
     </p>
 
-  </introduction>
-
-  <subsection>
-    <title> Linear dependence </title>
-    <p>
-      In the previous section, we looked at some examples of the span
-      of sets of vectors in <m>\real^3</m>.  We saw one example in
-      which the span of three vectors formed a plane.  In another, the
-      span of three vectors formed <m>\real^3</m>.  We would like to
-      understand the difference in these two examples.
-    </p>
-    
     <exploration>
       <statement>
       <p>
-	Let's start this activity by studying
-	the span of two different sets of vectors.
+	Let's begin by looking at some sets of vectors in
+	<m>\real^3</m>.  As we saw in the previous section, the span of
+	a set of vectors in <m>\real^3</m> will be either a line, a
+	plane, or <m>\real^3</m> itself.
       <ol marker="a.">
 	<li> <p>
 	  Consider the following vectors in <m>\real^3</m>:
@@ -56,7 +43,8 @@
 	    \vvec_3=\threevec{2}{0}{1}
 	  </me>.
 	  Describe the span of these vectors,
-	  <m>\laspan{\vvec_1,\vvec_2,\vvec_3}</m>. 
+	  <m>\laspan{\vvec_1,\vvec_2,\vvec_3}</m>, as a line, a plane,
+	  or <m>\real^3</m>. 
 	  <sage>
 	    <input>
 	    </input>
@@ -64,15 +52,15 @@
 	</p></li>
 
 	<li><p>
-	  We will now consider a set of vectors that looks very much
-	  like the first set:
+	  Now consider the set of vectors:
 	  <me>
 	    \wvec_1=\threevec{0}{-1}{2},
 	    \wvec_2=\threevec{3}{1}{-1},
 	    \wvec_3=\threevec{3}{0}{1}
 	  </me>.
 	  Describe the span of these vectors,
-	  <m>\laspan{\wvec_1,\wvec_2,\wvec_3}</m>. 
+	  <m>\laspan{\wvec_1,\wvec_2,\wvec_3}</m>, as a line, a plane,
+	  or <m>\real^3</m>.
 	  <sage>
 	    <input>
 	    </input>
@@ -84,7 +72,7 @@
 	  of <m>\wvec_1</m> and <m>\wvec_2</m> by finding weights such
 	  that
 	  <me>
-	    \wvec_3 = a\wvec_1 + b\wvec_2
+	    \wvec_3 = c\wvec_1 + d\wvec_2
 	  </me>.
 	</p></li>
 
@@ -110,140 +98,292 @@
       </statement>
 
       <solution>
-	<p> The solutions to this preview activity are given in the
-	text below.
+	<p>
+	  <ol marker="a.">
+	    <li>
+	      <p>
+		We will construct the matrix whose columns are
+		<m>\vvec_1</m>, <m>\vvec_2</m>, and <m>\vvec_3</m>:
+		<me>
+		  \begin{bmatrix}
+		  0 \amp 3 \amp 2 \\
+		  -1 \amp 1 \amp 0 \\
+		  2 \amp -1 \amp 1 \\
+		  \end{bmatrix}
+		  \sim
+		  \begin{bmatrix}
+		  1 \amp 0 \amp 0 \\
+		  0 \amp 1 \amp 0 \\
+		  0 \amp 0 \amp 1 \\
+		  \end{bmatrix}.
+		</me>
+		Because there is a pivot in every row, <xref
+		ref="prop-pivot-row" /> tells us that
+		<m>\laspan{\vvec_1,\vvec_2,\vvec_3} = \real^3</m>.
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		Similarly,
+		<me>
+		  \begin{bmatrix}
+		  0 \amp 3 \amp 3 \\
+		  -1 \amp 1 \amp 0 \\
+		  2 \amp -1 \amp 1 \\
+		  \end{bmatrix}
+		  \sim
+		  \begin{bmatrix}
+		  1 \amp 0 \amp 1 \\
+		  0 \amp 1 \amp 1 \\
+		  0 \amp 0 \amp 0 \\
+		  \end{bmatrix}.
+		</me>
+		As there are two pivot positions, we see that
+		<m>\laspan{\wvec_1, \wvec_2, \wvec_3}</m> is a plane
+		in <m>\real^3</m>.
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		We see that
+		<me>
+		  \left[
+		  \begin{array}{rr|r}
+		  0 \amp 3 \amp 3 \\
+		  -1 \amp 1 \amp 0 \\
+		  2 \amp -1 \amp 1 \\
+		  \end{array}
+		  \right]
+		  \sim
+		  \left[
+		  \begin{array}{rr|r}
+		  1 \amp 0 \amp 1 \\
+		  0 \amp 1 \amp 1 \\
+		  0 \amp 0 \amp 0 \\
+		  \end{array}
+		  \right],
+		</me>
+		which tells us that <m>\wvec_3 = \wvec_1 +
+		\wvec_2</m>.
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		We have
+		<me>
+		  c_1\wvec_1 + c_2\wvec_2 + c_3\wvec_3 =
+		  c_1\wvec_1 + c_2\wvec_2 + c_3(\wvec_1+\wvec_2)=
+		  (c_1+c_3)\wvec_1 + (c_2+c_3)\wvec_2.
+		</me>
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		Any linear combination of <m>\wvec_1</m>,
+		<m>\wvec_2</m>, and <m>\wvec_3</m> is itself a linear
+		combination of <m>\wvec_1</m> and <m>\wvec_2</m>.
+	      </p>
+	    </li>
+	  </ol>
 	</p>
       </solution>
     </exploration>
 
+  </introduction>
+
+  <subsection>
+    <title> Linear dependence </title>
     <p>
-      The preview activity presents us with two similar examples
-      that demonstrate quite different behaviors.  In the first
-      example, the vectors <m>\vvec_1</m>, <m>\vvec_2</m>, and
-      <m>\vvec_3</m> span <m>\real^3</m>, which we recognize because
-      the matrix
-      <m>\left[\begin{array}{rrr}\vvec_1\amp\vvec_2\amp\vvec_3
-      \end{array}\right]
-      </m> has a pivot position in every row so that  <xref
-      ref="prop-pivot-row" /> applies.
+      We have seen examples where the span of a set of three vectors in
+      <m>\real^3</m> is <m>\real^3</m> and other examples where the
+      span of three vectors is a plane.  We would like to understand
+      the difference between these two situations.
     </p>
+
+    <example xml:id="example-span-r3">
+      <statement>
+	<p>
+	  Let's consider the set of three vectors in <m>\real^3</m>:
+	  <me>
+	    \vvec_1 = \threevec220,~~~
+	    \vvec_2 = \threevec11{-1},~~~
+	    \vvec_3 = \threevec{-1}01.
+	  </me>
+	  Forming the associated matrix gives
+	  <me>
+	    \begin{bmatrix}\vvec_1\amp\vvec_2\amp\vvec_3\end{bmatrix}
+	    = 
+	    \begin{bmatrix}
+	    2 \amp 1 \amp -1 \\
+	    2 \amp 1 \amp 0 \\
+	    0 \amp -1 \amp 1 \\
+	    \end{bmatrix}
+	    \sim
+	    \begin{bmatrix}
+	    1 \amp 0 \amp 0 \\
+	    0 \amp 1 \amp 0 \\
+	    0 \amp 0 \amp 1 \\
+	    \end{bmatrix}.
+	  </me>
+	  Because there is a pivot position in every row, 
+	  <xref ref="prop-pivot-row" /> tells us that
+	  <m>\laspan{\vvec_1, \vvec_2, \vvec_3} = \real^3</m>.
+	</p>
+      </statement>
+    </example>
+
+    <example xml:id="example-span-plane">
+      <statement>
+	<p>
+	  Now let's consider the set of three vectors:
+	  <me>
+	    \wvec_1 = \threevec220,~~~
+	    \wvec_2 = \threevec11{-1},~~~
+	    \wvec_3 = \threevec{-3}1{-3}.
+	  </me>
+	  Forming the associated matrix gives
+	  <me>
+	    \begin{bmatrix}\wvec_1\amp\wvec_2\amp\wvec_3\end{bmatrix}
+	    = 
+	    \begin{bmatrix}
+	    2 \amp 1 \amp -5 \\
+	    2 \amp 1 \amp -5 \\
+	    0 \amp -1 \amp 1 \\
+	    \end{bmatrix}
+	    \sim
+	    \begin{bmatrix}
+	    1 \amp 0 \amp -2 \\
+	    0 \amp 1 \amp -1 \\
+	    0 \amp 0 \amp 0 \\
+	    \end{bmatrix}.
+	  </me>
+	  Since the last row does not have a pivot position, we know
+	  that the span of these vectors is not <m>\real^3</m> but is
+	  instead a plane.
+	</p>
+
+	<p>
+	  In fact, we can say more if we shift our perspective
+	  slightly and view this as an augmented matrix:
+	  <me>
+	    \left[
+	    \begin{array}{rr|r}\wvec_1\amp\wvec_2\amp\wvec_3
+	    \end{array}
+	    \right]
+	    =
+	    \left[
+	    \begin{array}{rr|r}
+	    2 \amp 1 \amp -5 \\
+	    2 \amp 1 \amp -5 \\
+	    0 \amp -1 \amp 1 \\
+	    \end{array}
+	    \right]
+	    \sim
+	    \left[
+	    \begin{array}{rr|r}
+	    1 \amp 0 \amp -2 \\
+	    0 \amp 1 \amp -1 \\
+	    0 \amp 0 \amp 0 \\
+	    \end{array}
+	    \right].
+	  </me>
+	  In this way, we see that <m>\wvec_3 = -2\wvec_1 -
+	  \wvec_2</m>, which enables us to rewrite any linear
+	  combination of these three vectors:
+	  <me>
+	    \begin{aligned}
+	    c_1\wvec_1 + c_2\wvec_2 + c_3\wvec_3 \amp
+	    {}={}
+	    c_1\wvec_1 + c_2\wvec_2 + c_3(-2\wvec_1-\wvec_2) \\
+	    \amp {}={}
+	    (c_1-2c_3)\wvec_1 + (c_2-c_3)\wvec_2. \\
+	    \end{aligned}
+	  </me>
+	</p>
+	  
+	<p>
+	  In other words, any linear combination of <m>\wvec_1</m>,
+	  <m>\wvec_2</m>, and <m>\wvec_3</m> may be written as a linear
+	  combination using only the vectors <m>\wvec_1</m> and
+	  <m>\wvec_2</m>.  Since the span of a set of vectors is simply
+	  the set of their linear combinations, this shows that
+	  <me>
+	    \laspan{\wvec_1,\wvec_2,\wvec_3} = \laspan{\wvec_1,\wvec_2}.
+	  </me>
+	  As a result, adding the vector <m>\wvec_3</m> to the set of
+	  vectors <m>\wvec_1</m> and <m>\wvec_2</m> does not change the
+	  span.
+	</p>
+
+      </statement>
+    </example>
 
     <p>
-      However, the second example is very different.  In this case,
-      the matrix <m>\left[\begin{array}{rrr}
-      \wvec_1\amp\wvec_2\amp\wvec_3 \end{array}\right]
-      </m> has only two pivot positions:
-      <me>
-	\left[\begin{array}{rrr}
-	\wvec_1 \amp \wvec_2 \amp \wvec_3
-	\end{array}\right]
-	=
-	\left[\begin{array}{rrr}
-	0 \amp 3 \amp 3 \\
-	-1 \amp 1 \amp 0 \\
-	2 \amp -1 \amp 1
-	\end{array}\right]
-	\sim
-	\left[\begin{array}{rrr}
-	1 \amp 0 \amp 1 \\
-	0 \amp 1 \amp 1 \\
-	0 \amp 0 \amp 0
-	\end{array}\right]
-      </me>.
+      Before exploring this type of behavior more generally,
+      let's think about it from a geometric point of view.  Suppose
+      that we begin with the two vectors <m>\vvec_1</m> and
+      <m>\vvec_2</m> in <xref ref="example-span-r3"/>.  The span of
+      these two vectors is a plane in <m>\real^3</m>, as seen on the
+      left of <xref ref="figure-span-r3"/>.
     </p>
-
-    <p> Let's look 
-      at this matrix and change our perspective slightly by
-      considering it to be an augmented matrix.
-      <me>
-	\left[\begin{array}{rr|r}
-	\wvec_1 \amp \wvec_2 \amp \wvec_3
-	\end{array}\right]
-	=
-	\left[\begin{array}{rr|r}
-	0 \amp 3 \amp 3 \\
-	-1 \amp 1 \amp 0 \\
-	2 \amp -1 \amp 1
-	\end{array}\right]
-	\sim
-	\left[\begin{array}{rr|r}
-	1 \amp 0 \amp 1 \\
-	0 \amp 1 \amp 1 \\
-	0 \amp 0 \amp 0
-	\end{array}\right]
-      </me>
-      By doing so, we seek to express <m>\wvec_3</m> as a
-      linear combination of <m>\wvec_1</m> and <m>\wvec_2</m>.  In
-      fact, the reduced row echelon form shows us that
-      <me>
-	\wvec_3 = \wvec_1 + \wvec_2
-      </me>.
-    </p>
+    
+    <figure xml:id="figure-span-r3">
+      <caption>
+	The span of the vectors <m>\vvec_1</m>, <m>\vvec_2</m>, and
+	<m>\vvec_3</m>.
+      </caption>
+      <sidebyside widths="45% 45%">
+	<image source="images/3d-plane-nonstd" />
+	<image source="images/3d-plane-span-no-w" />
+      </sidebyside>
+    </figure>
 
     <p>
-      Consequently, we can rewrite any linear cominbation of
-      <m>\wvec_1</m>, <m>\wvec_2</m>, and <m>\wvec_3</m> so that
-      <me>
-	\begin{aligned}
-	c_1\wvec_1 + c_2\wvec_2 + c_3\wvec_3 \amp
-	{}={}
-	c_1\wvec_1 + c_2\wvec_2 + c_3(\wvec_1+\wvec_2) \\
-	\amp {}={}
-	(c_1+c_3)\wvec_1 + (c_2+c_3)\wvec_2 \\
-	\end{aligned}
-      </me>.
-      In other words, any linear combination of <m>\wvec_1</m>,
-      <m>\wvec_2</m>, and <m>\wvec_3</m> may be written as a linear
-      combination using only the vectors <m>\wvec_1</m> and
-      <m>\wvec_2</m>.  Since the span of a set of vectors is simply
-      the set of their linear combinations, this shows that
-      <me>
-	\laspan{\wvec_1,\wvec_2,\wvec_3} = \laspan{\wvec_1,\wvec_2}
-      </me>.
-      In other words, adding the vector <m>\wvec_3</m> to the set of
-      vectors <m>\wvec_1</m> and <m>\wvec_2</m> does not change the
-      span.
+      Because the vector <m>\vvec_3</m> is not a linear combination of
+      <m>\vvec_1</m> and <m>\vvec_2</m>, it provides a direction to move
+      that is independent of
+      <m>\vvec_1</m> and <m>\vvec_2</m>.  Adding this third vector
+      <m>\vvec_3</m> therefore forms a set whose span is
+      <m>\real^3</m>, as seen on the right of <xref
+      ref="figure-span-r3"/>. 
     </p>
-
-    <p> Before exploring this type of behavior more generally,
-    let's think about this from a geometric point of view.  In the
-    first example, we begin with two vectors <m>\vvec_1</m> and
-    <m>\vvec_2</m> and add a third vector <m>\vvec_3</m>.
-    <sidebyside widths="45% 45%">
-      <image source="images/3d-plane-nonstd" />
-      <image source="images/3d-plane-span-no-w" />
-    </sidebyside>
-    Because the vector <m>\vvec_3</m> is not a linear combination of
-    <m>\vvec_1</m> and <m>\vvec_2</m>, it provides a direction to move
-    that, 
-    when creating linear combinations, is independent of
-    <m>\vvec_1</m> and <m>\vvec_2</m>.  The three vectors therefore
-    span <m>\real^3</m>.
-    </p>
-
+    
     <p>
-      In the second example, however, the third vector <m>\wvec_3</m>
-      is a linear combination of <m>\wvec_1</m> and <m>\wvec_2</m> so
-      it already lies in the plane formed by these two vectors.
+      Similarly, the span of the vectors <m>\wvec_1</m> and
+      <m>\wvec_2</m> in <xref ref="example-span-plane"/> is also a
+      plane.  However, the third vector <m>\wvec_3</m> is a linear
+      combination of <m>\wvec_1</m> and <m>\wvec_2</m>, which means
+      that it already lies in the plane formed by <m>\wvec_1</m> and
+      <m>\wvec_2</m>, as seen in <xref
+      ref="figure-span-plane"/>.
+      Since we can already move in this direction using just 
+      <m>\wvec_1</m> and <m>\wvec_2</m>, adding
+      <m>\wvec_3</m> to the set does not change the span.  As a
+      result, it remains a plane.
+    </p>
+
+    <figure xml:id="figure-span-plane">
+      <caption>
+	The span of the vectors <m>\wvec_1</m>, <m>\wvec_2</m>, and
+	<m>\wvec_3</m>.
+      </caption>
       <sidebyside widths="45% 45%">
 	<image source="images/3d-plane-nonstd-w" />
 	<image source="images/3d-plane-span-yes-w" />
       </sidebyside>
-      Since we can already move in this direction with just the first
-      two vectors <m>\wvec_1</m> and <m>\wvec_2</m>, adding
-      <m>\wvec_3</m> to the set does not enlarge the span.  It remains
-      a plane.
-    </p>
+    </figure>
 
-    <p> With these examples in mind, we will make the following
-    definition.
+    <p>
+      What distinguishes these two examples is whether one of the
+      vectors is a linear combination of the others, an observation
+      that leads to the following definition.
     </p>
 
     <definition>
       <idx> linearly independent </idx>
       <idx> linearly dependent </idx>
       <statement>
-	<p> A set of vectors <m>\vvec_1,\vvec_2,\ldots,\vvec_n</m> is
+	<p> A set of vectors is
 	called <em> linearly dependent </em> if one of the vectors is
 	a linear combination of the others.  Otherwise, the set of
 	vectors is called <em> linearly independent</em>.
@@ -252,8 +392,7 @@
     </definition>
 
     <p> For the sake of completeness, we say that a set of vectors
-    containing only one vector is linearly independent if that vector
-    is not the zero vector, <m>\zerovec</m>.
+    containing only one nonzero vector is linearly independent.
     </p>
 
   </subsection>
@@ -263,8 +402,8 @@
 
     <activity>
       <statement>
-      <p> We would like to develop a means of detecting when a set of
-      vectors is linearly dependent.  These questions will point the
+      <p> We would like to develop a means to detect when a set of
+      vectors is linearly dependent.  This activity will point the
       way. 
       <ol marker="a.">
 	<li ><p> Suppose we have five vectors in <m>\real^4</m> that
@@ -384,119 +523,90 @@
     </activity>
 
     <p>
-      By now, it shouldn't be too surprising that the pivot positions
+      By now, we should expect that the pivot positions
       play an important role in determining whether the columns of a
-      matrix are linearly dependent.  Let's discuss the previous
-      activity to make this clear.
-      
-    <ul>
-      <li> <p>
-	Let's consider the first example
-	from the activity in which we have vectors in <m>\real^4</m>
-	such that
-	<me>
-	  \left[\begin{array}{rrrrr}
-	  \vvec_1 \amp 	  \vvec_2 \amp 	  \vvec_3 \amp
-	  \vvec_4 \amp	  \vvec_5 
-	  \end{array}\right]
-	  \sim
-	  \left[\begin{array}{rrrrr}
-	  1 \amp 0 \amp -1 \amp 0 \amp 2 \\
-	  0 \amp 1 \amp 2 \amp 0 \amp 3 \\
-	  0 \amp 0 \amp 0 \amp 1 \amp -1 \\
-	  0 \amp 0 \amp 0 \amp 0 \amp 0 \\
-	  \end{array}\right]
-	</me>.
-	Notice that the third column does not contain a pivot position.
-	Let's focus on the first three columns and consider them as an
-	augmented matrix:
-	<me>
-	  \left[\begin{array}{rr|r}
-	  \vvec_1 \amp 	  \vvec_2 \amp 	  \vvec_3 
-	  \end{array}\right]
-	  \sim
-	  \left[\begin{array}{rr|r}
-	  1 \amp 0 \amp -1 \\
-	  0 \amp 1 \amp 2 \\
-	  0 \amp 0 \amp 0 \\
-	  0 \amp 0 \amp 0 \\
-	  \end{array}\right]
-	</me>.
-	There is not a pivot in the rightmost column so we know that 
-	<m>\vvec_3</m> can be written as a linear combination of
-	<m>\vvec_1</m> and <m>\vvec_2</m>.  In fact, we can read the
-	weights from the augmented matrix:
-	<me>
-	\vvec_3 = -\vvec_1 + 2\vvec_2
-	</me>.
-	This says that the set of vectors
-	<m>\vvec_1,\vvec_2,\ldots,\vvec_5</m> is linearly dependent.
-      </p>
-
-      <p>
-	This points to the general observation that a set of vectors is
-	linearly dependent if the matrix they form has a column without a
-	pivot.
-      </p>
-
-      <p>
-	In addition, the fifth column of this matrix does not contain a
-	pivot meaning that <m>\vvec_5</m> can be written as a linear
-	combination:
-	<me>
-	  \vvec_5 = 2\vvec_1 + 3\vvec_2 -\vvec_4
-	  </me>.
-      </p>
-
-      <p> This example shows that vectors in columns that do not contain
-      a pivot may be expressed as a linear combination of the vectors in
-      columns that do contain pivots.  In this case, we have
+      matrix are linearly dependent.  For instance, suppose we have
+      four vectors and their associated matrix
       <me>
-	\laspan{\vvec_1,\vvec_2,\vvec_3,\vvec_4,\vvec_5}
-	=\laspan{\vvec_1,\vvec_2,\vvec_4}
-	</me>.
-      </p> </li>
-
-      <li><p>
-	Conversely, the second set of vectors we studied produces a
-	matrix with a pivot in every column.
-	<me>
-	  \left[\begin{array}{rrr}
-	  \wvec_1 \amp 	  \wvec_2 \amp 	  \wvec_3 \\
-	  \end{array}\right]
-	  \sim
-	  \left[\begin{array}{rrr}
-	  1 \amp 0 \amp 0 \\
-	  0 \amp 1 \amp 0 \\
-	  0 \amp 0 \amp 1 \\
-	  0 \amp 0 \amp 0 \\
-	  \end{array}\right]
-	  </me>.
-	  If we interpret this as an augmented matrix again, we see
-	  that the linear system is inconsistent since there is a pivot in
-	  the rightmost column.  This means that <m>\wvec_3</m> cannot be
-	  expressed as a linear combination of <m>\wvec_1</m> and
-	  <m>\wvec_2</m>.
-	</p>
-
-	<p>
-	  Similarly, <m>\wvec_2</m> cannot be expressed as a linear
-	  combination of <m>\wvec_1</m>. In addition, if <m>\wvec_2</m>
-	  could be expressed as a linear combination of <m>\wvec_1</m> and
-	  <m>\wvec_3</m>, we could rearrange that expression to write
-	  <m>\wvec_3</m> as a linear combination of <m>\wvec_1</m> and
-	  <m>\wvec_2</m>, which we know is impossible.
-	</p>
-	
-	<p>
-	  We can therefore conclude that <m>\wvec_1</m>, <m>\wvec_2</m>,
-	  and <m>\wvec_3</m> form a linearly indpendent set of vectors.
-      </p></li>
-    </ul>
+	\left[\begin{array}{rrrr}
+	\vvec_1 \amp 	  \vvec_2 \amp 	  \vvec_3 \amp
+	\vvec_4 
+	\end{array}\right]
+	\sim
+	\left[\begin{array}{rrrrr}
+	1 \amp 0 \amp 2 \amp 0 \\
+	0 \amp 1 \amp -3 \amp 0 \\
+	0 \amp 0 \amp 0 \amp 1 \\
+	0 \amp 0 \amp 0 \amp 0 \\
+	\end{array}\right].
+      </me>
+      Since the third column does not contain a pivot position,
+      let's just focus on the first three columns and view them
+      as an augmented matrix:
+      <me>
+	\left[\begin{array}{rr|r}
+	\vvec_1 \amp 	  \vvec_2 \amp 	  \vvec_3 
+	\end{array}\right]
+	\sim
+	\left[\begin{array}{rr|r}
+	1 \amp 0 \amp 2 \\
+	0 \amp 1 \amp -3 \\
+	0 \amp 0 \amp 0 \\
+	0 \amp 0 \amp 0 \\
+	\end{array}\right].
+      </me>
+      This says that 
+      <me>
+	\vvec_3 = 2\vvec_1 -3\vvec_2,
+      </me>
+      which tells us that the set of vectors
+      <m>\vvec_1,\vvec_2,\vvec_3,\vvec_4</m> is linearly dependent.
+      Moreover, we see that
+      <me>
+	\laspan{\vvec_1,\vvec_2,\vvec_3,\vvec_4} =
+	\laspan{\vvec_1,\vvec_2,\vvec_4}.
+      </me>
     </p>
     
-    <p> This leads to the following proposition. </p>
-
+    <p>
+      More generally, the same reasoning implies that a set of
+      vectors is linearly dependent if the associated matrix has a
+      column without a pivot position.  Indeed, as illustrated here,
+      a vector corresponding to a column without a pivot
+      position can be expressed as a linear combination of the
+      vectors whose columns do contain pivot positions.
+    </p>
+    
+    <p>
+      Suppose instead that the matrix associated to a set of vectors 
+      has a pivot position in every column.
+      <me>
+	\left[\begin{array}{rrrr}
+	\wvec_1 \amp 	  \wvec_2 \amp 	  \wvec_3 \amp \wvec_4 \\
+	\end{array}\right]
+	\sim
+	\left[\begin{array}{rrrr}
+	1 \amp 0 \amp 0 \amp 0 \\
+	0 \amp 1 \amp 0 \amp 0\\
+	0 \amp 0 \amp 1 \amp 0\\
+	0 \amp 0 \amp 0 \amp 1 \\
+	0 \amp 0 \amp 0 \amp 0 \\
+	\end{array}\right].
+      </me>
+      Viewing this as an augmented matrix again, we see
+      that the linear system is inconsistent since there is a pivot in
+      the rightmost column, which means that <m>\wvec_4</m> cannot be
+      expressed as a linear combination of the other vectors.
+      Similarly, <m>\wvec_3</m> cannot be expressed as a linear
+      combination of <m>\wvec_1</m> and <m>\wvec_2</m>. In
+      fact, none of the vectors can be written as a linear
+      combination of the others so this set of vectors is linearly
+      independent. 
+    </p>
+    
+      
+    <p> The following proposition summarizes these findings. </p>
+    
     <proposition>
       <statement>
 	<p> The columns of a matrix are linearly independent if and
@@ -508,10 +618,8 @@
     <p>
       This condition imposes a constraint on how many vectors we can
       have in a linearly independent set.  Here is an example of the
-      reduced row echelon form of a matrix having linearly independent
-      columns.  Notice that there are three vectors in <m>\real^5</m>
-      so there are at least as many rows as columns.
-
+      reduced row echelon form of a matrix whose columns form a set of
+      three linearly independent vectors in <m>\real^5</m>:
       <me>
 	\left[\begin{array}{rrr}
 	1 \amp 0 \amp 0 \\
@@ -519,26 +627,28 @@
 	0 \amp 0 \amp 1 \\
 	0 \amp 0 \amp 0 \\
 	0 \amp 0 \amp 0 \\
-	\end{array}\right]
-      </me>.
+	\end{array}\right].
+      </me>
+      Notice that there are at least as many rows as columns, which
+      must be the case if every column is to have a pivot position.
     </p>
 
     <p>
-      More generally, suppose that
+      More generally, if
       <m>\vvec_1,\vvec_2,\ldots,\vvec_n</m> is a 
-      linearly independent set of vectors in <m>\real^m</m>.  When
-      these vectors form the columns of a matrix, there must be a
-      pivot position in every column of the matrix.  Since every row
+      linearly independent set of vectors in <m>\real^m</m>,
+      the associated matrix must have a
+      pivot position in every column.  Since every row
       contains at most one pivot position, the number of columns can
       be no greater than the number of rows.
       This means that the number of vectors in a linearly independent
       set can be no greater than the number of dimensions.
     </p>
 
-    <proposition>
+    <proposition xml:id="prop-linear-indep-bound">
       <statement>
 	<p> A linearly independent set of vectors in <m>\real^m</m>
-	can contain no more than <m>m</m> vectors.
+	contains at most <m>m</m> vectors.
 	</p>
       </statement>
     </proposition>
@@ -546,23 +656,31 @@
     <p>
       This says, for instance, that any linearly independent
       set of vectors in <m>\real^3</m> can contain no more three
-      vectors.  Once again, this makes intuitive sense.  We usually
+      vectors.  We usually
       imagine three independent directions, such as up/down,
       front/back, left/right, in our three-dimensional world.  This
       proposition tells us that there can be no more independent
       directions.
     </p>
 
+    <p>
+      The proposition above says that a set of vectors in
+      <m>\real^m</m> that is linear independent has at most
+      <m>m</m> vectors.  By comparison,
+      <xref ref="prop-span-bound"/> says that a set of vectors 
+      whose span is <m>\real^m</m> has at least
+      <m>m</m> vectors.
+    </p>
   </subsection>
 
   <subsection>
-    <title> The homogeneous equation </title>
+    <title> Homogeneous equations </title>
 
     <p>
-      Given an <m>m\times n</m> matrix <m>A</m>, we call the equation
-      <m>A\xvec = \zerovec</m> a <em>homogenous</em> equation.  The
-      solutions to this equation reflect whether the columns of
-      <m>A</m> are linearly independent or not.
+      If <m>A</m> is a matrix, we call the equation <m>A\xvec =
+      \zerovec</m> a <em>homogeneous</em> equation.  As we'll see, the
+      uniqueness of solutions to this equation reflects on the
+      linear independence of the columns of <m>A</m>.
     </p>
 
     <activity>
@@ -570,7 +688,7 @@
 
       <statement>
       <p><ol marker="a.">
-	<li><p> Explain why the homogenous equation <m>A\xvec =
+	<li><p> Explain why the homogeneous equation <m>A\xvec =
 	\zerovec</m> is consistent no matter the matrix <m>A</m>.
 	</p></li>
 
@@ -584,25 +702,18 @@
 	</me>
 	whose columns we denote by <m>\vvec_1</m>, <m>\vvec_2</m>, and
 	<m>\vvec_3</m>.
-	Are the vectors <m>\vvec_1</m>, <m>\vvec_2</m>, and
-	<m>\vvec_3</m> linearly dependent or independent?
+	Describe the solution space of
+	the homogeneous equation <m>A\xvec = \zerovec</m> using a
+	parametric description, if appropriate.
 	<sage>
 	  <input>
 	  </input>
 	</sage>
-	      
 	</p></li>
 
 	<li><p>
-	  Give a description of the solution space of
-	  the homogeneous equation <m>A\xvec = \zerovec</m>.
-	</p></li>
-
-	<li><p>
-	  We know that <m>\zerovec</m> is a solution to the
-	  homogeneous equation.  Find another solution that is
-	  different from <m>\zerovec</m>.  Use your solution to find
-	  weights 
+	  Find a nonzero solution to the homogeneous equation
+	  and use it to find weights 
 	  <m>c_1</m>, <m>c_2</m>, and <m>c_3</m> such that
 	  <me>
 	    c_1\vvec_1 + c_2\vvec_2 + c_3\vvec_3 = \zerovec
@@ -610,9 +721,14 @@
 	</p></li>
 
 	<li><p>
-	  Use the expression you found in the previous part to write
+	  Use the equation you found in the previous part to write
 	  one of the vectors as a linear combination of the others.
 	</p></li>
+	<li><p>
+	Are the vectors <m>\vvec_1</m>, <m>\vvec_2</m>, and
+	<m>\vvec_3</m> linearly dependent or independent?
+	</p></li>
+
       </ol></p>
       </statement>
 
@@ -635,12 +751,8 @@
 	      1 \amp 0 \amp 2 \\
 	      0 \amp 1 \amp -3 \\
 	      0 \amp 0 \amp 0
-	      \end{array}\right]\text{,}
+	      \end{array}\right].
 	    </me>
-	    which shows that the vectors are linearly dependent.  
-	  </p></li>
-
-	  <li><p>
 	    From the reduced row echelon form, we see that <m>x_3</m>
 	    is a free variable and that we have
 	    <me>
@@ -669,98 +781,130 @@
 	    <m>\vvec_3</m> is a linear combination of <m>\vvec_1</m>
 	    and <m>\vvec_2</m>.
 	  </p></li>
-	  </ol></p>
+
+	  <li>
+	    <p>
+	      The vectors <m>\vvec_1</m>, <m>\vvec_2</m>, and
+	      <m>\vvec_3</m> are linearly dependent, and we know this
+	      in two ways.  We have seen how to express one vector as
+	      a linear combination of the others.  Also, we have seen
+	      that the associated matrix has a column without a pivot
+	      position.
+	    </p>
+	  </li>
+	</ol></p>
       </solution>
 	      
     </activity>
 
     <p>
-      <idx> trivial solution </idx>
-      <idx> nontrivial solution </idx>
-      For any matrix <m>A</m>, we know that the equation <m>A\xvec =
-      \zerovec</m> has at least one solution, namely, the vector
-      <m>\xvec = \zerovec</m>.  We call this the trivial solution to
-      the homogeneous equation so that any other solution that exists
-      is a <m>nontrivial</m> solution.
-    </p>
-
-    <p>
-      If there is no nontrivial solution, then <m>A\xvec =
-      \zerovec</m> has exactly one solution.  There can be no free
-      variables in a description of the solution space so <m>A</m>
-      must have a pivot position in every column.  In this case, the
-      columns of <m>A</m> must be linearly independent.
-    </p>
-
-    <p>
-      If, however, there is a nontrivial solution, then there are
-      infinitely many solutions so <m>A</m> must
-      have a column without a pivot position.  Hence, the
-      columns of <m>A</m> are linearly dependent.
+      <idx> solution, trivial </idx>
+      <idx> solution, nontrivial </idx>
+      This activity shows how the solution space of the homogeneous
+      equation <m>A\xvec = \zerovec</m> indicates whether the columns
+      of <m>A</m> are linearly dependent or independent.  First, we
+      know that the equation <m>A\xvec = \zerovec</m> always has at
+      least 
+      one solution, the vector <m>\xvec = \zerovec</m>.  We call this
+      the <em>trivial</em> solution to the homogeneous equation;  any
+      other solution is a <em>nontrivial</em> solution.
     </p>
 
     <example>
       <statement>
 	<p>
-      We will make the connection between solutions to the homogeneous
-      equation and the linear independence of the columns more explict
-      by looking at an example.  In particular, we will demonstrate
-      how a nontrivial solution to the homogeneous equation shows that
-      one column of <m>A</m> is a linear combination of the others.
-      With the matrix <m>A</m> in the previous activity, the
-      homogeneous equation has the reduced row echelon form
-      <me>
-	\left[\begin{array}{rrr|r}
-	3 \amp 2 \amp 0 \amp 0 \\
-	-1 \amp 0 \amp -2 \amp 0 \\
-	2 \amp 1 \amp 1 \amp 0 \\
-	\end{array}\right]
-	\sim
-	\left[\begin{array}{rrr|r}
-	1 \amp 0 \amp 2 \amp 0 \\
-	0 \amp 1 \amp -3 \amp 0 \\
-	0 \amp 0 \amp 0 \amp 0 \\
-	\end{array}\right]
-      </me>,
-      which implies that
-      <me>
-	\begin{alignedat}{4}
-	x_1 \amp \amp \amp {}+{} \amp 2x_3 \amp {}={} \amp 0 \\
-	\amp \amp x_2 \amp {}-{} \amp 3x_3 \amp {}={} \amp 0 \\
-	\end{alignedat}
-      </me>.
-      In terms of the free variable <m>x_3</m>, we have
-      <me>
-	\begin{aligned}
-	x_1 \amp {}={} -2x_3 \\
-	x_2 \amp {}={} 3x_3 \\
-	\end{aligned}
-      </me>.
-      Any choice for a value of the free variable <m>x_3</m> produces
-      a solution so let's choose, for convenience, <m>x_3=1</m>.
-      We then have <m>(x_1,x_2,x_3) = (-2,3,1)</m>.
-    </p>
+	  Let's consider the vectors
+	  <me>
+	    \vvec_1 = \fourvec2{-4}10,~~~
+	    \vvec_2 = \fourvec113{-2},~~~
+	    \vvec_3 = \fourvec3{-3}4{-2}
+	  </me>
+	  and their associated matrix
+	  <m>A = \begin{bmatrix}
+	  \vvec_1 \amp \vvec_2 \amp \vvec_3
+	  \end{bmatrix}
+	  </m>.
+	</p>
 
-    <p>
-      Since <m>(-2,3,1)</m> is a solution to the homogeneous equation
-      <m>A\xvec=\zerovec</m>, this solution gives weights for a
-      linear combination of the columns of <m>A</m> that create
-      <m>\zerovec</m>.  That is,
-      <me>
-	-2\vvec_1 + 3\vvec_2 + \vvec_3 = \zerovec
-      </me>,
-      which we rewrite as
-      <me>
-	\vvec_3 = 2\vvec_1 - 3\vvec_2
-      </me>.
-    </p>
+	<p>
+	  The homogeneous equation <m>A\xvec = \zerovec</m> has the
+	  associated augmented matrix
+	  <me>
+	    \left[
+	    \begin{array}{rrr|r}
+	    2 \amp 1 \amp 3 \amp 0 \\
+	    -4 \amp 1 \amp -3 \amp 0 \\
+	    1 \amp 3 \amp 4 \amp 0 \\
+	    0 \amp -2 \amp -2 \amp 0 \\
+	    \end{array}
+	    \right]
+	    \sim
+	    \left[
+	    \begin{array}{rrr|r}
+	    1 \amp 0 \amp 1 \amp 0 \\
+	    0 \amp 1 \amp 1 \amp 0 \\
+	    0 \amp 0 \amp 0 \amp 0 \\
+	    0 \amp 0 \amp 0 \amp 0 \\
+	    \end{array}
+	    \right].
+	  </me>
+	  Therefore, <m>A</m> has a column without a
+	  pivot position, which tells us that the vectors
+	  <m>\vvec_1</m>, <m>\vvec_2</m>, and <m>\vvec_3</m> are
+	  linearly dependent.  However, we can also see this fact in
+	  another way.
+	</p>
+
+	<p>
+	  The reduced row echelon matrix tells us that the homogeneous
+	  equation has a free variable so that there must be
+	  infinitely many solutions.  In particular, we have
+	  <me>
+	    \begin{aligned}
+	    x_1 \amp {}={} -x_3 \\
+	    x_2 \amp {}={} -x_3 \\
+	    \end{aligned}
+	  </me>
+	  so the solutions have the form
+	  <me>
+	    \xvec = \threevec{x_1}{x_2}{x_3} =
+	    \threevec{-x_3}{-x_3}{x_3} = x_3\threevec{-1}{-1}1.
+	  </me>
+	</p>
+
+	<p>
+	  If we choose <m>x_3=1</m>, then we obtain the nontrivial
+	  solution to the homogeneous equation <m>\xvec =
+	  \threevec{-1}{-1}1</m>, which implies that
+	  <me>
+	    A\threevec{-1}{-1}1 =
+	    \begin{bmatrix}
+	    \vvec_1\amp\vvec_2\amp\vvec_3
+	    \end{bmatrix}
+	    \threevec{-1}{-1}1 =
+	    -\vvec_1 -\vvec_2 + \vvec_3 = \zerovec.
+	  </me>
+	  In other words,
+	  <me>
+	    \begin{aligned}
+	    -\vvec_1 -\vvec_2 + \vvec_3 \amp{}={} \zerovec \\
+	    \vvec_3 \amp{}={} \vvec_1 + \vvec_2. \\
+	    \end{aligned}
+	  </me>
+	</p>
+
+	<p>
+	  Because <m>\vvec_3</m> is a linear combination of
+	  <m>\vvec_1</m> and <m>\vvec_2</m>, we know that this set of
+	  vectors is linearly dependent.
+	</p>
       </statement>
     </example>
-
+	    
     <p>
       As this example demonstrates, there are many ways we can view
-      the question of linear independence.  We will record some of
-      these ways in the following proposition.
+      the question of linear independence, some of which are recorded 
+      in the following proposition.
     </p>
 
     <proposition>
@@ -782,7 +926,8 @@
 	  position. </p></li>
 
 	  <li> <p> The homogeneous equation <m>A\xvec = \zerovec</m>
-	  has a nontrivial solution. </p></li>
+	  has infinitely many solutions and hence a nontrivial
+	  solution. </p></li> 
 
 	  <li> <p> There are weights <m>c_1,c_2,\ldots,c_n</m>, not
 	  all of which are zero, such that
@@ -801,56 +946,8 @@
       Summary
     </title>
 
-    <p> In this section, we developed the concept of linear dependence
-    of a set of vectors.  At the beginning of the section, we said
-    that this concept addressed the second of our fundamental
-    questions, expressed in <xref ref="fundamental-questions" />,
-    concerning the uniqueness of solutions to a linear system.  It is
-    worth comparing the results of this section with those of the
-    previous one so that the parallels between them become clear.
-    </p>
-
-    <p>
-    As is usual, we will write a matrix as a collection
-    of vectors,
-    <me>A=\left[\begin{array}{rrrr} \vvec_1\amp\vvec_2 \amp
-    \ldots \amp \vvec_n \end{array}\right].
-    </me>
-    </p>
-
-    <p>
-      <dl>
-	<li><title> Existence </title>
-	<p>
-	  In the previous section, we asked if we could write a vector
-	  <m>\bvec</m> as a linear combination of the columns of
-	  <m>A</m>, which happens precisely when a solution to the
-	  equation <m>A\xvec = \bvec</m> exists.  We saw that every vector
-	  <m> \bvec</m> could be expressed as a linear combination of the
-	  columns of <m>A</m> when <m>A</m> has a pivot position in every
-	  row.  In this case, we said that the span of the vectors
-	  <m>\vvec_1,\vvec_2,\ldots,\vvec_n</m> is <m>\real^m</m>.  We
-	  saw that at least <m>m</m> vectors are needed to span
-	  <m>\real^m</m>. 
-	</p></li>
-
-	<li><title> Uniqueness </title>
-	<p>
-	  In this section, we studied the uniqueness of solutions to
-	  the equation <m>A\xvec = \zerovec</m>, which is always
-	  consistent.  When a nontrivial solution exists, we saw that
-	  one vector of the set <m>\vvec_1,\vvec_2,\ldots,\vvec_n</m>
-	  is a linear combination of the others, in which case we said
-	  that the set of vectors is linearly dependent.  This happens
-	  when the matrix <m>A</m> has a column without a pivot
-	  position.  We saw that there can be no more than <m>m</m>
-	  vectors in a set of linearly independent vectors in
-	  <m>\real^m</m>.  </p></li>
-      </dl>
-    </p>
-
-    <p>
-      To summarize the specific results of this section, we saw that:
+    <p> This section developed the concept of linear dependence
+    of a set of vectors.  More specifically, we saw that:
     <ul>
       <li><p> A set of vectors is linearly dependent if one of the
       vectors is a linear combination of the others. </p></li>
@@ -875,6 +972,96 @@
       </p></li>
     </ul></p>
 
+    <p>
+      At the beginning of the section, we said
+      that this concept addressed the second of our 
+      <xref ref="fundamental-questions" text="custom">
+	two fundamental questions
+      </xref>
+      concerning the uniqueness of solutions to a linear system.  It is
+      worth comparing the results of this section with those of the
+      previous one so that the parallels between them become clear.
+    </p>
+    
+    <p>
+      As usual, we will write a matrix as a collection
+      of vectors,
+      <me>A=\left[\begin{array}{rrrr} \vvec_1\amp\vvec_2 \amp
+      \ldots \amp \vvec_n \end{array}\right].
+      </me>
+    </p>
+
+    <table>
+      <title> Span and Linear Independence </title>
+      <tabular bottom="minor" valign="top">
+	<col width="50%" />
+	<col width="50%" />
+	<row header="yes" bottom="medium">
+	  <cell halign="center"> Span </cell>
+	  <cell halign="center"> Linear independence </cell>
+	</row>
+	<row>
+	  <cell valign="top">
+	    <p>
+	      A vector <m>\bvec</m> is in the span of a set of vectors 
+	      if it is a linear combination of those vectors.
+	    </p>
+	  </cell>
+	  <cell valign="top">
+	    <p>
+	      A set of vectors is linearly dependent if one of the
+	      vectors is a linear combination of the others.
+	    </p>
+	  </cell>
+	</row>
+	<row>
+	  <cell valign="top">
+	    <p>
+	      A vector <m>\bvec</m> is in the span of <m>\vvec_1,
+	      \vvec_2, \ldots, \vvec_n</m> if there exists a solution
+	      to <m>A\xvec = \bvec</m>.
+	    </p>
+	  </cell>
+	  <cell valign="top">
+	    <p>
+	      The vectors <m>\vvec_1, \vvec_2, \ldots, \vvec_n</m> are
+	      linearly independent if <m>\xvec=\zerovec</m> is the
+	      unique solution to <m>A\xvec = \zerovec</m>.
+	    </p>
+	  </cell>
+	</row>
+	<row>
+	  <cell valign="top">
+	    <p>
+	      The columns of an <m>m\times n</m> matrix span
+	      <m>\real^m</m> if the matrix has a pivot position in every
+	      row.
+	    </p>
+	  </cell>
+	  <cell valign="top">
+	    <p>
+	      The columns of a matrix are linearly independent if the
+	      matrix has a pivot position in every column.
+	    </p>
+	  </cell>
+	</row>
+	<row>
+	  <cell valign="top">
+	    <p>
+	      A set of vectors that span <m>\real^m</m> has at least
+	      <m>m</m> vectors.
+	    </p>
+	  </cell>
+	  <cell valign="top">
+	    <p>
+	      A set of linearly independent vectors in <m>\real^m</m>
+	      has at most <m>m</m> vectors.
+	    </p>
+	  </cell>
+	</row>
+      </tabular>
+    </table>
+	
   </subsection>
 
   <xi:include href="exercises/exercises2-4.xml" />

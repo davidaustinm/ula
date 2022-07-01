@@ -10,9 +10,9 @@
       <ol marker="a.">
 	<li><p> Rotates vectors by <m>180^\circ</m>. </p></li>
 
-	<li><p> Reflects vectors in the vertical axis. </p></li>
+	<li><p> Reflects vectors across the vertical axis. </p></li>
 
-	<li><p> Reflects vectors in the line <m>y=-x</m>. </p></li>
+	<li><p> Reflects vectors across the line <m>y=-x</m>. </p></li>
 
 	<li><p> Rotates vectors counterclockwise by
 	<m>60^\circ</m>. </p></li>
@@ -40,8 +40,8 @@
 	  <li><p>
 	    <m>
 	      \left[\begin{array}{rr}
-	      1 \amp 0 \\
-	      0 \amp -1 \\
+	      -1 \amp 0 \\
+	      0 \amp 1 \\
 	      \end{array}\right]
 	      </m>.
 	  </p></li>
@@ -145,21 +145,21 @@
       <p> This exercise investigates the composition of reflections in
       the plane.
       <ol marker="a.">
-	<li><p> Find the result of first reflecting in the line
+	<li><p> Find the result of first reflecting across the line
 	<m>y=0</m> and then <m>y=x</m>.  What familiar operation is
 	the cumulative effect of this composition? </p></li>
 
 	<li><p> What happens if you compose the operations in the
-	opposite order;  that is, what happens if you first reflect in
+	opposite order;  that is, what happens if you first reflect across
 	<m>y=x</m> and then <m>y=0</m>?  What familiar operation
 	results?
 	</p></li>
 
 	<li><p> What familiar geometric operation results if you first
-	reflect in the line <m>y=x</m> and then <m>y=-x</m>? </p></li>
+	reflect across the line <m>y=x</m> and then <m>y=-x</m>? </p></li>
 
 	<li><p> What familiar geometric operation results if you first
-	rotate by <m>90^\circ</m> and then reflect in the line
+	rotate by <m>90^\circ</m> and then reflect across the line
 	<m>y=x</m>? </p></li>
       </ol></p>
 
@@ -329,8 +329,8 @@
 	<li><p>
 	  <m>\left[\begin{array}{rrr}
 	  1 \amp 0 \amp 0 \\ 
-	  0 \amp 0 \amp 1  \\
-	  0 \amp -1 \amp 0 \\
+	  0 \amp 0 \amp -1  \\
+	  0 \amp 1 \amp 0 \\
 	  \end{array}\right]
 	  </m>.
 	</p></li>
@@ -356,8 +356,8 @@
 	<li><p>
 	  <m>\left[\begin{array}{rrr}
 	  1 \amp 0 \amp 0 \\ 
-	  0 \amp 0 \amp -1  \\
-	  0 \amp 1 \amp 0 \\
+	  0 \amp 0 \amp 1  \\
+	  0 \amp -1 \amp 0 \\
 	  \end{array}\right]
 	  \left[\begin{array}{rrr}
 	  0 \amp 0 \amp 1 \\ 
@@ -374,7 +374,8 @@
 	  -1 \amp 0 \amp 0  \\
 	  0 \amp 0 \amp 1 \\
 	  \end{array}\right]
-	  </m>, which is a <m>-90^\circ</m> rotation about the <m>z</m> axis.
+	  </m>, which is a <m>-90^\circ</m> rotation about the
+	  <m>z</m>-axis.
 	</p></li>
       </ol></p>
     </solution>
@@ -415,7 +416,7 @@
 	  -1 \amp 0 \amp 0  \\
 	  0 \amp 0 \amp 1 \\
 	  \end{array}\right]
-	  </m>, which is a <m>-90^\circ</m> rotation about the <m>z</m> axis.
+	  </m>.
 	</p></li>
       </ol></p>
     </answer>
@@ -425,8 +426,8 @@
   <exercise>
     <statement>
       <p>
-	We have seen how a matrix transformation can perform a
-	geometric operation; now we would like to find a matrix
+	If a matrix transformation performs a
+	geometric operation, we would like to find a matrix
 	transformation that undoes that operation.
 	<ol marker="a.">
 	  <li><p>
@@ -435,7 +436,7 @@
 	    Find a matrix transformation <m>S:\real^2\to\real^2</m>
 	    that undoes the rotation;  that is, <m>S</m> takes
 	    <m>T(\xvec)</m> back into <m>\xvec</m> so that
-	    <m>S\circ T(\xvec) = \xvec</m>.  Think geometrically about
+	    <m>(S\circ T)(\xvec) = \xvec</m>.  Think geometrically about
 	    what the transformation <m>S</m> should be and then verify
 	    it algebraically.
 	  </p>
@@ -608,7 +609,7 @@
       </p>
 
       <figure xml:id="fig-ex-rotate-about-p">
-	<sidebyside width="75%">
+	<sidebyside width="65%">
 	  <image source="images/ex-rotate-about-p" />
 	</sidebyside>
 	<caption>
@@ -703,8 +704,10 @@
 	    0 \amp -1 \amp 3 \\
 	    1 \amp 0 \amp 3 \\
 	    0 \amp 0 \amp 1 \\
-	    \end{array}\right]
-	  </m>.
+	    \end{array}\right].
+	  </m>
+	  </p></li>
+	  <li><p>
 	  If we call this matrix <m>C</m>, we compute
 	  <m>C\threevec{-10}{5}{1} = \threevec{-2}{-9}{1}</m>.
 	  Therefore, the point <m>(-10,5)</m> is rotated to
@@ -751,8 +754,10 @@
 	    0 \amp -1 \amp 3 \\
 	    1 \amp 0 \amp 3 \\
 	    0 \amp 0 \amp 1 \\
-	    \end{array}\right]
-	  </m>.
+	    \end{array}\right].
+	  </m>
+	</p></li>
+	<li><p>
 	  The point <m>(-10,5)</m> is rotated to
 	  <m>(-2,-9)</m>.
 	</p></li>
@@ -763,30 +768,27 @@
       
   <exercise>
     <statement>
-      <p> This exercise concerns matrix transformations called <em>
-      projections</em>. 
-	<ol marker="a.">
+      <p> Consider the matrix transformation
+      <m>T:\real^2\to\real^2</m> that assigns to a vector
+      <m>\xvec</m> the closest vector on horizontal axis as
+      illustrated in <xref ref="fig-ex-projection" />.  This
+      transformation is called the <em> projection</em> onto the
+      horizontal axis.  You may imagine <m>T(\xvec)</m> as the
+      shadow cast by <m>\xvec</m> from a flashlight far up on the
+      positive <m>y</m>-axis.
+      </p>
+      
+      <figure xml:id="fig-ex-projection">
+	<sidebyside width="75%">
+	  <image source="images/v-projection" />
+	</sidebyside>
+	<caption>
+	  Projection onto the <m>x</m>-axis.
+	</caption>
+      </figure>
+
+      <p><ol marker="a.">
 	<li><p>
-	  Consider the matrix transformation
-	  <m>T:\real^2\to\real^2</m> that assigns to a vector
-	  <m>\xvec</m> the closest vector on horizontal axis as
-	  illustrated in <xref ref="fig-ex-projection" />.  This
-	  transformation is called the projection onto the
-	  horizontal axis.  You may imagine <m>T(\xvec)</m> as the
-	  shadow cast by <m>\xvec</m> from a flashlight far up on the
-	  positive <m>y</m>-axis.
-	</p>
-	
-	<figure xml:id="fig-ex-projection">
-	  <sidebyside width="75%">
-	    <image source="images/v-projection" />
-	  </sidebyside>
-	  <caption>
-	    Projection onto the <m>x</m>-axis.
-	  </caption>
-	</figure>
-	
-	<p>
 	  Find the matrix that defines this matrix transformation
 	  <m>T</m>.  
 	</p></li>
@@ -795,18 +797,18 @@
 	  Find the matrix that defines projection on the vertical
 	  axis.
 	</p></li>
-
+	
 	<li><p>
 	  What is the result of composing the projection onto the
 	  horizontal axis with the projection onto the vertical axis?
 	</p></li>
-
+	
 	<li><p>
 	  Find the matrix that defines projection onto the line
 	  <m>y=x</m>.
 	</p></li>
       </ol> </p>
-	  
+      
     </statement>
 
     <solution>
@@ -1037,7 +1039,7 @@
 	    A= \left[\begin{array}{rr}
 	    a \amp -b \\
 	    b \amp a \\
-	    \end{array}\right],
+	    \end{array}\right],~~~
 	    B= \left[\begin{array}{rr}
 	    c \amp -d \\
 	    d \amp c \\
@@ -1173,7 +1175,7 @@
 	\end{array}\right]
       </me>.
       We would like to find a similar expression for the matrix that
-      represents the reflection in <m>L_\theta</m>, the line passing
+      represents the reflection across <m>L_\theta</m>, the line passing
       through the 
       origin and making an angle of <m>\theta</m> with the positive
       <m>x</m>-axis, as shown in <xref ref="fig-ex-reflection-def" />.
@@ -1184,7 +1186,7 @@
 	  <image source="images/ex-reflection-def" />
 	</sidebyside>
 	<caption>
-	  The reflection in the line <m>L_\theta</m>.
+	  The reflection across the line <m>L_\theta</m>.
 	</caption>
       </figure>
 

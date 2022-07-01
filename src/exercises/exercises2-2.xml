@@ -120,12 +120,13 @@
 	the product <m>A\twovec{0}{1}</m>? What is
 	the product <m>A\twovec{2}{3}</m>? </p></li>
 
-	<li> <p> Suppose that
+	<li> <p> If we know that
 	<me>
-	  A\twovec{1}{0} = \threevec{3}{-2}{1}, A\twovec{0}{1} =
-	  \threevec{0}{3}{2}
-	  </me>.
-	  What is the matrix <m>A</m>?
+	  A\twovec{1}{0} = \threevec{3}{-2}{1},~~~
+	  A\twovec{0}{1} =
+	  \threevec{0}{3}{2},
+	  </me>
+	  what is the matrix <m>A</m>?
 	</p></li>
       </ol>
       </p>
@@ -181,28 +182,29 @@
   
   <exercise>
     <statement>
-      <p> Shown below are vectors <m>\vvec_1</m> and <m>\vvec_2</m>.
-      Suppose that the matrix <m>A</m> is
-      <me>
-	A = \left[\begin{array}{rr}
+      <p> Suppose that the matrix <m>A = \left[\begin{array}{rr}
 	\vvec_1 \amp \vvec_2
 	\end{array}\right]
-	</me>.
-	<figure>
-	  <sidebyside width="60%">
-	    <image source="images/ex-matrix-cols" />
-	  </sidebyside>
-	  <caption> Two vectors <m>\vvec_1</m> and <m>\vvec_2</m>.
-	  </caption>
-	</figure>
+      </m>
+      where <m>\vvec_1</m> and <m>\vvec_2</m> are shown in <xref
+      ref="ex-eq-graphical"/>.  
       </p>
+
+      <figure xml:id="ex-eq-graphical">
+	<sidebyside width="60%">
+	  <image source="images/ex-matrix-cols" />
+	</sidebyside>
+	<caption> Two vectors <m>\vvec_1</m> and <m>\vvec_2</m> that
+	form the columns of the matrix <m>A</m>. 
+	</caption>
+      </figure>
 
       <p>
       <ol marker="a.">
-	<li><p> What are the dimensions of the matrix <m>A</m>? </p></li>
-	<li><p> On the plot above, indicate the vectors
+	<li><p> What is the shape of the matrix <m>A</m>? </p></li>
+	<li><p> On <xref ref="ex-eq-graphical"/>, indicate the vectors
 	<me>
-	  A\twovec{1}{0}, A\twovec{2}{3}, A\twovec{0}{-3}
+	  A\twovec{1}{0}, ~~~A\twovec{2}{3}, ~~~A\twovec{0}{-3}
 	</me>.
 	</p> </li>
 
@@ -425,13 +427,10 @@
 	  rightmost column.
 	</p></li>
 
-	<li><p>
-	  For any <m>\bvec</m>, the augmented matrix
-	  <m>\left[\begin{array}{r|r} A \amp \bvec
-	  \end{array}\right]</m> will have exactly one column without
-	  a pivot.  Therefore, the solution space will form a line in
-	  <m>\real^4</m>, as in part b.
-	</p></li>
+	<li><p> The coefficient matrix <m>\left[\begin{array}{r|r} A
+	\amp \bvec \end{array}\right]</m> will have exactly one column
+	without a pivot position.  Therefore, the solution space will
+	form a line in <m>\real^4</m>, as in part b.  </p></li>
 
       </ol></p>
     </solution>
@@ -654,30 +653,23 @@
 	    3 \amp 0 \amp 1 \\
 	    \end{array}\right],
 	    \\
-	    S =
-	    \left[\begin{array}{rrr}
-	    1 \amp 0 \amp 0 \\
-	    0 \amp -\frac14 \amp 0 \\
-	    0 \amp 0 \amp 1 \\
-	    \end{array}\right],
-	    \amp
 	    L_3 =
 	    \left[\begin{array}{rrr}
 	    1 \amp 0 \amp 0 \\
 	    0 \amp 1 \amp 0 \\
-	    0 \amp -8 \amp 1 \\
+	    0 \amp 2 \amp 1 \\
 	    \end{array}\right]\text{.}
 	    \end{array}
 	  </me>
-	  Then <m>L_3SL_2L_1A = \left[\begin{array}{rrr}
+	  Then <m>L_3L_2L_1A = \left[\begin{array}{rrr}
 	  1 \amp 2 \amp -1 \\
-	  0 \amp 1 \amp -1 \\
+	  0 \amp -4 \amp 4 \\
 	  0 \amp 0 \amp 8 \\
 	  \end{array}\right]
-	  </m>.  So <m>L=L_3SL_2L_1 =
+	  </m>.  So <m>L=L_3L_2L_1 =
 	  \left[\begin{array}{rrr}
 	  1 \amp 0 \amp 0 \\
-	  \frac{1}{2} \amp -\frac{1}{4} \amp 0 \\
+	  -2 \amp 1 \amp 0 \\
 	  -1 \amp 2 \amp 1
 	  \end{array}\right]
 	  </m>.
@@ -725,7 +717,7 @@
 	  <m>L=
 	  \left[\begin{array}{rrr}
 	  1 \amp 0 \amp 0 \\
-	  \frac{1}{2} \amp -\frac{1}{4} \amp 0 \\
+	  -2 \amp 1 \amp 0 \\
 	  -1 \amp 2 \amp 1
 	  \end{array}\right]
 	  </m>.
@@ -887,13 +879,13 @@
 
 	<li><p>
 	  If a linear system of equations has 8 equations and 5
-	  unknowns, then the dimensions of the matrix <m>A</m> in the
+	  unknowns, then the shape of the matrix <m>A</m> in the
 	  corresponding equation <m>A\xvec = \bvec</m> is
 	  <m>5\times8</m>.
 	</p></li>
 
 	<li><p>
-	  If <m>A</m> has a pivot in every row, then every equation
+	  If <m>A</m> has a pivot position in every row, then every equation
 	  <m>A\xvec = \bvec</m> is consistent.
 	</p></li>
 
@@ -917,7 +909,7 @@
 	</p></li>
 
 	<li><p>
-	  False.  The dimensions of <m>A</m> would be <m>8\times5</m>.
+	  False.  The shape of <m>A</m> is <m>8\times5</m>.
 	</p></li>
 
 	<li><p>
@@ -961,7 +953,7 @@
 	the equation <m>A\xvec = \bvec</m> has a unique solution for
 	some vector <m>\bvec</m>.
 	<ol marker="a.">
-	<li><p>  What does this say about the pivots of the matrix
+	<li><p>  What does this say about the pivot positions of the matrix
 	<m>A</m>?  Write the reduced row echelon form of <m>A</m>.
 	</p></li>
 
@@ -1049,7 +1041,8 @@
       </me>.
       <ol marker="a.">
 	<li><p> Describe the solution space to the homogeneous
-	equation <m>A\xvec = \zerovec</m>.  What does this solution
+	equation <m>A\xvec = \zerovec</m> using a parametric
+	description, if appropriate.  What does this solution
 	space represent geometrically?
 	<sage>
 	  <input>
@@ -1071,7 +1064,7 @@
 	  We will now explain the relationship between the previous
 	  two solution spaces.  Suppose that <m>\xvec_h</m> is a
 	  solution to the homogeneous equation;  that is
-	  <m>A\xvec_h=\zerovec</m>.  We will also suppose that
+	  <m>A\xvec_h=\zerovec</m>.  Suppose also that
 	  <m>\xvec_p</m> is a solution to the equation <m>A\xvec =
 	  \bvec</m>;  that is, <m>A\xvec_p=\bvec</m>.
 	</p> 
@@ -1188,7 +1181,15 @@
       </me>
       where <m>B_k</m> is the number of bicycles at location <m>B</m>
       at the beginning of day <m>k</m> and <m>C_k</m> is the number of
-      bicycles at <m>C</m>.  The information above tells us
+      bicycles at <m>C</m>.  The information above tells us how to
+      determine the distribution of bicycles the following day:
+      <me>
+	\begin{alignedat}{3}
+	B_{k+1} \amp {}={} 0.8B_k \amp {}+{} \amp 0.5 C_k \\
+	C_{k+1} \amp {}={} 0.2B_k \amp {}+{} \amp 0.5 C_k. \\
+	\end{alignedat}
+      </me>
+      Expressed in matrix-vector form, these expressions give
       <me>
 	\xvec_{k+1} = A\xvec_k
       </me>
@@ -1206,7 +1207,7 @@
 	</sage>
       <ol marker="a.">
 	<li><p> Let's check that this makes sense.
-	<ol>
+	<ol marker="1.">
 	  <li><p> Suppose that there are 1000 bicycles at location
 	  <m>B</m> and none at <m>C</m> on day 1.  This means we have
 	  <m>\xvec_1 = \twovec{1000}{0}</m>.  Find the number of
@@ -1238,7 +1239,7 @@
     <solution>
       <p><ol marker="a.">
 	<li><p> We see that
-	<ol marker="i.">
+	<ol marker="1.">
 	  <li><p> <m>x_2 = \twovec{800}{200}</m>. </p></li>
 	  <li><p> <m>x_2 = \twovec{500}{500}</m>. </p></li>
 	</ol>
@@ -1262,7 +1263,7 @@
     <answer>
       <p><ol marker="a.">
 	<li><p> We see that
-	<ol marker="i.">
+	<ol marker="1.">
 	  <li><p> <m>x_2 = \twovec{800}{200}</m>. </p></li>
 	  <li><p> <m>x_2 = \twovec{500}{500}</m>. </p></li>
 	</ol>
@@ -1288,17 +1289,18 @@
       <p> This problem is a continuation of the previous problem.
       <ol marker="a.">
 	<li><p> Let us define vectors
-	<me> \vvec_1 = \twovec{5}{2}, \vvec_2 = \twovec{-1}{1}
+	<me> \vvec_1 = \twovec{5}{2}, ~~~
+	\vvec_2 = \twovec{-1}{1}
 	</me>.
 	Show that
 	<me>
-	  A\vvec_1 = \vvec_1, A\vvec_2 = 0.3\vvec_2
+	  A\vvec_1 = \vvec_1, ~~~A\vvec_2 = 0.3\vvec_2
 	</me>.
 	</p></li>
 
 	<li><p>
 	  Suppose that <m>\xvec_1 = c_1 \vvec_1 + c_2 \vvec_2</m>
-	  where <m>c_2</m> and <m>c_2</m> are scalars.  Use the 
+	  where <m>c_1</m> and <m>c_2</m> are scalars.  Use the 
 	  Linearity Principle expressed in <xref
 	  ref="prop-matrix-mult-prop" /> to explain why
 	  <me>
@@ -1336,7 +1338,7 @@
     <p><ol marker="a.">
       <li><p>
 	<m>A\vvec_1 = \twovec{5}{2} = \vvec_1</m> and
-	<m>A\vvec_2 = \twovec{0.3}{-0.3} = -0.3\vvec_2</m>.
+	<m>A\vvec_2 = \twovec{-0.3}{0.3} = 0.3\vvec_2</m>.
       </p></li>
 
       <li><p> We have
@@ -1344,7 +1346,7 @@
 	\begin{array}{rl}
 	\xvec_2=A\xvec_1 = \amp A(c_1\vvec_1+c_2\vvec_2) \\
 	=\amp c_1A\vvec_1 + c_2A\vvec_2 =
-	c_1\vvec_1 -0.3c_2\vvec_2\text{.}
+	c_1\vvec_1 +0.3c_2\vvec_2\text{.}
 	\end{array}
       </me>
       </p></li>
@@ -1352,9 +1354,9 @@
       <li><p>
 	<me>
 	  \begin{array}{rl}
-	\xvec_3=A\xvec_2=\amp A(c_1\vvec_1-0.3c_2\vvec_2) \\
+	\xvec_3=A\xvec_2=\amp A(c_1\vvec_1+0.3c_2\vvec_2) \\
 	= \amp c_1A\vvec_1 -0.3c_2A\vvec_2 =
-	c_1\vvec_1 +(-0.3)^2c_2\vvec_2\text{.}
+	c_1\vvec_1 +0.3^2c_2\vvec_2\text{.}
 	\end{array}
 	</me>
 	and so on.
@@ -1370,12 +1372,12 @@
 	Then
 	<me>
 	  \begin{array}{l}
-	  \xvec_2=\frac{1000}{7}\vvec_1 - (0.3)\frac{1000}{7}\vvec{2},
+	  \xvec_2=\frac{1000}{7}\vvec_1 + 0.3\frac{1500}{7}\vvec{2},
 	  \\
-	  \xvec_3=\frac{1000}{7}\vvec_1 + (0.3)^2\frac{1000}{7}\vvec{2},
+	  \xvec_3=\frac{1000}{7}\vvec_1 + 0.3^2\frac{1500}{7}\vvec{2},
 	  \\
-	  \xvec_4=\frac{1000}{7}\vvec_1 -
-	  (0.3)^3\frac{1000}{70}\vvec{2}\text{.}
+	  \xvec_4=\frac{1000}{7}\vvec_1 +
+	  0.3^3\frac{1500}{7}\vvec{2}\text{.}
 	  \end{array}
 	  </me>
       </p></li>
@@ -1393,7 +1395,7 @@
     <p><ol marker="a.">
       <li><p>
 	<m>A\vvec_1 = \twovec{5}{2} = \vvec_1</m> and
-	<m>A\vvec_2 = \twovec{0.3}{-0.3} = -0.3\vvec_2</m>.
+	<m>A\vvec_2 = \twovec{-0.3}{0.3} = 0.3\vvec_2</m>.
       </p></li>
 
       <li><p> We have
@@ -1401,7 +1403,7 @@
 	\begin{array}{rl}
 	\xvec_2=A\xvec_1 = \amp A(c_1\vvec_1+c_2\vvec_2) \\
 	=\amp c_1A\vvec_1 + c_2A\vvec_2 =
-	c_1\vvec_1 -0.3c_2\vvec_2\text{.}
+	c_1\vvec_1 +0.3c_2\vvec_2\text{.}
 	\end{array}
       </me>
       </p></li>
@@ -1409,9 +1411,9 @@
       <li><p>
 	<me>
 	  \begin{array}{rl}
-	\xvec_3=A\xvec_2=\amp A(c_1\vvec_1-0.3c_2\vvec_2) \\
-	= \amp c_1A\vvec_1 -0.3c_2A\vvec_2 =
-	c_1\vvec_1 +(-0.3)^2c_2\vvec_2\text{.}
+	\xvec_3=A\xvec_2=\amp A(c_1\vvec_1+0.3c_2\vvec_2) \\
+	= \amp c_1A\vvec_1 +0.3c_2A\vvec_2 =
+	c_1\vvec_1 +0.3^2c_2\vvec_2\text{.}
 	\end{array}
 	</me>
 	and so on.
@@ -1427,12 +1429,12 @@
 	Then
 	<me>
 	  \begin{array}{l}
-	  \xvec_2=\frac{1000}{7}\vvec_1 - (0.3)\frac{1000}{7}\vvec{2},
+	  \xvec_2=\frac{1000}{7}\vvec_1 + 0.3\frac{1500}{7}\vvec{2},
 	  \\
-	  \xvec_3=\frac{1000}{7}\vvec_1 + (0.3)^2\frac{1000}{7}\vvec{2},
+	  \xvec_3=\frac{1000}{7}\vvec_1 + 0.3^2\frac{1500}{7}\vvec{2},
 	  \\
-	  \xvec_4=\frac{1000}{7}\vvec_1 -
-	  (0.3)^3\frac{1000}{70}\vvec{2}\text{.}
+	  \xvec_4=\frac{1000}{7}\vvec_1 +
+	  0.3^3\frac{1500}{7}\vvec{2}\text{.}
 	  \end{array}
 	  </me>
       </p></li>

@@ -114,17 +114,17 @@ v2.fillColor = "gray";
 //bottomright.addPlotable(v2);
 
 var v = new Vector([1,0]);
-v.move = function(p) {
-    v.head = p;
-    bottomupdate();
-}
-v.fillColor = "red";
+//v.move = function(p) {
+//    v.head = p;
+//    bottomupdate();
+//}
+v.fillColor = "gray";
 
 var Av = new Vector([1,0]);
 Av.fillColor = "gray";
 bottomright.addPlotable(Av);
 bottomleft.addPlotable(v);
-bottomleft.addMoveable(v);
+//bottomleft.addMoveable(v);
 
 
 

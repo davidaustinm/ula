@@ -24,13 +24,13 @@
 	are appropriate for the transformation <m>S</m>?
 	</p></li>
 
-	<li><p> Evaluate the matrix transformation
+	<li><p> Evaluate 
 	<m>T\left(\threevec{1}{-3}{2}\right)</m>. </p></li>
 
-	<li><p> Evaluate the matrix transformation
+	<li><p> Evaluate 
 	<m>S\left(\threevec{-2}{2}{1}\right)</m>. </p></li>
 
-	<li><p> Evaluate the matrix transformation
+	<li><p> Evaluate 
 	<m>S\circ T\left(\threevec{1}{-3}{2}\right)</m>. </p></li>
 
 	<li><p> Find the matrix <m>C</m> that defines the matrix
@@ -96,80 +96,9 @@
 
   <exercise>
     <statement>
-      <p> Determine whether the following statements are true or false
-      and provide a justification for your response.
-      <ol marker="a.">
-	<li><p> A matrix transformation <m>T:\real^4\to\real^5</m> is
-	defined by <m>T(\xvec) = A\xvec</m> where <m>A</m> is a
-	<m>4\times5</m> matrix. </p></li>
-
-	<li><p> If <m>T:\real^3\to\real^2</m> is a matrix
-	transformation, then there are infinitely many vectors
-	<m>\xvec</m> such that <m>T(\xvec) = \zerovec</m>. </p></li>
-
-	<li><p> If <m>T:\real^2\to\real^3</m> is a matrix
-	transformation, then it is possible that every equation
-	<m>T(\xvec) = \bvec</m> has a solution for every vector
-	<m>\bvec</m>. </p></li>
-
-	<li><p>
-	  If <m>T:\real^n\to\real^m</m> is a matrix
-	  transformation, then the equation <m>T(\xvec) =
-	  \zerovec</m> always has a solution.
-	</p></li>
-
-	<li><p>
-	  If <m>T:\real^n\to\real^m</m> is a matrix transformation and
-	  <m>\vvec</m> and <m>\wvec</m> two vectors in <m>\real^n</m>,
-	  then the vectors <m>T(\vvec + t\wvec)</m> form a line in
-	  <m>\real^m</m>.
-	</p></li>
-	  
-      </ol></p>
-    </statement>
-
-    <solution>
-      <p><ol marker="a.">
-	<li><p> False.  The dimensions of <m>A</m> are
-	<m>5\times4</m>.
-	</p></li>
-
-	<li><p> True.  The dimensions of <m>A</m> are <m>2\times3</m>
-	so there must be a column without a pivot position.
-	</p></li>
-
-	<li><p> False.  The dimensions of <m>A</m> are <m>3\times2</m>
-	so there must be a row without a pivot position.
-	</p></li>
-
-	<li><p> True.  The vector <m>\xvec=\zerovec</m> is always a
-	solution.
-	</p></li>
-
-	<li><p> True.  It follows that <m>T(\vvec+t\wvec) =
-	A(\vvec+t\wvec) = A\vvec + tA\wvec</m>, which describes the
-	line through <m>A\vvec</m> parallel to <m>A\wvec</m>.  Of
-	course, if <m>A\wvec=0</m>, then <m>T(\vvec+t\wvec)</m> is
-	simply the point <m>A\vvec</m>.
-	</p></li>
-      </ol></p>
-    </solution>
-
-    <answer>
-      <p><ol marker="a.">
-	<li><p> False </p></li>
-	<li><p> True </p></li>
-	<li><p> False </p></li>
-	<li><p> True </p></li>
-	<li><p> True </p></li>
-      </ol></p>
-    </answer>
-  </exercise>
-
-  <exercise>
-    <statement>
       <p> This problem concerns the identification of matrix
-      transformations.
+      transformations, about which more will be said in the next
+      section.  
 	<ol marker="a.">
 	<li><p> Check that the following function <m>T:\real^3\to\real^2</m>
 	is a matrix transformation by finding a matrix <m>A</m> such
@@ -389,7 +318,339 @@
     </answer>
 	
   </exercise>
-  
+
+  <exercise>
+    <statement>
+      <p>
+	In <xref ref="example-mt-to-matrix"/> and <xref
+	ref="example-matrix-to-mt"/>, we wrote matrix transformations
+	in terms of the components of <m>T(\xvec)</m>.  This exercise
+	makes use of that form.
+	<ol marker="a.">
+	  <li>
+	    <p>
+	      Let's return to the example in <xref
+	      ref="activity-mt-intro"/> concerning the company that
+	      operates two bakeries.  We used a matrix transformation
+	      with input <m>\xvec</m>, which recorded the amount of
+	      time the two bakeries operated, and output
+	      <m>T(\xvec)</m>, the number of cakes, doughnuts, and
+	      eclairs produced.  The associated matrix is
+	      <m>A=\begin{bmatrix}
+	      10 \amp 20 \\
+	      50 \amp 30 \\
+	      30 \amp 30 \\
+	      \end{bmatrix}
+	      </m>.
+	      <ol marker="1.">
+		<li>
+		  <p>
+		    If <m>\xvec=\twovec{x_1}{x_2}</m>, write the
+		    output <m>T(\xvec)</m> as a three-dimensional
+		    vector in terms of <m>x_1</m> and <m>x_2</m>.
+		  </p>
+		</li>
+		<li>
+		  <p>
+		    If Bakery 1 operates for <m>x_1</m> hours and
+		    Bakery 2 for <m>x_2</m> hours, how many cakes are
+		    produced?  
+		  </p>
+		</li>
+		<li>
+		  <p>
+		    Explain how you may have discovered this
+		    expression by considering the 
+		    rates at which the two locations make cakes.
+		  </p>
+		</li>
+	      </ol>
+	    </p>
+	  </li>
+	  <li>
+	    <p>
+	      Suppose that a bicycle sharing program has two locations
+	      <m>P</m> and <m>Q</m>.  Bicycles are rented from some
+	      location in the morning and returned to a location in
+	      the evening.  Suppose that
+	      <ul>
+		<li>
+		  <p> 60% of bicycles that begin at <m>P</m> in the
+		  morning are returned to <m>P</m> in the evening
+		  while the other 40% are returned to <m>Q</m>.
+		  </p>
+		</li>
+		<li>
+		  <p>
+		    30% of bicycles that begin at <m>Q</m> are
+		    returned to <m>Q</m> and the other 70% are
+		    returned to <m>P</m>.
+		  </p>
+		</li>
+	      </ul>
+	      <ol marker="1.">
+		<li>
+		  <p>
+		    If <m>x_1</m> is the number of bicycles at
+		    location <m>P</m> and <m>x_2</m>
+		    the number at <m>Q</m> in the morning, write an
+		    expression for the number of bicycles at
+		    <m>P</m> in the evening.
+		  </p>
+		</li>
+		<li>
+		  <p>
+		    Write an expression for the number of bicycles
+		    at <m>Q</m> in the evening.
+		  </p>
+		</li>
+		<li>
+		  <p>
+		    Write an expression for
+		    <m>T\left(\twovec{x_1}{x_2}\right)</m>, the
+		    vector that describs the distribution of
+		    bicycles in the evening.
+		  </p>
+		</li>
+		<li>
+		  <p>
+		    Use this expression to identify the matrix
+		    <m>A</m> associated to the matrix transformation
+		    <m>T</m>.
+		  </p>
+		</li>
+	      </ol>
+	    </p>
+	  </li>
+	</ol>
+      </p>
+    </statement>
+
+    <solution>
+      <p>
+	<ol marker="a.">
+	  <li>
+	    <p>
+	      <ol marker="1.">
+		<li>
+		  <p>
+		    We have
+		    <me>
+		      T(\xvec) = \begin{bmatrix}
+		      10 \amp 20 \\
+		      50 \amp 30 \\
+		      30 \amp 30 \\
+		      \end{bmatrix}
+		      \twovec{x_1}{x_2} =
+		      \threevec{10x_1+20x_2}{50x_1+20x_2}{30x_1+30x_2}.
+		    </me>
+		  </p>
+		</li>
+		<li>
+		  <p>
+		    The number of cakes produced is <m>10x_1 + 20x_2</m>.
+		  </p>
+		</li>
+		<li>
+		  <p>
+		    This is consistent with the given information because
+		    Bakery 1 produces cakes at the rate of 10 cakes per hour
+		    so the number of cakes it produces is <m>10x_1</m>.  In
+		    the same way, the number of cakes produced by Bakery 2
+		    is <m>20x_2</m> giving a total of <m>10x_1 + 20x_2</m>.
+		  </p>
+		</li>
+	      </ol>
+	    </p>
+	  </li>
+	  <li>
+	    <p>
+	      <ol marker="1.">
+		<li>
+		  <p>
+		    Of the bicycles that begin at <m>P</m>, 60% of
+		    them end up at <m>P</m>.  Therefore <m>0.6x_1</m>
+		    is the number of bicycles that begin at <m>P</m>
+		    and end at <m>P</m>.  Similarly, 70% of the
+		    bicycles that begin at <m>Q</m> end up at
+		    <m>P</m> so this number is <m>0.7x_2</m>.
+		    Therefore, the total number of bicycles that end
+		    up at <m>P</m> is
+		    <me>
+		      0.6x_1 + 0.7x_2.
+		    </me>
+		  </p>
+		</li>
+		<li>
+		  <p>
+		    In the same way, the number of bicycles that end
+		    up at <m>Q</m> is
+		    <me>
+		      0.4x_1 + 0.3x_2.
+		    </me>
+		  </p>
+		</li>
+		<li>
+		  <p>
+		    This gives the matrix
+		    <me>
+		      T(\xvec) = \twovec{0.6x_1+0.7x_2}{0.4x_1+0.3x_2}
+		      =
+		      \begin{bmatrix}
+		      0.6 \amp 0.7 \\
+		      0.4 \amp 0.3 \\
+		      \end{bmatrix}
+		      \xvec.
+		    </me>
+		  </p>
+		</li>
+		<li>
+		  <p> This expression leads to
+		  <m>A = 
+		  \begin{bmatrix}
+		  0.6 \amp 0.7 \\
+		  0.4 \amp 0.3 \\
+		  \end{bmatrix}
+		  </m>.
+		  </p>
+		</li>
+	      </ol>
+	    </p>
+	  </li>
+	</ol>
+      </p>
+    </solution>
+
+    <answer>
+      <p>
+	<ol marker="a.">
+	  <li>
+	    <p>
+	      <ol marker="1.">
+		<li>
+		  <p>
+		    We have <m>
+		      T(\xvec) = 
+		      \threevec{10x_1+20x_2}{50x_1+20x_2}{30x_1+30x_2}
+		    </m>.
+		  </p>
+		</li>
+		<li>
+		  <p>
+		    <m>10x_1 + 20x_2</m>.
+		  </p>
+		</li>
+		<li>
+		  <p>
+		    Bakery 1 makes 10 cakes per hour and Bakery 2 makes 20.
+		  </p>
+		</li>
+	      </ol>
+	    </p>
+	  </li>
+	  <li>
+	    <p>
+	      <ol marker="1.">
+		<li>
+		  <p>
+		    <m>
+		      0.6x_1 + 0.7x_2
+		    </m>.
+		  </p>
+		</li>
+		<li>
+		  <p>
+		    <m>
+		      0.4x_1 + 0.3x_2
+		    </m>
+		  </p>
+		</li>
+		<li>
+		  <p>
+		    <m>
+		      T(\xvec) = \twovec{0.6x_1+0.7x_2}{0.4x_1+0.3x_2}
+		    </m>.
+		  </p>
+		</li>
+		<li>
+		  <p> 
+		  <m>A = 
+		  \begin{bmatrix}
+		  0.6 \amp 0.7 \\
+		  0.4 \amp 0.3 \\
+		  \end{bmatrix}
+		  </m>.
+		  </p>
+		</li>
+	      </ol>
+	    </p>
+	  </li>
+	</ol>
+      </p>
+    </answer>
+
+  </exercise>
+		    
+
+	      
+  <exercise>
+    <statement>
+      <p> Determine whether the following statements are true or false
+      and provide a justification for your response.
+      <ol marker="a.">
+	<li><p> A matrix transformation <m>T:\real^4\to\real^5</m> is
+	defined by <m>T(\xvec) = A\xvec</m> where <m>A</m> is a
+	<m>4\times5</m> matrix. </p></li>
+
+	<li><p> If <m>T:\real^3\to\real^2</m> is a matrix
+	transformation, then there are infinitely many vectors
+	<m>\xvec</m> such that <m>T(\xvec) = \zerovec</m>. </p></li>
+
+	<li><p> If <m>T:\real^2\to\real^3</m> is a matrix
+	transformation, then it is possible that every equation
+	<m>T(\xvec) = \bvec</m> has a solution for every vector
+	<m>\bvec</m>. </p></li>
+
+	<li><p>
+	  If <m>T:\real^n\to\real^m</m> is a matrix
+	  transformation, then the equation <m>T(\xvec) =
+	  \zerovec</m> always has a solution.
+	</p></li>
+
+      </ol></p>
+    </statement>
+
+    <solution>
+      <p><ol marker="a.">
+	<li><p> False.  The dimensions of <m>A</m> are
+	<m>5\times4</m>.
+	</p></li>
+
+	<li><p> True.  The dimensions of <m>A</m> are <m>2\times3</m>
+	so there must be a column without a pivot position.
+	</p></li>
+
+	<li><p> False.  The dimensions of <m>A</m> are <m>3\times2</m>
+	so there must be a row without a pivot position.
+	</p></li>
+
+	<li><p> True.  The vector <m>\xvec=\zerovec</m> is always a
+	solution.
+	</p></li>
+
+      </ol></p>
+    </solution>
+
+    <answer>
+      <p><ol marker="a.">
+	<li><p> False </p></li>
+	<li><p> True </p></li>
+	<li><p> False </p></li>
+	<li><p> True </p></li>
+      </ol></p>
+    </answer>
+  </exercise>
+
   <exercise>
     <statement>
       <p> Suppose that a company has three plants, called Plants 1, 2,
@@ -407,11 +668,10 @@
       </ul>
       <ol marker="a.">
 	<li><p> Suppose that <m>x_1</m>, <m>x_2</m>, and <m>x_3</m>
-	record the amounts of time that the three plants are operated.
-	Find expressions for the number of units of milk <m>M</m> and
-	yogurt <m>Y</m> produced. </p></li>
-
-	<li><p> If we write <m>\xvec=\threevec{x_1}{x_2}{x_3}</m> and
+	record the amounts of time that the three plants are operated
+	and that <m>M</m> and <m>Y</m> the amount of milk and yogurt
+	produced. 
+	If we write <m>\xvec=\threevec{x_1}{x_2}{x_3}</m> and
 	<m>\yvec = \twovec{M}{Y}</m>, find the matrix <m>A</m> that
 	defines the matrix transformation <m>T(\xvec) =
 	\yvec</m>. </p></li>
@@ -423,12 +683,9 @@
 	  <li><p> yogurt requires 6 units of electricity and 10 units
 	  of labor. </p></li>
 	</ul>
-	Write expressions for the required amounts of electricity
-	<m>E</m> and labor <m>L</m> in terms of <m>M</m> and
-	<m>Y</m>. </p></li>
-
-	<li><p> If we write the vector <m>\zvec = \twovec{E}{L}</m> to record
-	the required amounts of electricity and labor, find the matrix
+	If we write the vector <m>\zvec = \twovec{E}{L}</m> to record
+	the required amounts of electricity <m>E</m> and labor
+	<m>L</m>, find the matrix 
 	<m>B</m> that defines the matrix transformation <m>S(\yvec) =
 	\zvec</m>. </p></li>
 
@@ -438,25 +695,15 @@
 	are required? </p></li>
 
 	<li><p> Find the matrix <m>C</m> that describes the matrix
-	transformation <m>R(\xvec)=\zvec</m> that gives the
-	required amounts of electricity and labor when the plants are
-	operated times given by vector <m>\xvec</m>. </p></li>
+	transformation <m>R(\xvec)=\zvec</m> that gives the required
+	amounts of electricity and labor when the each plants is
+	operated an amount of time given by the vector
+	<m>\xvec</m>. </p></li>
       </ol></p>
     </statement>
 
     <solution>
       <p><ol marker="a.">
-	<li><p> We have
-	<me>
-	  \begin{alignedat}{4}
-	  M \amp {}={} \amp 20x_1 \amp {}+{} \amp 30 x_2 \amp 
-	  \amp \\
-	  Y \amp {}={} \amp 15x_1 \amp {}+{} \amp 5 x_2 \amp {}+{}
-	  \amp 40x_3\text{.} \\
-	  \end{alignedat}
-	</me>
-	</p></li>
-
 	<li><p> The first column of the matrix is
 	<m>T\left(\threevec{1}{0}{0}\right)=\twovec{20}{15}</m>.  This
 	shows us that the matrix is
@@ -466,14 +713,7 @@
 	\end{array}\right]</m>.
 	</p></li>
 
-	<li><p> We have
-	<me>
-	  \begin{alignedat}{3}
-	  E \amp {}={} \amp 5M\amp {}+{} \amp 6Y \\
-	  L \amp {}={} \amp 8M\amp {}+{} \amp 10Y\text{,} \\
-	  \end{alignedat}
-	</me>
-	which shows us that the matrix is
+	<li><p> In the same way, the matrix is
 	<m> B = \left[\begin{array}{rr}
 	5 \amp 6 \\
 	8 \amp 10 \\
@@ -496,17 +736,6 @@
 
     <answer>
       <p><ol marker="a.">
-	<li><p> 
-	<m>
-	  \begin{alignedat}{4}
-	  M \amp {}={} \amp 20x_1 \amp {}+{} \amp 30 x_2 \amp 
-	  \amp \\
-	  Y \amp {}={} \amp 15x_1 \amp {}+{} \amp 5 x_2 \amp {}+{}
-	  \amp 40x_3\text{.} \\
-	  \end{alignedat}
-	</m>
-	</p></li>
-
 	<li><p> 
 	<m>A = \left[\begin{array}{rrr}
 	20 \amp 30 \amp 0 \\
@@ -559,8 +788,8 @@
 
     <solution>
       <p><ol marker="a.">
-	<li><p> We first find weights <m>a</m> and <m>b</m> such that
-	<m>\twovec{1}{0} = a\twovec{1}{1} + b\twovec{-1}{1}</m> by
+	<li><p> We first find weights <m>c</m> and <m>d</m> such that
+	<m>\twovec{1}{0} = c\twovec{1}{1} + d\twovec{-1}{1}</m> by
 	constructing the augmented matrix
 	<me>
 	  \left[\begin{array}{rrr}
@@ -576,9 +805,8 @@
 	This shows that <m>\twovec{1}{0} = \frac12\twovec{1}{1} -
 	\frac12\twovec{-1}{1}</m>.  Therefore,
 	<me>
-	  T\left(\twovec{1}{0}\right) =
-	  \frac12T\left(\twovec{1}{1}\right) -
-	  \frac12T\left(\twovec{-1}{1}\right) =
+	  T\left(\twovec{1}{0}\right) = A\twovec10 = 
+	  \frac12 A\twovec11 - \frac12A\twovec{-1}{1}=
 	  \twovec{1}{-2}\text{.}
 	</me>
 	</p></li>
@@ -586,8 +814,8 @@
 	<li><p> In the same way, we find that
 	<me>
 	  T\left(\twovec{0}{1}\right) =
-	  \frac12T\left(\twovec{1}{1}\right) +
-	  \frac12T\left(\twovec{-1}{1}\right) =
+	  \frac12A\twovec{1}{1} +
+	  \frac12A\twovec{-1}{1} =
 	  \twovec{2}{0}\text{.}
 	</me>
 	This gives the matrix <m>A=\left[\begin{array}{rr}
@@ -722,10 +950,16 @@
       </ul>
       We will record the number of present students <m>p</m> and the
       number of absent students <m>a</m> in a state vector
-      <m>\xvec=\twovec{p}{a}</m>.  On Tuesday, the state vector is
-      <m>\xvec=\ctwovec{1700}{100}</m>.  The state vector evolves from
+      <m>\xvec=\twovec{p}{a}</m> and note that that 
+      state vector evolves from
       one day to the next according to the transition function
       <m>T:\real^2\to\real^2</m>. 
+      On Tuesday, the state vector is
+      <m>\xvec=\ctwovec{1700}{100}</m>.
+      <sage>
+	<input>
+	</input>
+      </sage>
       <ol marker="a.">
 	<li><p> Suppose we initially have 1000 students who are
 	present and none absent.  Find

@@ -32,12 +32,12 @@ var tb = mkslider([dx, 2-dx], 0.5, topmatrix, topupdate);
 ta.init(1);
 tb.init(0);
 
-var lta = new Label("a", [0,1.5]);
+var lta = new Label("c", [0,1.5]);
 lta.offset = [-5,-3]
 lta.font = "italic 16px arial";
 topmatrix.addPlotable(lta);
 
-var ltb = new Label("b", [0,0.5]);
+var ltb = new Label("d", [0,0.5]);
 ltb.offset = [-5,-3]
 ltb.font = "italic 16px arial";
 topmatrix.addPlotable(ltb);
@@ -66,8 +66,8 @@ topcanvas.addPlotable(tcaxes);
 
 var tu = new Vector([2,1]);
 var tv = new Vector([1,2])
-tu.fillColor = "gray";
-tv.fillColor = "gray";
+tu.fillColor = "white";
+tv.fillColor = "white";
 topcanvas.addPlotable(tu);
 topcanvas.addPlotable(tv);
 
