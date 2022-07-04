@@ -8,9 +8,9 @@
   </title>
 
   <introduction>
-    <p> In previous sections, we have found solutions to linear
-    systems using the Gaussian elimination algorithm.  We will now
-    investigate another way of finding solutions to a specific type of
+    <p> Up to this point, we have used the Gaussian elimination
+    algorithm to find solutions to linear systems.  We now
+    investigate another way to find solutions to the 
     equation <m>A\xvec=\bvec</m> when the matrix <m>A</m> has the same
     number of rows and columns.  To get started, let's look at some
     familiar examples.
@@ -21,7 +21,8 @@
       <p>
 	<ol marker="a.">
 	  <li><p> Explain how you would solve the equation <m>3x =
-	  5</m> without using the concept of division. </p></li>
+	  5</m> using multiplication rather than
+	  division. </p></li>
 
 	  <li><p> Find the <m>2\times2</m> matrix <m>A</m> that
 	  rotates vectors counterclockwise by
@@ -31,9 +32,9 @@
 	  rotates vectors <em>clockwise</em> by
 	  <m>90^\circ</m>. </p></li>
 
-	  <li><p> What do you expect the product <m>BA</m> to be?  
+	  <li><p> What do you expect the product <m>AB</m> to be?  
 	  Explain the reasoning behind your expectation and then
-	  compute <m>BA</m> to verify it. </p></li>
+	  compute <m>AB</m> to verify it. </p></li>
 
 	  <li><p> Solve the equation <m>A\xvec = \twovec{3}{-2}</m>
 	  using Gaussian elimination.
@@ -52,10 +53,9 @@
 
       <solution>
 	<p><ol marker="a.">
-	  <li><p>
-	    We can view the process of dividing by <m>3</m> as,
-	    instead, multiplying by the multiplicative inverse
-	    <m>\frac13</m> of <m>3</m>.  We have
+	  <li><p> Dividing by <m>3</m> is the same as
+	  multiplying by <m>\frac13</m>, the multiplicative inverse
+	  <m>\frac13</m> of <m>3</m>.  We have
 	    <me>
 	      \begin{array}{rl}
 	      \frac13(3x) \amp = \dfrac13 5  \\
@@ -84,9 +84,9 @@
 	    </m>
 	  </p></li>
 
-	  <li><p> We should expect that <m>BA=I</m> since the effect
-	  of rotating by <m>90^\circ</m> counterclockwise followed by
-	  rotating <m>90^\circ</m> clockwise is to leave a
+	  <li><p> We should expect that <m>AB=I</m> since the effect
+	  of rotating by <m>90^\circ</m> clockwise followed by
+	  rotating <m>90^\circ</m> counterclockwise is to leave a
 	  vector unchanged.  We can verify this by performing the
 	  matrix multiplication. 
 	  </p></li>
@@ -107,15 +107,18 @@
 	  </p></li>
 
 	  <li><p>
-	    As in the first part of the problem, we have
+	    The equation <m>A\xvec=\twovec{3}{-2}</m> is asking us to
+	    find the vector that becomes <m>\twovec{3}{-2}</m> after
+	    being rotated by <m>90^\circ</m>.  If we rotate
+	    <m>\twovec{3}{-2}</m> by <m>90^\circ</m> in the opposite
+	    direction, it will 
+	    have this property.  That is,
+	    if <m>\xvec = B\twovec{-2}{-3}</m>, then
 	    <me>
-	      \begin{array}{rl}
-	      A\xvec \amp = \twovec{3}{-2} \\
-	      B(A\xvec) \amp = B\twovec{3}{-2} \\
-	      (BA)\xvec \amp = B\twovec{3}{-2} \\
-	      I\xvec \amp = B\twovec{3}{-2} \\
-	      \xvec \amp = B\twovec{3}{-2}=\twovec{-2}{-3}\text{.} \\
-	      \end{array}
+	      A\xvec = A(B\xvec) 
+	      = (AB)\twovec{3}{-2} 
+	      = I\twovec{3}{-2} 
+	      = \twovec{3}{-2}.
 	    </me>
 	  </p></li>
 	</ol></p>
@@ -130,480 +133,617 @@
 
     <p> The preview activity began with a familiar type of 
     equation, <m>3x = 5</m>, and asked for a strategy to solve it.
-    One possible response is to divide both sides by 3;
-    instead, let's rephrase this as multiplying by <m>3^{-1} = \frac
+    One possible response is to divide both sides by 3.
+    Instead, let's rephrase this as multiplying by <m>3^{-1} = \frac
     13</m>, the multiplicative inverse of 3.  
     </p>
 
     <p> Now that we are interested in solving equations of the form
     <m>A\xvec = \bvec</m>, we might try to find a similar approach.
     Is there a matrix <m>A^{-1}</m> that plays the role of the
-    multiplicative inverse?  Of course, we can't expect every matrix
-    to have a multiplicative inverse; after all, the real number
-    <m>0</m> doesn't have an inverse.  We will see, however, that many
-    matrices do.
+    multiplicative inverse of <m>A</m>?  Of course, the real number
+    <m>0</m> does not have a multiplicative inverse so we probably
+    shouldn't expect every matrix to have a multiplicative inverse.
+    We will see, however, that many do.
     </p>
 
     <definition>
       <statement>
 	<idx> invertible </idx>
-	<idx> matrix inverse </idx>
+	<idx> matrix, inverse </idx>
 	<p> An <m>n\times n</m> matrix <m>A</m> is called
 	<em>invertible</em> if there is a matrix <m>B</m> such that
-	<m>BA = I_n</m>, where <m>I_n</m> is the <m>n\times n</m>
-	identity matrix.  The 
-	matrix <m>B</m> is called the <em>inverse</em> of <m>A</m> and
-	denoted <m>A^{-1}</m>.
+	<m>AB = I_n</m>, where <m>I_n</m> is the <m>n\times n</m>
+	identity matrix.  The matrix <m>B</m> is called the
+	<em>inverse</em> of <m>A</m> and denoted <m>A^{-1}</m>.
 	</p>
       </statement>
     </definition>
 
     <p>
-      In the preview activity, we considered the matrices
-      <me>
-	A=\left[\begin{array}{rr}
-	0 \amp -1 \\
-	1 \amp 0 \\
-	\end{array}\right],
-	B=\left[\begin{array}{rr}
-	0 \amp 1 \\
-	-1 \amp 0 \\
-	\end{array}\right],
-      </me>
-      since <m>A</m> rotates vectors in <m>\real^2</m> by
-      <m>90^\circ</m> and <m>B</m> rotates vectors by
-      <m>-90^\circ</m>.  It's easy to check that
-      <me>
-	BA=\left[\begin{array}{rr}
-	0 \amp 1 \\
-	-1 \amp 0 \\
-	\end{array}\right]
-	\left[\begin{array}{rr}
-	0 \amp -1 \\
-	1 \amp 0 \\
-	\end{array}\right] =
-	\left[\begin{array}{rr}
-	1 \amp 0 \\
-	0 \amp 1 \\
-	\end{array}\right] = I
-      </me>.
-      This shows that <m>B = A^{-1}</m>.
+      <idx> matrix, square </idx> Notice that we only define
+      invertibility for matrices that have the same number of rows and
+      columns in which case we say that the matrix is <em>square</em>.
     </p>
 
-    <p> The preview also indicates the use of matrix inverses.  Since
-    we have
-    <m>A^{-1}A = I</m>, we can solve the equation <m>A\xvec =
-    \bvec</m> by multiplying both sides on the left by <m>A^{-1}</m>:
-    <me>
-      \begin{aligned}
-      A^{-1}(A\xvec) \amp {}={} A^{-1}\bvec \\
-      (A^{-1}A)\xvec \amp {}={} A^{-1}\bvec \\
-      I\xvec \amp {}={} A^{-1}\bvec \\
-      \xvec \amp {}={}  A^{-1}\bvec\text{.} \\
-      \end{aligned}
-    </me>
-    Notice that this is similar to finding the solution to <m>3x=5</m>
-    as <m>x=\frac13 5</m>.
-    </p>
+    <example>
+      <statement>
+	<p>
+	  Suppose that <m>A</m> is the matrix that rotates
+	  two-dimensional vectors counterclockwise by <m>90^\circ</m>
+	  and that <m>B</m> rotates vectors
+	  by <m>-90^\circ</m>.  We have
+	  <me>
+	    A=\left[\begin{array}{rr}
+	    0 \amp -1 \\
+	    1 \amp 0 \\
+	    \end{array}\right],~~~
+	    B=\left[\begin{array}{rr}
+	    0 \amp 1 \\
+	    -1 \amp 0 \\
+	    \end{array}\right].
+	  </me>
+	  We can check that
+	  <me>
+	    AB = \begin{bmatrix}
+	    0 \amp -1 \\
+	    1 \amp 0 \\
+	    \end{bmatrix}
+	    \begin{bmatrix}
+	    0 \amp 1 \\
+	    -1 \amp 0 \\
+	    \end{bmatrix}
+	    = \begin{bmatrix}
+	    1 \amp 0 \\
+	    0 \amp 1 \\
+	    \end{bmatrix}
+	    = I 
+	  </me>
+	  which shows that <m>A</m> is invertible and that
+	  <m>A^{-1}=B</m>. 
+	</p>
+	<p>
+	  Notice that if we multiply the matrices in the opposite
+	  order, we find that <m>BA=I</m>, which says that
+	  <m>B</m> is also invertible and that <m>B^{-1} = A</m>.  In
+	  other words, <m>A</m> and <m>B</m> are inverses of each
+	  other.  
+	</p>
+      </statement>
+    </example>
 
     <activity>
       <statement>
-      <p> Let's consider the matrices
-      <me>
-	A = \left[\begin{array}{rrr}
-	1 \amp 0 \amp 2 \\
-	2 \amp 2 \amp 1 \\
-	1 \amp 1 \amp 1 \\
-	\end{array}\right],
-	B = \left[\begin{array}{rrr}
-	1 \amp 2 \amp -4 \\
-	-1 \amp -1 \amp 3 \\
-	0 \amp -1 \amp 2 \\
-	\end{array}\right]
-      </me>.
-	<ol marker="a.">
-	  <li><p> Define these matrices in Sage and verify that <m>BA =
-	  I</m> so that <m>B=A^{-1}</m>.
-	  <sage>
-	    <input>
-	    </input>
-	  </sage>
-	  </p></li>
+	<p>
+	  This activity demonstrates a procedure for finding the
+	  inverse of a matrix <m>A</m>.
 
-	  <li><p>Find the solution to the equation <m>A\xvec =
-	  \threevec{4}{-1}{4}</m> using <m>A^{-1}</m>.  </p></li>
+	  <ol marker="a.">
+	    <li>
+	      <p>
+		Suppose that <m>A = \begin{bmatrix}
+		3 \amp -2 \\
+		1 \amp -1 \\
+		\end{bmatrix}
+		</m>.  To find an inverse <m>B</m>, we write its columns
+		as <m>B = \begin{bmatrix}\bvec_1 \amp \bvec_2
+		\end{bmatrix}</m> and require that
+		<me>
+		  \begin{aligned}
+		  AB \amp = I \\
+		  \begin{bmatrix}
+		  A\bvec_1 \amp A\bvec_2
+		  \end{bmatrix}
+		  \amp = 
+		  \begin{bmatrix}
+		  1 \amp 0 \\
+		  0 \amp 1 \\
+		  \end{bmatrix}.
+		  \end{aligned}
+		</me>
+		In other words, we can find the columns of <m>B</m> by
+		solving the equations
+		<me>
+		  A\bvec_1 = \twovec10,~~~
+		  A\bvec_2 = \twovec01.
+		</me>
+		Solve these equations to find <m>\bvec_1</m> and
+		<m>\bvec_2</m>.  Then write the matrix <m>B</m> and
+		verify that <m>AB=I</m>.  This is enough for us to
+		conclude that <m>B</m> is
+		the inverse of <m>A</m>.
+		<sage>
+		  <input>
+		  </input>
+		</sage>
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		Find the product <m>BA</m> and explain why we now know
+		that <m>B</m> is invertible and <m>B^{-1}=A</m>.
+		<sage>
+		  <input>
+		  </input>
+		</sage>
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		What happens when you try to find the inverse of
+		<m>C = \begin{bmatrix}
+		-2 \amp 1 \\
+		4 \amp -2 \\
+		\end{bmatrix}</m>?
+	      </p>
+	    </li>
 
-	  <li><p> Using your Sage cell above, multiply <m>A</m> and
-	  <m>B</m> in the opposite order;  that is, what do you find
-	  when you evaluate <m>AB</m>? </p></li>
+	    <li>
+	      <p>
+		We now develop a condition that must be satisfied by
+		an invertible matrix.
+		Suppose that <m>A</m> is an invertible
+		<m>n\times n</m> matrix with inverse <m>B</m> and 
+		suppose that <m>\bvec</m> is any <m>n</m>-dimensional
+		vector. Since <m>AB=I</m>, we have
+		<me>
+		  A(B\bvec) = (AB)\bvec = I\bvec = \bvec.
+		</me>
+		This says that the equation <m>A\xvec = \bvec</m> is
+		consistent and that <m>\xvec=B\bvec</m> is a solution.
+	      </p>
 
-	  <li><p> Suppose that <m>A</m> is an <m>n\times n</m>
-	  invertible matrix with inverse <m>A^{-1}</m>.  This means
-	  that every equation of the form <m>A\xvec=\bvec</m> has a
-	  solution, namely, <m>\xvec = A^{-1}\bvec</m>.  What can you
-	  conclude about the span of the columns of <m>A</m>?
-	  </p></li>
+	      <p>
+		Since we know that <m>A\xvec = \bvec</m> is consistent
+		for any vector <m>\bvec</m>, what does this say about
+		the span of the columns of <m>A</m>?
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		Since <m>A</m> is a square matrix,
+		what does this say
+		about the pivot positions of <m>A</m>? What is the
+		reduced row echelon form of <m>A</m>?
+	      </p>
+	    </li>
 
-	  <li><p> What can you conclude about the pivot positions of the
-	  matrix <m>A</m>? </p></li>
-
-	  <li><p> If <m>A</m> is an invertible <m>4\times4</m> matrix,
-	  what is its reduced row echelon form? </p></li>
-	</ol>
-      </p>
+	    <li>
+	      <p>
+		In this activity, we have studied the matrices
+		<me>
+		  A = \begin{bmatrix}
+		  3 \amp -2 \\
+		  1 \amp -1 \\
+		  \end{bmatrix},~~~
+		  C = \begin{bmatrix}
+		  -2 \amp 1 \\
+		  4 \amp -2 \\
+		  \end{bmatrix}.
+		</me>
+		Find the reduced row echelon form of each and explain
+		how those forms enable us to conclude that one matrix
+		is invertible and the other is not.
+	      </p>
+	    </li>
+	  </ol>
+	</p>
       </statement>
 
       <solution>
 	<p><ol marker="a.">
 	  <li><p>
-	    We compute that
+	    Solving the two equations for <m>\bvec_1</m> and
+	    <m>\bvec_2</m> gives
+	    <m>B = \begin{bmatrix}
+	    1 \amp -2 \\
+	    1 \amp -3 \\
+	    \end{bmatrix}</m>.  We can verify that, as we
+	    expect, <m>AB=I</m>.
+	  </p></li>
+
+	  <li><p>
+	    We find that <m>BA=I</m>, which is the condition that
+	    tells us that <m>B</m> is invertible.
+	  </p></li>
+
+	  <li><p>
+	    Seeking the first column of <m>C^{-1}</m>, we see that
+	    the equation <m>C\xvec = \twovec10</m> is not consistent.
+	    This means that <m>C</m> is not invertible.
+	  </p></li>
+
+	  <li><p>
+	    Since the equation <m>A\xvec = \bvec</m> is consistent for
+	    every <m>\bvec</m>, we know that the span of the columns
+	    of <m>A</m> is <m>\real^n</m>.
+	  </p></li>
+
+	  <li><p>
+	    Because the span of the columns of <m>A</m> is
+	    <m>\real^n</m>, there is a pivot position in every row.
+	    Since <m>A</m> is square, there is also a pivot position
+	    in every column.  This means that the reduced row echelon
+	    form of <m>A</m> must be the identity matrix <m>I_n</m>.
+	  </p></li>
+
+	  <li><p>
+	    We see that
 	    <me>
-	      \left[\begin{array}{rrr}
-	      1 \amp 2 \amp -4 \\
-	      -1 \amp -1 \amp 3 \\
-	      0 \amp -1 \amp 2
-	      \end{array}\right]
-	      \left[\begin{array}{rrr}
-	      1 \amp 0 \amp 2 \\
-	      2 \amp 2 \amp 1 \\
-	      1 \amp 1 \amp 1
-	      \end{array}\right]
-	      =
-	      \left[\begin{array}{rrr}
-	      1 \amp 0 \amp 0 \\
-	      0 \amp 1 \amp 0 \\
-	      0 \amp 0 \amp 1
-	      \end{array}\right]
+	      A\sim \begin{bmatrix}
+	      1 \amp 0 \\
+	      0 \amp 1 \\
+	      \end{bmatrix},~~~
+	      C\sim
+	      \begin{bmatrix}
+	      1 \amp -\frac12 \\
+	      0 \amp 0 \\
+	      \end{bmatrix},
 	    </me>
-	    showing that <m>B=A^{-1}</m>.
-	  </p></li>
-
-	  <li><p>
-	    Since we have <m>B=A^{-1}</m>, we compute
-	    <m>\xvec=B\threevec{4}{-1}{4} = \threevec{-14}{9}{9}</m>.
-	  </p></li>
-
-	  <li><p>
-	    We also see that <m>AB=I</m>.
-	  </p></li>
-
-	  <li><p>
-	    Since the equation <m>A\xvec=\bvec</m> is consistent for
-	    every <m>\bvec</m>, the columns of <m>A</m> must span
-	    <m>\real^n</m>.
-	  </p></li>
-
-	  <li><p>
-	    This means that there is a pivot position in every row.
-	    Since the matrix has the same number of rows and columns,
-	    there is also a pivot position in every column.
-	  </p></li>
-
-	  <li><p>
-	    Since there is a pivot position in every row and every
-	    column, the reduced row echelon form of <m>A</m> is the
-	    identity matrix <m>I</m>.
+	    which shows that <m>A</m> is invertible and <m>C</m> is
+	    not. 
 	  </p></li>
 	</ol></p>
       </solution>
 
     </activity>
 
-    <p> This activity demonstrates a few important things.  First, we
-    said that <m>A</m> is invertible if there is a matrix <m>B</m>
-    such that <m>BA = I</m>.  In general, multiplying matrices
-    requires care because the product depends on the order in which
-    the matrices are multiplied.  However, in this case, we can check
-    that <m>BA = I</m> implies that <m>AB = I</m> as well.  This means
-    that <m>B</m> is also invertible and that <m>A=B^{-1}</m>.
-    This is the subject of <xref ref = "ex-right-inverse" />. </p>
+    <example xml:id="example-inverse-augment-I">
+      <statement>
+	<p>
+	  We can reformulate this procedure for finding the inverse of a
+	  matrix.  For the sake of convenience, suppose that <m>A</m> is a
+	  <m>2\times2</m> invertible matrix with inverse
+	  <m>B=\begin{bmatrix} \bvec_1 \amp \bvec_2 \end{bmatrix}</m>.  
+	  Rather than solving the equations
+	  <me>
+	    A\bvec_1 = \twovec10,~~~
+	    A\bvec_2 = \twovec01
+	  </me>
+	  separately, we can solve them at the same time by augmenting
+	  <m>A</m> by both vectors <m>\twovec10</m> and <m>\twovec01</m>
+	  and finding the reduced row echelon form.
+	</p>
+	
+	<p>
+	  For example, if
+	  <m>A =
+	  \begin{bmatrix}
+	  1 \amp 2 \\
+	  1 \amp 1 \\
+	  \end{bmatrix}</m>,
+	  we form
+	  <me>
+	    \left[
+	    \begin{array}{rr|rr}
+	    1 \amp 2 \amp 1 \amp 0 \\
+	    1 \amp 1 \amp 0 \amp 1 \\
+	    \end{array}
+	    \right]
+	    \sim
+	    \left[
+	    \begin{array}{rr|rr}
+	    1 \amp 0 \amp -1 \amp 2 \\
+	    0 \amp 1 \amp 1 \amp -1 \\
+	    \end{array}
+	    \right].
+	  </me>
+	  This shows that the matrix
+	  <m> B =
+	  \begin{bmatrix}
+	  -1 \amp 2 \\
+	  1 \amp 1 \\
+	  \end{bmatrix}
+	  </m> is the inverse of <m>A</m>.
+	</p>
+	<p>
+	  In other words, beginning with <m>A</m>, we augment by the
+	  identify and find the reduced row echelon form to determine
+	  <m>A^{-1}</m>:
+	  <me>
+	    \left[
+	    \begin{array}{r|r}
+	    A \amp I \\
+	    \end{array}
+	    \right]
+	    \sim
+	    \left[
+	    \begin{array}{r|r}
+	    I \amp A^{-1} \\
+	    \end{array}
+	    \right].
+	  </me>
+	</p>
+      </statement>
+    </example>
 
-    <p> Also, if the matrix <m>A</m> is invertible, then every
-    equation <m>A\xvec = \bvec</m> has a solution <m>\xvec =
-    A^{-1}\bvec</m>.  This means that the span of the columns of
-    <m>A</m> is <m>\real^n</m> so that <m>A</m> has a pivot in every
-    row.  Since the matrix <m>A</m> has <m>n</m> rows and <m>n</m>
-    columns, there must be a pivot in every row and every column.
-    Therefore, the reduced row echelon form of <m>A</m> is
-    <me>
-      A \sim \left[\begin{array}{cccc}
-      1 \amp 0 \amp \ldots \amp 0 \\
-      0 \amp 1 \amp \ldots \amp 0 \\
-      \vdots \amp \vdots \amp \ddots \amp \vdots \\
-      0 \amp 0 \amp \ldots \amp 1 \\
-      \end{array}\right] = I
-    </me>.
-    This provides us with a useful characterization of invertible
-    matrices. 
+    <p>
+      In fact, this reformulation will always work.  Suppose that
+      <m>A</m> is an invertible <m>n\times n</m> matrix with inverse
+      <m>B</m>.  Suppose furthermore that
+      <m>\bvec</m> is any <m>n</m>-dimensional vector and consider the
+      equation <m>A\xvec = \bvec</m>.  We know that <m>x=B\bvec</m> is
+      a solution because
+      <m>
+	A(B\bvec) = (AB)\bvec = I\bvec = \bvec.
+      </m>
     </p>
+
+    <proposition xml:id="proposition-inverse-solve">
+      <statement>
+	<p>
+	  If <m>A</m> is an invertible matrix with inverse <m>B</m>,
+	  then any equation <m>A\xvec = \bvec</m> is consistent and
+	  <m>\xvec = B\bvec</m> is a solution.  In other words, the
+	  solution to <m>A\xvec = \bvec</m> is <m>\xvec =
+	  A^{-1}\bvec</m>. 
+	</p>
+      </statement>
+    </proposition>
+
+    <p>
+      Notice that this is similar to saying that the solution to
+      <m>3x=5</m> is <m>x = \frac13\cdot 5</m>, as we saw in the
+      preview activity.
+    </p>
+
+    <p>
+      Now since <m>A\xvec=\bvec</m> is consistent for every vector
+      <m>\bvec</m>, the columns of <m>A</m>
+      must span <m>\real^n</m> so there is a pivot position in every
+      row.  Since <m>A</m> is also square, this means that the reduced
+      row echelon form of <m>A</m> is the identity matrix.  
+    </p>
+
+    <proposition xml:id="proposition-invertible-rref">
+      <statement>
+	<p>
+	  The matrix <m>A</m> is invertible if and only if
+	  the reduced row echelon form of <m>A</m> is the identity
+	  matrix:  <m>A\sim I</m>.
+	  In addition, we can find the inverse by augmenting <m>A</m>
+	  by the identity and finding the reduced row echelon form:
+	  <me>
+	    \left[
+	    \begin{array}{r|r}
+	    A \amp I \\
+	    \end{array}
+	    \right]
+	    \sim
+	    \left[
+	    \begin{array}{r|r}
+	    I \amp A^{-1} \\
+	    \end{array}
+	    \right].
+	  </me>
+	</p>
+      </statement>
+    </proposition>
+
+    <p>
+      You may have noticed that <xref
+      ref="proposition-inverse-solve"/> says that <em>the</em>
+      solution to the equation <m>A\xvec = \bvec</m> is <m>\xvec =
+      A^{-1}\bvec</m>.  Indeed, we know that this equation has a
+      unique solution because <m>A</m> has a pivot position in every
+      column.
+    </p>
+      
+    <p>
+      It is important to remember that the product of two matrices
+      depends on the order in which they are multiplied.  That is, if
+      <m>C</m> and <m>D</m> are matrices, then it sometimes happens
+      that <m>CD \neq DC</m>.  However, something fortunate happens
+      when we consider invertibility.  It turns that if <m>A</m> is an
+      <m>n\times n</m> matrix and that <m>AB=I</m>, then it is also
+      true that <m>BA=I</m>.  We have verified this in a few examples
+      so far, and <xref ref="ex-right-inverse" /> explains why it 
+      always happens.  This leads to the following proposition.
+    </p>
+
+    <proposition xml:id="proposition-inverse-inverse">
+      <statement>
+	<p>
+	  If <m>A</m> is a <m>n\times n</m> invertible matrix with
+	  inverse <m>B</m>, then <m>BA=I</m>, which tells us that
+	  <m>B</m> is invertible with inverse <m>A</m>.  In other
+	  words,
+	  <me>
+	    (A^{-1})^{-1} = A.
+	  </me>
+	</p>
+      </statement>
+    </proposition>
 
   </subsection>
 
   <subsection>
-    <title> Constructing a matrix inverse </title>
+    <title> Solving equations with an inverse </title>
 
     <p>
-      We have seen that an invertible matrix <m>A</m> has the property
-      that its reduced row echelon form is the identity;  that is,
-      <m>A\sim I</m>.  Here, we will use this fact to construct the
-      inverse of a matrix <m>A</m>.
+      If <m>A</m> is an invertible matrix,
+      then
+      <xref ref="proposition-inverse-solve"/>
+      shows us how to use <m>A^{-1}</m> to solve equations involving
+      <m>A</m>.  In particular, the solution to <m>A\xvec = \bvec</m>
+      is <m>\xvec = A^{-1}\bvec</m>.
     </p>
 
     <activity>
       <statement>
-      <p> In this activity, we will begin with the matrix
-      <me>
-	A = \left[\begin{array}{rr}
-	1 \amp 2 \\
-	1 \amp 3 \\
-	\end{array}\right]
-      </me>
-      and construct its inverse <m>A^{-1}</m>.
-      For the time being, let's denote the inverse by <m>B</m> so that
-      <m>B=A^{-1}</m>.
-      </p>
+	<p>
+	  We'll begin by considering the square matrix
+	  <me>
+	    A = \begin{bmatrix}
+	    1 \amp 0 \amp 2 \\
+	    2 \amp 2 \amp 1 \\
+	    1 \amp 1 \amp 1 \\
+	    \end{bmatrix}.
+	  </me>
+	  
+	  <ol marker="a.">
+	    <li>
+	      <p>
+		Describe the solution space to the equation <m>A\xvec
+		= \threevec343</m> by augmenting <m>A</m> and finding
+		the reduced row echelon form.
+		<sage>
+		  <input>
+		  </input>
+		</sage>
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		Using <xref ref="proposition-invertible-rref"/>,
+		explain why <m>A</m> is invertible and find its
+		inverse.
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		Now use the inverse to solve the equation <m>A\xvec =
+		\threevec343</m> and verify that your result agrees
+		with what you found in part a.
+	      </p>
+	    </li>
+		
+	    <li>
+	      <p>
+		If you have defined a matrix <c>B</c> in Sage, you can
+		find it's inverse as <c>B.inverse()</c> or
+		<c>B^-1</c>.  Use Sage to 
+		find the inverse of the matrix
+		<me>
+		  B = \left[\begin{array}{rrr}
+		  1 \amp -2 \amp -1 \\
+		  -1 \amp 5 \amp 6 \\
+		  5 \amp -4 \amp 6 \\
+		  \end{array}\right]
+		</me>
+		and use it to solve the equation <m>B\xvec =
+		\threevec83{36}</m>. 
+		  <sage>
+		    <input>
+		    </input>
+		  </sage>
+	      </p>
+	    </li>
+	    
+	    <li>
+	      <p>
+		If <m>A</m> and <m>B</m> are the two matrices defined
+		in this activity, find their product <m>AB</m> and
+		verify that it is invertible.
+	      </p>
+	    </li>
 
-      <ol marker="a.">
-	<li><p> We know that <m>AB = I</m>.  If we write
-	<m>B = \left[\begin{array}{rr}\bvec_1\amp
-	\bvec_2\end{array}\right]</m>, then we have
-	<me>
-	  AB = \left[\begin{array}{rr}
-	  A\bvec_1 \amp A\bvec_2
-	  \end{array}\right] =
-	  \left[\begin{array}{rr}
-	  \evec_1 \amp \evec_2
-	  \end{array}\right] = I
-	</me>.
-	This means that we need to solve the equations
-	<me>
-	  \begin{aligned}
-	  A\bvec_1 \amp {}={} \evec_1 \\
-	  A\bvec_2 \amp {}={} \evec_2 \\
-	  \end{aligned}
-	</me>.
-	Using the Sage cell below, solve these equations for the
-	columns of <m>B</m>.
-	<sage>
-	  <input>
-	  </input>
-	</sage>
-	</p></li>
-
-	<li><p> What is the matrix <m>B</m>?  Check that <m>AB = I</m>
-	and <m>BA = I</m>.
-	<sage>
-	  <input>
-	  </input>
-	</sage>
-	</p></li>
-
-	<li><p> To find the columns of <m>B</m>, we solved two
-	equations, <m>A\bvec_1=\evec_1</m> and
-	<m>A\bvec_2=\evec_2</m>.  We could do this by augmenting
-	<m>A</m> two separate times, forming matrices
-	<me>
-	  \begin{aligned}
-	  \left[\begin{array}{r|r} A \amp \evec_1 \end{array}\right] \amp
-	  \\
-	  \left[\begin{array}{r|r} A \amp \evec_2 \end{array}\right] \amp
-	  \\
-	  \end{aligned}
-	</me>
-	and finding their reduced row echelon forms.
-	But instead of
-	solving these two equations separately, we could also solve them
-	together by forming the augmented matrix
-	<m>
-	  \left[\begin{array}{r|rr} A \amp \evec_1 \amp \evec_2
-	  \end{array}\right]
-	</m>
-	and finding the row reduced echelon form.  In other words, we
-	augment <m>A</m> by the matrix <m>I</m> to form
-	<m>\left[\begin{array}{r|r}
-	A \amp I \end{array}
-	\right]
-	</m>.
-      </p>
-      <p>
-	Form this augmented matrix and find its reduced row echelon
-	form to find <m>A^{-1}</m>.
-	<sage>
-	  <input>
-	  </input>
-	</sage>
-      </p>
-
-      <p> Assuming <m>A</m> is invertible, we have shown that
-      <me>
-	\left[\begin{array}{r|r}
-	A \amp I
-	\end{array}\right]
-	\sim 
-	\left[\begin{array}{r|r}
-	I \amp A^{-1}
-	\end{array}\right]
-      </me>.
-	</p></li>
-
-	<li><p> If you have defined a matrix <m>A</m> in Sage, you can
-	find it's inverse as <c>A.inverse()</c>.  Use Sage to find the
-	inverse of the matrix
-	<me>
-	  A = \left[\begin{array}{rrr}
-	  1 \amp -2 \amp -1 \\
-	  -1 \amp 5 \amp 6 \\
-	  5 \amp -4 \amp 6 \\
-	  \end{array}\right]
-	</me>.
-	<sage>
-	  <input>
-	  </input>
-	</sage>
-	</p></li>
-
-	<li><p> What happens when we try to find the inverse of the
-	matrix
-	<me>
-	  \left[\begin{array}{rr}
-	  -4 \amp 2 \\
-	  -2 \amp 1 \\
-	  \end{array}\right]
-	</me>?
-	</p></li>
-
-	<li><p> Suppose that <m>n\times n</m> matrices <m>C</m> and
-	<m>D</m> are both invertible.  What do you find when you
-	simplify the product <m>(D^{-1}C^{-1})(CD)</m>?  Explain why
-	the product <m>CD</m> is invertible and <m>(CD)^{-1} =
-	D^{-1}C^{-1}</m>.  </p></li>
-      </ol>
+	    <li>
+	      <p>
+		Compute the products <m>A^{-1}B^{-1}</m> and
+		<m>B^{-1}A^{-1}</m>.  Which one agrees with
+		<m>(AB)^{-1}</m>?
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		Explain your finding by considering the product
+		<me>
+		  (AB)(B^{-1}A^{-1})
+		</me>
+		and using associativity to regroup the products so
+		that the middle two terms are multiplied first.
+	      </p>
+	    </li>
+	  </ol>
+	</p>
       </statement>
 
       <solution>
 	<p><ol marker="a.">
 	  <li><p>
-	    Solving these two equations shows that
-	    <me>\bvec_1=\twovec{3}{-1}, \bvec_2=\twovec{-2}{1}\text{.}
-	    </me>
-	  </p></li>
-
-	  <li><p>
-	    Since the vectors <m>\bvec_1</m> and <m>\bvec_2</m> form
-	    the columns of <m>B</m>, we have
-	    <m>
-	      B=\left[\begin{array}{rr}
-	      3 \amp -2 \\
-	      -1 \amp 1 \\
-	      \end{array}\right]
-	    </m>.
-	    We can then verify by multiplying that <m>AB=BA=I</m>.
-	  </p></li>
-
-	  <li><p>
-	    We construct the augmented matrix
+	    Constructing the augmented matrix, we see that
 	    <me>
-	      \left[\begin{array}{rr|rr}
-	      1 \amp 2 \amp 1 \amp 0 \\
-	      1 \amp 3 \amp 0 \amp 1
+	      \left[\begin{array}{rrr|r}
+	      1 \amp 0 \amp 2 \amp 3 \\
+	      2 \amp 2 \amp 1 \amp 4 \\
+	      1 \amp 1 \amp 1 \amp 3
 	      \end{array}\right]
 	      \sim
-	      \left[\begin{array}{rr|rr}
-	      1 \amp 0 \amp 3 \amp -2 \\
-	      0 \amp 1 \amp -1 \amp 1
-	      \end{array}\right]\text{,}
+	      \left[\begin{array}{rrr|r}
+	      1 \amp 0 \amp 0 \amp -1 \\
+	      0 \amp 1 \amp 0 \amp 2 \\
+	      0 \amp 0 \amp 1 \amp 2
+	      \end{array}\right],
 	    </me>
-	    which shows that <m>A^{-1}=\left[\begin{array}{rr}
-	    3 \amp -2 \\
-	    -1 \amp 1 \\
-	    \end{array}\right]
-	    </m>.
-	  </p></li>
+	    which says that there is a unique solution <m>\xvec =
+	    \threevec{-1}22</m>.
+	  </p>
+	  </li>
+
+	  <li>
+	    <p>
+	      Our work in part a shows that <m>A\sim I</m> from which
+	      we conclude that <m>A</m> is invertible.  To find the
+	      inverse,
+	      <me>
+		\left[\begin{array}{rrr|rrr}
+		1 \amp 0 \amp 2 \amp 1 \amp 0 \amp 0 \\
+		2 \amp 2 \amp 1 \amp 0 \amp 1 \amp 0 \\
+		1 \amp 1 \amp 1 \amp 0 \amp 0 \amp 1
+		\end{array}\right]
+		\sim
+		\left[\begin{array}{rrr|rrr}
+		1 \amp 0 \amp 0 \amp 1 \amp 2 \amp -4 \\
+		0 \amp 1 \amp 0 \amp -1 \amp -1 \amp 3 \\
+		0 \amp 0 \amp 1 \amp 0 \amp -1 \amp 2
+		\end{array}\right],
+	      </me>
+	      which says that
+	      <me>
+		A^{-1} = \begin{bmatrix}
+		1 \amp 2 \amp -4 \\
+		-1 \amp -1 \amp 3 \\
+		0 \amp -1 \amp 2 \\
+		\end{bmatrix}.
+	      </me>
+	    </p>
+	  </li>
+	  <li>
+	    <p>
+	      We see that <m>A^{-1}\threevec343 = \threevec{-1}22</m>.
+	    </p>
+	  </li>
+	  <li>
+	    <p>
+	      Sage tells us that <m>B^{-1}\threevec{8}3{36} =
+	      \threevec4{-1}2</m>.
+	    </p>
+	  </li>
+	  <li>
+	    <p>
+	      Sage helps us see that <m>(AB)\sim I</m>, which tells us
+	      that <m>AB</m> is invertible.
+	    </p>
+	  </li>
 
 	  <li><p>
-	    Using Sage, we find that
-	    <m>A^{-1}=
-	    \left[\begin{array}{rrr}
-	    -\frac{18}{35} \amp -\frac{16}{105} \amp \frac{1}{15} \\
-	    -\frac{12}{35} \amp \frac{1}{105} \amp -\frac{1}{15} \\
-	    \frac{1}{5} \amp \frac{2}{15} \amp \frac{1}{15}
-	    \end{array}\right]
-	    </m>.
+	    We find that <m>(AB)^{-1} = B^{-1}A^{-1}</m>.
 	  </p></li>
 
-	  <li><p>
-	    This matrix does not have an inverse because its reduced
-	    row echelon form is not the identity <m>I</m>.
-	  </p></li>
-
-	  <li><p>
-	    We find that <m>(D^{-1}C^{-1})(CD) = I</m> so <m>(CD)^{-1}
-	    = D^{-1}C^{-1}</m>.
-	  </p></li>
+	  <li>
+	    <p>
+	      We see that
+	      <me>
+		(AB)(B^{-1}A^{-1}) = A(BB^{-1})A^{-1} = AIA^{-1} =
+		AA^{-1} = I.
+	      </me>
+	    </p>
+	  </li>
 	</ol></p>
       </solution>
 
     </activity>
-
-    <p> Finding the inverse of an <m>n\times n</m> matrix <m>A</m>
-    requires us 
-    to solve <m>n</m> equations.  If we write the inverse as
-    <me>
-      B = \left[\begin{array}{rrrr}
-      \bvec_1 \amp 
-      \bvec_2 \amp 
-      \ldots \amp 
-      \bvec_n
-      \end{array}\right]
-    </me>,
-    then we need to solve
-    <me>
-      \begin{aligned}
-      A\bvec_1 \amp {}={} \evec_1 \\
-      A\bvec_2 \amp {}={} \evec_2 \\
-      \vdots \amp \\
-      A\bvec_n \amp {}={} \evec_n \\
-      \end{aligned}
-    </me>.
-    We can, of course, solve each equation separately, but it is more
-    efficient to bundle the equations together by forming the
-    augmented matrix <m>\left[\begin{array}{r|r} A \amp I
-    \end{array}\right]</m> and finding its row reduced echelon form.
-    We then find
-    <me>
-      \begin{aligned}
-      \left[\begin{array}{r|r} A \amp I
-      \end{array}\right]
-      \amp {}={}
-      \left[\begin{array}{r|rrrr} A \amp \evec_1 \amp \evec_2 \amp
-      \ldots \evec_n 
-      \end{array}\right] \\
-      \amp {}\sim{}
-      \left[\begin{array}{r|rrrr} I \amp \bvec_1 \amp \bvec_2 \amp
-      \ldots \bvec_n 
-      \end{array}\right]
-      = 
-      \left[\begin{array}{r|r} I \amp A^{-1}
-      \end{array}\right]\text{.}
-      \end{aligned}
-    </me>
-    We saw earlier that, if <m>A</m> has an inverse, then <m>A\sim
-    I</m>.  We have now seen that, if <m>A\sim
-    I</m>, then <m>A</m> has an inverse.
-    </p>
-
-    <p> Finally, we see that the product of two invertible matrices
-    <m>A</m> and <m>B</m> is
-    also invertible.  This is because
-    <me>
-      (B^{-1}A^{-1})(AB) = B^{-1}(A^{-1}A)B = B^{-1}IB = B^{-1}B = I
-    </me>.
-    Therefore, we have <m>(AB)^{-1} = B^{-1}A^{-1}</m>.  Because the
-    matrix product depends on the order in which we multiply matrices,
-    use care when applying this relationship.  The inverse of a
-    product is the product of the inverses with the order of
-    multiplication reversed.
-    </p>
 
     <assemblage>
       <title> Properties of invertible matrices </title>
@@ -659,28 +799,27 @@
   <subsection xml:id="subsec-triangular-invertible">
     <title> Triangular matrices and Gaussian elimination </title>
 
-    <p> Generally speaking, solving an equation <m>A\xvec=\bvec</m> by
-    first finding <m>A^{-1}</m> and then evaluating <m>\xvec =
-    A^{-1}\bvec</m> is not the best strategy since row reducing the
-    augmented matrix
-    <m>
-      \left[\begin{array}{r|r} A \amp \bvec \end{array}\right]
-    </m>
-    involves considerably less work.  This becomes clear once we
-    remember that finding the inverse <m>A^{-1}</m> requires us to
-    solve <m>n</m> equations of this form.
+    <p>
+      With some of the ideas we've developed, we can recast the
+      Gaussian elimination algorithm in terms of matrix multiplication
+      and invertibility.  This will be especially helpful later when
+      we consider
+      <xref ref="sec-determinants" text="custom">
+	determinants
+      </xref>
+      and 
+      <xref ref="sec-gaussian-revisited" text="custom">
+	LU factorizations.
+      </xref>
+      Triangular matrices will play an important role.
     </p>
-
-    <p> For the class of triangular matrices, however, finding
-    inverses is relatively efficient and useful, as we will see in
-    <xref ref="sec-gaussian-revisited" />. </p>
 
     <definition>
       <statement>
 	<idx> lower triangular matrix </idx>
 	<idx> upper triangular matrix </idx>
 	<p> We say that a matrix <m>A</m> is <em>lower triangular</em>
-	if all its entries above the diagaonal are zero.  Similarly,
+	if all its entries above the diagonal are zero.  Similarly,
 	<m>A</m> is <em>upper triangular</em> if all the entries below
 	the diagonal are zero.
 	</p>
@@ -739,12 +878,12 @@
       \end{array}\right]\text{.}
       \end{aligned}
     </me>
-    </p>
-
-    <p>
       Because the entries on the diagonal are nonzero, we find a pivot
       position in every row, which tells us that the matrix is
-      invertible.  If, however, there is a zero entry on the diagonal,
+      invertible.
+    </p>
+    <p>
+      If, however, there is a zero entry on the diagonal,
       the matrix cannot be invertible.  Considering the matrix below,
       we see that having a zero on the diagonal leads to a row without
       a pivot position.
@@ -777,129 +916,114 @@
       </statement>
     </proposition>
 
-    <p> Up to this point, our primary tool for studying linear
-    systems, sets of vectors, and matrices has been Gaussian
-    elimination.  As the next activity demonstrates, we can express
-    the row operations performed in Gaussian elimination in terms of
-    matrix multiplication.  In <xref ref="sec-gaussian-revisited" />,
-    we will use this  
-    observation to create an efficient way to solve equations of the
-    form <m>A\xvec=\bvec</m>.
-    </p>
-
     <activity>
+      <title> Gaussian elimination and matrix multiplication </title>
       <statement>
-      <p> As an example, we will consider the matrix
-      <me>
-	A = \left[\begin{array}{rrr}
-	1 \amp 2 \amp 1 \\
-	2 \amp 0 \amp -2 \\
-	-1 \amp 2 \amp -1 \\
-	\end{array}\right]
-      </me>.
-      When performing Gaussian elimination on <m>A</m>, we first
-      apply 
-      a row replacement operation in which we multiply the first
-      row by <m>-2</m> and add to the second row.  After this
-      step, we have a new matrix <m>A_1</m>.
-      <me>
-	A = \left[\begin{array}{rrr}
-	1 \amp 2 \amp 1 \\
-	2 \amp 0 \amp -2 \\
-	-1 \amp 2 \amp -1 \\
-	\end{array}\right]
-	\sim
-	\left[\begin{array}{rrr}
-	1 \amp 2 \amp 1 \\
-	0 \amp -4 \amp -4 \\
-	-1 \amp 2 \amp -1 \\
-	\end{array}\right]
-	= A_1
-      </me>.
-	<ol marker="a.">
-	  <li><p>
-	    Show that multiplying <m>A</m> by the lower triangular matrix
-	    <me>
-	      L_1 = \left[\begin{array}{rrr}
-	      1 \amp 0 \amp 0 \\
-	      -2 \amp 1 \amp 0 \\
-	      0 \amp 0 \amp 1 \\
-	      \end{array}\right]
-	    </me> has the same effect as this row operation;  that is,
-	    show that <m>L_1A = A_1</m>.
-	  </p></li>
-
-	  <li><p> Explain why <m>L_1</m> is invertible and find its
-	  inverse <m>L_1^{-1}</m>.
-	  <sage>
-	    <input>
-	    </input>
-	  </sage>
-	  </p></li>
-
-	  <li><p> You should see that there is a simple relationship
-	  between <m>L_1</m> and <m>L_1^{-1}</m>.  Describe this
-	  relationship and explain why it holds.  </p></li>
-
-	  <li><p> To continue the Gaussian elimination algorithm, we
-	  need to apply two more row replacements to bring <m>A</m>
-	  into a triangular form <m>U</m> where
+	<p>
+	  This activity explores how the row operations of scaling,
+	  interchange, and replacement can be performed using matrix
+	  multiplication.
+	</p>
+	<p>
+	  As an example, we consider the matrix
 	  <me>
 	    A = \left[\begin{array}{rrr}
 	    1 \amp 2 \amp 1 \\
 	    2 \amp 0 \amp -2 \\
 	    -1 \amp 2 \amp -1 \\
 	    \end{array}\right]
-	    \sim
-	    \left[\begin{array}{rrr}
-	    1 \amp 2 \amp 1 \\
-	    0 \amp -4 \amp -4 \\
-	    0 \amp 0 \amp -4 \\
-	    \end{array}\right] = U
-	  </me>.
-	  Find the matrices <m>L_2</m> and
-	  <m>L_3</m> that perform these row replacement operations so
-	  that <m>L_3L_2L_1 A = U</m>.
-	  </p></li>
-
-	  <li><p> Explain why the matrix product <m>L_3L_2L_1</m> is
-	  invertible and use this fact to write <m>A = LU</m>.  What
-	  is the matrix <m>L</m> that you find?  Why do you think we
-	  denote it by <m>L</m>?
-	  <sage>
-	    <input>
-	    </input>
-	  </sage>
-		
-	  </p></li>
-
-	  <li><p> Row replacement operations may always be performed
-	  by multiplying by a lower triangular matrix.  It turns out
-	  the other two row operations, scaling and interchange, may
-	  also be performed using matrix multiplication.  For
-	  instance, consider the two matrices
+	  </me>
+	  and apply a replacement operation that multiplies the first
+	  row by <m>-2</m> and adds it to the second row.  Rather than
+	  performing this operation in the usual way, we construct a
+	  new matrix by applying the desired replacement operation to
+	  the identity matrix.  To illustrate, we begin with the
+	  identity matrix
 	  <me>
-	    S = \left[\begin{array}{rrr}
+	    I = \begin{bmatrix}
 	    1 \amp 0 \amp 0 \\
-	    0 \amp 3 \amp 0 \\
-	    0 \amp 0 \amp 1 \\
-	    \end{array}\right],
-	    \hspace{24pt}
-	    P = \left[\begin{array}{rrr}
-	    0 \amp 0 \amp 1 \\
 	    0 \amp 1 \amp 0 \\
+	    0 \amp 0 \amp 1 \\
+	    \end{bmatrix}
+	  </me>
+	  and form a new matrix by multiplying the first row by
+	  <m>-2</m> and adding it to the second row to obtain
+	  <me>
+	    R = \begin{bmatrix}
 	    1 \amp 0 \amp 0 \\
-	    \end{array}\right]
-	  </me>.
-	  Show that multiplying <m>A</m> by <m>S</m> performs a
-	  scaling operation and that multiplying by <m>P</m> performs
-	  a row interchange.
-	  </p></li>
+	    -2 \amp 1 \amp 0 \\
+	    0 \amp 0 \amp 1 \\
+	    \end{bmatrix}.
+	  </me>
+	  <ol marker="a.">
+	    <li><p>
+	      Show that the product <m>RA</m> is the result of
+	      applying the replacement operation to <m>A</m>.
+	      <sage>
+		<input>
+		</input>
+	      </sage>
+	    </p></li>
 
-	  <li><p> Explain why the matrices <m>S</m> and <m>P</m> are
-	  invertible and state their inverses.</p></li>
-	</ol>
-      </p>
+	    <li><p> Explain why <m>R</m> is invertible and find its
+	    inverse <m>R^{-1}</m>.
+	    </p></li>
+	    
+	    <li><p> Describe the relationship between <m>R</m> and
+	    <m>R^{-1}</m> and use the connection 
+	    to replacement operations to explain why it holds.
+	    </p></li>
+
+	    <li><p> Other row operations can be performed using a
+	    similar procedure.  For instance, suppose we want to scale
+	    the second row of <m>A</m> by <m>4</m>.  Find a matrix
+	    <m>S</m> so that <m>SA</m> is the same as that obtained
+	    from the scaling operation.  Why is <m>S</m> invertible
+	    and what is <m>S^{-1}</m>?
+	    <sage>
+	      <input>
+	      </input>
+	    </sage>
+	    </p></li>
+
+	    <li><p> Finally, suppose we want to interchange the first
+	    and third rows of <m>A</m>.  Find a matrix <m>P</m>,
+	    usually called a <em>permutation matrix</em> that performs
+	    this operation.  What is <m>P^{-1}</m>?
+	    </p></li>
+	      
+	    <li><p> The original matrix <m>A</m> is seen to be row
+	    equivalent to the upper triangular matrix <m>U</m> by
+	    performing three replacement operations on <m>A</m>:
+	    <me>
+	      A = \left[\begin{array}{rrr}
+	      1 \amp 2 \amp 1 \\
+	      2 \amp 0 \amp -2 \\
+	      -1 \amp 2 \amp -1 \\
+	      \end{array}\right]
+	      \sim
+	      \left[\begin{array}{rrr}
+	      1 \amp 2 \amp 1 \\
+	      0 \amp -4 \amp -4 \\
+	      0 \amp 0 \amp -4 \\
+	      \end{array}\right] = U.
+	      </me>
+	      Find the matrices <m>L_1</m>, <m>L_2</m>, and <m>L_3</m>
+	      that perform these row replacement operations so that
+	      <m>L_3L_2L_1 A = U</m>.  </p></li>
+	    
+	      <li><p> Explain why the matrix product <m>L_3L_2L_1</m> is
+	      invertible and use this fact to write <m>A = LU</m>.  What
+	      is the matrix <m>L</m> that you find?  Why do you think we
+	      denote it by <m>L</m>?
+	      <sage>
+		<input>
+		</input>
+	      </sage>
+	      
+	      </p></li>
+	  </ol>
+	</p>
       </statement>
 
       <solution>
@@ -907,7 +1031,7 @@
 	  <li><p>
 	    Performing the matrix multiplication, we find that
 	    <me>
-	      L_1A = 
+	      RA = 
 	      \left[\begin{array}{rrr}
 	      1 \amp 0 \amp 0 \\
 	      -2 \amp 1 \amp 0 \\
@@ -927,36 +1051,65 @@
 	    </me>
 	  </p></li>
 
-	  <li><p>
-	    The replacement operation is reversible;  that is, 
-	    multiplying the first row by <m>-2</m> and adding it to the
-	    second row can be undone by multiplying the first row by
-	    <m>2</m> and adding it to the second row.  We then expect
-	    that
-	    <m>
-	      L_1^{-1}
-	      = \left[\begin{array}{rrr}
-	      1 \amp 0 \amp 0 \\
-	      2 \amp 1 \amp 0 \\
-	      0 \amp 0 \amp 1 \\
-	      \end{array}\right]
+	  <li><p> We know that <m>R</m> is invertible because
+	  it is a lower triangular matrix whose diagonal entries are
+	  all 1.  We find that
+	  <m>
+	    R^{-1}
+	    = \left[\begin{array}{rrr}
+	    1 \amp 0 \amp 0 \\
+	    2 \amp 1 \amp 0 \\
+	    0 \amp 0 \amp 1 \\
+	    \end{array}\right]
 	    </m>, which can be verified.
 	  </p></li>
 
 	  <li><p>
-	    We simply change the sign of the term that is not on the
-	    diagonal.
+	    But we can see this in another way as well.
+	    The replacement operation is reversible;  that is, 
+	    multiplying the first row by <m>-2</m> and adding it to the
+	    second row can be undone by multiplying the first row by
+	    <m>2</m> and adding it to the second row.  
+	  </p></li>
+
+	  <li><p> We find that
+	  <me>
+	    S = \begin{bmatrix}
+	    1 \amp 0 \amp 0 \\
+	    0 \amp 4 \amp 0 \\
+	    0 \amp 0 \amp 1 \\
+	    \end{bmatrix},~~~
+	    S^{-1} = \begin{bmatrix}
+	    1 \amp 0 \amp 0 \\
+	    0 \amp \frac14 \amp 0 \\
+	    0 \amp 0 \amp 1 \\
+	    \end{bmatrix}.
+	  </me>
+	  This makes sense because scaling a row by <m>4</m> can be
+	  undone by scaling the same row by <m>\frac14</m>.
+	  </p></li>
+
+	  <li><p> We find that
+	  <me>
+	    P = \begin{bmatrix}
+	    0 \amp 0 \amp 1 \\
+	    0 \amp 1 \amp 0 \\
+	    1 \amp 0 \amp 0 \\
+	    \end{bmatrix}.
+	  </me>
+	  Moreover, <m>P=P^{-1}</m> because we can undo the
+	  interchange operation by repeating it.
 	  </p></li>
 
 	  <li><p>
 	    Continuing with the Gaussian elimination algorithm, we
-	    have
+	    have <m>L_1 = R</m>, as above, 
 	    <me>
 	      L_2 = \left[\begin{array}{rrr}
 	      1 \amp 0 \amp 0 \\
 	      0 \amp 1 \amp 0 \\
 	      1 \amp 0 \amp 1 \\
-	      \end{array}\right],
+	      \end{array}\right],~~~
 	      L_3 = \left[\begin{array}{rrr}
 	      1 \amp 0 \amp 0 \\
 	      0 \amp 1 \amp 0 \\
@@ -970,184 +1123,171 @@
 	  <li><p>
 	    Each of the matrices <m>L_1</m>, <m>L_2</m>, and
 	    <m>L_3</m> is invertible so their product will be as
-	    well.  In addition,
+	    well.  Since <m>(L_3L_2L_1)A = U</m>, we have <m>A =
+	    (L_3L_2L_1)^{-1}U</m>.  
+	    Moreover,
 	    <m>L = (L_3L_2L_1)^{-1} = L_1^{-1}L_2^{-1}L_3^{-1}</m>
 	    gives
 	    <m>L=\left[\begin{array}{rrr}
 	    1 \amp 0 \amp 0 \\
 	    2 \amp 1 \amp 0 \\
 	    -1 \amp -1 \amp 1 \\
-	    \end{array}\right]</m>.
+	    \end{array}\right]</m>.  Notice that this matrix is lower
+	    triangular so we call it <m>L</m>.
 	  </p></li>
 
-	  <li><p>
-	    If we perform the matrix multiplications, we verify that
-	    multiplication performs the desired operation.
-	  </p></li>
-
-	  <li><p>
-	    The matrices <m>S</m> and <m>P</m> are invertible because
-	    each operation can be undone.  For instance, the scaling
-	    operation can be undone by multiplying the second row by
-	    <m>\frac13</m>.  The interchange operation can be undone
-	    by repeating the same operation.  This shows that
-	    <me>
-	      S^{-1}=
-	      \left[\begin{array}{rrr}
-	      1 \amp 0 \amp 0 \\
-	      0 \amp \frac13 \amp 0 \\
-	      0 \amp 0 \amp 1 \\
-	      \end{array}\right],
-	      P^{-1} = P =
-	      \left[\begin{array}{rrr}
-	      0 \amp 0 \amp 1 \\
-	      0 \amp 1 \amp 0 \\
-	      1 \amp 0 \amp 0 \\
-	      \end{array}\right]\text{.}
-	    </me>
-	  </p></li>
 	</ol></p>
       </solution>
 	      
     </activity>
 
-    <p> We will demonstrate the ideas in this activity again using the
-    matrix 
-    <me>
-      A = \left[\begin{array}{rrr}
-      1 \amp 3 \amp -2 \\
-      -3 \amp -6 \amp 3 \\
-      2 \amp 0 \amp -2 \\
-      \end{array}\right]
-    </me>.
-    After performing three row replacement operations, we find the row
-    equivalent upper
-    triangular matrix <m>U</m>:
-    <me>
-      \begin{aligned}
-      A =
-      \left[\begin{array}{rrr}
-      1 \amp 3 \amp -2 \\
-      -3 \amp -6 \amp 3 \\
-      2 \amp 0 \amp -1 \\
-      \end{array}\right]
-      \amp {}\sim{}
-      \left[\begin{array}{rrr}
-      1 \amp 3 \amp -2 \\
-      0 \amp 3 \amp -3 \\
-      2 \amp 0 \amp -1 \\
-      \end{array}\right] = A_1 \\
-      \amp {}\sim{}
-      \left[\begin{array}{rrr}
-      1 \amp 3 \amp -2 \\
-      0 \amp 3 \amp -3 \\
-      0 \amp -6 \amp 3 \\
-      \end{array}\right] = A_2 \\
-      \amp {}\sim{}
-      \left[\begin{array}{rrr}
-      1 \amp 3 \amp -2 \\
-      0 \amp 3 \amp -3 \\
-      0 \amp 0 \amp -3 \\
-      \end{array}\right] = U \\
-      \end{aligned}
-    </me>.
-    </p>
+    <p>
+      <idx> matrix, elementary </idx>
+      The following are examples of matrices, known as 
+      <em>elementary matrices</em>,
+      that perform the row operations on a matrix having three rows.
+      <dl>
+	<li><title> Replacement </title>
+	<p> Multiplying the second row by 3 and adding it to the third
+	row is performed by
+	<me>
+	  L = \begin{bmatrix}
+	  1 \amp 0 \amp 0 \\
+	  0 \amp 1 \amp 0 \\
+	  0 \amp 3 \amp 1 \\
+	  \end{bmatrix}.
+	</me>  We often use <m>L</m> to describe these matrices because
+	they are lower triangular.
+	</p></li>
+	<li><title> Scaling </title>
+	<p> Multiplying the third row by 2 is performed by
+	<me>
+	  S = \begin{bmatrix}
+	  1 \amp 0 \amp 0 \\
+	  0 \amp 1 \amp 0 \\
+	  0 \amp 0 \amp 2 \\
+	  \end{bmatrix}.
+	</me>
+	</p></li>
 
-    <p> The first row replacement operation multiplies the first row
-    by <m>3</m> and adds the result to the second row.  We can perfom
-    this operation by multiplying <m>A</m> by the lower triangular
-    matrix <m>L_1</m> where 
-    <me>
-      L_1A =
-      \left[\begin{array}{rrr}
-      1 \amp 0 \amp 0 \\
-      3 \amp 1 \amp 0 \\
-      0 \amp 0 \amp 1 \\
-      \end{array}\right]
-      \left[\begin{array}{rrr}
-      1 \amp 3 \amp -2 \\
-      -3 \amp -6 \amp 3 \\
-      2 \amp 0 \amp -2 \\
-      \end{array}\right]
-      = 
-      \left[\begin{array}{rrr}
-      1 \amp 3 \amp -2 \\
-      0 \amp 3 \amp -3 \\
-      2 \amp 0 \amp -1 \\
-      \end{array}\right] = A_1
-    </me>.
+	<li><title> Interchange </title>
+	<p> Interchanging the first two rows is performed by
+	<me>
+	  P = \begin{bmatrix}
+	  0 \amp 1 \amp 0 \\
+	  1 \amp 0 \amp 0 \\
+	  0 \amp 0 \amp 1 \\
+	  \end{bmatrix}.
+	</me>
+	</p></li>
+      </dl>
     </p>
+    
+    <example>
+      <statement>
+	<p> Suppose we have 
+	<me>
+	  A = \left[\begin{array}{rrr}
+	  1 \amp 3 \amp -2 \\
+	  -3 \amp -6 \amp 3 \\
+	  2 \amp 0 \amp -2 \\
+	  \end{array}\right].
+	</me>
+	For the forward substitution phase of Gaussian elimination, we
+	perform a sequence of three replacement operations.
+	The first replacement operation multiplies the first row
+	by <m>3</m> and adds the result to the second row.  We can perform
+	this operation by multiplying <m>A</m> by the lower triangular
+	matrix <m>L_1</m> where 
+	<me>
+	  L_1A =
+	  \left[\begin{array}{rrr}
+	  1 \amp 0 \amp 0 \\
+	  3 \amp 1 \amp 0 \\
+	  0 \amp 0 \amp 1 \\
+	  \end{array}\right]
+	  \left[\begin{array}{rrr}
+	  1 \amp 3 \amp -2 \\
+	  -3 \amp -6 \amp 3 \\
+	  2 \amp 0 \amp -2 \\
+	  \end{array}\right]
+	  = 
+	  \left[\begin{array}{rrr}
+	  1 \amp 3 \amp -2 \\
+	  0 \amp 3 \amp -3 \\
+	  2 \amp 0 \amp -1 \\
+	  \end{array}\right].
+	  </me>
+	</p>
 
-    <p> The next two row replacement operations are performed by the
-    matrices
-    <me>
-      L_2 = \left[\begin{array}{rrr}
-      1 \amp 0 \amp 0 \\
-      0 \amp 1 \amp 0 \\
-      -2 \amp 0 \amp 1 \\
-      \end{array}\right],
-      \hspace{24pt}
-      L_3 = \left[\begin{array}{rrr}
-      1 \amp 0 \amp 0 \\
-      0 \amp 1 \amp 0 \\
-      0 \amp 2 \amp 1 \\
-      \end{array}\right]
-    </me>
-    so that <m>L_3L_2L_1A = U</m>.  
-    </p>
+	<p> The next two replacement operations are performed by the
+	matrices
+	<me>
+	  L_2 = \left[\begin{array}{rrr}
+	  1 \amp 0 \amp 0 \\
+	  0 \amp 1 \amp 0 \\
+	  -2 \amp 0 \amp 1 \\
+	  \end{array}\right],
+	  \hspace{24pt}
+	  L_3 = \left[\begin{array}{rrr}
+	  1 \amp 0 \amp 0 \\
+	  0 \amp 1 \amp 0 \\
+	  0 \amp 2 \amp 1 \\
+	  \end{array}\right]
+	</me>
+	so that
+	<me>L_3L_2L_1A = U = \begin{bmatrix}
+	1 \amp 3 \amp -2 \\
+	0 \amp 3 \amp -3 \\
+	0 \amp 0 \amp -3 \\
+	\end{bmatrix}.
+	</me>
+	</p>
+	
+	<p> Notice that the inverse of <m>L_1</m> has the simple form:
+	<me>
+	  L_1 = \left[\begin{array}{rrr}
+	  1 \amp 0 \amp 0 \\
+	  3 \amp 1 \amp 0 \\
+	  0 \amp 0 \amp 1 \\
+	  \end{array}\right],
+	  \hspace{24pt}
+	  L_1^{-1} = \left[\begin{array}{rrr}
+	  1 \amp 0 \amp 0 \\
+	  -3 \amp 1 \amp 0 \\
+	  0 \amp 0 \amp 1 \\
+	  \end{array}\right]
+	  </me>.
+	  This says that if we want to undo the operation of multiplying
+	  the first row by <m>3</m> and adding to the second row, we should
+	  multiply the first row by <m>-3</m> and add it to the second row.
+	  That is the effect of <m>L_1^{-1}</m>.
+	</p>
+	
+	<p> Notice that we now have <m>L_3L_2L_1A = U</m>, which gives
+	<me>
+	  \begin{aligned}
+	  (L_3L_2L_1)A \amp = U \\
+	  (L_3L_2L_1)^{-1}(L_3L_2L_1)A \amp = 
+	  (L_3L_2L_1)^{-1}U \\
+	  A \amp = (L_3L_2L_1)^{-1}U = LU\\
+	  \end{aligned}
+	</me>
+	where <m>L</m> is the lower triangular matrix
+	<me> L = (L_3L_2L_1)^{-1}=\begin{bmatrix}
+	1 \amp 0 \amp 0 \\
+	-3 \amp 1 \amp 0 \\
+	2 \amp -2 \amp 1 \\
+	\end{bmatrix}.
+	</me>
+	This way of writing <m>A=LU</m> as the product of a lower and
+	an upper triangular matrix is known as an <m>LU</m>
+	factorization of <m>A</m>, and its usefulness will be explored
+	in <xref ref="sec-gaussian-revisited"/>.
+	</p>
 
-    <p> Notice that the inverse of <m>L_1</m> has the simple form:
-    <me>
-      L_1 = \left[\begin{array}{rrr}
-      1 \amp 0 \amp 0 \\
-      3 \amp 1 \amp 0 \\
-      0 \amp 0 \amp 1 \\
-      \end{array}\right],
-      \hspace{24pt}
-      L_1^{-1} = \left[\begin{array}{rrr}
-      1 \amp 0 \amp 0 \\
-      -3 \amp 1 \amp 0 \\
-      0 \amp 0 \amp 1 \\
-      \end{array}\right]
-    </me>.
-    This makes sense;  if we want to undo the operation of multiplying
-    the first row by <m>3</m> and adding to the second row, we should
-    multiply the first row by <m>-3</m> and add it to the second row.
-    This is the effect of <m>L_1^{-1}</m>.
-    </p>
-
-    <p> The other row operations we use in implementing Gaussian
-    elimination can also be performed by multiplying by an invertible
-    matrix.  In particular, if we scale a row by a nonzero number
-    <m>s</m>, we can undo this operation by scaling by <m>\frac
-    1s</m>.  This leads to the invertible diagonal matrices, such as
-    <me>
-      S = \left[\begin{array}{rrr}
-      s \amp 0 \amp 0 \\
-      0 \amp 1 \amp 0 \\
-      0 \amp 0 \amp 1 \\
-      \end{array}\right],
-      \hspace{24pt}
-      S^{-1} = \left[\begin{array}{rrr}
-      \frac 1s \amp 0 \amp 0 \\
-      0 \amp 1 \amp 0 \\
-      0 \amp 0 \amp 1 \\
-      \end{array}\right]
-    </me>.
-    </p>
-
-    <p>Similarly, a row interchange leads to a matrix <m>P</m>,
-    which is its own inverse.  An example is
-    <me>
-      P = \left[\begin{array}{rrr}
-      0 \amp 1 \amp 0 \\
-      1 \amp 0 \amp 0 \\
-      0 \amp 0 \amp 1 \\
-      \end{array}\right]
-      =
-      P^{-1}
-    </me>.
-    </p>
+      </statement>
+    </example>
 
   </subsection>
 
@@ -1158,13 +1298,13 @@
     matrix has an inverse.  When these conditions hold, we also found
     an algorithm for finding the inverse.
     <ul>
+      <li><p> A square matrix is invertible if there is a matrix
+      <m>B</m>, known as the inverse of <m>A</m>, such that <m>AB =
+      I</m>.  We usually write <m>A^{-1} = B</m>.  </p></li>
+
       <li><p> The <m>n\times n</m> matrix <m>A</m> is
       invertible if and only if it is row equivalent to <m>I_n</m>,
       the <m>n\times n</m> identity matrix. </p></li>
-
-      <li><p> If a matrix <m>A</m> is invertible, then the solution to
-      the equation <m>A\xvec = \bvec</m> is <m>\xvec =
-      A^{-1}\bvec</m>. </p></li> 
 
       <li><p> If a matrix <m>A</m> is invertible, we can use Gaussian 
       elimination to find its inverse:
@@ -1173,11 +1313,14 @@
 	\left[\begin{array}{r|r} I \amp A^{-1} \end{array}\right]
       </me>. </p></li>
 
-      <li><p> The row operations used in performing Gaussian
-      elimination can be performed by multiplying by invertible
-      matrices.  More specifically, a row replacement operation may be
-      performed by multiplying by an invertible lower triangular
-      matrix. </p></li>
+      <li><p> If a matrix <m>A</m> is invertible, then the solution to
+      the equation <m>A\xvec = \bvec</m> is <m>\xvec =
+      A^{-1}\bvec</m>. </p></li> 
+
+      <li><p> The row operations of replacement, scaling, and
+      interchange can be performed 
+      by multiplying by elementary
+      matrices.  </p></li>
     </ul>
     </p>
 

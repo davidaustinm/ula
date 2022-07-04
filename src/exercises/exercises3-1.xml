@@ -88,17 +88,17 @@
 	  <m>
 	    A^{-1} =
 	    \left[\begin{array}{rrrr}
-	    -\frac{3}{11} \amp -\frac{1}{11} \amp -\frac{1}{11} \amp \frac{6}{11} \\
-	    -\frac{1}{11} \amp -\frac{4}{11} \amp \frac{18}{11} \amp \frac{13}{11} \\
-	    -\frac{1}{11} \amp \frac{7}{11} \amp -\frac{15}{11} \amp -\frac{9}{11} \\
-	    \frac{5}{11} \amp -\frac{2}{11} \amp \frac{9}{11} \amp \frac{1}{11}
-	    \end{array}\right]
+              -\frac{1}{2} \amp 0 \amp -\frac{1}{2} \amp \frac{1}{2} \\
+              4 \amp -2 \amp 9 \amp 2 \\
+              -\frac{7}{2} \amp 2 \amp -\frac{15}{2} \amp -\frac{3}{2} \\
+              \frac{5}{2} \amp -1 \amp \frac{9}{2} \amp \frac{1}{2}
+	    \end{array}\right]\text{.}
 	  </m>
 	</p></li>
 
 	<li><p>
 	  <m>\xvec=
-	  \fourvec{-14/11}{-78/11}{65/11}{-17/11}
+	  \fourvec{-\frac12}{-21}{\frac{35}2}{-\frac{17}{2}}
 	  </m>.
 	</p></li>
       </ol></p>
@@ -109,7 +109,7 @@
   <exercise>
     <statement>
       <p> In this exercise, we will consider <m>2\times 2</m> matrices
-      as defining linear transformations.
+      as defining matrix transformations.
       <ol marker="a.">
 	<li><p> Write the matrix <m>A</m> that performs a <m>45^\circ</m>
 	rotation.  What geometric operation undoes this rotation?
@@ -214,48 +214,191 @@
 
   <exercise>
     <statement>
-      <p> Suppose that <m>A</m> is an <m>n\times n</m> matrix.
+      <p> Inverses for certain types of matrices can be found in a
+      relatively straightforward fashion.
       <ol marker="a.">
-	<li><p> Suppose that <m>A^2 = AA</m> is invertible with
-	inverse <m>B</m>.  This means that <m>BA^2 = BAA = I</m>.
-	Explain why <m>A</m> must be invertible with inverse
-	<m>BA</m>. </p></li>
-
-	<li><p> Suppose that <m>A^{100}</m> is invertible with inverse
-	<m>B</m>.  Explain why <m>A</m> is invertible.  What is
-	<m>A^{-1}</m> in terms of <m>A</m> and <m>B</m>? </p></li>
-      </ol></p>
+	<li>
+	  <p>
+	    The matrix
+	    <m>D=\begin{bmatrix}
+	    2 \amp 0 \amp 0 \\
+	    0 \amp -1 \amp 0 \\
+	    0 \amp 0 \amp -4 \\
+	    \end{bmatrix}
+	    </m> is called <em>diagonal</em> since the only nonzero
+	    entries are on the diagonal of the matrix.
+	  </p>
+	  <p>
+	    <ol marker="1.">
+	      <li>
+		<p>
+		  Find <m>D^{-1}</m> by augmenting <m>D</m> by the identity
+		  and finding its reduced row echelon form.
+		</p>
+	      </li>
+	      <li>
+		<p>
+		  Under what conditions is a diagonal matrix
+		  invertible?
+		</p>
+	      </li>
+	      <li>
+		<p>
+		  Explain why the inverse of a diagonal matrix is also
+		  diagonal and explain the relationship between the
+		  diagonal entries in <m>D</m> and <m>D^{-1}</m>.
+		</p>
+	      </li>
+	    </ol>
+	  </p>
+	</li>
+	<li>
+	  <p>
+	    Consider the lower triangular matrix
+	    <m>L = \begin{bmatrix}
+	    1 \amp 0 \amp 0 \\
+	    -2 \amp 1 \amp 0 \\
+	    3 \amp -4 \amp 1 \\
+	    \end{bmatrix}
+	    </m>.
+	    <ol marker="1.">
+	      <li>
+		<p>
+		  Find <m>L^{-1}</m> by augmenting <m>L</m> by the
+		  identity and finding its reduced row echelon form.
+		</p>
+	      </li>
+	      <li>
+		<p>
+		  Explain why the inverse of a lower triangular
+		  matrix is also lower triangular.
+		</p>
+	      </li>
+	    </ol>
+	  </p>
+	</li>
+      </ol>
+      </p>
     </statement>
-
     <solution>
-      <p><ol marker="a.">
-	<li><p>
-	  If <m>A^2</m> has inverse <m>B</m>, then <m>BA^2 = I</m>.
-	  This means that <m>(BA)A=I</m> so <m>A</m> is invertible
-	  with inverse <m>BA</m>.
-	</p></li>
+      <p>
+	<ol marker="a.">
+	  <li>
+	    <p>
+	      <ol marker="1.">
+		<li>
+		  <p>
+		    <m> D^{-1} = \begin{bmatrix}
+		    \frac12 \amp 0 \amp 0 \\
+		    0 \amp -1 \amp 0 \\
+		    0 \amp 0 \amp \frac14 \\
+		    \end{bmatrix}
+		    </m>.
+		  </p>
+		</li>
+		<li>
+		  <p>
+		    When the entries on the diagonal are all nonzero.
+		  </p>
+		</li>
+		<li>
+		  <p>
+		    Because the process of row reducing <m>D</m>
+		    augmented by <m>I</m> can be performed using only
+		    scalings.  Then the diagonal entries of <m>D</m>
+		    and <m>D^{-1}</m> are reciprocals of one another.
+		  </p>
+		</li>
+	      </ol>
+	    </p>
+	  </li>
+	  <li>
+	    <p>
+	      <ol marker="1.">
+		<li>
+		  <p>
+		    <m>L^{-1} = \begin{bmatrix}
+		    1 \amp 0 \amp 0 \\
+		    -2 \amp 1 \amp 0 \\
+		    -11 \amp 4 \amp 1
+		    \end{bmatrix}
+		    </m>.
+		  </p>
+		</li>
+		<li>
+		  <p>
+		    <m>L^{-1}</m> is always lower triangular because
+		    the only row operations needed to row reduce
+		    <m>L</m> augmented by <m>I</m> are replacements in
+		    which a multiple of one row is added to a row
+		    underneath it.
+		  </p>
+		</li>
+	      </ol>
+	    </p>
+	  </li>
 
-	<li><p>
-	  In the same way, we have <m>BA^{100} = (BA^{99})A=I</m>,
-	  which shows that <m>A^{-1}=BA^{99}</m>.
-	</p></li>
-      </ol></p>
+	</ol>
+      </p>
     </solution>
     <answer>
-      <p><ol marker="a.">
-	<li><p>
-	  If <m>A^2</m> has inverse <m>B</m>, then <m>BA^2 = I</m>.
-	  This means that <m>(BA)A=I</m> so <m>A</m> is invertible
-	  with inverse <m>BA</m>.
-	</p></li>
-
-	<li><p>
-	  In the same way, we have <m>BA^{100} = (BA^{99})A=I</m>,
-	  which shows that <m>A^{-1}=BA^{99}</m>.
-	</p></li>
-      </ol></p>
+      <p>
+	<ol marker="a.">
+	  <li>
+	    <p>
+	      <ol marker="1.">
+		<li>
+		  <p>
+		    <m> D^{-1} = \begin{bmatrix}
+		    \frac12 \amp 0 \amp 0 \\
+		    0 \amp -1 \amp 0 \\
+		    0 \amp 0 \amp \frac14 \\
+		    \end{bmatrix}
+		    </m>.
+		  </p>
+		</li>
+		<li>
+		  <p>
+		    When the entries on the diagonal are all nonzero.
+		  </p>
+		</li>
+		<li>
+		  <p>
+		    Consider the steps performed in 
+		    row reducing <m>D</m>
+		    augmented by <m>I</m>.
+		  </p>
+		</li>
+	      </ol>
+	    </p>
+	  </li>
+	  <li>
+	    <p>
+	      <ol marker="1.">
+		<li>
+		  <p>
+		    <m>L^{-1} = \begin{bmatrix}
+		    1 \amp 0 \amp 0 \\
+		    -2 \amp 1 \amp 0 \\
+		    -11 \amp 4 \amp 1
+		    \end{bmatrix}
+		    </m>.
+		  </p>
+		</li>
+		<li>
+		  <p>
+		    Consider the steps in row reducing
+		    <m>L</m> augmented by <m>I</m>.
+		  </p>
+		</li>
+	      </ol>
+	    </p>
+	  </li>
+	</ol>
+      </p>
     </answer>
   </exercise>
+		
 
   <exercise>
     <statement>
@@ -310,12 +453,6 @@
 	  than one left inverse.
 	  </p></li>
       
-	  <li><p> 
-	  When <m>A</m> is a <em>square</em> 
-	  matrix, we said that <m>BA=I</m> implies that <m>AB=I</m>.
-	  In this problem, we have a non-square matrix <m>A</m> with
-	  <m>BA = I</m>.  What happens when we compute
-	  <m>AB</m>?  </p></li>
 	</ol>
       </p>
     </statement>
@@ -336,11 +473,6 @@
 	  In the same way, we compute <m>CA=I_2</m>.
 	</p></li>
 
-	<li><p>
-	  In this example, the product <m>AB</m> is a <m>3\times3</m>
-	  matrix, which is different than the identity.  This shows
-	  that <m>A</m> is not a left-inverse of <m>B</m>.
-	</p></li>
       </ol></p>
     </solution>
 
@@ -358,9 +490,6 @@
 	  <m>CA=I_2</m>.
 	</p></li>
 
-	<li><p>
-	  <m>A</m> is not a left-inverse of <m>B</m>.
-	</p></li>
       </ol></p>
     </answer>
   </exercise>
@@ -368,17 +497,17 @@
   <exercise>
     <statement>
       <p> If a matrix <m>A</m> is invertible, there is a sequence of
-      row operations that transform <m>A</m> into the
+      row operations that transforms <m>A</m> into the
       identity matrix <m>I</m>.  We have seen that every row operation can be
       performed by matrix multiplication.  If the <m>j^{th}</m> step
       in the Gaussian elimination process is performed by multiplying
       by <m>E_j</m>, then we have
       <me>
-	E_p\ldots E_2E_1 A = I
+	E_p\cdots E_2E_1 A = I
       </me>,
       which means that
       <me>
-	A^{-1} = E_p\ldots E_2E_1
+	A^{-1} = E_p\cdots E_2E_1
       </me>.
       For each of the following matrices, find a sequence of row
       operations that transforms the matrix to the identity <m>I</m>.
@@ -501,16 +630,21 @@
 	    0 \amp 1 \amp -1 \\
 	    0 \amp 0 \amp 1 \\
 	    \end{array}\right],
-	    U_2 = 
+	    U_2 = \begin{bmatrix}
+	    1 \amp 0 \amp -1 \\
+	    0 \amp 1 \amp 0 \\
+	    0 \amp 0 \amp 1 \\
+	    \end{bmatrix},
+	    U_3 = 
 	    \left[\begin{array}{rrr}
 	    1 \amp -1 \amp 0 \\
 	    0 \amp 1 \amp 0 \\
 	    0 \amp 0 \amp 1 \\
 	    \end{array}\right]\text{.}
 	  </me>
-	  This gives <m>U_2U_1SA = I</m> so that
+	  This gives <m>U_3U_2U_1SA = I</m> so that
 	  <m>
-	    A^{-1} = U_2U_1S =
+	    A^{-1} = U_3U_2U_1S =
 	    \left[\begin{array}{rrr}
 	    1 \amp -1 \amp 0 \\
 	    0 \amp 1 \amp -\frac12 \\
@@ -561,6 +695,51 @@
 
   <exercise>
     <statement>
+      <p> Suppose that <m>A</m> is an <m>n\times n</m> matrix.
+      <ol marker="a.">
+	<li><p> Suppose that <m>A^2 = AA</m> is invertible with
+	inverse <m>B</m>.  This means that <m>A^2B = AAB = I</m>.
+	Explain why <m>A</m> must be invertible with inverse
+	<m>AB</m>. </p></li>
+
+	<li><p> Suppose that <m>A^{100}</m> is invertible with inverse
+	<m>B</m>.  Explain why <m>A</m> is invertible.  What is
+	<m>A^{-1}</m> in terms of <m>A</m> and <m>B</m>? </p></li>
+      </ol></p>
+    </statement>
+
+    <solution>
+      <p><ol marker="a.">
+	<li><p>
+	  If <m>A^2</m> has inverse <m>B</m>, then <m>A^2B = I</m>.
+	  This means that <m>A(AB)=I</m> so <m>A</m> is invertible
+	  with inverse <m>AB</m>.
+	</p></li>
+
+	<li><p>
+	  In the same way, we have <m>A^{100}B = A(A^{99}B)=I</m>,
+	  which shows that <m>A^{-1}=A^{99}B</m>.
+	</p></li>
+      </ol></p>
+    </solution>
+    <answer>
+      <p><ol marker="a.">
+	<li><p>
+	  If <m>A^2</m> has inverse <m>B</m>, then <m>A^2B = I</m>.
+	  This means that <m>A(AB)=I</m> so <m>A</m> is invertible
+	  with inverse <m>AB</m>.
+	</p></li>
+
+	<li><p>
+	  In the same way, we have <m>A^{100}B = A(A^{99}B)=I</m>,
+	  which shows that <m>A^{-1}=A^{99}B</m>.
+	</p></li>
+      </ol></p>
+    </answer>
+  </exercise>
+
+  <exercise>
+    <statement>
       <p>
 	Determine whether the following statements are true or false
 	and explain your reasoning.
@@ -573,7 +752,7 @@
 	  invertible.</p></li>
 
 	  <li><p> If <m>A</m> is an invertible <m>n\times n</m>
-	  matrix, then the columns of <m>A</m> span
+	  matrix, then span of the columns of <m>A</m> is
 	  <m>\real^n</m>. </p></li> 
 
 	  <li><p> If <m>A</m> is invertible, then there is a
@@ -677,7 +856,7 @@
 	  equal row, we obtain a matrix having a row whose entries are all
 	  zero.  This says that the reduced row echelon form has such a
 	  row as well.  Therefore, there is a row that does not
-	  contain a pivot so the reduced row echelon form cannot be
+	  contain a pivot position so the reduced row echelon form cannot be
 	  the identity <m>I</m>.
 	</p></li>
 
@@ -714,22 +893,22 @@
   <exercise>
     <statement>
       <p>
-	Suppose that we start with the <m>3\times3</m> matrix <m>A</m>
-	and perform the following sequence of row operations:
+	Suppose that we start with the <m>3\times3</m> matrix <m>A</m>,
+	perform the following sequence of row operations:
 	<ol marker="1.">
 	  <li><p>  Multiply row 1 by -2 and add to row 2. </p></li>
 	  <li><p>  Multiply row 1 by 4 and add to row 3. </p></li>
 	  <li><p>  Scale row 2 by <m>1/2</m>. </p></li>
-	  <li><p>  Multiply row 2 by -1 and add to row 3. </p></li>
+	  <li><p>  Multiply row 2 by -1 and add to row 3, </p></li>
 	</ol>
-	Suppose we arrive at the upper triangular matrix
+	and arrive at the upper triangular matrix
 	<me>
 	  U = \left[\begin{array}{rrr}
 	  3 \amp 2 \amp -1 \\
 	  0 \amp 1 \amp 3 \\
 	  0 \amp 0 \amp -4 \\
-	  \end{array}\right]
-	</me>.
+	  \end{array}\right].
+	</me>
 	<sage>
 	  <input>
 	  </input>
@@ -864,41 +1043,311 @@
     
   </exercise>
 
+  <exercise>
+    <statement>
+      <p>
+	We say that two square matrices <m>A</m> and <m>B</m> are
+	<em>similar</em> if there is an invertible matrix <m>P</m>
+	such that <m>B = PAP^{-1}</m>.
+	<ol marker="a.">
+	  <li>
+	    <p>
+	      If <m>A</m> and <m>B</m> are similar, explain why
+	      <m>A^2</m> and <m>B^2</m> are similar as well.  In
+	      particular, if <m>B = PAP^{-1}</m>, explain why <m>B^2 =
+	      PA^2P^{-1}</m>.
+	    </p>
+	  </li>
+	  <li>
+	    <p>
+	      If <m>A</m> and <m>B</m> are similar and <m>A</m> is
+	      invertible, explain why <m>B</m> is also invertible.
+	    </p>
+	  </li>
+	  <li>
+	    <p>
+	      If <m>A</m> and <m>B</m> are similar and both are
+	      invertible, explain why <m>A^{-1}</m> and <m>B^{-1}</m>
+	      are similar.
+	    </p>
+	  </li>
+	  <li>
+	    <p>
+	      If <m>A</m> is similar to <m>B</m> and <m>B</m> is
+	      similar to <m>C</m>, explain why <m>A</m> is similar to
+	      <m>C</m>.  To begin, you may wish to assume that <m>B =
+	      PAP^{-1}</m> and <m>C = QBQ^{-1}</m>.
+	    </p>
+	  </li>
+	</ol>
+      </p>
+    </statement>
+    <solution>
+      <p>
+	<ol marker="a.">
+	  <li>
+	    <p>
+	      <m>B^2 = (PAP^{-1})(PAP^{-1}) = PA^2P^{-1}</m>.
+	    </p>
+	  </li>
+	  <li>
+	    <p>
+	      <m>B (PA^{-1}P^{-1}) = (PAP^{-1})(PA^{-1}P^{-1}) =
+	      I</m>.
+	    </p>
+	  </li>
+	  <li>
+	    <p>
+	      <m>B^{-1}=(PAP^{-1})^{-1} = PA^{-1}P^{-1}</m>.
+	    </p>
+	  </li>
+	  <li>
+	    <p>
+	      <m>C = QBQ^{-1}=QPAP^{-1}Q^{-1} = (QP)A(QP)^{-1}</m>.
+	    </p>
+	  </li>
+	</ol>
+      </p>
+    </solution>
+	    
+    <answer>
+      <p>
+	<ol marker="a.">
+	  <li>
+	    <p>
+	      <m>B^2 = PA^2P^{-1}</m>.
+	    </p>
+	  </li>
+	  <li>
+	    <p>
+	      <m>B^{-1} = PA^{-1}P^{-1}</m>.
+	    </p>
+	  </li>
+	  <li>
+	    <p>
+	      <m>B^{-1}= PA^{-1}P^{-1}</m>.
+	    </p>
+	  </li>
+	  <li>
+	    <p>
+	      <m>C = (QP)A(QP)^{-1}</m>.
+	    </p>
+	  </li>
+	</ol>
+      </p>
+    </answer>
+  </exercise>
+	  
+  <exercise>
+    <statement>
+      <p>
+	Suppose that <m>A</m> and <m>B</m> are two <m>n\times n</m>
+	matrices and that <m>AB</m> is invertible.  We would like to
+	explain why both <m>A</m> and <m>B</m> are invertible.
+	<ol marker="a.">
+	  <li>
+	    <p>
+	      We first explain why <m>B</m> is invertible.
+	      <ol marker="1.">
+		<li>
+		  <p>
+		    Since <m>AB</m> is invertible, explain why any solution
+		    to the homogeneous equation <m>AB\xvec = \zerovec</m> is
+		    the trivial solution.
+		  </p>
+		</li>
+		<li>
+		  <p> Use this fact to explain why any
+		  solution to <m>B\xvec = \zerovec</m> must be the
+		  trivial solution.
+		  </p>
+		</li>
+		<li>
+		  <p>
+		    Explain why <m>B</m> must be invertible.
+		  </p>
+		</li>
+	      </ol>
+	    </p>
+	  </li>
+	  <li>
+	    <p>
+	      Now we explain why <m>A</m> is invertible.
+	      <ol marker="1.">
+		<li>
+		  <p>
+		    Since <m>AB</m> is invertible, explain why the
+		    equation <m>AB\xvec=\bvec</m> is consistent for
+		    every vector <m>\bvec</m>.
+		  </p>
+		</li>
+		<li>
+		  <p>
+		    Using the fact that <m>AB\xvec = A(B\xvec) =
+		    \bvec</m> is consistent for every <m>\bvec</m>,
+		    explain why every equation <m>A\xvec = \bvec</m>
+		    is consistent.
+		  </p>
+		</li>
+		<li>
+		  <p>
+		    Explain why <m>A</m> must be invertible.
+		  </p>
+		</li>
+	      </ol>
+	    </p>
+	  </li>
+	</ol>
+      </p>
+    </statement>
+    <solution>
+      <p>
+	<ol marker="a.">
+	  <li>
+	    <p>
+	      <ol marker="1.">
+		<li>
+		  <p> Since <m>AB</m> is invertible, <m>AB\sim I</m>,
+		  which says that there is pivot position in every
+		  column.  Therefore, <m>\xvec=\zerovec</m> is the
+		  only solution to the equation <m>AB\xvec =
+		  \zerovec</m>.
+		  </p>
+		</li>
+		<li>
+		  <p>
+		    If <m>\xvec</m> is a solution to the equation
+		    <m>B\xvec = \zerovec</m>, then 
+		    <m>AB\xvec =
+		    A\zerovec = \zerovec</m>, which says that <m>\xvec
+		    = \zerovec</m>.
+		  </p>
+		</li>
+		<li>
+		  <p>
+		    Since the only solution to the homogeneous
+		    equation <m>B\xvec = \zerovec</m> is the trivial
+		    solution, we know that <m>B\sim I</m> so <m>B</m>
+		    is invertible.
+		  </p>
+		</li>
+	      </ol>
+	    </p>
+	  </li>
+	  <li>
+	    <p>
+	      <ol marker="1.">
+		<li>
+		  <p>
+		    Since <m>AB</m> is invertible, the span of the
+		    columns of <m>AB</m> is <m>\real^n</m>, which says
+		    that every equation <m>AB\xvec = \bvec</m> is
+		    consistent.
+		  </p>
+		</li>
+		<li>
+		  <p>
+		    If <m>\yvec</m> is the solution to the equation
+		    <m>AB\xvec = \bvec</m>, then <m>B\yvec</m> satisfies
+		    <m>A(B\yvec) = \bvec</m>, which means that
+		    <m>A\xvec = \bvec</m> is consistent.
+		  </p>
+		</li>
+		<li>
+		  <p>
+		    We now know that the span of the columns of
+		    <m>A</m> is <m>\real^n</m>, which tells us that
+		    <m>A</m> is invertible.
+		  </p>
+		</li>
+	      </ol>
+	    </p>
+	  </li>
+	</ol>
+      </p>
+    </solution>
+		    
+    <answer>
+      <p>
+	<ol marker="a.">
+	  <li>
+	    <p>
+	      <ol marker="1.">
+		<li>
+		  <p>
+		    <m>AB\sim I</m>.
+		  </p>
+		</li>
+		<li>
+		  <p>
+		    If <m>B\xvec=\zerovec</m>, then <m>AB\xvec =
+		    \zerovec</m>. 
+		  </p>
+		</li>
+		<li>
+		  <p>
+		    We now know that <m>B\sim I</m>.
+		  </p>
+		</li>
+	      </ol>
+	    </p>
+	  </li>
+	  <li>
+	    <p>
+	      <ol marker="1.">
+		<li>
+		  <p>
+		    The span of the
+		    columns of <m>AB</m> is <m>\real^n</m>.
+		  </p>
+		</li>
+		<li>
+		  <p>
+		    A solution to 
+		    <m>AB\xvec = \bvec</m> produces a solution to
+		    <m>A\xvec = \bvec</m>.
+		  </p>
+		</li>
+		<li>
+		  <p>
+		    The span of the columns of
+		    <m>A</m> is <m>\real^n</m>.
+		  </p>
+		</li>
+	      </ol>
+	    </p>
+	  </li>
+	</ol>
+      </p>
+    </answer>
+  </exercise>
+
   <exercise xml:id="ex-right-inverse">
     <statement>
       <p> We defined an <m>n\times n</m> matrix to be invertible if
-      there is a matrix <m>B</m> such that <m>BA=I_n</m>.  In this
-      exercise, we will explain why <m>B</m> is also invertible and
-      that <m>AB = I</m>.  This means that, if <m>B=A^{-1}</m>, then
+      there is a matrix <m>B</m> such that <m>AB=I_n</m>.  In this
+      exercise, we will explain why it is also true that
+      <m>BA = I</m>, which is the statement of
+      <xref ref="proposition-inverse-inverse"/>.
+      This means that, if <m>B=A^{-1}</m>, then
       <m>A = B^{-1}</m>.
       <ol marker="a.">
-	<li><p> Given the fact that <m>BA = I_n</m>, explain why the
-	matrix <m>B</m> must also be a square 
-	<m>n\times n</m> matrix. </p></li>
+	<li><p> Suppose that <m>\xvec</m> is an <m>n</m>-dimensional
+	vector.  Since <m>AB=I</m>, explain why <m>AB\xvec =
+	\xvec</m> and use this to explain why the only vector for
+	which <m>B\xvec = \zerovec</m> is <m>\xvec = \zerovec</m>.
+	</p> </li>
 
-	<li><p> Suppose that <m>\bvec</m> is a vector in
-	<m>\real^n</m>.  Since we have <m>BA = I</m>, it follows that
-	<m>B(A\bvec) = \bvec</m>.  Use this to explain why the columns
-	of <m>B</m> span <m>\real^n</m>.  What does this say about the
-	pivot positions of <m>B</m>? </p></li>
+	<li><p> Explain why this implies that <m>B</m> must be
+	invertible.  We will call the inverse <m>C</m> so that <m>BC =
+	I</m>.
+	</p></li>
 
-	<li><p> Explain why the equation
-	<m>B\xvec = \zerovec</m> has only the trivial
-	solution. </p></li>
-
-	<li><p> Beginning with the equation, <m>BA=I</m>, multiply
-	both sides by <m>B</m> to obtain <m>BAB = B</m>.  We will
-	rearrange this equation:
-	<me>
-	  \begin{aligned}
-	  BAB \amp {}={} B \\
-	  BAB - B\amp {}={} 0 \\
-	  B(AB-I) \amp {}={} 0\text{.} \\
-	  \end{aligned}
-	</me>
-	Since the homogeneous equation <m>B\xvec =\zerovec</m> has
-	only the trivial solution, explain why <m>AB-I = 0</m> and
-	therefore, <m>AB = I</m>.
+	<li><p> Beginning with <m>AB = I</m>, explain why
+	<m>
+	  B(AB)C = BIC
+	</m>
+	and why this tells us that <m>BA = I</m>.
 	</p></li>
       </ol>
       </p>
@@ -907,55 +1356,50 @@
     <solution>
       <p><ol marker="a.">
 	<li><p>
-	  Since <m>BA</m> is defined, <m>B</m> must have <m>n</m>
-	  columns.  And since <m>BA</m> has <m>n</m> rows, <m>B</m>
-	  must have <m>n</m> rows.  This means that <m>B</m> is a
-	  square <m>n\times n</m> matrix.
+	  If <m>B\xvec = \zerovec</m>,
+	  then <m>AB\xvec = A\zerovec = \zerovec = \xvec</m>.
+	</p></li>
+	<li><p>
+	  Since the only solution to the homogeneous equation
+	  <m>B\xvec = \zerovec</m> is the trivial one, we know that
+	  the columns of <m>B</m> are linearly independent and so
+	  <m>B</m> has a pivot position in every column.  Since
+	  <m>B</m> is a square matrix, this tells us that <m>B\sim
+	  I</m> so that <m>B</m> is invertible.
 	</p></li>
 
 	<li><p>
-	  Every row of <m>B</m> must have a pivot position, which means that
-	  <m>B</m> is row equivalent to the identity matrix <m>I</m>.
+	  If we multiply <m>AB=I</m> on the left by <m>B</m> and the
+	  right by <m>C</m>, then we have
+	  <me>
+	    \begin{aligned}
+	    B(AB)C \amp = BIC \\
+	    BA(BC) \amp = BC \\
+	    BAI \amp = I \\
+	    BA \amp = I
+	    \end{aligned}.
+	  </me>
 	</p></li>
-
-	<li><p> Because every row of <m>B</m> has a pivot position,
-	every column of <m>B</m> does as well.  Therefore, the
-	homogeneous equation <m>B\xvec=\zerovec</m> has only the
-	trivial solution <m>\xvec=\zerovec</m>.
-	</p></li>
-
-	<li><p>
-	  If we choose any vector <m>\yvec</m>, we have
-	  <m>B(AB-I)\yvec = B[(AB-I)\yvec]=\zerovec</m>.  Therefore,
-	  <m>(AB-I)\yvec</m> is a solution to the homogeneous equation
-	  <m>B\xvec=\zerovec</m>, and we can conclude that
-	  <m>(AB-I)\yvec = \zerovec</m>.  This means that <m>AB\yvec -
-	  \yvec = \zerovec</m> or <m>AB\yvec = \yvec</m> for every
-	  vector <m>\yvec</m>.  Therefore, <m>AB=I</m>, which shows
-	  that <m>B^{-1} = A</m>.
-	</p></li>
-      </ol></p>
+      </ol>
+      </p>
     </solution>
 
     <answer>
       <p><ol marker="a.">
 	<li><p>
-	  Because <m>BA</m> is defined and has <m>n</m> rows.
+	  If <m>B\xvec = \zerovec</m>, then <m>AB\xvec = \xvec =
+	  \zerovec</m>. 
 	</p></li>
 
 	<li><p>
-	  Every row of <m>B</m> must have a pivot position.
+	  <m>B</m> is invertible because <m>B\sim I</m>.
 	</p></li>
 
 	<li><p> 
-	  Every column of <m>B</m> must have a pivot position.
+	  Multiply <m>AB=I</m> on the left by <m>B</m> and the right
+	  by <m>C</m> and regroup the matrix multiplications.
 	</p></li>
 
-	<li><p>
-	  <m>B[(AB-I)\yvec] = \zerovec</m> for any <m>\yvec</m>, which
-	  means that <m>(AB-I)\yvec</m> for any <m>\yvec</m>.  This
-	  says that <m>AB=I</m>.
-	</p></li>
       </ol></p>
     </answer>
   </exercise>
