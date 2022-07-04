@@ -8,14 +8,14 @@
   </title>
 
   <introduction>
-    <p> When working in the plane, we are used to thinking about standard
-    Cartesian coordinates.  If we mention the point <m>(4,3)</m>, we
-    know that we arrive at this point from the origin by moving four
-    units to the right and three units up.
+    <p> Standard Cartesian coordinates are commonly used to describe
+    points in the plane.  If we mention the point
+    <m>(4,3)</m>, we know that we arrive at this point from the origin
+    by moving four units to the right and three units up.
     </p>
 
     <p> Sometimes, however, it is more natural to work in a different
-    coordinate system.  Suppose, for instance, that you live in the
+    coordinate system.  Suppose that you live in the
     city whose map is shown in <xref ref = "fig-city-map" /> and that
     you would like to give a guest directions for getting from your
     house to the store.  You would probably say something like, "Go
@@ -48,18 +48,23 @@
 	\vvec_1 = \twovec{2}{1},
 	\vvec_2 = \twovec{1}{2}
       </me>
-      in <m>\real^2</m>.
-      <ol marker="a.">
+      in <m>\real^2</m>, which are shown in
+      <xref ref="fig-basis-1" />.
+      </p>
+
+      <figure xml:id="fig-basis-1">
+	<sidebyside width="50%">
+	  <image source="images/basis-1" />
+	</sidebyside>
+	<caption>
+	  Linear combinations of <m>\vvec_1</m> and <m>\vvec_2</m>.
+	</caption>
+      </figure>
+
+      <p>
+	<ol marker="a.">
 	<li><p> Indicate the linear combination <m>\vvec_1 -
-	2\vvec_2</m> on <xref ref="fig-basis-1" />.
-	<figure xml:id="fig-basis-1">
-	  <sidebyside width="50%">
-	    <image source="images/basis-1" />
-	  </sidebyside>
-	  <caption>
-	    Linear combinations of <m>\vvec_1</m> and <m>\vvec_2</m>.
-	  </caption>
-	</figure>
+	2\vvec_2</m> on the figure.
 	</p></li>
 
 	<li><p> Express the vector <m>\twovec{-3}{0}</m> as a linear
@@ -113,7 +118,7 @@
     components of the
     vector describe horizontal and vertical changes, and in a new
     way as a linear combination of <m>\vvec_1</m> and <m>\vvec_2</m>.
-    We could also translate between these two different
+    We could also translate between these two 
     descriptions.  This example illustrates the central idea of this
     section.  </p> 
 
@@ -123,9 +128,8 @@
     <title> Bases </title>
 
     <p> In the preview activity, we created a new coordinate system
-    for <m>\real^2</m> using linear combinations of a set of vectors.
-    As we work to do this more generally, the following definition
-    will guide us.
+    for <m>\real^2</m> using linear combinations of a set of two
+    vectors.  More generally, the following definition will guide us.
     </p>
 
     <definition>
@@ -138,62 +142,64 @@
       </statement>
     </definition>
 
-    <p> We will look at some examples of bases in the following
-    activity. </p>
-
     <activity>
       <statement>
-      <p>
-	<ol marker="a.">
-	  <li><p> In the preview activity, we considered a set of
-	  vectors in <m>\real^2</m>:
-	  <me>
-	    \vvec_1 = \twovec{2}{1},
-	    \vvec_2 = \twovec{1}{2}
-	  </me>.
-	  Explain why these vectors form a basis for <m>\real^2</m>.
-	  </p></li>
+	<p>
+	  We will look at some examples of bases in this activity.
+	  <ol marker="a.">
+	    <li><p> In the preview activity, we worked with the set of
+	    vectors in <m>\real^2</m>:
+	    <me>
+	      \vvec_1 = \twovec{2}{1},
+	      \vvec_2 = \twovec{1}{2}
+	      </me>.
+	      Explain why these vectors form a basis for <m>\real^2</m>.
+	    </p></li>
 
-	  <li><p> Consider the set of vectors in <m>\real^3</m>
-	  <me>
-	    \vvec_1 = \threevec{1}{1}{1},
-	    \vvec_2 = \threevec{0}{1}{-1},
-	    \vvec_3 = \threevec{1}{0}{-1}
-	  </me>.
-	  and determine whether they form a basis for
-	  <m>\real^3</m>.
-	  </p></li>
+	    <li><p> Consider the set of vectors in <m>\real^3</m>
+	    <me>
+	      \vvec_1 = \threevec{1}{1}{1},
+	      \vvec_2 = \threevec{0}{1}{-1},
+	      \vvec_3 = \threevec{1}{0}{-1}
+	    </me>
+	    and determine whether they form a basis for
+	    <m>\real^3</m>.
+	    <sage>
+	      <input>
+	      </input>
+	    </sage>
+	    </p></li>
 
-	  <li><p> Do the vectors
-	  <me>
-	    \vvec_1 = \threevec{-2}{1}{3},
-	    \vvec_2 = \threevec{3}{0}{-1},
-	    \vvec_3 = \threevec{1}{1}{0},
-	    \vvec_4 = \threevec{0}{3}{-2}
-	  </me>
-	  form a basis for <m>\real^3</m>?  </p></li>
+	    <li><p> Do the vectors
+	    <me>
+	      \vvec_1 = \threevec{-2}{1}{3},
+	      \vvec_2 = \threevec{3}{0}{-1},
+	      \vvec_3 = \threevec{1}{1}{0},
+	      \vvec_4 = \threevec{0}{3}{-2}
+	    </me>
+	    form a basis for <m>\real^3</m>?  </p></li>
 
-	  <li><p> Explain why the vectors
-	  <m>\evec_1,\evec_2,\evec_3</m> form a basis for
-	  <m>\real^3</m>.  </p></li>
+	    <li><p> Explain why the vectors
+	    <m>\evec_1,\evec_2,\evec_3</m> form a basis for
+	    <m>\real^3</m>.  </p></li>
 
-	  <li><p> If a set of vectors
-	  <m>\vvec_1,\vvec_2,\ldots,\vvec_n</m> forms a basis for
-	  <m>\real^m</m>, what can you guarantee about the pivot
-	  positions of the matrix
-	  <me>
-	    \left[\begin{array}{rrrr}
-	    \vvec_1 \amp \vvec_2 \amp \ldots \amp \vvec_n
-	    \end{array}\right]
-	    </me>?
-	  </p></li>
+	    <li><p> If a set of vectors
+	    <m>\vvec_1,\vvec_2,\ldots,\vvec_n</m> forms a basis for
+	    <m>\real^m</m>, what can you guarantee about the pivot
+	    positions of the matrix
+	    <me>
+	      \left[\begin{array}{rrrr}
+	      \vvec_1 \amp \vvec_2 \amp \ldots \amp \vvec_n
+	      \end{array}\right]
+	      </me>?
+	    </p></li>
 
-	  <li><p> If the set of vectors
-	  <m>\vvec_1,\vvec_2,\ldots,\vvec_n</m> is a basis 
-	  for <m>\real^{10}</m>, how many vectors must be in the set?
-	  </p></li>
-	</ol>
-      </p>
+	    <li><p> If the set of vectors
+	    <m>\vvec_1,\vvec_2,\ldots,\vvec_n</m> is a basis 
+	    for <m>\real^{10}</m>, how many vectors must be in the set?
+	    </p></li>
+	  </ol>
+	</p>
       </statement>
 
       <solution>
@@ -201,10 +207,9 @@
 	  <li><p> The matrix <m>\left[\begin{array}{rr} \vvec_1 \amp
 	  \vvec_2 \end{array}\right]</m> is row equivalent to the
 	  identity matrix so it has a pivot position in every row.
-	  The columns therefore span <m>\real^2</m>.  There is also a
-	  pivot position in every column, which means that the columns
-	  are linearly independent.
-	  </p></li>
+	  The span of the columns is therefore <m>\real^2</m>.  There
+	  is also a pivot position in every column, which means that
+	  the columns are linearly independent.  </p></li>
 
 	  <li><p> We note that
 	  <me>
@@ -220,12 +225,11 @@
 	    0 \amp 0 \amp 1
 	    \end{array}\right]\text{.}
 	  </me>
-	  Since there is a pivot position in every row, the vectors
-	  span <m>\real^3</m>.  Since there is a pivot position in
-	  every column, the vectors are linearly independent.
-	  Consequently, this set of vectors forms a basis for
-	  <m>\real^3</m>.
-	  </p></li>
+	  Since there is a pivot position in every row, the span of
+	  the vectors is <m>\real^3</m>.  Since there is a pivot
+	  position in every column, the vectors are linearly
+	  independent.  Consequently, this set of vectors forms a
+	  basis for <m>\real^3</m>.  </p></li>
 
 	  <li><p> The matrix whose columns are the
 	  vectors <m>\vvec_1</m>, <m>\vvec_2</m>, <m>\vvec_3</m>, and
@@ -238,8 +242,8 @@
 
 	  <li><p> Putting these vectors into a matrix produces the
 	  identity matrix, which has a pivot position in every row and
-	  every column.  Therefore, the vectors span <m>\real^3</m>
-	  and are linearly independent.
+	  every column.  Therefore, the span of the vectors is
+	  <m>\real^3</m>, and they are linearly independent.
 	  </p></li>
 
 	  <li><p> There must be a pivot position in every row and
@@ -269,7 +273,7 @@
     linearly independent.
     </p>
 
-    <p> We know that the set of vectors spans
+    <p> We know that the span of the set of vectors is
     <m>\real^m</m> if and only if <m>A</m> has a pivot position in every
     row.  We also know that the set of vectors is linearly
     independent if and only if <m>A</m> has a pivot position in every
@@ -279,10 +283,10 @@
     <m>I</m>: 
     <me>
       A \sim \left[\begin{array}{cccc}
-      1 \amp 0 \amp \ldots \amp 0 \\
-      0 \amp 0 \amp \ldots \amp 0 \\
+      1 \amp 0 \amp \cdots \amp 0 \\
+      0 \amp 0 \amp \cdots \amp 0 \\
       \vdots \amp \vdots \amp \ddots \amp \vdots \\
-      0 \amp 0 \amp \ldots \amp 1
+      0 \amp 0 \amp \cdots \amp 1
       \end{array}\right] = I
     </me>.
     </p>
@@ -292,28 +296,41 @@
     the matrix <m>A</m> has a pivot position in every row and every
     column, it must have the same number of rows as columns.
     Therefore, the number of vectors in a basis for <m>\real^m</m>
-    must be <m>m</m>.  For example, a basis for <m>\real^{10}</m> must
-    have exactly 10 vectors.
+    must be <m>m</m>.  For example, a basis for <m>\real^{23}</m> must
+    have exactly 23 vectors.
     </p>
+
+    <proposition>
+      <statement>
+	<p> A set of vectors forms a basis for <m>\real^m</m> if and
+	only if the matrix 
+	<me>
+	  A = \left[\begin{array}{rrrr}
+	  \vvec_1 \amp \vvec_2 \amp \cdots \amp \vvec_n
+	  \end{array}\right]
+	  \sim I.
+	</me>
+	This means there must be <m>m</m> vectors in a basis for
+	<m>\real^m</m>. </p>
+      </statement>
+    </proposition>
 
     <example>
       <statement>
-	<p> It is worth pointing out that we first encountered a basis
-	long ago when we considered the vectors in <m>\real^3</m>:
+	<p> Notice that the vectors 
 	<me>
 	  \evec_1 = \threevec{1}{0}{0},
 	  \evec_2 = \threevec{0}{1}{0},
 	  \evec_3 = \threevec{0}{0}{1}
-	</me>.
-	We see that these vectors are, in fact, the columns of the
-	<m>3\times3</m> identity matrix, which confirms that this set
-	forms a basis.
-	</p>
-
-	<p> More generally, the set of vectors
+	</me>
+	form the columns of the
+	<m>3\times3</m> identity matrix, which implies that this set
+	forms a basis for <m>\real^3</m>.
+	More generally, the set of vectors
 	<m>\evec_1,\evec_2,\ldots,\evec_m</m> forms a basis for
 	<m>\real^m</m>, which we call the <em>standard</em>
 	basis for <m>\real^m</m>.
+	<idx> basis, standard </idx>
 	</p>
       </statement>
     </example>
@@ -323,9 +340,9 @@
   <subsection>
     <title> Coordinate systems </title>
 
-    <p> If we have a basis for <m>\real^m</m>, we can use it to form a
-    coordinate system as we will now describe.  Rather than continuing
-    to write a list of vectors, we will find it convenient to denote a
+    <p> A basis for <m>\real^m</m> forms a coordinate system for
+    <m>\real^m</m>, as we will describe.  Rather than continuing to
+    write a list of vectors, we will find it convenient to denote a
     basis using a single symbol, such as
     <me>
       \bcal = \{\vvec_1,\vvec_2,\ldots,\vvec_m\}
@@ -383,7 +400,7 @@
 	</me>.
 	</p>
 
-	<p> To illustrate, if the coordinates of <m>\xvec</m> in the
+	<p> For example, if the coordinates of <m>\xvec</m> in the
 	basis <m>\bcal</m> are
 	<me>
 	  \coords{\xvec}{\bcal} = \twovec{5}{-2}
@@ -391,9 +408,9 @@
 	then
 	<me>
 	  \xvec = 5\vvec_1 - 2\vvec_2 = 5\twovec{2}{1}-2\twovec{1}{2}
-	  = \twovec{8}{3}
-	</me>.
-	We conclude that
+	  = \twovec{8}{3},
+	</me>
+	and we conclude that
 	<me>
 	  \coords{\twovec{8}{3}}{\bcal} = \twovec{5}{-2}
 	</me>.
@@ -405,11 +422,11 @@
 	standard coordinates.  How can we find its coordinates in the
 	basis <m>\bcal</m>?  For instance, suppose
 	<m>\xvec=\twovec{-8}{2}</m> and that we would like to find
-	<m>\coords{\xvec}{\bcal}</m>.  We have
+	<m>\coords{\xvec}{\bcal}</m>.  We can write
 	<me>
-	  \coords{\twovec{-8}{2}}{\bcal}=\twovec{c_1}{c_2}
+	  \coords{\twovec{-8}{2}}{\bcal}=\twovec{c_1}{c_2},
 	</me>
-	where
+	which means that
 	<me>
 	  \twovec{-8}{2} = c_1\vvec_1 + c_2\vvec_2
 	</me>
@@ -427,9 +444,9 @@
 	  \left[\begin{array}{rr|r}
 	  1 \amp 0 \amp -6 \\
 	  0 \amp 1 \amp 4 \\
-	  \end{array}\right]
+	  \end{array}\right],
 	</me>.
-	Therefore,
+	which means that
 	<me>
 	  \coords{\twovec{-8}{2}}{\bcal} = \twovec{-6}{4}
 	</me>.
@@ -444,7 +461,7 @@
 
     <p> More generally, suppose that
     <m>\bcal=\{\vvec_1,\vvec_2,\ldots,\vvec_m\}</m> is a basis for
-    <m>\real^m</m>.  We know that the vectors span
+    <m>\real^m</m>.  We know that the span of the vectors is
     <m>\real^m</m>, which implies that any vector <m>\xvec</m> in
     <m>\real^m</m> can be written as a linear combination of the
     vectors.  In addition, we know that the vectors are linearly
@@ -458,7 +475,7 @@
     case, we write the coordinate description of <m>\xvec</m> in the
     basis <m>\bcal</m> as
     <me>
-      \coords{\xvec}{\bcal} = \fourvec{c_1}{c_2}{\vdots}{c_m}
+      \coords{\xvec}{\bcal} = \cfourvec{c_1}{c_2}{\vdots}{c_m}
     </me>.
     </p>
 
@@ -486,9 +503,13 @@
 	<li><p> Using what you found in the previous part, find a
 	matrix <m>B</m> such that, for any vector <m>\xvec</m>, we
 	have <m>\coords{\xvec}{\bcal} = B\xvec</m>.  What is the
-	relationship between the two matrices you have found in this and
-	the previous part?  Explain why this relationship
-	holds. </p></li>
+	relationship between the two matrices <m>A</m> and <m>B</m>?
+	Explain why this relationship holds. </p></li>
+
+	<li><p> Suppose we consider the standard basis
+	<me>\ecal = \{\evec_1,\evec_2\}</me>.
+	What is the relationship between <m>\xvec</m> and
+	<m>\coords{\xvec}{\ecal}</m>? </p></li>
 
 	<li><p> Suppose we also consider the basis
 	<me>
@@ -504,11 +525,6 @@
 	<m>\ccal</m> into the standard coordinate system and then into
 	the basis <m>\bcal</m>.
 	</p></li>
-
-	<li><p> Suppose we consider the standard basis
-	<me>\ecal = \{\evec_1,\evec_2\}</me>.
-	What is the relationship between <m>\xvec</m> and
-	<m>\coords{\xvec}{\ecal}</m>? </p></li>
       </ol></p>
       </statement>
 
@@ -543,6 +559,17 @@
 	  we also have <m>A^{-1}\xvec = \coords{\xvec}{\bcal}</m>.
 	  </p></li>
 
+	  <li><p> We have
+	  <me>
+	    \xvec=\left[\begin{array}{rr}
+	    1\amp0 \\
+	    0 \amp 1 \\
+	    \end{array}\right]
+	    \coords{\xvec}{\ecal} = I\coords{\xvec}{\ecal} =
+	    \coords{\xvec}{\ecal}\text{.}
+	  </me>
+	  </p></li>
+
 	  <li><p> If we define <m>B</m> to be the matrix whose columns
 	  are <m>\twovec{1}{2}</m> and <m>\twovec{-2}{1}</m>, then
 	  <me>
@@ -557,16 +584,6 @@
 	  </m>
 	  </p></li>
 
-	  <li><p> We have
-	  <me>
-	    \xvec=\left[\begin{array}{rr}
-	    1\amp0 \\
-	    0 \amp 1 \\
-	    \end{array}\right]
-	    \coords{\xvec}{\ecal} = I\coords{\xvec}{\ecal} =
-	    \coords{\xvec}{\ecal}\text{.}
-	  </me>
-	  </p></li>
 	</ol></p>
       </solution>
 	    
@@ -582,68 +599,66 @@
       \\
       \amp {}={}
       \left[\begin{array}{rrrr}
-      \vvec_1 \amp \vvec_2 \amp \ldots \amp \vvec_m
+      \vvec_1 \amp \vvec_2 \amp \cdots \amp \vvec_m
       \end{array}\right]
-      \fourvec{c_1}{c_2}{\vdots}{c_m} \\
+      \cfourvec{c_1}{c_2}{\vdots}{c_m} \\
       \\
       \amp {}={}
       \left[\begin{array}{rrrr}
-      \vvec_1 \amp \vvec_2 \amp \ldots \amp \vvec_m
+      \vvec_1 \amp \vvec_2 \amp \cdots \amp \vvec_m
       \end{array}\right]
       \coords{\xvec}{\bcal}\text{.}
       \end{aligned}
     </me>
-    If we use <m>C_{\bcal}</m> to denote the matrix whose columns are
+    If we use <m>P_{\bcal}</m> to denote the matrix whose columns are
     the basis vectors, then we find that
     <me>
-      \xvec = C_{\bcal}\coords{\xvec}{\bcal}
+      \xvec = P_{\bcal}\coords{\xvec}{\bcal}
     </me>
-    where <m>C_{\bcal} = \left[\begin{array}{rrrr}
-    \vvec_1 \amp \vvec_2 \amp \ldots \amp \vvec_m
+    where <m>P_{\bcal} = \left[\begin{array}{rrrr}
+    \vvec_1 \amp \vvec_2 \amp \cdots \amp \vvec_m
     \end{array}\right]</m>.  This means that the matrix
-    <m>C_{\bcal}</m> converts coordinates in the basis <m>\bcal</m>
+    <m>P_{\bcal}</m> converts coordinates in the basis <m>\bcal</m>
     into standard coordinates.</p>
 
-    <p> Since the columns of <m>C_{\bcal}</m> are the basis vectors
-    <m>\vvec_1,\vvec_2,\ldots,\vvec_m</m>, we know that <m>C_{\bcal}
-    \sim I_m</m> because this set of vectors is linearly independent and
-    spans <m>\real^m</m>.  Therefore, <m>C_{\bcal}</m> is invertible.
+    <p> Since the columns of <m>P_{\bcal}</m> are the basis vectors
+    <m>\vvec_1,\vvec_2,\ldots,\vvec_m</m>, we know that <m>P_{\bcal}
+    \sim I_m</m>, and <m>P_{\bcal}</m> is therefore invertible.
     Since we have
     <me>
-      \xvec = C_{\bcal}\coords{\xvec}{\bcal}
+      \xvec = P_{\bcal}\coords{\xvec}{\bcal}
     </me>,
     we must also have
     <me>
-      C_{\bcal}^{-1}\xvec = \coords{\xvec}{\bcal}
+      P_{\bcal}^{-1}\xvec = \coords{\xvec}{\bcal}
     </me>.
     </p>
 
-    <p> To summarize, we see that <m>C_{\bcal}</m> converts
-    coordinates in the basis <m>\bcal</m> into standard coordinates,
-    and <m>C_{\bcal}^{-1}</m> converts standard coordinates into
-    coordinates in the basis <m>\bcal</m>.</p>
+    <proposition xml:id="proposition-coordinate-transform">
+      <statement>
+	<p>
+	  If <m>\bcal</m> is a basis and <m>P_{\bcal}</m> the matrix
+	  whose columns are the basis vectors, then
+	  <me>
+	    \begin{aligned}
+	    \xvec \amp = P_{\bcal}\coords{\xvec}{\bcal}, \\ \\
+	    \coords{\xvec}{\bcal} \amp = P_{\bcal}^{-1}\xvec.
+	    \end{aligned}
+	  </me>
+	</p>
+      </statement>
+    </proposition>
 
     <p> If we have another basis <m>\ccal</m>, we find, in the same
-    way, that <m>\xvec = C_{\ccal}\coords{\xvec}{\ccal}</m> for the
+    way, that <m>\xvec = P_{\ccal}\coords{\xvec}{\ccal}</m> for the
     conversion between coordinates in the basis <m>\ccal</m> into
     standard coordinates.  We then have
-    <me>\coords{\xvec}{\bcal} = C^{-1}_{\bcal} \xvec
-    = C_{\bcal}^{-1}(C_{\ccal} \coords{\xvec}{\ccal})
-    = (C_{\bcal}^{-1}C_{\ccal}) \coords{\xvec}{\ccal}
+    <me>\coords{\xvec}{\bcal} = P^{-1}_{\bcal} \xvec
+    = P_{\bcal}^{-1}(P_{\ccal} \coords{\xvec}{\ccal})
+    = (P_{\bcal}^{-1}P_{\ccal}) \coords{\xvec}{\ccal}
     </me>.
-    Therefore, <m>C_{\bcal}^{-1}C_{\ccal}</m> is the matrix that
+    Therefore, <m>P_{\bcal}^{-1}P_{\ccal}</m> is the matrix that
     converts <m>\ccal</m>-coordinates into <m>\bcal</m>-coordinates.
-    </p>
-
-    <p> In spite of the fact that much of what we are doing here seems
-    new, we have been using the standard basis all along.  For
-    example, if <m>\xvec</m> is a vector, then
-    <me>
-      \xvec = \fourvec{c_1}{c_2}{\vdots}{c_m}
-      = c_1\evec_1 + c_2\evec_2 + \ldots + c_m\evec_m
-      = C_{\ecal}\coords{\xvec}{\ecal}
-    </me>.
-    The matrix <m>C_{\ecal}</m> is, of course, the identity.
     </p>
 
   </subsection>
@@ -651,9 +666,10 @@
   <subsection>
     <title> Examples of bases </title>
 
-    <p> We will now look at some examples of bases and begin to see
-    the usefulness of looking at a problem in a different coordinate
-    system. </p>
+    <p> We will now look at some examples of bases that illustrate how
+    it can be useful to study a problem using a different coordinate
+    system. 
+    </p>
 
     <example>
       <statement>
@@ -663,25 +679,25 @@
 	  \threevec{1}{0}{-2},
 	  \threevec{-2}{1}{0},
 	  \threevec{1}{1}{2}
-	  \right\}
-	</me>.
+	  \right\}.
+	</me>
 	It is relatively straightforward to convert a vector's
-	representation in this basis to the standard basis, using the
-	matrix whose columns are the basis vectors:
+	representation in this basis into to the standard basis using
+	the matrix whose columns are the basis vectors:
 	<me>
-	  C_{\bcal} =
+	  P_{\bcal} =
 	  \left[\begin{array}{rrr}
 	  1 \amp -2 \amp 1 \\
 	  0 \amp 1 \amp 1 \\
 	  -2 \amp 0 \amp 2 \\
-	  \end{array}\right]
-	</me>.
+	  \end{array}\right].
+	</me>
 	For example, suppose that the vector <m>\xvec</m> is described
 	in the coordinate system defined by the basis as
 	<m>\coords{\xvec}{\bcal} = \threevec{2}{-2}{1}</m>.  We then
 	have
 	<me>
-	  \xvec = C_{\bcal}\coords{\xvec}{\bcal} =
+	  \xvec = P_{\bcal}\coords{\xvec}{\bcal} =
 	  \left[\begin{array}{rrr}
 	  1 \amp -2 \amp 1 \\
 	  0 \amp 1 \amp 1 \\
@@ -697,7 +713,7 @@
 	If we would like to express <m>\xvec</m> in the coordinate
 	system defined by <m>\bcal</m>, then we compute
 	<me>
-	  \coords{\xvec}{\bcal} = C^{-1}_{\bcal}\xvec
+	  \coords{\xvec}{\bcal} = P^{-1}_{\bcal}\xvec
 	  =
 	  \left[\begin{array}{rrr}
 	  \frac14 \amp \frac 12 \amp -\frac38 \\
@@ -744,12 +760,12 @@
 	  <image source="images/basis-revenue" />
 	</sidebyside>
 
-	<p> Let's now consider a new basis <m>\bcal</m> for
+	<p> Let's consider a new basis <m>\bcal</m> for
 	<m>\real^4</m> using vectors
 	<me>
-	  \vvec_1=\fourvec{1}{1}{1}{1},
-	  \vvec_2=\fourvec{1}{1}{-1}{-1},
-	  \vvec_3=\fourvec{1}{-1}{0}{0},
+	  \vvec_1=\fourvec{1}{1}{1}{1},~~~
+	  \vvec_2=\fourvec{1}{1}{-1}{-1},~~~
+	  \vvec_3=\fourvec{1}{-1}{0}{0},~~~
 	  \vvec_4=\fourvec{0}{0}{1}{-1}
 	</me>.
 	We may view these basis elements graphically, as in <xref
@@ -766,17 +782,17 @@
 	</figure>
 
 	<p>
-	  As we wish to convert our revenue vectors into the
+	  To convert our revenue vectors into the
 	  coordinates given by <m>\bcal</m>, we form the matrices:
 	  <me>
-	    C_{\bcal} =
+	    P_{\bcal} =
 	    \left[\begin{array}{rrrr}
 	    1 \amp 1 \amp 1 \amp 0 \\
 	    1 \amp 1 \amp -1 \amp 0 \\
 	    1 \amp -1 \amp 0 \amp 1 \\
 	    1 \amp -1 \amp 0 \amp -1 \\
-	    \end{array}\right],
-	    C_{\bcal}^{-1} =
+	    \end{array}\right],~~~
+	    P_{\bcal}^{-1} =
 	    \left[\begin{array}{rrrr}
 	    \frac14 \amp \frac14 \amp \frac14 \amp \frac14 \\
 	    \frac14 \amp \frac14 \amp -\frac14 \amp -\frac14 \\
@@ -786,8 +802,8 @@
 	  </me>
 	  and compute
 	  <me>
-	    \coords{\xvec}{\bcal} = C_{\bcal}^{-1} \xvec =
-	    C_{\bcal}^{-1} \fourvec{10.3}{13.1}{7.5}{8.2} =
+	    \coords{\xvec}{\bcal} = P_{\bcal}^{-1} \xvec =
+	    P_{\bcal}^{-1} \fourvec{10.3}{13.1}{7.5}{8.2} =
 	    \fourvec{9.775}{1.925}{-1.400}{-0.350}
 	  </me>.
 	</p>
@@ -926,13 +942,13 @@
       </me>.
 
       <ol marker="a.">
-	<li><p> Construct the matrix <m>C_\bcal</m> that relates the
+	<li><p> Construct the matrix <m>P_\bcal</m> that relates the
 	standard coordinate system with the coordinates in the basis
 	<m>\bcal</m>.
 	</p></li>
 
 	<li><p> Determine the matrix 
-	<m>C_\bcal^{-1}</m> that converts the representation of
+	<m>P_\bcal^{-1}</m> that converts the representation of
 	<m>\xvec</m> in standard coordinates into the coordinate
 	system defined by <m>\bcal</m>.
 	<sage>
@@ -945,12 +961,12 @@
 	vectors are expressed in general terms as
 	<me>
 	  \xvec = \left[\begin{array}{r}
-	  x_1 \\ x_2 \\ x_3 \\ x_4 \\ x_5 \\ x_6 \end{array}\right],
+	  x_1 \\ x_2 \\ x_3 \\ x_4 \\ x_5 \\ x_6 \end{array}\right],~~~
 	  \coords{\xvec}{\bcal} = \left[\begin{array}{r}
 	  c_1 \\ c_2 \\ c_3 \\ c_4 \\ c_5 \\ c_6 \end{array}\right]
 	</me>.
 	Using the relationship <m>\coords{\xvec}{\bcal} =
-	C_{\bcal}^{-1}\xvec</m>, determine an expression for the
+	P_{\bcal}^{-1}\xvec</m>, determine an expression for the
 	coefficient <m>c_2</m> in terms of <m>x_1,x_2,\ldots,x_6</m>.
 	What does <m>c_2</m> measure in terms of the grayscale values
 	of the pixels?  What does <m>c_4</m> measure in terms of the
@@ -981,8 +997,9 @@
       <m>\xvec</m>.  This process is similar to differentiation in
       calculus.  Similarly, the process of converting
       <m>\coords{\xvec}{\bcal}</m> into the vector <m>\xvec</m> adds
-      together the changes in a process similar to integration.  This
-      change of basis, therefore, represents a linear algebraic
+      together the changes in a process similar to integration.  As a
+      result, this
+      change of basis represents a linear algebraic
       version of the Fundamental Theorem of Calculus.
       </p>
     </statement>
@@ -991,7 +1008,7 @@
       <p><ol marker="a.">
 	<li><p> We form the matrix
 	<me>
-	  C_{\bcal} =
+	  P_{\bcal} =
 	  \left[\begin{array}{rrrrrr}
 	  1 \amp 1 \amp 1 \amp 1 \amp 1 \amp 1 \\
 	  0 \amp 1 \amp 1 \amp 1 \amp 1 \amp 1 \\
@@ -1006,7 +1023,7 @@
 	<li><p>
 	  We find that
 	  <me>
-	    C_{\bcal}^{-1} = 
+	    P_{\bcal}^{-1} = 
 	    \left[\begin{array}{rrrrrr}
 	    1 \amp -1 \amp 0 \amp 0 \amp 0 \amp 0 \\
 	    0 \amp 1 \amp -1 \amp 0 \amp 0 \amp 0 \\
@@ -1025,7 +1042,7 @@
 	</p></li>
 
 	<li><p> We compute that
-	<me>\coords{\xvec}{\bcal}=C_{\bcal}^{-1}\xvec =
+	<me>\coords{\xvec}{\bcal}=P_{\bcal}^{-1}\xvec =
 	\left[\begin{array}{c}
 	-9 \\ 4 \\ -15 \\ -145 \\ -10 \\ 200
 	\end{array}\right]\text{.}
@@ -1038,7 +1055,7 @@
 	  however, which measures the change in brightness between the
 	  fourth and fifth pixel, has a large absolute value.  This
 	  tells us that there is a large change in brightness between
-	  the fourth and fifth pixel, which points to a edge in the
+	  the fourth and fifth pixel, which points to an edge in the
 	  image.
 	</p></li>
       </ol></p>
@@ -1052,14 +1069,14 @@
     <title> Summary </title>
 
     <p> We defined a basis to be a set of vectors <m>\bcal =
-    \{\vvec_1,\vvec_2,\ldots,\vvec_n\}</m> that spans <m>\real^m</m>
-    and is linearly independent.
+    \{\vvec_1,\vvec_2,\ldots,\vvec_n\}</m> that 
+    is linearly independent and whose span is <m>\real^m</m>.
     <ul>
       <li><p> A set of vectors forms a basis for <m>\real^m</m> if and
       only if the matrix 
       <me>
       A = \left[\begin{array}{rrrr}
-      \vvec_1 \amp \vvec_2 \amp \ldots \amp \vvec_n
+      \vvec_1 \amp \vvec_2 \amp \cdots \amp \vvec_n
       \end{array}\right]
       \sim I
       </me>.
@@ -1073,18 +1090,18 @@
 
       <li><p> We used the basis <m>\bcal</m> to define a coordinate
       system in which
-      <m> \coords{\xvec}{\bcal} = \fourvec{c_1}{c_2}{\vdots}{c_n}
+      <m> \coords{\xvec}{\bcal} = \cfourvec{c_1}{c_2}{\vdots}{c_n}
       </m>, the coordinates of <m>\xvec</m> in the basis <m>\bcal</m>,
       are defined by
-      <me>\xvec = c_1\vvec_1+c_2\vvec_2 + \ldots + c_n\vvec_m</me>.
+      <me>\xvec = c_1\vvec_1+c_2\vvec_2 + \cdots + c_n\vvec_m</me>.
       </p> </li>
 
-      <li><p> Forming the matrix <m>C_{\bcal}</m> whose columns are
+      <li><p> Forming the matrix <m>P_{\bcal}</m> whose columns are
       the basis vectors, we can convert between coordinate systems:
       <me>
 	\begin{aligned}
-	x \amp {}={} C_{\bcal}\coords{\xvec}{\bcal} \\
-	C_{\bcal}^{-1} x \amp {}={} \coords{\xvec}{\bcal} \\
+	x \amp {}={} P_{\bcal}\coords{\xvec}{\bcal}, \\
+	P_{\bcal}^{-1} x \amp {}={} \coords{\xvec}{\bcal}. \\
 	\end{aligned}
       </me>.
       </p></li>
