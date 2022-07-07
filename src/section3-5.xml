@@ -8,19 +8,12 @@
   <introduction>
     <p> In this chapter, we have been looking at bases for
     <m>\real^p</m>, sets of vectors that are linearly independent and
-    span <m>\real^p</m>.  We saw that vectors in a basis for
-    <m>\real^p</m> form the columns of an invertible matrix, which is
-    necessarily a square matrix. </p>
-
-    <p> A basis for <m>\real^p</m> can be useful for it creates a
-    coordinate system that helps us effectively navigate in
-    <m>\real^p</m>.  Sometimes, however, we find ourselves dealing
-    with only a subset of <m>\real^p</m>.  In particular, if we are
-    given an <m>m\times n</m> matrix <m>A</m>, we have been interested
-    in both the span of the columns of <m>A</m> and the solution space
-    to the homogeneous equation <m>A\xvec = \zerovec</m>.
-    In this section, we will expand the concept of basis
-    to describe sets like these.
+    span <m>\real^p</m>.  Frequently, however, we focus on only a
+    subset of <m>\real^p</m>.  In particular, if we are given an
+    <m>m\times n</m> matrix <m>A</m>, we have been interested in both
+    the span of the columns of <m>A</m> and the solution space to the
+    homogeneous equation <m>A\xvec = \zerovec</m>.  In this section,
+    we will expand the concept of basis to describe sets like these.
     </p>
     
     <exploration>
@@ -42,8 +35,9 @@
       </me>.
 
       <ol marker="a.">
-	<li><p> Are the columns of <m>A</m> linearly independent?  Do
-	they span <m>\real^3</m>? </p></li>
+	<li><p> Are the columns of <m>A</m> linearly independent?  Is
+	the span of the columns <m>\real^3</m>?
+	</p></li>
 
 	<li><p> Give a parametric description of the solution space to
 	the homogeneous equation <m>A\xvec = \zerovec</m>. </p></li>
@@ -77,8 +71,8 @@
 	<p><ol marker="a.">
 	  <li><p> The columns of <m>A</m> are not linearly independent
 	  since there is not a pivot position in every column.  Also,
-	  the columns do not span <m>\real^3</m> because there is not a
-	  pivot in every row. </p></li>
+	  the span of the columns is not <m>\real^3</m> because there
+	  is not a pivot position in every row. </p></li>
 
 	  <li><p> From the reduced row echelon form, we see that the
 	  homogeneous equation leads to the equations
@@ -104,8 +98,8 @@
 	  \fourvec{2}{-1}{0}{1}</m>.
 	  </p></li>
 
-	  <li><p> These vectors are linearly independent because one
-	  is not the scalar multiple of the other. </p></li>
+	  <li><p> This pair of vectors is linearly independent because one
+	  is not a scalar multiple of the other. </p></li>
 
 	  <li><p> From the reduced row echelon form of <m>A</m>, we
 	  see that <m>\vvec_3 = -2\vvec_2</m> and
@@ -129,243 +123,284 @@
   <subsection>
     <title> Subspaces of <m>\real^p</m> </title>
 
-    <p> In the preview activity, we considered a <m>3\times4</m>
-    matrix <m>A</m> and described two familiar sets of vectors.
-    First, we described the solution space to the homogeneous equation
-    <m>A\xvec = \zerovec</m>, which is a set of vectors in
-    <m>\real^4</m>.  Next, we described the span of the columns of
-    <m>A</m>, which is a set of vectors in <m>\real^3</m>.  As we will
-    see shortly, each of
-    these sets has a common feature that we would like to study
-    further: if we choose some vectors in one of these sets, any
-    linear combination of those vectors is also in the set.  This
-    observation motivates the following definition.
+    <p>
+      Our goal is to develop a common framework for describing subsets
+      like the span of the columns of a matrix and the solution space
+      to a homogeneous equation.  That leads us to the following
+      definition. 
     </p>
 
     <definition>
+      <idx> subspace </idx>
       <statement>
-	<idx> subspace </idx>
-	<p> A <em>subspace</em> of <m>\real^p</m> is a nonempty subset of
-	<m>\real^p</m> such that any linear combination of vectors in
-	that set is also in the set.
+	<p>
+	  A <term>subspace</term> of <m>\real^p</m> is a subset of
+	  <m>\real^p</m> that is the span of a set of vectors.
 	</p>
       </statement>
     </definition>
 
-    <p> Without mentioning it explicitly, we have frequently
-    encountered and worked with subspaces earlier in our
-    investigations.  Let's look at some examples to get comfortable
-    with this concept.
+    <p>
+      Since we have explored the concept of span in some detail, this
+      definition just gives us a new word to describe something
+      familiar.  Let's look at some examples.
     </p>
 
     <example>
-      <title> Subsets that are not subspaces </title>
+      <title> Subspaces of <m>\real^3</m> </title>
+
+      <p>
+	In <xref ref="activity-span-r3"/> and the following
+	discussion, we looked at subspaces in <m>\real^3</m> without
+	explicitly using that language.  Let's recall some of those
+	examples.
+	<ul>
+	  <li>
+	    <p>
+	      <sidebyside widths="45% 50%">
+		<p>
+		  Suppose we have a single nonzero vector
+		  <m>\vvec</m>.  The span of <m>\vvec</m> is a
+		  subspace, which we'll write as <m>S =
+		  \laspan{\vvec}</m>.  As we have seen, the span of a
+		  single vector consists of all scalar multiples
+		  of that vector, and these form a line passing
+		  through the origin.
+		</p>
+		<image source="images/3d-line" />
+	      </sidebyside>
+	    </p>
+	  </li>
+	  <li>
+	    <sidebyside widths="45% 50%">
+	      <p>
+		If instead we have two linearly independent vectors
+		<m>\vvec_1</m> and <m>\vvec_2</m>, the subspace
+		<m>S=\laspan{\vvec_1,\vvec_2}</m> is a plane passing
+		through the origin.
+	      </p>
+	      <image source="images/3d-plane-nonstd" />
+	    </sidebyside>
+	  </li>
+
+	  <li>
+	    <p>
+	      Consider the three vectors <m>\evec_1</m>,
+	      <m>\evec_2</m>, and <m>\evec_3</m>. Since we know that
+	      every 3-dimensional vector can be written as a linear
+	      combination, we have <m>S = \laspan{\evec_1, \evec_2,
+	      \evec_3} = \real^3</m>.  
+	    </p>
+	  </li>
+
+	  <li>
+	    <p>
+	      One more subspace worth mentioning is
+	      <m>S=\laspan{\zerovec}</m>.  Since any linear
+	      combination of the zero vector is itself the zero
+	      vector, this subspace consists of a single vector,
+	      <m>\zerovec</m>. 
+	    </p>
+	  </li>
+	</ul>
+      </p>
+
+      <p>
+	In fact, any subspace of <m>\real^3</m> is one of these types:
+	the origin, a line, a plane, or all of <m>\real^3</m>.
+      </p>
       
-      <statement>
-	<p> It will be helpful to first look at some examples of
-	subsets of <m>\real^2</m> that are not subspaces.  First,
-	consider the set of vectors in the first quadrant of
-	<m>\real^2</m>;  that is, vectors of the form
-	<m>\twovec{x}{y}</m> where both <m>x,y \geq 0</m>.  This
-	subset is illustrated on the left of <xref
-	ref="fig-subspace-quadrant" />.
-	</p>
-
-	<figure xml:id = "fig-subspace-quadrant">
-	  <sidebyside widths="35% 35%">
-	    <image source="images/subspace-quadrant" />
-	    <image source="images/subspace-quadrant-vector" />
-	  </sidebyside>
-	  <caption>
-	    The set of vectors in the first quadrant is not a
-	    subspace of <m>\real^2</m>.
-	  </caption>
-	</figure>
-
-	<p> If this subset were a subspace of <m>\real^2</m>, any
-	linear combination of vectors in the first quadrant must also
-	be in the first quadrant.  If we consider the vector
-	<m>\vvec=\twovec{3}{2}</m>, however, we can form the linear
-	combination <m>-\vvec=\twovec{-3}{-2}</m>, which is not in the
-	first quadrant, as seen on the right of <xref
-	ref="fig-subspace-quadrant" />.  Therefore, the set of vectors
-	in the first quadrant is not a subspace.
-	</p>
-
-	<p> This shows something important, however.  Suppose that
-	<m>S</m> is a subspace and <m>\vvec</m> is a vector in
-	<m>S</m>.  Any scalar multiple of <m>\vvec</m> is a linear
-	combination of <m>\vvec</m> and so must be in <m>S</m> as well.
-	This means that the line containing
-	<m>\vvec</m> must be in <m>S</m>.
-	</p>
-
-	<p> With this in mind, let's consider another example where we
-	look at vectors that are in either the first or third
-	quadrant;  that is, we will consider vectors of the form
-	<m>\twovec{x}{y}</m> where either <m>x,y\geq 0</m> or
-	<m>x,y\leq 0</m>, as seen on the left of <xref
-	ref="fig-subspace-quadrant-2" />.
-	</p>
-
-	<figure xml:id="fig-subspace-quadrant-2">
-	  <sidebyside widths="35% 35%">
-	    <image source="images/subspace-quadrant-2" />
-	    <image source="images/subspace-quadrant-2-vectors" />
-	  </sidebyside>
-	  <caption>
-	    The set of vectors in the first and third quadrant is not
-	    a subspace of <m>\real^2</m>.
-	  </caption>
-	</figure>
-
-	<p> If <m>\vvec</m> is a vector in this set, then the line
-	containing <m>\vvec</m> is in the set.  However, if we
-	consider the vectors <m>\vvec = \twovec{0}{3}</m> and
-	<m>\wvec=\twovec{-2}{0}</m>, then their sum <m>\vvec+\wvec =
-	\twovec{-2}{3}</m> is not in the subset, as seen on the right
-	of <xref ref="fig-subspace-quadrant-2" />.  This subset is
-	also not a subspace.
-	</p>
-      </statement>
-    </example>
-
-    <example>
-      <title> Subsets that are subspaces </title>
-
-      <statement>
-	<p> Let's look in <m>\real^2</m> and consider <m>S</m>, the
-	set of vectors lying on the <m>x</m> axis;  that is, vectors
-	having the form <m>\twovec{x}{0}</m>, as 
-	shown on the left of <xref ref="fig-subspaces-r2" />.  Any
-	scalar multiple of a vector lying on the <m>x</m> axis also
-	lies on the <m>x</m> axis.  Also, any sum of vectors lying on
-	the <m>x</m> axis also lies on the <m>x</m> axis.  Therefore,
-	<m>S</m> is a subspace of <m>\real^2</m>.  Notice that
-	<m>S</m> is the span of the vector <m>\twovec{1}{0}</m>.
-	</p>
-
-	<figure xml:id="fig-subspaces-r2">
-	  <sidebyside widths="40% 40%">
-	    <image source="images/subspace-xaxis" />
-	    <image source="images/subspace-line" />
-	  </sidebyside>
-	  <caption> Lines through the origin form subspaces of
-	  <m>\real^2</m>. </caption>
-	</figure>
-
-	<p> In fact, any line through the origin forms a subspace, as
-	seen on the right of <xref ref="fig-subspaces-r2" />.  Indeed,
-	any such line is the span of a nonzero vector on the line.
-	</p>
-      </statement>
     </example>
 
     <activity>
       <statement>
-      <p> We will look at some more subspaces of <m>\real^2</m>.
-      <ol marker="a.">
-	<li>
-	  <sidebyside widths="60% 35%">
-	    <p> Explain why a line that does not pass through the
-	    origin, as seen to the right, is not a subspace of
-	    <m>\real^2</m>.
-	    </p>	    
-	    <image source="images/subspace-line-skew" />
-	  </sidebyside>
-	</li>
+	<p>
+	  We will look at some sets of vectors and
+	  the subspaces they form.
+	  <ol marker="a.">
+	    <li>
+	      <p>
+		If <m>\vvec_1, \vvec_2,\ldots,\vvec_n</m> is a set of
+		vectors in <m>\real^m</m>, explain why <m>\zerovec</m> can
+		be expressed as a 
+		linear combination of these vectors.  Use this fact to
+		explain why the zero vector <m>\zerovec</m> belongs to any
+		subspace in <m>\real^m</m>.  
+	      </p>
+	    </li>
 
-	<li><p> Explain why any subspace of <m>\real^2</m> must
-	contain the zero vector <m>\zerovec</m>. </p></li>
+	    <li>
+	      <p>
+		Explain why the line on the left of <xref
+		ref="figure-lines-r2"/> is not a subspace of
+		<m>\real^2</m> and why the line on the right is.
+	      </p>
 
-	<li><p> Explain why the subset <m>S</m> of <m>\real^2</m> that
-	consists of only the zero vector <m>\zerovec</m> is a subspace
-	of <m>\real^2</m>. </p></li>
+	      <figure xml:id="figure-lines-r2">
+		<caption> Two lines in <m>\real^2</m>, one of which is a
+		subspace and one of which is not.
+		</caption>
+		<sidebyside widths="40% 40%" margins="5% 5%">
+		  <image source="images/subspace-line-skew" />
+		  <image source="images/subspace-line-origin" />
+		</sidebyside>
+	      </figure>
+	    </li>
 
-	<li><p> Explain why the subspace <m>S=\real^2</m> is itself a
-	subspace of <m>\real^2</m>. </p></li>
+	    <li>
+	      <p>
+		Consider the vectors
+		<me>
+		  \vvec_1=\threevec101,~~~
+		  \vvec_2=\threevec011,~~~
+		  \vvec_3=\threevec110,
+		</me>
+		and describe the subspace
+		<m>S=\laspan{\vvec_1,\vvec_2,\vvec_3}</m> of
+		<m>\real^3</m>.
+		<sage>
+		  <input>
+		  </input>
+		</sage>
+	      </p>
+	    </li>
 
-	<li><p> If <m>\vvec</m> and <m>\wvec</m> are two vectors in a
-	subspace <m>S</m>, explain why <m>\laspan{\vvec,\wvec}</m> is contained
-	in the subspace <m>S</m> as well. </p></li>
-
-	<li>
-	  <sidebyside widths="60% 35%">
-	    <p> Suppose that <m>S</m> is a subspace of <m>\real^2</m>
-	    containing two vectors <m>\vvec</m> and <m>\wvec</m> that are
-	    not scalar multiples of one another.  What is the subspace
-	    <m>S</m> in this case?
-	    </p>
-	    <image source="images/subspace-all-r2" />
-	  </sidebyside>
-	</li>
-      </ol></p>
+	    <li>
+	      <p>
+		Consider the vectors
+		<me>
+		  \wvec_1=\threevec210,~~~
+		  \wvec_2=\threevec{-1}1{-1},~~~
+		  \wvec_3=\threevec03{-2}
+		</me>
+		<ol marker="1.">
+		  <li>
+		    <p>
+		      Write <m>\wvec_3</m> as a linear combination of
+		      <m>\wvec_1</m> and <m>\wvec_2</m>.
+		    </p>
+		  </li>
+		  <li>
+		    <p>
+		      Explain why <m>\laspan{\wvec_1,\wvec_2,\wvec_3} =
+		      \laspan{\wvec_1, \wvec_2}</m>.
+		    </p>
+		  </li>
+		  <li>
+		    <p>
+		      Describe the subspace <m>S =
+		      \laspan{\wvec_1,\wvec_2,\wvec_3}</m> of <m>\real^3</m>.
+		    </p>
+		  </li>
+		</ol>
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		Suppose that <m>\vvec_1</m>, <m>\vvec_2</m>,
+		<m>\vvec_3</m>, and <m>\vvec_4</m> are four vectors in
+		<m>\real^3</m> and that
+		<me>
+		  \begin{bmatrix}
+		  \vvec_1 \amp \vvec_2 \amp \vvec_3 \amp \vvec_4
+		  \end{bmatrix}
+		  \sim
+		  \begin{bmatrix}
+		  1 \amp 2 \amp 0 \amp -2 \\
+		  0 \amp 0 \amp 1 \amp 1 \\
+		  0 \amp 0 \amp 0 \amp 0 \\
+		  \end{bmatrix}.
+		</me>
+		Give a description of the subspace
+		<m>S=\laspan{\vvec_1,\vvec_2,\vvec_3,\vvec_}</m> of
+		<m>\real^3</m>. 
+	      </p>
+	    </li>
+	  </ol>
+	</p>
       </statement>
 
       <solution>
-	<p><ol marker="a.">
-	  <li><p> If <m>\vvec</m> is a vector whose tip lies on the
-	  line, then any scalar multiple of <m>\vvec</m> must lie on
-	  the line if the line is to be a subspace.  In particular,
-	  <m>0\vvec=\zerovec</m> would have to lie on the line, which
-	  is not the case. </p></li>
-
-	  <li><p> If <m>\vvec</m> is a vector in the subspace, then
-	  <m>0\vvec=\zerovec</m> must be in the subspace as
-	  well. </p></li>
-
-	  <li><p> Any linear combination of <m>\zerovec</m> is also
-	  <m>\zerovec</m>, which means it is contained in the
-	  subset. </p></li>
-
-	  <li><p> Any linear combination of vectors in <m>\real^2</m>
-	  is also a vector in <m>\real^2</m>.</p></li>
-
-	  <li><p> If we remember that <m>\laspan{\vvec,\wvec}</m> is the
-	  set of linear combinations of <m>\vvec</m> and <m>\wvec</m>,
-	  it follows that any vector in <m>\laspan{\vvec, \wvec}</m> is
-	  a linear combination of <m>\vvec</m> and <m>\wvec</m> and is
-	  therefore a vector in <m>S</m>. </p></li>
-
-	  <li><p> The vectors span <m>\real^2</m> so the subspace
-	  <m>S=\real^2</m>. </p> </li>
-	</ol></p>
+	<p>
+	  <ol marker="a.">
+	    <li>
+	      <p>
+		If we choose all the weights <m>c_1=c_2=\ldots=c_n =
+		0</m>, then the linear combination
+		<me>
+		  c_1\vvec_1 + c_2\vvec_2 + \cdots + c_n\vvec_n = \zerovec.
+		</me>
+		This means that <m>\zerovec</m> is the subspace
+		<m>S=\laspan{\vvec_1,\vvec_2,\ldots,\vvec_n}</m>. 		
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		The line on the left cannot be a subspace of
+		<m>\real^2</m> since it does not contain the zero
+		vector.  The line on the right is a subspace because
+		it can be represented as the span of any nonzero
+		vector on the line.
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		The matrix whose columns are the given vectors has a
+		pivot in every row.  Therefore, the span of these
+		vectors is <m>\real^3</m> and so
+		<m>S=\laspan{\vvec_1,\vvec_2,\vvec_3} = \real^3</m>.
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		<ol marker="1.">
+		  <li>
+		    <p>
+		      We see that <m>\wvec_3 = \wvec_1 + 2\wvec_2</m>.
+		    </p>
+		  </li>
+		  <li>
+		    <p>
+		      Any linear combination
+		      <me>
+			c_1\wvec_1 + c_2\wvec_2 + c_2\wvec_3 =
+			(c_1 + c_2)\wvec_1 + (c_2+2c_2)\wvec_2.
+		      </me>
+		    </p>
+		  </li>
+		  <li>
+		    <p>
+		      The subspace
+		      <m>S=\laspan{\wvec_1,\wvec_2,\wvec_3} =
+		      \laspan{\wvec_1,\wvec_2}</m> is a plane in
+		      <m>\real^3</m>. 
+		    </p>
+		  </li>
+		</ol>
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		Since we can write <m>\vvec_2 = 2\vvec_1</m> and
+		<m>\vvec_4 = -2\vvec_1 + \vvec_2</m>, then
+		<me>
+		  S = \laspan{\vvec_1,\vvec_2,\vvec_3,\vvec_4} =
+		  \laspan{\vvec_1,\vvec_3},
+		</me>
+		which is a plane in <m>\real^3</m>.
+	      </p>
+	    </li>
+	  </ol>
+	</p>
       </solution>
 	  
     </activity>
 
-    <p> This activity introduces an important idea.  Suppose that we
-    have a subspace <m>S</m> of <m>\real^p</m> and that vectors
-    <m>\vvec_1, \vvec_2, \ldots, \vvec_n</m> are in <m>S</m>.  We know
-    that any linear combination of these vectors must also be in the
-    subspace <m>S</m>.  Since the span of these vectors is the set of all
-    linear combinations of the vectors, it must be the case that 
-    <m>\laspan{\vvec_1,\vvec_2,\ldots,\vvec_n}</m> is in the subspace
-    <m>S</m> as well.
-    </p>
-
-    <p> With this in mind, we can list all the subspaces of
-    <m>\real^2</m>.  If a subspace <m>S</m> contains a nonzero vector,
-    then it must contain the line containing that vector.  If <m>S</m>
-    contains two vectors <m>\vvec</m> and <m>\wvec</m> that are not
-    scalar multiples of one another, then <m>\laspan{\vvec,\wvec} =
-    \real^2</m> so the subspace <m>S</m> must be all of
-    <m>\real^2</m>.  These are the only possibilities:
-    <ul>
-      <li><p> The subspace <m>S=\{\zerovec\}</m> consisting of only
-      the zero vector .</p> </li>
-
-      <li><p> A line through the origin. </p></li>
-
-      <li><p> The subspace <m>S=\real^2</m>. </p></li>
-    </ul>
-    </p>
-
-    <p> Subspaces are the simplest subsets of
-    <m>\real^p</m>;  they are subsets in which we can perform the
-    usual operations of scalar multiplication and vector addition
-    without leaving the subset.  Just as we can create bases for
-    <m>\real^p</m>, we can create bases for subspaces as well.
+    <p>
+      As the activity shows, it is possible to represent some
+      subspaces as the span of more than one set of vectors.  We are
+      particularly interested in representing a subspace as the span
+      of a linearly independent set of vectors.
     </p>
 
     <definition>
@@ -373,355 +408,104 @@
 	<idx> dimension </idx>
 	<p> A <em>basis</em> for a subspace <m>S</m> of <m>\real^p</m>
 	is a set of vectors in <m>S</m> that are linearly independent
-	and span <m>S</m>.  It can be seen that any two bases have the
-	same number of vectors.  Therefore, we say that the
+	and whose span is <m>S</m>.  We say that the
 	<em>dimension</em> of the subspace <m>S</m>, denoted <m>\dim
 	S</m>, is the number of vectors in any basis.
 	</p>
       </statement>
     </definition>
 
-    <p> With this in mind, we can describe the possible spaces of
-    <m>\real^3</m>.
-    <ul>
-      <li><p> The subspace <m>S=\{\zerovec\}</m> is a 
-      subspace whose dimension is 0. </p></li>
+    <example>
+      <title> A subspace of <m>\real^4</m> </title>
 
-      <li>
-	<sidebyside widths="45% 50%">
-	  <p> A line through the origin is a subspace whose dimension
-	  is 1.  Any nonzero vector on the line forms a basis.
-	  </p>
-	  <image source="images/3d-line" />
-	</sidebyside>
-      </li>
-
-      <li>
-	<sidebyside widths="45% 50%">
-	  <p> A plane through the origin is a subspace whose dimension
-	  is 2.  For instance, the vectors <m>\vvec_1</m> and
-	  <m>\vvec_2</m> form a basis for the subspace shown here.
-	  </p>
-	  <image source="images/3d-plane-nonstd" />
-	</sidebyside>
-      </li>
-
-      <li><p> Finally, the subspace <m>S=\real^3</m> is a subspace of
-      <m>\real^3</m> whose dimension is 3. </p></li>
-    </ul>
-    </p>
-
-    <p> Of course, there cannot be a subspace of <m>\real^3</m> whose
-    dimension is four or higher since any set of four vectors in
-    <m>\real^3</m> cannot be linearly independent.
-    </p>
-
-    <p> We are most interested in two subspaces that are naturally
-    associated with a matrix.  With this background, we are now ready
-    to introduce them.
-    </p>
-
-  </subsection>
-
-  <subsection>
-    <title> The null space of <m>A</m> </title>
-
-    <p> When we looked at the linear independence of the columns of a
-    matrix <m>A</m> in <xref ref="sec-linear-dep" />, we were led to
-    consider the homogeneous equation <m>A\xvec = \zerovec</m>.  We
-    note that this solution space forms a subspace that we call the
-    null space of <m>A</m>.
-    </p>
-
-    <definition>
-      <statement>
-	<idx> null space </idx>
-	<p> If <m>A</m> is an <m>m\times n</m> matrix, we call the
-	subset of vectors <m>\xvec</m> in <m>\real^n</m> satisfying
-	<m> A\xvec = \zerovec</m> the <em>null space</em> of
-	<m>A</m>.  We denote it as <m>\nul(A)</m>.
-	</p>
-      </statement>
-    </definition>
-
-    <p> The linearity of
-    matrix multiplication, expressed in <xref
-    ref="prop-matrix-mult-prop" />, tells us that <m>\nul(A)</m> is a
-    subspace of <m>\real^n</m>. 
-    If <m>\xvec_1</m> and
-    <m>\xvec_2</m> are both vectors in <m>\nul(A)</m>, we know that
-    <m>A\xvec_1 = \zerovec</m> and <m>A\xvec_2 = \zerovec</m>.  A
-    linear combination of <m>\xvec_1</m> and <m>\xvec_2</m> can be
-    written as <m>c_1\xvec_1 + c_2\xvec_2</m>.  This linear
-    combination is in <m>\nul(A)</m> because
-    <me>
-      A(c_1\xvec_1 + c_2\xvec_2) =
-      c_1A\xvec_1 + c_2A\xvec_2 = c_1\zerovec + c_2\zerovec = \zerovec
-    </me>.
-    </p>
-
-    <activity>
-      <statement>
-      <p> We will explore some null spaces in this activity.
-      <ol marker="a.">
-	<li><p>
-	  Consider the matrix
-	  <me>A=\left[\begin{array}{rrr}
-	  1 \amp 3 \amp -1 \\
-	  -2 \amp 0 \amp -4 \\
-	  1 \amp 2 \amp 0 \\
-	  \end{array}\right]
-	  </me>
-	  and give a parametric description of the null space
-	<m>\nul(A)</m>. </p></li>
-
-	<li><p> Give a basis for and state the
-	dimension of <m>\nul(A)</m>. </p></li>
-
-	<li><p> The null space <m>\nul(A)</m> is a subspace of
-	<m>\real^p</m> for which <m>p</m>? </p></li>
-
-	<li><p> Now consider the matrix <m>A</m> whose reduced row
-	echelon form is given:
+      <p>
+	Suppose we have the 4-dimensional vectors <m>\vvec_1</m>,
+	<m>\vvec_2</m>, and <m>\vvec_3</m> that define the subspace
+	<m>S = \laspan{\vvec_1,\vvec_2,\vvec_3}</m> of
+	<m>\real^4</m>.  Suppose also that
 	<me>
-	A \sim
-	\left[\begin{array}{rrrr}
-	1 \amp 2 \amp 0 \amp -3 \\
-	0 \amp 0 \amp 1 \amp 2 \\
-	\end{array}\right]
-	</me>.
-	Give a parametric description of <m>\nul(A)</m>.  </p></li>
-
-	<li> <p> Notice that
-	the parametric description gives a set of vectors that span
-	<m>\nul(A)</m>.  Explain why this set of vectors is linearly
-	independent and hence forms a basis.  What is the dimension of
-	<m>\nul(A)</m>? </p> </li>
-
-	<li> <p> For this matrix, <m>\nul(A)</m> is a subspace of
-	<m>\real^p</m> for what <m>p</m>?  </p></li>
-
-	<li><p> What is the relationship between the dimensions of the
-	matrix <m>A</m>, the number of pivot positions of <m>A</m> and the
-	dimension of <m>\nul(A)</m>?</p></li>
-
-	<li><p> Suppose that the columns of a matrix <m>A</m> are
-	linearly independent.  What can you say about <m>\nul(A)</m>?
-	</p></li>
-
-	<li><p> If <m>A</m> is an invertible <m>n\times n</m> matrix,
-	what can you say about <m>\nul(A)</m>? </p></li>
-
-	<li><p> Suppose that <m>A</m> is a <m>5\times 10</m> matrix
-	and that <m>\nul(A) = \real^{10}</m>.  What can you say about
-	the matrix <m>A</m>? </p></li>
-
-      </ol></p>
-      </statement>
-
-      <solution>
-	<p><ol marker="a.">
-	  <li><p>  We have
-	  <me>A=\left[\begin{array}{rrr}
-	  1 \amp 3 \amp -1 \\
-	  -2 \amp 0 \amp -4 \\
-	  1 \amp 2 \amp 0 \\
-	  \end{array}\right]\sim
-	  \left[\begin{array}{rrr}
-	  1 \amp 0 \amp 2 \\
-	  0 \amp 1 \amp -1 \\
+	  \begin{bmatrix}
+	  \vvec_1 \amp \vvec_2 \amp \vvec_3
+	  \end{bmatrix}
+	  \sim
+	  \begin{bmatrix}
+	  1 \amp -1 \amp 0 \\
+	  0 \amp 0 \amp 1 \\
 	  0 \amp 0 \amp 0 \\
-	  \end{array}\right]\text{,}
-	  </me>
-	  so that <m>\xvec=x_3\threevec{-2}{1}{1}</m> describes the
-	  solution space to the homogeneous equation. </p></li>
+	  0 \amp 0 \amp 0 \\
+	  \end{bmatrix}.
+	</me>
+	From the reduced row echelon form of the matrix, we see that
+	<m>\vvec_2 = -\vvec</m>.  Therefore, any linear combination
+	of <m>\vvec_1</m>, <m>\vvec_2</m>, and <m>\vvec_3</m> can be
+	rewritten 
+	<me>
+	  c_1\vvec_1 + c_2\vvec_2 + c_3 \vvec_3 =
+	  (c_1-c_2)\vvec_1 + c_2\vvec_3
+	</me>
+	as a linear combination of <m>\vvec_1</m> and <m>\vvec_3</m>.
+	This tells us that
+	<me>
+	  S = \laspan{\vvec_1,\vvec_2,\vvec_3}
+	  = \laspan{\vvec_1,\vvec_3}.
+	</me>
+      </p>
+      <p>
+	Furthermore, the reduced row echelon form of the matrix shows
+	that <m>\vvec_1</m> and <m>\vvec_3</m> are linearly
+	independent.  Therefore, <m>\{\vvec_1,\vvec_3\}</m> is a basis
+	for <m>S</m>, which means that <m>S</m> is a two-dimensional
+	subspace of <m>\real^4</m>.
+      </p>
+    </example>
 
-	  <li><p> There is one basis vector <m>\threevec{-2}{1}{1}</m>
-	  so <m>\dim~\nul(A) = 1</m>. </p></li>
-
-	  <li><p> The null space is a subspace of <m>\real^3</m>
-	  because <m>A</m> has three columns. </p></li>
-
-	  <li><p> A parametric description of the null space is
-	  <m>\xvec=x_2\fourvec{-2}{1}{0}{0} +
-	  x_4\fourvec{3}{0}{-2}{1}</m>. </p></li>
-
-	  <li><p> The two vectors are linearly independent because
-	  they are not scalar multiplies of one another.  Hence,
-	  <m>\dim~\nul(A) = 2</m>. </p></li>
-
-	  <li><p> The null space is a subspace of
-	  <m>\real^4</m>. </p></li>
-
-	  <li><p> The number of vectors in a basis of the null space
-	  equals the number of free variables or the number of columns
-	  that do not have pivot positions.  This says that
-	  <m>\dim~\nul(A)</m> equals the number of columns of <m>A</m>
-	  minus the number of pivot positions. </p></li>
-
-	  <li><p> If the columns are linearly independent, then the
-	  homogeneous equation <m>A\xvec=\zerovec</m> has only the
-	  trivial solution <m>\xvec=\zerovec</m>.  Therefore,
-	  <m>\nul(A) = \{\zerovec\}</m>. </p></li>
-
-	  <li><p> If <m>A</m> is invertible, then its columns are
-	  linearly independent and <m>\nul(A) =
-	  \{\zerovec\}</m>. </p></li>
-
-	  <li><p> This means that every vector in <m>\real^{10}</m> is
-	  a solution to homogeneous equation.  Therefore,
-	  <m>A\xvec=\zerovec</m> for every vector <m>\xvec</m>.  This
-	  can only happen if every entry of <m>A</m> is
-	  zero. </p></li>
-	</ol></p>
-      </solution>
-	    
-    </activity>
-
-    <p> Let's consider an example of our own.  Suppose we have a
-    matrix <m>A</m> and its reduced row echelon form:
-    <me>
-      A =
-      \left[\begin{array}{rrrrr}
-      2 \amp 0 \amp -4 \amp -6 \amp 0 \\
-      -4 \amp -1 \amp 7 \amp 11 \amp 2 \\
-      0 \amp -1 \amp -1 \amp -1 \amp 2 \\
-      \end{array}\right]
-      \sim
-      \left[\begin{array}{rrrrr}
-      1 \amp 0 \amp -2 \amp -3 \amp 0 \\
-      0 \amp 1 \amp 1 \amp 1 \amp -2 \\
-      0 \amp 0 \amp 0 \amp 0 \amp 0 \\
-      \end{array}\right]\text{.}
-    </me>
+    <p>
+      Subspaces of <m>\real^3</m> are either
+      <ul>
+	<li>
+	  <p>
+	    0-dimensional, consisting of the single vector
+	    <m>\zerovec</m>,
+	  </p>
+	</li>
+	<li>
+	  <p>
+	    a 1-dimensional line,
+	  </p>
+	</li>
+	<li>
+	  <p>
+	    a 2-dimensional plane, or
+	  </p>
+	</li>
+	<li>
+	  <p>
+	    the 3-dimensional subspace <m>\real^3</m>.
+	  </p>
+	</li>
+      </ul>
+      There is no 4-dimensional subspace of
+      <m>\real^3</m> because there is no linearly independent set of
+      four vectors in <m>\real^3</m>.
     </p>
 
-    <p> To find a parametric description of the solution space to
-    <m>A\xvec=\zerovec</m>, imagine that we augment both <m>A</m> and
-    its reduced row echelon form by a column of zeroes, which leads
-    to the equations
-    <me>
-  \begin{alignedat}{6}
-  x_1 \amp  \amp  \amp  {}-{}  \amp 2x_3 \amp  {}-{}  \amp 3x_4 \amp
-  \amp  \amp  {}={}  \amp 0 \\ 
-  \amp  \amp x_2 \amp  {}+{}  \amp x_3 \amp  {}+{}  \amp x_4 \amp
-  {}-{}  \amp 2x_5 \amp  {}={}  \amp 0 \\ 
-  \end{alignedat}
-    </me>.
-    Notice that <m>x_3</m>, <m>x_4</m>, and <m>x_5</m> are free
-    variables so we rewrite these equations as
-    <me>
-      \begin{aligned}
-      x_1 \amp {}={} 2x_3 + 3x_4 \\
-      x_2 \amp {}={} -x_3 - x_4 + 2x_5 \\
-      \end{aligned}
-    </me>.
-    Writing this as a vector, we have
-    <me>
-      \begin{aligned}
-      \xvec \amp {}={} \fivevec{x_1}{x_2}{x_3}{x_4}{x_5} =
-      \fivevec{2x_3 + 3x_4}{-x_3-x_4+2x_5}{x_3}{x_4}{x_5}
-      \\
-      \\
-      \amp {}={}
-      x_3\fivevec{2}{-1}{1}{0}{0}
-      +x_4\fivevec{3}{-1}{0}{1}{0}
-      +x_5\fivevec{0}{2}{0}{0}{1}
-      \end{aligned}
-    </me>.
+    <p>
+      There are two important subspaces associated to any matrix, each
+      of which springs from one of our
+      <xref ref="fundamental-questions" text="custom">
+	two fundamental questions,
+      </xref>
+      as we will now see.
     </p>
-
-    <p> This expression says that any vector <m>\xvec</m> satisfying
-    <m>A\xvec= \zerovec</m> is a linear combination of the vectors
-    <me>
-      \vvec_1 = \fivevec{2}{-1}{1}{0}{0},
-      \vvec_2 = \fivevec{3}{-1}{0}{1}{0},
-      \vvec_3 = \fivevec{0}{2}{0}{0}{1}
-    </me>.
-    It is easy to see that these vectors are linearly independent.
-    Remember that we saw in <xref ref="sec-linear-dep" /> that this
-    set of vectors is linearly dependent if any 
-    linear combination <m>c_1\vvec_1 + c_2\vvec_2 + c_3\vvec_3 =
-    \zerovec</m> implies that <m>c_1=c_2=c_3 = 0</m>.  But this linear
-    combination would be 
-    <me>
-      \begin{aligned}
-      c_1\vvec_1 + c_2\vvec_2 + c_3\vvec_3 \amp {}={}
-      c_1\fivevec{2}{-1}{1}{0}{0}
-      +c_2\fivevec{3}{-1}{0}{1}{0}
-      +c_3\fivevec{0}{2}{0}{0}{1} \\
-      \\
-      \amp
-      {}={} \fivevec{2c_1 + 3c_2}{-c_1-c_2+2c_3}{c_1}{c_2}{c_3}
-      = \fivevec{0}{0}{0}{0}{0}
-      \end{aligned}
-    </me>.
-    This expression shows that <m>c_1=c_2=c_3=0</m> so the vectors are
-    linearly independent.
-    </p>
-
-    <p> Therefore, we see that the vectors
-    <me>
-      \vvec_1 = \fivevec{2}{-1}{1}{0}{0},
-      \vvec_2 = \fivevec{3}{-1}{0}{1}{0},
-      \vvec_3 = \fivevec{0}{2}{0}{0}{1}
-    </me>
-    form a basis for <m>\nul(A)</m> showing that <m>\nul(A)</m> is
-    a three-dimensional subspace of <m>\real^5</m>.
-    </p>
-
-    <p> Notice that the dimension of <m>\nul(A)</m> is equal to the
-    number of free variables, which equals the number of columns of
-    <m>A</m> minus the number of pivot positions.  This example illustrates a
-    general principle that motivates the following dimension.
-    </p>
-
-    <definition>
-      <statement>
-	<idx> rank </idx>
-	<p> The <m>rank</m> of a matrix <m>A</m>, denoted
-	<m>\rank(A)</m>, is the number of pivot positions of <m>A</m>.
-	</p>
-      </statement>
-    </definition>
-
-    <p> As illustrated by the previous example, if <m>A</m> is an
-    <m>m\times n</m> matrix, then <m>\nul(A)</m> is a
-    subspace of <m>\real^n</m> and
-    <me>
-      \dim~\nul(A) = n - \rank(A)
-    </me>
-    or 
-    <me>
-      \dim~\nul(A) + \rank(A) = n
-    </me>.
-    </p>
-
-    <p> We may consider two extreme cases.  If
-    <m>\nul(A)=\{\zerovec\}</m>, 
-    then <m>\dim~\nul(A) = 0</m> so that <m>\rank(A) = n</m>.  This
-    means that the number of pivot positions is equal to the number of columns.
-    In this case, there are no free variables in the description of
-    the solutions to the homogeneous equation <m>A\xvec = \zerovec</m>
-    so there is only the trivial solution.  This is exactly what we
-    are saying when we say that <m>\nul(A) = \{\zerovec\}</m>.
-    </p>
-
-    <p> Similarly, if <m>\nul(A) = \real^n</m>, then <m>\dim~\nul(A)
-    = n</m>, which implies that <m>\rank(A) = 0</m>.  This means that
-    <m>A</m> does not have any pivot positions and so <m>A</m> must be the zero
-    matrix <m>0</m>.  This is also consistent with what we already
-    know:  if <m>\nul(A)=\real^n</m>, then <m>A\xvec = \zerovec</m>
-    for any vector <m>\xvec</m>.  This can only be true if <m>A =
-    0</m>. </p>
 
   </subsection>
 
   <subsection>
     <title> The column space of <m>A</m> </title>
 
-    <p> Besides the null space, the other subspace that is naturally
-    associated to a matrix <m>A</m> is its column space.
+    <p>
+      The first subspace associated to a matrix that we'll consider is
+      its column space. 
     </p>
 
     <definition>
@@ -734,38 +518,13 @@
       </statement>
     </definition>
 
-    <p>  Notice that the columns of <m>A</m> are vectors in
-    <m>\real^m</m>, which means that any linear combination of the
-    columns is also in <m>\real^m</m>.  The column space is therefore
-    a subset of <m>\real^m</m>.
-    </p>
-
-    <p> We can also see <m>\col(A)</m>
-    is a subspace of <m>\real^m</m>.  First, notice that a vector is
-    in <m>\col(A)</m> if it is a linear combination of the columns of
-    <m>A</m>.  This means that <m>\bvec</m> is in <m>\col(A)</m> if
-    there is a vector <m>\xvec</m> such that <m>A\xvec = \bvec</m>.
-    To see that <m>\col(A)</m> is a subspace of <m>\real^m</m>, we
-    need to check that any linear combination of vectors in
-    <m>\col(A)</m> is also in <m>\col(A)</m>.  This follows, once
-    again, from the linearity of
-    matrix multiplication expressed in <xref
-    ref="prop-matrix-mult-prop" />.
-    </p>
-
-    <p> If vectors <m>\bvec_1</m> and
-    <m>\bvec_2</m> are in <m>\col(A)</m>, then 
-    there are vectors <m>\xvec_1</m> and <m>\xvec_2</m> such that
-    <m>A\xvec_1 = \bvec_1</m> and <m>A\xvec_2 = \bvec_2</m>.
-    Therefore, if we have a linear combination of <m>\bvec_1</m> and
-    <m>\bvec_2</m>, then
-    <me>
-      c_1\bvec_1+c_2\bvec_2 = c_1A\xvec_1 + c_2A\xvec_2
-      = A(c_1\xvec_1+c_2\xvec_2)
-    </me>,
-    which shows that the linear combination is itself in the column
-    space of <m>A</m>.  Therefore, <m>\col(A)</m> is a subspace of
-    <m>\real^m</m>.
+    <p>
+      Notice that the columns of <m>A</m> are vectors in
+      <m>\real^m</m>, which means that any linear combination of the
+      columns is also in <m>\real^m</m>.  Since the column space is
+      described as the span of a set of vectors, we see that
+      <m>\col(A)</m> is
+      a subspace of <m>\real^m</m>.
     </p>
 
     <activity>
@@ -782,27 +541,27 @@
 	  1 \amp 3 \amp -1 \\
 	  -2 \amp 0 \amp -4 \\
 	  1 \amp 2 \amp 0 \\
-	  \end{array}\right]
-	  </me>.
-	  Since <m>\col(A)</m> is the span of the columns, the vectors
-	  <m>\vvec_1</m>, <m>\vvec_2</m>, and <m>\vvec_3</m> naturally
-	  span <m>\col(A)</m>.  Are these vectors linearly
-	  independent?
-	</p></li>
-
-	<li><p> Show that <m>\vvec_3</m> can be written as a linear
-	combination of <m>\vvec_1</m> and <m>\vvec_2</m>.  Then
-	explain why <m>\col(A)=\laspan{\vvec_1,\vvec_2}</m>. </p> </li>
+	  \end{array}\right].
+	  </me>
+	  Since <m>\col(A)</m> is the span of the columns,
+	  we have
+	  <me>
+	    \col(A) = \laspan{\vvec_1,\vvec_2,\vvec_3}.
+	  </me>
+	  Explain why <m>\vvec_3</m> can be written as a linear
+	  combination of <m>\vvec_1</m> and <m>\vvec_2</m> and
+	  why <m>\col(A)=\laspan{\vvec_1,\vvec_2}</m>.
+	</p> </li>
 
 	<li><p> Explain why the vectors <m>\vvec_1</m> and
-	<m>\vvec_2</m> form a basis for <m>\col(A)</m>.  This shows
-	that <m>\col(A)</m> is a 2-dimensional subspace of
-	<m>\real^2</m> and is therefore a plane. </p></li>
+	<m>\vvec_2</m> form a basis for <m>\col(A)</m> and why
+	<m>\col(A)</m> is a 2-dimensional subspace of
+	<m>\real^3</m> and therefore a plane. </p></li>
 
-	<li><p> Now consider the matrix <m>A</m> and its reduced row
+	<li><p> Now consider the matrix <m>B</m> and its reduced row
 	echelon form:
 	<me>
-	  A = \left[\begin{array}{rrrr}
+	  B = \left[\begin{array}{rrrr}
 	  -2 \amp -4 \amp 0 \amp 6 \\
 	  1 \amp 2 \amp 0 \amp -3 \\
 	  \end{array}\right]
@@ -810,31 +569,33 @@
 	  \left[\begin{array}{rrrr}
 	  1 \amp 2 \amp 0 \amp -3 \\
 	  0 \amp 0 \amp 0 \amp 0 \\
-	  \end{array}\right]
-	</me>.
-	We will call the columns <m>\vvec_1</m>, <m>\vvec_2</m>,
-	<m>\vvec_3</m>, and <m>\vvec_4</m>.
-	Explain why <m>\vvec_2</m>, <m>\vvec_3</m>, and <m>\vvec_4</m>
-	can be written as a linear combination of
-	<m>\vvec_1</m>. </p></li>
-
-	<li><p> Explain why <m>\col(A)</m> is a 1-dimensional
+	  \end{array}\right].
+	</me>
+	Explain why <m>\col(B)</m> is a 1-dimensional
 	subspace of <m>\real^2</m> and is therefore a line.
 	</p></li>
 
-	<li><p> What is the relationship between the dimension
-	<m>\dim~\col(A)</m> and the rank <m>\rank(A)</m>? </p></li>
+	<li><p> For a general matrix <m>A</m>, what is the
+	relationship between the dimension 
+	<m>\dim~\col(A)</m> and the number of pivot positions in
+	<m>A</m>? </p></li>
 
-	<li><p> What is the relationship between the dimension of the
-	column space <m>\col(A)</m> and the null space
-	<m>\nul(A)</m>? </p></li>
+	<li><p> How does the location of the pivot positions indicate
+	a basis for <m>\col(A)</m>?
+	</p></li>
 
 	<li><p> If <m>A</m> is an invertible <m>9\times9</m> matrix,
 	what can you say about the column space <m>\col(A)</m>?
 	</p></li>
 
-	<li><p> If <m>\col(A)=\{\zerovec\}</m>, what can you say about
-	the matrix <m>A</m>? </p></li>
+	<li>
+	  <p> Suppose that <m>A</m> is an <m>8\times 10</m> matrix and
+	  that <m>\col(A) = \real^8</m>.  If <m>\bvec</m> is an
+	  8-dimensional vector, what can you say about the equation
+	  <m>A\xvec = \bvec</m>?
+	  </p>
+	</li>
+
       </ol></p>
       </statement>
 
@@ -853,174 +614,476 @@
 	  \end{array}\right]\text{,}
 	  </me>
 	  which shows that the vectors are not linearly
-	  independent. </p></li>
-
-	  <li><p> From the reduced row echelon form, we see that
-	  <m>\vvec_3 = 2\vvec_1-\vvec_2</m>.  This means that any
-	  linear combination of <m>\vvec_1</m>, <m>\vvec_2</m>, and
+	  independent and, in fact, that <m>\vvec_3 = 2\vvec_1 -
+	  \vvec_2</m>.  As we've seen several times, this means that
+	  any linear combination of <m>\vvec_1</m>, <m>\vvec_2</m>, and
 	  <m>\vvec_3</m> can be written as a linear combination of
-	  <m>\vvec_1</m> and <m>\vvec_2</m> alone.  </p></li>
+	  <m>\vvec_1</m> and <m>\vvec_2</m> alone and hence that
+	  <me>\col(A)=\laspan{\vvec_1,\vvec_2,\vvec_3} =
+	  \laspan{\vvec_1,\vvec_2}.</me>  
+	  </p></li>
 
 	  <li><p> The reduced row echelon form of <m>A</m> shows that
 	  <m>\vvec_1</m> and <m>\vvec_2</m> are linearly independent.
-	  We also know that these two vectors span <m>\col(A)</m>.
-	  Therefore, they form a basis for <m>\col(A)</m>. </p></li>
+	  We also know that the span of these two vectors is
+	  <m>\col(A)</m>.  Therefore, they form a basis for
+	  <m>\col(A)</m>. </p></li>
 
-	  <li><p> The reduced row echelon form shows that
+	  <li><p> Denoting the columns of <m>B</m> as <m>\vvec_i</m>,
+	  the reduced row echelon form shows that
 	  <m>\vvec_2=2\vvec_1</m>, <m>\vvec_3=0\vvec_1</m>, and
-	  <m>\vvec_4 = -3\vvec_1</m>. </p></li>
-
-	  <li><p> Since <m>\vvec_2</m>, <m>\vvec_3</m>, and
-	  <m>\vvec_4</m> can be written as a linear combination of
-	  <m>\vvec_1</m>, any linear combination of <m>\vvec_1</m>,
+	  <m>\vvec_4 = -3\vvec_1</m>.
+	  Therefore, any linear combination of <m>\vvec_1</m>,
 	  <m>\vvec_2</m>, <m>\vvec_3</m>, and <m>\vvec_4</m> can be
 	  written as a linear combination of <m>\vvec_1</m>
 	  alone.  This means that <m>\vvec_1</m> forms a basis for
 	  <m>\col(A)</m>, which is then the line consisting of all
 	  scalar multiples of <m>\vvec_1</m>.
-	  </p></li>
+p	  </p></li>
 
 	  <li><p> The number of vectors in a basis of <m>\col(A)</m>
-	  equals the number of columns that have pivot positions.
-	  This says that <m>\dim~\col(A) = \rank(A)</m>. </p></li>
+	  equals the number of pivot positions.  Therefore,
+	  <m>\dim~\col(A)</m> equals the number of pivot positions in
+	  <m>A</m>. </p></li>
 
-	  <li><p> Using what we have seen earlier, we know that
-	  <m>\dim~\col(A) + \dim~\nul(A) = n</m>, where <m>n</m> is
-	  the number of columns of <m>A</m>. </p></li>
+	  <li><p> As the examples in this activity illustrate, the
+	  columns of <m>A</m> that contain pivot positions form a
+	  basis for <m>\col(A)</m>.
+	  </p></li>
 
 	  <li><p> If <m>A</m> is invertible, then it has a pivot
-	  position in every row, which means that the columns span
-	  <m>\real^9</m>.  Therefore, <m>\col(A) =
-	  \real^9</m>. </p></li> 
+	  position in every row, which means that the span of the
+	  columns is <m>\real^9</m>.  Therefore, <m>\col(A) =
+	  \real^9</m>. </p></li>
 
-	  <li><p> In this case, every linear combination of the
-	  columns of <m>A</m> is the zero vector.  This can only
-	  happen if every column is itself the zero vector, which
-	  means that every entry in <m>A</m> is zero. </p></li>
+	  <li><p> Since <m>\col(A)=\real^8</m>, we know that every
+	  8-dimensional vector <m>\bvec</m> is in <m>\col(A)</m>.
+	  This means that <m>\bvec</m> is in the span of the columns
+	  of <m>A</m> so the equation <m>A\xvec = \bvec</m> must be
+	  consistent. </p></li>
+
 	</ol></p>
       </solution>
     </activity>
 
-    <p> Once again, we will consider the matrix <m>A</m> and its
-    reduced row echelon form:
-    <me>
-      A =
-      \left[\begin{array}{rrrrr}
-      2 \amp 0 \amp -4 \amp -6 \amp 0 \\
-      -4 \amp -1 \amp 7 \amp 11 \amp 2 \\
-      0 \amp -1 \amp -1 \amp -1 \amp 2 \\
-      \end{array}\right]
-      \sim
-      \left[\begin{array}{rrrrr}
-      1 \amp 0 \amp -2 \amp -3 \amp 0 \\
-      0 \amp 1 \amp 1 \amp 1 \amp -2 \\
-      0 \amp 0 \amp 0 \amp 0 \amp 0 \\
-      \end{array}\right]
-    </me>.
-    We will denote the columns as
-    <m>\vvec_1,\vvec_2,\ldots,\vvec_5</m>.
-    </p>
+    <example xml:id="example-col-basis">
+      <p>
+	Consider the matrix <m>A</m> and its
+	reduced row echelon form:
+	<me>
+	  A =
+	  \left[\begin{array}{rrrrr}
+	  2 \amp 0 \amp -4 \amp -6 \amp 0 \\
+	  -4 \amp -1 \amp 7 \amp 11 \amp 2 \\
+	  0 \amp -1 \amp -1 \amp -1 \amp 2 \\
+	  \end{array}\right]
+	  \sim
+	  \left[\begin{array}{rrrrr}
+	  1 \amp 0 \amp -2 \amp -3 \amp 0 \\
+	  0 \amp 1 \amp 1 \amp 1 \amp -2 \\
+	  0 \amp 0 \amp 0 \amp 0 \amp 0 \\
+	  \end{array}\right],
+	  </me>
+	  and denote the columns of <m>A</m> as
+	  <m>\vvec_1,\vvec_2,\ldots,\vvec_5</m>.
+      </p>
+      
+      <p> It is certainly true that <m>\col(A) =
+      \laspan{\vvec_1,\vvec_2,\ldots,\vvec_5}</m> by the definition of
+      the column space.  However, the reduced row echelon form of the
+      matrix shows us that the vectors are not linearly independent so
+      <m>\vvec_1,\vvec_2,\ldots,\vvec_5</m> do not form a basis for
+      <m>\col(A)</m>. 
+      </p>
+      
+      <p> From the reduced row echelon form, however, we can see that
+      <me>
+	\begin{aligned}
+	\vvec_3 \amp {}={} -2\vvec_1 + \vvec_2 \\
+	\vvec_4 \amp {}={} -3\vvec_1 + \vvec_2 \\
+	\vvec_5 \amp {}={} -2\vvec_2 \\
+	\end{aligned}
+	</me>.
+	This means that any linear combination of
+	<m>\vvec_1,\vvec_2,\ldots,\vvec_5</m> can be written as a linear
+	combination of just <m>\vvec_1</m> and <m>\vvec_2</m>.  Therefore,
+	we see that <m>\col(A) = \laspan{\vvec_1,\vvec_2}</m>.
+      </p>
 
-    <p> It is certainly true that <m>\col(A) =
-    \laspan{\vvec_1,\vvec_2,\ldots,\vvec_5}</m> by the definition of
-    the column space.  However, the reduced row echelon form of the
-    matrix shows us that the vectors are not linearly independent so
-    <m>\vvec_1,\vvec_2,\ldots,\vvec_5</m> do not form a basis for
-    <m>\col(A)</m>. 
-    </p>
-
-    <p> From the reduced row echelon form, however, we can see that
-    <me>
-      \begin{aligned}
-      \vvec_3 \amp {}={} -2\vvec_1 + \vvec_2 \\
-      \vvec_4 \amp {}={} -3\vvec_1 + \vvec_2 \\
-      \vvec_5 \amp {}={} -2\vvec_2 \\
-      \end{aligned}
-    </me>.
-    This means that any linear combination of
-    <m>\vvec_1,\vvec_2,\ldots,\vvec_5</m> can be written as a linear
-    combination of just <m>\vvec_1</m> and <m>\vvec_2</m>.  Therefore,
-    we see that <m>\col(A) = \laspan{\vvec_1,\vvec_2}</m>.  Moreover,
-    the reduced row echelon form shows that <m>\vvec_1</m> and
-    <m>\vvec_2</m> are linearly independent, which implies that they
-    form a basis for <m>\col(A)</m>.  Therefore, <m>\col(A)</m> is a
-    2-dimensional subspace of <m>\real^3</m>, which is a plane in
-    <m>\real^3</m>, having basis
-    <me>
-      \threevec{2}{-4}{0},
-      \qquad
-      \threevec{0}{-1}{1}
-    </me>.
-    </p>
-
+      <p>
+	Moreover,
+	the reduced row echelon form shows that <m>\vvec_1</m> and
+	<m>\vvec_2</m> are linearly independent, which implies that they
+	form a basis for <m>\col(A)</m>.  This means that
+	<m>\col(A)</m> is a 
+	2-dimensional subspace of <m>\real^3</m>, which is a plane in
+	<m>\real^3</m>, having basis
+	<me>
+	  \threevec{2}{-4}{0},
+	  \qquad
+	  \threevec{0}{-1}{1}
+	  </me>.
+      </p>
+    </example>
+      
     <p> In general, a column without a pivot position can be written
     as a linear combination of the columns that have pivot positions.
     This means that a basis for <m>\col(A)</m> will always be given by
-    the columns of <m>A</m> having pivot positions.  Therefore, the
-    dimension of the column space <m>\col(A)</m> equals the rank
-    <m>\rank(A)</m>:
-    <me>
-      \dim~\col(A) = \rank(A)
-    </me>.
-    If <m>A</m> is an <m>m\times n</m> matrix, this also says that
-    <me>
-      \dim~\nul(A) + \dim~\col(A) = n
-    </me>.
-      
+    the columns of <m>A</m> having pivot positions.  This leads us to
+    the following definition and proposition.
     </p>
 
-    <p> If <m>A</m> has a pivot position in every row, then
-    <m>\dim~\col(A) = 
-    \rank(A) = m</m>.  This implies that <m>\col(A)</m> is an
-    <m>m</m>-dimensional subspace of <m>\real^m</m> and therefore,
-    <m>\col(A) = \real^m</m>.  This agrees with our earlier
-    explorations in which we found that the columns of a matrix span
-    <m>\real^m</m> if there is a pivot in every row.
+    <definition>
+      <idx> rank </idx>
+      <idx> matrix, rank </idx>
+      <statement>
+	<p>
+	  The <term>rank</term> of a matrix <m>A</m> is the number of
+	  pivot positions in <m>A</m> and is denoted by
+	  <m>\rank(A)</m>.
+	</p>
+      </statement>
+    </definition>
+
+    <proposition xml:id="proposition-col-dim">
+      <statement>
+	<p>
+	  If <m>A</m> is an <m>m\times n</m> matrix, then
+	  <m>\col(A)</m> is a subspace of <m>\real^m</m> whose
+	  dimension equals <m>\rank(A)</m>.  The columns of <m>A</m>
+	  that contain pivot positions form a basis for <m>\col(A)</m>.
+	</p>
+      </statement>
+    </proposition>
+
+    <p>
+      For example, the rank of the matrix <m>A</m> in <xref
+      ref="example-col-basis"/> is two because there are two pivot
+      positions.  A basis for <m>\col(A)</m> is given by the first two
+      columns of <m>A</m> since those columns have pivot positions.
     </p>
 
-    <p> At the other extreme, suppose that <m>\dim~\col(A) = 0</m>.
-    The matrix <m>A</m> then has no 
-    pivots, which means that <m>A</m> must be the zero matrix
-    <m>0</m>.
+    <p>
+      As a note of caution, we determine the pivot positions by
+      looking at the reduced row echelon form of <m>A</m>.  However,
+      we form a basis of <m>\col(A)</m> from the columns of <m>A</m>
+      rather than the columns of the reduced row echelon matrix.
+    </p>
+
+  </subsection>
+
+  <subsection>
+    <title> The null space of <m>A</m> </title>
+
+    <p>
+      The second subspace associated to a matrix is its null space.
     </p>
     
+    <definition>
+      <statement>
+	<idx> null space </idx>
+	<p> If <m>A</m> is an <m>m\times n</m> matrix, we call the
+	subset of vectors <m>\xvec</m> in <m>\real^n</m> satisfying
+	<m> A\xvec = \zerovec</m> the <em>null space</em> of
+	<m>A</m> and denote it by <m>\nul(A)</m>.
+	</p>
+      </statement>
+    </definition>
+
+    <p>
+      Remember that a subspace is a subset that can be represented as
+      the span of a set of vectors.  The column space of <m>A</m>,
+      which is simply the span of the columns of <m>A</m>, fits this
+      definition.  It may not be immediately clear how the null space of
+      <m>A</m>, which is the solution space of the equation <m>A\xvec
+      = \zerovec</m>, does, but we will see that <m>\nul(A)</m> is a
+      subspace of <m>\real^n</m>.
+    </p>
+
+    <activity>
+      <statement>
+      <p> We will explore some null spaces in this activity and see
+      why <m>\nul(A)</m> satisfies the definition of a subspace.
+      <ol marker="a.">
+	<li><p>
+	  Consider the matrix
+	  <me>A=\begin{bmatrix}
+	  1 \amp 3 \amp -1 \amp 2 \\
+	  -2 \amp 0 \amp -4 \amp 2 \\
+	  1 \amp 2 \amp 0 \amp 1
+	  \end{bmatrix}
+	  </me>
+	  and give a parametric description of the solution space to
+	  the equation <m>A\xvec = \zerovec</m>.  In other words, give
+	  a parametric description of <m>\nul(A)</m>.
+	  <sage>
+	    <input>
+	    </input>
+	  </sage>
+	</p></li>
+
+	<li>
+	  <p>
+	    This parametric description shows that the vectors 
+	    satisfying the equation <m>A\xvec=\zerovec</m> can be written as
+	    a linear combination of a set of vectors.  In other words,
+	    this description shows why <m>\nul(A)</m> is the span of a set
+	    of vectors and is therefore a subspace.
+	    Identify a set of vectors
+	    whose span is <m>\nul(A)</m>.
+	  </p>
+	</li>
+
+	<li>
+	  <p> Use this set of vectors to find a basis for
+	    <m>\nul(A)</m> and state the dimension of <m>\nul(A)</m>. 
+	  </p>
+	</li>
+
+	<li><p> The null space <m>\nul(A)</m> is a subspace of
+	<m>\real^p</m> for which value of <m>p</m>? </p></li>
+
+	<li><p> Now consider the matrix <m>B</m> whose reduced row
+	echelon form is given by
+	<me>
+	  B \sim
+	  \left[\begin{array}{rrrr}
+	  1 \amp 2 \amp 0 \amp -3 \\
+	  0 \amp 0 \amp 0 \amp 0 \\
+	  \end{array}\right].
+	</me>
+	Give a parametric description of <m>\nul(B)</m>.  </p></li>
+
+	<li>
+	  <p>
+	    The parametric description gives a set of vectors that span
+	    <m>\nul(B)</m>.  Explain why this set of vectors is linearly
+	    independent and hence forms a basis.  What is the dimension of
+	    <m>\nul(B)</m>?
+	  </p>
+	</li>
+
+	<li>
+	  <p>
+	    For a general matrix <m>A</m>, how does the number of
+	    pivot positions indicate the dimension of <m>\nul(A)</m>?
+	  </p>
+	</li>
+
+	<li>
+	  <p>
+	    Suppose that the columns of a matrix <m>A</m> are
+	    linearly independent.  What can you say about
+	    <m>\nul(A)</m>? 
+	  </p>
+	</li>
+
+      </ol></p>
+      </statement>
+
+      <solution>
+	<p><ol marker="a.">
+	  <li><p>  We have
+	  <me>A=\begin{bmatrix}
+	  1 \amp 3 \amp -1 \amp 2 \\
+	  -2 \amp 0 \amp -4 \amp 2 \\
+	  1 \amp 2 \amp 0 \amp 1 \\
+	  \end{bmatrix}\sim
+	  \begin{bmatrix}
+	  1 \amp 0 \amp 2 \amp -1 \\
+	  0 \amp 1 \amp -1 \amp 1 \\
+	  0 \amp 0 \amp 0 \amp 0\\
+	  \end{bmatrix},
+	  </me>
+	  which leads to the parametric description of the solution
+	  space to the homogeneous equation:
+	  <me>\xvec=x_3\fourvec{-2}{1}{1}0 +
+	  x_4\fourvec{1}{-1}01.
+	  </me>
+	  </p></li>
+
+	  <li><p> The parametric description shows that every solution
+	  to the equation <m>A\xvec=\zerovec</m> is a linear
+	  combination of <m>\wvec_1=\fourvec{-2}110</m> and
+	  <m>\wvec_2=\fourvec1{-1}01</m>. </p></li>
+
+	  <li>
+	    <p>
+	      The vectors <m>\wvec_1</m> and <m>\wvec_2</m> are
+	      linearly independent so they form a basis for
+	      <m>\nul(A)</m>.  Therefore, <m>\nul(A)</m> is
+	      2-dimensional.
+	    </p>
+	  </li>
+
+	  <li><p>
+	    The vectors in <m>\nul(A)</m> are 4-dimensional so
+	    <m>\nul(A)</m> is a subspace of <m>\real^4</m>.
+	  </p></li>
+
+	  <li><p> A parametric description of the null space is
+	  <m>\xvec=x_2\fourvec{-2}{1}{0}{0} + x_3\fourvec0010 + 
+	  x_4\fourvec{3}{0}{-2}{1}</m>.  We can check that the vectors
+	  <me>
+	    \fourvec{-2}100,~~~\fourvec0010,~~~\fourvec30{-2}1
+	  </me>
+	  are linearly independent so they form a basis for
+	  <m>\nul(A)</m>.  This means that <m>\nul(A)</m> is
+	  3-dimensional. 
+	  </p></li>
+
+	  <li><p> The number of vectors in a basis of the null space
+	  equals the number of free variables that appear in the
+	  equation <m>A\xvec=\zerovec</m>, which is the number of columns
+	  that do not have pivot positions.  This says that
+	  <m>\dim~\nul(A)</m> equals the number of columns of <m>A</m>
+	  minus the number of pivot positions. </p></li>
+
+	  <li><p> If the columns are linearly independent, then the
+	  homogeneous equation <m>A\xvec=\zerovec</m> has only the
+	  trivial solution <m>\xvec=\zerovec</m>.  Therefore,
+	  <m>\nul(A) = \{\zerovec\}</m>. </p></li>
+
+	</ol></p>
+      </solution>
+	    
+    </activity>
+
+    <example xml:id="example-null-intro">
+      <p>
+	Consider the matrix <m>A</m> along with its reduced row
+	echelon form: 
+	<me>
+	  A =
+	  \left[\begin{array}{rrrrr}
+	  2 \amp 0 \amp -4 \amp -6 \amp 0 \\
+	  -4 \amp -1 \amp 7 \amp 11 \amp 2 \\
+	  0 \amp -1 \amp -1 \amp -1 \amp 2 \\
+	  \end{array}\right]
+	  \sim
+	  \left[\begin{array}{rrrrr}
+	  1 \amp 0 \amp -2 \amp -3 \amp 0 \\
+	  0 \amp 1 \amp 1 \amp 1 \amp -2 \\
+	  0 \amp 0 \amp 0 \amp 0 \amp 0 \\
+	  \end{array}\right]\text{.}
+	</me>
+      </p>
+      
+      <p> To find a parametric description of the solution space to
+      <m>A\xvec=\zerovec</m>, imagine that we augment both <m>A</m> and
+      its reduced row echelon form by a column of zeroes, which leads
+      to the equations
+      <me>
+	\begin{alignedat}{6}
+	x_1 \amp  \amp  \amp  {}-{}  \amp 2x_3 \amp  {}-{}  \amp 3x_4 \amp
+	\amp  \amp  {}={}  \amp 0 \\ 
+	\amp  \amp x_2 \amp  {}+{}  \amp x_3 \amp  {}+{}  \amp x_4 \amp
+	{}-{}  \amp 2x_5 \amp  {}={}  \amp 0. \\ 
+	\end{alignedat}
+      </me>
+      Notice that <m>x_3</m>, <m>x_4</m>, and <m>x_5</m> are free
+      variables so we rewrite these equations as
+      <me>
+	\begin{aligned}
+	x_1 \amp {}={} 2x_3 + 3x_4 \\
+	x_2 \amp {}={} -x_3 - x_4 + 2x_5. \\
+	\end{aligned}
+      </me>
+      In vector form, we have
+      <me>
+	\begin{aligned}
+	\xvec \amp {}={} \fivevec{x_1}{x_2}{x_3}{x_4}{x_5} =
+	\fivevec{2x_3 + 3x_4}{-x_3-x_4+2x_5}{x_3}{x_4}{x_5}
+	\\
+	\\
+	\amp {}={}
+	x_3\fivevec{2}{-1}{1}{0}{0}
+	+x_4\fivevec{3}{-1}{0}{1}{0}
+	+x_5\fivevec{0}{2}{0}{0}{1}.
+	\end{aligned}
+      </me>
+      </p>
+      
+      <p> This expression says that any vector <m>\xvec</m> satisfying
+      <m>A\xvec= \zerovec</m> is a linear combination of the vectors
+      <me>
+	\vvec_1 = \fivevec{2}{-1}{1}{0}{0},~~~
+	\vvec_2 = \fivevec{3}{-1}{0}{1}{0},~~~
+	\vvec_3 = \fivevec{0}{2}{0}{0}{1}.
+      </me>
+      It is straightforward to check that these vectors are linearly
+      independent, which means that <m>\vvec_1</m>, <m>\vvec_2</m>,
+      and <m>\vvec_3</m> form a basis for <m>\nul(A)</m>, a
+      3-dimensional subspace of <m>\real^5</m>.
+      </p>
+
+    </example>
+
+    <p>
+      As illustrated in this example, the dimension of <m>\nul(A)</m>
+      is equal to the 
+      number of free variables in the equation
+      <m>A\xvec=\zerovec</m>, which equals the number of columns of
+      <m>A</m> without pivot positions or the
+      number of columns <m>A</m> minus the number of pivot positions.   
+    </p>
+
+    <proposition xml:id="proposition-nul-dim">
+      <statement>
+	<p>
+	  If <m>A</m> is an <m>m\times n</m> matrix, then
+	  <m>\nul(A)</m> is a subspace of <m>\real^n</m> whose
+	  dimension is
+	  <me>
+	    \dim~\nul(A) = n - \rank(A).
+	  </me>
+	</p>
+      </statement>
+    </proposition>
+
+    <p>
+      Combining <xref ref="proposition-col-dim"/> and <xref
+      ref="proposition-nul-dim"/> shows that
+    </p>
+
+    <proposition>
+      <statement>
+	<p>
+	  If <m>A</m> is an <m>m\times n</m> matrix, then
+	  <me>
+	    \dim~\col(A) + \dim~\nul(A) = n.
+	  </me>
+	</p>
+      </statement>
+    </proposition>
+
   </subsection>
 
   <subsection>
     <title> Summary </title>
 
-    <p> Once again, we find ourselves revisiting our two fundamental
-    questions, expressed in <xref ref="fundamental-questions" />,
+    <p> Once again, we find ourselves revisiting
+    <xref ref="fundamental-questions" text="custom">
+    our two fundamental questions
+    </xref>
     concerning the existence and uniqueness of solutions to linear
     systems.  The column space <m>\col(A)</m> contains all the vectors
     <m>\bvec</m> for which the equation <m>A\xvec = \bvec</m> is
-    consistent. The null space <m>\nul(A)</m> describes the solution
-    space to the equation <m>A\xvec = \zerovec</m>, and its dimension
-    tells us whether this equation has a unique solution.  
+    consistent. The null space <m>\nul(A)</m> is the solution
+    space to the equation <m>A\xvec = \zerovec</m>, which reflects on
+    the uniqueness of solutions to this and other equations.
     </p>
 
     <p>
       <ul>
-	<li><p> A subset <m>S</m> of <m>\real^p</m> is a subspace of
-	<m>\real^p</m> if any linear combination of vectors in
-	<m>S</m> is also in 
-	<m>S</m>.  This essentially means that we can perform the
-	usual vector operations of scalar multiplication and vector
-	addition without leaving <m>S</m>.  A basis of a subspace
-	<m>S</m> is a linearly independent set of vectors in <m>S</m>
-	whose span is <m>S</m>. </p></li>
+	<li><p> A subspace <m>S</m> of <m>\real^p</m> is a subset of
+	<m>\real^p</m> that can be represented as the span of a set of
+	vectors.  A basis of <m>S</m> is a linearly
+	independent set of vectors whose span is
+	<m>S</m>. </p></li>
 
-	<li><p> If <m>A</m> is an <m>m\times n</m> matrix, then its
-	null space <m>\nul(A)</m> is the solution space to the
-	homogeneous equation <m>A\xvec = \zerovec</m>.  It is a
-	subspace of <m>\real^n</m>.  </p></li>
-
-	<li><p> A basis for <m>\nul(A)</m> is found through a
-	parametric description of the solution space of <m>A\xvec =
-	\zerovec</m>.  We see that <m>\dim~\nul(A) = n -
-	\rank(A)</m>.  </p></li>
-
-	<li><p> The column space <m>\col(A)</m> is the span of the
+	<li><p> If <m>A</m> is an <m>m\times n</m> matrix, the column
+	space <m>\col(A)</m> is the span of the 
 	columns of <m>A</m> and forms a subspace of <m>\real^m</m>.
 	</p></li>
 
@@ -1028,6 +1091,17 @@
 	of <m>A</m> that have pivot positions.  The dimension is
 	therefore <m>\dim~\col(A) = \rank(A)</m>.
 	</p></li>
+
+	<li><p> The
+	null space <m>\nul(A)</m> is the solution space to the
+	homogeneous equation <m>A\xvec = \zerovec</m> and is a
+	subspace of <m>\real^n</m>.  </p></li>
+
+	<li><p> A basis for <m>\nul(A)</m> is found through a
+	parametric description of the solution space of <m>A\xvec =
+	\zerovec</m>, and we have that <m>\dim~\nul(A) = n -
+	\rank(A)</m>.  </p></li>
+
       </ul>
     </p>
   </subsection>

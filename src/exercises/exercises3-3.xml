@@ -15,22 +15,18 @@
 	Fourier coefficients of <m>\xvec</m>.
 	<sage>
 	  <input>
-mat = []
-for i in range(8):
-    for j in range(8):
-        mat.append(cos((2*i+1)*j*pi/16))
-C = matrix(8,8, mat).numerical_approx()
-Cinv = C.inverse()	
-
+mat = [[cos((2*i+1)*j*pi/16) for j in range(8)] for i in range(8)]
+P = matrix(mat).numerical_approx()
+Pinv = P.inverse()	
+print (Pinv.numerical_approx(digits=3))	    
 	  </input>
 	</sage>
 	</p></li>
 
 	<li><p> We will now form the vector <m>\yvec</m>, which is an
-	approximation of <m>\xvec</m>.  To do this, round all the
+	approximation of <m>\xvec</m> by rounding all the
 	Fourier coefficients of <m>\xvec</m> to the nearest integer to
-	obtain <m>\coords{\yvec}{\ccal}</m>.  If a coefficient has an
-	absolute value less than one, set it equal to zero.  Now find
+	obtain <m>\coords{\yvec}{\ccal}</m>.  Now find
 	the vector <m>\yvec</m> and compare this approximation to
 	<m>\xvec</m>.  What is the error in this approximation?
 	</p></li>
@@ -70,7 +66,7 @@ Cinv = C.inverse()
 	<me>
 	  \yvec=\left[\begin{array}{c}
 	  103 \\ 94 \\ 91 \\ 92 \\ 103 \\ 105 \\ 105 \\ 108
-	  \end{array}\right],
+	  \end{array}\right],~~~
 	  \xvec=\left[\begin{array}{c}
 	  103 \\ 94 \\ 91 \\ 92 \\ 103 \\ 105 \\ 105 \\ 108
 	  \end{array}\right]\text{.}
@@ -89,13 +85,13 @@ Cinv = C.inverse()
 	<me>
 	  \yvec=\left[\begin{array}{c}
 	  94 \\ 95 \\ 97 \\ 99 \\ 101 \\ 103 \\ 105 \\ 106
-	  \end{array}\right],
+	  \end{array}\right],~~~
 	  \xvec=\left[\begin{array}{c}
 	  103 \\ 94 \\ 91 \\ 92 \\ 103 \\ 105 \\ 105 \\ 108
 	  \end{array}\right]\text{.}
 	</me>
 	Now we see that the approximating vector <m>\yvec</m> differs
-	from the original vector <m>\xvec</m>.  
+	from the original vector <m>\xvec</m>, though not significantly. 
 	</p></li>
 
 	<li><p> In the first approximation, the reconstructed vector
@@ -318,14 +314,10 @@ Cinv = C.inverse()
 
       <sage>
 	<input>
-sinmat = []
-cosmat = []	  
-for i in range(4):
-    for j in range(1,5):
-        sinmat.append(sin((2*i+1)*j*pi/8.0))
-        cosmat.append(cos((2*i+1)*(j-1)*pi/8.0))
-S = matrix(4,4,sinmat).numerical_approx()    
-C = matrix(4,4,cosmat).numerical_approx()    
+sinmat = [[sin((2*i+1)*j*pi/8) for j in range(1,5)] for i in range(4)]
+cosmat = [[cos((2*i+1)*j*pi/8) for j in range(4)] for i in range(4)]
+S = matrix(sinmat).numerical_approx()    
+C = matrix(cosmat).numerical_approx()    
 	</input>
       </sage>
 
@@ -346,7 +338,7 @@ C = matrix(4,4,cosmat).numerical_approx()
 
 	<li><p> Suppose now that <m>\xvec=\fourvec{100}{100}{100}{100}</m>.
 	Find the Fourier Sine coefficients
-	<m>\coords{\xvec}{\scal}</m> and the Fourie Cosine
+	<m>\coords{\xvec}{\scal}</m> and the Fourier Cosine
 	coefficients <m>\coords{\xvec}{\ccal}</m>.  </p></li>
 
 	<li><p> Write a few sentences explaining why we use the
@@ -391,12 +383,11 @@ C = matrix(4,4,cosmat).numerical_approx()
 	</me>
 	</p></li>
 
-	<li><p> Generally speaking, the coefficients in the Fourier
-	Cosine transform are smaller, which means that they can be
-	safely ignored.  Most of the important important is channeled
-	into the first coefficient, which records the average of the
-	components of the vector <m>\xvec</m>.
-	</p></li>
+	<li><p> Generally speaking, we can safely ignore more of the
+	coefficients in the Fourier Cosine transform.  Most of the
+	important information is channeled into the first coefficient,
+	which records the average of the components of the vector
+	<m>\xvec</m>.  </p></li>
       </ol></p>
     </solution>
 
@@ -438,12 +429,11 @@ C = matrix(4,4,cosmat).numerical_approx()
 	</m>.
 	</p></li>
 
-	<li><p> Generally speaking, the coefficients in the Fourier
-	Cosine transform are smaller, which means that they can be
-	safely ignored.  Most of the important important is channeled
-	into the first coefficient, which records the average of the
-	components of the vector <m>\xvec</m>.
-	</p></li>
+	<li><p> Generally speaking, we can safely ignore more of the
+	coefficients in the Fourier Cosine transform.  Most of the
+	important information is channeled into the first coefficient,
+	which records the average of the components of the vector
+	<m>\xvec</m>.  </p></li>
       </ol></p>
     </answer>
 
@@ -712,19 +702,33 @@ print (approx_luminance.numerical_approx(digits=3))
 	      <m>HSV</m> color model.
 	    </p>
 	  </instructions>
+	  <static>
+	    <sidebyside width="100%">
+	      <p>
+		There is an interactive diagram,
+		available at the bottom of the page <url
+		href="http://gvsu.edu/s/0Jc"
+		visual="gvsu.edu/s/0Jc"/>, that
+		accompanies this exercise.
+	      </p>
+	    </sidebyside>
+	    <sidebyside width="40%">
+	      <image source="preview/hsv-preview.png"/>
+	    </sidebyside>
+	  </static>		
 	</interactive>
       </figure>
-
+      
       <p><ol marker="a.">
 	<li><p>
 	  If you leave <m>S</m> and <m>V</m> at some fixed values,
 	  what happens when you change the value of <m>H</m>?
 	</p></li>
 
-	<li><p> Move the value <m>V</m> to the right and keep it
-	fixed.  Describe what happens when you vary the saturation
-	<m>S</m> using a fixed hue <m>H</m> and value
-	<m>V</m>. </p></li>
+	<li><p> Increase the value <m>V</m> to 255, which is on the
+	far right.  Describe what happens when you
+	vary the saturation <m>S</m> using a fixed hue <m>H</m> and
+	value <m>V</m>. </p></li>
 
 	<li><p> Describe what happens when <m>H</m> and <m>S</m> are
 	fixed and <m>V</m> varies.

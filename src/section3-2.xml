@@ -798,55 +798,71 @@
 	    \frac14 \amp \frac14 \amp -\frac14 \amp -\frac14 \\
 	    \frac12 \amp -\frac12 \amp 0 \amp 0 \\
 	    0 \amp 0 \amp \frac12 \amp -\frac12 \\
-	    \end{array}\right]
+	    \end{array}\right].
 	  </me>
-	  and compute
+	  In particular, if the revenue vector is <m>\xvec =
+	  \fourvec{x_1}{x_2}{x_3}{x_4}</m>, then
 	  <me>
-	    \coords{\xvec}{\bcal} = P_{\bcal}^{-1} \xvec =
-	    P_{\bcal}^{-1} \fourvec{10.3}{13.1}{7.5}{8.2} =
-	    \fourvec{9.775}{1.925}{-1.400}{-0.350}
-	  </me>.
+	    \coords{\xvec}{\bcal} = \cfourvec
+	    {\frac14 x_1 + \frac14 x_2 + \frac14 x_3 + \frac14 x_4}
+	    {\frac14 x_1 + \frac14 x_2 - \frac14 x_3 - \frac14 x_4}
+	    {\frac12 x_1 - \frac12 x_2}
+	    {\frac12 x_3 - \frac12 x_4}.
+	  </me>
+	  Notice that the first component of
+	  <m>\coords{\xvec}{\bcal}</m> is the average of the
+	  components of <m>\xvec</m>.
 	</p>
 
 	<p>
+	  For our particular revenue vector <m>\xvec = 
+	  \fourvec{10.3}{13.1}{7.5}{8.2}</m>, we have
+	  <me>
+	    \coords{\xvec}{\bcal} = P_{\bcal}^{-1} \xvec =
+	    P_{\bcal}^{-1} \fourvec{10.3}{13.1}{7.5}{8.2} =
+	    \fourvec{9.775}{1.925}{-1.400}{-0.350}.
+	  </me>
 	  This means that our revenue vector is
 	  <me>
 	    \xvec = 9.775 \vvec_1 + 1.925 \vvec_2 - 1.400\vvec_3 -
 	    0.350 \vvec_4
 	  </me>.
-	  We will think about what these coordinates mean by adding
-	  the basis vectors together one at a time.
+	  We will think about what these terms mean by adding
+	  them together one at a time.
 	</p>
 
 	<sbsgroup>
 	  <sidebyside widths="45% 45%">
-	    <p> The first coordinate gives us the average revenue over
-	    the year:
-	    <m>9.775\vvec_1</m>.
+	    <p> The first term,
+	    <me>9.775\vvec_1 = \fourvec{9.775}{9.775}{9.775}{9.775},</me>
+	    gives us the average revenue over the year.
 	    </p>
 	    <image source="images/basis-revenue-approx-1" />
 	  </sidebyside>
 
 	  <sidebyside widths="45% 45%">
-	    <p> Adding in the second component shows how the averages
-	    in the first and second halves of year differ from the
-	    annual average:
-	    <m>9.775\vvec_1 + 1.925\vvec_2</m>.
+	    <p> The average revenue for the first two quarters is
+	    11.7, which is 1.925 million dollars above the yearly
+	    average.  Similarly, the average revenue for the last two
+	    quarters is 1.925 million dollars below the yearly
+	    average.  This is recorded by the second term
+	    <me>1.925\vvec_2 =
+	    \cfourvec{1.925}{1.925}{-1.925}{-1.925}.
+	    </me>
 	    </p>
 	    <image source="images/basis-revenue-approx-2" />
 	  </sidebyside>
 
 
 	  <sidebyside widths="45% 45%">
-	    <p> The third and fourth components break down the
-	    behavior in the first and second halves of the year into
-	    quarters:
+	    <p> Finally, the first quarter's revenue is 1.400 million
+	    dollars below the average over the first two quarters and
+	    the second quarter's revenue is 1.400 million dollars
+	    above that average.  This, and the corresponding data for
+	    the last two quarters, is captured by the last two terms:
 	    <me>
-	      \begin{aligned}
-	      \xvec = \amp 9.775 \vvec_1 + 1.925 \vvec_2 \\
-	      \amp - 1.400\vvec_3 -
-	      0.350 \vvec_4\text{.}
-	      \end{aligned}
+	      -1.400\vvec_3 - 0.350\vvec_4 = \cfourvec
+	      {-1.400}{1.400}{-0.350}{0.350},
 	    </me>
 	    </p>
 	    <image source="images/basis-revenue-approx-3" />

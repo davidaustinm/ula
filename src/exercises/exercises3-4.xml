@@ -25,17 +25,17 @@
 	<li><p> Find the determinants of <m>A</m> and <m>B</m> using
 	row operations. </p> </li>
 
-	<li><p> Find the determinants of <m>A</m> and <m>B</m> using
-	cofactor expansions. </p></li>
+	<li><p> Now find the determinants of <m>A</m> and <m>B</m> using
+	cofactor expansions to verify your results </p></li>
       </ol></p>
     </statement>
 
     <solution>
-      <p> We find that <m>\det A = 12</m> and <m>\det B = -24</m>.
+      <p> We find that <m>\det(A) = 12</m> and <m>\det(B) = -24</m>.
       </p>
     </solution>
     <answer>
-      <p> <m>\det A = 12</m> and <m>\det B = -24</m>.
+      <p> <m>\det(A) = 12</m> and <m>\det(B) = -24</m>.
       </p>
     </answer>
   </exercise>
@@ -50,12 +50,12 @@
 	<m>\real^2</m>.  Draw a typical picture of the vectors that
 	form the 
 	columns of <m>A</m> and use the geometric definition of the
-	determinant to determine <m>\det A</m>. </p></li>
+	determinant to determine <m>\det(A)</m>. </p></li>
 
 	<li><p> Suppose that <m>B</m> is the matrix that performs a
 	reflection in a line passing through the origin.  Draw a typical
 	picture of the columns of <m>B</m> and use the geometric definition of
-	the determinant to determine <m>\det B</m>. </p></li>
+	the determinant to determine <m>\det(B)</m>. </p></li>
 
 	<li><p> As we saw in <xref ref="sec-transforms-geom" />, 
 	the matrices have the form
@@ -84,7 +84,7 @@
 	found by rotating the standard basis vectors <m>\evec_1</m>
 	and <m>\evec_2</m>.  Consequently, they are positively
 	oriented and form a <m>1\times1</m> square.  This says that
-	<m>\det A = 1</m>.
+	<m>\det(A) = 1</m>.
 	</p></li>
 
 	<li><p> The vectors <m>\vvec_1</m> and <m>\vvec_2</m> that
@@ -92,11 +92,11 @@
 	found by reflecting the standard basis vectors <m>\evec_1</m>
 	and <m>\evec_2</m>.  Consequently, they are negatively
 	oriented and form a <m>1\times1</m> square.  This says that
-	<m>\det B = -1</m>.
+	<m>\det(B) = -1</m>.
 	</p></li>
 
-	<p><li> We see that <m>\det A =\cos^2\theta + \sin^\theta =
-	1</m> and <m>\det B = -\cos^2(2\theta) -\sin^2(2\theta) =
+	<p><li> We see that <m>\det(A) =\cos^2\theta + \sin^2\theta =
+	1</m> and <m>\det(B) = -\cos^2(2\theta) -\sin^2(2\theta) =
 	-1</m>.
 	</li></p>
       </ol></p>
@@ -104,8 +104,8 @@
 
     <answer>
       <p><ol marker="a.">
-	<li><p> <m>\det A = 1</m>. </p></li>
-	<li><p> <m>\det B = -1</m>. </p></li>
+	<li><p> <m>\det(A) = 1</m>. </p></li>
+	<li><p> <m>\det(B) = -1</m>. </p></li>
       </ol></p>
     </answer>
 	
@@ -117,6 +117,11 @@
       <m>B</m> are <em>similar</em> if there is a matrix <m>P</m> such
       that <m>A= PBP^{-1}</m>.
 	<ol marker="a.">
+	  <li><p> Suppose that <m>A</m> and <m>B</m> are matrices and
+	  that there is a matrix <m>P</m> such that 
+	  <m>A=PBP^{-1}</m>.  Explain why <m>\det(A) = \det(B)</m>.
+	  </p></li>
+
 	  <li><p> Suppose that <m>A</m> is a <m>3\times3</m> matrix
 	  and that there is a matrix <m>P</m> such that
 	  <me>
@@ -128,32 +133,29 @@
 	    \end{array}\right]
 	    P^{-1}
 	  </me>.
-	  Find <m>\det A</m>.
+	  Find <m>\det(A)</m>.
 	  </p></li>
 
-	  <li><p> Suppose that <m>A</m> and <m>B</m> are matrices and
-	  that there is a matrix <m>P</m> such that 
-	  <m>A=PBP^{-1}</m>.  Explain why <m>\det A = \det B</m>.
-	  </p></li>
 	</ol>
       </p>
     </statement>
 
     <solution>
       <p><ol marker="a.">
-	<li><p> <m>\det A = (\det P) (2)(-5)(-3) (\det P^{-1}) =
-	30</m> since <m>\det P \det P^{-1} = 1</m>. </p></li>
+	<li><p> <m>\det(A) = \det(P) \det(B) \det(P^{-1}) =
+	\det(B)</m>. </p></li>  
 
-	<li><p> <m>\det A = \det P \det B \det P^{-1} = \det
-	B</m>. </p></li>
+	<li><p> <m>\det(A) = (\det(P)) (2)(-5)(-3) (\det(P^{-1})) =
+	30</m> since <m>\det(P) \det(P^{-1}) = 1</m>. </p></li>
+
       </ol></p>
     </solution>
 
     <answer>
       <p><ol marker="a.">
-	<li><p> <m>\det A = 30</m>. </p></li>
-	<li><p> <m>\det A = \det B</m> because <m>\det P \det P^{-1} =
+	<li><p> <m>\det(A) = \det(B)</m> because <m>\det(P) \det(P^{-1}) =
 	1</m>. </p></li>
+	<li><p> <m>\det(A) = 30</m>. </p></li>
       </ol></p>
     </answer>
   </exercise>
@@ -169,27 +171,27 @@
 	\end{array}\right]
 	</me> where <m>k</m> is a parameter.
 	<ol marker="a.">
-	  <li><p> Find an expression for <m>\det A</m> in terms of the
+	  <li><p> Find an expression for <m>\det(A)</m> in terms of the
 	  parameter <m>k</m>. </p></li>
 
-	  <li><p> Use your expression for <m>\det A</m> to determine
+	  <li><p> Use your expression for <m>\det(A)</m> to determine
 	  the values of <m>k</m> for which the vectors 
 	  <me>
 	    \threevec{-2}{2}{1},
 	    \threevec{1}{3}{2},
 	    \threevec{k}{0}{2}
 	  </me>
-	  are linearly independent? </p></li>
+	  are linearly independent. </p></li>
 	</ol>
       </p>
     </statement>
 
     <solution>
       <p><ol marker="a.">
-	<li><p> We see that <m>\det A = k-16</m>. </p></li>
+	<li><p> We see that <m>\det(A) = k-16</m>. </p></li>
 
 	<li><p> The vectors are linearly independent when the matrix
-	<m>A</m> is invertible, which means that <m>\det A\neq 0</m>.
+	<m>A</m> is invertible, which means that <m>\det(A)\neq 0</m>.
 	Therefore, the vectors are linearly independent when <m>k\neq
 	16</m>. </p></li>
 	</ol></p>
@@ -197,7 +199,7 @@
 
     <answer>
       <p><ol marker="a.">
-	<li><p> <m>\det A = k-16</m> </p></li>
+	<li><p> <m>\det(A) = k-16</m> </p></li>
 	<li><p> <m>k\neq 16</m>. </p></li>
       </ol></p>
     </answer>
@@ -211,20 +213,20 @@
 	<ol marker="a.">
 	  <li><p> If we have a square matrix <m>A</m> and multiply the
 	  first row by <m>5</m> and add it to the third row to obtain
-	  <m>A'</m>, then <m>\det A' = 5\det A</m>. </p></li>
+	  <m>A'</m>, then <m>\det(A') = 5\det(A)</m>. </p></li>
 
 	  <li><p> If we interchange two rows of a matrix, then the
 	  determinant is unchanged.  </p></li>
 
 	  <li><p> If we scale a row of the matrix <m>A</m> by
-	  <m>17</m> to obtain <m>A'</m>, then <m>\det A' = 17\det
-	  A</m>.  </p></li>
+	  <m>17</m> to obtain <m>A'</m>, then <m>\det(A') =
+	  17\det(A)</m>.  </p></li> 
 
 	  <li><p> If <m>A</m> and <m>A'</m> are row equivalent and
-	  <m>\det A' = 0</m>, then <m>\det A = 0</m> also. </p></li>
+	  <m>\det(A') = 0</m>, then <m>\det(A) = 0</m> also. </p></li>
 
 	  <li><p> If <m>A</m> is row equivalent to the identity
-	  matrix, then <m>\det A = \det I = 1</m>. </p></li>
+	  matrix, then <m>\det(A) = \det(I) = 1</m>. </p></li>
 	</ol>
       </p>
     </statement>
@@ -242,15 +244,15 @@
 
 	<li><p> True.  Row operations either leave the determinant
 	unchanged, change its sign, or multiply it by a nonzero
-	number.  Therefore, if <m>\det A'=0</m> and <m>A</m> and
+	number.  Therefore, if <m>\det(A')=0</m> and <m>A</m> and
 	<m>A'</m> are related through a sequence of row operations,
-	then <m>\det A = 0</m>. </p></li>
+	then <m>\det(A) = 0</m>. </p></li>
 
-	<li><p> False.  It is true that <m>\det I = 1</m>, but a
+	<li><p> False.  It is true that <m>\det(I) = 1</m>, but a
 	sequence of row operations that cause <m>A</m> and <m>I</m> to
 	be row equivalent may multiply the determinant by a nonzero
-	number or change its sign.  We do know, however, that <m>\det
-	A \neq 0</m> and so <m>A</m> is invertible. </p></li>
+	number or change its sign.  We do know, however, that
+	<m>\det(A)\neq 0</m> and so <m>A</m> is invertible. </p></li> 
       </ol></p>
     </solution>
 
@@ -268,7 +270,7 @@
   <exercise>
     <statement>
       <p> Suppose that <m>A</m> and <m>B</m> are <m>5\times5</m>
-      matrices such that <m>\det A = -2</m> and <m>\det B = 5</m>.
+      matrices such that <m>\det(A) = -2</m> and <m>\det(B) = 5</m>.
       Find the following determinants:
       <ol marker="a.">
 	<li><p> <m>\det(2A)</m>. </p></li>
@@ -287,19 +289,19 @@
     <solution>
       <p><ol marker="a.">
 	<li><p> Multiplying the entire matrix by <m>2</m> scales each
-	row by <m>2</m>.  Therefore, <m>\det(2A) = 2^5\det A =
+	row by <m>2</m>.  Therefore, <m>\det(2A) = 2^5\det(A) =
 	-64</m>. </p></li>
 
-	<li><p> We have <m>\det(A^3) = (\det A)^3 = -8</m>. </p></li>
+	<li><p> We have <m>\det(A^3) = (\det(A))^3 = -8</m>. </p></li>
 
-	<li><p> We know that <m>\det(AB) = \det A \det B =
+	<li><p> We know that <m>\det(AB) = \det(A) \det(B) =
 	-10</m>. </p></li>
 
 	<li><p> Multiplying the matrix by <m>-1</m> scales each row by
-	<m>-1</m> so we have <m>\det(-A) = (-1)^5\det A =
+	<m>-1</m> so we have <m>\det(-A) = (-1)^5\det(A) =
 	2</m>. </p></li>
 
-	<li><p> <m>\det (AB^{-1}) = \det A \det B^{-1} = \det A/\det B
+	<li><p> <m>\det(AB^{-1}) = \det(A) \det(B^{-1}) = \det(A)/\det(B)
 	= -\frac 25</m>. </p></li>
       </ol></p>
     </solution>
@@ -328,35 +330,35 @@
 	determinants to explain why <m>AB</m> is invertible. </p></li>
 
 	<li><p> If <m>AB</m> is invertible, use determinants to
-	explain why both <m>A</m> and <m>B</m> is
+	explain why both <m>A</m> and <m>B</m> are
 	invertible. </p></li>
       </ol></p>
     </statement>
 
     <solution>
       <p><ol marker="a.">
-	<li><p> If <m>A</m> and <m>B</m> are invertible, then <m>\det
-	A \neq 0</m> and <m>\det B \neq 0</m>.  Therefore, <m>\det
-	(AB) = \det A \det B \neq 0</m>, which shows that <m>AB</m> is
+	<li><p> If <m>A</m> and <m>B</m> are invertible, then
+	<m>\det(A) \neq 0</m> and <m>\det(B) \neq 0</m>.  Therefore,
+	<m>\det(AB) = \det(A)\det(B) \neq 0</m>, which shows that <m>AB</m> is
 	invertible. </p></li>
 
-	<li><p> If <m>AB</m> is invertible, then <m>\det (AB) = \det A
-	\det B \neq 0</m>.  This implies that <m>\det A\neq0</m> and
-	<m>\det B \neq 0</m>, from which we conclude that both
+	<li><p> If <m>AB</m> is invertible, then <m>\det (AB) = \det(A)
+	\det(B) \neq 0</m>.  This implies that <m>\det(A)\neq0</m> and
+	<m>\det(B) \neq 0</m>, from which we conclude that both
 	<m>A</m> and <m>B</m> are invertible. </p></li>
       </ol></p>
     </solution>
 
     <answer>
       <p><ol marker="a.">
-	<li><p> If <m>A</m> and <m>B</m> are invertible, then <m>\det
-	A \neq 0</m> and <m>\det B \neq 0</m>.  Therefore, <m>\det
-	(AB) = \det A \det B \neq 0</m>, which shows that <m>AB</m> is
+	<li><p> If <m>A</m> and <m>B</m> are invertible, then
+	<m>\det(A) \neq 0</m> and <m>\det(B) \neq 0</m>.  Therefore,
+	<m>\det(AB) = \det(A)\det(B) \neq 0</m>, which shows that <m>AB</m> is
 	invertible. </p></li>
 
-	<li><p> If <m>AB</m> is invertible, then <m>\det (AB) = \det A
-	\det B \neq 0</m>.  This implies that <m>\det A\neq0</m> and
-	<m>\det B \neq 0</m>, from which we conclude that both
+	<li><p> If <m>AB</m> is invertible, then <m>\det (AB) = \det(A)
+	\det(B) \neq 0</m>.  This implies that <m>\det(A)\neq0</m> and
+	<m>\det(B) \neq 0</m>, from which we conclude that both
 	<m>A</m> and <m>B</m> are invertible. </p></li>
       </ol></p>
     </answer>
@@ -427,19 +429,23 @@
 	\end{array}\right]
       </me>.
       <ol marker="a.">
-	<li><p> Write the equation <m>\det A = 0</m> in terms of
-	<m>x</m>, <m>y</m>, and <m>z</m>. </p></li>
+	<li><p> Assuming that <m>\det(A) = 0</m>, rewrite the equation
+	in terms of <m>x</m>, <m>y</m>, and <m>z</m>. </p></li>
 
 	<li><p> Explain why <m>\vvec_1</m> and <m>\vvec_2</m>, the
 	first two columns of <m>A</m>, satisfy the equation you found
 	in the previous part. </p></li>
+
+	<li><p> Explain why the solution space of this equation is the
+	plane spanned by <m>\vvec_1</m> and <m>\vvec_2</m>.
+	</p></li>
 
       </ol></p>
     </statement>
 
     <solution>
       <p><ol marker="a.">
-	<li><p> Using a cofactor expansion, we have <m>\det A =
+	<li><p> Using a cofactor expansion, we have <m>\det(A) =
 	2x-y-2z = 0</m>. </p></li>
 
 	<li><p> If we replace the third column by either
@@ -447,17 +453,27 @@
 	columns are linearly dependent.  Therefore, the determinant of
 	the matrix must be zero.
 	</p></li>
+
+	<li><p> If <m>\det(A) = 0</m> for some vector <m>\threevec
+	xyz</m>, then the columns of <m>A</m> must be linear
+	dependent.  Therefore, <m>\threevec xyz</m> is a linear
+	combination of <m>\vvec_1</m> and <m>\vvec_2</m> and lies in
+	the plane that is their span.</p></li>
       </ol></p>
     </solution>
     <answer>
       <p><ol marker="a.">
-	<li><p> <m>\det A =
+	<li><p> <m>\det(A) =
 	2x-y-2z = 0</m>. </p></li>
 
 	<li><p> If we replace the third column by either
 	<m>\vvec_1</m> or <m>\vvec_2</m>, we obtain a matrix whose
 	columns are linearly dependent. 
 	</p></li>
+
+	<li><p> If <m>\det(A)=0</m> for a vector <m>\threevec xyz</m>,
+	then <m>\threevec xyz</m> is a linear combination of
+	<m>\vvec_1</m> and <m>\vvec_2</m>.</p></li>
       </ol></p>
     </answer>
   </exercise>
@@ -478,12 +494,12 @@
 	1 \amp 0 \amp 0 \\
 	0 \amp 1 \amp 0 \\
 	-3 \amp 0 \amp 1 \\
-	\end{array}\right],
+	\end{array}\right],~~~
 	S = \left[\begin{array}{rrr}
 	1 \amp 0 \amp 0 \\
 	0 \amp 3 \amp 0 \\
 	0 \amp 0 \amp 1 \\
-	\end{array}\right],
+	\end{array}\right],~~~
 	P = \left[\begin{array}{rrr}
 	0 \amp 0 \amp 1 \\
 	0 \amp 1 \amp 0 \\
@@ -530,16 +546,16 @@
 	is <m>\vvec_1-3\vvec_2</m> and that the other two columns are
 	unchanged. </p>
 
-	<p> Since <m>\det R = 1</m>, we have <m>\det(AR) = \det A</m>,
+	<p> Since <m>\det(R) = 1</m>, we have <m>\det(AR) = \det(A)</m>,
 	which says that this operation does not change the
 	determinant. </p></li>
 
 	<li><p> Multiplying by <m>S</m>
-	multiplies the determinant by <m>3</m> since <m>\det S=3</m>.
+	multiplies the determinant by <m>3</m> since <m>\det(S)=3</m>.
 	</p></li>
 
 	<li><p> Multiplying by <m>P</m> changes the sign of the
-	determinant since <m>\det P = -1</m>. </p></li>
+	determinant since <m>\det(P) = -1</m>. </p></li>
 
 	<li><p> If we interchange the first and third columns of
 	<m>A</m>, we have 
@@ -550,7 +566,7 @@
 	  0 \amp 1 \amp 1 \\
 	  \end{array}\right]
 	</me>
-	and <m>\det A = -\det A_1</m>.  Now we will multiply the first
+	and <m>\det(A) = -\det(A_1)</m>.  Now we will multiply the first
 	column by <m>3</m> and add to the second column to obtain
 	<me>
 	  A_2=\left[\begin{array}{rrr}
@@ -559,7 +575,7 @@
 	  0 \amp 1 \amp 1 \\
 	  \end{array}\right]
 	</me>
-	and <m>\det A = -\det A_2</m>.  Let's interchange the second
+	and <m>\det(A) = -\det(A_2)</m>.  Let's interchange the second
 	and third columns so that
 	<me>
 	  A_3=\left[\begin{array}{rrr}
@@ -568,7 +584,7 @@
 	  0 \amp 1 \amp 1 \\
 	  \end{array}\right]
 	</me>
-	so that <m>\det A = \det A_3</m> and then multiply the second
+	so that <m>\det(A) = \det(A_3)</m> and then multiply the second
 	column by <m>-13</m> and add to the third column so that
 	<me>
 	  A_4=\left[\begin{array}{rrr}
@@ -577,7 +593,7 @@
 	  0 \amp 1 \amp -12 \\
 	  \end{array}\right]\text{.}
 	</me>
-	This gives <m>\det A = \det A_4 = -12</m>.
+	This gives <m>\det(A) = \det(A_4) = -12</m>.
 	</p></li>
       </ol></p>
     </solution>
@@ -585,13 +601,13 @@
     <answer>
       <p><ol marker="a.">
 	<li><p> Column replacements do not change the determinant
-	because <m>\det R=1</m>. </p></li>
+	because <m>\det(R)=1</m>. </p></li>
 	<li><p> Scaling a column by <m>r</m> multiplies the
 	determinant by <m>r</m> 
-	because <m>\det S=r</m>. </p></li>
+	because <m>\det(S)=r</m>. </p></li>
 	<li><p> Interchanges change the sign of the determinant
-	because <m>\det P=-1</m>. </p></li>
-	<li><p> <m>\det A = -12</m>. </p></li>
+	because <m>\det(P)=-1</m>. </p></li>
+	<li><p> <m>\det(A) = -12</m>. </p></li>
       </ol></p>
     </answer>
   </exercise>
@@ -605,13 +621,13 @@
 	0 \amp 0 \amp 1 \amp 0 \\
 	0 \amp 0 \amp 0 \amp 1 \\
 	1 \amp 0 \amp 0 \amp 0 \\
-	\end{array}\right],
+	\end{array}\right],~~~
 	B = \left[\begin{array}{rrrr}
 	0 \amp 1 \amp 0 \amp 0 \\
 	1 \amp 0 \amp 0 \amp 0 \\
 	0 \amp 0 \amp 0 \amp 1 \\
 	0 \amp 0 \amp 1 \amp 0 \\
-	\end{array}\right],
+	\end{array}\right],~~~
 	C = \left[\begin{array}{rrrr}
 	0 \amp 0 \amp 0 \amp a \\
 	0 \amp 0 \amp b \amp 0 \\
@@ -625,17 +641,17 @@
 
     <solution>
       <p> It takes three interchanges to see that <m>A\sim
-      I</m>, which implies that <m>\det A = -1</m>. </p>
+      I</m>, which implies that <m>\det(A) = -1</m>. </p>
 
       <p> Two interchanges show us that <m>A\sim I</m> and hence
-      <m>\det B = 1</m>. </p>
+      <m>\det(B) = 1</m>. </p>
 
       <p> Two interchanges produce a diagonal matrix so that
-      <m>\det C = abcd</m>. </p>
+      <m>\det(C) = abcd</m>. </p>
     </solution>
 
     <answer>
-      <p> <m>\det A = -1</m>, <m>\det B = 1</m>, and <m>\det C =
+      <p> <m>\det(A) = -1</m>, <m>\det(B) = 1</m>, and <m>\det(C) =
       abcd</m>. </p>
     </answer>
   </exercise>
@@ -687,23 +703,23 @@
 
     <solution>
       <p><ol marker="a.">
-	<li><p> <m>\det A = -1</m>, <m>\det B = 0</m>, <m>\det C =
-	1</m>, and <m>\det D = 0</m>. </p></li>
+	<li><p> <m>\det(A) = -1</m>, <m>\det(B) = 0</m>, <m>\det(C) =
+	1</m>, and <m>\det(D) = 0</m>. </p></li>
 
 	<li><p> If <m>E</m> and <m>F</m> are the <m>6\times6</m> and
-	<m>7\times7</m> matrices, respectively, we expect that <m>\det
-	E = -1</m> and <m>\det F = 0</m>. </p></li>
+	<m>7\times7</m> matrices, respectively, we expect that
+	<m>\det(E) = -1</m> and <m>\det(F) = 0</m>. </p></li> 
       </ol></p>
     </solution>
 
     <answer>
       <p><ol marker="a.">
-	<li><p> <m>\det A = -1</m>, <m>\det B = 0</m>, <m>\det C =
-	1</m>, and <m>\det D = 0</m>. </p></li>
+	<li><p> <m>\det(A) = -1</m>, <m>\det(B) = 0</m>, <m>\det(C) =
+	1</m>, and <m>\det(D) = 0</m>. </p></li>
 
 	<li><p> If <m>E</m> and <m>F</m> are the <m>6\times6</m> and
-	<m>7\times7</m> matrices, respectively, we expect that <m>\det
-	E = -1</m> and <m>\det F = 0</m>. </p></li>
+	<m>7\times7</m> matrices, respectively, we expect that
+	<m>\det(E) = -1</m> and <m>\det(F) = 0</m>. </p></li> 
       </ol></p>
     </answer>
     
@@ -720,10 +736,11 @@
 	\end{array}\right]
       </me>.
       <ol marker="a.">
-	<li><p> Use row operations to explain why <m>\det V =
+	<li><p> Use row operations to explain why <m>\det(V) =
 	(b-a)(c-a)(c-b)</m>.  </p></li>
 
-	<li><p> Explain why <m>V</m> is invertible if <m>a</m>,
+	<li><p> Explain why <m>V</m> is invertible if and only if
+	<m>a</m>, 
 	<m>b</m>, and <m>c</m> are all distinct real
 	numbers. </p></li>
 
@@ -734,7 +751,7 @@
       </ol>
       </p>
       <p> This matrix appeared in <xref ref="exercise-poly-fit" />
-      when we were finding a polynomial that passed through a given
+      when we were found a polynomial that passed through a given
       set of points.
       </p>
     </statement>
@@ -742,7 +759,7 @@
     <solution>
       <p><ol marker="a.">
 	<li><p> If <m>a</m>, <m>b</m>, and <m>c</m> are not distinct,
-	we see that <m>\det V=0</m> because two of the rows are identical.
+	we see that <m>\det(V)=0</m> because two of the rows are identical.
 	Therefore, we apply the following row operations, assuming
 	<m>a</m>, <m>b</m>, and <m>c</m> are distinct:
 	<me>
@@ -774,11 +791,11 @@
 	  \end{array}
 	</me>
 	Because of the scalings by <m>b-a</m> and <m>c-a</m>, we have
-	<m>\det V = (b-a)(c-a)(c-b)</m>.
+	<m>\det(V) = (b-a)(c-a)(c-b)</m>.
 	</p></li>
 
 	<li><p> If <m>a</m>, <m>b</m>, and <m>c</m> are distinct, then
-	<m>\det V \neq 0</m>, which implies that <m>V</m> is
+	<m>\det(V) \neq 0</m>, which implies that <m>V</m> is
 	invertible. </p></li>
 
 	<li><p> In the <m>4\times4</m> case, we have
@@ -801,7 +818,7 @@
 	triangular matrix. </p></li>
 
 	<li><p> If <m>a</m>, <m>b</m>, and <m>c</m> are distinct, then
-	<m>\det V \neq 0</m>.
+	<m>\det(V) \neq 0</m>.
 	</p></li>
 
 	<li><p> The determinant is

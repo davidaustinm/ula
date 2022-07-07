@@ -23,7 +23,7 @@
       </sidebyside>
       <caption>
 	An image stored as a <m>1440\times1468</m> array of pixels
-	along with a close up of a smaller <m>8\times8</m> array.
+	along with a close-up of a smaller <m>8\times8</m> array.
       </caption>
     </figure>
     
@@ -50,17 +50,17 @@
     stored in the JPEG format, requires only 467,359 bytes of data,
     which is about 7% of the 6.3 megabytes required to display the
     image.  That is, when we display this image, we are reconstructing
-    it from only 7% of the original data.  This isn't too suprising
+    it from only 7% of the original data.  This isn't too surprising
     since there is quite a bit of redundancy in the image; the left
     half of the image is almost uniformly blue.  The JPEG algorithm
-    detects this redundancy by representing the data using appropriate
-    bases.  
+    detects this redundancy by representing the data using 
+    bases that are well-suited to the task.
     </p>
 
     <exploration>
       <statement>
       <p> Since we will be using various bases and the coordinate
-      systems they define, let's review how we translate between
+      systems they define, let's review how to translate between
       coordinate systems.
       <ol marker="a.">
 	<li><p> Suppose that we have a basis
@@ -100,27 +100,27 @@
 	  are the weights that express <m>\xvec</m> as a linear
 	  combination of the basis vectors;  that is,
 	  <m>\coords{\xvec}{\bcal} =
-	  \fourvec{c_1}{c_2}{\vdots}{c_m}</m> if
+	  \cfourvec{c_1}{c_2}{\vdots}{c_m}</m> if
 	  <m>\xvec=c_1\vvec_1+c_2\vvec_2+\ldots+c_m\vvec_m</m>.
 	</p></li>
 
-	<li><p> If we form the matrix <m>C_{\bcal} =
+	<li><p> If we form the matrix <m>P_{\bcal} =
 	\left[\begin{array}{rrrr}
 	\vvec_1 \amp \vvec_2 \amp \ldots \amp \vvec_m
 	\end{array}\right]</m>, then
-	<m>\xvec=C_{\bcal}\coords{\xvec}{\bcal}</m>.
+	<m>\xvec=P_{\bcal}\coords{\xvec}{\bcal}</m>.
 	</p></li>
 
 	<li><p> As before, 
-	<m>\coords{\xvec}{\bcal}=C_{\bcal}^{-1}\xvec</m>.
+	<m>\coords{\xvec}{\bcal}=P_{\bcal}^{-1}\xvec</m>.
 	</p></li>
 
-	<li><p> We find <m>\xvec=C_{\bcal}\coords{\xvec}{\bcal} =
+	<li><p> We find <m>\xvec=P_{\bcal}\coords{\xvec}{\bcal} =
 	\twovec{-1}{1}</m>.
 	</p></li>
 
 	<li><p> We find
-	<m>\coords{\xvec}{\bcal}=C_{\bcal}^{-1}\xvec =
+	<m>\coords{\xvec}{\bcal}=P_{\bcal}^{-1}\xvec =
 	\twovec{-3}{5}</m>.
 	</p></li>
       </ol></p>
@@ -145,7 +145,7 @@
     describe a color by putting its constituent amounts of red, green,
     and blue into a vector <m>\threevec{R}{G}{B}</m>.  The quantities
     <m>R</m>, <m>G</m>, and <m>B</m> are stored with one byte of
-    information so they are allowed to vary between 0 and 255.  This
+    information so they are integers between 0 and 255.  This
     is called the <m>RGB</m> color model.
     <idx> <m>RGB</m> color model </idx>
     </p>
@@ -153,10 +153,10 @@
     <p> We define a basis <m>\bcal=\{\vvec_1,\vvec_2,\vvec_3\}</m>
     where
     <me>
-      \vvec_1 =\left[\begin{array}{r} 1 \\ 1 \\ 1 \end{array}\right],
-      \vvec_2 =\left[\begin{array}{r} 0 \\ -0.34413 \\ 1.77200
-      \end{array}\right],
-      \vvec_3 =\left[\begin{array}{r} 1.40200 \\ -0.71414 \\
+      \vvec_1 =\left[\begin{array}{c} 1 \\ 1 \\ 1 \end{array}\right],~~~
+      \vvec_2 =\left[\begin{array}{c} 0 \\ -0.34413 \\ 1.77200
+      \end{array}\right],~~~
+      \vvec_3 =\left[\begin{array}{c} 1.40200 \\ -0.71414 \\
       0 \end{array}\right]
     </me>
     to define a new coordinate system with coordinates we denote
@@ -179,8 +179,9 @@
 
     <activity>
       <statement>
-      <p> In this activity, we will explore the difference between
-      these two coordinate systems.
+      <p> This activity investigates these two color models, which we
+      view as coordinate systems for 
+      describing colors.
       </p>
       <p><ol marker="a.">
 	<li>
@@ -213,10 +214,24 @@
 		  0 and 255.
 		</p>
 	      </instructions>
+	    <static>
+	      <sidebyside width="100%">
+		<p>
+		  There is an interactive diagram,
+		  available at the top of the page <url
+		  href="http://gvsu.edu/s/0Jc"
+		  visual="gvsu.edu/s/0Jc"/>, that
+		  accompanies this activity.
+		</p>
+	      </sidebyside>
+	      <sidebyside width="50%">
+		<image source="preview/rgb-preview.png"/>
+	      </sidebyside>
+	    </static>		
 	    </interactive>
 	  </figure>
 	  
-	  <p><ol marker="i.">
+	  <p><ol marker="1.">
 	    <li><p> What happens when <m>G=0</m>, <m>B=0</m>
 	    (pushed all the way to the left), and
 	    <m>R</m> is allowed to vary? </p></li>
@@ -255,15 +270,29 @@
 		The diagram below enables you to create colors using
 		various amounts of luminance <m>Y</m>, blue
 		chrominance <m>C_b</m>, and red chrominance
-		<m>C_r</m>.  The lumninance slider moves between 0 and
+		<m>C_r</m>.  The luminance slider moves between 0 and
 		255 while the chrominance sliders move between -127.5
 		and 127.5.
 	      </p>
 	    </instructions>
+	    <static>
+	      <sidebyside width="100%">
+		<p>
+		  There is an interactive diagram,
+		  available in the middle of the page <url
+		  href="http://gvsu.edu/s/0Jc"
+		  visual="gvsu.edu/s/0Jc"/>, that
+		  accompanies this activity.
+		</p>
+	      </sidebyside>
+	      <sidebyside width="50%">
+		<image source="preview/ycbcr-preview.png"/>
+	      </sidebyside>
+	    </static>		
 	  </interactive>
 	</figure>
 	  
-	<p><ol marker="i.">
+	<p><ol marker="1.">
 	  <li><p> What happens when <m>C_b=0</m> and <m>C_r=0</m>
 	  (kept in the center) and
 	  <m>Y</m> is allowed to vary? </p></li>
@@ -288,10 +317,10 @@
       </p>
 	</li>
 	
-	<li><p> Find the matrix <m>C_{\bcal}</m> that converts from
+	<li><p> Find the matrix <m>P_{\bcal}</m> that converts from
 	<m>\threevec{Y}{C_b}{C_r}</m> coordinates into
 	<m>\threevec{R}{G}{B}</m> coordinates.  Then find the matrix
-	<m>C_{\bcal}^{-1}</m> that converts from
+	<m>P_{\bcal}^{-1}</m> that converts from
 	<m>\threevec{R}{G}{B}</m> coordinates back into
 	<m>\threevec{Y}{C_b}{C_r}</m> coordinates.
       </p>
@@ -301,11 +330,9 @@
 	<li><p> Find the <m>\threevec{Y}{C_b}{C_r}</m> coordinates for
 	the following colors and check, using the diagrams above, that
 	the two representations agree.
-	<ol marker="i.">
+	<ol marker="1.">
 	  <li><p> Pure red is <m>\threevec{R}{G}{B}=
 	  \threevec{255}{0}{0}</m>. </p></li>
-	  <li><p> Pure green is <m>\threevec{R}{G}{B}=
-	  \threevec{0}{255}{0}</m>. </p></li>
 	  <li><p> Pure blue is <m>\threevec{R}{G}{B}=
 	  \threevec{0}{0}{255}</m>. </p></li>
 	  <li><p> Pure white is <m>\threevec{R}{G}{B}=
@@ -318,7 +345,7 @@
 	<li><p> Find the <m>\threevec{R}{G}{B}</m> coordinates for the
 	following colors and check, using the diagrams above, that the
 	two representations agree.
-	<ol marker="i.">
+	<ol marker="1.">
 	  <li><p>
 	  <m>\threevec{Y}{C_b}{C_r}=\threevec{128}{0}{0}</m>. </p></li> 
 	  <li><p>
@@ -330,7 +357,7 @@
       </li>
 
 	<li><p> Write an expression for
-	<ol marker="i.">
+	<ol marker="1.">
 	  <li><p> The luminance <m>Y</m> as it depends on <m>R</m>,
 	  <m>G</m>, and <m>B</m>. </p></li>
 	  <li><p> The blue chrominance <m>C_b</m> as it depends on <m>R</m>,
@@ -341,7 +368,7 @@
 
 	<p> Explain how these quantities can be roughly interpreted by
 	stating that
-	<ol marker="i.">
+	<ol marker="1.">
 	  <li><p> the luminance represents the brightness of the
 	  color. </p></li>
 	  <li><p> the blue chrominance measures the amount of blue in
@@ -358,7 +385,7 @@
 	<p><ol marker="a.">
 	  <li><p> Working with the <m>RGB</m> color model, we find
 	  that
-	  <ol marker="i.">
+	  <ol marker="1.">
 	    <li><p> we produce red with varying degrees of
 	    brightness. </p></li> 
 	    <li><p> we produce blue with varying degrees of
@@ -370,7 +397,7 @@
 
 	  <li><p> Working with the <m>YC_bC_r</m> color model, we find
 	  that
-	  <ol marker="i.">
+	  <ol marker="1.">
 	    <li><p> we produce gray with varying degrees of
 	    brightness. </p></li>
 	    <li><p> we produce blue with varying degrees of
@@ -391,7 +418,7 @@
 	  <li><p>
 	    The matrices are
 	    <me>
-	      C_{\bcal} =
+	      P_{\bcal} =
 	      \left[\begin{array}{rrr}
 	      1.0000 \amp 0.00000 \amp 1.4020 \\
 	      1.0000 \amp -0.34413 \amp -0.71414 \\
@@ -400,7 +427,7 @@
 	    </me>
 	    and
 	    <me>
-	      C_{\bcal}^{-1} =
+	      P_{\bcal}^{-1} =
 	      \left[\begin{array}{rrr}
 	      0.29900 \amp 0.58700 \amp 0.11400 \\
 	      -0.16874 \amp -0.33126 \amp 0.50000 \\
@@ -410,15 +437,11 @@
 	  </p></li>
 
 	  <li><p> To convert from <m>RGB</m> to <m>YC_bC_r</m>, we
-	  multiply by <m>C_{\bcal}^{-1}</m> so that
-	  <ol marker="i.">
+	  multiply by <m>P_{\bcal}^{-1}</m> so that
+	  <ol marker="1.">
 	    <li><p>
 	      <m>\threevec{Y}{C_b}{C_r} =
 	      \threevec{76.2}{-43.0}{127.5}</m>
-	    </p></li>
-	    <li><p>
-	      <m>\threevec{Y}{C_b}{C_r} =
-	      \threevec{149.7}{-84.5}{-105.8}</m>
 	    </p></li>
 	    <li><p>
 	      <m>\threevec{Y}{C_b}{C_r} =
@@ -436,7 +459,7 @@
 	  </p></li>
 
 	  <li><p> To convert from <m>YC_bC_r</m> to <m>RGB</m>, we
-	  multiply by <m>C_{\bcal}</m> so that
+	  multiply by <m>P_{\bcal}</m> so that
 	  <ol marker="i.">
 	    <li><p>
 	      <m>\threevec{R}{G}{B} = \threevec{128}{128}{128}</m>
@@ -476,7 +499,7 @@
     <p> These two color models provide us with two ways to represent
     colors, each of which is useful in a certain context.  Digital
     displays, such as those in phones and computer monitors, create
-    colors by combining differing amounts of red, green, and blue.
+    colors by combining various amounts of red, green, and blue.
     The <m>RGB</m> model is therefore most relevant in digital
     applications.
     </p>
@@ -492,7 +515,7 @@
     <p> To see this explicitly, shown in <xref
     ref="fig-jpeg-luminance" /> is the original image and the image as
     rendered with only the luminance.  That is, on the right, the
-    color of each pixel is represented by only byte, which is the
+    color of each pixel is represented by only one byte, which is the
     luminance. This image essentially looks like a grayscale version
     of the original image with all its visual detail.  In fact, before
     digital television became the standard, television signals were
@@ -527,13 +550,13 @@
       </caption>
     </figure>
 
-    <p> In the JPEG compression algorithm, we are interested in
-    representing an image using the smallest amount of data possible.
-    By converting from the <m>RGB</m> color model to the
-    <m>YC_bC_r</m> color model, we are concentrating the most visually
-    important data into a single quantity.  This is helpful because we
-    can safely ignore some of the data in the chrominance values
-    since that data is not as visually important.
+    <p> The aim of the JPEG compression algorithm is to represent an
+    image using the smallest amount of data possible.  By converting
+    from the <m>RGB</m> color model to the <m>YC_bC_r</m> color model,
+    we are concentrating the most visually important data into 
+    the luminance values.  This is helpful because we can
+    safely ignore some of the data in the chrominance values since
+    that data is not as visually important.
     </p>
 
   </subsection>
@@ -542,8 +565,8 @@
     <title> The JPEG compression algorithm </title>
 
     <p> The key to representing the image using a smaller amount of
-    data is to detect redundancies in the data.  For this reason, we
-    will break the image, which is composed of <m>1440\times 1468</m>
+    data is to detect redundancies in the data.  To begin, we
+    first break the image, which is composed of <m>1440\times 1468</m>
     pixels, into small <m>8\times8</m> blocks of pixels.  For example,
     we will consider the <m>8\times8</m> block of pixels outlined in
     green in the original image, shown on the left of <xref
@@ -570,7 +593,7 @@
 
     <figure xml:id="fig-jpeg-block-zoom">
       <sidebyside widths="45% 45%">
-	<p> Here we see a close up of the block.  The important point
+	<p> Here we see a close-up of the block.  The important point
 	here is that the colors do not change too much over this
 	block.  In fact, we expect this to be true for most of the
 	blocks.  There will, of course, be some blocks that contain
@@ -578,8 +601,7 @@
 	but they will be the exception.</p>
 	<image source="images/jpeg-orig-block" />
       </sidebyside>
-      <caption> A close up of the <m>8\times8</m> block we are
-      considering.  
+      <caption> The <m>8\times8</m> block under consideration.
       </caption>
     </figure>
 
@@ -616,7 +638,7 @@
     176 \\ 181 \\ 165 \\ \vdots \\ 150 \\
     \end{array}\right]
     </me>.
-    We will perform a change of basis so that we can describe this
+    We will perform a change of basis and describe this
     vector by the average of the luminance values and
     information about variations from the average.
     </p>
@@ -624,7 +646,7 @@
     <p>
       <idx> Discrete Fourier Transform </idx>
       The JPEG compression algorithm uses the <em>Discrete Fourier
-    Transform</em>, which is defined using the basis <m>\ccal</m>
+    Transform</em>, which is defined using the basis <m>\bcal</m>
     whose basis vectors are
     <me>
       \begin{aligned}
@@ -665,10 +687,11 @@
     make sense of it by looking at these vectors graphically.  Shown
     in <xref ref="fig-jpeg-fourier-basis" /> are four of these basis
     vectors.  Notice that <m>\vvec_0</m> is constantly 1,
-    <m>\vvec_1</m> is relatively slowly varying, <m>\vvec_2</m> varies
+    <m>\vvec_1</m> varies relatively slowly, <m>\vvec_2</m> varies
     a little more rapidly, and <m>\vvec_7</m> varies quite rapidly.
-    This is the main observation:  the basis vectors vary at different
-    rates with the first vectors varying relatively slowly.
+    The main thing to notice is that:  the basis vectors vary at
+    different rates with the first vectors varying relatively slowly
+    and the later vectors varying more rapidly.
     </p>
 
     <figure xml:id="fig-jpeg-fourier-basis">
@@ -682,12 +705,12 @@
     </figure>
 
     <sidebyside widths="45% 50%">
-      <p> These vectors form the basis <m>\ccal</m> for <m>\real^8</m>.
+      <p> These vectors form the basis <m>\bcal</m> for <m>\real^8</m>.
       Remember that <m>\xvec</m> is the vector of luminance values in
       the first column as seen on the right.  We will write
       <m>\xvec</m> in the new coordinates
       <me>
-	\coords{\xvec}{\ccal} = \left[\begin{array}{c}
+	\coords{\xvec}{\bcal} = \left[\begin{array}{c}
 	F_0 \\ F_1 \\ F_2 \\ \vdots \\ F_7
 	\end{array}\right]
       </me>.
@@ -701,68 +724,186 @@
       <statement>
       <p> We will explore the influence that the Fourier coefficients
       have on the vector <m>\xvec</m>.
-      </p>
 
-  	<figure xml:id="js-fourier">
-	  <caption>
-	    The effect of the Fourier coefficients on <m>\xvec =
-	    F_0\vvec_1 + F_3\vvec_3 + F_7\vvec_7</m>. 
-	  </caption>
-	  
-	  <interactive xml:id="interactive-fourier"
-		       platform="javascript" width="100%"
-		       aspect="3:2"
-		       source="jslibrary/figures.js
-			       jslibrary/fourier.js"
-		       preview="preview/fourier-preview.png">
-	    <sbsgroup>
-	      <sidebyside width="66%">
-		<slate xml:id="fourier"
-		       aspect="1:1"
+      <ol marker="a.">
+	<li>
+	  <p>
+	    To begin, we'll look at the Fourier
+	    coefficient <m>F_0</m>.
+	  </p>
+  	  <figure xml:id="js-fourier-0">
+	    <caption>
+	      The effect of the Fourier coefficient <m>F_0</m> on the
+	      vector <m>\xvec = F_0\vvec_0</m>.
+	    </caption>
+	    
+	    <interactive xml:id="interactive-fourier-0"
+			 platform="javascript" width="100%"
+			 aspect="100:35"
+			 source="jslibrary/figures.js
+				 jslibrary/fourier0.js"
+			 preview="preview/fourier0-preview.png">
+	      <sidebyside width="70%">
+		<slate xml:id="fourier0"
+		       aspect="2:1"
 		       surface="canvas" />
 	      </sidebyside>
-	    </sbsgroup>
-	    <instructions>
-	      <p>
-		The diagram below enables you to vary three of the Fourier
-		coefficients 
-		<m>F_0</m>, <m>F_3</m>, and <m>F_7</m>
-		and observe the effect on <m>\xvec</m>.
-	      </p>
-	    </instructions>
-	  </interactive>
-	</figure>    
+	      <instructions>
+		<p>
+		  Use the slider below to explore how the Fourier
+		  coefficient <m>F_0</m>
+		  influences the vector <m>\xvec</m>.
+		</p>
+	      </instructions>
+	      <static>
+		<sidebyside width="100%">
+		  <p>
+		    There is an interactive diagram that accompanies
+		    this part of the activity and that is available at
+		    the top of <url href="http://gvsu.edu/s/0Jd"
+		    visual="gvsu.edu/s/0Jd"/>.
+		  </p>
+		</sidebyside>
+		<sidebyside width="50%">
+		  <image source="preview/fourier0-preview.png" />
+		</sidebyside>
+	      </static>
+	    </interactive>
+	  </figure>
 
-      <p><ol marker="a.">
-	<li><p> Describe the effect on the vector <m>\xvec</m> when
-	you vary <m>F_0</m>. </p></li>
+	  <p>
+	    Describe the effect that <m>F_0</m> has on the
+	    vector <m>\xvec</m>.  Would you describe the
+	    components in <m>\xvec</m> as constant, slowly
+	    varying, or rapidly varying?
+	  </p>
+	</li>
 
-	<li><p> Now observe the effect on <m>\xvec</m> when <m>F_3</m>
-	and <m>F_7</m> are varied.  Compare the effect of <m>F_0</m>,
-	<m>F_3</m>, and <m>F_7</m>. </p></li>
+	<li>
+	  <p>
+	    By comparison, let's see how the Fourier coefficient
+	    <m>F_3</m> influences <m>\xvec</m>.
+	  </p>
+  	  <figure xml:id="js-fourier-3">
+	    <caption>
+	      The effect of the Fourier coefficient <m>F_3</m> on the
+	      vector <m>\xvec = F_3\vvec_3</m>.
+	    </caption>
+	    
+	    <interactive xml:id="interactive-fourier-3"
+			 platform="javascript" width="100%"
+			 aspect="100:35"
+			 source="jslibrary/figures.js
+				 jslibrary/fourier3.js"
+			 preview="preview/fourier3-preview.png">
+	      <sidebyside width="70%">
+		<slate xml:id="fourier3"
+		       aspect="2:1"
+		       surface="canvas" />
+	      </sidebyside>
+	      <instructions>
+		<p>
+		  Use the slider below to explore how the Fourier
+		  coefficient <m>F_3</m>
+		  influences the vector <m>\xvec</m>.
+		</p>
+	      </instructions>
+	      <static>
+		<sidebyside width="100%">
+		  <p>
+		    There is an interactive diagram that accompanies
+		    this part of the activity and that is available in
+		    the middle of <url href="http://gvsu.edu/s/0Jd"
+		    visual="gvsu.edu/s/0Jd"/>.
+		  </p>
+		</sidebyside>
+		<sidebyside width="50%">
+		  <image source="preview/fourier3-preview.png" />
+		</sidebyside>
+	      </static>
+	    </interactive>
+	  </figure>
 
-	<li><p> If the vector <m>\xvec</m> shows only small
-	variations, what would you expect to be true of the Fourier
+	  <p>
+	    Describe the effect that <m>F_3</m> has on the
+	    vector <m>\xvec</m>.  Would you describe the
+	    components in <m>\xvec</m> as constant, slowly
+	    varying, or rapidly varying?
+	  </p>
+	</li>
+
+	<li>
+	  <p>
+	    Let's now investigate how the Fourier coefficient
+	    <m>F_7</m> influences the vector <m>\xvec</m>.
+	  </p>
+  	  <figure xml:id="js-fourier-7">
+	    <caption>
+	      The effect of the Fourier coefficient <m>F_0</m> on the
+	      vector <m>\xvec = F_7\vvec_7</m>.
+	    </caption>
+	    
+	    <interactive xml:id="interactive-fourier-7"
+			 platform="javascript" width="100%"
+			 aspect="100:35"
+			 source="jslibrary/figures.js
+				 jslibrary/fourier7.js"
+			 preview="preview/fourier7-preview.png">
+	      <sidebyside width="70%">
+		<slate xml:id="fourier7"
+		       aspect="2:1"
+		       surface="canvas" />
+	      </sidebyside>
+	      <instructions>
+		<p>
+		  Use the slider below to explore how the Fourier
+		  coefficient <m>F_7</m>
+		  influences the vector <m>\xvec</m>.
+		</p>
+	      </instructions>
+	      <static>
+		<sidebyside width="100%">
+		  <p>
+		    There is an interactive diagram that accompanies
+		    this part of the activity and that is available at
+		    the bottom of <url href="http://gvsu.edu/s/0Jd"
+		    visual="gvsu.edu/s/0Jd"/>.
+		  </p>
+		</sidebyside>
+		<sidebyside width="50%">
+		  <image source="preview/fourier7-preview.png" />
+		</sidebyside>
+	      </static>
+	    </interactive>
+	  </figure>
+
+	  <p>
+	    Describe the effect that <m>F_7</m> has on the
+	    vector <m>\xvec</m>.  Would you describe the
+	    components in <m>\xvec</m> as constant, slowly
+	    varying, or rapidly varying?
+	  </p>
+	</li>
+
+	<li><p> If the components of <m>\xvec</m> vary relatively
+	slowly, what would you expect to be true of the Fourier
 	coefficients <m>F_j</m>? </p></li>
 
 	<li><p> The Sage cell below will construct the vector
-	<m>C_{\bcal}</m>, which is denoted <c>C</c>, and its inverse
-	<m>C_{\bcal}^{-1}</m>,
-	which is denoted <c>Cinv</c>.  Evaluate this Sage cell and
-	notice that it prints the matrix <m>C_{\bcal}^{-1}</m>.
+	<m>P_{\bcal}</m>, which is denoted <c>P</c>, and its inverse
+	<m>P_{\bcal}^{-1}</m>,
+	which is denoted <c>Pinv</c>.  Evaluate this Sage cell and
+	notice that it prints the matrix <m>P_{\bcal}^{-1}</m>.
 	<sage xml:id="sage-dct-def">
 	  <input>
-mat = []
-for i in range(8):
-    for j in range(8):
-        mat.append(cos((2*i+1)*j*pi/16))
-C = matrix(8,8, mat).numerical_approx()
-Cinv = C.inverse()	
-print (Cinv.numerical_approx(digits=3))
+mat = [[cos((2*i+1)*j*pi/16) for j in range(8)] for i in range(8)]
+P = matrix(mat).numerical_approx()
+Pinv = P.inverse()	
+print (Pinv.numerical_approx(digits=3))
 	  </input>
 	</sage>
 	Now look at the form of 
-	<m>C_{\bcal}^{-1}</m> and explain why <m>F_0</m> is the
+	<m>P_{\bcal}^{-1}</m> and explain why <m>F_0</m> is the
 	average of the luminance values in the vector
 	<m>\xvec</m>.	
 	</p></li>
@@ -775,7 +916,7 @@ print (Cinv.numerical_approx(digits=3))
 	coefficients  
 	<m>F_0,F_1,\ldots,F_7</m>.  If you have
 	evaluated the cell above, you will still be able to refer to
-	<c>C</c> and <c>Cinv</c> in this cell.  
+	<c>P</c> and <c>Pinv</c> in this cell.  
 	<sage>
 	  <input>
 x = vector([176,181,165,139,131,131,140,150])
@@ -789,16 +930,13 @@ print (f.numerical_approx(digits=4))
 	</p></li>
 
 	<li><p>
-	  We see that the coefficients <m>F_6</m> and <m>F_7</m>,
-	  which correspond to rapid variations in the luminance
-	  values, are quite small.  Let's see what happens when
-	  we ignore them.  Form a new vector of Fourier coefficients
-	  by rounding the coefficients to the nearest integer and
-	  setting <m>F_6</m> and <m>F_7</m> to zero.  This is an
-	  approximation to <m>\fvec</m>, the vector of Fourier
-	  coefficients.  Use the approximation to <m>\fvec</m>
-	  to form an approximation of the vector
-	  <m>\xvec</m>.
+	  Let's see what happens when we simply ignore the
+	  coefficients <m>F_6</m> and <m>F_7</m>.  Form a new vector of
+	  Fourier coefficients by rounding the coefficients to the
+	  nearest integer and setting <m>F_6</m> and <m>F_7</m> to zero.
+	  This is an approximation to <m>\fvec</m>, the vector of
+	  Fourier coefficients.  Use the approximation to <m>\fvec</m>
+	  to form an approximation of the vector <m>\xvec</m>.
 	  <sage>
 	    <input>
 # define fapprox below and then find xapprox
@@ -870,8 +1008,11 @@ print (y_fourier.numerical_approx(digits=3))
 	components of <m>\xvec</m>.
       </p></li>
       <li><p>
-	Varying <m>F_3</m> introduces a slow variation into the
-	components of <m>\xvec</m>.  Varying <m>F_7</m> introduces a
+	The coefficient <m>F_3</m> introduces a slow variation into the
+	components of <m>\xvec</m>.
+      </p></li>
+      <li><p>
+	The coefficient <m>F_7</m> introduces a
 	rapid variation into the components of <m>\xvec</m>.
       </p></li>
       <li><p> The coefficients <m>F_j</m> with larger values of
@@ -879,7 +1020,7 @@ print (y_fourier.numerical_approx(digits=3))
       </p></li>
       <li><p> We have
       <me>
-	C_{\bcal}^{-1} =
+	P_{\bcal}^{-1} =
 	\left[\begin{array}{rrrrrrrr}
 	0.125 \amp 0.125 \amp 0.125 \amp 0.125 \amp 0.125 \amp 0.125
 	\amp 0.125 \amp 0.125 \\ 
@@ -905,7 +1046,7 @@ print (y_fourier.numerical_approx(digits=3))
 
       <li><p> We find that
       <me>
-	\fourvec{F_0}{F_1}{\vdots}{F_7} =
+	\cfourvec{F_0}{F_1}{\vdots}{F_7} =
 	\left[\begin{array}{c}
 	151.6\\
 	20.01\\
@@ -927,13 +1068,13 @@ print (y_fourier.numerical_approx(digits=3))
 	<me>\xvec=
 	\left[\begin{array}{c}
 	176 \\ 181 \\ 165 \\ 139 \\131 \\ 131 \\ 140 \\ 150
-	\end{array}\right],
+	\end{array}\right],~~~
 	\xvec_{\text{approx}} = 
 	\left[\begin{array}{c}
 	176 \\ 181 \\ 166 \\ 140 \\131 \\ 133 \\ 140 \\ 150
-	\end{array}\right]\text{.}
+	\end{array}\right]
 	</me>
-	This shows that the approximation is quite good.
+	showing that the approximation is quite good.
       </p></li>
 
       <li><p> We have
@@ -975,8 +1116,8 @@ print (y_fourier.numerical_approx(digits=3))
     Fourier coefficients for each of the columns of this block.  Once
     we notice that the Fourier coefficients across a row are
     relatively constant, it seems reasonable to find the Fourier coefficients
-    of the rows of the matrix of Fourier coefficients.  Doing so leads
-    to the matrix
+    of the <em>rows</em> of the matrix of Fourier coefficients.  Doing
+    so leads to the matrix
       <me>
 	\left[\begin{array}{rrrrrrrr}
 160.6 \amp -4.0 \amp -4.8 \amp -1.7 \amp 0.0 \amp 0.9 \amp 0.8 \amp
@@ -999,7 +1140,7 @@ print (y_fourier.numerical_approx(digits=3))
     Fourier coefficients, one matrix for each of the luminance, blue
     chrominance, and red chrominance values.  However, we store these
     Fourier coefficients as integers inside the JPEG file so we need
-    to round off coefficients to the nearest integer, as shown here:
+    to round off the coefficients to the nearest integer, as shown here:
     <me>\left[\begin{array}{rrrrrrrr}
     161 \amp -4 \amp -5 \amp -2 \amp 0 \amp 1 \amp 1 \amp 0  \\
 3 \amp 15 \amp 4 \amp 1 \amp -2 \amp 0 \amp 0 \amp 0  \\
@@ -1013,8 +1154,8 @@ print (y_fourier.numerical_approx(digits=3))
 </me>.
 </p>
 <p>
-  There are many zeroes in this matrix, and this observation is where
-  we can save space when creating a JPEG image file:  we will only
+  There are many zeroes in this matrix, and 
+  we can save space in a JPEG image file by only
   record the <em>nonzero</em> Fourier coefficients.
     </p>
 
@@ -1026,7 +1167,7 @@ print (y_fourier.numerical_approx(digits=3))
     </p>
 
     <figure xml:id="fig-jpeg-quality">
-      <sidebyside width="50%">
+      <sidebyside width="40%">
 	<image source="images/quality.jpg" />
       </sidebyside>
       <caption>
@@ -1046,9 +1187,9 @@ print (y_fourier.numerical_approx(digits=3))
     \amp 0 \amp 0 \\ 0 \amp 0 \amp 0 \amp 0 \amp 0 \amp 0 \amp 0 \amp
     0 \\ 0 \amp 0 \amp 0 \amp 0 \amp 0 \amp 0 \amp 0 \amp 0 \\ 0 \amp
     0 \amp 0 \amp 0 \amp 0 \amp 0 \amp 0 \amp 0 \\ 0 \amp 0 \amp 0
-    \amp 0 \amp 0 \amp 0 \amp 0 \amp 0 \\ \end{array}\right] </me>.
-    Notice that there are 12 Fourier coefficients, out of 64, that we
-    need to record.  Consequently, we only record <m>12/64 \approx
+    \amp 0 \amp 0 \amp 0 \amp 0 \amp 0 \\ \end{array}\right]. </me>
+    Notice that there are 12 nonzero Fourier coefficients, out of 64, that we
+    need to record.  Consequently, we only save <m>12/64 \approx
     19\%</m> of the data.
     </p>
 
@@ -1066,7 +1207,7 @@ print (y_fourier.numerical_approx(digits=3))
 0 \amp 0 \amp 0 \amp 0 \amp 0 \amp 0 \amp 0 \amp 0  \\
 \end{array}\right]
 </me>. Notice that there are only 5 nonzero Fourier coefficients that
-we need to record now, meaning we record only <m>5/64\approx 8\%</m>
+we need to record now, meaning we save only <m>5/64\approx 8\%</m>
 of the data.  This will result in a smaller JPEG file describing the
 image.
     </p>
@@ -1117,7 +1258,7 @@ image.
     <p> If we remember that the visual information stored by the blue
     and red chrominance values is not as important as that contained
     in the luminance values, we feel safer in discarding more of the
-    Fourier coefficients for the chrominance values resulting in a
+    Fourier coefficients for the chrominance values resulting in an even
     greater savings.
     </p>
 
@@ -1139,15 +1280,17 @@ image.
       </caption>
     </figure>
 
-    <p> This description of the JPEG compression algorithm is meant to
-    convey the ideas that underlie its construction.  There are a few
+    <p> This discussion of the JPEG compression algorithm is meant to
+    explore the ideas that underlie its construction and demonstrate
+    the importance of a choice of basis and its
+    accompanying coordinate system.  There are a few
     details, most notably about the rounding of the Fourier
-    coefficents, that are not strictly accurate.  The actual
+    coefficients, that are not strictly accurate.  The actual
     implementation is a little more complicated, but the presentation
     here conveys the spirit of the algorithm.
     </p>
 
-    <p> We have described the JPEG compression algorithm, which allows
+    <p> The JPEG compression algorithm allows
     us to store image files using only a fraction of the data.
     Similar ideas are used to efficiently store digital music and
     video files.
@@ -1166,22 +1309,22 @@ image.
       which use vectors in <m>\real^3</m>.  We explored the <m>RGB</m>
       color model, which is appropriate in digital applications, and
       the <m>YC_bC_r</m> model, in which the most important visual
-      information is conveyed by the <m>Y</m> coordinate, known as
-      lumninance. </p></li>
+      information is conveyed by the <m>Y</m> component, known as
+      luminance. </p></li>
 
       <li><p> We also explored a change of basis called the Discrete
       Fourier Transform.  In the coordinate system that results, the
-      first coordinate measures the average of the components of a
-      vector.  Subsequent components measure deviations from the
-      average.  </p></li>
+      first coefficient measures the average of the components of a
+      vector.  Other coefficients measure variations in the components
+      away from the average.  </p></li>
 
       <li><p> We put both of these ideas to use in demonstrating the
       JPEG compression algorithm.  An image is broken into
       <m>8\times8</m> blocks, and the colors into luminance, blue
       chrominance, and red chrominance.  Applying the Discrete Fourier
       Transform allowed us to reconstruct a good
-      approximation of the image using only a small number of Fourier
-      coefficients. </p></li>
+      approximation of the image using only a fraction of the original
+      data. </p></li>
     </ul>
     </p>
 
