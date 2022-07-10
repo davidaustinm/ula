@@ -54,7 +54,7 @@ v.move = function(p) {
 v.fillColor = "red";
 
 var Av = new Vector([1,0]);
-Av.fillColor = "gray";
+Av.fillColor = "white";
 canvas.addPlotable(Av);
 canvas.addPlotable(v);
 canvas.addMoveable(v);

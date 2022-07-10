@@ -24,7 +24,7 @@
 	the homogeneous equation <m>A\xvec = \zerovec</m>.  What can
 	we conclude about the invertibility of <m>A</m>?  </p></li>
 
-	<li><p> How does the determinant <m>\det A</m> tell us if
+	<li><p> How does the determinant <m>\det(A)</m> tell us if
 	there is a nonzero solution to the homogeneous equation
 	<m>A\xvec = \zerovec</m>? </p></li>
 
@@ -36,11 +36,11 @@
 	  1 \amp 1 \amp 3 \\
 	  \end{array}\right]
 	</me>.
-	Find the determinant <m>\det A</m>.  What does this tell us
+	Find the determinant <m>\det(A)</m>.  What does this tell us
 	about the solution space to the homogeneous equation <m>A\xvec
 	= \zerovec</m>? </p></li>
 
-	<li><p> FInd a basis for <m>\nul(A)</m>.</p></li>
+	<li><p> Find a basis for <m>\nul(A)</m>.</p></li>
 
 	<li><p> What is the relationship between the rank of a matrix
 	and the dimension of its null space? </p></li>
@@ -54,9 +54,9 @@
 
 	  <li><p> If there is a nonzero solution to the homogeneous
 	  equation <m>A\xvec=\zerovec</m>, then <m>A</m> is not
-	  invertible so <m>\det A = 0</m>. </p></li>
+	  invertible so <m>\det(A) = 0</m>. </p></li>
 
-	  <li><p> We find that <m>\det A = 0</m> so there is a nonzero
+	  <li><p> We find that <m>\det(A) = 0</m> so there is a nonzero
 	  solution to the homogeneous equation. </p></li>
 
 	  <li><p> The reduced row echelon form of <m>A</m> is
@@ -73,8 +73,8 @@
 	  <m>\nul(A)</m> is therefore
 	  <m>\threevec{-1}{-2}{1}</m>. </p></li>
 
-	  <li><p> If the matrix <m>A</m> has <m>n</m> columns, then
-	  <m>\dim~\nul(A) = n-\rank(A)</m>. </p></li>
+	  <li><p> If <m>A</m> is an <m>n\times n</m>
+	  matrix, then <m>\dim~\nul(A) = n-\rank(A)</m>. </p></li>
 
 	</ol></p>
       </solution>
@@ -88,7 +88,7 @@
     <p> We will first see that the eigenvalues of a square matrix
     appear as the roots of a particular polynomial.  To begin, notice
     that we originally defined an eigenvector as a nonzero vector
-    <m>\vvec</m> that satisfied the equation <m>A\vvec =
+    <m>\vvec</m> that satisfies the equation <m>A\vvec =
     \lambda\vvec</m>.  We will rewrite this as
     <me>
       \begin{aligned}
@@ -100,7 +100,7 @@
     </me>
     In other words, an eigenvector <m>\vvec</m> is a solution of the
     homogeneous equation <m>(A-\lambda I)\vvec=\zerovec</m>.  This
-    puts us in familiar territory, which we will explore in the next
+    puts us in the familiar territory explored in the next
     activity.
     </p>
 
@@ -150,11 +150,11 @@
 	obtain <m>\det(A-\lambda I) = 0</m>? </p></li>
 
 	<li><p> Use the determinant you found in the previous part to
-	find the eigenvalues <m>\lambda</m> by solving
+	find the eigenvalues <m>\lambda</m> by solving the equation
 	<m>\det(A-\lambda I) = 0</m>.  We considered this matrix in
-	the previous section so we should find the same eigenvalues
-	for <m>A</m> that we found by reasoning geometrically
-	there. </p></li> 
+	<xref ref="activity-eigen-geom"/> so we should find the same
+	eigenvalues for <m>A</m> that we found by reasoning
+	geometrically there. </p></li>
 
 	<li><p> Consider the matrix
 	<m>A = \left[\begin{array}{rr}
@@ -187,8 +187,53 @@
 
       <solution>
 	<p>
-	  The solutions to this activity are given in the text
-	  below.
+	  <ol marker="a.">
+	    <li>
+	      <p>
+		The matrix <m>A-\lambda I</m> cannot be invertible.
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		It must be the case that <m>\det(A-\lambda I) = 0</m>.
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		We find that <m>\det(A-\lambda I) = \lambda^2 -
+		2\lambda - 3 = 0</m>.
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		<m>\lambda^2 - 2\lambda - 3= (\lambda-3)(\lambda+1) =
+		0</m> so we find eigenvalues <m>\lambda = 3</m> and
+		<m>\lambda = -1</m>.
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		For this matrix, we have <m>\det(A-\lambda I) =
+		(\lambda-2)^2=0</m> so there is one eigenvalue,
+		<m>\lambda = 2</m>.
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		<m>\det(A-\lambda I) = \lambda^2 + 1 = 0</m> so there
+		are complex eigenvalues, <m>\lambda = i</m> and
+		<m>\lambda = -i</m>.
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		Because the determinant of a triangular matrix equals
+		the product of its diagonal entries, 
+		The eigenvalues are equal to the entries on the
+		diagonal.
+	      </p>
+	    </li>
+	  </ol>
 	</p>
       </solution>
     </activity>
@@ -207,31 +252,34 @@
     <idx> characteristic equation </idx>
     </p>
 
-    <p> If we write the characteristic equation for the matrix
-    <m> A = \left[\begin{array}{rr}
-    1 \amp 2 \\
-    2 \amp 1 \\
-    \end{array}\right]
-    </m>, we see that
-    <me>
-      \begin{aligned}
-      \det(A-\lambda I) \amp {}={} 0 \\
-      \\
-      \det \left[\begin{array}{rr}
-      1 - \lambda \amp 2 \\
-      2 \amp 1 - \lambda \\
-      \end{array}\right] \amp {}={} 0 \\
-      \\
-      (1-\lambda)^2 - 4 \amp {}={}  0 \\
-      -3 - 2\lambda + \lambda^2 {}={} 0 \\
-      (3-\lambda)(-1-\lambda) {}={} 0\text{.} \\
-      \end{aligned}
-    </me>
-    This shows us that the eigenvalues are <m>\lambda = 3</m> and
-    <m>\lambda=-1</m>, the same eigenvalues we found by
-    reasoning geometrically in the previous section.
-    </p>
-
+    <example xml:id="example-eigenvalues-poly">
+      <p>
+	<p> If we write the characteristic equation for the matrix
+	<m> A = \left[\begin{array}{rr}
+	-4 \amp 4 \\
+	-12 \amp 10 \\
+	\end{array}\right]
+	</m>, we see that
+	<me>
+	  \begin{aligned}
+	  \det(A-\lambda I) \amp {}={} 0 \\
+	  \\
+	  \det \left[\begin{array}{rr}
+	  -4 - \lambda \amp 4 \\
+	  -12 \amp 10 - \lambda \\
+	  \end{array}\right] \amp {}={} 0 \\
+	  \\
+	  (-4-\lambda)(10-\lambda) + 48 \amp {}={}  0 \\
+	  \lambda^2-6\lambda + 8 {}={} 0 \\
+	  (\lambda-4)(\lambda-2) {}={} 0\text{.} \\
+	  \end{aligned}
+	</me>
+	This shows us that the eigenvalues are <m>\lambda = 4</m> and
+	<m>\lambda=2</m>.
+	</p>
+      </p>
+    </example>
+	
     <p> <idx> characteristic polynomial </idx>
     In general, the expression <m>\det(A-\lambda I)</m> is a
     polynomial in <m>\lambda</m>, which is called the
@@ -242,73 +290,60 @@
     quadratic polynomial; if <m>A</m> is a <m>3\times3</m> matrix,
     then <m>\det(A-\lambda I)</m> is a cubic polynomial. </p>
 
-    <p> The other examples that appear in this activity demonstrate
-    some issues we will need to deal with later.  For instance, the
-    matrix
-    <m>A = \left[\begin{array}{rr}
-    2 \amp 1 \\
-    0 \amp 2 \\
-    \end{array}\right]
-    </m>
-    leads to the characteristic equation, <m>(2-\lambda)^2 = 0</m>.
-    In this case, there is only one eigenvalue <m>\lambda = 2</m> that
-    appears as a repeated root.  For now, we simply note that our work in
-    the previous section showed that it was not possible to form a
-    basis of <m>\real^2</m> consisting of eigenvectors of <m>A</m>.  </p>
-
-    <p> Finally, when
-    <m>
-      A = \left[\begin{array}{rr}
-      0 \amp -1 \\
-      1 \amp 0 \\
-      \end{array}\right]
-    </m>, we find the characteristic equation <m>\lambda^2 + 1 =
-    0</m>.  While this equation has no real solutions, it does have
-    complex solutions <m>\lambda = \pm i</m>, and it will be useful
-    for us to work with these complex eigenvalues in the future.  In
-    the meantime, remember that this matrix defines a <m>90^\circ</m>
-    rotation so we do not expect any solutions to the equation
-    <m>A\vvec = \lambda \vvec</m> for real eigenvalues <m>\lambda</m>
-    since a vector <m>\vvec</m> and <m>A\vvec</m> can never lie on the
-    same line. </p>
-
-    <p> Finally, the eigenvalues of a triangular matrix are easily
-    determined because the
-    determinant of a triangular matrix is the product of the entries
-    on the diagonal.  Therefore, the characteristic equation is
-    <me>
-      \begin{aligned}
-      \det\left(
-      \left[\begin{array}{rrr}
-      3 \amp -1 \amp 4 \\
-      0 \amp -2 \amp 3 \\
-      0 \amp 0 \amp 1 \\
-      \end{array}\right]
-      -\lambda I\right) \amp {}={}
-      \det
-      \left[\begin{array}{rrr}
-      3-\lambda \amp -1 \amp 4 \\
-      0 \amp -2-\lambda \amp 3 \\
-      0 \amp 0 \amp 1-\lambda \\
-      \end{array}\right] \\
-      \\
-      \amp {}={}(3-\lambda)(-2-\lambda)(1-\lambda) = 0\text{,}
-      \end{aligned}
-    </me>
-    showing that the eigenvalues are the diagonal entries <m>\lambda =
-    3,-2,1</m>. 
+    <p>
+      The matrix in <xref ref="example-eigenvalues-poly"/> has a
+      characteristic polynomial with two real and distinct roots.
+      This will not always be the case, as demonstrated in the next
+      two examples.
     </p>
 
-    <p> We have how seen now the characteristic equation can be used
-    to determine the eigenvalues of a matrix.  Remember, however,
-    that finding the determinant of a matrix using a co-factor
-    expansion is not computationally feasible when the size of the
-    matrix is relatively large.  Finding the eigenvalues of a matrix
-    by factoring its characteristic polynomial is therefore a
-    technique limited to relatively small matrices; we will introduce a
-    new technique for finding eigenvalues of larger matrices in the
-    next chapter.</p>
-      
+    <example>
+      <p>
+	Consider the matrix
+	<m>A=\begin{bmatrix}
+	5 \amp -1\\
+	4 \amp 1 \\
+	\end{bmatrix}
+	</m>, whose characteristic equation is
+	<me>
+	  \lambda^2 - 6\lambda + 9 = (\lambda-3)^2 = 0.
+	</me>
+	In this case, the characteristic polynomial has one real root,
+	which means that this matrix has a single real eigenvalue,
+	<m>\lambda = 3</m>. 
+      </p>
+    </example>
+
+    <example>
+      <p> To find the eigenvalues of a triangular matrix, we remember
+      that the
+      determinant of a triangular matrix is the product of the entries
+      on the diagonal.  For instance, the following triangular matrix
+      has the characteristic equation
+      <me>
+	\begin{aligned}
+	\det\left(
+	\left[\begin{array}{rrr}
+	4 \amp 2 \amp 3 \\
+	0 \amp -2 \amp -1 \\
+	0 \amp 0 \amp 3 \\
+	\end{array}\right]
+	-\lambda I\right) \amp {}={}
+	\det
+	\left[\begin{array}{rrr}
+	4-\lambda \amp 2 \amp 3 \\
+	0 \amp -2-\lambda \amp -1 \\
+	0 \amp 0 \amp 3-\lambda \\
+	\end{array}\right] \\
+	\\
+	\amp {}={}(4-\lambda)(-2-\lambda)(3-\lambda) = 0\text{,}
+	\end{aligned}
+      </me>
+      showing that the eigenvalues are the diagonal entries <m>\lambda =
+      4,-2,3</m>. 
+      </p>
+    </example>
+
   </subsection>
 
   <subsection>
@@ -317,17 +352,18 @@
     <p> Now that we can find the eigenvalues of a square matrix
     <m>A</m> by solving the characteristic equation <m>\det(A-\lambda
     I) = 0</m>, we will turn to the question of finding the
-    eigenvectors associated to an eigenvalue <m>\lambda</m>. Once
-    again, the key is to note that an eigenvector is a nonzero
+    eigenvectors associated to an eigenvalue <m>\lambda</m>. 
+    The key, as before, is to note that an eigenvector is a nonzero
     solution to the homogeneous equation <m>(A-\lambda I)\vvec =
     \zerovec</m>.  In other words, the eigenvectors associated to an
     eigenvalue <m>\lambda</m> form the null space <m>\nul(A-\lambda
     I)</m>. </p>
 
     <p> This shows that the eigenvectors associated to an eigenvalue
-    form a subspace of <m>\real^n</m>.  We will use <m>E_\lambda</m>
-    to denote the subspace of eigenvectors of a matrix <m>A</m>
-    associated to the eigenvalue <m>\lambda</m> and note that
+    form a subspace of <m>\real^n</m>.  We will 
+    denote the subspace of eigenvectors of a matrix <m>A</m>
+    associated to the eigenvalue <m>\lambda</m> by
+    <m>E_\lambda</m> and note that
     <me>
       E_\lambda = \nul(A-\lambda I)
     </me>.
@@ -455,129 +491,137 @@
 	    
     </activity>
 
-    <p> Once we find the eigenvalues of a matrix <m>A</m>, describing
-    the eigenspace <m>E_\lambda</m> amounts to the familiar task of
-    describing the null space <m>\nul(A-\lambda I)</m>.  For instance,
-    we know that
-    <m>\lambda = 3</m>
-    is an eigenvalue of
-    <m>
-      A = \left[\begin{array}{rr}
-      1 \amp 2 \\
-      2 \amp 1 \\
-      \end{array}\right]
-    </m>.
-    Then,
-    <m>E_3 = \nul(A-3I)</m>, and we have
-    <me>
-      A - 3I =
-      \left[\begin{array}{rr}
-      -2 \amp 2 \\
-      2 \amp -2 \\
-      \end{array}\right]
-      \sim
-      \left[\begin{array}{rr}
-      1 \amp -1 \\
-      0 \amp 0 \\
-      \end{array}\right]\text{.}
-    </me>
-    From the reduced row echelon form, we see that the eigenvectors
-    <m>\vvec = \twovec{v_1}{v_2}</m> are determined by the single
-    equation <m>v_1-v_2 = 0</m> or <m>v_1 = v_2</m>.  Therefore the
-    eigenvectors in <m>E_3</m> have the form
-    <me>
-      \vvec=\twovec{v_1}{v_2} = \twovec{v_2}{v_2} = v_2\twovec{1}{1}
-    </me>.
-    In other words, <m>E_3</m> is a one-dimensional subspace of
-    <m>\real^2</m> with basis <m>\twovec{1}{1}</m>.  Once again, this
-    agrees with the eigenvectors that we found geometrically in the
-    previous section.
+    <p> Once we find an eigenvalue of a matrix <m>A</m>, describing
+    the associated eigenspace <m>E_\lambda</m> amounts to the familiar
+    task of describing the null space <m>\nul(A-\lambda I)</m>.
     </p>
 
-    <p> The same reasoning applies to show that the eigenvectors
-    associated to <m>\lambda = -1</m> have the form
-    <me>
-      \vvec = v_2\twovec{-1}{1}
-    </me>,
-    which shows that the eigenspace
-    <m>E_{-1}</m> is a one-dimensional subspace of <m>\real^2</m>
-    having basis <m>\twovec{-1}{1}</m>.
+    <example>
+      <p>
+	Revisiting the matrix
+	<m> A = \left[\begin{array}{rr}
+	-4 \amp 4 \\
+	-12 \amp 10 \\
+	\end{array}\right]
+	</m> from <xref ref="example-eigenvalues-poly"/>, we recall
+	that we found eigenvalues <m>\lambda = 4</m> and <m>\lambda =
+	2</m>.
+      </p>
+
+      <p>
+	Considering the eigenvalue <m>\lambda = 4</m>, we have
+	<me>
+	  A -4I =
+	  \begin{bmatrix}
+	  -8 \amp 4 \\
+	  -12 \amp 6 \\
+	  \end{bmatrix}
+	  \sim
+	  \begin{bmatrix}
+	  1 \amp -1/2 \\
+	  0 \amp 0 \\
+	  \end{bmatrix}.
+	</me>
+	Since the eigenvectors
+	<m>\vvec = \twovec{v_1}{v_2}</m> are the solutions of the
+	equation <m>(A-4I)\vvec=\zerovec</m>, we see that they
+	are determined by the single
+	equation <m>v_1-\frac12 v_2 = 0</m> or <m>v_1 =
+	\frac12v_2</m>.  Therefore the 
+	eigenvectors in <m>E_4</m> have the form
+	<me>
+	  \vvec=\twovec{v_1}{v_2} = \ctwovec{\frac12 v_2}{v_2} =
+	  v_2\ctwovec{1/2}{1}.
+	</me>
+	In other words, <m>E_4</m> is a one-dimensional subspace of
+	<m>\real^2</m> with basis vector <m>\ctwovec{1/2}{1}</m> or 
+	basis vector <m>\twovec12</m>. 
+	In the same way, we find that a basis for the eigenspace
+	<m>E_2</m> is <m>\twovec23</m>.
+      </p>
+
+      <p>
+	We note that, for this matrix, it is possible to construct a
+	basis of <m>\real^2</m> consisting of eigenvectors, namely,
+	<me>
+	  \bcal = \left\{\twovec12, \twovec23\right\}.
+	</me>
+      </p>
+    </example>
+
+    <example>
+      <p>
+	Consider the matrix <m>A=\begin{bmatrix}
+	1 \amp 1 \\
+	-1 \amp 3 \\
+	\end{bmatrix}
+	</m> whose characteristic equation is
+	<me>
+	  \det(A-\lambda I) = \lambda^2 - 4\lambda + 4 = (\lambda-2)^2
+	  =0.
+	</me>
+      </p>
+
+      <p>
+	There is a single eigenvalue <m>\lambda= 2</m>, and we find
+	that
+	<me>
+	  A - 2\lambda = \begin{bmatrix}
+	  -1 \amp 1 \\
+	  -1 \amp 1 \\
+	  \end{bmatrix}
+	  \sim
+	  \begin{bmatrix}
+	  1 \amp -1 \\
+	  0 \amp 0 \\
+	  \end{bmatrix}.
+	</me>
+	Therefore, the eigenspace <m>E_2 = \nul(A-2I)</m> is
+	one-dimensional with a basis vector <m>\twovec11</m>.
+      </p>
+    </example>
+
+    <example>
+      <p>
+	If <m>A=\begin{bmatrix}
+	-1 \amp 0 \\
+	0 \amp -1 \\
+	\end{bmatrix}
+	</m>, then
+	<me>
+	  \det(A - \lambda I) = (\lambda+1)^2 = 0,
+	</me>
+	which implies that there is a single eigenvalue
+	<m>\lambda=-1</m>.  We find that
+	<me>
+	  A-(-1)I = \begin{bmatrix}
+	  0 \amp 0 \\
+	  0 \amp 0 \\
+	  \end{bmatrix},
+	</me>
+	which says that every two-dimensional vector <m>\vvec</m>
+	satisfies <m>(A-(-1)I)\vvec = \zerovec</m>.  Therefore, every
+	vector is an eigenvector and so <m>E_{-1} =
+	\real^2</m>.  This eigenspace is two-dimensional.
+      </p>
+
+      <p>
+	We can see this in another way.  The matrix transformation
+	defined by <m>A</m> rotates vectors by <m>180^\circ</m>, which
+	says that <m>A\xvec = -\xvec</m> for every vector
+	<m>\xvec</m>.  In other words, every two-dimensional vector is
+	an eigenvector with associated eigenvalue <m>\lambda=-1</m>.
+      </p>
+    </example>
+	
+    <p>
+      These last two examples illustrate two types of behavior when
+      there is a single eigenvalue.  In one case, we are able to
+      construct a basis of <m>\real^2</m> using eigenvectors;  in the
+      other, we are not.  We will explore this behavior more in the
+      next subsection.
     </p>
-
-    <p> Two more examples from the activity are important.  The
-    characteristic equation for the matrix
-    <m>A=
-    \left[\begin{array}{rr}
-    3 \amp 0 \\
-    0 \amp 3 \\
-    \end{array}\right]
-    </m>
-    is <m>\det(A-\lambda I) = (3-\lambda)^2 = 0</m>.  This shows that
-    there is a single eigenvalue <m>\lambda = 3</m>.  If we find the
-    eigenspace <m>E_3=\nul(A-3I)</m>, we have
-    <me>
-      A -3I = 
-      \left[\begin{array}{rr}
-      3 \amp 0 \\
-      0 \amp 3 \\
-      \end{array}\right]
-      - 3I
-      =
-      \left[\begin{array}{rr}
-      0 \amp 0 \\
-      0 \amp 0 \\
-      \end{array}\right]
-    </me>.
-    This shows that every vector is in <m>E_3</m> so that
-    <m>E_3=\real^2</m>.  In this case, there is a basis of
-    <m>\real^2</m> consisting of eigenvectors of <m>A</m>.  This
-    aligns with our geometric understanding:  this matrix has the
-    effect of scaling vectors by a factor of <m>3</m> in every direction.
-    Therefore, every vector is an eigenvector with eigenvalue
-    <m>\lambda = 3</m>.
-    </p>
-
-    <p> However, if we consider the matrix
-    <m>A=
-    \left[\begin{array}{rr}
-    2 \amp 1 \\
-    0 \amp 2 \\
-    \end{array}\right]
-    </m>,
-    we find the characteristic equation <m>(2-\lambda)^2 = 0</m>,
-    which shows that there is again a single eigenvalue <m>\lambda =
-    2</m>.  In this case,
-    <me>
-      A -2I = 
-      \left[\begin{array}{rr}
-      2 \amp 1 \\
-      0 \amp 2 \\
-      \end{array}\right]
-      - 2I
-      =
-      \left[\begin{array}{rr}
-      0 \amp 1 \\
-      0 \amp 0 \\
-      \end{array}\right]
-    </me>,
-    which shows that <m>E_2</m> is a one-dimensional subspace of
-    <m>\real^2</m> with basis <m>\twovec{1}{0}</m>.  Since there are
-    no other eigenvalues, it is not possible to find a basis for
-    <m>\real^2</m> consisting of eigenvectors of <m>A</m>. </p>
-
-    <p> Once again, we can understand this result geometrically.  The
-    matrix transformation corresponding to the matrix <m>A</m> is a
-    shear that slides vectors horizontally.  This transformation
-    therefore only
-    scales vectors that lie on the horizontal axis.
-    </p>
-
-    <p> These last two examples illustrate two types of behavior when
-    there is a single eigenvalue.  In one case, we are able to
-    construct a basis of <m>\real^2</m> using eigenvectors;  in the
-    other, we are not. 
-    We will explore this behavior more in the next subsection. </p>
-
+    
     <assemblage>
       <title> A check on our work </title>
 
@@ -606,51 +650,74 @@
     <m>n\times n</m> matrix <m>A</m>, we saw in the previous section
     the value of being able to express any vector in <m>\real^n</m> as
     a linear 
-    combination of eigenvectors of <m>A</m>.  For this reason, we
-    asked <xref ref="question-eigen-basis" /> to determine
+    combination of eigenvectors of <m>A</m>.  For this reason, 
+    <xref ref="question-eigen-basis" /> asks 
     when we can construct a basis of <m>\real^n</m> consisting of
     eigenvectors.  We will explore this question more fully now. </p>
 
     <p> As we saw above, the eigenvalues of <m>A</m> are the solutions
-    of the characteristic equation <m>\det(A-\lambda I) = 0</m>.  Two
-    examples of characteristic equations we have seen above are
-    <me>
-      \begin{aligned}
-      (3-\lambda)(-2-\lambda)(1-\lambda) \amp {}={} 0 \\
-      \text{and}\qquad(2-\lambda)^2 \amp {}={} 0 \\
-      \end{aligned}
-    </me>.
-    Generally speaking, the characteristic polynomial can always be
-    factored into terms having the form
-    <m>(\lambda_j-\lambda)</m> where <m>\lambda_j</m> is an eigenvalue
-    of <m>A</m>.  In doing so, we must allow ourselves to consider
-    complex eigenvalues, which we will study in more detail in the
-    next section.  This means, however, that we can always write the
-    characteristic equation in the form
-    <me>
-      (\lambda_1-\lambda)^{m_1}
-      (\lambda_2-\lambda)^{m_2}
-      \ldots
-      (\lambda_p-\lambda)^{m_p}
-      = 0
-    </me>.
-    The solutions to the characteristic equation are the eigenvalues
-    <m>\lambda_j</m>, and <m>m_j</m>, the number of times that
-    <m>\lambda_j - \lambda</m> appears as a factor in the
-    characteristic polynomial, is called the <em>multiplicity</em> of the
-    eigenvalue <m>\lambda_j</m>.
-    <idx> multiplicity </idx>
+    of the characteristic equation <m>\det(A-\lambda I) = 0</m>.  The
+    examples we have considered demonstrate some different types of
+    behavior. For instance, we have seen the characteristic equations 
+    <ul>
+      <li>
+	<p>
+	  <m>(4-\lambda)(-2-\lambda)(3-\lambda) = 0</m>, which has
+	  real and distinct roots,
+	</p>
+      </li>
+      <li>
+	<p>
+	  <m>(2-\lambda)^2 = 0</m>, which has repeated roots, and
+	</p>
+      </li>
+      <li>
+	<p>
+	  <m>\lambda^2 +1 = (i-\lambda)(-i-\lambda) = 0</m>, which has
+	  complex roots.
+	</p>
+      </li>
+    </ul>
+    </p>
+
+    <p>
+      If <m>A</m> is an <m>n\times n</m> matrix, then the
+      characteristic polynomial is a degree <m>n</m> polynomial, and
+      this means that it has <m>n</m> roots.  Therefore, the
+      characteristic equation can be written as
+      <me>
+	\det(A-\lambda I) = (\lambda_1 -
+	\lambda)(\lambda_2-\lambda)\ldots(\lambda_n-\lambda) = 0
+      </me>
+      giving eigenvalues <m>\lambda_1,
+      \lambda_2,\ldots,\lambda_n</m>.  As we have seen, some of the
+      eigenvalues may be complex.  Moreover, some of the eigenvalues
+      may appear in this list more than once.
+      However, we can always write the
+      characteristic equation in the form
+      <me>
+	(\lambda_1-\lambda)^{m_1}
+	(\lambda_2-\lambda)^{m_2}
+	\ldots
+	(\lambda_p-\lambda)^{m_p}
+	= 0.
+      </me>
+      The number of times that
+      <m>\lambda_j - \lambda</m> appears as a factor in the
+      characteristic polynomial, is called the <em>multiplicity</em>
+      of the eigenvalue <m>\lambda_j</m>.
+      <idx> multiplicity </idx>
     </p>
 
     <example>
       <statement>
 	<p> We have seen that the matrix
 	<m>A = \left[\begin{array}{rr}
-	2 \amp 1 \\
-	0 \amp 2 \\
+	1 \amp 1 \\
+	-1 \amp 3 \\
 	\end{array}\right]
 	</m> has the characteristic equation <m>(2-\lambda)^2 =
-	0</m>.  This matrix <m>A</m> has a single eigenvalue
+	0</m>.  This matrix has a single eigenvalue
 	<m>\lambda = 2</m>, which has multiplicity <m>2</m>. </p>
       </statement>
     </example>
@@ -682,7 +749,7 @@
 	<p> If <m>\lambda</m> is a real eigenvalue of the matrix
 	<m>A</m> with multiplicity <m>m</m>, then
 	<me>
-	  1 \leq \dim E_\lambda \leq m
+	  1 \leq \dim~E_\lambda \leq m
 	  </me>.
 	  </p>
       </statement>
@@ -692,13 +759,13 @@
       <statement>
 	<p> The diagonal matrix
 	<m>\left[\begin{array}{rr}
-	3 \amp 0 \\
-	0 \amp 3 \\
+	-1 \amp 0 \\
+	0 \amp -1 \\
 	\end{array}\right]
-	</m> has the characteristic equation <m>(3-\lambda)^2 =
-	0</m>.  There is a single eigenvalue <m>\lambda = 3</m> having
+	</m> has the characteristic equation <m>(-1-\lambda)^2 =
+	0</m>.  There is a single eigenvalue <m>\lambda = -1</m> having
 	multiplicity <m>m = 2</m>, and we saw earlier that
-	<m>\dim E_3 = 2 \leq m = 2</m>.
+	<m>\dim E_{-1} = 2 \leq m = 2</m>.
 	</p>
       </statement>
     </example>
@@ -707,15 +774,15 @@
       <statement>
 	<p>The matrix
 	<m>\left[\begin{array}{rr}
-	2 \amp 1 \\
-	0 \amp 2 \\
+	1 \amp 1 \\
+	-1 \amp 3 \\
 	\end{array}\right]
 	</m> has the characteristic equation <m>(2-\lambda)^2 =
-	0</m>.  Once again, there is a single eigenvalue <m>\lambda =
+	0</m>.  This tells us that there is a single eigenvalue <m>\lambda =
 	2</m> having 
 	multiplicity <m>m = 2</m>.  In contrast with the previous
-	example, we saw that
-	<m>\dim E_2 = 1 \leq m = 2</m>.
+	example, we have
+	<m>\dim~ E_2 = 1 \leq m = 2</m>.
 	</p>
       </statement>
     </example>
@@ -725,12 +792,12 @@
 	<p> We saw earlier that the matrix
 	<m>
 	  \left[\begin{array}{rrr}
-	  3 \amp -1 \amp 4 \\
-	  0 \amp -2 \amp 3 \\
-	  0 \amp 0 \amp 1 \\
+	  4 \amp 2 \amp 3 \\
+	  0 \amp -2 \amp -1 \\
+	  0 \amp 0 \amp 3 \\
 	  \end{array}\right]
 	</m> has the characteristic equation
-	<me>(3-\lambda)(-2-\lambda)(1-\lambda)=0</me>.
+	<me>(4-\lambda)(-2-\lambda)(3-\lambda)=0</me>.
 	There are three eigenvalues <m>\lambda=3,-2,1</m> each having
 	multiplicity <m>1</m>.  By the proposition, we are guaranteed
 	that the dimension of each eigenspace is <m>1</m>;  that is,
@@ -766,15 +833,15 @@
       </statement>
     </example>
 
-    <p> Fortunately, if we have an <m>n\times n</m> matrix, it most
-    commonly happens that the characteristic equation has the form
+    <p> Fortunately, if we have an <m>n\times n</m> matrix, it frequently
+    happens that the characteristic equation has the form
     <me>
       (\lambda_1-\lambda)
       (\lambda_2-\lambda)
       \ldots
       (\lambda_n-\lambda) = 0
     </me>
-    where there are <m>n</m> distinct eigenvalues, each of which
+    where there are <m>n</m> distinct real eigenvalues, each of which
     has multiplicity <m>1</m>.  In this case, the dimension of each of
     the eigenspaces <m>\dim E_{\lambda_j} = 1</m>.  With a little
     work, it can be seen that choosing a basis vector <m>\vvec_j</m> for
@@ -802,7 +869,7 @@
 	  matrix whose characteristic polynomial is
 	  <m>(2-\lambda)^3(-3-\lambda)^{10}(5-\lambda)</m>.  What can you
 	  conclude about the dimensions of the eigenspaces?  What is the
-	  dimension of the matrix?  Do you have enough information to
+	  shape of the matrix?  Do you have enough information to
 	  guarantee that there is a basis of <m>\real^n</m> consisting
 	  of eigenvectors? </p></li>
 
@@ -827,7 +894,7 @@
 	  <me>
 	    (-2-\lambda)^2(-1-\lambda) = 0
 	  </me>.
-	  <ol marker="i.">
+	  <ol marker="1.">
 	    <li><p> Identify the eigenvalues and their
 	    multiplicities. </p></li>
 
@@ -850,7 +917,7 @@
 	  <me>
 	    (-2-\lambda)^2(-1-\lambda) = 0
 	  </me>.
-	  <ol marker="i.">
+	  <ol marker="1.">
 	    <li><p> Identify the eigenvalues and their
 	    multiplicities. </p></li>
 
@@ -873,7 +940,7 @@
 	  <me>
 	    (-2-\lambda)(1-\lambda)(-1-\lambda) = 0
 	  </me>.
-	  <ol marker="i.">
+	  <ol marker="1.">
 	    <li><p> Identify the eigenvalues and their
 	    multiplicities. </p></li>
 
@@ -919,9 +986,9 @@
 	  </p></li>
 
 	  <li><p> For the <m>3\times3</m> matrix <m>A</m>,
-	  <ol marker="i.">
+	  <ol marker="1.">
 	    <li><p> We have eigenvalues <m>\lambda=-2</m> with
-	    multiplicty <m>2</m> and <m>\lambda=-1</m> with multiplicity
+	    multiplicity <m>2</m> and <m>\lambda=-1</m> with multiplicity
 	    <m>1</m>.
 	    </p></li>
 
@@ -940,9 +1007,9 @@
 	  </p></li>
 
 	  <li><p> For the <m>3\times3</m> matrix <m>A</m>,
-	  <ol marker="i">
+	  <ol marker="1.">
 	    <li><p> We have eigenvalues <m>\lambda=-2</m> with
-	    multiplicty <m>2</m> and <m>\lambda=-1</m> with multiplicity
+	    multiplicity <m>2</m> and <m>\lambda=-1</m> with multiplicity
 	    <m>1</m>.
 	    </p></li>
 
@@ -959,7 +1026,7 @@
 	  </p></li>
 
 	  <li><p> For this matrix,
-	  <ol marker="i.">
+	  <ol marker="1.">
 	    <li><p> There are three eigenvalues <m>\lambda=-2</m>,
 	    <m>-1</m>, and <m>1</m>, each having multiplicity
 	    <m>1</m>.
@@ -986,15 +1053,13 @@
   </subsection>
 
   <subsection>
-    <title> Computational issues in finding eigenvalues and
+    <title> Using Sage to find eigenvalues and
     eigenvectors </title>
 
     <p> We can use Sage to find the characteristic polynomial,
     eigenvalues, and eigenvectors of a matrix.  As we will see,
     however, some care is required when dealing with matrices whose
-    entries include floating point numbers.  The next activity demonstrates
-    how Sage can be used in this way and some of the complications
-    that arise.  We will revisit this issue in subsequent sections.
+    entries include decimals.  
     </p>
 
     <activity>
@@ -1010,26 +1075,26 @@
 	<li><p>
 	  We can find the characteristic polynomial of a
 	  matrix <m>A</m> by writing 
-	  <c>A.charpoly('lam')</c>.  Notice that we have to give Sage a
+	  <c>A.charpoly('lambda')</c>.  Notice that we have to give Sage a
 	  variable in which to write the polynomial;  here, we use
-	  <c>lam</c> though you could just as well use <c>x</c>. </p>
+	  <c>lambda</c> though <c>x</c> works just as well. </p>
 
 	  <sage>
 	    <input>
 A = matrix(2,2,[1,2,2,1])
-A.charpoly('lam')
+A.charpoly('lambda')
 	    </input>
 	  </sage>
 
 	  <p> The factored form of the characteristic polynomial may
 	  be more useful since it will tell us the eigenvalues and
 	  their multiplicities.  The factored characteristic polynomial is
-	  found with <c>A.fcp('lam')</c>. </p>
+	  found with <c>A.fcp('lambda')</c>. </p>
 	  
 	  <sage>
 	    <input>
 A = matrix(2,2,[-3,1,0,-3])
-A.fcp('lam')
+A.fcp('lambda')
 	    </input>
 	  </sage>
 	</li>
@@ -1079,7 +1144,7 @@ A.eigenvectors_right()
 	  0.6 \amp 0.7 \\
 	  \end{array}\right]
 	  </m>.
-	  <ol marker="i.">
+	  <ol marker="1.">
 	    <li><p> Without using Sage, find the eigenvalues of this
 	    matrix.
 	    </p></li>
@@ -1123,7 +1188,7 @@ A.eigenvectors_right()
       <solution>
 	<p><ol marker="a.">
 	  <li><p> The <c>fcp</c> command will return the factored
-	  characteristic polynomial <c>lam^2 - 2*lam - 3</c>.
+	  characteristic polynomial <c>lambda^2 - 2*lambda - 3</c>.
 	  </p></li>
 
 	  <li><p> The <c>eigenvalues</c> command returns a list of
@@ -1135,7 +1200,7 @@ A.eigenvectors_right()
 	  </p></li>
 
 	  <li><p> If we begin with the matrix <m>A</m>, we find
-	  <ol marker="i.">
+	  <ol marker="1.">
 	    <li><p> The eigenvalues are <m>\lambda=1</m> and
 	    <m>\lambda=0.1</m>.
 	    </p></li>
@@ -1173,12 +1238,14 @@ A.eigenvectors_right()
     <m>A</m>. 
     <ul>
       <li><p> The expression <m>\det(A-\lambda I)</m> is a degree
-      <m>n</m> polynomial, known as the characteristic polynomial.
-      The eigenvalues are the roots of the characteristic
-      polynomial <m>\det(A-\lambda I) = 0</m>. </p></li>
+      <m>n</m> polynomial, known as the characteristic polynomial of
+      <m>A</m>.  The eigenvalues of <m>A</m> are the roots of the
+      characteristic polynomial found by solving the characteristic
+      equation <m>\det(A-\lambda I) = 0</m>. </p></li>
 
       <li><p> The set of eigenvectors associated to the eigenvalue
-      <m>\lambda</m> forms the eigenspace <m>E_\lambda =
+      <m>\lambda</m> forms a subspace of <m>\real^n</m>, the
+      eigenspace <m>E_\lambda = 
       \nul(A-\lambda I)</m>. </p></li>
 
       <li><p> If the factor <m>(\lambda_j - \lambda)</m> appears
@@ -1191,7 +1258,7 @@ A.eigenvectors_right()
       </p></li>
 
       <li><p> If each of the eigenvalues is real and has multiplicity
-      <m>1</m>, then we can form a basis for <m>\real^n</m> consisting
+      <m>1</m>, then we can form a basis of <m>\real^n</m> consisting
       of eigenvectors of <m>A</m>. </p></li>
 
       <li><p> We can use Sage to find the eigenvalues and eigenvalues

@@ -97,6 +97,19 @@ matrix(RDF, [ [1, 2],
       </li>
 
       <li>
+	<title> Special matrices </title>
+	<p>
+	  The <m>4\times 4</m> identity matrix can be created with
+	  <cd>
+identity_matrix(4)	    
+	  </cd>
+	  A diagonal matrix can be created from a list of its diagonal entries.  For instance,
+	  <cd>
+diagonal_matrix([3,-4,2])	    
+	  </cd>
+	</p>
+      </li>
+      <li>
 	<title>Reduced row echelon form</title>
 	<p>
 	  The reduced row echelon form of a matrix can be obtained
@@ -160,6 +173,7 @@ print(A*B)
 	  </cd>
 	</p>
       </li>
+
       <li>
 	<title> Operations on matrices </title>
 	<p> The transpose of a matrix <c>A</c> is obtained using either
@@ -167,6 +181,37 @@ print(A*B)
 	</p>
 	<p> The inverse of a matrix <c>A</c> is obtained using either
 	<c>A.inverse()</c> or <c>A^-1</c>.
+	</p>
+      </li>
+
+      <li>
+	<title> Eigenvectors and eigenvalues </title>
+	<p>
+	  The eigenvalues of a matrix <c>A</c> can be found with
+	  <cd>
+A.eigenvalues()	    
+	  </cd>
+	  The number of times that an eigenvalue appears in the list
+	  equals its multiplicity.
+	</p>
+
+	<p>
+	  The eigenvectors of a matrix having rational entries can be
+	  found with
+	  <cd>
+A.eigenvectors_right()	    
+	  </cd>
+	</p>
+
+	<p>
+	  The characteristic polynomial of <c>A</c> is
+	  <cd>
+A.charpoly('x')
+	  </cd>
+	  and its factored form
+	  <cd>
+A.fcp('x')
+	  </cd>
 	</p>
       </li>
     </dl>

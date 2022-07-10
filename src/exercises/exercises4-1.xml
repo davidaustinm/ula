@@ -10,11 +10,11 @@
 	8 \amp -10 \\
 	5 \amp -7 \\
 	\end{array}\right],\qquad
-	\vvec_1=\twovec{2}{1},
+	\vvec_1=\twovec{2}{1},~~~
 	\vvec_2=\twovec{1}{1}
       </me>.
       <ol marker="a.">
-	<li><p> Show that the vectors <m>\vvec_1</m> and
+	<li><p> Show that <m>\vvec_1</m> and
 	<m>\vvec_2</m> are eigenvectors of <m>A</m> and find their
 	associated eigenvalues. </p>
 	<sage>
@@ -166,25 +166,24 @@
     <statement>
       <p> Suppose that <m>A</m> is an <m>n\times n</m> matrix.
       <ol marker="a.">
-	<li><p> Explain why
-	<m>\lambda = 0</m> is an eigenvalue if and only if
-	there is a non-trivial solution to the homogeneous equation
-	<m>A\xvec = 0</m>. </p></li>
+	<li><p> Explain why <m>\lambda = 0</m> is an eigenvalue of
+	<m>A</m> if and only if there is a non-trivial solution to the
+	homogeneous equation <m>A\xvec = 0</m>. </p></li>
 
-	<li><p> Explain why such a matrix <m>A</m> is not invertible
+	<li><p> Explain why <m>A</m> is not invertible
 	if and only if <m>\lambda=0</m> is an eigenvalue.</p></li>
 
-	<li><p> If <m>A</m> is an invertible <m>n\times n</m> matrix
-	having an eigenvector <m>\vvec</m> and associated eigenvalue
-	<m>\lambda</m>, explain why <m>\vvec</m> is also an
-	eigenvector of <m>A^{-1}</m> with associated eigenvalue
-	<m>\lambda^{-1}</m>. </p></li>
-
-	<li><p> If <m>A</m> is an <m>n\times n</m> matrix with
-	eigenvector <m>\vvec</m> and associated eigenvalue
+	<li><p> If <m>\vvec</m> is an 
+	eigenvector of <m>A</m> having associated eigenvalue
 	<m>\lambda</m>, explain why <m>\vvec</m> is also an
 	eigenvector of <m>A^2</m> with associated eigenvalue
 	<m>\lambda^2</m>.  </p></li>
+
+	<li><p> If <m>A</m> is invertible and <m>\vvec</m> is
+	eigenvector of <m>A</m> having associated eigenvalue
+	<m>\lambda</m>, explain why <m>\vvec</m> is also an
+	eigenvector of <m>A^{-1}</m> with associated eigenvalue
+	<m>\lambda^{-1}</m>. </p></li>
 
 	<li><p> The matrix
 	<m>
@@ -216,19 +215,19 @@
 	<m>A</m> is not 
 	invertible. </p></li>
 
-	<li><p> If <m>A\vvec=\lambda\vvec</m>, we can multiply both
-	sides by <m>A^{-1}</m> and <m>\frac1\lambda</m> to obtain
-	<m>\frac1\lambda\vvec=A^{-1}\vvec</m>.  This shows that
-	<m>\vvec</m> is an eigenvector of <m>A^{-1}</m> with
-	associated eigenvalue <m>\frac1\lambda</m>.
-	</p></li>
-
 	<li><p> If <m>\vvec</m> is an eigenvector of <m>A</m> with
 	associated eigenvalue <m>\lambda</m>, then
 	<m>A\vvec=\lambda\vvec</m>.  Therefore, <m>A^2\vvec =
 	A(A\vvec) = \lambda A\vvec = \lambda^2\vvec</m>, which means
 	that <m>\vvec</m> is an eigenvector with associated eigenvalue
 	<m>\lambda^2</m>. </p></li>
+
+	<li><p> If <m>A\vvec=\lambda\vvec</m>, we can multiply both
+	sides by <m>A^{-1}</m> and <m>\frac1\lambda</m> to obtain
+	<m>\frac1\lambda\vvec=A^{-1}\vvec</m>.  This shows that
+	<m>\vvec</m> is an eigenvector of <m>A^{-1}</m> with
+	associated eigenvalue <m>\frac1\lambda</m>.
+	</p></li>
 
 	<li><p> The vectors <m>\vvec_1</m> and <m>\vvec_2</m> are
 	eigenvectors of <m>A^5</m> with associated eigenvalues
@@ -269,15 +268,24 @@
 
   <exercise>
     <statement>
-      <sidebyside widths="50% 45%">
-	<p> Suppose that <m>A</m> is a matrix with eigenvectors
+      <p>
+	Suppose that <m>A</m> is a matrix with eigenvectors
 	<m>\vvec_1</m> and <m>\vvec_2</m> and eigenvalues <m>\lambda_1 =
-	-1</m> and <m>\lambda_2=2</m> as shown.
-	</p>
-	<image source="images/ex-eigen-powers" />
-      </sidebyside>
-      <p> Sketch the vectors <m>A\xvec</m>, <m>A^2\xvec</m>, and
-      <m>A^{-1}\xvec</m>.
+	-1</m> and <m>\lambda_2=2</m> as shown in <xref
+	ref="figure-eigen-exercise"/>.  
+      </p>
+      <figure xml:id="figure-eigen-exercise">
+	<caption>
+	  The vectors <m>\vvec_1</m> and <m>\vvec_2</m> are
+	  eigenvectors of <m>A</m>.
+	</caption>
+	<sidebyside widths="45%">
+	  <image source="images/ex-eigen-powers" />
+	</sidebyside>
+      </figure>
+      <p>
+	Sketch the vectors <m>A\xvec</m>, <m>A^2\xvec</m>, and
+	<m>A^{-1}\xvec</m>.
       </p>
     </statement>
 
@@ -386,21 +394,89 @@
 	\vvec_2=\twovec{-1}{2}
       </me>
       and associated eigenvalues <m>\lambda_1=2</m> and
-      <m>\lambda_2=-3</m>.  If <m>\xvec=\twovec{5}{0}</m>, find the
-      vector <m>A^4\xvec</m>.
+      <m>\lambda_2=-3</m>.
+      <ol marker="a.">
+	<li>
+	  <p>
+	    If <m>\xvec=\twovec{5}{0}</m>, find the
+	    vector <m>A^4\xvec</m>.
+	  </p>
+	</li>
+	<li>
+	  <p>
+	    Find the vectors <m>A\twovec10</m> and <m>A\twovec01</m>.
+	  </p>
+	</li>
+	<li>
+	  <p>
+	    What is the matrix <m>A</m>?
+	  </p>
+	</li>
+      </ol>
       </p>
+	  
     </statement>
 
     <solution>
       <p>
-	 We have <m>\xvec = 2\vvec_1-\vvec_2</m>.  Therefore,
-	 <m>A^4\xvec = 2\lambda_1^4\vvec_1-\lambda_2^4\vvec_2 =
-	 32\vvec_1-81\vvec_2=\twovec{145}{-130}</m>.
+	<ol marker="a.">
+	  <li>
+	    <p>
+	      We have <m>\xvec = 2\vvec_1-\vvec_2</m>.  Therefore,
+	      <m>A^4\xvec = 2\lambda_1^4\vvec_1-\lambda_2^4\vvec_2 =
+	      32\vvec_1-81\vvec_2=\twovec{145}{-130}</m>.
+	    </p>
+	  </li>
+	  <li>
+	    <p>
+	      We have
+	      <me>
+		\twovec10 = \frac25 \vvec_1 - \frac15 \vvec2,~~~
+		\twovec01 = \frac15 \vvec_1 + \frac25 \vvec2,
+	      </me>
+	      and so
+	      <me>
+		A\twovec10 = \frac45 \vvec_1 + \frac35 \vvec2 = \twovec12,~~~
+		A\twovec01 = \frac25 \vvec_1 - \frac65 \vvec2 = \twovec2{-2}.
+	      </me>
+	    </p>
+	  </li>
+	  <li>
+	    <p>
+	      From the results of the previous part, we have
+	      <m>A = \begin{bmatrix}
+	      1 \amp 2 \\
+	      2 \amp -2 \\
+	      \end{bmatrix}
+	      </m>.
+	    </p>
+	  </li>
+	</ol>
       </p>
     </solution>
 
     <answer>
-      <p> <m>\twovec{145}{-130}</m>.
+      <p>
+	<ol marker="a.">
+	  <li>
+	    <p> <m>\twovec{145}{-130}</m>.
+	    </p>
+	  </li>
+	  <li>
+	    <p> <m>A\twovec10 = \twovec12</m> and 
+	    <m>A\twovec01 = \twovec2{-2}</m>.
+	    </p>
+	  </li>
+	  <li>
+	    <p>
+	      <m>A = \begin{bmatrix}
+	      1 \amp 2 \\
+	      2 \amp -2 \\
+	      \end{bmatrix}
+	      </m>.
+	    </p>
+	  </li>
+	</ol>
       </p>
     </answer>
     
@@ -464,69 +540,110 @@
 
   <exercise>
     <statement>
-      <p> Consider the two special matrices below and find their
-      eigenvectors and associated eigenvalues.
-      <ol marker="a.">
-	<li><p>
-	  <m>
-	    \left[\begin{array}{rrr}
-	    1 \amp 1 \amp 1 \\
-	    1 \amp 1 \amp 1 \\
-	    1 \amp 1 \amp 1 \\
-	    \end{array}\right]
-	</m>.</p></li>
-
-	<li><p>
-	  <m>
-	    \left[\begin{array}{rrr}
-	    1 \amp 1 \amp 1 \\
-	    2 \amp 2 \amp 2 \\
-	    3 \amp 3 \amp 3 \\
-	    \end{array}\right]
-	</m>.</p></li>
+      <p>
+	Suppose that <m>A</m> is an <m>n\times n</m> matrix.
+	<ol marker="a.">
+	  <li>
+	    <p>
+	      Assuming that <m>\vvec</m> is an eigenvector of
+	      <m>A</m> whose associated eigenvector is nonzero,
+	      explain why <m>\vvec</m> is in <m>\col(A)</m>.
+	    </p>
+	  </li>
+	  <li>
+	    <p>
+	      Assuming that <m>\vvec</m> is an eigenvector of
+	      <m>A</m> whose associated eigenvector is zero,
+	      explain why <m>\vvec</m> is in <m>\nul(A)</m>.
+	    </p>
+	  </li>
+	  <li>
+	    <p>
+	      Consider the two special matrices below and find their
+	      eigenvectors and associated eigenvalues.
+	      <me>
+		A = \left[\begin{array}{rrr}
+		1 \amp 1 \amp 1 \\
+		1 \amp 1 \amp 1 \\
+		1 \amp 1 \amp 1 \\
+		\end{array}\right],~~~
+		B = 
+		\left[\begin{array}{rrr}
+		1 \amp 1 \amp 1 \\
+		2 \amp 2 \amp 2 \\
+		3 \amp 3 \amp 3 \\
+		\end{array}\right].
+	      </me>
+	  </p></li>
       </ol></p>
     </statement>
 
     <solution>
       <p><ol marker="a.">
-	<li><p> Notice that an eigenvector <m>\vvec</m> must be in the
-	column space <m>\col(A)</m> because
-	<m>A\vvec=\lambda\vvec</m>.   The column space of this matrix
-	is spanned by <m>\vvec_1=\threevec{1}{1}{1}</m> and we notice
-	that <m>A\vvec_1 = 3\vvec_1</m>.  Therefore, <m>\vvec_1</m> is
-	an eigenvector with associated eigenvalue <m>\lambda_1=3</m>.
-      </p>
+	<li>
+	  <p>
+	    In this case, we have <m>A\vvec = \lambda\vvec</m> or
+	    <m>A\left(\frac1\lambda\vvec\right) = \vvec</m>, which
+	    says that 
+	    the equation <m>A\xvec = \vvec</m> is consistent.
+	  </p>
+	</li>
+	<li>
+	  <p>
+	    With this assumption, <m>A\vvec = 0\vvec = \zerovec</m>,
+	    which means that <m>\vvec</m> is a solution to the
+	    homogeneous equation <m>A\xvec = \zerovec</m>.
+	  </p>
+	</li>
+	<li>
+	  <p>
+	    The column space of <m>A</m>
+	    is spanned by <m>\vvec_1=\threevec{1}{1}{1}</m> and we notice
+	    that <m>A\vvec_1 = 3\vvec_1</m>.  Therefore, <m>\vvec_1</m> is
+	    an eigenvector with associated eigenvalue <m>\lambda_1=3</m>.
+	  </p>
 
-      <p> We also know that that the rank of this matrix is 1 so
-      <m>\nul(A)</m> is two-dimensional.  A basis for the null space
-      is <m>\vvec_2=\threevec{-1}{1}{0}</m> and
-      <m>\vvec_3=\threevec{-1}{0}{1}</m> so these vectors are
-      eigenvectors with associated eigenvalue <m>\lambda_2=\lambda_3 =
-      0</m>. </p></li>
+	  <p> We also know that that the rank of this matrix is 1 so
+	  <m>\nul(A)</m> is two-dimensional.  A basis for the null space
+	  is <m>\vvec_2=\threevec{-1}{1}{0}</m> and
+	  <m>\vvec_3=\threevec{-1}{0}{1}</m> so these vectors are
+	  eigenvectors with associated eigenvalue <m>\lambda_2=\lambda_3 =
+	  0</m>. 
 
-      <li><p> In the same way, <m>\vvec_1=\threevec{1}{2}{3}</m> is an
-      eigenvector with associated eigenvalue <m>\lambda_1=6</m> and
-      <m>\vvec_2=\threevec{-1}{1}{0}</m> and
-      <m>\vvec_3=\threevec{-1}{0}{1}</m> are eigenvectors with
-      associated eigenvalue <m>\lambda_2=\lambda_3=0</m>. </p></li>
+	  In the same way, <m>\vvec_1=\threevec{1}{2}{3}</m> is an
+	  eigenvector of <m>B</m> with associated eigenvalue
+	  <m>\lambda_1=6</m> and <m>\vvec_2=\threevec{-1}{1}{0}</m>
+	  and <m>\vvec_3=\threevec{-1}{0}{1}</m> are eigenvectors with
+	  associated eigenvalue
+	  <m>\lambda_2=\lambda_3=0</m>. </p></li>
       </ol></p>
     </solution>
 
     <answer>
       <p><ol marker="a.">
-	<li><p> 
-	<m>\vvec_1=\threevec{1}{1}{1}</m> with associated eigenvalue
-	<m>\lambda_1=3</m>. 
-	<m>\vvec_2=\threevec{-1}{1}{0}</m> and
-	<m>\vvec_3=\threevec{-1}{0}{1}</m> 
-	associated eigenvalue <m>\lambda_2=\lambda_3 =
-	0</m>. </p></li>
+	<li><p>
+	  Because <m>A\vvec = \lambda\vvec</m>.
+	</p></li>
 
-	<li><p> <m>\vvec_1=\threevec{1}{2}{3}</m> 
+	<li><p>
+	  Because <m>A\vvec = 0\vvec = \zerovec</m>.
+	</p></li>
+
+	<li><p>
+	  For the matrix <m>A</m>,
+	  <m>\vvec_1=\threevec{1}{1}{1}</m> with associated eigenvalue
+	  <m>\lambda_1=3</m>, and
+	  <m>\vvec_2=\threevec{-1}{1}{0}</m> and
+	  <m>\vvec_3=\threevec{-1}{0}{1}</m>  with
+	  associated eigenvalue <m>\lambda_2=\lambda_3 =
+	  0</m>.
+	</p>
+	<p> For <m>B</m>,
+	<m>\vvec_1=\threevec{1}{2}{3}</m> 
 	with associated eigenvalue <m>\lambda_1=6</m> and
-      <m>\vvec_2=\threevec{-1}{1}{0}</m> and
-      <m>\vvec_3=\threevec{-1}{0}{1}</m> with
-      associated eigenvalue <m>\lambda_2=\lambda_3=0</m>. </p></li>
+	<m>\vvec_2=\threevec{-1}{1}{0}</m> and
+	<m>\vvec_3=\threevec{-1}{0}{1}</m> with
+	associated eigenvalue <m>\lambda_2=\lambda_3=0</m>. </p></li>
       </ol></p>
     </answer>
     

@@ -54,7 +54,7 @@
 	Use the linearity of matrix multiplication to express the
 	following vectors in terms of <m>\vvec_1</m> and 
 	<m>\vvec_2</m>.
-	<ol marker="i.">
+	<ol marker="1.">
 	  <li><p> <m>A(4\vvec_1)</m>. </p></li>
 	  <li><p> <m>A(\vvec_1 + \vvec_2)</m>. </p></li>
 	  <li><p> <m>A(4\vvec_1 -3\vvec_2)</m>. </p></li>
@@ -85,7 +85,7 @@
 	  </p></li>
 
 	  <li><p> Applying linearity, we see that
-	  <ol marker="i.">
+	  <ol marker="1.">
 	    <li><p> <m>A(4\vvec_1) = 4A\vvec_1 =
 	    12\vvec_1</m>. </p></li>
 
@@ -182,7 +182,7 @@
       </statement>
     </example>
 
-    <activity>
+    <activity xml:id="activity-eigen-geom">
       <statement>
       <p> This definition has an important geometric interpretation
       that we will investigate here.
@@ -227,12 +227,26 @@
 	    <instructions>
 	      <p>
 		The sliders in the diagram below allow you to choose a
-		matrix <m>A</m>.  The vector <m>\vvec</m> is shown in
-		red and may be varied by clicking in the head of the
+		matrix <m>A = \begin{bmatrix} a \amp b \\ c \amp d
+		\end{bmatrix}</m>.  The vector <m>\vvec</m>, shaded
+		red, may be moved by clicking in the head of the
 		vector.  The vector <m>A\vvec</m> is then shown in
-		gray.
+		outline.
 	      </p>
 	    </instructions>
+	    <static>
+	      <sidebyside width="100%">
+		<p>
+		  There is an interactive diagram, available at
+		  <url href="http://gvsu.edu/s/0Ja"
+		       visual="gvsu.edu/s/0Ja"/>,
+		  that accompanies this activity.
+		</p>
+	      </sidebyside>
+	      <sidebyside width="45%">
+		<image source="preview/eigenvectors-preview.png"/>
+	      </sidebyside>
+	    </static>
 	  </interactive>
 	</figure>
 
@@ -323,7 +337,7 @@
     depth.  To be an eigenvector of <m>A</m>, the vector <m>\vvec</m>
     must satisfy <m>A\vvec = \lambda\vvec</m> for some scalar
     <m>\lambda</m>.  This means that <m>\vvec</m> and <m>A\vvec</m>
-    are scalar multiples of one another, which means they must lie on
+    are scalar multiples of each other so they must lie on
     the same line. </p>
 
     <p> Consider now the matrix
@@ -378,10 +392,10 @@
     <p> The interactive diagram we used in the activity is meant to
     convey the fact that the eigenvectors of a matrix <m>A</m> are
     special vectors.  Most of the time, the vectors <m>\vvec</m> and
-    <m>A\vvec</m> appear somewhat unrelated.  For certain vectors,
+    <m>A\vvec</m> appear visually unrelated.  For certain vectors,
     however, <m>\vvec</m> and <m>A\vvec</m> line up with one another.
     Something important is going on when that happens so we 
-    call attention to those vectors by calling them eigenvectors.
+    call attention to these vectors by calling them eigenvectors.
     For these vectors, the operation of multiplying by
     <m>A</m> reduces to the much simpler operation of scalar
     multiplying by <m>\lambda</m>.  The reason eigenvectors are
@@ -390,7 +404,7 @@
     </p>
 
     <p>
-    <em>Eigen</em> is a German word that can be interpreted as meaning
+    <em>Eigen</em> comes from German and can be interpreted as meaning
     <q>characteristic</q>.  As we will see, the eigenvectors and
     eigenvalues of a matrix <m>A</m> give an important 
     characterization of the matrix. </p>
@@ -414,12 +428,12 @@
     eigenvector with eigenvalue <m>\lambda = -1</m>.  This means that
     <m>A\vvec_1 = 3\vvec_1</m> and <m>A\vvec_2=-\vvec_2</m>.
     By the linearity of matrix multiplication, we can
-    easily understand what happens when we multiply a linear
+    determine what happens when we multiply a linear
     combination of <m>\vvec_1</m> and <m>\vvec_2</m> by <m>A</m>:
     <me>A(c_1\vvec_1 + c_2\vvec_2) = 3c_1\vvec_1 - c_2\vvec_2</me>.
     </p>
 
-    <sidebyside widths="40% 50%">
+    <sidebyside widths="50% 50%">
       <p>
 	For instance, if we consider the vector
 	<m>\xvec=\vvec_1-2\vvec_2</m>, we find that
@@ -436,7 +450,7 @@
 
     <p> In other words, multiplying by <m>A</m> has the effect of
     stretching a vector <m>\xvec</m> in the
-    <m>\vvec_1</m> direction by a factor of <m>3</m> and flipping the
+    <m>\vvec_1</m> direction by a factor of <m>3</m> and flipping 
     <m>\xvec</m> in <m>\vvec_2</m> direction.
     </p>
 
@@ -447,9 +461,9 @@
     0 \amp -1 \\
     \end{array}\right]
     </m>.
-    As we have seen, the effect of multiplying a vector <m>\xvec</m>
-    by <m>D</m> is to stretch <m>\xvec</m> horizontally by a factor of
-    <m>3</m> and to flip <m>\xvec</m> vertically.  This is illustrated
+    As we have seen, the matrix transformation defined by <m>D</m>
+    combines a horizontal stretching by a factor of 3 with a
+    reflection across the horizontal axis, as is illustrated
     in <xref ref="fig-eigen-intro-diagonal" />.
     </p>
 
@@ -590,7 +604,7 @@
       combination of <m>\vvec_1</m> and <m>\vvec_2</m>.  Then write
       the next few vectors as linear combinations of <m>\vvec_1</m>
       and <m>\vvec_2</m>:
-      <ol>
+      <ol marker="1.">
 	<li><p> <m>\xvec_3 = A\xvec_2</m>. </p></li>
 	<li><p> <m>\xvec_4 = A\xvec_3</m>. </p></li>
 	<li><p> <m>\xvec_5 = A\xvec_4</m>. </p></li>
@@ -612,9 +626,8 @@
     </activity>
 
     <p> This activity is important and motivates much of our work with
-    eigenvalues and eigenvectors so we will review it now
-    making sure we have a clear understanding of the concepts that
-    arise.
+    eigenvalues and eigenvectors so it's worth reviewing
+    to make sure we have a clear understanding of the concepts.
     </p>
 
     <p> First, we compute
@@ -653,7 +666,7 @@
     </me>.
     Therefore, we will write the vector describing the initial
     distribution of cars 
-    <m>\xvec_0=\twovec{1000}{0}</m> as a linear combination of
+    <m>\xvec_0=\ctwovec{1000}{0}</m> as a linear combination of
     <m>\vvec_1</m> and <m>\vvec_2</m>;  that is, <m>\xvec_0 =
     c_1\vvec_2 + c_2 \vvec_2</m>.  To do, we form the augmented matrix
     and row reduce:
@@ -712,26 +725,27 @@
     stabilize at <m>\xvec=250\vvec_1=\twovec{750}{250}</m>.
     </p>
 
-    <p> Notice how our use of the eigenvalues and eigenvectors of
-    <m>A</m> enable us to look far into the future without having to
-    repeatedly multiply a vector by the matrix <m>A</m>.
-    Knowing the eigenvectors allows us to replace matrix
-    multiplication with the simpler operation of scalar
-    multiplication.  This is a  
-    powerful tool that we will develop more in the rest of this
-    chapter.  </p>
+    <p>
+      Notice how our understanding of the eigenvectors of the matrix
+      allows us to replace matrix multiplication with the simpler
+      operation of scalar multiplication.  As a result, we can look
+      far into the future without having to repeatedly perform matrix
+      multiplication.
+    </p>
 
-    <p> Notice also how this example relies on the fact that we can
-    express the initial vector <m>\xvec_0</m> as a linear combination
-    of eigenvectors.  For this reason, we would like, given an
-    <m>n\times n</m> matrix, to be able to
-    create a basis of <m>\real^n</m> of eigenvectors.  We will
-    frequently return to this question in later sections.  </p>
+    <p>
+      Furthermore, notice how this example relies on the fact that we
+      can express the initial vector <m>\xvec_0</m> as a linear
+      combination of eigenvectors.  For this reason, we would like,
+      when given an <m>n\times n</m> matrix, to be able to create a
+      basis of <m>\real^n</m> that consists of its eigenvectors.  We
+      will frequently return to this question in later sections.
+    </p>
 
     <question xml:id ="question-eigen-basis">
       <statement>
-	<p> Given an <m>n\times n</m> matrix <m>A</m>, when can we
-	form a basis for <m>\real^n</m> consisting of eigenvectors of
+	<p> If <m>A</m> is an <m>n\times n</m> matrix, can we form a
+	basis of <m>\real^n</m> consisting of eigenvectors of
 	<m>A</m>? </p>
       </statement>
     </question>
@@ -759,9 +773,9 @@
       eigenvectors of <m>A</m>, then <m>A</m> is, in some sense,
       equivalent to a diagonal matrix. </p></li>
 
-      <li><p> Rewriting a vector <m>\xvec</m> as a linear combination of
-      eigenvectors of <m>A</m> makes it easy to repeatedly multiply
-      <m>\xvec</m> by <m>A</m>. </p></li>
+      <li><p> Rewriting a vector <m>\xvec</m> as a linear combination
+      of eigenvectors of <m>A</m> simplifies the process of repeatedly
+      multiplying <m>\xvec</m> by <m>A</m>. </p></li>
     </ul>
     </p>
 
