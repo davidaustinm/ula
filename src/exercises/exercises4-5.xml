@@ -577,13 +577,14 @@ markov_chain(A, x0, 20)
       <ol marker="a.">
 	<li><p> What is the product <m>S(A-I)</m>? </p></li>
 
-	<li><p> Explain why <m>\col(A-I)</m> is contained in
-	<m>\nul(S)</m>. </p></li>
+	<li><p> What is the product <m>S\evec_1</m>?</p></li>
 	
-	<li><p> What is the product <m>S\evec_1</m>?  </p></li>
+	<li><p> Consider the equation <m>(A-I)\xvec = \evec_1</m>.
+	Explain why this equation cannot be consistent by multiplying
+	by <m>S</m> to obtain <m>S(A-I)\xvec = S\evec_1</m>.  </p></li>
 
-	<li><p> Explain why <m>\evec_1</m> is not contained in the
-	column space <m>\col(A-I)</m>.  </p></li>
+	<li><p> What can you say about the span of the columns of
+	<m>A-I</m>? </p></li>
 
 	<li><p> Explain why we can conclude that <m>A-I</m> is not
 	invertible and that <m>\lambda=1</m> is an eigenvalue of
@@ -593,50 +594,58 @@ markov_chain(A, x0, 20)
 
     <solution>
       <p><ol marker="a.">
-	<li><p> Remember that multiplying a matrix <m>B</m> by
-	<m>S</m> gives a <m>1\times n</m> matrix whose entries are the
-	sum of the columns of <m>B</m>.  Therefore, <m>S(A-I)=SA-SI =
-	S-S = \left[\begin{array}{rrrr}0\amp0\amp\ldots\amp 0
-	\end{array}\right]</m>.
+	<li><p> Notice that both <m>A</m> and <m>I</m> are stochastic.
+	Therefore, <m>S(A-I)=SA-SI = S-S =
+	\left[\begin{array}{rrrr}0\amp0\amp\cdots\amp 0
+	\end{array}\right]</m>.  </p></li>
+
+	<li><p> <m>S\evec_1 = \begin{bmatrix} 0
+	\end{bmatrix}</m>. </p></li> 
+
+	<li><p> We have
+	<me>
+	  \begin{aligned}
+	  (A-I)\xvec \amp = \evec_1 \\
+	  S(A-I)\xvec \amp = S\evec_1 \\
+	  \begin{bmatrix} 0 \end{bmatrix} \amp = \begin{bmatrix} 1
+	  \end{bmatrix}.
+	  \end{aligned}
+	</me>
+	This says that the original equation <m>(A-I)\xvec =
+	\evec_1</m> is not consistent. </p></li>
+	
+	<li><p> The span of the columns of <m>A-I</m> is not
+	<m>\real^n</m>. </p></li>
+
+	<li><p> Because the span of the columns of <m>A-I</m> is not
+	<m>\real^n</m>, <m>A-I</m> has a row without a pivot position,
+	which says that <m>A-I</m> is not invertible.  Therefore,
+	<m>\det(A-I) = 0</m>, which says that <m>\lambda = 1</m> is an
+	eigenvalue of <m>A</m>.
 	</p></li>
 
-	<li><p> Any vector in <m>\col(A-I)</m> can be written as
-	<m>(A-I)\xvec</m>.  However, we have <m>S[(A-I)\xvec] =
-	[S(A-I)]\xvec = [0]</m>, which means that <m>(A-I)\xvec</m> is
-	in <m>\nul(S)</m>. </p></li>
-	
-	<li><p> Since the components of <m>\evec_1</m> add to <m>1</m>,
-	<m>S\evec_1=[1]</m>. </p></li>
-
-	<li><p> From the previous part, we see that <m>\evec_1</m> is
-	not in <m>\nul(S)</m> which says it is not in
-	<m>\col(A-I)</m>.  </p></li>
-
-	<li><p> If <m>A-I</m> is invertible, then
-	<m>\col(A-I)=\real^n</m>.  However, we have seen that
-	<m>\evec_1</m> is not in <m>\col(A-I)</m> so <m>A-I</m> cannot
-	be invertible. </p></li>
       </ol></p>
     </solution>
 
     <answer>
       <p><ol marker="a.">
 	<li><p> <m>S(A-I) =
-	\left[\begin{array}{rrrr}0\amp0\amp\ldots\amp 0 
+	\left[\begin{array}{rrrr}0\amp0\amp\cdots\amp 0 
 	\end{array}\right]</m>
 	</p></li>
 
-	<li><p> <m>S[(A-I)\xvec] =
-	[S(A-I)]\xvec = [0]</m> </p></li>
+	<li><p> <m>S\evec_1 = \begin{bmatrix}1\end{bmatrix}</m>.
+	</p></li>
 	
-	<li><p> <m>S\evec_1=[1]</m> </p></li>
+	<li><p> <m>S(A-I)\xvec = [0]</m> while <m>S\evec_1=[1]</m>.
+	</p></li> 
 
-	<li><p> <m>\evec_1</m>
-	not in <m>\nul(S)</m> so it is not in
-	<m>\col(A-I)</m>.  </p></li>
+	<li><p> The span of the columns of <m>A-I</m> is not
+	<m>\real^n</m>.</p></li> 
 
-	<li><p> <m>\col(A-I)</m> cannot be
-	<m>\real^n</m>. </p></li> 
+	<li><p> The span of the columns of <m>A-I</m> is not
+	<m>\real^n</m>, we know that <m>A-I</m> is not
+	invertible. </p></li>  
       </ol></p>
     </answer>
   </exercise>
@@ -771,7 +780,7 @@ modified_markov_chain(G, x0, 20)
       <p> This exercise will analyze the board game <em>Chutes and
       Ladders</em>, or at least a simplified version of it. </p>
 
-      <sidebyside widths="50% 45%">
+      <sidebyside widths="50% 45%" margin="5%">
 	<p> The board for this game consists of 100 squares arranged
 	in a <m>10\times10</m> grid and numbered 1 to 100.  There are
 	pairs of squares joined by a ladder and pairs joined by a
@@ -780,7 +789,7 @@ modified_markov_chain(G, x0, 20)
 	squares indicated on the die.  If they arrive at a square at
 	the bottom of a ladder, they move to the square at the top of
 	the ladder.  If they arrive at a square at the top of a chute,
-	the move down to the square at the bottom of the chute.  The
+	they move down to the square at the bottom of the chute.  The
 	winner is the first player to reach square 100.
 	</p>
 
@@ -793,8 +802,8 @@ modified_markov_chain(G, x0, 20)
 	  with only eight squares laid out in a row as shown in
 	  <xref ref="fig-chutes-plain" /> and containing neither
 	  chutes nor ladders.  Rather than a six-sided
-	  die, we will flip a coin and move ahead one or two squares
-	  depending on the result whether we have heads or tails.  If
+	  die, we will toss a coin and move ahead one or two squares
+	  depending on the result of the coin toss.  If
 	  we are on square 7, we move 
 	  ahead to square 8 regardless of the coin flip, and if we are
 	  on square 8, we will stay there forever.  </p>
@@ -812,8 +821,8 @@ modified_markov_chain(G, x0, 20)
 	  <p> Construct the <m>8\times8</m> matrix <m>A</m> that
 	  records the probability that a player moves from one square to
 	  another on one move.  For instance, if a player is on square
-	  2, there is a 50% chance they are on square 3 and a 50%
-	  chance they are on square 4 at the end of the next
+	  2, there is a 50% chance they move to square 3 and a 50%
+	  chance they move to square 4 on the next
 	  move. </p>
 
 	  <p> Since we begin the game on square 1, the initial vector
@@ -876,7 +885,7 @@ markov_chain(A, x0, 10)
 	  </p>
 
 	  <p>
-	    <ol marker="i.">
+	    <ol marker="1.">
 	      <li><p> What is the smallest number of moves we can make and
 	      arrive at square 6?  What is the probability that we
 	      arrive at square 6 using this number of moves?  </p></li>
@@ -980,7 +989,7 @@ markov_chain(A, x0, 10)
 	  \end{array}\right]\text{.}
 	  \end{array}
 	</me>
-	<ol marker="i.">
+	<ol marker="1.">
 	  <li><p> We can first arrive at square <m>6</m> after three
 	  moves.  The chances of doing so are <m>12.5</m>%. </p></li>
 
@@ -1013,7 +1022,7 @@ markov_chain(A, x0, 10)
 	</p></li>
 
 	<li><p> We find that
-	<ol marker="i.">
+	<ol marker="1.">
 	  <li><p> We can first arrive at square <m>6</m> after three
 	  moves.  The chances of doing so are <m>12.5</m>%. </p></li>
 

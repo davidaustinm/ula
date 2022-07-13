@@ -5,13 +5,14 @@
   <title> Dynamical systems </title>
 
   <introduction>
-    <p> In the last section, we used a coordinate system defined by
-    the eigenvectors of a matrix to express matrix multiplication in a
+    <p> The last section demonstrated ways in which we may relate a
+    matrix, and the effect that multiplication has on vectors, to a
     simpler form.  For instance, if there is a basis of <m>\real^n</m>
-    consisting of eigenvectors of <m>A</m>, we saw that multiplying a
-    vector by <m>A</m>, when expressed in the coordinates defined by the
-    basis of eigenvectors, was equivalent to multiplying by a diagonal
-    matrix.</p>
+    consisting of eigenvectors of <m>A</m>, we saw that <m>A</m> is
+    similar to a diagonal matrix <m>D</m>.  As a result, the effect of
+    multiplying vectors by <m>A</m>, when expressed using the basis of
+    eigenvectors, is the same as multiplying by <m>D</m>.
+    </p>
 
     <p> In this section, we will put these ideas to use as we explore
     discrete dynamical systems, first encountered in <xref
@@ -20,7 +21,9 @@
     the distribution of delivery trucks between two locations, at a
     particular time.  A matrix <m>A</m> described the transition of
     the state vector with <m>A\xvec</m> characterizing the state of the
-    system at a later time. </p>
+    system at a later time.  Since we would like to understand how the
+    state vector evolves over time, we are interested in studying the
+    sequence of vectors <m>A^k\xvec</m>. </p>
 
     <p> Our goal in this section is to describe the types of behaviors
     that dynamical systems exhibit and to develop a means of detecting
@@ -44,7 +47,7 @@
 	<li><p> Find the eigenvalues of <m>A</m> and find a basis for
 	the associated eigenspaces. </p></li>
 
-	<li><p> Form a basis <m>\bcal</m> of <m>\real^2</m> consisting
+	<li><p> Form a basis of <m>\real^2</m> consisting
 	of eigenvectors 
 	of <m>A</m> and write the vector <m>\xvec = \twovec{1}{4}</m>
 	as a linear combination of basis vectors. </p></li>
@@ -52,17 +55,11 @@
 	<li><p> Write <m>A\xvec</m> as a linear combination of basis
 	vectors. </p></li>
 
-	<li><p> What is <m>\coords{\xvec}{\bcal}</m>, the
-	representation of <m>\xvec</m> in the coordinate system
-	defined by <m>\bcal</m>? </p></li>
+	<li><p> For some power <m>k</m>, write <m>A^k\xvec</m> as a
+	linear combination of basis vectors.</p></li>
 
-	<li><p> What is <m>\coords{A\xvec}{\bcal}</m>, the
-	representation of <m>A\xvec</m> in the coordinate system
-	defined by <m>\bcal</m>? </p></li>
+	<li><p> Find the vector <m>A^5\xvec</m>. </p></li>
 
-	<li><p> What is <m>\coords{A^4\xvec}{\bcal}</m>, the
-	representation of <m>A^4\xvec</m> in the coordinate system
-	defined by <m>\bcal</m>? </p></li>
       </ol></p>
       </statement>
 
@@ -72,13 +69,13 @@
 	  <m>A=PDP^{-1}</m>, the eigenvalues of <m>A</m>
 	  are the diagonal entries of <m>D</m> and the eigenvectors
 	  are the columns of <m>P</m>.  Therefore, we know the
-	  eigenvectors are <m>\lambda_1=2</m> with associated
+	  eigenvalues are <m>\lambda_1=2</m> with associated
 	  eigenvector <m>\vvec_1=\twovec11</m> and <m>\lambda_2=-3</m>
 	  with associated eigenvector <m>\vvec_2=\twovec{-1}{2}</m>.
 	  </p></li>
 
 	  <li><p> The columns of <m>P</m>, <m>\vvec_1</m> and
-	  <m>\vvec_2</m>, form a basis <m>\bcal</m> for
+	  <m>\vvec_2</m>, form a basis for
 	  <m>\real^2</m>.  We find that <m>\xvec=\twovec14 =
 	  2\vvec_1+\vvec_2</m>. </p></li>
 
@@ -86,19 +83,11 @@
 	  <m>A\xvec=2\lambda_1\vvec_1+\lambda_2\vvec_2=
 	  4\vvec_1-3\vvec_2</m>. </p></li>
 
-	  <li><p> The components of <m>\coords{\xvec}{\bcal}</m> are
-	  the weights of the linear combination of <m>\vvec_1</m> and
-	  <m>\vvec_2</m> that form <m>\xvec</m>.  Therefore,
-	  <m>\coords{\xvec}{\bcal} = \twovec21</m>. </p></li>
+	  <li><p> We have <m>A^k\xvec = 2\cdot2^k\vvec_1
+	  +(-3)^k\vvec_2</m>. </p></li>
 
-	  <li><p> In the same way, <m>\coords{A\xvec}{\bcal} =
-	  \twovec4{-3}</m>. </p></li>
-
-	  <li><p> Each time we multiply by <m>A</m>, the vectors
-	  <m>\vvec_j</m> are multiplied by their eigenvalue.  This
-	  means that <m>A^4\xvec=2\cdot 2^4\vvec_1 + (-3)^4\vvec_2 =
-	  32\vvec_1+81\vvec_2</m>.  Therefore,
-	  <m>\coords{A\xvec}{\bcal} = \twovec{32}{81}</m>. </p></li>
+	  <li><p> <m>A^5\xvec = 2\cdot2^5\vvec_1 + (-3)^5\vvec_2 =
+	  \twovec{307}{-422}</m>. </p></li>
 	</ol></p>
       </solution>
     </exploration>
@@ -108,9 +97,15 @@
   <subsection>
     <title> A first example </title>
 
-    <p> We will begin our study of dynamical systems with an example
-    that illustrates how eigenvalues and eigenvectors may be used to
-    understand their behavior. </p>
+    <p> We will begin with a dynamical system
+    that illustrates how the ideas we've been developing can help us
+    understand the populations of two interacting species.  There are
+    several possible ways in which two species may interact.  For
+    example, wolves on Isle Royale in northern Michigan prey on moose
+    so this interaction is often called a predator-prey relationship.
+    Other interactions between species, such as bees and flowering
+    plants, are mutually beneficial for both species.
+    </p>
 
     <activity>
       <statement>
@@ -121,7 +116,8 @@
       after <m>k</m> years, the populations are <m>R_k</m>
       and <m>S_k</m>. </p>
 
-      <p> If we know the populations in one year, they are determined
+      <p> If we know the populations in one year, suppose that they
+      are determined 
       in the following year by the expressions
       <me>
 	\begin{aligned}
@@ -129,7 +125,18 @@
 	S_{k+1} \amp {}={} 0.2 R_k + 0.9 S_k\text{.} \\
 	\end{aligned}
       </me>
-      We will combine the populations in a vector
+      This is an example of a mutually beneficial relationship between
+      two species.  If species <m>S</m> is not present, then
+      <m>R_{k+1} = 0.9R_k</m>, which means that the population of
+      species <m>R</m> decreases every year.  However, species
+      <m>R</m> benefits from the presence of species <m>S</m>, which
+      helps <m>R</m> to grow by 80% of the population of species
+      <m>S</m>.  In the same way, <m>S</m> benefits from the presence
+      of <m>R</m>.
+      </p>
+
+      <p>
+      We will record the populations in a vector
       <m>\xvec_k = \twovec{R_k}{S_k}</m> and note that
       <m>\xvec_{k+1} = A\xvec_k</m> where
       <m>A = \left[\begin{array}{rr}
@@ -152,24 +159,24 @@
 	<m>\vvec_1</m> and <m>\vvec_2</m>.  </p></li>
 
 	<li><p> Write the vectors <m>\xvec_1</m>, <m>\xvec_2</m>, and
-	<m>\xvec_3</m> as a linear combination of eigenvectors
+	<m>\xvec_3</m> as linear combinations of the eigenvectors
 	<m>\vvec_1</m> and <m>\vvec_2</m>.  </p></li>
+
+	<li><p> What happens to <m>\xvec_k</m> after a very long time?
+	</p></li> 
 
 	<li><p> When <m>k</m> becomes very large, what happens to the
 	ratio of the populations <m>R_k/S_k</m>?  </p></li>
-
-	<li><p> If we begin instead with <m>\xvec_0 =
-	\twovec{4}{4}</m>, what eventually happens to the ratio
-	<m>R_k/S_k</m> as <m>k</m> becomes very large? </p></li>
-
-	<li><p> Explain what happens to the ratio <m>R_k/S_k</m> as
-	<m>k</m> becomes very large no matter what the initial
-	populations are. </p></li>
 
 	<li><p> After a very long time, by approximately what factor does
 	the population of <m>R</m> grow every year?  By approximately
 	what factor does the population of <m>S</m> grow every year?
 	</p></li> 
+
+	<li><p> If we begin instead with <m>\xvec_0 =
+	\twovec{4}{4}</m>, what eventually happens to the ratio
+	<m>R_k/S_k</m> as <m>k</m> becomes very large? </p></li>
+
       </ol></p>
       </statement>
 
@@ -199,6 +206,9 @@
 	  </me>
 	  </p></li>
 
+	  <li><p> After a long time <m>0.5^k\approx 0</m> so we have
+	  <m>\xvec_k \approx 2(1.3)^k\vvec_1</m>.</p></li>
+
 	  <li><p> More generally, we have <m>\xvec_k=2(1.3)^k\vvec_1 +
 	  0.5^k\vvec_2</m>.  As <m>k</m> grows large, <m>0.5^k</m>
 	  becomes insignificantly small so that <m>\xvec_k\approx
@@ -207,6 +217,10 @@
 	  <m>R_k/S_k \approx 2</m>.
 	  </p></li>
 
+	  <li><p> We see that <m>\xvec_{k+1}\approx 1.3\xvec_k</m> so
+	  that the populations both grow by a factor of approximately
+	  1.3, which is a 30% growth rate. </p></li>
+
 	  <li><p> Now we have <m>\xvec_0 = 3\vvec_1 + \vvec_2</m>.  In
 	  the same way, when <m>k </m> is very large, we have
 	  <m>\xvec_k\approx 3(1.3)^k\vvec_1</m> so that
@@ -214,31 +228,22 @@
 	  This gives the same ratio:  <m>R_k/S_k\approx
 	  2</m>.</p></li>
 
-	  <li><p> No matter what the starting populations, we will
-	  have <m>\xvec_0 = c_1\vvec_1+c_2\vvec_2</m> and
-	  <m>\xvec_k\approx c_1(1.3)^k</m> as <m>k</m> grows very
-	  large.  Therefore, <m>R_k\approx 2c_1(1.3)^k</m> and
-	  <m>S_k\approx c_2(1.3)^k</m> and ratio <m>R_k/S_k\approx
-	  2</m>. </p></li>
-
-	  <li><p> We see that <m>\xvec_{k+1}\approx 1.3\xvec_k</m> so
-	  that the populations both grow by a factor of approximately
-	  1.3, which is a 30% growth rate. </p></li>
 	</ol></p>
       </solution>
     </activity>
 
-    <p> This activity demonstrates the type of questions we
-    will be considering.  In particular, we will assume that we have
-    an initial vector <m>\xvec_0</m> and a matrix <m>A</m> and define
-    <m>\xvec_{k+1} = A\xvec_k</m>.  The eigenvalues and eigenvectors
-    of <m>A</m> provide the key that helps us understand how the
-    vectors <m>\xvec_k</m> evolve and enables us to make long-range
-    predictions. 
+    <p> This activity demonstrates the type of systems we will be
+    considering.  In particular, we will have vectors
+    <m>\xvec_k</m> that describe the state of the system at time 
+    <m>k</m> and a matrix <m>A</m> that describes how the state
+    evolves from one time to the next: <m>\xvec_{k+1} = A\xvec_k</m>.
+    The eigenvalues and eigenvectors of <m>A</m> provide the key that
+    helps us understand how the vectors <m>\xvec_k</m> evolve and that
+    enables us to make long-range predictions.
     </p>
 
     <p> Let's look at the specific example in the previous activity
-    more carefully.  We see that we have
+    more carefully.  We see that 
     <me>
       \xvec_{k+1} = A\xvec_k = 
       \left[\begin{array}{rr}
@@ -251,64 +256,86 @@
     \twovec{2}{1}</m> and <m>\vvec_2=\twovec{-2}{1}</m> with associated
     eigenvalues <m>\lambda_1=1.3</m> and <m>\lambda_2=0.5</m>. </p>
 
-    <p> Notice that the eigenvectors <m>\vvec_1</m> and <m>\vvec_2</m>
-    form a basis <m>\bcal</m> of <m>\real^2</m>.  This means that
-    <m>A</m> is diagonalizable so we can write <m>A=PDP^{-1}</m> where
-    <me>
-      P = \left[\begin{array}{rr} \vvec_1 \amp \vvec_2
-      \end{array}\right] =
-      \left[\begin{array}{rr}
-      2 \amp -2 \\
-      1 \amp 1 \\
-      \end{array}\right], \qquad
-      D = \left[\begin{array}{rr}
-      1.3 \amp 0 \\
-      0 \amp 0.5 \\
-      \end{array}\right]
-    </me>.
-    In particular, we have
-    <me>
-      \coords{A\xvec}{\bcal} = D\coords{\xvec}{\bcal}
-    </me>.
+    <p>
+      With initial populations <m>\xvec_0=\twovec{2}{3}</m>, we have
+      <me>
+	\begin{aligned}
+	\xvec_0 \amp {}={} 2\vvec_1 + 1\vvec_2 \\
+	\xvec_1 \amp {}={} 1.3\cdot2\vvec_1 + 0.5\cdot1\vvec_2 \\
+	\xvec_2 \amp {}={} 1.3^2\cdot2\vvec_1 + 0.5^2\cdot1\vvec_2 \\
+	\xvec_k \amp {}={} 1.3^k\cdot2\vvec_1 + 0.5^k\cdot1\vvec_2. \\
+	\end{aligned}
+      </me>
     </p>
 
-    <p> With intial populations <m>\xvec_0=\twovec{2}{3}</m>, we have
-    <m>\xvec_0 = 2\vvec_1+\vvec_2</m>, which means that
-    <m>\coords{\xvec_0}{\bcal} = \twovec{2}{1}</m>.  Therefore,
+    <p>
+      Let's shift our perspective slightly.  The eigenvectors
+      <m>\vvec_1</m> and <m>\vvec_2</m> form a basis <m>\bcal</m> of
+      <m>\real^2</m>, which says that <m>A</m> is diagonalizable;
+      that is, <m>A = PDP^{-1}</m> where
+      <me>
+	P = \left[\begin{array}{rr} \vvec_1 \amp \vvec_2
+	\end{array}\right] =
+	\left[\begin{array}{rr}
+	2 \amp -2 \\
+	1 \amp 1 \\
+	\end{array}\right], \qquad
+	D = \left[\begin{array}{rr}
+	1.3 \amp 0 \\
+	0 \amp 0.5 \\
+	\end{array}\right].
+      </me>
+    </p>
+
+    <p> The coordinate system defined by the basis <m>\bcal</m> can be
+    used to express the state vectors.  For instance,
+    we can write the initial state vector
+    <m>\xvec_0=\twovec{2}{3}= 2\vvec_1+\vvec_2</m>, which means that
+    <m>\coords{\xvec_0}{\bcal} = \twovec{2}{1}</m>.  Moreover,
+    <m>\xvec_1=A\xvec_0 = (1.3)\cdot2\vvec_1 + (0.5)\cdot1\vvec_2</m>
+    so that
+    <me>
+      \coords{\xvec_1}{\bcal} = \twovec{1.3\cdot 2}{0.5\cdot 1} =
+      D\twovec21 = D\coords{\xvec_0}{\bcal}.
+    </me>  
+
+    In the same way,
     <me>
       \begin{aligned}
       \coords{\xvec_1}{\bcal} \amp {}={} D\coords{\xvec_0}{\bcal} =
-      \ctwovec{1.3\cdot 2}{0.5} \\
+      \ctwovec{1.3\cdot 2}{0.5\cdot 1} \\
       \coords{\xvec_2}{\bcal} \amp {}={} D\coords{\xvec_1}{\bcal} =
-      \ctwovec{1.3^2\cdot 2}{0.5^2} \\
+      \ctwovec{1.3^2\cdot 2}{0.5^2\cdot1} \\
       \coords{\xvec_3}{\bcal} \amp {}={} D\coords{\xvec_2}{\bcal} =
-      \ctwovec{1.3^3\cdot2}{0.5^3} \\
+      \ctwovec{1.3^3\cdot2}{0.5^3\cdot1} \\
       \coords{\xvec_k}{\bcal} \amp {}={} 
-      \ctwovec{1.3^k\cdot2}{0.5^k}\text{.} \\
+      \ctwovec{1.3^k\cdot2}{0.5^k\cdot1}\text{.} \\
       \end{aligned}
     </me>
     </p>
+    <p>
+    More generally, we have
+    <me>
+      \coords{A\xvec}{\bcal} = D\coords{\xvec}{\bcal},
+    </me>
+    which is a restatement of the fact that <m>A</m> is
+    similar to <m>D</m>.
+    </p>
 
-    <sidebyside widths="50% 45%">
+    <sidebyside widths="55% 45%">
       <p> Thinking about this geometrically, we begin with the vector
       <m>\coords{\xvec_0}{\bcal}=\ctwovec{2}{1}</m>.  Subsequent
       vectors <m>\coords{\xvec_k}{\bcal}</m> are obtained by scaling
       horizontally by a factor of <m>1.3</m> and scaling vertically by
       a factor <m>0.5</m>.  Notice how the points move along a curve
       away from the origin becoming ever closer to the horizontal
-      axis. </p>
+      axis. After a very long time, <m>\coords{\xvec_k}{\bcal} \approx
+      \ctwovec{1.3^k\cdot2}{0}</m>.</p>
 
       <image source="images/eigen-dynamical-intro" />
     </sidebyside>
 
-    <p> After a very long time, <m>\coords{\xvec_k}{\bcal} \approx
-    \ctwovec{1.3^k\cdot2}{0}</m>, which says that
-    <m>\coords{\xvec_{k+1}}{\bcal} \approx
-    1.3\coords{\xvec_k}{\bcal}</m>.  That is, the vector
-    <m>\coords{\xvec_k}{\bcal}</m> grows by a factor of <m>1.3</m>
-    every year. </p>
-
-    <sidebyside widths="50% 45%">
+    <sidebyside widths="55% 45%">
       <p> To recover the behavior of the sequence <m>\xvec_0, \xvec_1,
       \xvec_2, \ldots</m>, we change coordinate systems using the
       basis defined by <m>\vvec_1</m> and <m>\vvec_2</m>.  Here, the
@@ -320,16 +347,26 @@
     </sidebyside>
 
     <p> Eventually, the vectors become practically indistinguishable
-    from a scalar multiple of <m>\vvec_1 = \twovec{2}{1}</m>; that is,
-    <m>\xvec_k\approx s\vvec_1</m>.  This means that
+    from a scalar multiple of <m>\vvec_1 = \twovec{2}{1}</m> since
+    <m>\xvec_k\approx 1.3^k\cdot2\vvec_1</m>.  This means that
     <me>
-      \xvec_k = \twovec{R_k}{S_k} \approx s\twovec{2}{1}
+      \xvec_k = \twovec{R_k}{S_k} \approx 1.3^k\cdot 2\vvec_1 = 
+      \twovec{1.3^k\cdot4}{1.3^k\cdot2}.
     </me>
-    so that <m>R_k/S_k \approx 2</m>.  In addition, <m>\xvec_{k+1}
+    This shows that
+    <me>
+      R_k/S_k \approx (1.3^k\cdot 4) / (1.3^k\cdot 2) = 2
+    </me>
+    so that we expect the population of species <m>R</m> to eventually
+    be about
+    twice that of species <m>S</m>.
+    </p>
+
+    <p>
+    In addition, <m>\xvec_{k+1}
     \approx 1.3\xvec_k</m> so that <m>R_{k+1}\approx 1.3 R_k</m> and
-    <m>S_{k+1}\approx 1.3 S_k</m>.  We conclude that, after a very
-    long time, the ratio of the populations <m>R_k</m> to <m>S_k</m>
-    is very close to 2 to 1.  We also see that each population is
+    <m>S_{k+1}\approx 1.3 S_k</m>, which tells us that both
+    populations are
     multiplied by 1.3 every year meaning the annual growth rate for
     both populations is about 30%.</p>
 
@@ -650,6 +687,13 @@
 
     </ul></p>
 
+    <p>
+      This list includes many types of expected behavior, but there
+      are other possibilities if, for instance, one of the eigenvalues
+      is 0.  The next section explores the situation when one of the
+      eigenvalues is 1.
+    </p>
+
     <activity>
       <statement>
       <p> In this activity, we will consider several ways in which two
@@ -814,12 +858,13 @@
     In fact, the general case is quite similar.  As an example,
     consider a <m>3\times3</m> system <m>\xvec_{k+1}=A\xvec_k</m>
     where the matrix <m>A</m> has eigenvalues <m>\lambda_1 = 0.6</m>,
-    <m>\lambda_2 = 0.8</m>, and <m>\lambda_3=1.1</m>.  The matrix
-    <m>A</m> therefore has a basis <m>\bcal</m> consisting of
-    eigenvectors so we can look at the trajectories
+    <m>\lambda_2 = 0.8</m>, and <m>\lambda_3=1.1</m>.  Since the
+    eigenvalues are real and distinct, there is a
+    basis <m>\bcal</m> consisting of
+    eigenvectors of <m>A</m> so we can look at the trajectories
     <m>\coords{\xvec_k}{\bcal}</m> in the coordinate system defined by
     <m>\bcal</m>.  The phase portraits in <xref
-    ref="fig-eigen-3d-saddle" /> show how the 
+    ref="fig-eigen-3d-saddle" /> show how some representative
     trajectories will evolve.  We see that all the trajectories will
     converge into the eigenspace <m>E_{1.1}</m>.
     </p>
@@ -900,7 +945,7 @@
 	<li><p> As is usual, we write the matrix
 	<m>\xvec_k=\threevec{J_k}{Y_k}{A_k}</m>.  Write the matrix
 	<m>A</m> such that
-	<m>\xvec_{k+1} = A\xvec_k</m>.
+	<m>\xvec_{k+1} = A\xvec_k</m> and find its eigenvalues.
 	</p></li>
 
 	<li><p> We can write <m>A = PEP^{-1}</m> where the matrices
@@ -1006,9 +1051,11 @@
   <subsection>
     <title> Summary </title>
 
-    <p> We have been exploring discrete dynamical systems, which have
-    the form <m>\xvec_{k+1}=A\xvec_k</m>, by looking at the
-    eigenvalues and eigenvectors of <m>A</m>.  In the <m>2\times2</m>
+    <p> We have been exploring discrete dynamical systems in which an
+    initial state vector <m>\xvec_0</m> evolves over time according
+    to the rule <m>\xvec_{k+1}=A\xvec_k</m>.  The
+    eigenvalues and eigenvectors of <m>A</m> help us understand the
+    behavior of the state vectors.  In the <m>2\times2</m>
     case, we saw that
     <ul>
       <li><p> <m>|\lambda_1|, |\lambda_2| \lt 1</m> produces an

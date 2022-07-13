@@ -9,17 +9,17 @@
     and eigenvectors to describe the long-term behavior of some
     discrete dynamical systems.  The state of the sytem, which could
     record, say, the populations of a few interacting species, at one
-    time was described by a vector <m>\xvec_k</m>.  The state vector
-    then evolved according to a linear rule <m>\xvec_{k+1} =
+    time is described by a vector <m>\xvec_k</m>.  The state vector
+    then evolves according to a linear rule <m>\xvec_{k+1} =
     A\xvec_k</m>. </p>
 
-    <p> We continue our exploration in this section by looking
-    at Markov chains, which form a specific type of discrete dynamical
-    system.  For instance, we could be interested in a rental car
-    company that rents cars from several locations.  From one day to
-    the next, the number of cars at different locations can change,
-    but the total number of cars stays the same.  Once again, an
-    understanding of eigenvalues and eigenvectors will help us make
+    <p> This section continues this exploration by looking at
+    <em>Markov chains</em>, which form a specific type of discrete
+    dynamical system.  For instance, we could be interested in a
+    rental car company that rents cars from several locations.  From
+    one day to the next, the number of cars at different locations can
+    change, but the total number of cars stays the same.  Once again,
+    an understanding of eigenvalues and eigenvectors will help us make
     predictions about the long-term behavior of the system. </p>
 
     <exploration>
@@ -141,7 +141,7 @@
       <m>Q_k</m>, and <m>R_k</m> to denote the percentage of voters
       voting for that party in election <m>k</m>.  </p>
 
-      <sidebyside widths="50% 45%">
+      <sidebyside widths="55% 45%">
 	<p> Voters will change parties from one election to the next as
 	shown in the figure.  We see that 60% of voters stay with the
 	same party.  However, 40% of those who vote for party <m>P</m>
@@ -275,7 +275,7 @@
     it by <m>A</m>.
     </p>
 
-    <sidebyside widths="50% 45%">
+    <sidebyside widths="55% 45%">
       <p> Otherwise, we have <m>A=PEP^{-1}</m> where
       <me>
 	E = \left[\begin{array}{rrr}
@@ -294,7 +294,7 @@
 
     <p> This tells us that the sequence <m>\xvec_k</m> converges to a
     vector in <m>E_1</m>.  
-    It is straightforward to see
+    In the usual way, we see
     that <m>\vvec=\threevec{1}{2}{2}</m> is a basis vector for
     <m>E_1</m> because <m>A\vvec = \vvec</m> so we expect that
     <m>\xvec_k</m> will converge to a scalar multiple of <m>\vvec</m>.
@@ -392,7 +392,7 @@
 	<m>\xvec_{k+1} = A\xvec_k</m>.  The Sage cell below 
 	constructs the first <m>N</m> terms of the Markov chain with
 	the command <c>markov_chain(A, x0, N)</c>.  Define the matrix
-	<m>A</m> and vector <m>x0</m> and evaluate the cell to find
+	<c>A</c> and vector <c>x0</c> and evaluate the cell to find
 	the first 10 terms of the Markov chain.
 	<sage>
 	  <input>
@@ -726,13 +726,13 @@ markov_chain(C, x0, 10)
     assess the quality of web pages. </p>
 
     <p> Suppose we enter <q>linear algebra</q> into Google's search
-    engine.  Google responds by telling us there are 24.9 million web
+    engine.  Google responds by telling us there are 138 million web
     pages containing those terms.  On the first page, however, there
     are links to ten web pages that Google judges to have the highest
-    quality and therefore the ones we are most likely to be interested
+    quality and to be the ones we are most likely to be interested
     in. How does Google assess the quality of web pages? </p>
 
-    <p> As the time this is being written, Google is tracking 30
+    <p> At the time this is being written, Google is tracking 35
     trillion web pages.  Clearly, this is too many for humans to
     evaluate.  Plus, human evaluators may inject their own biases into
     their evaluations, perhaps even unintentionally.  Google's idea is
@@ -908,8 +908,8 @@ markov_chain(G, x0, 20)
     gives us the steady-state vector.  To find a description of the
     eigenspace <m>E_1</m>, however, we need to find the null space
     <m>\nul(G-I)</m>.  Remember that the real Internet has
-    30 trillion pages so finding <m>\nul(G-I)</m> requires us to row
-    reduce a matrix with 30 trillion rows and columns.  As we saw in 
+    35 trillion pages so finding <m>\nul(G-I)</m> requires us to row
+    reduce a matrix with 35 trillion rows and columns.  As we saw in 
     <xref ref="subsec-compute-effort" />, that is not computationally
     feasible.  </p>
 
