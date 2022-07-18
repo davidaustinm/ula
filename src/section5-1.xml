@@ -147,10 +147,10 @@
       0.000110011001100110011001100110011001100110011\ldots\text{.}
     </me>,
     To accurately represent this number inside a
-    computer would require an infinite number of digits.  Since a
+    computer would require infinitely many digits.  Since a
     computer can only hold a finite number of digits,
-    we are necessarily using an approximation when
-    simply representing this number in a computer.
+    we are necessarily using an approximation just by
+    representing this number in a computer.
     </p>
 
     <p> In addition, arithmetic operations, such as addition, are
@@ -164,6 +164,7 @@
     rounded.  Generally speaking, we will see this problem, which is
     called <em>round off error</em>, whenever we
     add numbers of signficantly different magnitudes.
+    <idx> round off error </idx>
     </p>
 
     <p> Remember that Gaussian elimination, when applied to an
@@ -179,8 +180,8 @@
     <activity>
       <statement>
       <p> Suppose we have a hypothetical computer that represents
-      numbers using only three decimal digits, as we have been
-      discussing.  We will consider the linear system
+      numbers using only three decimal digits.
+      We will consider the linear system
       <me>
 	\begin{alignedat}{3}
 	0.0001x \amp  {}+{}  \amp y \amp  {}={}  \amp 1 \\
@@ -257,8 +258,8 @@
 	  </me>
 	  and row reducing. </p></li>
 
-	  <li><p> The solution would be rounded to <m>x\approx1</m>
-	  and <m>y\approx1</m>.</p></li>
+	  <li><p> The solution would be rounded to <m>x=1.00</m>
+	  and <m>y=1.00</m>.</p></li>
 
 	  <li><p> We first multiply the first row by <m>-10000</m> and
 	  add to the second row.  This gives
@@ -296,12 +297,12 @@
 	    0 \amp 1 \amp 1 \\
 	    \end{array}\right]
 	  </me>
-	  so have the approximation solution <m>x\approx0</m> and
-	  <m>y\approx1</m>.  </p></li>
+	  so have the approximation solution <m>x=0.00</m> and
+	  <m>y=1.00</m>.  </p></li>
 
 	  <li><p> This compares to the actual solution, as represented
-	  in our computer, as <m>x\approx1</m> and <m>y\approx1</m>.
-	  The value of <m>x</m> differs considerably. </p></li>
+	  in our computer, as <m>x=1.00</m> and <m>y=1.00</m>.
+	  Notice that the value of <m>x</m> differs considerably. </p></li>
 
 	  <li><p> Now we have
 	  <me>
@@ -322,7 +323,7 @@
 	    \end{array}\right]\text{,}
 	    \end{array}
 	  </me>
-	  which gives <m>y\approx1</m>. </p></li>
+	  which gives <m>y=1.00</m>. </p></li>
 
 	  <li><p> Performing one more row operation gives us
 	  <me>
@@ -331,8 +332,8 @@
 	    0 \amp 1 \amp 1 \\
 	    \end{array}\right]\text{,}
 	  </me>
-	  which shows the approximate solution as <m>x\approx1</m> and
-	  <m>y\approx1</m>. </p></li>
+	  which shows the approximate solution as <m>x=1.00</m> and
+	  <m>y=1.00</m>. </p></li>
 
 	  <li><p> The second approach gives an approximate solution
 	  that is as accurate as possible given the computer's limited
@@ -416,7 +417,7 @@
     hypothetical computer can find.  Simply interchanging the order of
     the equation produces a much more accurate solution.</p>
 
-    <sidebyside widths="50% 45%">
+    <sidebyside widths="60% 40%">
       <p>We can understand why this works graphically.  Each equation
       represents a line in the plane, and the solution is the
       intersection point.  Notice that the slopes of these lines
@@ -445,7 +446,7 @@
     <m>x\approx1</m> from the exact value. </p>
 
     <p> This example motivates the technique that computers usually
-    use to perform Gaussian elimation.  In practice, we only need to
+    use to perform Gaussian elimation.  We only need to
     perform a row interchange when a zero occurs in a pivot position,
     such as
     <me>
@@ -455,8 +456,8 @@
       0 \amp 2 \amp 2 \amp -3 \\
       \end{array}\right]
     </me>.
-    Instead, we will perform a row interchange to put the entry having
-    the largest possible absolute value entry into the pivot position.
+    However, we will perform a row interchange to put the entry having
+    the largest possible absolute value into the pivot position.
     For instance, when performing Gaussian elimination on the
     following matrix, we begin by interchanging the first and third
     rows so that the upper left entry has the largest possible
@@ -514,7 +515,8 @@
 	3 \amp 7 \amp 4 \\
 	\end{array}\right]
       </me>
-      and begin performing Gaussian elimination.
+      and begin performing Gaussian elimination without using partial
+      pivoting.  
       <ol marker="a.">
 	<li> <p> Perform two row replacement operations to find the
 	row equivalent matrix
@@ -567,7 +569,7 @@
 	<li><p> Now that we have found <m>\cvec</m>, find <m>\xvec</m>
 	by solving <m>U\xvec = \cvec</m>. </p></li> 
 
-	<li><p> Use the factorization <m>A=LU</m> and this two-step
+	<li><p> Using the factorization <m>A=LU</m> and this two-step
 	process, solve the equation 
 	<m>A\xvec = \threevec{2}{-2}{7}</m>. </p></li>
 
@@ -602,7 +604,7 @@
 	  </me>
 	  </p></li>
 
-	  <li><p> The inverse matrices are easily found to be
+	  <li><p> The inverse matrices are found to be
 	  <me>
 	    E_1^{-1}=
 	    \left[\begin{array}{rrr}
@@ -653,125 +655,163 @@
     the row operations that we apply in the Gaussian elimination algorithm
     through multiplication by elementary matrices.  </p>
 
-    <p> Beginning with the matrix
-    <m>
-      A = \left[\begin{array}{rrr}
-      1 \amp 2 \amp 1 \\
-      -2 \amp -3 \amp -2 \\
-      3 \amp 7 \amp 4 \\
-      \end{array}\right]
-    </m>,
-    we multiply the first row by <m>2</m> and add the result to
-    the second row.  The result is obtained by multiplying <m>A</m> by
-    the matrix
-    <m>E_1 = \left[\begin{array}{rrr}
-    1 \amp 0 \amp 0 \\
-    2 \amp 1 \amp 0 \\
-    0 \amp 0 \amp 1 \\
-    \end{array}\right]
-    </m>.  Notice that the inverse of <m>E_1</m> is
-    <m>E_1^{-1} = \left[\begin{array}{rrr}
-    1 \amp 0 \amp 0 \\
-    -2 \amp 1 \amp 0 \\
-    0 \amp 0 \amp 0 \\
-    \end{array}\right]
-    </m>.  There is no computation required to find <m>E_1^{-1}</m>;
-    to undo the effect of <m>E_1</m>, we simply multiply the first row
-    by <m>-2</m>, rather than <m>2</m>, and add it to the second row.
-    In practice, to find the inverse of an elementary matrix
-    corresponding to a row replacement operation, we simply change the
-    sign of the number below the diagonal.  That's easy!
+    <example xml:id="example-LU">
+      <p>
+	Suppose we have the equation 
+	<me>
+	  \begin{bmatrix}
+	  2 \amp -3 \amp 1 \\
+	  -4 \amp 5 \amp 0 \\
+	  2 \amp -2 \amp 2
+	  \end{bmatrix}
+	  \xvec = \cthreevec8{-13}8,
+	</me>
+	which we write in the form <m>A\xvec = \bvec</m>.  We begin by
+	applying the Gaussian elimination algorithm to find an
+	<m>LU</m> factorization of <m>A</m>.
+      </p>
+
+      <p>
+	The first step is to multiply the first row of <m>A</m> by
+	<m>2</m> and 
+	add it to the second row.  The elementary matrix
+	<me>
+	  E_1 = \begin{bmatrix}
+	  1 \amp 0 \amp 0 \\
+	  2 \amp 1 \amp 0 \\
+	  0 \amp 0 \amp 0 \\
+	  \end{bmatrix}
+	</me>
+	performs this operation
+	so that <m>E_1A = \begin{bmatrix}
+	2 \amp -3 \amp 1 \\
+	0 \amp -1 \amp 2 \\
+	2 \amp -2 \amp 2
+	\end{bmatrix}
+	</m>.
+      </p>
+
+      <p>
+	We next apply matrices
+	<me>
+	  E_2 = \begin{bmatrix}
+	  1 \amp 0 \amp 0 \\
+	  0 \amp 1 \amp 0 \\
+	  -1 \amp 0 \amp 1
+	  \end{bmatrix},~~~
+	  E_3 = \begin{bmatrix}
+	  1 \amp 0 \amp 0 \\
+	  0 \amp 1 \amp 0 \\
+	  0 \amp 1 \amp 1
+	  \end{bmatrix}
+	</me>
+	to obtain the upper triangular matrix <m>U = E_3E_2E_1 A =
+	\begin{bmatrix} 
+	2 \amp -3 \amp 1 \\
+	0 \amp -1 \amp 2 \\
+	0 \amp 0 \amp 3
+	\end{bmatrix}
+	</m>.
+      </p>
+
+      <p>
+	We can write <m>U = (E_3E_2E_1)A</m>, which tells us that
+	<me>
+	  A = (E_3E_2E_1)^{-1}U  = \begin{bmatrix}
+	  1 \amp 0 \amp 0 \\
+	  -2 \amp 1 \amp 0 \\
+	  1 \amp -1 \amp 1
+	  \end{bmatrix} U = LU.
+	</me>
+	That is, we have
+	<me>
+	  A = LU =
+	  \begin{bmatrix}
+	  1 \amp 0 \amp 0 \\
+	  -2 \amp 1 \amp 0 \\
+	  1 \amp -1 \amp 1
+	  \end{bmatrix}
+	  \begin{bmatrix}
+	  2 \amp -3 \amp 1 \\
+	  0 \amp -1 \amp 2 \\
+	  0 \amp 0 \amp 3
+	  \end{bmatrix}.
+	</me>
+	Notice that the matrix <m>L</m> is lower triangular, a result
+	of the fact that the elementary matrices <m>E_1</m>,
+	<m>E_2</m>, and <m>E_3</m> are lower triangular.
+      </p>
+
+      <p>
+	Now that we have factored <m>A=LU</m> into two triangular
+	matrices, we can solve the equation <m>A\xvec = \bvec</m> by
+	solving two triangular systems.  We write
+	<me>
+	  A\xvec = L(U\xvec) = \bvec
+	</me>
+	and define the unknown vector <m>\cvec = U\xvec</m>, which is
+	determined by the equation <m>L\cvec = \bvec</m>.
+	Because
+	<m>L</m> is lower triangular, we find the solution using
+	forward substitution, <m>\cvec = \threevec833</m>.  Finally,
+	we find <m>\xvec</m>, the solution to our original system
+	<m>A\xvec = \bvec</m>, by applying back substitution to solve
+	<m>U\xvec = \cvec</m>.  This gives <m>\xvec =
+	\threevec2{-1}1</m>. 
+      </p>
+
+      <p>
+	If we want to solve <m>A\xvec = \bvec</m> for a different
+	right-hand side <m>\bvec</m>, we can simply repeat this two-step
+	process. 
+      </p>
+
+    </example>
+
+    <p>
+      An <m>LU</m> factorization allow us to trade in one equation
+      <m>A\xvec = \bvec</m> for two simpler equations
+      <me>
+	\begin{aligned}
+	L\cvec \amp = \bvec \\
+	U\xvec \amp = \cvec. \\
+	\end{aligned}
+      </me>
+      For instance, the equation <m>L\cvec = \bvec</m> in our example
+      has the form
+      <me>
+	\left[\begin{array}{rrr}
+	1 \amp 0 \amp 0 \\
+	-2 \amp 1 \amp 0 \\
+	1 \amp -1 \amp 1
+	\end{array}\right]\cvec = \threevec8{-13}8\text{.}
+      </me>
+      Because <m>L</m> is a lower-triangular matrix, 
+      we can read off the first component of
+      <m>\cvec</m> directly from the equations:  <m>c_1 = 8</m>.  We
+      then have <m>-2c_1+c_2 = -13</m>, which gives <m>c_2 = 3</m>, and
+      <m>c_1 - c_2 + c_3 = 8</m>, which gives <m>c_3=3</m>.  
+      Solving a triangular system is simplified because we 
+      only need to perform a sequence of
+      substitutions.
     </p>
-
-    <p> Likewise, the next two row replacements are performed by
-    <me>
-      E_2 = \left[\begin{array}{rrr}
-      1 \amp 0 \amp 0 \\
-      0 \amp 1 \amp 0 \\
-      -3 \amp 0 \amp 1 \\
-      \end{array}\right],\qquad
-      E_3 = \left[\begin{array}{rrr}
-      1 \amp 0 \amp 0 \\
-      0 \amp 1 \amp 0 \\
-      0 \amp -1 \amp 1 \\
-      \end{array}\right]\text{.}
-    </me>
-    From here, we find <m>A = E_1^{-1}E_2^{-1}E_3^{-1} U</m> so that 
-    <me>
-      A = \left[\begin{array}{rrr}
-      1 \amp 2 \amp 1 \\
-      -2 \amp -3 \amp -2 \\
-      3 \amp 7 \amp 4 \\
-      \end{array}\right]
-      = LU = 
-      \left[\begin{array}{rrr}
-      1 \amp 0 \amp 0 \\
-      -2 \amp 1 \amp 0 \\
-      3 \amp 1 \amp 1
-      \end{array}\right]
-      \left[\begin{array}{rrr}
-      1 \amp 2 \amp 1 \\
-      0 \amp 1 \amp 0 \\
-      0 \amp 0 \amp 1 \\
-      \end{array}\right]\text{.}
-    </me>
-    </p>
-
-    <p> If we want to solve the equation <m>A\xvec = LU\xvec =
-    \bvec</m>, we first solve for <m>U\xvec = \cvec</m> by solving
-    <m>L\cvec = \bvec</m>.  Once we have <m>\cvec</m>, we solve
-    <m>U\xvec = \cvec</m> for the vector <m>\xvec</m>, which is the
-    solution to the original equation <m>A\xvec = \bvec</m>.  In our
-    example,
-    <me>
-      \begin{aligned}\
-      L\cvec = \threevec{4}{-7}{12},\amp \qquad
-      \cvec = \threevec{4}{1}{-1} \\ \\
-      U\xvec = \cvec=\threevec{4}{1}{-1}, \amp\qquad
-      \xvec = \threevec{3}{1}{-1}\text{.} \\
-      \end{aligned}
-    </me>
-    If we want to solve <m>A\xvec = \bvec</m> for a different
-    right-hand side <m>\bvec</m>, we can simply repeat this two-step
-    process. 
-    </p>
-
-    <p> We have now introduced <m>LU</m> factorizations as a technique
-    for solving equations <m>A\xvec = \bvec</m>, but we have yet to
-    explain why they are useful.  It becomes apparent when we consider
-    the type of equations that we are solving;  for instance,
-    <m>L\cvec = \bvec</m> in our example has the form
-    <me>
-      \left[\begin{array}{rrr}
-      1 \amp 0 \amp 0 \\
-      -2 \amp 1 \amp 0 \\
-      3 \amp 1 \amp 1
-      \end{array}\right]\cvec = \threevec4{-7}{12}\text{.}
-    </me>
-    Because <m>L</m> is a lower-triangular matrix, it contains lots of
-    zeros.  In fact, we are able to read off the first component of
-    <m>\cvec</m> directly from the equations:  <m>c_1 = 4</m>.  We
-    then have <m>-2c_1+c_2 = -7</m>, which gives <m>c_2 = 1</m>, and
-    <m>3c_1 + c_2 + c_3 = 12</m>, which gives <m>c_3=-1</m>.  As this
-    shows, solving equations involving triangular matrices is quite
-    easy because we essentially only need to perform a sequence of
-    substitutions. </p>
-
-    <p> In fact, solving an equation with an <m>n\times n</m>
-    triangular matrix requires approximately <m>\frac 12 n^2</m>
-    operations.  Once we have the factorization <m>A=LU</m>, we solve
-    the equation <m>A\xvec=\bvec</m> by solving two equations
-    involving triangular matrices, which requires about <m>n^2</m>
-    operations.  For example, if <m>A</m> is a <m>1000\times1000</m> matrix,
-    we solve the equation <m>A\xvec = \bvec</m> using about
-    one million steps.  The compares with the third of a billion
-    operations we need to perform Gaussian elimination.  That
-    represents a significant savings.  Of course, we have to first
-    find the <m>LU</m> factorization of <m>A</m> and this requires
-    roughly the same amount of work as performing Gaussian
-    elimination.  However, once we have the <m>LU</m> factorization,
-    we can use it to solve <m>A\xvec=\bvec</m> for different right
-    hand sides <m>\bvec</m>.    
+    
+    <p>
+      In fact, solving an equation with an <m>n\times n</m> triangular
+      matrix requires approximately <m>\frac 12 n^2</m> operations.
+      Once we have the factorization <m>A=LU</m>, we solve the
+      equation <m>A\xvec=\bvec</m> by solving two equations involving
+      triangular matrices, which requires about <m>n^2</m> operations.
+      For example, if <m>A</m> is a <m>1000\times1000</m> matrix, we
+      solve the equation <m>A\xvec = \bvec</m> using about one million
+      steps.  The compares with roughly a billion operations 
+      needed to perform Gaussian elimination, which represents a
+      significant savings.  Of course, we have to first find the
+      <m>LU</m> factorization of <m>A</m> and this requires roughly
+      the same amount of work as performing Gaussian elimination.
+      However, once we have the <m>LU</m> factorization, we can use it
+      to solve <m>A\xvec=\bvec</m> for different right hand sides
+      <m>\bvec</m>.
     </p>
 
     <p> Our discussion so far has ignored one issue, however.
@@ -787,13 +827,14 @@
     </me>
     which has the effect of interchanging the first and third rows.
     Notice that this matrix is not triangular so performing a row
-    interchange will ruin the <m>LU</m> factorization we seek.  We
-    will not give the details here, but linear algebra software
-    packages provide a matrix <m>P</m> that describes
-    how the rows are permuted in the Gaussian elimination process.  In
-    particular, we will write <m>PA = LU</m>, where <m>P</m> is a
-    permutation matrix, <m>L</m> is lower triangular, and <m>U</m> is
-    upper triangular.
+    interchange will disrupt the structure of the <m>LU</m>
+    factorization we seek.  Without giving the details, we simply note
+    that 
+    linear algebra software packages provide a matrix <m>P</m> that
+    describes how the rows are permuted in the Gaussian elimination
+    process.  In particular, we will write <m>PA = LU</m>, where
+    <m>P</m> is a permutation matrix, <m>L</m> is lower triangular,
+    and <m>U</m> is upper triangular.
     </p>
 
     <p> Therefore, to solve the equation <m>A\xvec = \bvec</m>, we
@@ -818,25 +859,26 @@
       </sage>
 
       <ol marker="a.">
-	<li><p> In the previous activity, we found the <m>LU</m>
+	<li><p> In <xref ref="example-LU"/>, we found the <m>LU</m>
 	factorization
 	<me>
-	  A = \left[\begin{array}{rrr}
-	  1 \amp 2 \amp 1 \\
-	  -2 \amp -3 \amp -2 \\
-	  3 \amp 7 \amp 4 \\
-	  \end{array}\right]
-	  = LU = 
-	  \left[\begin{array}{rrr}
+	  A = 
+	  \begin{bmatrix}
+	  2 \amp -3 \amp 1 \\
+	  -4 \amp 5 \amp 0 \\
+	  2 \amp -2 \amp 2
+	  \end{bmatrix}
+	  = 
+	  \begin{bmatrix}
 	  1 \amp 0 \amp 0 \\
 	  -2 \amp 1 \amp 0 \\
-	  3 \amp 1 \amp 1
-	  \end{array}\right]
-	  \left[\begin{array}{rrr}
-	  1 \amp 2 \amp 1 \\
-	  0 \amp 1 \amp 0 \\
-	  0 \amp 0 \amp 1 \\
-	  \end{array}\right]\text{.}
+	  1 \amp -1 \amp 1
+	  \end{bmatrix}
+	  \begin{bmatrix}
+	  2 \amp -3 \amp 1 \\
+	  0 \amp -1 \amp 2 \\
+	  0 \amp 0 \amp 3
+	  \end{bmatrix}=LU.
 	</me>
 	Using Sage, define the matrix <m>A</m> and then ask Sage for
 	the <m>LU</m> factorization.  What are the matrices <m>P</m>,
@@ -844,14 +886,13 @@
 
 	<p> Notice that Sage finds a different
 	<m>LU</m> factorization than we found in the previous
-	activity.  This is because Sage uses partial pivoting, as
+	activity because Sage uses partial pivoting, as
 	described in the previous section, when it performs Gaussian
-	elimination.  This is reflected by the fact that the
-	permutation <m>P</m> is not the identity.	
+	elimination.  	
 	</p>
 	</li>
 
-	<li><p> Define the vector <m>\bvec = \threevec4{-7}{12}</m>
+	<li><p> Define the vector <m>\bvec = \threevec8{-13}{8}</m>
 	in Sage and compute <m>P\bvec</m>. </p></li>
 
 	<li><p> Use the matrices <c>L</c> and <c>U</c> to solve
@@ -860,7 +901,7 @@
 	previous activity. </p></li>
 
 	<li><p> Use the factorization to solve the equation <m>A\xvec
-	= \threevec{11}{-17}{35}</m>.  </p></li>
+	= \threevec9{-16}{10}</m>.  </p></li>
 
 	<li><p> How does the factorization show us that <m>A</m> is
 	invertible and that, therefore, every equation
@@ -868,24 +909,24 @@
 
 	<li><p> Suppose that we have the matrix
 	<me>
-	  A = \left[\begin{array}{rrr}
+	  B = \left[\begin{array}{rrr}
 	  3 \amp -1 \amp 2 \\
 	  2 \amp -1 \amp 1 \\
 	  2 \amp 1 \amp 3 \\
 	  \end{array}\right]
 	</me>.
 	Use Sage to find the <m>LU</m> factorization.  Explain how the
-	factorization shows that <m>A</m> is not invertible. </p></li>
+	factorization shows that <m>B</m> is not invertible. </p></li>
 
 	<li><p> Consider the matrix
 	<me>
-	  A = \left[\begin{array}{rrrr}
+	  C = \left[\begin{array}{rrrr}
 	  -2 \amp 1 \amp 2 \amp -1 \\
 	  1 \amp -1 \amp 0 \amp 2 \\
 	  3 \amp 2 \amp -1 \amp 0 \\
 	  \end{array}\right]
 	</me>
-	and find its <m>LU</m> factorization.  Explain why <m>A</m>
+	and find its <m>LU</m> factorization.  Explain why <m>C</m>
 	and <m>U</m> have the same null space and use this observation
 	to find a basis for <m>\nul(A)</m>. </p></li>
 
@@ -897,35 +938,35 @@
 	  <li><p> Sage gives us the matrices
 	  <me>
 	    P=\left[\begin{array}{rrr}
-	    0 \amp 0 \amp 1 \\
 	    0 \amp 1 \amp 0 \\
-	    1 \amp 0 \amp 0
-	    \end{array}\right],
-	    L=\left[\begin{array}{rrr}
 	    1 \amp 0 \amp 0 \\
-	    -\frac{2}{3} \amp 1 \amp 0 \\
-	    \frac{1}{3} \amp -\frac{1}{5} \amp 1
-	    \end{array}\right],
-	    U=\left[\begin{array}{rrr}
-	    3 \amp 7 \amp 4 \\
-	    0 \amp \frac{5}{3} \amp \frac{2}{3} \\
-	    0 \amp 0 \amp -\frac{1}{5}
-	    \end{array}\right]
+	    0 \amp 0 \amp 1
+	    \end{array}\right],~~~
+	    L=\begin{bmatrix}
+	    1 \amp 0 \amp 0 \\
+	    -\frac12 \amp 1 \amp 0 \\
+	    -\frac12 \amp -1 \amp 1
+	    \end{bmatrix},~~~
+	    \begin{bmatrix}
+	    -4 \amp 5 \amp 0 \\
+	    0 \amp -\frac12 \amp 1 \\
+	    0 \amp 0 \amp 3 \\
+	    \end{bmatrix}.
 	  </me>
 	  </p></li>
 
-	  <li><p> We find <m>P\bvec=\threevec{12}{-7}4</m>. </p></li>
+	  <li><p> We find <m>P\bvec=\threevec{-13}8{8}</m>. </p></li>
 
 	  <li><p> Solving <m>L\cvec=P\bvec</m>, we have
-	  <m>\cvec=\threevec{12}{1}{\frac15}</m>.  Finally, solving
+	  <m>\cvec=\threevec{-13}{\frac32}{3}</m>.  Finally, solving
 	  <m>U\xvec=\cvec</m>, we obtain
-	  <m>\xvec=\threevec31{-1}</m>.</p></li>
+	  <m>\xvec=\threevec2{-1}1</m>.</p></li>
 
 	  <li><p> We find
 	  <me>
-	    P\bvec=\threevec{35}{-17}{11},
-	    \cvec=\threevec{35}{\frac{19}3}{\frac35},
-	    \xvec=\threevec{4}{5}{-3}\text{.}
+	    P\bvec=\threevec{-16}9{10},~~~
+	    \cvec=\threevec{-16}13,~~~
+	    \xvec=\threevec{4}{0}{1}.
 	  </me>
 	  </p></li>
 
@@ -955,8 +996,8 @@
 	    0 \amp 0 \amp 0
 	    \end{array}\right]\text{.}
 	  </me>
-	  Because <m>U</m> is not invertible, we see that <m>\det A =
-	  (\det L\det U)/\det P = 0</m> so <m>A</m> is not
+	  Because <m>U</m> is not invertible, we see that <m>\det B =
+	  (\det L\det U)/\det P = 0</m> so <m>B</m> is not
 	  invertible. </p></li>
 
 	  <li><p> We have
@@ -981,12 +1022,12 @@
 	    \end{array}\right]\text{.}
 	    \end{array}
 	  </me>
-	  We may rewrite <m>PA=LU</m> as <m>A=PLU</m> so if
-	  <m>A\xvec=PLU\xvec=\zerovec</m>, then <m>U\xvec=\zerovec</m>
+	  We may rewrite <m>PC=LU</m> as <m>C=P^{-1}LU</m> so if
+	  <m>C\xvec=P^{-1}LU\xvec=\zerovec</m>, then <m>U\xvec=\zerovec</m>
 	  because <m>P</m> and <m>L</m> are invertible. </p>
 
 	  <p> Notice that <m>U</m> is upper triangular, which means
-	  that it is easy to find its reduced row echelon form:
+	  that it is straightforward to find its reduced row echelon form:
 	  <me>
 	    \begin{array}{rcl}
 	    U=
@@ -1021,7 +1062,7 @@
 	    \end{array}\right]\text{.} \\
 	    \end{array}
 	  </me>
-	  This shows that a basis for <m>\nul(A)=\nul(U)</m> is
+	  This shows that a basis for <m>\nul(C)=\nul(U)</m> is
 	  <m>\fourvec{-1}1{-1}1</m>. 
 	  
 	  </p></li>
@@ -1036,7 +1077,7 @@
 
     <p> We returned to Gaussian elimination, which we have used as a
     primary tool for finding solutions to linear systems, and explored
-    its practicality as a computation tool, both in terms of numerical
+    its practicality, both in terms of numerical
     accuracy and computational effort.
 
     <ul>

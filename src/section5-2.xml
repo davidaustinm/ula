@@ -5,24 +5,22 @@
   <title> Finding eigenvectors numerically  </title>
 
   <introduction>
-    <p> When presented with a square matrix <m>A</m>, we have
-    typically found its eigenvalues as the roots of the characteristic
-    polynomial <m>\det(A-\lambda I) = 0</m> and the associated
-    eigenvectors as the null space <m>\nul(A-\lambda I)</m>.
-    Unfortunately, this
+    <p> We have typically found eigenvalues of a square matrix
+    <m>A</m> as the roots of the characteristic polynomial
+    <m>\det(A-\lambda I) = 0</m> and the associated eigenvectors as
+    the null space <m>\nul(A-\lambda I)</m>.  Unfortunately, this
     approach is not practical when we are working with large matrices.
     First, finding the charactertic polynomial of a large matrix
     requires considerable computation, as does finding the roots of
-    that polynomial.  
-    Second, finding the null space of a singular matrix is plagued by
-    numerical problems, as we will see in the preview activity.
+    that polynomial.  Second, finding the null space of a singular
+    matrix is plagued by numerical problems, as we will see in the
+    preview activity.
     </p>
 
-    <p> In this section, we will explore a technique called the
+    <p> For this reason, we will explore a technique called the
     <em>power method</em> that finds
     numerical approximations to the eigenvalues and eigenvectors of a
-    square matrix.  Generally speaking, this method is how
-    eigenvectors are found in practical computing applications.
+    square matrix.  
     </p>
 
 
@@ -119,135 +117,136 @@ I = matrix(2,2,[1, 0, 0, 1])
     <p> Our goal is to find a technique that produces numerical
     approximations to the eigenvalues and associated eigenvectors of a
     matrix <m>A</m>.  We begin by searching for the eigenvalue having
-    the largest absolute value.  We call this the <em>dominant</em>
-    eigenvalue.
-    <idx> dominant eigenvalue </idx>
+    the largest absolute value, which is called the <em>dominant</em>
+    eigenvalue.  The next two examples demonstrate this technique.
+    <idx> eigenvalue, dominant </idx>
     </p>
 
-    <p> Let's begin with the positive stochastic matrix
-    <m>A=\left[\begin{array}{rr}
-    0.8 \amp 0.4 \\
-    0.2 \amp 0.6 \\
-    \end{array}\right]
-    </m>.
-    We spent quite a bit of time studying this type of matrix in <xref
-    ref="sec-stochastic" />; in particular, we saw that any Markov
-    chain will converge to the unique steady state vector.  Let's
-    rephrase this statement in terms of the eigenvectors of <m>A</m>.
-    </p>
-
-    <p>
-    In this case, we have eigenvalues <m>\lambda_1 = 1</m> and
-    <m>\lambda_2 =0.4</m>, and associated eigenvectors <m>\vvec_1 =
-    \twovec{2}{1}</m> and <m>\vvec_2 = \twovec{-1}{1}</m>. </p>
-
-    <p>
-    Suppose we begin with the vector
-    <me>
-      \xvec_0 = \twovec{1}{0} = \frac13 \vvec_1 - \frac13 \vvec_2
-    </me>
-    and find
-    <me>
-      \begin{aligned}
-      \xvec_1 \amp {}={} A\xvec_0 = \frac13 \vvec_1 - \frac13(0.4)
-      \vvec_2 \\
-      \xvec_2 \amp {}={} A^2\xvec_0 = \frac13 \vvec_1 - \frac13(0.4)^2
-      \vvec_2 \\
-      \xvec_3 \amp {}={} A^3\xvec_0 = \frac13 \vvec_1 - \frac13(0.4)^3
-      \vvec_2 \\
-      \amp \vdots \\
-      \xvec_k \amp {}={} A^k\xvec_0 = \frac13 \vvec_1 - \frac13(0.4)^k
-      \vvec_2 \\
-      \end{aligned}
-    </me>
-    and so forth.  The point is that the powers <m>0.4^k</m> become
-    increasingly small as <m>k</m> grows so that
-    <m>\xvec_k\approx \frac13\vvec_1</m> when <m>k</m> is large.  As
-    <m>k</m> grows large, the contribution from the eigenvector
-    <m>\vvec_2</m> to the vectors <m>\xvec_k</m> becomes increasingly
-    insignificant.  Therefore, the vectors <m>\xvec_k</m> become
-    increasingly close to a vector in the eigenspace <m>E_1</m>.
-    If we did not know the eigenvector <m>\vvec_1</m>, we could find a
-    basis vector for <m>E_1</m> in this way.
-    </p>
-
-    <p> Let's now look at the matrix
-    <m>A = \left[\begin{array}{rr}
-    2 \amp 1 \\
-    1 \amp 2 \\
-    \end{array}\right]
-    </m>, which has eigenvalues <m>\lambda_1=3</m> and <m>\lambda_2 =
-    1</m> and associated eigenvectors <m>\vvec_1 = \twovec{1}{1}</m>
-    and <m>\vvec_{2} = \twovec{-1}{1}</m>.  Once again, begin with the
-    vector
-    <m> \xvec_0 = \twovec{1}{0}=\frac12 \vvec_1 - \frac12 \vvec_2</m> so that
-    <me>
-      \begin{aligned}
-      \xvec_1 \amp {}={} A\xvec_0 = 3\frac12 \vvec_1 - \frac12
-      \vvec_2 \\
-      \xvec_2 \amp {}={} A^2\xvec_0 = 3^2\frac13 \vvec_1 - \frac12
-      \vvec_2 \\
-      \xvec_3 \amp {}={} A^3\xvec_0 = 3^3\frac13 \vvec_1 - \frac12
-      \vvec_2 \\
-      \amp \vdots \\
-      \xvec_k \amp {}={} A^k\xvec_0 = 3^k\frac13 \vvec_1 - \frac12
-      \vvec_2\text{.} \\
-      \end{aligned}
-    </me>
-    </p>
-
-    <sidebyside widths="55% 40%">
-      <p> As the figure shows, the vectors <m>\xvec_k</m> are
-      stretched by a factor of <m>3</m> in the <m>\vvec_1</m>
-      direction and not at all in the <m>\vvec_2</m> direction.
-      Consequently, the vectors <m>\xvec_k</m> become increasingly
-      long, but their direction gets
-      closer to the direction of the eigenvector
-      <m>\vvec_1=\twovec{1}{1}</m> associated to the dominant
-      eigenvalue. 
+    <example>
+      <p> Let's begin with the positive stochastic matrix
+      <m>A=\left[\begin{array}{rr}
+      0.7 \amp 0.6 \\
+      0.3 \amp 0.4 \\
+      \end{array}\right]
+      </m>.
+      We spent quite a bit of time studying this type of matrix in <xref
+      ref="sec-stochastic" />; in particular, we saw that any Markov
+      chain will converge to the unique steady state vector.  Let's
+      rephrase this statement in terms of the eigenvectors of <m>A</m>.
       </p>
 
-      <image source="images/numerical-power" />
-    </sidebyside>
-
-    <p> To find an eigenvector associated to the dominant eigenvalue,
-    we will prevent the length of the vectors <m>\xvec_k</m> from
-    growing arbitrarily large by multiplying by an appropriate
-    normalizing constant.  There are several ways to do this; we will
-    describe one simple way.  Given the vector <m>\xvec_k</m>, we
-    identify its component having the largest absolute value and call
-    it <m>m_k</m>.  We then define <m>\overline{\xvec}_k =
-    \frac{1}{m_k} \xvec_k</m>, which means that the component of
-    <m>\overline{\xvec}_k</m> having the largest absolute value is
-    <m>1</m>.
-    </p>
-
-    <p> For example, beginning with <m>\xvec_0 = \twovec{1}{0}</m>, we
-    find 
-    <m>\xvec_1 = A\xvec_{0} =
-    \twovec{2}{1}</m>.  The component of <m>\xvec_1</m> having the
-    largest absolute value is <m>m_1=2</m> so we multiply by
-    <m>\frac{1}{m_1} = \frac12</m> to obtain <m>\overline{\xvec}_1 =
-    \twovec{1}{\frac12}</m>.  Then <m>\xvec_2 = A\overline{\xvec}_1 =
-    \twovec{\frac52}{2}</m>.  Now the component having the largest
-    absolute value is <m>m_2=\frac52</m> so we multiply by <m>\frac25</m>
-    to obtain <m>\overline{\xvec}_2 = \twovec{1}{\frac45}</m>.  
-    </p>
-
-    <sidebyside widths="55% 40%">
-      <p> The
-      resulting sequence of vectors <m>\overline{\xvec}_k</m> is shown in
-      the figure.  Notice how the vectors
-      <m>\overline{\xvec}_k</m> now approach the eigenvector
-      <m>\vvec_1</m>.  In this way, we find the eigenvector
-      <m>\vvec=\twovec{1}{1}</m> of the matrix <m>A</m>.
-      This is the <em>power method</em> for
-      finding an eigenvector associated to the dominant eigenvalue of
-      a matrix. 
-      <idx> power method </idx>
+      <p>
+	This matrix has eigenvalues <m>\lambda_1 = 1</m> and
+	<m>\lambda_2 =0.1</m> so the dominant eigenvalue is
+	<m>\lambda_1 = 1</m>.
+	The associated eigenvectors are <m>\vvec_1 =
+	\twovec{2}{1}</m> and <m>\vvec_2 = \twovec{-1}{1}</m>. 
+	Suppose we begin with the vector
+	<me>
+	  \xvec_0 = \twovec{1}{0} = \frac13 \vvec_1 - \frac13 \vvec_2
+	</me>
+	and find
+	<me>
+	  \begin{aligned}
+	  \xvec_1 \amp {}={} A\xvec_0 = \frac13 \vvec_1 - \frac13(0.1)
+	  \vvec_2 \\
+	  \xvec_2 \amp {}={} A^2\xvec_0 = \frac13 \vvec_1 - \frac13(0.1)^2
+	  \vvec_2 \\
+	  \xvec_3 \amp {}={} A^3\xvec_0 = \frac13 \vvec_1 - \frac13(0.1)^3
+	  \vvec_2 \\
+	  \amp \vdots \\
+	  \xvec_k \amp {}={} A^k\xvec_0 = \frac13 \vvec_1 - \frac13(0.1)^k
+	  \vvec_2 \\
+	  \end{aligned}
+	</me>
+	and so forth.  Notice that the powers <m>0.1^k</m> become
+	increasingly small as <m>k</m> grows so that <m>\xvec_k\approx
+	\frac13\vvec_1</m> when <m>k</m> is large.  Therefore, the
+	vectors <m>\xvec_k</m> become increasingly close to a vector
+	in the eigenspace <m>E_1</m>, the eigenspace associated to the
+	dominant eigenvalue.  If we did not know the eigenvector
+	<m>\vvec_1</m>, we could use a Markov chain in this way to
+	find a basis vector for <m>E_1</m>, which is essentially how
+	the Google PageRank algorithm works.
       </p>
-      <image source="images/numerical-power-norm" />
-    </sidebyside>
+    </example>
+
+    <example>
+      <p> Let's now look at the matrix <m>A = \left[\begin{array}{rr}
+      2 \amp 1 \\ 1 \amp 2 \\ \end{array}\right] </m>, which has
+      eigenvalues <m>\lambda_1=3</m> and <m>\lambda_2 = 1</m>.  The
+      dominant eigenvalue is <m>\lambda_1=3</m>, and the associated
+      eigenvectors are <m>\vvec_1 = \twovec{1}{1}</m> and <m>\vvec_{2} =
+      \twovec{-1}{1}</m>.  Once again, begin with the vector <m>
+      \xvec_0 = \twovec{1}{0}=\frac12 \vvec_1 - \frac12 \vvec_2</m> so
+      that
+      <me>
+	\begin{aligned}
+	\xvec_1 \amp {}={} A\xvec_0 = 3\frac12 \vvec_1 - \frac12
+	\vvec_2 \\
+	\xvec_2 \amp {}={} A^2\xvec_0 = 3^2\frac13 \vvec_1 - \frac12
+	\vvec_2 \\
+	\xvec_3 \amp {}={} A^3\xvec_0 = 3^3\frac13 \vvec_1 - \frac12
+	\vvec_2 \\
+	\amp \vdots \\
+	\xvec_k \amp {}={} A^k\xvec_0 = 3^k\frac13 \vvec_1 - \frac12
+	\vvec_2\text{.} \\
+	\end{aligned}
+      </me>
+      </p>
+
+      <sidebyside widths="60% 40%">
+	<p> As the figure shows, the vectors <m>\xvec_k</m> are
+	stretched by a factor of <m>3</m> in the <m>\vvec_1</m>
+	direction and not at all in the <m>\vvec_2</m> direction.
+	Consequently, the vectors <m>\xvec_k</m> become increasingly
+	long, but their direction becomes
+	closer to the direction of the eigenvector
+	<m>\vvec_1=\twovec{1}{1}</m> associated to the dominant
+	eigenvalue. 
+	</p>
+
+	<image source="images/numerical-power" />
+      </sidebyside>
+
+      <p> To find an eigenvector associated to the dominant
+      eigenvalue, we will prevent the length of the vectors
+      <m>\xvec_k</m> from growing arbitrarily large by multiplying by
+      an appropriate scaling constant.  Here is one way to do this.
+      Given the vector <m>\xvec_k</m>, we identify its component
+      having the largest absolute value and call it <m>m_k</m>.  We
+      then define <m>\overline{\xvec}_k = \frac{1}{m_k} \xvec_k</m>,
+      which means that the component of <m>\overline{\xvec}_k</m>
+      having the largest absolute value is <m>1</m>.
+      </p>
+
+      <p> For example, beginning with <m>\xvec_0 = \twovec{1}{0}</m>, we
+      find 
+      <m>\xvec_1 = A\xvec_{0} =
+      \twovec{2}{1}</m>.  The component of <m>\xvec_1</m> having the
+      largest absolute value is <m>m_1=2</m> so we multiply by
+      <m>\frac{1}{m_1} = \frac12</m> to obtain <m>\overline{\xvec}_1 =
+      \twovec{1}{\frac12}</m>.  Then <m>\xvec_2 = A\overline{\xvec}_1 =
+      \twovec{\frac52}{2}</m>.  Now the component having the largest
+      absolute value is <m>m_2=\frac52</m> so we multiply by <m>\frac25</m>
+      to obtain <m>\overline{\xvec}_2 = \twovec{1}{\frac45}</m>.  
+      </p>
+
+      <sidebyside widths="60% 40%">
+	<p> The
+	resulting sequence of vectors <m>\overline{\xvec}_k</m> is shown in
+	the figure.  Notice how the vectors
+	<m>\overline{\xvec}_k</m> now approach the eigenvector
+	<m>\vvec_1</m>, which gives us a way to find the eigenvector
+	<m>\vvec=\twovec{1}{1}</m>.
+	This is the <em>power method</em> for
+	finding an eigenvector associated to the dominant eigenvalue of
+	a matrix. 
+	<idx> power method </idx>
+	</p>
+	<image source="images/numerical-power-norm" />
+      </sidebyside>
+    </example>
     
     <activity>
       <statement>
@@ -587,12 +586,12 @@ inverse_power(A, x0, 20)
 	<p> The Sage cell below has a function
 	<c>find_closest_eigenvalue(A, s, x, N)</c> that implements
 	<m>N</m> steps of the inverse power method using the matrix
-	<m>A-sI</m> and an initial
-	vector <m>x</m>.  This function prints approximations to the
-	eigenvalues and eigenvectors of <m>A</m>.
-	By trying different values in the gray
-	regions of the number line, find the other two eigenvalues of
-	<m>A</m>. 
+	<m>A-sI</m> and an initial vector <m>x</m>.  This function
+	prints approximations to the eigenvalue of <m>A</m> closest to
+	<m>s</m> and its associated eigenvector.  By trying different
+	values of <m>s</m> in the shaded regions of the number line
+	shown in <xref ref="fig-numerical-power-line"/>, find the
+	other two eigenvalues of <m>A</m>.
 
 	<sage>
 	  <input>
@@ -652,11 +651,12 @@ find_closest_eigenvalue(A, 2, x0, 20)
 
     </activity>
 
-    <p> There are clearly restrictions on the matrices to which this
-    technique applies.  We have been making the mild assumption that
-    the eigenvalues of <m>A</m> are real and distinct.  If <m>A</m>
-    has repeated or complex 
-    eigenvalues, some other technique will need to be used. </p>
+    <p> There are some restrictions on the matrices to which this
+    technique applies as we have assumed that the eigenvalues of
+    <m>A</m> are real and distinct.  If <m>A</m> has repeated or
+    complex eigenvalues, this technique will need to be modified, as
+    explored in some of the exercises.
+    </p>
 	
   </subsection>
 
@@ -669,18 +669,18 @@ find_closest_eigenvalue(A, 2, x0, 20)
     <ul>
       <li><p> After choosing an initial vector <m>\xvec_0</m>, we
       define the sequence <m>\xvec_{k+1}=A\xvec_k</m>.  As <m>k</m>
-      becomes increasingly large, the direction of the vectors
-      <m>\xvec_k</m> increasingly closely approximates the direction
+      grows larger, the direction of the vectors
+      <m>\xvec_k</m> closely approximates the direction
       of the eigenspace corresponding to the eigenvalue
       <m>\lambda_1</m> having the
       largest absolute value. </p></li>
 
       <li><p> We normalize the vectors <m>\xvec_k</m> by multiplying
-      by <m>\frac{1}{m_k}</m>, where <m>m_k</m> is the component having
-      the largest absolute value.  In this way, the vectors
+      by <m>\frac{1}{m_k}</m>, where <m>m_k</m> is the component
+      having the largest absolute value.  In this way, the vectors
       <m>\overline{\xvec}_k</m> approach an eigenvector associated to
-      <m>\lambda_1</m>.  The multipliers <m>m_k</m> approach the eigenvalue
-      <m>\lambda_1</m>. </p></li>
+      <m>\lambda_1</m>, and the multipliers <m>m_k</m> approach the
+      eigenvalue <m>\lambda_1</m>. </p></li>
 
       <li><p> To find the eigenvalue having the smallest absolute
       value, we apply the power method using the matrix
