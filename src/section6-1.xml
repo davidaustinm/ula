@@ -21,6 +21,7 @@
     </p>
 
     <exploration>
+      <statement>
       <p>
 	<ol marker="a.">
 	  <li><p> Compute the dot product
@@ -65,6 +66,51 @@
 	  </p></li>
 	</ol>
       </p>
+      </statement>
+      <solution>
+	<p>
+	  <ol marker="a.">
+	    <li>
+	      <p>
+		<m>\twovec34\cdot\twovec2{-2} = 3\cdot2+4\cdot(-2) =
+		-2</m>.
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		The length of <m>\vvec</m> is 5.
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		<m>\vvec\cdot\vvec = 25</m>, which is the square of
+		the length of <m>\vvec</m>.
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		<m>\wvec=\twovec{-4}3</m>
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		<m>\vvec\cdot\wvec=0</m>.
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		<m>\vvec\cdot\wvec=0</m>.
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		The dot product should be zero.
+	      </p>
+	    </li>
+	  </ol>
+	</p>
+      </solution>
+	      
     </exploration>
 
   </introduction>
@@ -93,7 +139,7 @@
       The important thing to remember is that the dot product will
       produce a scalar.  In other words, the two vectors are combined in
       such a way as to create a number, and, as we'll see, this number
-      conveys important geometric information.
+      conveys useful geometric information.
     </p>
 
     <example>
@@ -168,13 +214,13 @@
       <sidebyside width="50%">
 	<image source="images/dot-length" />
       </sidebyside>
-      <caption> The vector <m>\vvec</m>.
+      <caption> The vector <m>\vvec=\twovec32</m>.
       </caption>
     </figure>
 
     <p>
       We may find the length of this vector using the Pythagorean
-      theorem as the vector forms the hypotenuse of a right triangle
+      theorem since the vector forms the hypotenuse of a right triangle
       having a horizontal leg of length 3 and a vertical leg of length
       2.  The length of <m>\vvec</m>, which we denote as
       <m>\len{\vvec}</m>, is therefore <m>\len{\vvec} = \sqrt{3^2 +
@@ -488,13 +534,13 @@
 	      Wikipedia articles by forming vectors from each of five
 	      articles.  In particular, one may download the text from a
 	      Wikipedia article, remove common words, such as <q>the</q>
-	      and <q>then,</q>, count the number of times the
+	      and <q>and</q>, count the number of times the
 	      remaining words appear in the article, and represent
 	      these counts in a vector.
 	    </p>
 
 	    <p>
-	      For example, evaluate the following cell that loads in
+	      For example, evaluate the following cell that loads 
 	      some special commands along with the vectors constructed
 	      from the Wikipedia articles on Veteran's Day, Memorial
 	      Day, Labor Day, the Golden Globe Awards, and the Super
@@ -553,8 +599,8 @@ events.head(int(10))
 		  <p>
 		    Compare the four angles you have found and discuss
 		    what they mean about the similarity between the
-		    Veteran's Day article and the other four.  Does your
-		    result reflect the nature of these five events?
+		    Veteran's Day article and the other four.  How do
+		    your findings reflect the nature of these five events?
 		  </p>
 		</li>
 	      </ol>
@@ -567,7 +613,7 @@ events.head(int(10))
 	      over time.  For instance, the vector
 	      <m>\svec=\fourvec{78.3}{81.2}{82.1}{79.0}</m> might
 	      represent the value of a company's stock on four
-	      consecutive days.  When interpreted in this way, we call a
+	      consecutive days.  When interpreted in this way, we call the
 	      vector a <em>time series.</em> Evaluate the Sage cell
 	      below to see a representation of two time series
 	      <m>\svec_1</m>, in blue, and <m>\svec_2</m>, in orange,
@@ -657,7 +703,8 @@ series_plot(ds1, 'blue') + series_plot(ds2, 'orange')
 		  </figure>
 
 		  <p>
-		    Suppose we have time series <m>\tvec_1</m> and
+		    For instance, suppose we have time series
+		    <m>\tvec_1</m> and 
 		    <m>\tvec_2</m> whose
 		    demeaned time series <m>\tilde{\tvec}_1</m>
 		    and <m>\tilde{\tvec}_2</m> are positive scalar
@@ -923,7 +970,10 @@ series_plot(s1, 'blue') + series_plot(s4, 'orange')
       The next activity introduces a technique, called <m>k</m>-means
       clustering, that helps us find clusterings.  To do so, we will
       view the data points as vectors so that the distance between two
-      data points equals the length of the vector joining them.
+      data points equals the length of the vector joining them.  That
+      is, if two points are represented by the vectors <m>\vvec</m>
+      and <m>\wvec</m>, then the distance between the points is
+      <m>\len{\vvec-\wvec}</m>. 
     </p>
 
     <activity>
@@ -1060,7 +1110,7 @@ series_plot(s1, 'blue') + series_plot(s4, 'orange')
 		centroids <m>c_1</m> and <m>c_2</m> from the new
 		clusters and then update the clusters <m>C_1</m> and
 		<m>C_2</m>.  Indicate your centroids and clusters in 
-		<xref ref="fig-clustering-ex-3" />
+		<xref ref="fig-clustering-ex-3" />.
 	      </p>
 
 	      <figure xml:id="fig-clustering-ex-3">
@@ -1120,7 +1170,7 @@ series_plot(s1, 'blue') + series_plot(s4, 'orange')
 	    <li>
 	      <p>
 		We have new centroids <m>c_1 = \twovec{-2}1</m> and
-		<m>c_2 = \twovec{5/3}{5/3}</m>.  The clusters
+		<m>c_2 = \twovec{5/3}{5/3}</m>, and the clusters
 		<m>C_1</m> and <m>C_2</m> are unchanged.
 	      </p>
 	    </li>
@@ -1261,7 +1311,7 @@ series_plot(s1, 'blue') + series_plot(s4, 'orange')
 	C_2 \amp {}={} \amp \{\vvec_4\}.
 	\end{array}
       </me>
-      with centroids <m>c_1=\twovec{0}{4/3}</m> and
+      with centroids <m>c_1=\ctwovec{0}{4/3}</m> and
       <m>c_2=\vvec_4=\twovec32</m>, we find the objective to
       be
       <me>
@@ -1386,7 +1436,7 @@ plotclusters(clusters, centroids)
 	      <p>
 		This plot is called an <em>elbow plot</em> due to its
 		shape.  Notice how the objective decreases
-		sharply when <m>k</m> is small, but then flattens out.
+		sharply when <m>k</m> is small and then flattens out.
 		This leads to a location, called the elbow, where the
 		objective transitions from being sharply decreasing to
 		relatively flat.  This means that increasing <m>k</m>
@@ -1514,7 +1564,7 @@ plotclusters(clusters, centroids)
       produce a good clustering having <m>k</m> clusters.  Notice that
       we don't claim to have found the best clustering as the true
       test of any clustering will be in how it helps us understand the
-      dataset and helps us make predictions for any new data that we
+      dataset and helps us make predictions about any new data that we
       may encounter.
     </p>
 

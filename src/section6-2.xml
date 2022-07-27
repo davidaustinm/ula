@@ -25,6 +25,7 @@
     </p>
 
     <exploration>
+      <statement>
       <p><ol marker="a.">
 	<li><p> Sketch the vector <m>\vvec=\twovec{-1}2</m> on
 	<xref ref="fig-pa-6-2" /> and one vector that is orthogonal to it.
@@ -60,17 +61,54 @@
 	  <xref ref="sec-subspaces" /> introduced the 
 	  column space <m>\col(A)</m> and null space
 	  <m>\nul(A)</m> of a matrix <m>A</m>.  
-	  Suppose that <m>A</m> is a matrix and <m>\xvec</m> is a vector
-	  satisfying <m>A\xvec=\zerovec</m>.  Does <m>\xvec</m>
-	  belong to <m>\nul(A)</m> or <m>\col(A)</m>?
+	  If <m>A</m> is a matrix, what is the meaning of the null
+	  space <m>\nul(A)</m>?
 	</p></li>
 
 	<li><p>
-	  Suppose that the equation <m>A\xvec=\bvec</m> is
-	  consistent.  Does <m>\bvec</m> belong to <m>\nul(A)</m> or
-	  <m>\col(A)</m>?
+	  What is the meaning of the column space <m>\col(A)</m>?
 	</p></li>
       </ol></p>
+      </statement>
+      <solution>
+	<p>
+	  <ol marker="a.">
+	    <li>
+	      <p>
+		The vector <m>\wvec=\twovec21</m> is an example of a
+		vector orthogonal to <m>\vvec</m>.
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		The dot product must be zero.
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		<m>\vvec\cdot\xvec = -x+2y = 0</m>.
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		This is the line <m>y=\frac12 x</m>.
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		It is the set of vectors <m>\xvec</m> for which
+		<m>A\xvec = \zerovec</m>.
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		It is the set of vector <m>\bvec</m> for which the
+		equation <m>A\xvec=\bvec</m> is consistent.
+	      </p>
+	    </li>
+	  </ol>
+	</p>
+      </solution>
     </exploration>
   </introduction>
   
@@ -101,7 +139,7 @@
       <caption>
 	On the left is a line <m>L</m> and its orthogonal complement
 	<m>L^\perp</m>.  On the right is a plane <m>W</m> and its
-	orthogonal complement <m>W^\perp</m>.
+	orthogonal complement <m>W^\perp</m> in <m>\real^3</m>.
       </caption>
     </figure>
 
@@ -113,11 +151,11 @@
       <idx>orthogonal complement</idx>
       <statement>
 	<p>
-	  Given a subspace <m>W</m> of <m>\real^m</m>, the orthogonal
-	  complement of <m>W</m> is the set of vectors in
-	  <m>\real^m</m> each of which
-	  is orthogonal to every vector in <m>W</m>.  We denote the
-	  orthogonal complement by <m>W^\perp</m>.
+	  Given a subspace <m>W</m> of <m>\real^m</m>, the
+	  <term>orthogonal complement</term> of <m>W</m> is the set of
+	  vectors in <m>\real^m</m> each of which is orthogonal to
+	  every vector in <m>W</m>.  We denote the orthogonal
+	  complement by <m>W^\perp</m>.
 	</p>
       </statement>
     </definition>
@@ -130,8 +168,8 @@
     </p>
 
     <p>
-      As we'll soon see, the orthogonal complement of a subspace
-      <m>W</m> is itself a subspace of <m>\real^m</m>.
+      As the next activity demonstrates, the orthogonal complement of
+      a subspace <m>W</m> is itself a subspace of <m>\real^m</m>.
     </p>
 
     <activity>
@@ -337,7 +375,7 @@
 	  parametrically as
 	<me>
 	  \xvec=\threevec{x_1}{x_2}{x_3} =
-	  \threevec{2x_2-3x_3}{x_2}{x_3} = 
+	  \cthreevec{2x_2-3x_3}{x_2}{x_3} = 
 	  x_2\threevec210+x_3\threevec{-3}01\text{.}
 	</me>
 	Therefore, the orthogonal complement <m>L^\perp</m> is a
@@ -409,9 +447,9 @@
 	  \vvec_2=\fivevec10{-1}10, \hspace{24pt}
 	  \vvec_3=\fivevec{-2}0101\text{.}
 	</me>
-	One may easily check that the vectors <m>\vvec_1</m>,
-	<m>\vvec_2</m>, and <m>\vvec_3</m> are orthogonal to both
-	<m>\wvec_1</m> and <m>\wvec_2</m>.
+	One may check that the vectors <m>\vvec_1</m>, <m>\vvec_2</m>,
+	and <m>\vvec_3</m> are each orthogonal to both <m>\wvec_1</m>
+	and <m>\wvec_2</m>.
 	</p>
       </statement>
     </example>
@@ -432,9 +470,9 @@
     <definition>
       <idx>transpose</idx>
       <statement>
-	<p> The transpose of the <m>m\times n</m> matrix <m>A</m> is
-	the <m>n\times m</m> matrix <m>A^T</m> whose rows are the
-	columns of <m>A</m>.
+	<p> The <term>transpose</term> of the <m>m\times n</m> matrix
+	<m>A</m> is the <m>n\times m</m> matrix <m>A^T</m> whose rows
+	are the columns of <m>A</m>.
 	</p>
       </statement>
     </definition>
@@ -665,7 +703,7 @@
       between the matrix transpose and dot products.  More
       specifically, the components of the product <m>A^T\xvec</m> are
       simply the dot products of the columns of <m>A</m> with
-      <m>\xvec</m>.  We will put this observation to use quite often
+      <m>\xvec</m>.  We will make frequent use of this observation
       so let's record it as a proposition.
     </p>
 
@@ -694,7 +732,7 @@
 	    \wvec_1=\fourvec1021,\hspace{24pt}
 	    \wvec_2=\fourvec2134\text{,}
 	  </me>
-	  and we wish to describe the orthogonal complement
+	  and that we wish to describe the orthogonal complement
 	  <m>W^\perp</m>.
 	</p>
 
@@ -745,8 +783,8 @@
       <m>W^\perp = \col(A)^\perp</m> is described by the solution set
       of <m>A^T\xvec = \zerovec</m>.  This solution set is what we
       have called <m>\nul(A^T)</m>, the null space of <m>A^T</m>.  In
-      this way, we see the following proposition, which is illustrated
-      in <xref ref="fig-orthog-comp" />.
+      this way, we see the following proposition, which is visually
+      represented in <xref ref="fig-orthog-comp" />.
     </p>
 
     <proposition xml:id="prop-col-orthog">
@@ -1078,11 +1116,11 @@
 		columns form a basis for <m>W</m>;  that is, <m>\col(A) =
 		W</m>.
 		<ol marker="i.">
-		  <li><p> What are the dimensions of <m>A</m>? </p></li>
+		  <li><p> What is the shape of <m>A</m>? </p></li>
 		  
 		  <li><p> What is the rank of <m>A</m>? </p></li>
 		  
-		  <li><p> What are the dimensions of <m>A^T</m>? </p></li>
+		  <li><p> What is the shape of <m>A^T</m>? </p></li>
 		  
 		  <li><p> What is the rank of <m>A^T</m>? </p></li>
 		  
