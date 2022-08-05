@@ -9,7 +9,7 @@
     <p>
       We are sometimes presented with a dataset having many data
       points that live in a high dimensional space.  For instance, we
-      earlier looked at a dataset describing body fat index (BFI) in
+      looked at a dataset describing body fat index (BFI) in
       <xref ref="activity-BFI" /> where each data point is
       six-dimensional.  Developing an intuitive understanding of the
       data is hampered by the fact that it cannot be visualized.
@@ -39,9 +39,10 @@
 	  <ol marker="a.">
 	    <li>
 	      <p>
-		Suppose that <m>\uvec</m> is an eigenvector of <m>C</m>
-		with eigenvalue <m>\lambda</m>.  What is the variance
-		in the <m>\uvec</m> direction?
+		Suppose that <m>\uvec</m> is a unit eigenvector of
+		<m>C</m> with eigenvalue <m>\lambda</m>.  What is the
+		variance <m>V_{\uvec}</m> in the <m>\uvec</m>
+		direction?
 	      </p>
 	    </li>
 
@@ -80,6 +81,55 @@
 	  </ol>
 	</p>
       </statement>
+      <solution>
+	<p>
+	  <ol marker="a.">
+	    <li>
+	      <p>
+		<m>V_{\uvec} = \uvec\cdot(C\uvec) =
+		\lambda\uvec\cdot\uvec = \lambda</m>.
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		We can write <m>C=QDQ^T</m> where
+		<me>
+		  D=\begin{bmatrix}
+		  15 \amp 0 \\
+		  0 \amp 5 \\
+		  \end{bmatrix},~~~
+		  Q = \begin{bmatrix}
+		  \frac1{\sqrt{5}} \amp \frac2{\sqrt{5}} \\
+		  -\frac2{\sqrt{5}} \amp \frac1{\sqrt{5}} \\
+		  \end{bmatrix}.
+		</me>
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		The total variance is the sum of the eigenvalues,
+		<m>V=\lambda_1 + \lambda_2 = 15 + 5 = 20</m>.
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		The variance is greatest in the direction of the
+		eigenvector associated to the largest eigenvalue.
+		This direction is defined by
+		<m>\twovec{\frac{1}{\sqrt{5}}}{-\frac2{\sqrt{5}}}</m>,
+		and the variance is 15 in this direction.  
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		The variance is smallest in the direction defined by
+		<m>\twovec{\frac2{\sqrt{5}}}{\frac1{\sqrt{5}}}</m>.
+	      </p>
+	    </li>
+	  </ol>
+	</p>
+      </solution>
+		
     </exploration>
 
     <p>
@@ -234,7 +284,7 @@
 	    </li>
 	    <li>
 	      <p>
-		Projecting on this 3-dimensional subspace retains
+		Projecting onto this 3-dimensional subspace retains
 		all of the variance.
 	      </p>
 	    </li>
@@ -294,7 +344,7 @@
 
     <p>
       This activity demonstrates how the eigenvalues of the covariance
-      matrix can tell us when data is clustered around, or even wholly
+      matrix can tell us when data are clustered around, or even wholly
       contained within, a smaller dimensional subspace.  In
       particular, the original data is 5-dimensional, but we see
       that it actually lies in a 3-dimensional subspace of
@@ -316,15 +366,15 @@
 	<li>
 	  <p>
 	    <m>W_1</m>, the 1-dimensional subspace spanned by
-	    <m>\uvec_1</m>, which retained <m>13/25 = 52\%</m> of the
+	    <m>\uvec_1</m>, which retains <m>13/25 = 52\%</m> of the
 	    total variance,
 	  </p>
 	</li>
 	<li>
 	  <p>
 	    <m>W_2</m>, the 2-dimensional subspace spanned by
-	    <m>\uvec_1</m> and <m>\uvec_2</m>, which retained <m>23/25
-	    = 92\%</m> of the variance,
+	    <m>\uvec_1</m> and <m>\uvec_2</m>, which retains <m>23/25
+	    = 92\%</m> of the variance, and
 	  </p>
 	</li>
 	<li>
@@ -339,7 +389,7 @@
 
     <p>
       Notice how we retain more of the total variance as we increase
-      the dimension of the subspace onto which the data is projected.
+      the dimension of the subspace onto which the data are projected.
       Eventually, projecting the data onto <m>W_3</m> retains all the
       variance, which tells us the data must lie in <m>W_3</m>, a
       smaller dimensional subspace of <m>\real^5</m>.
@@ -351,7 +401,7 @@
       of <m>C</m> associated to the largest eigenvalue.  This means
       that the variance is as large as possible in the <m>\uvec_1</m>
       direction.  In other words, projecting onto any other line
-      retains a smaller amount of variance.  Similarly, projecting
+      will retain a smaller amount of variance.  Similarly, projecting
       onto any other 2-dimensional subspace besides <m>W_2</m> will
       retain less variance than projecting onto <m>W_2</m>.  The
       principal components have the wonderful ability to pick out the
@@ -782,8 +832,8 @@ df
 		Study the first principal component <m>\uvec_1</m>
 		and find the first component of <m>\uvec_1</m>, which
 		corresponds to the dietary category Alcoholic Drinks.
-		(To do this, you may wish to use <c>N(u1,
-		digits=2)</c> for a result that's easier to read.)
+		(To do this, you may wish to use
+		<c>N(u1, digits=2)</c> for a result that's easier to read.)
 		If a data point lies on the far right side of the plot
 		in <xref ref="fig-pca-2d" />, what does it mean about
 		that nation's consumption of Alcoholic Drinks?
@@ -885,7 +935,7 @@ df
 	    <li>
 	      <p>
 		Northern Ireland appears to be significantly different
-		from the other three nations.  There are many possible
+		from the other three nations.  There are several possible
 		reasons for this, both historical and geographical,
 		that we might explore.
 	      </p>

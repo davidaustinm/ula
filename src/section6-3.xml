@@ -8,12 +8,13 @@
     <p>
       We know that a linear system <m>A\xvec=\bvec</m> is inconsistent
       when <m>\bvec</m> is not in <m>\col(A)</m>, the column space of
-      <m>A</m>.  In <xref ref="sec-least-squares" />, we'll develop a
+      <m>A</m>.  Later in this chapter, we'll develop a
       strategy for dealing with inconsistent systems by finding
-      <m>\bhat</m>, the vector in <m>\col(A)</m> that is closest to
-      <m>\bvec</m>.  The equation <m>A\xvec=\bhat</m> is then
+      <m>\bhat</m>, the vector in <m>\col(A)</m> that minimizes the
+      distance to
+      <m>\bvec</m>.  The equation <m>A\xvec=\bhat</m> is therefore
       consistent and its solution set can provide us with useful
-      information about the original system.
+      information about the original system <m>A\xvec=\bvec</m>.
     </p>
 
     <p>
@@ -23,6 +24,7 @@
     </p>
 
     <exploration xml:id="preview-orthogonal-basis">
+      <statement>
       <p>
 	For this activity, it will be helpful to recall
 	the distributive property of dot products:
@@ -84,6 +86,41 @@
 	  </li>
 	</ol>
       </p>
+      </statement>
+      <solution>
+	<p>
+	  <ol marker="a.">
+	    <li>
+	      <p>
+		We can compute that <m>\wvec_1\cdot\wvec_2 = 0</m>.
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		<m>\bvec\cdot\wvec_1 = 15</m> and
+		<m>\bvec\cdot\wvec_2 = -10</m>.
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		<m>c_1 = \frac{\bvec\cdot\wvec_1}{\wvec_1\cdot\wvec_1}
+		= 3</m>.
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		<m>c_2 = \frac{\bvec\cdot\wvec_2}{\wvec_2\cdot\wvec_2}
+		= -2</m>.
+	      </p>
+	    </li>
+	    <li>
+	      <p> <m>\bvec = 3\wvec_1 - 2\wvec_2</m>.
+	      </p>
+	    </li>
+	  </ol>
+	</p>
+      </solution>
+		
     </exploration>
 
     <p>
@@ -91,7 +128,7 @@
       combination of given basis vectors.  In the past, we have done
       this by solving a linear system.  The preview
       activity illustrates how this task can be simplified when the
-      basis vectors are orthogonal to one another.  We'll explore
+      basis vectors are orthogonal to each other.  We'll explore
       this and other uses of orthogonal bases in this section.
     </p>
 
@@ -102,7 +139,7 @@
 
     <p>
       The preview activity dealt with a basis of <m>\real^2</m> formed
-      by two orthogonal vectors.  We will more generally consider a
+      by two orthogonal vectors.  More generally, we will consider a 
       set of orthogonal vectors, as described in the next definition.
     </p>
 
@@ -163,18 +200,18 @@
       <m>\wvec_1,\wvec_2,\ldots,\wvec_n</m>;  that is, 
       suppose that
       <me>
-	c_1\wvec_1 + c_2\wvec_2 + \ldots + c_n\wvec_n = \bvec.
+	c_1\wvec_1 + c_2\wvec_2 + \cdots + c_n\wvec_n = \bvec.
       </me>
       Just as in the preview activity, we can find the weight
       <m>c_1</m> by dotting both sides with <m>\wvec_1</m> and
       applying the distributive property of dot products:
       <md>
 	<mrow>
-	  (c_1\wvec_1 + c_2\wvec_2 + \ldots + c_n\wvec_n)\cdot\wvec_1
+	  (c_1\wvec_1 + c_2\wvec_2 + \cdots + c_n\wvec_n)\cdot\wvec_1
 	  \amp = \bvec\cdot\wvec_1
 	</mrow>
 	<mrow>
-	  c_1\wvec_1\cdot\wvec_1 + c_2\wvec_2\cdot\wvec_1 +\ldots +
+	  c_1\wvec_1\cdot\wvec_1 + c_2\wvec_2\cdot\wvec_1 +\cdots +
 	  c_n\wvec_n\cdot\wvec_1  \amp = \bvec\cdot\wvec_1
 	</mrow>
 	<mrow>
@@ -195,7 +232,7 @@
       <me>
 	\bvec = \frac{\bvec\cdot\wvec_1}{\wvec_1\cdot\wvec_1}\wvec_1 +
 	\frac{\bvec\cdot\wvec_2}{\wvec_2\cdot\wvec_2}\wvec_2 +
-	\ldots +
+	\cdots +
 	\frac{\bvec\cdot\wvec_n}{\wvec_n\cdot\wvec_n}\wvec_n\text{.}
       </me>
     </p>
@@ -213,7 +250,7 @@
 	  <me>
 	    \bvec = \frac{\bvec\cdot\wvec_1}{\wvec_1\cdot\wvec_1}\wvec_1 +
 	    \frac{\bvec\cdot\wvec_2}{\wvec_2\cdot\wvec_2}\wvec_2 +
-	    \ldots +
+	    \cdots +
 	    \frac{\bvec\cdot\wvec_n}{\wvec_n\cdot\wvec_n}\wvec_n\text{.}
 	  </me>
 	</p>
@@ -254,7 +291,7 @@
       If the vectors in an orthogonal set have dimension <m>m</m>, they
       form a linearly independent set in <m>\real^m</m> and are
       therefore a basis for the subspace
-      <m>W=\laspan{\vvec_1,\vvec_2,\ldots,\vvec_n}</m>.  If there are
+      <m>W=\laspan{\wvec_1,\wvec_2,\ldots,\wvec_n}</m>.  If there are
       <m>m</m> vectors in the orthogonal set, they form a basis for
       <m>\real^m</m>. 
     </p>
@@ -282,7 +319,7 @@
 
 	    <li>
 	      <p>
-		Explain why we now know that this set of vectors forms a
+		Explain why we know that this set of vectors forms a
 		basis for <m>\real^3</m>.
 	      </p>
 	    </li>
@@ -307,6 +344,7 @@
 	      </p>
 
 	      <p>
+		<idx>unit vector</idx>
 		Using this observation, find a vector <m>\uvec_1</m>
 		that is parallel to <m>\wvec_1</m> and has length 1.
 		Such vectors are called <em>unit vectors</em>.
@@ -452,7 +490,7 @@
       orthogonal set so that the vectors in the set have unit length.
       Recall that we may multiply any nonzero vector
       <m>\wvec</m> by a scalar so that the new vector has length 1.
-      For instance, we know that, if <m>s</m> is a positive scalar,
+      For instance, we know that if <m>s</m> is a positive scalar,
       then <m>\len{s\wvec} = s\len{\wvec}</m>.  To obtain a vector
       <m>\uvec</m> having unit length, we want
       <me>
@@ -541,11 +579,13 @@
 
     <p>
       We now turn to an important problem that will appear in many
-      forms in the rest of our investigations.  Suppose, as shown in
+      forms in the rest of our explorations.  Suppose, as shown in
       <xref ref="fig-3d-orthog-proj" />, that we have a subspace
       <m>W</m> of <m>\real^m</m> and a vector <m>\bvec</m> that is not
       in that subspace.  We would like to find the vector <m>\bhat</m>
-      in <m>W</m> that is closest to <m>\bvec</m>.
+      in <m>W</m> that is closest to <m>\bvec</m>, meaning the
+      distance between <m>\bhat</m> and <m>\bvec</m> is as small as
+      possible. 
     </p>
 
     <figure xml:id="fig-3d-orthog-proj">
@@ -647,7 +687,7 @@
 	      </figure>
 
 	      <p>
-		<ol marker="i.">
+		<ol marker="1.">
 		  <li>
 		    <p>
 		      To find <m>\bhat</m>, first notice that <m>\bhat =
@@ -704,8 +744,8 @@
 	      </p>
 	      
 	      <figure xml:id="fig-3d-orthog">
-		<sidebyside widths="45% 45%">
-		  <image source="images/3d-orthog-proj-1" />
+		<sidebyside widths="55%">
+<!--		  <image source="images/3d-orthog-proj-1" />-->
 		  <image source="images/3d-orthog-proj-2" />
 		</sidebyside>
 		<caption>
@@ -717,7 +757,7 @@
 	      </figure>
 
 	      <p>
-		<ol marker="i.">
+		<ol marker="1.">
 		  <li>
 		    <p>
 		      The vector <m>\bvec-\bhat</m> is orthogonal to <m>W</m>.
@@ -747,7 +787,7 @@
 		  <li>
 		    <p>
 		      What is the vector <m>\bhat</m>, the orthogonal
-		      projection of <m>\wvec</m> onto the plane <m>W</m>?
+		      projection of <m>\bvec</m> onto the plane <m>W</m>?
 		    </p>
 		  </li>
 		</ol>
@@ -766,7 +806,7 @@
 		  \bhat =
 		  \frac{\bvec\cdot\wvec_1}{\wvec_1\cdot\wvec_1}~\wvec_1 + 
 		  \frac{\bvec\cdot\wvec_2}{\wvec_2\cdot\wvec_2}~\wvec_2 +
-		  \ldots + 
+		  \cdots + 
 		  \frac{\bvec\cdot\wvec_n}{\wvec_n\cdot\wvec_n}~\wvec_n\text{.} 
 		</me>
 	      </p>
@@ -783,7 +823,7 @@
 		  \bhat=
 		  (\bvec\cdot\uvec_1)~\uvec_1 + 
 		  (\bvec\cdot\uvec_2)~\uvec_2 +
-		  \ldots +
+		  \cdots +
 		  (\bvec\cdot\uvec_n)~\uvec_n\text{.}
 		</me>
 	      </p>
@@ -808,7 +848,7 @@
 	  <ol marker="a.">
 	    <li>
 	      <p>
-		<ol marker="i.">
+		<ol marker="1.">
 		  <li>
 		    <p>
 		      This dot product should be 0 since the vectors
@@ -832,7 +872,7 @@
 	    </li>
 	    <li>
 	      <p>
-		<ol marker="i.">
+		<ol marker="1.">
 		  <li>
 		    <p>
 		      These dot products are 0.
@@ -858,7 +898,7 @@
 	    </li>
 	    <li>
 	      <p>
-		We know <m>\bhat=c_1\wvec_1 + c_2\wvec_2 + \ldots +
+		We know <m>\bhat=c_1\wvec_1 + c_2\wvec_2 + \cdots +
 		c_n\wvec_n</m> and we can find
 		<m>c_i=\frac{\bvec\cdot\wvec_i}{\wvec_i\cdot\wvec_i}</m>
 		by requiring that <m>\bvec-\bhat</m> be orthogonal to
@@ -877,12 +917,12 @@
 	    <li>
 	      <p>
 		We have <m>Q^T\bvec =
-		\threevec{\bvec\cdot\uvec_1}{\vdots}{\bvec\cdot\uvec_n}</m>
+		\cthreevec{\bvec\cdot\uvec_1}{\vdots}{\bvec\cdot\uvec_n}</m>
 		so that
 		<me>QQ^T\bvec = 
 		  (\bvec\cdot\uvec_1)~\uvec_1 + 
 		  (\bvec\cdot\uvec_2)~\uvec_2 +
-		  \ldots +
+		  \cdots +
 		  (\bvec\cdot\uvec_n)~\uvec_n=\bhat\text{.}
 		</me>
 	      </p>
@@ -896,7 +936,7 @@
 	  <ol marker="a.">
 	    <li>
 	      <p>
-		<ol marker="i.">
+		<ol marker="1.">
 		  <li>
 		    <p>
 		      0
@@ -918,7 +958,7 @@
 	    </li>
 	    <li>
 	      <p>
-		<ol marker="i.">
+		<ol marker="1.">
 		  <li>
 		    <p>
 		      0
@@ -976,7 +1016,7 @@
     <p>
       If we have an orthogonal basis
       <m>\wvec_1,\wvec_2,\ldots,\wvec_n</m> for <m>W</m>, then
-      <m>\bhat = c_1\wvec_1+c_w\wvec_2+\ldots c_n\wvec_n</m>.  Therefore, 
+      <m>\bhat = c_1\wvec_1+c_w\wvec_2+\cdots+c_n\wvec_n</m>.  Therefore, 
       <md>
 	<mrow>
 	  (\bvec-\bhat)\cdot\wvec_i \amp = 0
@@ -986,7 +1026,7 @@
 	</mrow>
 	<mrow>
 	  \bvec\cdot\wvec_i \amp =
-	  (c_1\wvec_1+c_2\wvec_2+\ldots + c_n\wvec_n)\cdot\wvec_i
+	  (c_1\wvec_1+c_2\wvec_2+\cdots + c_n\wvec_n)\cdot\wvec_i
 	</mrow>
 	<mrow>
 	  \bvec\cdot\wvec_i \amp = c_i\wvec_i\cdot\wvec_i
@@ -1011,7 +1051,7 @@
 	    \bhat=
 	    \frac{\bvec\cdot\wvec_1}{\wvec_1\cdot\wvec_1}~\wvec_1 + 
 	    \frac{\bvec\cdot\wvec_2}{\wvec_2\cdot\wvec_2}~\wvec_2 +
-	    \ldots +
+	    \cdots +
 	    \frac{\bvec\cdot\wvec_n}{\wvec_n\cdot\wvec_n}~\wvec_n\text{.}
 	  </me>
 	</p>
@@ -1023,7 +1063,7 @@
       <p>
 	Remember that the projection formula given in <xref
 	ref="prop-proj-formula" /> applies only when the basis
-	<m>\wvec_1,\wvec_2,\ldots,\wvec_n</m> of <m>W</m> is
+	<m>\wvec_1,\wvec_2,\cdots,\wvec_n</m> of <m>W</m> is
 	<em>orthogonal</em>.
       </p>
     </assemblage>
@@ -1036,7 +1076,7 @@
 	\bhat=
 	(\bvec\cdot\uvec_1)~\uvec_1 + 
 	(\bvec\cdot\uvec_2)~\uvec_2 +
-	\ldots + 
+	\cdots + 
 	(\bvec\cdot\uvec_n)~\uvec_n\text{.}
       </me>
       If we then form the matrix
@@ -1052,7 +1092,7 @@
 	  \bhat \amp {}={}
 	  (\bvec\cdot\uvec_1)~\uvec_1 + 
 	  (\bvec\cdot\uvec_2)~\uvec_2 +
-	  \ldots + 
+	  \cdots + 
 	  (\bvec\cdot\uvec_n)~\uvec_n
 	</mrow>
 	<mrow>
@@ -1155,7 +1195,7 @@
 	    \frac{\bvec\cdot\wvec_2}
 	    {\wvec_2\cdot\wvec_2}~\wvec_2 
 	    =
-	    \threevec{{29}/{45}}{4/9}{8/{45}} \\
+	    \cthreevec{{29}/{45}}{4/9}{8/{45}} \\
 	  </me>
 	</p>
 
@@ -1170,7 +1210,7 @@
 	    {8}/{45} \amp -{2}/{9} \amp {41}/{45}
 	    \end{bmatrix}\threevec100
 	    =
-	    \threevec{{29}/{45}}{4/9}{8/{45}}\text{.}
+	    \cthreevec{{29}/{45}}{4/9}{8/{45}}\text{.}
 	  </me>
 	</p>
       </statement>
@@ -1189,7 +1229,7 @@
 		  <input>
 		  </input>
 		</sage>
-		<ol marker="i.">
+		<ol marker="1.">
 		  <li>
 		    <p>
 		      Find an orthonormal basis <m>\uvec</m> for
@@ -1236,7 +1276,7 @@
 		  <input>
 		  </input>
 		</sage>
-		<ol marker="i.">
+		<ol marker="1.">
 		  <li>
 		    <p>
 		      Use the projection formula from <xref
@@ -1297,7 +1337,7 @@
 	  <ol marker="a.">
 	    <li>
 	      <p>
-		<ol marker="i.">
+		<ol marker="1.">
 		  <li>
 		    <p>
 		      <m>\uvec=\threevec{1/3}{2/3}{-2/3}</m>
@@ -1329,7 +1369,7 @@
 	    </li>
 	    <li>
 	      <p>
-		<ol marker="i.">
+		<ol marker="1.">
 		  <li>
 		    <p>
 		      <m>\bhat = \fourvec3235</m>
@@ -1386,7 +1426,7 @@
 	  <ol marker="a.">
 	    <li>
 	      <p>
-		<ol marker="i.">
+		<ol marker="1.">
 		  <li>
 		    <p>
 		      <m>\uvec=\threevec{1/3}{2/3}{-2/3}</m>
@@ -1416,7 +1456,7 @@
 	    </li>
 	    <li>
 	      <p>
-		<ol marker="i.">
+		<ol marker="1.">
 		  <li>
 		    <p>
 		      <m>\bhat = \fourvec3235</m>
@@ -1659,7 +1699,7 @@
 	      \bhat =
 	      \frac{\bvec\cdot\wvec_1}{\wvec_1\cdot\wvec_1}~\wvec_1 + 
 	      \frac{\bvec\cdot\wvec_2}{\wvec_2\cdot\wvec_2}~\wvec_2 +
-	      \ldots + 
+	      \cdots + 
 	      \frac{\bvec\cdot\wvec_n}{\wvec_n\cdot\wvec_n}~\wvec_n\text{.}
 	    </me>
 	  </p>

@@ -17,7 +17,7 @@
 	\bhat =
 	\frac{\bvec\cdot\wvec_1}{\wvec_1\cdot\wvec_1}~\wvec_1 + 
 	\frac{\bvec\cdot\wvec_2}{\wvec_2\cdot\wvec_2}~\wvec_2 +
-	\ldots + 
+	\cdots + 
 	\frac{\bvec\cdot\wvec_n}{\wvec_n\cdot\wvec_n}~\wvec_n\text{.}
       </me>
       An orthonormal basis <m>\uvec_1,\uvec_2,\ldots,\uvec_n</m>
@@ -38,6 +38,7 @@
     </p>
 
     <exploration>
+      <statement>
       <p>
 	Suppose we have a basis for <m>\real^2</m> consisting of
 	the vectors
@@ -108,6 +109,44 @@
 	  </li>
 	</ol>
       </p>
+      </statement>
+      <solution>
+	<p>
+	  <ol marker="a.">
+	    <li>
+	      <p>
+		<m>\vhat_2 = \vvec_1</m>.
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		The orthogonal projection <m>\vhat_2</m> is defined so
+		that <m>\vvec_2-\vhat_2</m> is orthogonal to
+		<m>\vvec_1</m>.
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		<m>\wvec_1 = \twovec11</m> and
+		<m>\wvec_2=\twovec{-1}1</m> are othogonal, which can
+		be checked with the dot product.
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		The projection formula gives <m>\bvec = -\wvec_1
+		-9\wvec_2</m>.
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		<m>\uvec_1=\frac1{\sqrt{2}}\twovec11</m> and
+		<m>\uvec_2=\frac1{\sqrt{2}}\twovec{-1}1</m>.
+	      </p>
+	    </li>
+	  </ol>
+	</p>
+      </solution>
     </exploration>
 
   </introduction>
@@ -396,8 +435,9 @@
 	    W_2 = \laspan{\wvec_1,\wvec_2} = 
 	    \laspan{\vvec_1,\vvec_2}\text{.}
 	  </me>
-	  In other words, <m>\wvec_1</m> and <m>\wvec_2</m> is a basis
-	  for the same 2-dimensional subspace as <m>\vvec_1</m> and
+	  In other words, <m>\wvec_1</m> and <m>\wvec_2</m> is a
+	  orthogonal basis for <m>W_2</m>,  the 2-dimensional subspace
+	  that is the span of <m>\vvec_1</m> and
 	  <m>\vvec_2</m>.
 	</p>
 
@@ -420,9 +460,10 @@
 	    \wvec_2=\threevec{-1}22,\hspace{24pt}
 	    \wvec_3=\threevec22{-1},\hspace{24pt}
 	  </me>
-	  is an orthogonal set.  Furthermore, we find that,
+	  is an orthogonal set.  Furthermore, we have,
 	  as before, <m>\laspan{\wvec_1,\wvec_2,\wvec_3}
-	  = \laspan{\vvec_1,\vvec_2,\vvec_3}</m> so that we have found
+	  = \laspan{\vvec_1,\vvec_2,\vvec_3}</m>, which says that we
+	  have found 
 	  a new orthogonal basis for <m>\real^3</m>.
 	</p>
 
@@ -839,8 +880,8 @@ sage.repl.load.load("https://raw.githubusercontent.com/davidaustinm/ula_modules/
 		<m>\real^{10}</m>.  Suppose that we apply Gram-Schmidt
 		orthogonalization to create an orthonormal basis whose
 		vectors form the columns of <m>Q</m> and that we write
-		<m>A=QR</m>.  What are the dimensions of <m>Q</m> and
-		what are the dimensions of <m>R</m>?
+		<m>A=QR</m>.  What are the shape of <m>Q</m> and
+		what the shape of <m>R</m>?
 	      </p>
 	    </li>
 
@@ -1073,6 +1114,12 @@ sage.repl.load.load("https://raw.githubusercontent.com/davidaustinm/ula_modules/
       </statement>
     </example>
 
+    <p>
+      The value of the <m>QR</m> factorization will become clear in
+      the next section where we use it to solve least squares
+      problems.
+    </p>
+
     <activity>
       <statement>
 	<p>
@@ -1105,15 +1152,15 @@ sage.repl.load.load("https://raw.githubusercontent.com/davidaustinm/ula_modules/
 	  <ol marker="a.">
 	    <li>
 	      <p>
-		If <m>A=QR</m>, what are the dimensions of <m>Q</m> and
+		If <m>A=QR</m>, what is the shape of <m>Q</m> and
 		<m>R</m>?  What is special about the form of <m>R</m>?
 	      </p>
 	    </li>
 	    
 	    <li>
 	      <p>
-		Find the <m>QR</m> factorization using <c>Q, R =
-		QR(A)</c> and verify that <m>R</m> has the predicted
+		Find the <m>QR</m> factorization using 
+		<c>Q, R = QR(A)</c> and verify that <m>R</m> has the predicted
 		shape and that <m>A=QR</m>.
 		<sage>
 		  <input>

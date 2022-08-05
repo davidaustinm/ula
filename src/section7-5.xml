@@ -43,7 +43,7 @@
 	  <ol marker="a.">
 	    <li>
 	      <p>
-		What are the dimensions of the matrices <m>A</m>,
+		What are the shapes of the matrices <m>A</m>,
 		<m>U</m>, and <m>V</m>?
 	      </p>
 	    </li>
@@ -79,6 +79,50 @@
 	  </ol>
 	</p>
       </statement>
+      <solution>
+	<p>
+	  <ol marker="a.">
+	    <li>
+	      <p>
+		<m>A</m> is <m>5\times4</m>, <m>U</m> is
+		<m>5\times5</m>, and <m>V</m> is <m>4\times4</m>.
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		<m>\rank(A)=3</m> since there are three nonzero
+		singular values.
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		The first three columns, <m>\uvec_1</m>,
+		<m>\uvec_2</m>, and <m>\uvec_3</m>, of <m>U</m> form
+		an orthonormal basis for <m>\col(A)</m>.
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		The last column <m>\vvec_4</m> of <m>V</m> is a basis
+		for <m>\nul(A)</m>.
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		<m>Q^TQ=I</m> since each entry is a dot product of two
+		vectors in an orthonormal set.
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		<m>QQ^T</m> projects vectors orthogonally onto
+		<m>\col(A)</m>.
+	      </p>
+	    </li>
+	  </ol>
+	</p>
+      </solution>
+		
     </exploration>
 
   </introduction>
@@ -164,15 +208,14 @@ print(V)
 	      <p>
 		Form the reduced singular value decomposition
 		<m>U_r\Sigma_rV_r^T</m> by constructing the matrix
-		<m>U_r</m>, consisting of 
-		the first <m>r</m> columns of <m>U</m>,
-		the matrix <m>V_r</m>, 
-		consisting of the first <m>r</m> columns of <m>V</m>,
-		and <m>\Sigma_r</m>, an <m>r\times r</m> diagonal matrix.
-		Verify that <m>A=U_r\Sigma_r V_r^T</m>.
+		<m>U_r</m>, consisting of the first <m>r</m> columns
+		of <m>U</m>, the matrix <m>V_r</m>, consisting of the
+		first <m>r</m> columns of <m>V</m>, and
+		<m>\Sigma_r</m>, a square <m>r\times r</m> diagonal
+		matrix.  Verify that <m>A=U_r\Sigma_r V_r^T</m>.
 	      </p>
 	      <p>
-		You may find it convenient to remember that, if
+		You may find it convenient to remember that if
 		<c>B</c> is a matrix defined in Sage, then
 		<c>B.matrix_from_columns( list )</c> and
 		<c>B.matrix_from_rows( list )</c> can be used to
@@ -218,12 +261,8 @@ print(V)
 		<me>
 		  \xhat = V_r\Sigma_r^{-1}U_r^T\bvec
 		</me>
-		is a least squares approximate solution by simplifying
-		<m>A\xhat = (U_r\Sigma_r V_r^T)(V_r\Sigma_r^{-1}U_r^T
-		\bvec)</m>.
-	      </p>
-	      <p>
-		Now use this expression to find <m>\xhat</m>.
+		is the least squares approximate solution, and
+		use this expression to find <m>\xhat</m>.
 		<sage>
 		  <input>
 		  </input>
@@ -292,11 +331,17 @@ print(V)
 	    </li>
 	    <li>
 	      <p>
-		Simplifying gives <m>A\xhat = (U_r\Sigma_r
-		V_r^T)(V_r\Sigma_r^{-1}U_r^T\bvec) =
-		U_rU_r^T\bvec</m>, which shows that <m>\xhat</m> is a
-		least squares approximate solution.  This expression
-		gives <m>\xhat=\twovec{-0.83}{3.50}</m>.
+		We have the equation <m>A\xhat = U_rU_r^T\bvec</m>,
+		which gives
+		<me>
+		  \begin{aligned}
+		  A\xhat \amp = U_rU_r^T\bvec \\
+		  U_r\Sigma_rV_r^T\xhat \amp = U_rU_r^T\bvec \\
+		  \Sigma_rV_r^T\xhat \amp = U_r^T\bvec \\
+		  V_r^T\xhat \amp = \Sigma_r^{-1}U_r^T\bvec \\
+		  \xhat \amp = V_r\Sigma_r^{-1}U_r^T\bvec \\
+		  \end{aligned}
+		</me>
 	      </p>
 	    </li>
 	  </ol>
@@ -370,7 +415,7 @@ print(V)
       decomposition to find a least squares approximate solution for
       an equation <m>A\xvec = \bvec</m>.  Because it immediately
       provides an orthonormal basis for <m>\col(A)</m>, something that
-      we've had to construct by the Gram-Schmidt process in the past,
+      we've had to construct using the Gram-Schmidt process in the past,
       we can easily project <m>\bvec</m> onto <m>\col(A)</m>, which
       results in a simple expression for <m>\xhat</m>.
     </p>
@@ -398,6 +443,7 @@ print(V)
     </p>
 
     <p>
+      <idx> Moore-Penrose psuedoinverse </idx>
       The matrix <m>A^+ = V_r\Sigma_r^{-1}U_r^T</m> is known as
       the <em> Moore-Penrose psuedoinverse</em> of <m>A</m>.  When
       <m>A</m> is invertible, <m>A^{-1} = A^+</m>.
@@ -447,7 +493,8 @@ print(V)
 	</me>
 	and define <m>A_1 = U\Sigma^{(1)}V^T</m> and <m>A_2 =
 	U\Sigma^{(2)}V^T</m>.  Because <m>A_k</m> has <m>k</m> nonzero
-	singular values, we know that <m>\rank(A_k) = k</m>.  In fact,
+	singular values, we know that
+	<m>\rank(A_k) = k</m>.  In fact,
 	there is a sense in which <m>A_k</m> is the closest matrix to
 	<m>A</m> among all rank <m>k</m> matrices.
     </p>
@@ -1138,7 +1185,7 @@ display_matrix(A)
 		</sage>
 		We will explore how the singular value
 		decomposition helps us to compress this image.
-		<ol marker="i.">
+		<ol marker="1.">
 		  <li>
 		    <p>
 		      By inspecting the image represented by <m>A</m>,
@@ -1217,7 +1264,7 @@ display_matrix(approximate(A, k))
 	    <li>
 	      <p>
 		Next we'll explore an example based on a photograph. 
-		<ol marker="i">
+		<ol marker="1.">
 		  <li>
 		    <p>
 		      Consider the following image consisting of an
@@ -1286,7 +1333,7 @@ display_matrix(A)
 		splotchy regions as noise, and our goal is to improve
 		the quality of the image by reducing the noise.
 
-		<ol marker="i.">
+		<ol marker="1.">
 		  <li>
 		    <p>
 		      Plot the singular values below.  How are the
@@ -1338,7 +1385,7 @@ display_matrix(approximate(A, k))
 	  <ol marker="a.">
 	    <li>
 	      <p>
-		<ol marker="i.">
+		<ol marker="1.">
 		  <li>
 		    <p>
 		      <m>\rank(A) = 3</m> because there are three
@@ -1379,7 +1426,7 @@ display_matrix(approximate(A, k))
 	    </li>
 	    <li>
 	      <p>
-		<ol marker="i.">
+		<ol marker="1.">
 		  <li>
 		    <p>
 		      The singular values fall off steeply but never
@@ -1398,7 +1445,7 @@ display_matrix(approximate(A, k))
 	    </li>
 	    <li>
 	      <p>
-		<ol marker="i.">
+		<ol marker="1.">
 		  <li>
 		    <p>
 		      The singular values are similar, but they never
@@ -1424,7 +1471,7 @@ display_matrix(approximate(A, k))
 	  <ol marker="a.">
 	    <li>
 	      <p>
-		<ol marker="i.">
+		<ol marker="1.">
 		  <li>
 		    <p>
 		      <m>\rank(A) = 3</m> 
@@ -1455,7 +1502,7 @@ display_matrix(approximate(A, k))
 	    </li>
 	    <li>
 	      <p>
-		<ol marker="i.">
+		<ol marker="1.">
 		  <li>
 		    <p>
 		      The singular values fall off steeply but never
@@ -1474,7 +1521,7 @@ display_matrix(approximate(A, k))
 	    </li>
 	    <li>
 	      <p>
-		<ol marker="i.">
+		<ol marker="1.">
 		  <li>
 		    <p>
 		      The singular values are similar, but they never
@@ -1616,7 +1663,7 @@ plot_sv(A)
 	    <li>
 	      <p>
 		We will now study a particular case, the second case
-		appearing as the column of <m>A</m> indexed
+		which appears as the column of <m>A</m> indexed
 		by <c>1</c>.
 		There is a command <c>display_column(A, k)</c> that
 		provides a visual display of the <m>k^{th}</m> column
@@ -1994,7 +2041,7 @@ display_matrix(B.matrix_from_columns(range(50)))
 	    If <m>A</m> is a demeaned data matrix, the left singular
 	    vectors give the principal components of <m>A</m> and the
 	    variance in the direction of a principal component can be
-	    easily expressed in terms of the corresponding singular
+	    simply expressed in terms of the corresponding singular
 	    value.
 	  </p>
 	</li>

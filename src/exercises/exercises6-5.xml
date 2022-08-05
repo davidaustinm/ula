@@ -555,7 +555,7 @@ sage.repl.load.load('https://raw.githubusercontent.com/davidaustinm/ula_modules/
 	  </li>
 	  <li>
 	    <p>
-	      A <m>QR</m> factorization provides a method
+	      A <m>QR</m> factorization provides a 
 	      method for finding the approximate least squares
 	      solution to <m>A\xvec=\bvec</m> that is more reliable
 	      than solving the normal equations.
@@ -831,7 +831,7 @@ list_plot(data, size=40, color='blue')
 	the length <m>L</m> of the semi-major axis, essentially the
 	distance from the planet to the Sun in AU (astronomical units),
 	and the period <m>P</m>, the length of time in years required
-	to completed one orbit around the Sun.
+	to complete one orbit around the Sun.
       </p>
 
       <p>
@@ -867,7 +867,7 @@ print(df)
 	    <p>
 	      Construct the matrix <m>A</m> and vector <m>\bvec</m> so that
 	      the solution to <m>A\xvec=\bvec</m> is the vector
-	      <m>\xvec=\twovec{\ln(C)}r</m>.
+	      <m>\xvec=\ctwovec{\ln(C)}r</m>.
 	    </p>
 	  </li>
 	  <li>
@@ -923,7 +923,7 @@ print(df)
 	  <li>
 	    <p>
 	      <m>R^2=1.000</m>, which means that we have a very good
-	      fit because this data originates in a physical
+	      fit because this data reflects a physical
 	      law.
 	    </p>
 	  </li>
@@ -985,7 +985,7 @@ print(df)
 	Evaluating the following cell loads a data set describing the
 	temperature in the Earth's atmosphere at various altitudes.
 	There are also two vectors <c>altitude</c>, expressed in kilometers,
-	and <c>temperature</c>, in degress Celsius.
+	and <c>temperature</c>, in degrees Celsius.
 	<sage>
 	  <input>
 sage.repl.load.load('https://raw.githubusercontent.com/davidaustinm/ula_modules/master/orthogonality.py', globals())
@@ -1009,7 +1009,7 @@ list_plot(data, size=40, color='blue')
 	  </li>
 	  <li>
 	    <p>
-	      Choose a value of <m>k</m>,
+	      After choosing a value of <m>k</m>,
 	      construct the matrix <m>A</m> and vector <m>\bvec</m>,
 	      and find the least squares approximate solution
 	      <m>\xhat</m>.
@@ -1017,8 +1017,8 @@ list_plot(data, size=40, color='blue')
 	  </li>
 	  <li>
 	    <p>
-	      Plot the polynomial and data using <c>plot_model(xhat,
-	      data)</c>.
+	      Plot the polynomial and data using
+	      <c>plot_model(xhat, data)</c>.
 	    </p>
 	  </li>
 
@@ -1182,7 +1182,7 @@ df
 	    <p>
 	      If two houses are
 	      identical except for differing in age by one year, how
-	      would you predict their prices compare to one another?
+	      would you predict that their prices compare to each another?
 	    </p>
 	  </li>
 	  <li>
@@ -1284,6 +1284,146 @@ df
 	      
   </exercise>
 
+  <exercise>
+    <statement>
+      <p>
+	We observed that if the columns of <m>A</m> are linearly
+	independent, then there is a unique least squares approximate
+	solution to the equation <m>A\xvec=\bvec</m> because the equation
+	<m>A\xhat=\bhat</m> has a unique solution.  We also said that
+	<m>\xhat</m> is the unique solution to the normal equation
+	<m>A^TA\xhat = A^T\bvec</m> without explaining why this
+	equation has a unique solution.  This exercise offers an
+	explanation.
+      </p>
+
+      <p>
+	Assuming that the columns of <m>A</m> are linearly
+	independent, we would like to conclude that the equation
+	<m>A^TA\xhat=A^T\bvec</m> has a unique solution.
+	<ol marker="a.">
+	  <li>
+	    <p>
+	      Suppose that <m>\xvec</m> is a vector for which
+	      <m>A^TA\xvec = \zerovec</m>.  Explain why the following
+	      argument is valid and allows us to conclude that
+	      <m>A\xvec = \zerovec</m>.
+	      <me>
+		\begin{aligned}
+		A^TA\xvec \amp = \zerovec \\
+		\xvec\cdot A^TA\xvec \amp = \xvec\cdot\zerovec = 0 \\
+		(A\xvec)\cdot(A\xvec) \amp = 0 \\
+		\len{A\xvec}^2 \amp = 0. \\
+		\end{aligned}
+	      </me>
+	      In other words, if <m>A^TA\xvec = \zerovec</m>, we know
+	      that <m>A\xvec = \zerovec</m>.
+	    </p>
+	  </li>
+	  <li>
+	    <p>
+	      If the columns of <m>A</m> are linearly independent and
+	      <m>A\xvec = \zerovec</m>, what do we know about the
+	      vector <m>\xvec</m>?
+	    </p>
+	  </li>
+	  <li>
+	    <p>
+	      Explain why <m>A^TA\xvec = \zerovec</m> can only happen
+	      when <m>\xvec = \zerovec</m>.
+	    </p>
+	  </li>
+	  <li>
+	    <p>
+	      Assuming that the columns of <m>A</m> are linearly
+	      independent, explain why <m>A^TA\xhat=A^T\bvec</m> has a
+	      unique solution.
+	    </p>
+	  </li>
+	</ol>
+      </p>
+    </statement>
+    <solution>
+      <p>
+	<ol marker="a.">
+	  <li>
+	    <p>
+	      Starting with the assumption that <m>A^TA\xvec =
+	      \zerovec</m>, we dot both sides of the equation with
+	      <m>\xvec</m> to obtain <m>\xvec \cdot A^TA\xvec =
+	      0</m>.  From here, we write
+	      <me>
+		\begin{aligned}
+		\xvec\cdot A^TA\xvec \amp = 0 \\
+		\xvec^TA^TA\xvec \amp = 0 \\
+		(A\xvec)^T(A\xvec) \amp = 0 \\
+		(A\xvec)\cdot (A\xvec) \amp = 0 \\
+		\len{A\xvec}^2 \amp = 0. \\
+		\end{aligned}
+	      </me>
+	      This says that the length of <m>A\xvec</m> must be zero,
+	      which tells us that <m>A\xvec=\zerovec</m>.
+	    </p>
+	  </li>
+	  <li>
+	    <p>
+	      If the columns of <m>A</m> are linearly independent, we
+	      know that the only solution to the homogeneous equation
+	      <m>A\xvec = \zerovec</m> is <m>\xvec = \zerovec</m>.
+	    </p>
+	  </li>
+	  <li>
+	    <p>
+	      The previous two parts of this exercise tell us that
+	      <m>A^TA\xvec = \zerovec</m> implies
+	      that <m>A\xvec = \zerovec</m>, which implies that
+	      <m>\xvec = \zerovec</m>.
+	    </p>
+	  </li>
+	  <li>
+	    <p>
+	      Since the only solution to the homogeneous equation
+	      <m>A^TA\xvec = \zerovec</m> is <m>\xvec=\zerovec</m>,
+	      the columns of <m>A^TA</m> are linearly independent,
+	      which means that <m>A^TA\xhat=A^T\bvec</m> has only one
+	      solution. 
+	    </p>
+	  </li>
+	</ol>
+      </p>
+    </solution>
+    <answer>
+      <p>
+	<ol marker="a.">
+	  <li>
+	    <p>
+	      Use the fact that <m>\xvec\cdot(A^TA\xvec)=
+	      (A\xvec)^T(A\xvec)</m>.
+	    </p>
+	  </li>
+	  <li>
+	    <p>
+	      It must be true that <m>\xvec=\zerovec</m>.
+	    </p>
+	  </li>
+	  <li>
+	    <p>
+	      This follows from the previous two parts of this
+	      exercise.
+	    </p>
+	  </li>
+	  <li>
+	    <p>
+	      The columns of <m>A^TA</m> must be linearly independent.
+	    </p>
+	  </li>
+	</ol>
+      </p>
+    </answer>
+	  
+  </exercise>
+	    
+
   <exercise xml:id="ex-r2-meaning">
     <statement>
       <p>
@@ -1293,7 +1433,7 @@ df
 	problem, we consider the linear system <m>A\xvec=\bvec</m> and
 	the approximate least squares solution <m>\xhat</m>, where
 	<m>A\xhat=\bhat</m>.  We suppose that <m>A</m> is an
-	<m>m\times n</m> matrix.  We will denote the
+	<m>m\times n</m> matrix, and we will denote the
 	<m>m</m>-dimensional vector <m>\onevec =
 	\fourvec11{\vdots}1</m>.
       </p>
@@ -1320,7 +1460,7 @@ df
 
 	  <li>
 	    <p>
-	      If we write <m>\bvec = \bhat + \bvec^\perp</m>, we
+	      If we write <m>\bvec = \bhat + \bvec^\perp</m>, 
 	      explain why
 	      <me>
 		\bvec^\perp\cdot\onevec = 0

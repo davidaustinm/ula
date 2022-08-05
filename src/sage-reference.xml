@@ -219,6 +219,13 @@ A.eigenvectors_right()
 	</p>
 
 	<p>
+	  If <m>A</m> can be diagonalized as <m>A=PDP^{-1}</m>, then
+	  <cd>
+D, P = A.right_eigenmatrix()
+	  </cd>
+	  provides the matrices <c>D</c> and <c>P</c>.
+	</p>
+	<p>
 	  The characteristic polynomial of <c>A</c> is
 	  <cd>
 A.charpoly('x')
@@ -227,6 +234,26 @@ A.charpoly('x')
 	  <cd>
 A.fcp('x')
 	  </cd>
+	</p>
+      </li>
+      <li>
+	<title> Matrix factorizations </title>
+	<p>
+	  The <m>LU</m> factorization of a matrix 
+	  <cd>
+P, L, U = A.LU()	    
+	  </cd>
+	  gives matrices so that <m>PA = LU</m>.
+	</p>
+
+	<p>
+	  A singular value decomposition is obtained with
+	  <cd>
+U, Sigma, V = A.SVD()	    
+	  </cd>
+	  It's important to note that the matrix must be defined using
+	  <c>RDF</c>.  For instance,
+	  <c>A = matrix(RDF, 3,2,[1,0,-1,1,1,1])</c>.
 	</p>
       </li>
     </dl>

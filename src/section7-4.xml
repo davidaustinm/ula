@@ -6,7 +6,7 @@
 
   <introduction>
     <p>
-      The Spectral Theorem has animated the past few
+      The Spectral Theorem has motivated the past few
       sections.  In particular, we applied the fact that symmetric
       matrices can be orthogonally diagonalized to simplify quadratic
       forms, which enabled us to use principal component analysis to
@@ -41,12 +41,6 @@
     </p>
 
     <exploration>
-
-      quadratic form:  write it out
-      maximum/minimum
-      geometric relationship between places where max/min
-      explain why B^TB is symmetric
-      
       <statement>
 	<p>
 	  Let's review orthogonal diagonalizations and quadratic forms
@@ -100,6 +94,51 @@
 	</p>
 
       </statement>
+      <solution>
+	<p>
+	  <ol marker="a.">
+	    <li>
+	      <p>
+		<m>G^T=(A^TA)^T = A^T(A^T)^T = A^TA=G</m>.
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		<m>G=\begin{bmatrix}
+		5 \amp 4 \\
+		4 \amp 5 \\
+		\end{bmatrix}
+		</m> leads to the quadratic form <m>q_G = 5x_1^2 +
+		8x_1x_2 + 5x_2^2</m>.  
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		The maximum value of <m>q_G</m> equals the largest
+		eigenvalue of <m>G</m>, which is <m>\lambda_1=9</m>.  This
+		maximum value occurs in the direction of the
+		associated eigenvector <m>\uvec_1 =
+		\twovec{\frac{1}{\sqrt{2}}}{\frac{1}{\sqrt{2}}}</m>.
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		The minimum value of <m>q_G</m> equals the smallest
+		eigenvalue of <m>G</m>, which is <m>\lambda_2=1</m>.  This
+		minimum value occurs in the direction of the
+		associated eigenvector <m>\uvec_2 =
+		\twovec{\frac{1}{\sqrt{2}}}{-\frac{1}{\sqrt{2}}}</m>.
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		These two directions are orthogonal to each other.
+	      </p>
+	    </li>
+	  </ol>
+	</p>
+      </solution>
+	      
     </exploration>
       
   </introduction>
@@ -195,14 +234,30 @@
 		<slate xml:id="singular-right" aspect="1:1" surface="canvas" />
 	      </sidebyside>
 	    </sbsgroup>
+	    <static>
+	    <sidebyside width="100%">
+	      <p>
+		There is an interactive diagram,
+		available at <url
+		href="http://gvsu.edu/s/0YE"
+		visual="gvsu.edu/s/0YE"/>, that
+		accompanies this activity.
+	      </p>
+	    </sidebyside>
+	    <sidebyside width="75%">
+	      <image source="preview/singular-preview.png"/>
+	    </sidebyside>
+	  </static>
 	    <instructions>
 	      <p>
-		The four sliders at the top of this figure enable us
-		to choose a <m>2\times2</m> matrix <m>A</m>.  Below on
-		the left, we see the unit circle and the red unit
-		vector <m>\xvec</m>, which may be varied by clicking
-		in the head of the vector and dragging it to a new
-		unit vector.
+		You may choose a <m>2\times2</m> matrix
+		<m>A=\begin{bmatrix}
+		a \amp b \\
+		c \amp d \\
+		\end{bmatrix}</m> using the four sliders at the top of
+		the diagram.  On the left, you may vary the red unit
+		vector <m>\xvec</m> by clicking
+		in the head of the vector.
 	      </p>
 	    </instructions>
 	  </interactive>
@@ -212,8 +267,10 @@
 	  Select the matrix <m>A=\begin{bmatrix}
 	  1 \amp 2 \\
 	  -2 \amp - 1 \\
-	  \end{bmatrix}</m>.  As we vary the vector <m>\xvec</m>, we
-	  see the vector <m>A\xvec</m> in gray while the height of the
+	  \end{bmatrix}</m>.
+	  As we vary the vector <m>\xvec</m>, we
+	  see the vector <m>A\xvec</m> on the right in gray while the
+	  height of the 
 	  blue bar to the right tells us <m>l_A(\xvec) =
 	  |A\xvec|</m>.
 	</p>
@@ -637,8 +694,8 @@
 	  <p>
 	    The singular values of <m>A</m> are the squares roots of
 	    eigenvalues <m>\lambda_i</m> of <m>G</m>; that is,
-	    <m>\sigma_i = \sqrt{\lambda_i}</m>.  For reasons we'll see
-	    in the next section, the singular values are listed in
+	    <m>\sigma_i = \sqrt{\lambda_i}</m>.  By convention,
+	    the singular values are listed in
 	    decreasing order: <m>\sigma_1 \geq \sigma_2 \geq \ldots
 	    </m>.  The right singular vectors <m>\vvec_i</m> are the
 	    associated eigenvectors of <m>G</m>.
@@ -792,8 +849,8 @@
 	      <p>
 		As before, form the orthogonal matrices <m>U</m> and
 		<m>V</m> from the left and right singular vectors.
-		What are the dimensions of <m>U</m> and <m>V</m>?
-		How do these dimensions relate to the number of rows
+		What are the shapes of <m>U</m> and <m>V</m>?
+		How do these shapes relate to the number of rows
 		and columns of <m>A</m>?
 	      </p>
 	    </li>
@@ -1054,7 +1111,7 @@
 	  </md>
 	  Notice that it's not possible to find a third left singular
 	  vector since <m>A\vvec_3=\zerovec</m>.
-	  We thereform form the matrices
+	  We therefore form the matrices
 	  <me>
 	    U = \begin{bmatrix}
 	    0 \amp 1 \\
@@ -1124,7 +1181,7 @@
     </proposition>
     
     <p>
-      As we said earlier, the singular value decomposition should be
+      As we said earlier, a singular value decomposition should be
       thought of a generalization of an orthogonal diagonalization.
       For instance, the Spectral Theorem tells us that a symmetric
       matrix can be written as <m>QDQ^T</m>.  Many matrices,
@@ -1177,7 +1234,7 @@
 	  <ol marker="a.">
 	    <li>
 	      <p>
-		What are the dimensions of <m>A</m>; that is, how many
+		What is the shape of <m>A</m>; that is, how many
 		rows and columns does <m>A</m> have?
 	      </p>
 	    </li>
@@ -1210,7 +1267,7 @@
 		0 \amp 0 \amp 0 \\
 		0 \amp 0 \amp 0
 		\end{bmatrix}\threevec{c_1}{c_2}{c_3}
-		= \fourvec{20c_1}{5c_2}00</m>.
+		= \cfourvec{20c_1}{5c_2}00</m>.
 	      </p>
 
 	      <p>
@@ -1219,7 +1276,7 @@
 		\begin{bmatrix}
 		\uvec_1 \amp \uvec_2 \amp \uvec_3 \amp \uvec_4
 		\end{bmatrix}
-		\fourvec{20c_1}{5c_2}00 =
+		\cfourvec{20c_1}{5c_2}00 =
 		20c_1\uvec_1 + 5c_2\uvec_2</m>.
 	      </p>
 
@@ -1286,7 +1343,7 @@
 	  <ol marker="a.">
 	    <li>
 	      <p>
-		The dimensions of <m>A</m> are the same as
+		The shape of <m>A</m> is the same as
 		<m>\Sigma</m> so <m>A</m> is <m>4\times3</m>;  that
 		is, <m>A</m> has <m>4</m> rows and <m>3</m> columns.
 	      </p>
@@ -1379,11 +1436,11 @@
 
     <p>
       This activity shows how a singular value decomposition of a
-      matrix encodes important information about its null and
-      column spaces.  This is, in fact, the key observation that makes
-      singular value decompositions so useful:  the left and right
-      singular vectors provide orthonormal bases for <m>\nul(A)</m>
-      and <m>\col(A)</m>.
+      matrix encodes important information about its null and column
+      spaces.  More specifically, the left and right singular vectors
+      provide orthonormal bases for <m>\nul(A)</m> and <m>\col(A)</m>.
+      This is one of the reasons that singular value
+      decompositions are so useful.
     </p>
 
     <example>
@@ -1411,7 +1468,7 @@
 	</p>
 
 	<p>
-	  If <m>\bvec</m> is in the <m>\col(A)</m>, then <m>\bvec</m>
+	  If <m>\bvec</m> is in <m>\col(A)</m>, then <m>\bvec</m>
 	  must have the form
 	  <me>
 	    \bvec = \sigma_1c_1\uvec_1 + \sigma_2c_2\uvec_2 +
@@ -1492,7 +1549,7 @@
     </p>
 
     <p>
-      In fact, we can say more.  Remember that <xref
+      Remember that <xref
       ref="prop-svd-transpose" /> says that <m>A</m> and its transpose
       <m>A^T</m> share the same singular values.  Since the rank of a
       matrix equals its number of nonzero singular values, this means
@@ -1539,7 +1596,7 @@
       subspace is sometimes called the <em> row space </em> of
       <m>A</m> and denoted <m>\row(A)</m>.  While we have yet to have
       an occasion to use <m>\row(A)</m>, there are times when it is
-      important to have an orthonormal basis for it.  Fortunately, a
+      important to have an orthonormal basis for it, and a
       singular value decomposition provides just that.  To summarize,
       the columns of <m>V</m> provide orthonormal bases for
       <m>\col(A^T)</m> and <m>\nul(A)</m>:
@@ -1612,7 +1669,7 @@
       <m>\uvec_{r+1},\ldots,\uvec_m</m>.  <xref
       ref="thm-four-subspaces" /> tells us how to do that: because
       those vectors form an orthonormal basis for <m>\nul(A^T)</m>,
-      we can find them by solving <m>A^T\xvec = \zerovec</m> to find
+      we can find them by solving <m>A^T\xvec = \zerovec</m> to obtain
       a basis for <m>\nul(A^T)</m> and
       applying the Gram-Schmidt algorithm.
     </p>
@@ -1656,7 +1713,7 @@
 	  <ol marker="a.">
 	    <li>
 	      <p>
-		What are the dimensions of <m>A</m>?  What is
+		What is the shape of <m>A</m>?  What is
 		<m>\rank(A)</m>?
 	      </p>
 	    </li>
@@ -1702,7 +1759,7 @@
 		If <m>A = U\Sigma V^T</m>, explain why
 		<m>A=U_r\Sigma_rV_r^T</m> where the columns of
 		<m>U_r</m> are an orthonormal basis for
-		<m>\col(A)</m>, <m>\Sigma_r</m> is a diagonal,
+		<m>\col(A)</m>, <m>\Sigma_r</m> is a square, diagonal,
 		invertible matrix, and the columns of <m>V_r</m> form
 		an orthonormal basis for <m>\col(A^T)</m>.
 	      </p>
@@ -1995,7 +2052,7 @@
 	    <m>A</m>, which appear in decreasing order on the
 	    diagonal.  The matrices <m>U</m> and <m>V</m> are
 	    orthogonal and contain the left and right singular
-	    vectors.
+	    vectors, respectively, as their columns.
 	  </p>
 	</li>
 
@@ -2015,7 +2072,7 @@
 
 	<li>
 	  <p>
-	    A singular value decomposition organizes fundamental
+	    A singular value decomposition reveals fundamental
 	    information about a matrix.  For instance, the number of
 	    nonzero singular values is the rank <m>r</m> of the
 	    matrix.  The first <m>r</m> left singular vectors form
