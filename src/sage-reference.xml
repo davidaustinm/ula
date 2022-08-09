@@ -9,7 +9,7 @@
 
   <p>
     As we have introduced a number of Sage commands throughout the
-    text, it could be helpful to have the most important ones summarized
+    text, it may be helpful to have the most important ones summarized
     in a single place.  That is the aim of this appendix.
   </p>
 
@@ -177,83 +177,132 @@ print(A*B)
       <li>
 	<title> Operations on vectors </title>
 	<p>
-	  The length of a vector <c>v</c> is found using <c>v.norm()</c>.
-	</p>
-	<p>
-	  The dot product of two vectors <c>v</c> and <c>w</c> is
-	  <c>v*w</c>.
+	  <ol marker="a.">
+	    <li>
+	      <p>
+		The length of a vector <c>v</c> is found using
+		<c>v.norm()</c>.  
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		The dot product of two vectors <c>v</c> and <c>w</c> is
+		<c>v*w</c>.
+	      </p>
+	    </li>
+	  </ol>
 	</p>
       </li>
 
       <li>
 	<title> Operations on matrices </title>
-	<p> The transpose of a matrix <c>A</c> is obtained using either
-	<c>A.transpose()</c> or <c>A.T</c>.
+	<p><ol marker="a.">
+	  <li>
+	    <p> The transpose of a matrix <c>A</c> is obtained using either
+	    <c>A.transpose()</c> or <c>A.T</c>.
+	    </p>
+	  </li>
+	  <li>
+	    <p> The inverse of a matrix <c>A</c> is obtained using either
+	    <c>A.inverse()</c> or <c>A^-1</c>.
+	    </p>
+	  </li>
+	  <li>
+	    <p> The determinant of <c>A</c> is <c>A.det()</c>.
+	    </p>
+	  </li>
+	  <li>
+	    <p> A basis for the null space <m>\nul(A)</m> is found with
+	    <c>A.right_kernel()</c>. </p>
+	  </li>
+	  <li>
+	    <p>
+	      Pull out a column of <c>A</c> using, for instance,
+	      <c>A.column(0)</c>, which returns the vector that is the
+	      first column of <c>A</c>.
+	    </p>
+	  </li>
+	  <li>
+	    <p>
+	      The command <c>A.matrix_from_columns([0,1,2])</c>
+	      returns the matrix formed by the first three columns of
+	      <c>A</c>.
+	    </p>
+	  </li>
+	</ol>
 	</p>
-	<p> The inverse of a matrix <c>A</c> is obtained using either
-	<c>A.inverse()</c> or <c>A^-1</c>.
-	</p>
-	<p> The transpose of a matrix <c>A</c> is obtained using
-	either <c>A.T</c> or <c>A.transpose()</c>.</p>
-	<p> A basis for the null space <m>\nul(A)</m> is found with
-	<c>A.right_kernel()</c>. </p>
       </li>
 
       <li>
 	<title> Eigenvectors and eigenvalues </title>
 	<p>
-	  The eigenvalues of a matrix <c>A</c> can be found with
-	  <cd>
-A.eigenvalues()	    
-	  </cd>
-	  The number of times that an eigenvalue appears in the list
-	  equals its multiplicity.
-	</p>
-
-	<p>
-	  The eigenvectors of a matrix having rational entries can be
-	  found with
-	  <cd>
-A.eigenvectors_right()	    
-	  </cd>
-	</p>
-
-	<p>
-	  If <m>A</m> can be diagonalized as <m>A=PDP^{-1}</m>, then
-	  <cd>
+	  <ol marker="a.">
+	    <li>
+	      <p>
+		The eigenvalues of a matrix <c>A</c> can be found with
+		<c>A.eigenvalues()</c>.
+		The number of times that an eigenvalue appears in the list
+		equals its multiplicity.
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		The eigenvectors of a matrix having rational entries can be
+		found with <c>A.eigenvectors_right()</c>.
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		If <m>A</m> can be diagonalized as <m>A=PDP^{-1}</m>, then
+		<cd>
 D, P = A.right_eigenmatrix()
-	  </cd>
-	  provides the matrices <c>D</c> and <c>P</c>.
-	</p>
-	<p>
-	  The characteristic polynomial of <c>A</c> is
-	  <cd>
-A.charpoly('x')
-	  </cd>
-	  and its factored form
-	  <cd>
-A.fcp('x')
-	  </cd>
+		</cd>
+		provides the matrices <c>D</c> and <c>P</c>.
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		The characteristic polynomial of <c>A</c> is
+		<c>A.charpoly('x')</c>
+		and its factored form
+		<c>A.fcp('x')</c>.
+	      </p>
+	    </li>
+	  </ol>
 	</p>
       </li>
       <li>
 	<title> Matrix factorizations </title>
 	<p>
-	  The <m>LU</m> factorization of a matrix 
-	  <cd>
+	  <ol marker="a.">
+	    <li>
+	      <p>
+		The <m>LU</m> factorization of a matrix 
+		<cd>
 P, L, U = A.LU()	    
-	  </cd>
-	  gives matrices so that <m>PA = LU</m>.
-	</p>
-
-	<p>
-	  A singular value decomposition is obtained with
-	  <cd>
+		</cd>
+		gives matrices so that <m>PA = LU</m>.
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		A singular value decomposition is obtained with
+		<cd>
 U, Sigma, V = A.SVD()	    
-	  </cd>
-	  It's important to note that the matrix must be defined using
-	  <c>RDF</c>.  For instance,
-	  <c>A = matrix(RDF, 3,2,[1,0,-1,1,1,1])</c>.
+		</cd>
+		It's important to note that the matrix must be defined using
+		<c>RDF</c>.  For instance,
+		<c>A = matrix(RDF, 3,2,[1,0,-1,1,1,1])</c>.
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		The <m>QR</m> factorization of <c>A</c> is
+		<c>A.QR()</c> provided that <c>A</c> is defined using
+		<c>RDF</c>.
+	      </p>
+	    </li>
+	  </ol>
 	</p>
       </li>
     </dl>

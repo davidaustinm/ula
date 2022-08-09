@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!-- **********************************************************************-->
-<!-- Copyright 2012-2018                                                   -->
-<!-- Matthew Boelkins                                                      -->
+<!-- Copyright 2022                                                        -->
+<!-- David Austin                                                          -->
 <!--                                                                       -->
-<!-- This file is part of Active Calculus.                                 -->
+<!-- This file is part of Understanding Linear Algebra                     -->
 <!--                                                                       -->
 <!-- Permission is granted to copy, distribute and/or modify this document -->
-<!-- under the terms of the Creative Commons BY-SA license.  The work      -->
+<!-- under the terms of the Creative Commons BY license.  The work         -->
 <!-- may be used for free by any party so long as attribution is given to  -->
 <!-- the author(s), the work and its derivatives are used in the spirit of -->
 <!-- "share and share alike".  All trademarks are the registered marks of  -->
@@ -56,8 +56,8 @@
     <xsl:text>\newpagestyle{chapopen}{&#xa;</xsl:text>
     <xsl:text>\sethead[][][] % even&#xa;</xsl:text>
     <xsl:text>{}{}{} % odd&#xa;</xsl:text>
-    <xsl:text>\setfoot[\includegraphics[height=1pc]{external/images/CC-BY-SA-license.pdf}][][]&#xa;</xsl:text>
-<xsl:text>{}{}{\includegraphics[height=1pc]{external/images/CC-BY-SA-license.pdf}}}&#xa;</xsl:text>
+    <xsl:text>\setfoot[\includegraphics[height=1pc]{external/images/license.pdf}][][]&#xa;</xsl:text>
+<xsl:text>{}{}{\includegraphics[height=1pc]{external/images/license.pdf}}}&#xa;</xsl:text>
     <xsl:text>\assignpagestyle{\chapter}{chapopen}&#xa;</xsl:text>
 
     <xsl:text>%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%&#xa;</xsl:text>
@@ -65,7 +65,9 @@
     <xsl:text>%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%&#xa;</xsl:text>
     <xsl:text>%%% This is from common&#xa;</xsl:text>
     <xsl:text>\definecolor{ActiveBlue}{cmyk}{1, 0.5, 0, 0.35}&#xa;</xsl:text>
-    <xsl:text>\colorlet{chaptercolor}{ActiveBlue}&#xa;</xsl:text>
+    <xsl:text>\definecolor{ChapterTitle}{cmyk}{0,0,0, 0.8}&#xa;</xsl:text>
+    <xsl:text>\definecolor{ActivityBar}{cmyk}{0,0,0, 0.3}&#xa;</xsl:text>
+    <xsl:text>\colorlet{chaptercolor}{ChapterTitle}&#xa;</xsl:text>
     <xsl:text>%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%&#xa;</xsl:text>
     <xsl:text>% Basic paragraph parameters &#xa;</xsl:text>
     <xsl:text>%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%&#xa;</xsl:text>
@@ -94,7 +96,7 @@
     <xsl:text>\titleformat{\chapter}[display]&#xa;</xsl:text>
     <xsl:text>{\raggedleft\normalfont\color{chaptercolor}\Large}{</xsl:text>
     <xsl:text>\MakeUppercase{\divisionnameptx}\space</xsl:text>
-    <xsl:text>\rlap{\enskip\resizebox{!}{0.95cm}{\thechapter} \rule{15cm}{0.95cm}</xsl:text>
+    <xsl:text>\rlap{\enskip\resizebox{!}{0.95cm}{\thechapter} </xsl:text>
     <xsl:text>}}{10pt}{\normalfont\Huge\itshape#1}&#xa;</xsl:text>
     <xsl:text>[{\Large\authorsptx}]&#xa;</xsl:text>
     <xsl:text>\titleformat{name=\chapter,numberless}[display]&#xa;</xsl:text>
@@ -129,7 +131,7 @@
 <!-- Blue vertical rule next to Activity and Preview Activity -->
 <xsl:template match="&PROJECT-LIKE;" mode="tcb-style">
     <xsl:text>enhanced,frame hidden,interior hidden, sharp corners,&#xa;</xsl:text>
-    <xsl:text>boxrule=0pt,borderline west={3pt}{0pt}{ActiveBlue}, &#xa;</xsl:text>
+    <xsl:text>boxrule=0pt,borderline west={3pt}{0pt}{ActivityBar}, &#xa;</xsl:text>
     <xsl:text>runintitlestyle, blockspacingstyle, after title={.\space}, &#xa;</xsl:text>
     <xsl:text>colback=white,&#xa;</xsl:text>
     <xsl:text>coltitle=black,</xsl:text>

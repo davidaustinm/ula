@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!-- **********************************************************************-->
-<!-- Copyright 2012-2018                                                   -->
-<!-- Matthew Boelkins                                                      -->
+<!-- Copyright 2022                                                        -->
+<!-- David Austin                                                          -->
 <!--                                                                       -->
-<!-- This file is part of Active Calculus.                                 -->
+<!-- This file is part of Understanding Linear Algebra                     -->
 <!--                                                                       -->
 <!-- Permission is granted to copy, distribute and/or modify this document -->
-<!-- under the terms of the Creative Commons BY-SA license.  The work      -->
+<!-- under the terms of the Creative Commons BY license.  The work         -->
 <!-- may be used for free by any party so long as attribution is given to  -->
 <!-- the author(s), the work and its derivatives are used in the spirit of -->
 <!-- "share and share alike".  All trademarks are the registered marks of  -->

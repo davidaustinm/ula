@@ -1,17 +1,23 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!-- **********************************************************************-->
-<!-- Copyright 2012-2018                                                   -->
-<!-- Matthew Boelkins                                                      -->
+<!-- Copyright 2022                                                        -->
+<!-- David Austin                                                          -->
 <!--                                                                       -->
-<!-- This file is part of Active Calculus.                                 -->
+<!-- This file is part of Understanding Linear Algebra                     -->
 <!--                                                                       -->
 <!-- Permission is granted to copy, distribute and/or modify this document -->
-<!-- under the terms of the Creative Commons BY-SA license.  The work      -->
+<!-- under the terms of the Creative Commons BY license.  The work         -->
 <!-- may be used for free by any party so long as attribution is given to  -->
 <!-- the author(s), the work and its derivatives are used in the spirit of -->
 <!-- "share and share alike".  All trademarks are the registered marks of  -->
 <!-- their respective owners.                                              -->
 <!-- **********************************************************************-->
+
+<!-- Conveniences for classes of similar elements -->
+<!DOCTYPE xsl:stylesheet [
+    <!ENTITY % entities SYSTEM "../xsl/entities.ent">
+    %entities;
+]>
 
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
 
@@ -25,6 +31,10 @@
 <!-- So we don't bother and kill first two pages   -->
 <xsl:template match="*" mode="half-title" />
 <xsl:template match="*" mode="ad-card" />
+
+<xsl:template match="introduction|subsection">
+  <xsl:apply-templates select="exploration|activity" />
+</xsl:template>
 
 <!-- Use letter paper and leave one-inch margins all around -->
 <xsl:param name="latex.geometry" select="'letterpaper,tmargin=.5in,bmargin=.3in,hmargin=.75in,includeheadfoot '" />
