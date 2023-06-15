@@ -15,13 +15,13 @@
 
 <!-- Conveniences for classes of similar elements -->
 <!DOCTYPE xsl:stylesheet [
-    <!ENTITY % entities SYSTEM "../xsl/entities.ent">
+    <!ENTITY % entities SYSTEM "entities.ent">
     %entities;
 ]>
 
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
 
-<xsl:import pretext-href="pretext-solution-manual-latex.xsl" />
+<xsl:import href="./core/pretext-solution-manual-latex.xsl" />
 <xsl:import href="common.xsl" />
 <xsl:variable name="title-separator" select="'\\[0.25\baselineskip]'"/>
 
@@ -59,4 +59,3 @@
 </xsl:param>
 
 </xsl:stylesheet>
-

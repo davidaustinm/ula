@@ -15,7 +15,7 @@
 
 <!-- Conveniences for classes of similar elements -->
 <!DOCTYPE xsl:stylesheet [
-    <!ENTITY % entities SYSTEM "../xsl/entities.ent">
+    <!ENTITY % entities SYSTEM "entities.ent">
     %entities;
 ]>
 
@@ -24,8 +24,7 @@
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
 
 <!-- Assumes current file is in mathbook/user, so it must be copied there -->
-<xsl:import href="../xsl/pretext-latex.xsl"
-	    pretext-href="pretext-latex.xsl" />
+<xsl:import href="./core/pretext-latex.xsl" />
 <!-- Assumes next file can be found in mathbook/user, so it must be copied there -->
 <xsl:import href="common.xsl" />
 
