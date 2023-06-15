@@ -13,6 +13,10 @@
       <output-dir>output/html</output-dir>
       <xsl>xsl/html.xsl</xsl>
     </target>
+    <target name="runestone">
+      <publication>publication/runestone.ptx</publication>
+      <output-dir>ula</output-dir>
+    </target>
     <target name="latex">
       <format>latex</format>
       <source>src/ula.xml</source>
@@ -43,17 +47,17 @@
     </target>
     <target name="workbook" pdf-method="xelatex">
       <format>pdf</format>
-      <source>src/ula.xml</source>
-      <publication>publication/publication.ptx</publication>
+      <source>src/activity-workbook.xml</source>
+      <publication>publication/publication-workbook.ptx</publication>
       <output-dir>output/workbook-pdf</output-dir>
-      <xsl>xsl/activity-workbook.xsl</xsl>      
+      <xsl>xsl/solution-manual.xsl</xsl>      
     </target>
     <target name="workbook-latex">
       <format>latex</format>
-      <source>src/ula.xml</source>
-      <publication>publication/publication.ptx</publication>
+      <source>src/activity-workbook.xml</source>
+      <publication>publication/publication-workbook.ptx</publication>
       <output-dir>output/workbook-latex</output-dir>
-      <xsl>xsl/activity-workbook.xsl</xsl>      
+      <xsl>xsl/solution-manual.xsl</xsl>      
     </target>
 
     <target name="subset">
@@ -63,7 +67,7 @@
       <output-dir>output/subset</output-dir>
       <!-- edit this to change the section/chapter/etc. to include
            in your subset build. Use the xml:id, not the file name! -->
-      <xmlid-root>sec-subspaces</xmlid-root>
+      <xmlid-root>chap6</xmlid-root>
       <xsl>xsl/html.xsl</xsl>
     </target>
 
