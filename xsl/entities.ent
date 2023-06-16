@@ -31,16 +31,16 @@
 <!ENTITY SIMPLECHAR "concat(&DIGIT;,&ALPHABET;)">
 
 <!-- for match/select -->
-<!ENTITY STRUCTURAL "book|article|slideshow|letter|memo|frontmatter|part|chapter|appendix|index[index-list]|index-part|preface|acknowledgement|biography|foreword|dedication|colophon|section|subsection|subsubsection|slide|exercises|worksheet|reading-questions|solutions|references|glossary|backmatter">
+<!ENTITY STRUCTURAL "book|article|slideshow|letter|memo|frontmatter|part|chapter|appendix|index[index-list]|index-part|preface|acknowledgement|biography|foreword|dedication|colophon|section|subsection|subsubsection|slide|exercises|worksheet|reading-questions|solutions|references|glossary|backmatter|introduction">
 
-<!ENTITY TRADITIONAL-DIVISION "book|article|part|chapter|section|subsection|subsubsection|appendix">
+<!ENTITY TRADITIONAL-DIVISION "book|article|part|chapter|section|subsection|subsubsection|appendix|introduction">
 
-<!ENTITY SPECIALIZED-DIVISION "exercises|worksheet|reading-questions|references|glossary|solutions">
+<!ENTITY SPECIALIZED-DIVISION "introduction|exercises|worksheet|reading-questions|references|glossary|solutions">
 
 <!-- for filtering nodes, eg *[&STRUCTURAL-FILTER;], *[not(&STRUCTURAL-FILTER;)] -->
-<!ENTITY STRUCTURAL-FILTER "self::book or self::article or self::slideshow or self::letter or self::memo or self::frontmatter or self::part or self::chapter or self::appendix or self::index[index-list] or self::index-part or self::preface or self::acknowledgement or self::biography or self::foreword or self::dedication or self::colophon or self::section or self::subsection or self::subsubsection or self::slide or self::exercises or self::worksheet or self::reading-questions or self::solutions or self::references or self::glossary or self::backmatter">
+<!ENTITY STRUCTURAL-FILTER "self::book or self::article or self::slideshow or self::letter or self::memo or self::frontmatter or self::part or self::chapter or self::appendix or self::index[index-list] or self::index-part or self::preface or self::acknowledgement or self::biography or self::foreword or self::dedication or self::colophon or self::section or self::subsection or self::subsubsection or self::slide or self::exercises or self::worksheet or self::reading-questions or self::solutions or self::references or self::glossary or self::backmatter or self::introduction">
 
-<!ENTITY TRADITIONAL-DIVISION-FILTER "self::book or self::article or self::part or self::chapter or self::section or self::subsection or self::subsubsection or self::appendix">
+<!ENTITY TRADITIONAL-DIVISION-FILTER "self::book or self::article or self::part or self::chapter or self::section or self::subsection or self::subsubsection or self::appendix or self::introduction">
 
 <!ENTITY SPECIALIZED-DIVISION-FILTER "self::exercises or self::worksheet or self::reading-questions or self::references or self::glossary or self::solutions">
 
@@ -136,4 +136,4 @@
 <!-- true. We are positive, so as new locations of "exercise"          -->
 <!-- are added, then this need not change                              -->
 <!-- Typical use: self::exercise and boolean(&INLINE-EXERCISE-FILTER;) -->
-<!ENTITY INLINE-EXERCISE-FILTER "parent::article|parent::paragraphs|parent::chapter|parent::section|parent::subsection|parent::subsubsection">
+<!ENTITY INLINE-EXERCISE-FILTER "parent::article|parent::paragraphs|parent::chapter|parent::section|parent::subsection|parent::subsubsection|parent::introduction">

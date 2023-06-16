@@ -1,6 +1,8 @@
 import sys
 import glob
 
+print("***In postprocess***")
+
 HTML  = 0
 LATEX = 1
 mode = HTML
@@ -53,12 +55,18 @@ for f in files:
 
         if line.find("INSERT") >= 0:
             print line
-            index0 = line.find(r">")
-            index1 = line.find(r"<", index0)
-            print index0, index1
-            tag = line[index0+1: index1]
-            print "****", tag
-            output.write(inserts[tag][mode])
+            if mode == HTML:
+                index0 = line.find(r">")
+                index1 = line.find(r"<", index0)
+                print index0, index1
+                tag = line[index0+1: index1]
+                print "****", tag
+                output.write(inserts[tag][mode])
+            else:
+                line = lines.pop(0)
+                tag = line[:-2]
+                print "****", tag
+                output.write(inserts[tag][mode])
             continue
 
         
