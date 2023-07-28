@@ -1,0 +1,191 @@
+\documentclass[12pt]{article}
+
+\pagestyle{empty}
+\setlength{\topmargin}{0in}
+\setlength{\headheight}{0in}
+\setlength{\topsep}{0in}
+\setlength{\textheight}{9in}
+\setlength{\oddsidemargin}{0in}
+\setlength{\evensidemargin}{0in}
+\setlength{\textwidth}{6.5in}
+
+\usepackage{palatino,graphics,amsmath,amssymb,enumitem}
+
+\newcommand{\ds}{\displaystyle}
+\newcommand{\vs}[1]{\vspace{#1in}}
+\renewcommand{\vss}[1]{\vspace*{#1in}}
+\newcommand{\bvec}{{\mathbf b}}
+\newcommand{\cvec}{{\mathbf c}}
+\newcommand{\dvec}{{\mathbf d}}
+\newcommand{\evec}{{\mathbf e}}
+\newcommand{\fvec}{{\mathbf f}}
+\newcommand{\qvec}{{\mathbf q}}
+\newcommand{\uvec}{{\mathbf u}}
+\newcommand{\vvec}{{\mathbf v}}
+\newcommand{\wvec}{{\mathbf w}}
+\newcommand{\xvec}{{\mathbf x}}
+\newcommand{\yvec}{{\mathbf y}}
+\newcommand{\zvec}{{\mathbf y}}
+\newcommand{\zerovec}{{\mathbf 0}}
+\newcommand{\real}{{\mathbb R}}
+\newcommand{\twovec}[2]{\left[\begin{array}{r}#1 \\ #2
+    \end{array}\right]}
+\newcommand{\ctwovec}[2]{\left[\begin{array}{c}#1 \\ #2
+   \end{array}\right]}
+\newcommand{\threevec}[3]{\left[\begin{array}{r}#1 \\ #2 \\ #3
+  \end{array}\right]}
+\newcommand{\cthreevec}[3]{\left[\begin{array}{c}#1 \\ #2 \\ #3
+    \end{array}\right]}
+\newcommand{\fourvec}[4]{\left[\begin{array}{r}#1 \\ #2 \\ #3 \\ #4
+    \end{array}\right]}
+\newcommand{\cfourvec}[4]{\left[\begin{array}{c}#1 \\ #2 \\ #3 \\ #4
+    \end{array}\right]}
+\newcommand{\mattwo}[4]{\left[\begin{array}{rr}#1 & #2 \\ #3 & #4 \\ \end{array}\right]}
+\renewcommand{\span}[1]{\text{Span}\{#1\}}
+\newcommand{\bcal}{{\cal B}}
+\newcommand{\ccal}{{\cal C}}
+\newcommand{\scal}{{\cal S}}
+\newcommand{\wcal}{{\cal W}}
+\newcommand{\ecal}{{\cal E}}
+\newcommand{\coords}[2]{\left\{#1\right\}_{#2}}
+\newcommand{\gray}[1]{\color{gray}{#1}}
+\newcommand{\lgray}[1]{\color{lightgray}{#1}}
+\newcommand{\rank}{\text{rank}}
+\newcommand{\col}{\text{Col}}
+\newcommand{\nul}{\text{Nul}}
+
+\begin{document}
+
+\noindent
+{\bf Mathematics 227} \\ 
+{\bf Some more examples of subspaces}
+
+\bigskip
+\begin{enumerate}
+\item Consider the matrix
+  $$
+  A =
+  \left[
+    \begin{array}{ccc}
+      2 & 1 & 3\\
+      0 & -2 & 2 \\
+      3 & 1 & 5 \\
+    \end{array}
+  \right]
+  \sim
+  \left[
+    \begin{array}{ccc}
+      1 & 0 & 2 \\
+      0 & 1 & -1 \\
+      0 & 0 & 0 \\
+    \end{array}
+  \right].
+  $$
+
+  The matrix $A$ is $3\times 3$ so both $\nul(A)$ and $\col(A)$ will
+  be subspaces of $\real^3$.
+
+  Solving the homogeneous equation, we have
+  $$
+  \begin{aligned}
+    x_1 & = -2x_3 \\
+    x_2 & = x_3. \\
+  \end{aligned}
+  $$
+  This means that the null space $\nul(A)$, which is the
+  solution space to the homogeneous equation $A\xvec=\zerovec$ is
+  $$
+  \xvec = \threevec{x_1}{x_2}{x_3} = x_3\threevec{-2}11.
+  $$
+  Therefore, the vector $\threevec{-2}11$ forms a basis for $\nul(A)$,
+  which is 1-dimensional.  This agrees with our work in class where we
+  saw that the dimension of the null space equals the number of
+  columns minus the number of pivots.  The null space $\nul(A)$ is
+  just a line in $\real^3$, which is a 1-dimensional subspace of
+  $\real^3$.
+
+  \medskip
+  For $\col(A)$, denote the columns of $A$ by $\vvec_1$, $\vvec_2$,
+  $\vvec_3$.  The reduced row echelon form of $A$ shows that
+  $$
+  \vvec_3 = 2\vvec_1 - \vvec_2.
+  $$
+  Therefore, any linear combination of $\vvec_1$, $\vvec_2$, and
+  $\vvec_3$ can be written as a linear combination of $\vvec_1$ and
+  $\vvec_2$.  In addition, the reduced row echelon form shows that
+  $\vvec_1$ and $\vvec_2$ are linearly independent and therefore form a
+  basis for $\col(A)$.  Therefore, $\col(A)$ is a 2-dimensional
+  subspace of $\real^3$, which you can think of as a plane in
+  $\real^3$.
+
+\item For another example, consider the matrix
+  $$A =
+  \left[
+    \begin{array}{cccc}
+      2 & -1 & 2 & 3 \\
+      1 & 0 & 0 & 2 \\
+      -2 & 2 & -4 & -2 \\
+    \end{array}
+  \right]
+  \sim
+  \left[
+    \begin{array}{ccccc}
+      1 & 0 & 0 & 2 \\
+      0 & 1 & -2 & 1 \\
+      0 & 0 & 0 & 0 \\
+    \end{array}
+  \right].
+  $$
+
+  We see that there are two pivots so that the rank of the matrix $A$
+  is two:  $\rank(A) = 2$.  Since $A$ has four columns, the null space
+  $\nul(A)$ will be a subspace of $\real^4$ having dimension $4-2=2$.
+
+  To find a basis, write the solution space to the homogeneous
+  equation as
+  $$
+  \begin{aligned}
+    x_1 & = -2x_4 \\
+    x_2 & = 2x_3 - x_4, \\
+  \end{aligned}
+  $$
+  which means that
+  $$
+  \xvec = \fourvec{x_1}{x_2}{x_3}{x_4}
+  = x_3\fourvec0210 + x_4\fourvec{-2}{-1}01.
+  $$
+  This shows that
+  $$
+  \fourvec0210, \hspace*{24pt} \fourvec{-2}{-1}01
+  $$
+  form a basis for $\nul(A)$, which agrees with our finding that the
+  null space should be two-dimensional.
+
+  For the column space, denote the columns of $A$ by
+  $\vvec_1,\vvec_2,\vvec_3,\vvec_4$ and notice that
+  $$
+  \begin{aligned}
+    \vvec_3 & = -2\vvec_1 \\
+    \vvec_4 & = 2\vvec + \vvec_2.
+  \end{aligned}
+  $$
+  This shows that $\vvec_3$ and $\vvec_4$ can be written as linear
+  combinations of $\vvec_1$ and $\vvec_2$ and therefore
+  $\vvec_1$ and $\vvec_2$ span $\col(A)$.  They are also linearly
+  independent so they form a basis for $\col(A)$, which is a
+  two-dimensional subspace of $\real^3$ (which would be a plane in
+  $\real^3$).
+
+\item In general, the rank of a matrix is defined to be the number of
+  pivot positions.  The dimension of the column space $\col(A)$
+  equals the rank and a basis is found from the columns that $A$ that
+  have pivots.  The dimension of $\nul(A)$ equals the number of
+  columns minus the rank;  a basis is found by solving the homogeneous
+  equation $A\xvec=\zerovec$.
+
+  
+  
+\end{enumerate}
+
+
+\end{document}

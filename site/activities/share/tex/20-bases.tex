@@ -1,0 +1,282 @@
+\documentclass[12pt]{article}
+
+\pagestyle{empty}
+\setlength{\topmargin}{0in}
+\setlength{\headheight}{0in}
+\setlength{\topsep}{0in}
+\setlength{\textheight}{9in}
+\setlength{\oddsidemargin}{0in}
+\setlength{\evensidemargin}{0in}
+\setlength{\textwidth}{6.5in}
+
+\usepackage{palatino,graphics,amsmath,amssymb,enumitem}
+
+\newcommand{\ds}{\displaystyle}
+\newcommand{\vs}[1]{\vspace{#1in}}
+\renewcommand{\vss}[1]{\vspace*{#1in}}
+\newcommand{\bvec}{{\mathbf b}}
+\newcommand{\cvec}{{\mathbf c}}
+\newcommand{\dvec}{{\mathbf d}}
+\newcommand{\evec}{{\mathbf e}}
+\newcommand{\fvec}{{\mathbf f}}
+\newcommand{\qvec}{{\mathbf q}}
+\newcommand{\uvec}{{\mathbf u}}
+\newcommand{\vvec}{{\mathbf v}}
+\newcommand{\wvec}{{\mathbf w}}
+\newcommand{\xvec}{{\mathbf x}}
+\newcommand{\yvec}{{\mathbf y}}
+\newcommand{\zvec}{{\mathbf y}}
+\newcommand{\zerovec}{{\mathbf 0}}
+\newcommand{\real}{{\mathbb R}}
+\newcommand{\twovec}[2]{\left[\begin{array}{r}#1 \\ #2
+    \end{array}\right]}
+\newcommand{\ctwovec}[2]{\left[\begin{array}{c}#1 \\ #2
+   \end{array}\right]}
+\newcommand{\threevec}[3]{\left[\begin{array}{r}#1 \\ #2 \\ #3
+  \end{array}\right]}
+\newcommand{\cthreevec}[3]{\left[\begin{array}{c}#1 \\ #2 \\ #3
+    \end{array}\right]}
+\newcommand{\fourvec}[4]{\left[\begin{array}{r}#1 \\ #2 \\ #3 \\ #4
+    \end{array}\right]}
+\newcommand{\cfourvec}[4]{\left[\begin{array}{c}#1 \\ #2 \\ #3 \\ #4
+    \end{array}\right]}
+\newcommand{\mattwo}[4]{\left[\begin{array}{rr}#1 & #2 \\ #3 & #4 \\ \end{array}\right]}
+\renewcommand{\span}[1]{\text{Span}\{#1\}}
+\newcommand{\bcal}{{\cal B}}
+\newcommand{\ccal}{{\cal C}}
+\newcommand{\scal}{{\cal S}}
+\newcommand{\wcal}{{\cal W}}
+\newcommand{\ecal}{{\cal E}}
+\newcommand{\coords}[2]{\left\{#1\right\}_{#2}}
+\newcommand{\gray}[1]{\color{gray}{#1}}
+\newcommand{\lgray}[1]{\color{lightgray}{#1}}
+\newcommand{\rank}{\text{rank}}
+\newcommand{\col}{\text{Col}}
+\newcommand{\nul}{\text{Nul}}
+
+\begin{document}
+
+\noindent
+{\bf Mathematics 227} \\ 
+{\bf Bases}
+
+\bigskip
+\begin{enumerate}
+\item Explain why
+  $$
+  \vvec_1 =
+  \left[
+    \begin{array}{c} 1 \\ 0 \\ 0 \\ 0 \\ 0 \\ 0 \\
+    \end{array}
+  \right], \hspace*{3pt}
+  \vvec_2 =
+  \left[
+    \begin{array}{c} 1 \\ 1 \\ 0 \\ 0 \\ 0 \\ 0 \\
+    \end{array}
+  \right], \hspace*{3pt}
+  \vvec_3 =
+  \left[
+    \begin{array}{c} 1 \\ 1 \\ 1 \\ 0 \\ 0 \\ 0 \\
+    \end{array}
+  \right], \hspace*{3pt}
+  \vvec_4 =
+  \left[
+    \begin{array}{c} 1 \\ 1 \\ 1 \\ 1 \\ 0 \\ 0 \\
+    \end{array}
+  \right], \hspace*{3pt}
+  \vvec_5 =
+  \left[
+    \begin{array}{c} 1 \\ 1 \\ 1 \\ 1 \\ 1 \\ 0 \\
+    \end{array}
+  \right], \hspace*{3pt}
+  \vvec_6 =
+  \left[
+    \begin{array}{c} 1 \\ 1 \\ 1 \\ 1 \\ 1 \\ 1 \\
+    \end{array}
+  \right].
+  $$
+
+  The set $\bcal = \{\vvec_1, \vvec_2, \ldots, \vvec_6\}$ is a basis
+  for $\real^6$.  (You will see why in a moment.)
+
+  Construct the matrix $C_\bcal$ that converts $\coords{\xvec}{\bcal}$
+  into $\xvec$;  that is, $C_\bcal\coords{\xvec}{\bcal} = \xvec$.
+
+  \vs{1.25}
+  Construct the matrix $C_\bcal^{-1}$ that converts $\xvec$ into
+  $\coords{\xvec}{\bcal}$;  that is, $C_\bcal^{-1} \xvec =
+  \coords{\xvec}{\bcal}$.
+
+  \vs{1.25}
+  Explain how you know now that $\bcal$ is a basis for $\real^6$.
+
+  \vs{1}
+  Suppose that
+  $$
+  \hspace*{24pt}
+  \xvec =
+  \left[
+    \begin{array}{c}
+      x_1 \\ x_2 \\ x_3 \\ x_4 \\ x_5 \\ x_6 \\
+    \end{array}
+  \right],
+  \coords{\xvec}{\bcal} =
+  \left[
+    \begin{array}{c}
+      c_1 \\ c_2 \\ c_3 \\ c_4 \\ c_5 \\ c_6 \\
+    \end{array}
+  \right].
+  $$
+  \newpage
+  Express the coefficient $c_2$ in terms of $x_1, x_2, \ldots, x_6$.
+  Also, express the coefficient $c_4$ in terms of $x_1, x_2, \ldots,
+  x_6$.
+
+  \vs{1}
+  State in words what the coefficients $c_1$, $c_2$, $c_3$, $c_4$, and
+  $c_5$ measure.
+
+  \vs{1}
+  Suppose that
+  $$
+  \xvec =
+  \left[
+    \begin{array}{c}
+      25 \\ 34 \\ 30 \\ 45 \\ 190 \\ 200 \\
+    \end{array}
+  \right]
+  $$
+  represents the grayscale values in a row of pixels in an image.
+  Find $\coords{\xvec}{\bcal}$.
+
+  \vs{1}
+  Explain how $\coords{\xvec}{\bcal}$ can be used to determine the
+  location in a jump in brightness in the pixels as we move across the
+  row.
+
+  \vs{1}
+
+\item Computers represent colors using something called a  {\em color
+    model}.  The simplest is the $RGB$ color
+  model, which represents colors as a 3-dimensional vector
+  $\threevec RGB$ describing how much red $R$, green $G$, and blue $B$
+  to mix together to create a color.  These quantities are represented
+  internally with 8 bytes so, in practice, the range of values is
+  between $0$ and $255$.
+
+  A second color model is $YC_bC_r$, which is known as the {\em
+    luminance-chrominance} color model.  We introduce the
+  basis $\bcal$ consisting of vectors
+  $$
+  \vvec_1 = \threevec 111, \hspace*{24pt}
+  \vvec_2 = \threevec 0{-0.34413}{1.77200}, \hspace*{24pt}
+  \vvec_3 = \threevec {1.40200}{-0.71414}0,
+  $$
+  and define
+  $$
+  \coords{\threevec RGB}{\bcal} = \threevec Y{C_b}{C_r}$$
+  The quantity $Y$ is called the {\em luminance} and measures the
+  brightness of the color, $C_b$ is the blue chrominance and measures
+  how much blue is mixed in, and $C_r$ is the red chrominance and
+  measures how much red is mixed in.  The range of values is
+  $$
+  \begin{aligned}
+    0 & \leq Y \leq 255 \\
+    -127.5 & \leq C_b \leq 127.5 \\
+    -127.5 & \leq C_r \leq 127.5 \\
+  \end{aligned}
+  $$
+
+  Go to {\tt http://gvsu.edu/s/0Jc} where you will find some
+  figures to experiment with color models.  Remember that $R$, $G$,
+  $B$, and $Y$ run between 0 and 255 while $C_b$ and $C_r$ run between
+  -127.5 and 127.5.
+
+  \begin{enumerate}[label=(\alph*)]
+  \item What happens when $G=0$ and $B=0$ (pushed all the way to the
+    left) and $R$ is allowed to vary?
+
+    \vs{0.5}
+    
+  \item What happens when $R=0$ and $G=0$ (pushed all the way to the
+    left) and $B$ is allowed to vary?
+
+    \vs{0.5}
+
+  \item How do you create black in the $RGB$ color model?  How do you
+    create white?
+
+    \vs{0.5}
+  \item What happens when $C_b=0$ and $C_r=0$ (kept in the center) and
+    $Y$ is allowed to vary?
+
+    \vs{0.5}
+  \item What happens when $Y=0$ (pushed left) and $C_r=0$ (kept in the
+    center) and $C_b$ is allowed to increase from 0 to 127.5?
+
+    \vs{0.5}
+  \item How can you create black in the $YC_bC_r$ color model?  How do
+    you create white?
+
+    \vs{0.5}
+  \item Find the matrix $C_{\bcal}$ that converts $\threevec
+    Y{C_b}{C_r}$ into $\threevec RGB$.  Then find the matrix that
+    converts $\threevec RGB$ into $YC_bC_r$.
+
+  \item Find the $YC_bC_r$ coordinates for the following colors and
+    use the diagrams to check that the two representations agree.
+
+    $$
+    \threevec RGB = \threevec{255}00, \hspace*{24pt}
+    \threevec RGB = \threevec0{255}0, \hspace*{24pt}
+    \threevec RGB = \threevec{255}{255}{255}
+    $$
+
+    \vs{1}
+  \item Find the $RGB$ coordinates for the following colors and
+    use the diagrams to check that the two representations agree.
+
+    $$
+    \threevec Y{C_b}{C_r} = \threevec {128}00, \hspace*{24pt}
+    \threevec Y{C_b}{C_r} = \threevec {128}{60}0, \hspace*{24pt}
+    \threevec Y{C_b}{C_r} = \threevec {128}0{60}.
+    $$
+
+    \vs{1}
+  \item Write an expression for the luminance $Y$ as it depends on
+    $R$, $G$, and $B$.  Explain how the luminance represents the
+    brightness of the color.
+
+    \vs{1}
+  \item Write an expression for the blue chrominance $C_b$ in terms of
+    $R$, $G$, and $B$.  Explain how the blue chrominance measures the
+    amount of blue in the color.
+    
+
+
+
+  \end{enumerate}
+
+    
+    
+
+  
+  
+  
+    
+  
+
+  
+  
+    
+
+  
+              
+    
+    
+
+
+\end{enumerate}
+
+
+\end{document}

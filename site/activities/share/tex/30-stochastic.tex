@@ -1,0 +1,131 @@
+\documentclass[12pt]{article}
+
+\pagestyle{empty}
+\setlength{\topmargin}{0in}
+\setlength{\headheight}{0in}
+\setlength{\topsep}{0in}
+\setlength{\textheight}{9in}
+\setlength{\oddsidemargin}{0in}
+\setlength{\evensidemargin}{0in}
+\setlength{\textwidth}{6.5in}
+
+\usepackage{palatino,graphics,amsmath,amssymb,enumitem}
+
+\newcommand{\ds}{\displaystyle}
+\newcommand{\vs}[1]{\vspace{#1in}}
+\renewcommand{\vss}[1]{\vspace*{#1in}}
+\newcommand{\bvec}{{\mathbf b}}
+\newcommand{\cvec}{{\mathbf c}}
+\newcommand{\dvec}{{\mathbf d}}
+\newcommand{\evec}{{\mathbf e}}
+\newcommand{\fvec}{{\mathbf f}}
+\newcommand{\qvec}{{\mathbf q}}
+\newcommand{\uvec}{{\mathbf u}}
+\newcommand{\vvec}{{\mathbf v}}
+\newcommand{\wvec}{{\mathbf w}}
+\newcommand{\xvec}{{\mathbf x}}
+\newcommand{\yvec}{{\mathbf y}}
+\newcommand{\zvec}{{\mathbf y}}
+\newcommand{\zerovec}{{\mathbf 0}}
+\newcommand{\real}{{\mathbb R}}
+\newcommand{\twovec}[2]{\left[\begin{array}{r}#1 \\ #2
+    \end{array}\right]}
+\newcommand{\ctwovec}[2]{\left[\begin{array}{c}#1 \\ #2
+   \end{array}\right]}
+\newcommand{\threevec}[3]{\left[\begin{array}{r}#1 \\ #2 \\ #3
+  \end{array}\right]}
+\newcommand{\cthreevec}[3]{\left[\begin{array}{c}#1 \\ #2 \\ #3
+    \end{array}\right]}
+\newcommand{\fourvec}[4]{\left[\begin{array}{r}#1 \\ #2 \\ #3 \\ #4
+    \end{array}\right]}
+\newcommand{\cfourvec}[4]{\left[\begin{array}{c}#1 \\ #2 \\ #3 \\ #4
+    \end{array}\right]}
+\newcommand{\mattwo}[4]{\left[\begin{array}{rr}#1 & #2 \\ #3 & #4 \\ \end{array}\right]}
+\renewcommand{\span}[1]{\text{Span}\{#1\}}
+\newcommand{\bcal}{{\cal B}}
+\newcommand{\ccal}{{\cal C}}
+\newcommand{\scal}{{\cal S}}
+\newcommand{\wcal}{{\cal W}}
+\newcommand{\ecal}{{\cal E}}
+\newcommand{\coords}[2]{\left\{#1\right\}_{#2}}
+\newcommand{\gray}[1]{\color{gray}{#1}}
+\newcommand{\lgray}[1]{\color{lightgray}{#1}}
+\newcommand{\rank}{\text{rank}}
+\newcommand{\col}{\text{Col}}
+\newcommand{\nul}{\text{Nul}}
+
+\begin{document}
+
+\noindent
+{\bf Mathematics 227} \\ 
+{\bf Stochastic matrices and Markov chains}
+
+\bigskip A {\em probability vector} is a vector whose entries are
+non-negative and add to 1.  For instance,
+$
+\vvec = \twovec{0.7}{0.3}
+$
+is a probability vector.  A {\em stochastic} matrix is a matrix whose
+columns are all probability vectors.  For instance
+$
+A = \mattwo{0.7}{0.6}{0.3}{0.4}
+$
+is a stochastic matrix.  
+
+\begin{enumerate}
+\item Find the product $A\vvec$ and verify that it is a probability
+  vector.  
+
+  \vs{1}
+  It is always the case that we obtain a probability vector when we
+  multiply a stochastic matrix by a probability vector.
+
+  \medskip
+  Find the eigenvalues of $A$ and a basis for each eigenspace.
+
+  \vs{2}
+  Find a probability vector $\qvec$ in $E_1$.  To do this,
+  remember that 
+  every vector in $E_1$ is a scalar multiple of the basis vector.
+  What scalar multiple of your basis vector gives a probability vector?
+
+  \vs{1}
+  Write $\xvec_0=\twovec10$ as a linear combination of
+  eigenvectors of $A$.
+
+  \vs{1}
+  \newpage
+  Now consider the dynamical system $\xvec_{k+1} = A\xvec_k$.
+  What happens to $\xvec_k$ as $k$ grows increasingly large?  
+
+  \vs{1}
+  How is the result related to the probability vector $\qvec$ that you
+  found in $E_1$?
+
+  \vs{1}
+  Rather than $\xvec_0=\twovec01$, suppose you began with another
+  initial state vector $\xvec_0$.  What happens to $\xvec_k$ as $k$
+  grows increasingly large?
+
+  \vs{1}
+\item Now consider the stochastic matrix
+$A = 
+\left[
+  \begin{array}{cc}
+    0 & 1 \\
+    1 & 0 \\
+  \end{array}
+\right]
+$.  Find the eigenvalues of $A$ and a basis for each eigenspace.
+
+\vs{1.5}
+Write the initial state vector $\xvec_0 = \twovec10$ as a linear
+combination of eigenvectors of $A$.
+
+\vs{1}
+What happens to $\xvec_k$ as $k$ grows increasingly large?
+
+\end{enumerate}
+
+
+\end{document}

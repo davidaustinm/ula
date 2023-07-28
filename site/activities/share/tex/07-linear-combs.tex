@@ -1,0 +1,189 @@
+\documentclass[12pt]{article}
+
+\pagestyle{empty}
+\setlength{\topmargin}{0in}
+\setlength{\headheight}{0in}
+\setlength{\topsep}{0in}
+\setlength{\textheight}{9in}
+\setlength{\oddsidemargin}{0in}
+\setlength{\evensidemargin}{0in}
+\setlength{\textwidth}{6.5in}
+
+\usepackage{palatino,graphics,amsmath}
+
+\newcommand{\ds}{\displaystyle}
+\newcommand{\vs}[1]{\vspace{#1in}}
+\renewcommand{\vss}[1]{\vspace*{#1in}}
+\newcommand{\bvec}{{\mathbf b}}
+\newcommand{\cvec}{{\mathbf c}}
+\newcommand{\dvec}{{\mathbf d}}
+\newcommand{\evec}{{\mathbf e}}
+\newcommand{\fvec}{{\mathbf f}}
+\newcommand{\qvec}{{\mathbf q}}
+\newcommand{\uvec}{{\mathbf u}}
+\newcommand{\vvec}{{\mathbf v}}
+\newcommand{\wvec}{{\mathbf w}}
+\newcommand{\xvec}{{\mathbf x}}
+\newcommand{\yvec}{{\mathbf y}}
+\newcommand{\zvec}{{\mathbf y}}
+\newcommand{\zerovec}{{\mathbf 0}}
+\newcommand{\real}{{\mathbb R}}
+\newcommand{\twovec}[2]{\left[\begin{array}{r}#1 \\ #2
+    \end{array}\right]}
+\newcommand{\ctwovec}[2]{\left[\begin{array}{c}#1 \\ #2
+   \end{array}\right]}
+\newcommand{\threevec}[3]{\left[\begin{array}{r}#1 \\ #2 \\ #3
+  \end{array}\right]}
+\newcommand{\cthreevec}[3]{\left[\begin{array}{c}#1 \\ #2 \\ #3
+    \end{array}\right]}
+\newcommand{\fourvec}[4]{\left[\begin{array}{r}#1 \\ #2 \\ #3 \\ #4
+    \end{array}\right]}
+\newcommand{\cfourvec}[4]{\left[\begin{array}{c}#1 \\ #2 \\ #3 \\ #4
+    \end{array}\right]}
+\newcommand{\mattwo}[4]{\left[\begin{array}{rr}#1 \amp #2 \\ #3 \amp #4 \\ \end{array}\right]}
+
+\begin{document}
+
+\noindent
+{\bf Mathematics 227} \\ 
+{\bf Linear combinations}
+
+\bigskip
+As always, Sage cells are available at {\tt http://gvsu.edu/s/0Ng}.
+
+\medskip
+In general, given a set of vectors
+$\vvec_1,\vvec_2,\ldots,\vvec_n$ and weights $c_1,c_2,\ldots,c_n$, we
+form the linear combination
+$$
+c_1\vvec_1 + c_2\vvec_2 + \ldots + c_n\vvec_n.
+$$
+
+\begin{enumerate}
+\item Given the vectors
+  $$
+  \vvec_1 =
+  \left[
+    \begin{array}{r} 4 \\ 0 \\ 2 \\ 1 \end{array}
+  \right], 
+  \vvec_2 =
+  \left[
+    \begin{array}{r} 1 \\ -3 \\ 3 \\ 1 \end{array}
+  \right], 
+  \vvec_3 =
+  \left[\begin{array}{r} -2 \\ 1 \\ 1 \\ 0 \end{array}
+  \right], 
+  \bvec  = \left[\begin{array}{r} 0 \\ 1 \\ 2 \\ -2 \end{array}
+  \right],
+  $$
+  we can ask if $\bvec$ can be expressed as a linear combination of
+  $\vvec_1$, $\vvec_2$, and $\vvec_3$.  Rephrase this question by
+  writing a linear system for the weights $c_1$, $c_2$, and $c_3$.
+  Then solve this linear system to determine whether $\bvec$ can be
+  written as a linear combination of $\vvec_1$, $\vvec_2$, and
+  $\vvec_3$.
+
+  \vs{2}
+\newpage
+\item Consider the following linear system.
+  $$
+  \begin{alignedat}{4}
+    3x_1 & {}+{} & 2x_2 & {}-{} x_3 & {}={} & 4 \\
+    x_1 & & & {}+{} 2x_3 & {}={} & 0 \\
+    -x_1 & {}-{} & x_2 & {}+{} 3x_3 & {}={} & 1
+    \\
+  \end{alignedat}
+  $$
+  Identify vectors $\vvec_1$, $\vvec_2$,
+  $\vvec_3$, and $\bvec$ and 
+  rephrase the question "Is this linear system consistent?" by
+  asking "Can $\bvec$ be expressed as a linear combination
+  of $\vvec_1$, $\vvec_2$, and $\vvec_3$?"
+
+  \vs{2.5}
+  
+\item Consider the vectors
+  $$
+  \vvec_1 =
+  \left[
+    \begin{array}{r} 0 \\ -2 \\ 1 \\  \end{array}
+  \right], 
+  \vvec_2 =
+  \left[
+    \begin{array}{r} 1 \\ 1 \\ -1 \\  \end{array}
+  \right], 
+  \vvec_3 =
+  \left[
+    \begin{array}{r} 2 \\ 0 \\ -1 \\  \end{array}
+  \right], 
+  \bvec   =
+  \left[
+    \begin{array}{r} -1 \\ 3 \\ -1 \\ \end{array}
+  \right].
+  $$
+  Can $\bvec$ be expressed as a linear combination of
+  $\vvec_1$, $\vvec_2$, and $\vvec_3$?  If so,
+  can $\bvec$ be written as a linear combination of these
+  vectors in more than one way?
+
+  \vs{2}
+  \newpage
+\item Considering the vectors $\vvec_1$,
+  $\vvec_2$, and $\vvec_3$ from the previous part, can
+  we write every three-dimensional vector $\bvec$ as
+  a linear combination of these vectors?  Explain how the pivot
+  positions of the matrix
+  $\left[
+    \begin{array}{rrr}
+      \vvec_1 & \vvec_2 & \vvec_3
+    \end{array}
+  \right]$
+  help answer this question. 
+
+  \vs{2}
+\item Now consider the vectors
+  $$
+  \vvec_1 =
+  \left[
+    \begin{array}{r} 0 \\ -2 \\ 1 \\
+    \end{array}
+  \right], 
+  \vvec_2 =
+  \left[
+    \begin{array}{r} 1 \\ 1 \\ -1 \\
+    \end{array}
+  \right], 
+  \vvec_3 =
+  \left[
+    \begin{array}{r} 1 \\ -1 \\ -2 \\
+    \end{array}
+  \right], 
+  \bvec   =
+  \left[
+    \begin{array}{r} 0 \\ 8 \\ -4 \\
+    \end{array} \right].
+  $$
+  Can $\bvec$ be expressed as a linear combination of
+  $\vvec_1$, $\vvec_2$, and $\vvec_3$?  If so,
+  can $\bvec$ be written as a linear combination of these
+  vectors in more than one way?
+  \vs{2}
+
+\item Considering the vectors $\vvec_1$,
+  $\vvec_2$, and $\vvec_3$ from the previous part, can
+  we write every three-dimensional vector $\bvec$ as
+  a linear combination of these vectors?  Explain how the pivot
+  positions of the matrix
+  $
+  \left[
+    \begin{array}{rrr}
+      \vvec_1 & \vvec_2 & \vvec_3
+    \end{array}
+  \right]$
+  help answer this question. 
+
+
+\end{enumerate}
+
+
+\end{document}

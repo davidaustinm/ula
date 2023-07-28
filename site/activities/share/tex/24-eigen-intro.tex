@@ -1,0 +1,201 @@
+\documentclass[12pt]{article}
+
+\pagestyle{empty}
+\setlength{\topmargin}{0in}
+\setlength{\headheight}{0in}
+\setlength{\topsep}{0in}
+\setlength{\textheight}{9in}
+\setlength{\oddsidemargin}{0in}
+\setlength{\evensidemargin}{0in}
+\setlength{\textwidth}{6.5in}
+
+\usepackage{palatino,graphics,amsmath,amssymb,enumitem}
+
+\newcommand{\ds}{\displaystyle}
+\newcommand{\vs}[1]{\vspace{#1in}}
+\renewcommand{\vss}[1]{\vspace*{#1in}}
+\newcommand{\bvec}{{\mathbf b}}
+\newcommand{\cvec}{{\mathbf c}}
+\newcommand{\dvec}{{\mathbf d}}
+\newcommand{\evec}{{\mathbf e}}
+\newcommand{\fvec}{{\mathbf f}}
+\newcommand{\qvec}{{\mathbf q}}
+\newcommand{\uvec}{{\mathbf u}}
+\newcommand{\vvec}{{\mathbf v}}
+\newcommand{\wvec}{{\mathbf w}}
+\newcommand{\xvec}{{\mathbf x}}
+\newcommand{\yvec}{{\mathbf y}}
+\newcommand{\zvec}{{\mathbf y}}
+\newcommand{\zerovec}{{\mathbf 0}}
+\newcommand{\real}{{\mathbb R}}
+\newcommand{\twovec}[2]{\left[\begin{array}{r}#1 \\ #2
+    \end{array}\right]}
+\newcommand{\ctwovec}[2]{\left[\begin{array}{c}#1 \\ #2
+   \end{array}\right]}
+\newcommand{\threevec}[3]{\left[\begin{array}{r}#1 \\ #2 \\ #3
+  \end{array}\right]}
+\newcommand{\cthreevec}[3]{\left[\begin{array}{c}#1 \\ #2 \\ #3
+    \end{array}\right]}
+\newcommand{\fourvec}[4]{\left[\begin{array}{r}#1 \\ #2 \\ #3 \\ #4
+    \end{array}\right]}
+\newcommand{\cfourvec}[4]{\left[\begin{array}{c}#1 \\ #2 \\ #3 \\ #4
+    \end{array}\right]}
+\newcommand{\mattwo}[4]{\left[\begin{array}{rr}#1 & #2 \\ #3 & #4 \\ \end{array}\right]}
+\renewcommand{\span}[1]{\text{Span}\{#1\}}
+\newcommand{\bcal}{{\cal B}}
+\newcommand{\ccal}{{\cal C}}
+\newcommand{\scal}{{\cal S}}
+\newcommand{\wcal}{{\cal W}}
+\newcommand{\ecal}{{\cal E}}
+\newcommand{\coords}[2]{\left\{#1\right\}_{#2}}
+\newcommand{\gray}[1]{\color{gray}{#1}}
+\newcommand{\lgray}[1]{\color{lightgray}{#1}}
+\newcommand{\rank}{\text{rank}}
+\newcommand{\col}{\text{Col}}
+\newcommand{\nul}{\text{Nul}}
+
+\begin{document}
+
+\noindent
+{\bf Mathematics 227} \\ 
+{\bf Introduction to eigenvectors and eigenvalues}
+
+\bigskip
+If $A$ is an $n\times n$ matrix, we say that a nonzero vector $\vvec$
+is an eigenvector of $A$ with associated eigenvalue $\lambda$ if
+$$
+A\vvec = \lambda \vvec.
+$$
+
+\begin{enumerate}
+\item Consider the matrix
+  $A =
+  \left[
+    \begin{array}{cc}
+      7 & 6 \\
+      6 & -2 \\
+    \end{array}
+  \right]
+  $.  Find the product $A\vvec$ to verify that $\vvec = \twovec21$ is
+  an eigenvector of $A$. What is the associated eigenvalue $\lambda$?
+
+  \vs{1.25}
+\item If $\lambda$ is a scalar, what is the geometric relationship
+  between $\vvec$ and $\lambda\vvec$?
+
+  \vs{1}
+  If $A\vvec = \lambda\vvec$, what is the geometric relationship
+  between $\vvec$ and $A\vvec$?
+
+  \vs{1}
+\item Go to {\tt http://gvsu.edu/s/0Ja} where you will find an
+  interactive diagram that allows you to choose a matrix $A$ using the
+  sliders along the top.  The red vector $\vvec$ may be moved by
+  clicking in the head of the vector and dragging it to a new
+  location.  The gray vector is $A\vvec$.
+
+  \medskip
+  Choose the matrix
+  $A=
+  \left[
+    \begin{array}{cc}
+      1 & 2 \\
+      2 & 1 \\
+    \end{array}
+  \right]
+  $.  Move the red vector $\vvec$ so that the eigenvector condition
+  holds.  What is the eigenvector $\vvec$ and what is the associated
+  eigenvalue?
+
+  \vs{1}
+  \newpage
+  By algebraically computing $A\vvec$, verify that your vector $\vvec$
+  is an eigenvector.
+
+  \vs{1}
+  If you multiply your eigenvector $\vvec$ by the scalar 2, do you
+  still have an eigenvector?  If so, what is the associated
+  eigenvector?
+
+  \vs{1}
+  Are you able to find another linearly independent eigenvector
+  $\vvec$?  If so, what is the eigenvector and what is the associated
+  eigenvalue?
+
+  \vs{1}
+  Now consider the matrix
+  $A=
+  \left[
+    \begin{array}{cc}
+      2 & 1 \\
+      0 & 2 \\
+    \end{array}
+  \right]$.  Use the diagram to describe any eigenvectors and their
+  associated eigenvalues.
+
+  \vs{1}
+  Now consider the matrix
+  $A=
+  \left[
+    \begin{array}{cc}
+      0 & -1 \\
+      1 & 0 \\
+    \end{array}
+  \right]$.  Use the diagram to describe any eigenvectors and their
+  associated eigenvalues.  What geometric transformation does this
+  matrix perform on vectors?  How does this explain the presence of
+  any eigenvectors?
+
+  \vs{1.25}
+\item So why do we care about any of this?  Good question.  We'll now
+  look at an example, but it helps to 
+  remember that matrix multiplication satisfies a linearity condition:
+  $$
+  A\left(c_1\vvec_1 + c_2\vvec_2\right) = c_1A\vvec_1 + c_2A\vvec_2.
+  $$
+
+  \newpage
+  Suppose we work for a car rental company that has two locations, $P$
+  and $Q$.  You find that
+  \begin{itemize}
+  \item 80\% of cars rented at location $P$ are returned to $P$ at the
+    end of the day with the rest returned to $Q$.
+  \item 40\% of cars rented at location $Q$ are returned to $Q$ at the
+    end of the day with the rest returned to $P$.
+  \end{itemize}
+  If we write the state vector $\xvec = \twovec PQ$ to record the
+  number of cars at location $P$ and $Q$ on one day, find a matrix $A$
+  such that $A\xvec$ describes the distribution of cars the next day.
+
+  \vs{1}
+  Verify that $\vvec_1=\twovec31$ and $\vvec_2=\twovec{-1}1$ are
+  eigenvectors of the matrix $A$.  What are their associated
+  eigenvalues?
+
+  \vs{1}
+  Suppose that there are initially 1000 cars at location $P$ and none
+  at location $Q$ so that the initial state vector is
+  $\xvec_0=\twovec{1000}0$.  Write $\xvec_0$ as a linear combination
+  of $\vvec_1$ and $\vvec_2$.
+
+  \vs{1}
+  Using the linearity of matrix multiplication, write
+  $\xvec_1=A\xvec_0$, the distribution of cars the next day, as a
+  linear combination of $\vvec_1$ and $\vvec_2$.
+
+  \vs{1}
+  \newpage
+  Continue into the future by writing the distributions the next few
+  days, $\xvec_2$, $\xvec_3$, and $\xvec_4$ as linear combinations of
+  $\vvec_1$ and $\vvec_2$.  
+
+  \vs{1.5}
+  What happens to the distribution of cars after a very long time?
+  
+  
+  
+
+\end{enumerate}
+
+
+\end{document}
