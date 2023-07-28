@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<script>// Make *any* pre with class 'sagecell-sage' an executable Sage cell
+// Their results will be linked, only within language type
+sagecell.makeSagecell({
+  "inputLocation": "pre.sagecell-sage",
+  "linked": true,
+  "languages": [
+    "sage"
+  ],
+  "evalButtonText": "Evaluate (Sage)"
+});
+</script>
+</head>
+<body class="ignore-math">
+<h5 class="heading"><span class="type">Paragraph</span></h5>
+<div class="para logical"><ol class="lower-alpha">
+<li><div class="para">Find similar expressions for <span class="process-math">\(x_2\)</span> and <span class="process-math">\(x_3\text{.}\)</span>
+</div></li>
+<li><div class="para">We now form the PageRank vector <span class="process-math">\(\xvec =
+\threevec{x_1}{x_2}{x_3}\text{.}\)</span>  Find a matrix <span class="process-math">\(G\)</span> such that the expressions for <span class="process-math">\(x_1\text{,}\)</span> <span class="process-math">\(x_2\text{,}\)</span> and <span class="process-math">\(x_3\)</span> can be written in the form <span class="process-math">\(G\xvec = \xvec\text{.}\)</span>  The matrix <span class="process-math">\(G\)</span> is called the “Google matrix”.</div></li>
+<li><div class="para">Explain why <span class="process-math">\(G\)</span> is a stochastic matrix.</div></li>
+<li><div class="para">Since <span class="process-math">\(\xvec\)</span> is defined by the equation <span class="process-math">\(G\xvec = \xvec\text{,}\)</span> any vector in the eigenspace <span class="process-math">\(E_1\)</span> satisfies this equation.  So that we might work with a specific vector, we will define the PageRank vector to be the steady-state vector of the stochastic matrix <span class="process-math">\(G\text{.}\)</span>  Find this steady state vector. <pre class="ptx-sagecell sagecell-sage" id="sage-126"><script type="text/x-sage">
+</script></pre>
+</div></li>
+<li><div class="para">The PageRank vector <span class="process-math">\(\xvec\)</span> is composed of the PageRanks for each of the three pages.  Which page of the three is assessed to have the highest quality?  By referring to the structure of this small model of the Internet, explain why this is a good choice.</div></li>
+<li><div class="para">If we begin with the initial vector <span class="process-math">\(\xvec_0 =
+\threevec{1}{0}{0}\)</span> and form the Markov chain <span class="process-math">\(\xvec_{k+1} = G\xvec_k\text{,}\)</span> what does the Perron-Frobenius theorem tell us about the long-term behavior of the Markov chain?</div></li>
+<li><div class="para">Verify that this Markov chain converges to the steady-state PageRank vector. <pre class="ptx-sagecell sagecell-sage" id="sage-127"><script type="text/x-sage">def markov_chain(A, x0, N):
+    for i in range(N):
+        x0 = A*x0
+        print (x0.numerical_approx(digits=3))
+## define the matrix G and x0
+G =
+x0 =
+markov_chain(G, x0, 20)
+</script></pre>
+</div></li>
+</ol></div>
+<span class="incontext"><a href="sec-stochastic.html#p-4842" class="internal">in-context</a></span>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<script>// Make *any* pre with class 'sagecell-sage' an executable Sage cell
+// Their results will be linked, only within language type
+sagecell.makeSagecell({
+  "inputLocation": "pre.sagecell-sage",
+  "linked": true,
+  "languages": [
+    "sage"
+  ],
+  "evalButtonText": "Evaluate (Sage)"
+});
+</script>
+</head>
+<body class="ignore-math">
+<article class="exercise exercise-like"><h4 class="heading">
+<span class="type">Exercise</span><span class="space"> </span><span class="codenumber">4<span class="period">.</span></span>
+</h4>
+<div class="para logical">
+<div class="para">Evaluating the following cell loads in a dataset recording some features of 1057 houses.  Notice how the lot size varies over a relatively small range compared to the other features. For this reason, in addition to demeaning the data, we’ll scale each feature by dividing by its standard deviation so that the range of values is similar for each feature.  The matrix <span class="process-math">\(A\)</span> holds the result. <pre class="ptx-sagecell sagecell-sage" id="sage-279"><script type="text/x-sage">import pandas as pd
+df = pd.read_csv('https://raw.githubusercontent.com/davidaustinm/ula_modules/master/data/housing.csv', index_col=0)
+df = df.fillna(df.mean())
+std = (df-df.mean())/df.std()
+A = matrix(std.values).T
+df.T
+</script></pre>
+</div>
+<ol class="lower-alpha">
+<li><div class="para">Find the singular values of <span class="process-math">\(A\)</span> and use them to determine the variance in the direction of the principal components. <pre class="ptx-sagecell sagecell-sage" id="sage-280"><script type="text/x-sage">
+</script></pre>
+</div></li>
+<li><div class="para">For what fraction of the variance do the first two principal components account?</div></li>
+<li><div class="para">Find a singular value decomposition of <span class="process-math">\(A\)</span> and construct the <span class="process-math">\(2\times1057\)</span> matrix <span class="process-math">\(B\)</span> whose entries are the coordinates of the demeaned data points projected on to the two-dimensional subspace spanned by the first two principal components.  You can plot the projected data points using <code class="code-inline tex2jax_ignore">list_plot(B.columns())</code>. <pre class="ptx-sagecell sagecell-sage" id="sage-281"><script type="text/x-sage">
+</script></pre>
+</div></li>
+<li><div class="para">Study the entries in the first two principal components <span class="process-math">\(\uvec_1\)</span> and <span class="process-math">\(\uvec_2\text{.}\)</span>  Would a more expensive house lie on the left, right, top, or bottom of the plot you constructed?</div></li>
+<li><div class="para">In what ways does a house that lies on the far left of the plot you constructed differ from an average house? In what ways does a house that lies near the top of the plot you constructed differ from an average house?</div></li>
+</ol>
+</div></article><span class="incontext"><a href="sec-svd-uses.html#exercise-289" class="internal">in-context</a></span>
+</body>
+</html>

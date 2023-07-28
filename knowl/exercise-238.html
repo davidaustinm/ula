@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*       on 2022-06-16T09:07:40-04:00       *-->
+<!--*   A recent stable commit (2020-08-09):   *-->
+<!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<script>// Make *any* pre with class 'sagecell-sage' an executable Sage cell
+// Their results will be linked, only within language type
+sagecell.makeSagecell({inputLocation: 'pre.sagecell-sage',
+                       linked: true,
+                       languages: ['sage'],
+                       evalButtonText: 'Evaluate (Sage)'});
+</script>
+</head>
+<body class="ignore-math">
+<article class="exercise exercise-like"><h4 class="heading">
+<span class="type">Exercise</span><span class="space"> </span><span class="codenumber">9<span class="period">.</span></span>
+</h4>
+<p>Evaluating the following cell loads a data set describing the temperature in the Earth's atmosphere at various altitudes. There are also two vectors <code class="code-inline tex2jax_ignore">altitude</code>, expressed in kilometers, and <code class="code-inline tex2jax_ignore">temperature</code>, in degress Celsius. <pre class="ptx-sagecell sagecell-sage" id="sage-195"><script type="text/x-sage">sage.repl.load.load('https://raw.githubusercontent.com/davidaustinm/ula_modules/master/orthogonality.py', globals())
+df = pd.read_csv('https://raw.githubusercontent.com/davidaustinm/ula_modules/master/data/altitude-temps.csv')
+data = [vector(row) for row in df.values]
+altitude = vector(df['Altitude'])
+temperature = vector(df['Temperature'])
+print(df)
+list_plot(data, size=40, color='blue')
+</script></pre></p>
+<ol class="lower-alpha">
+<li><p>Describe how to form the matrix <span class="process-math">\(A\)</span> and vector <span class="process-math">\(\bvec\)</span> so that the linear system <span class="process-math">\(A\xvec=\bvec\)</span> describes a degree <span class="process-math">\(k\)</span> polynomial fitting the data.</p></li>
+<li><p>Choose a value of <span class="process-math">\(k\text{,}\)</span> construct the matrix <span class="process-math">\(A\)</span> and vector <span class="process-math">\(\bvec\text{,}\)</span> and find the least squares approximate solution <span class="process-math">\(\xhat\text{.}\)</span></p></li>
+<li><p>Plot the polynomial and data using <code class="code-inline tex2jax_ignore">plot_model(xhat,
+	      data)</code>.</p></li>
+<li><p>Now examine what happens as you vary the degree of the polynomial <span class="process-math">\(k\text{.}\)</span>  Choose an appropriate value of <span class="process-math">\(k\)</span> that seems to capture the most important features of the data while avoiding overfitting, and explain your choice.</p></li>
+<li><p>Use your value of <span class="process-math">\(k\)</span> to estimate the temperature at an altitude of 55 kilometers.</p></li>
+</ol></article><span class="incontext"><a href="sec-least-squares.html#exercise-238" class="internal">in-context</a></span>
+</body>
+</html>

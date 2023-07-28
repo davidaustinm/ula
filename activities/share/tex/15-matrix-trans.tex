@@ -1,0 +1,175 @@
+\documentclass[12pt]{article}
+
+\pagestyle{empty}
+\setlength{\topmargin}{0in}
+\setlength{\headheight}{0in}
+\setlength{\topsep}{0in}
+\setlength{\textheight}{9in}
+\setlength{\oddsidemargin}{0in}
+\setlength{\evensidemargin}{0in}
+\setlength{\textwidth}{6.5in}
+
+\usepackage{palatino,graphics,amsmath,amssymb,enumitem}
+
+\newcommand{\ds}{\displaystyle}
+\newcommand{\vs}[1]{\vspace{#1in}}
+\renewcommand{\vss}[1]{\vspace*{#1in}}
+\newcommand{\bvec}{{\mathbf b}}
+\newcommand{\cvec}{{\mathbf c}}
+\newcommand{\dvec}{{\mathbf d}}
+\newcommand{\evec}{{\mathbf e}}
+\newcommand{\fvec}{{\mathbf f}}
+\newcommand{\qvec}{{\mathbf q}}
+\newcommand{\uvec}{{\mathbf u}}
+\newcommand{\vvec}{{\mathbf v}}
+\newcommand{\wvec}{{\mathbf w}}
+\newcommand{\xvec}{{\mathbf x}}
+\newcommand{\yvec}{{\mathbf y}}
+\newcommand{\zvec}{{\mathbf y}}
+\newcommand{\zerovec}{{\mathbf 0}}
+\newcommand{\real}{{\mathbb R}}
+\newcommand{\twovec}[2]{\left[\begin{array}{r}#1 \\ #2
+    \end{array}\right]}
+\newcommand{\ctwovec}[2]{\left[\begin{array}{c}#1 \\ #2
+   \end{array}\right]}
+\newcommand{\threevec}[3]{\left[\begin{array}{r}#1 \\ #2 \\ #3
+  \end{array}\right]}
+\newcommand{\cthreevec}[3]{\left[\begin{array}{c}#1 \\ #2 \\ #3
+    \end{array}\right]}
+\newcommand{\fourvec}[4]{\left[\begin{array}{r}#1 \\ #2 \\ #3 \\ #4
+    \end{array}\right]}
+\newcommand{\cfourvec}[4]{\left[\begin{array}{c}#1 \\ #2 \\ #3 \\ #4
+    \end{array}\right]}
+\newcommand{\mattwo}[4]{\left[\begin{array}{rr}#1 \amp #2 \\ #3 \amp #4 \\ \end{array}\right]}
+\renewcommand{\span}[1]{\text{Span}\{#1\}}
+\newcommand{\bcal}{{\cal B}}
+\newcommand{\ccal}{{\cal C}}
+\newcommand{\scal}{{\cal S}}
+\newcommand{\wcal}{{\cal W}}
+\newcommand{\ecal}{{\cal E}}
+\newcommand{\coords}[2]{\left\{#1\right\}_{#2}}
+\newcommand{\gray}[1]{\color{gray}{#1}}
+\newcommand{\lgray}[1]{\color{lightgray}{#1}}
+\newcommand{\rank}{\text{rank}}
+\newcommand{\col}{\text{Col}}
+\newcommand{\nul}{\text{Nul}}
+
+\begin{document}
+
+\noindent
+{\bf Mathematics 227} \\ 
+{\bf Matrix transformations}
+
+\bigskip
+\begin{enumerate}
+\item Suppose that the matrix transformation $T(\xvec) = A\xvec$ where 
+  $
+  A =
+  \left[
+    \begin{array}{cccc}
+      3 & 3 & -2 & 1 \\
+      0 & 2 & 1 & -3 \\
+      -2 & 1 & 4 & -4 \\
+    \end{array}
+  \right].
+  $
+
+  \begin{enumerate}[label=(\alph*)]
+  \item what is the dimension of the vectors $\xvec$ that are input
+    into $T$?  What is the dimension of the vectors $T(\xvec)$ that
+    are output from $T$?
+    
+    \vs{1}
+  \item Describe all the vectors for which $T(\xvec) = \zerovec$.
+    
+    \vs{1}
+  \end{enumerate}
+
+\item Suppose that we work for a company that produces baked goods,
+  including cakes, donuts, and eclairs. Our company operates two
+  plants, Plant 1 and Plant 2. In one hour of operation,
+  \begin{itemize}
+  \item Plant 1 produces 10 cakes, 50 donuts, and 30 eclairs.
+  \item Plant 2 produces 20 cakes, 30 donuts, and 30 eclairs.
+  \end{itemize}
+  
+  \begin{enumerate}[label=(\alph*)]
+    \item If plant 1 operates for $x_1$ hours and plant 2 for $x_2$
+      hours, how many cakes $C$ do they produce in total?  How many
+      donuts $D$?  How many eclairs $E$?
+
+      \vs{1}
+    \item We define a matrix transformation
+      $
+      T\left(\twovec{x_1}{x_2}\right) = \threevec CDE
+      $
+      where $\threevec CDE$ represents the quantities of baked goods
+      produced when the plants run for $\twovec{x_1}{x_2}$ hours.  If
+      $T(\xvec) = A\xvec$, what are the dimensions of $A$?
+
+      \vs{1}
+    \item Find the vector $T\left(\twovec 10\right)$ and the vector
+      $T\left(\twovec 01\right)$.  Then write the matrix $A$.
+
+      \vs{1}
+
+    \item If we operate plant 1 for 40 hours and plant 2 for 50 hours,
+      how many baked goods have we produced?
+
+      \vs{1}
+    \item The marketing department says we need to produce
+      1500 cakes, 4700 donuts, and 3300 eclairs.  Is it possible to
+      meet this order?  If so, how long should the two plants operate?
+
+      \vs{1}
+    \item Suppose that
+      \begin{itemize}
+      \item Each cake requires 4 units of flour and 2 units of
+        sugar.
+      \item Each donut requires 1 unit of flour and 1 unit of sugar.
+      \item Each eclair requires 1 unit of flour and 2 units of sugar.
+      \end{itemize}
+      Suppose we make $C$ cakes, $D$ donuts, and $E$ eclairs.  How
+      many units $F$ of flour and units $S$ of sugar are required?
+
+      \vs{1}
+    \item Write a matrix $B$ that defines the matrix transformation
+      $R\left(\threevec CDE\right) = \twovec FS$.
+
+      \vs{1}
+
+      \newpage
+    \item If plant 1 operates for 30 hours and plant 2 for 20 hours,
+      how many units of flour and sugar are required?
+
+      \vs{1}
+    \item Find the matrix that represents the transformation
+      $P\left(\twovec{x_1}{x_2}\right) = \twovec FS$ that represents the
+      ingredients needed when the plants are operated for
+      $\twovec{x_1}{x_2}$ hours.
+
+      \vs{1}
+    \end{enumerate}
+
+  \item Many geometric operations can be described as matrix
+    transformations.  Suppose, for instance, that we want to describe
+    the geometric transformation $T$ that rotates vectors in the plane
+    counterclockwise by $90^\circ$.  Then $T(\xvec) = A\xvec$ where
+    $A$ is a $2\times2$ matrix.
+
+    What is $T\left(\twovec10\right)$ and $T\left(\twovec01\right)$?
+    Use these vectors to find the matrix $A$.
+
+    \vs{1}
+    What vector results when we rotate $\twovec{-4}{5}$
+    counterclockwise by $90^\circ$?
+
+    \vs{1}
+  \item Find the $2\times2$ matrix that reflects vectors across the
+    vertical axis.  What is the result of reflecting $\twovec{-4}{5}$
+    across the vertical axis?
+
+\end{enumerate}
+
+
+\end{document}

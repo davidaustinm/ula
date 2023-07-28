@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math"><div class="solution solution-like"><div class="para logical"><ol class="lower-alpha">
+<li><div class="para logical">
+<div class="para">After creating a Markov chain to find the steady-state vector, we find</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\begin{array}{rrrr}
+x_1 = 0.057, \amp x_2=0.085, \amp x_3=0.028, \amp
+x_4=0.085, \\
+x_5 = 0.071, \amp x_6=0.212, \amp x_7=0.170, \amp
+x_8=0.292\text{.}
+\end{array}
+\end{equation*}
+</div>
+</div></li>
+<li><div class="para">This shows us that page <span class="process-math">\(8\)</span> is judged to be the most important and page <span class="process-math">\(3\)</span> the least important.  The pages <span class="process-math">\(6\text{,}\)</span> <span class="process-math">\(7\text{,}\)</span> and <span class="process-math">\(8\text{,}\)</span> are the most important.  This makes sense because there are a lot of links between these pages without many links going out from these pages to the others.</div></li>
+<li><div class="para logical">
+<div class="para">We have the matrix</div>
+<div class="displaymath process-math">
+\begin{equation*}
+G = \left[\begin{array}{rrrrr}
+0 \amp 0 \amp 0 \amp 0 \amp 1 \\
+1 \amp 0 \amp 0 \amp 0 \amp 0 \\
+0 \amp 1 \amp 0 \amp 0 \amp 0 \\
+0 \amp 0 \amp 1 \amp 0 \amp 0 \\
+0 \amp 0 \amp 0 \amp 1 \amp 0 \\
+\end{array}\right]\text{,}
+\end{equation*}
+</div>
+<div class="para">which leads to the Markov chain</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\xvec_0=\left[\begin{array}{c} 1\\ 0\\ 0 \\ 0
+\\0\end{array}\right], 
+\xvec_1=\left[\begin{array}{c} 0\\ 1\\ 0 \\ 0
+\\0\end{array}\right], 
+\xvec_2=\left[\begin{array}{c} 0\\ 0\\ 1 \\ 0
+\\0\end{array}\right], 
+\xvec_3=\left[\begin{array}{c} 0\\ 0\\ 0 \\ 1
+\\0\end{array}\right], 
+\xvec_4=\left[\begin{array}{c} 0\\ 0\\ 0 \\ 0
+\\1\end{array}\right], \ldots
+\end{equation*}
+</div>
+<div class="para">This Markov chain does not converge to a steady-state vector.</div>
+</div></li>
+<li><div class="para logical">
+<div class="para">As all of the pages seem equally important, we should expect the PageRank vector to be</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\xvec=\left[\begin{array}{c}
+\frac 15 \\
+\frac 15 \\
+\frac 15 \\
+\frac 15 \\
+\frac 15
+\end{array}\right]\text{.}
+\end{equation*}
+</div>
+</div></li>
+<li><div class="para logical">
+<div class="para">After generating some terms of a Markov chain, we see that</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\begin{array}{rrrr}
+x_1 = 0.000, \amp x_2=0.000, \amp x_3=0.000, \amp
+x_4=0.000, \\
+x_5 = 0.120, \amp x_6=0.240, \amp x_7=0.240, \amp
+x_8=0.400\text{.}
+\end{array}
+\end{equation*}
+</div>
+<div class="para">These are not the components of a steady-state vector because some of the entries are zero.  The Google matrix <span class="process-math">\(G\)</span> cannot be a positive matrix in this example.  This is not desirable because we lose any information about the importance of the first four pages.  All the PageRank drains out of the left side into the pages on the right side.</div>
+</div></li>
+</ol></div></div></body>
+</html>

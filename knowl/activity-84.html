@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<script>// Make *any* pre with class 'sagecell-sage' an executable Sage cell
+// Their results will be linked, only within language type
+sagecell.makeSagecell({
+  "inputLocation": "pre.sagecell-sage",
+  "linked": true,
+  "languages": [
+    "sage"
+  ],
+  "evalButtonText": "Evaluate (Sage)"
+});
+</script>
+</head>
+<body class="ignore-math">
+<article class="activity project-like"><h4 class="heading">
+<span class="type">Activity</span><span class="space"> </span><span class="codenumber">6.5.3</span><span class="period">.</span>
+</h4>
+<div class="para logical">
+<div class="para">The rate at which a cricket chirps is related to the outdoor temperature, as reflected in some experimental data that we’ll study in this activity.  The chirp rate <span class="process-math">\(C\)</span> is expressed in chirps per second while the temperature <span class="process-math">\(T\)</span> is in degrees Fahrenheit.  Evaluate the following cell to load the data: <pre class="ptx-sagecell sagecell-sage" id="sage-179"><script type="text/x-sage">sage.repl.load.load('https://raw.githubusercontent.com/davidaustinm/ula_modules/master/orthogonality.py', globals())
+df = pd.read_csv('https://raw.githubusercontent.com/davidaustinm/ula_modules/master/data/crickets.csv')
+data = [vector(row) for row in df.values]
+chirps = vector(df['Chirps'])
+temps = vector(df['Temperature'])
+print(df)
+list_plot(data, color='blue', size=40, xmin=12, xmax=22, ymin=60, ymax=100)
+</script></pre> Evaluating this cell also provides:</div>
+<ul class="disc">
+<li><div class="para">the vectors <code class="code-inline tex2jax_ignore">chirps</code> and <code class="code-inline tex2jax_ignore">temps</code> formed from the columns of the dataset.</div></li>
+<li><div class="para">the command <code class="code-inline tex2jax_ignore">onesvec(n)</code>, which creates an <span class="process-math">\(n\)</span>-dimensional vector whose entries are all one.</div></li>
+<li><div class="para">Remember that you can form a matrix whose columns are the vectors <code class="code-inline tex2jax_ignore">v1</code> and <code class="code-inline tex2jax_ignore">v2</code> with <code class="code-inline tex2jax_ignore">matrix([v1, v2]).T</code>.</div></li>
+</ul>
+</div> <div class="para logical">
+<div class="para">We would like to represent this relationship by a linear function</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\beta_0 + \beta_1 C = T\text{.}
+\end{equation*}
+</div>
+<ol class="lower-alpha">
+<li><div class="para">Use the first data point <span class="process-math">\((C_1,T_1)=(20.0,88.6)\)</span> to write an equation involving <span class="process-math">\(\beta_0\)</span> and <span class="process-math">\(\beta_1\text{.}\)</span>
+</div></li>
+<li><div class="para">Suppose that we represent the unknowns using a vector <span class="process-math">\(\xvec = \twovec{\beta_0}{\beta_1}\text{.}\)</span>  Use the 15 data points to create the matrix <span class="process-math">\(A\)</span> and vector <span class="process-math">\(\bvec\)</span> so that the linear system <span class="process-math">\(A\xvec= \bvec\)</span> describes the unknown vector <span class="process-math">\(\xvec\text{.}\)</span> <pre class="ptx-sagecell sagecell-sage" id="sage-180"><script type="text/x-sage">
+</script></pre>
+</div></li>
+<li><div class="para">Write the normal equations <span class="process-math">\(A^TA\xhat =
+A^T\bvec\text{;}\)</span> that is, find the matrix <span class="process-math">\(A^TA\)</span> and the vector <span class="process-math">\(A^T\bvec\text{.}\)</span>
+</div></li>
+<li>
+<div class="para">Solve the normal equations to find <span class="process-math">\(\xhat\text{,}\)</span> the least squares approximate solution to the equation <span class="process-math">\(A\xvec=\bvec\text{.}\)</span>  Call your solution <code class="code-inline tex2jax_ignore">xhat</code> since <code class="code-inline tex2jax_ignore">x</code> has another meaning in Sage. <pre class="ptx-sagecell sagecell-sage" id="sage-181"><script type="text/x-sage">
+</script></pre>
+</div>
+<div class="para">What are the values of <span class="process-math">\(\beta_0\)</span> and <span class="process-math">\(\beta_1\)</span> that you found?</div>
+</li>
+<li>
+<div class="para">If the chirp rate is 22 chirps per second, what is your prediction for the temperature?</div>
+<div class="para">You can plot the data and your line, assuming you called the solution <code class="code-inline tex2jax_ignore">xhat</code>, using the cell below. <pre class="ptx-sagecell sagecell-sage" id="sage-182"><script type="text/x-sage">plot_model(xhat, data, domain=(12, 22))
+</script></pre>
+</div>
+</li>
+</ol>
+</div></article><span class="incontext"><a href="sec-least-squares.html#activity-84" class="internal">in-context</a></span>
+</body>
+</html>

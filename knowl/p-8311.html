@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<script>// Make *any* pre with class 'sagecell-sage' an executable Sage cell
+// Their results will be linked, only within language type
+sagecell.makeSagecell({
+  "inputLocation": "pre.sagecell-sage",
+  "linked": true,
+  "languages": [
+    "sage"
+  ],
+  "evalButtonText": "Evaluate (Sage)"
+});
+</script>
+</head>
+<body class="ignore-math">
+<h5 class="heading"><span class="type">Paragraph</span></h5>
+<div class="para logical">
+<div class="para">In this activity, it will be helpful to visualize the entries in various matrices and vectors.  The next cell displays the first 50 columns of the matrix <span class="process-math">\(A\)</span> with white representing an entry of +1, red representing -1, and black representing 0. <pre class="ptx-sagecell sagecell-sage" id="sage-267"><script type="text/x-sage">display_matrix(A.matrix_from_columns(range(50)))
+</script></pre>
+</div>
+<ol class="lower-alpha">
+<li><div class="para">Plot the singular values of <span class="process-math">\(A\)</span> below.  Describe the significance of this plot, including the relative contributions from the singular values <span class="process-math">\(\sigma_k\)</span> as <span class="process-math">\(k\)</span> increases. <pre class="ptx-sagecell sagecell-sage" id="sage-268"><script type="text/x-sage">plot_sv(A)
+</script></pre>
+</div></li>
+<li><div class="para">Form the singular value decomposition <span class="process-math">\(A=U\Sigma
+V^T\)</span> and the matrix of coefficients <span class="process-math">\(\Gamma\)</span> so that <span class="process-math">\(A=U\Gamma\text{.}\)</span> <pre class="ptx-sagecell sagecell-sage" id="sage-269"><script type="text/x-sage">
+</script></pre>
+</div></li>
+<li><div class="para">We will now study a particular case, the second case which appears as the column of <span class="process-math">\(A\)</span> indexed by <code class="code-inline tex2jax_ignore">1</code>. There is a command <code class="code-inline tex2jax_ignore">display_column(A, k)</code> that provides a visual display of the <span class="process-math">\(k^{th}\)</span> column of a matrix <span class="process-math">\(A\text{.}\)</span>  Describe the justices’ votes in the second case. <pre class="ptx-sagecell sagecell-sage" id="sage-270"><script type="text/x-sage">
+</script></pre>
+</div></li>
+<li><div class="para">Also, display the first left singular vector <span class="process-math">\(\uvec_1\text{,}\)</span> the column of <span class="process-math">\(U\)</span> indexed by <span class="process-math">\(0\text{,}\)</span> and the column of <span class="process-math">\(\Gamma\)</span> holding the coefficients that express the second case as a linear combination of left singular vectors. <pre class="ptx-sagecell sagecell-sage" id="sage-271"><script type="text/x-sage">
+</script></pre> What does this tell us about how the second case is constructed as a linear combination of left singular vectors?  What is the significance of the first left singular vector <span class="process-math">\(\uvec_1\text{?}\)</span>
+</div></li>
+<li><div class="para">Let’s now study the <span class="process-math">\(48^{th}\)</span> case, which is represented by the column of <span class="process-math">\(A\)</span> indexed by <code class="code-inline tex2jax_ignore">47</code>.  Describe the voting pattern in this case. <pre class="ptx-sagecell sagecell-sage" id="sage-272"><script type="text/x-sage">
+</script></pre>
+</div></li>
+<li><div class="para">Display the second left singular vector <span class="process-math">\(\uvec_2\)</span> and the vector of coefficients that express the <span class="process-math">\(48^{th}\)</span> case as a linear combination of left singular vectors. <pre class="ptx-sagecell sagecell-sage" id="sage-273"><script type="text/x-sage">
+</script></pre> Describe how this case is constructed as a linear combination of singular vectors.  What is the significance of the second left singular vector <span class="process-math">\(\uvec_2\text{?}\)</span>
+</div></li>
+<li><div class="para">The data in <a href="" class="xref" data-knowl="./knowl/table-supreme-cases.html" title="Table 7.5.2: Number of cases by vote count">Table 7.5.2</a> describes the number of cases decided by each possible vote count. <figure class="table table-like"><figcaption><span class="type">Table</span><span class="space"> </span><span class="codenumber">7.5.2<span class="period">.</span></span><span class="space"> </span>Number of cases by vote count</figcaption><div class="tabular-box natural-width"><table class="tabular">
+<tr>
+<td class="c m b1 r0 l0 t0 lines">Vote count</td>
+<td class="c m b1 r0 l0 t0 lines"># of cases</td>
+</tr>
+<tr>
+<td class="c m b0 r0 l0 t0 lines">9-0</td>
+<td class="c m b0 r0 l0 t0 lines">405</td>
+</tr>
+<tr>
+<td class="c m b0 r0 l0 t0 lines">8-1</td>
+<td class="c m b0 r0 l0 t0 lines">89</td>
+</tr>
+<tr>
+<td class="c m b0 r0 l0 t0 lines">7-2</td>
+<td class="c m b0 r0 l0 t0 lines">111</td>
+</tr>
+<tr>
+<td class="c m b0 r0 l0 t0 lines">6-3</td>
+<td class="c m b0 r0 l0 t0 lines">118</td>
+</tr>
+<tr>
+<td class="c m b0 r0 l0 t0 lines">5-4</td>
+<td class="c m b0 r0 l0 t0 lines">188</td>
+</tr>
+</table></div></figure> How do the singular vectors <span class="process-math">\(\uvec_1\)</span> and <span class="process-math">\(\uvec_2\)</span> reflect this data?  Would you characterize the court as leaning toward the conservatives or progressives?  Use these singular vectors to explain your response.</div></li>
+<li><div class="para">Cases decided by a 5-4 vote are often the most impactful as they represent a sharp divide among the justices and, often, society at large.  For that reason, we will now focus on the 5-4 decisions. Evaluating the next cell forms the <span class="process-math">\(9\times188\)</span> matrix <span class="process-math">\(B\)</span> consisting of 5-4 decisions. <pre class="ptx-sagecell sagecell-sage" id="sage-274"><script type="text/x-sage">B = matrix(RDF, fivefour.values)
+display_matrix(B.matrix_from_columns(range(50)))
+</script></pre> Form the singular value decomposition of <span class="process-math">\(B=U\Sigma
+V^T\)</span> along with the matrix <span class="process-math">\(\Gamma\)</span> of coefficients so that <span class="process-math">\(B=U\Gamma\)</span> and display the first left singular vector <span class="process-math">\(\uvec_1\text{.}\)</span>  Study how the <span class="process-math">\(7^{th}\)</span> case, indexed by <code class="code-inline tex2jax_ignore">6</code>, is constructed as a linear combination of left singular vectors. <pre class="ptx-sagecell sagecell-sage" id="sage-275"><script type="text/x-sage">
+</script></pre> What does this singular vector tell us about the make up of the court and whether it leans towards the conservatives or progressives?</div></li>
+<li><div class="para">Display the second left singular vector <span class="process-math">\(\uvec_2\)</span> and study how the <span class="process-math">\(6^{th}\)</span> case, indexed by <code class="code-inline tex2jax_ignore">5</code>, is constructed as a linear combination of left singular vectors. <pre class="ptx-sagecell sagecell-sage" id="sage-276"><script type="text/x-sage">
+</script></pre> What does <span class="process-math">\(\uvec_2\)</span> tell us about the relative importance of the justices’ voting records?</div></li>
+<li><div class="para">By a <em class="emphasis">swing vote</em>, we mean a justice who is less inclined to vote with a particular bloc of justices but instead swings from one bloc to another with the potential to sway close decisions. What do the singular vectors <span class="process-math">\(\uvec_1\)</span> and <span class="process-math">\(\uvec_2\)</span> tell us about the presence of voting blocs on the court and the presence of a swing vote? Which justice represents the swing vote?</div></li>
+</ol>
+</div>
+<span class="incontext"><a href="sec-svd-uses.html#p-8311" class="internal">in-context</a></span>
+</body>
+</html>

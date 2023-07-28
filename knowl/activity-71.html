@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<script>// Make *any* pre with class 'sagecell-sage' an executable Sage cell
+// Their results will be linked, only within language type
+sagecell.makeSagecell({
+  "inputLocation": "pre.sagecell-sage",
+  "linked": true,
+  "languages": [
+    "sage"
+  ],
+  "evalButtonText": "Evaluate (Sage)"
+});
+</script>
+</head>
+<body class="ignore-math">
+<article class="activity project-like"><h4 class="heading">
+<span class="type">Activity</span><span class="space"> </span><span class="codenumber">6.1.5</span><span class="period">.</span>
+</h4>
+<div class="para logical">
+<div class="para">We’ll now use the objective to compare clusterings and to choose an appropriate value of <span class="process-math">\(k\text{.}\)</span>
+</div>
+<ol class="lower-alpha">
+<li><div class="para logical">
+<div class="para">In the previous activity, one initial choice of <span class="process-math">\(c_1\)</span> and <span class="process-math">\(c_2\)</span> led to the clustering:</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\begin{array}{rcl}
+C_1 \amp {}={} \amp \{\vvec_1\} \\
+C_2 \amp {}={} \amp \{\vvec_2, \vvec_3,\vvec_4\}
+\end{array}
+\end{equation*}
+</div>
+<div class="para">with centroids <span class="process-math">\(c_1=\vvec_1\)</span> and <span class="process-math">\(c_2=\twovec{5/3}{5/3}\text{.}\)</span> Find the objective of this clustering.</div>
+</div></li>
+<li><div class="para">We have now seen two clusterings and computed their objectives.  Recall that our data set is shown in <a href="" class="xref" data-knowl="./knowl/fig-clustering-ex.html" title="Figure 6.1.12">Figure 6.1.12</a>.  Which of the two clusterings feels like the better fit?  How is this fit reflected in the values of the objectives?</div></li>
+<li><div class="para">Evaluating the following cell will load and display a data set consisting of 177 data points.  This data set has the name <code class="code-inline tex2jax_ignore">data</code>. <pre class="ptx-sagecell sagecell-sage" id="sage-159"><script type="text/x-sage">sage.repl.load.load("https://raw.githubusercontent.com/davidaustinm/ula_modules/master/k_means.py", globals())
+list_plot(data, color='blue', size=20, aspect_ratio=1)
+</script></pre> Given this plot of the data, what would seem like a reasonable number of clusters?</div></li>
+<li><div class="para">In the following cell, you may choose a value of <span class="process-math">\(k\)</span> and then run the algorithm to determine and display a clustering and its objective.  If you run the algorithm a few times with the same value of <span class="process-math">\(k\text{,}\)</span> you will likely see different clusterings having different objectives. This is natural since our algorithm starts by making a random choice of points <span class="process-math">\(c_1,c_2,\ldots,c_k\text{,}\)</span> and a different choices may lead to different clusterings. Choose a value of <span class="process-math">\(k\)</span> and run the algorithm a few times.  Notice that clusterings having lower objectives seem to fit the data better.  Repeat this experiment with a few different values of <span class="process-math">\(k\text{.}\)</span> <pre class="ptx-sagecell sagecell-sage" id="sage-160"><script type="text/x-sage">k = 2  # you may change the value of k here
+clusters, centroids, objective = kmeans(data, k)
+print('Objective =', objective)
+plotclusters(clusters, centroids)
+</script></pre>
+</div></li>
+<li>
+<div class="para">For a given value of <span class="process-math">\(k\text{,}\)</span> our strategy is to run the algorithm several times and choose the clustering with the smallest objective.  After choosing a value of <span class="process-math">\(k\text{,}\)</span> the following cell will run the algorithm 10 times and display the clustering having the smallest objective. <pre class="ptx-sagecell sagecell-sage" id="sage-161"><script type="text/x-sage">k = 2  # you may change the value of k here
+clusters, centroids, objective = minimalobjective(data, k)
+print('Objective =', objective)
+plotclusters(clusters, centroids)
+</script></pre>
+</div>
+<div class="para">For each value of <span class="process-math">\(k\)</span> between 2 and 9, find the clustering having the smallest objective and plot your findings in <a href="" class="xref" data-knowl="./knowl/fig-clustering-elbow.html" title="Figure 6.1.15">Figure 6.1.15</a>.</div>
+<figure class="figure figure-like"><div class="sidebyside"><div class="sbsrow" style="margin-left:10%;margin-right:10%;"><div class="sbspanel top" style="width:100%;"><img src="external/images/clustering-elbow.svg" role="img" class="contained"></div></div></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">6.1.15<span class="period">.</span></span><span class="space"> </span>Construct a plot of the minimal objective as it depends on the choice of <span class="process-math">\(k\text{.}\)</span></figcaption></figure><div class="para">This plot is called an <em class="emphasis">elbow plot</em> due to its shape.  Notice how the objective decreases sharply when <span class="process-math">\(k\)</span> is small and then flattens out. This leads to a location, called the elbow, where the objective transitions from being sharply decreasing to relatively flat.  This means that increasing <span class="process-math">\(k\)</span> beyond the elbow does not significantly decrease the objective, which makes the elbow a good choice for <span class="process-math">\(k\text{.}\)</span>
+</div>
+<div class="para">Where does the elbow occur in your plot above?  How does this compare to the best value of <span class="process-math">\(k\)</span> that you estimated by simply looking at the data in <a href="" class="xref" data-knowl="./knowl/li-guess-clusters.html" title="Item c">Item c</a>.</div>
+</li>
+</ol>
+</div> <div class="para">Of course, we could increase <span class="process-math">\(k\)</span> until each data point is its own cluster.  However, this defeats the point of the technique, which is to group together nearby data points in the hope that they share common features, thus providing insight into the structure of the data.</div></article><span class="incontext"><a href="sec-dot-product.html#activity-71" class="internal">in-context</a></span>
+</body>
+</html>

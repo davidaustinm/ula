@@ -1,0 +1,286 @@
+\documentclass[12pt]{article}
+
+\pagestyle{empty}
+\setlength{\topmargin}{0in}
+\setlength{\headheight}{0in}
+\setlength{\topsep}{0in}
+\setlength{\textheight}{9in}
+\setlength{\oddsidemargin}{0in}
+\setlength{\evensidemargin}{0in}
+\setlength{\textwidth}{6.5in}
+
+\usepackage{palatino,graphics,amsmath}
+
+\newcommand{\ds}{\displaystyle}
+\newcommand{\vs}[1]{\vspace{#1in}}
+\renewcommand{\vss}[1]{\vspace*{#1in}}
+\newcommand{\bvec}{{\mathbf b}}
+\newcommand{\cvec}{{\mathbf c}}
+\newcommand{\dvec}{{\mathbf d}}
+\newcommand{\evec}{{\mathbf e}}
+\newcommand{\fvec}{{\mathbf f}}
+\newcommand{\qvec}{{\mathbf q}}
+\newcommand{\uvec}{{\mathbf u}}
+\newcommand{\vvec}{{\mathbf v}}
+\newcommand{\wvec}{{\mathbf w}}
+\newcommand{\xvec}{{\mathbf x}}
+\newcommand{\yvec}{{\mathbf y}}
+\newcommand{\zvec}{{\mathbf y}}
+\newcommand{\zerovec}{{\mathbf 0}}
+\newcommand{\real}{{\mathbb R}}
+\newcommand{\twovec}[2]{\left[\begin{array}{r}#1 \\ #2
+    \end{array}\right]}
+\newcommand{\ctwovec}[2]{\left[\begin{array}{c}#1 \\ #2
+   \end{array}\right]}
+\newcommand{\threevec}[3]{\left[\begin{array}{r}#1 \\ #2 \\ #3
+  \end{array}\right]}
+\newcommand{\cthreevec}[3]{\left[\begin{array}{c}#1 \\ #2 \\ #3
+    \end{array}\right]}
+\newcommand{\fourvec}[4]{\left[\begin{array}{r}#1 \\ #2 \\ #3 \\ #4
+    \end{array}\right]}
+\newcommand{\cfourvec}[4]{\left[\begin{array}{c}#1 \\ #2 \\ #3 \\ #4
+    \end{array}\right]}
+\newcommand{\mattwo}[4]{\left[\begin{array}{rr}#1 \amp #2 \\ #3 \amp #4 \\ \end{array}\right]}
+
+\begin{document}
+
+\noindent
+{\bf Mathematics 227} \\ 
+{\bf Matrix multiplication}
+
+\bigskip
+\begin{enumerate}
+\item Find the matrix product
+
+  $
+  \ds
+  \left[
+    \begin{array}{cccc}
+      1 & 2 & 0 & -1 \\
+      2 & 4 & -3 & -2 \\
+      -1 & -2 & 6 & 1 \\
+    \end{array}
+  \right]
+  \fourvec31{-1}1
+  $
+
+  \vs{2}
+  
+
+\item Suppose that $A$ is the matrix
+  $$
+  A =
+  \left[
+    \begin{array}{ccc}
+      3 & -1 & 0 \\
+      0 & -2 & 4 \\
+      2 & 1 & 5 \\
+      1 & 0 & 3 \\
+    \end{array}
+  \right].
+  $$
+  If $A\xvec$ is defined, what is the dimension of the vector $\xvec$?
+  What is the dimension of $A\xvec$?
+
+  \vs{1}
+\item A vector whose entries are all zero is denoted by
+  $\zerovec$.  If $A$ is a matrix, what is the
+  product $A\zerovec$?
+
+  \vs{1}
+  \newpage
+\item Suppose that
+  $I =
+  \left[
+    \begin{array}{rrr}
+      1 & 0 & 0 \\
+      0 & 1 & 0 \\
+      0 & 0 & 1 \\
+    \end{array}
+  \right]
+  $
+  and that $\xvec=\threevec{x_1}{x_2}{x_3}$.  Find the product
+  $I\xvec$
+  and explain why $I$ is called the
+  {\em identity matrix}.
+
+  \vs{1.5}
+
+\item Suppose we write the matrix $A$ in terms of its columns
+  as 
+  $$
+  A =
+  \left[
+    \begin{array}{rrrr}
+      \vvec_1 & \vvec_2 & \ldots & \vvec_n \\
+    \end{array}
+  \right].
+  $$
+  If the vector
+  $\evec_1 =
+  \left[
+    \begin{array}{r} 1 \\ 0 \\ \vdots \\ 0
+    \end{array}
+  \right]$, what is the product
+  $A\evec_1$?
+
+  \vs{1.5}
+\item Suppose that
+  $$
+  A =
+  \left[
+    \begin{array}{rrrr}
+      1 & 2 \\
+      -1 & 1 \\
+    \end{array}
+  \right],
+  \bvec = \left[
+    \begin{array}{r}
+      6 \\ 0
+    \end{array}
+  \right].
+  $$
+  Is there a vector $\xvec$ such that $A\xvec = \bvec$?  Explain your
+  process for answering this question clearly.
+
+  \newpage
+  In Sage, we may define a vector as
+
+  {\tt v = vector([2, 3, -1])}.
+
+  Scalar multiplication, vector addition, and matrix multiiplication
+  work just as you would expect:  {\tt 3*v}, {\tt v + w}, and {\tt
+    A*v}.
+
+  Also, if {\tt A} is a matrix and {\tt b} is a vector, then
+
+  {\tt A.augment(b)}
+
+  gives the new matrix obtained by augmenting {\tt A} by the vector
+  {\tt b}.
+
+  In Sage, define the matrix and vectors
+  $$
+  A =
+  \left[
+    \begin{array}{rr}
+      -2 & 0 \\
+      3 & 1 \\
+      4 & 2 \\
+    \end{array}
+  \right],
+  \hspace*{24pt}
+  \vvec = \twovec{-2}3,
+  \hspace*{24pt}
+  \wvec = \twovec12.
+  $$
+
+  Compare the result of evaluating $A(3\vvec)$ to that of evaluating
+  $3A\vvec$.
+
+  \vs{1}
+  
+  Compare the result of evaluating $A(\vvec+\wvec)$ to that of evaluating
+  $A\vvec + A\wvec$.
+
+  \vs{1}
+
+\item Suppose that $A$ is the matrix
+  $$
+  A = \left[
+    \begin{array}{rrrr}
+      1 & 2 & 0 & -1 \\
+      2 & 4 & -3 & -2 \\
+      -1 & -2 & 6 & 1 \\
+    \end{array}
+  \right]
+  $$
+
+  Describe the solution space to the equation
+  $
+  A\xvec = \threevec{-1}15.
+  $
+
+  \vs{1}
+  \newpage
+  Describe the solution space to the equation
+  $
+  A\xvec = \threevec36{-3}.
+  $
+
+  \vs{1}
+
+  Given two matrices $A$ and $B$, we can form the prodcut $AB$ by
+  multiplying the columns of $B$ by $A$.  That is,
+  
+  $$\text{if} B=
+  \left[
+    \begin{array}{rrrr}
+      \bvec_1 & \bvec_2 & \ldots & \bvec_p
+    \end{array}
+  \right],
+  \text{then}\thinspace
+  AB=
+  \left[
+    \begin{array}{rrrr}
+      A\bvec_1 & A\bvec_2 & A\ldots & A\bvec_p
+    \end{array}
+  \right].
+  $$
+  To do this, the number of columns of $A$ must equal the number of
+  rows of $B$.
+
+  Suppose that
+  $$
+  A =
+  \left[
+    \begin{array}{rrr}
+      1 & 3 & 2 \\
+      -3 & 4 & -1 \\
+    \end{array}
+  \right],
+  B =
+  \left[
+    \begin{array}{rr}
+      3 & 0 \\
+      1 & 2 \\
+      -2 & -1 \\
+    \end{array}
+  \right].
+  $$
+  Find the product $AB$.
+
+  \vs{1}
+  Also, compute the product $BA$.  Are the results the same?
+
+  \vs{1}
+\item Form the matrices matrices
+  $$
+  A =
+  \left[
+    \begin{array}{rr}
+      1 & 2 \\
+      -2 & -4 \\
+    \end{array}
+  \right],
+  B =
+  \left[
+    \begin{array}{rr}
+      2 & -4 \\
+      -1 & 2 \\
+    \end{array}
+  \right].
+  $$
+
+  What is the product $AB$ in this case?
+  
+  
+                                          
+
+
+  
+
+\end{enumerate}
+
+
+\end{document}

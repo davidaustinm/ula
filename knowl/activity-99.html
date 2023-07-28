@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<script>// Make *any* pre with class 'sagecell-sage' an executable Sage cell
+// Their results will be linked, only within language type
+sagecell.makeSagecell({
+  "inputLocation": "pre.sagecell-sage",
+  "linked": true,
+  "languages": [
+    "sage"
+  ],
+  "evalButtonText": "Evaluate (Sage)"
+});
+</script>
+</head>
+<body class="ignore-math">
+<article class="activity project-like"><h4 class="heading">
+<span class="type">Activity</span><span class="space"> </span><span class="codenumber">7.3.4</span><span class="period">.</span>
+</h4>
+<div class="para">The next cell will load a dataset describing the average consumption of various food groups for citizens in each of the four nations of the United Kingdom.  The units for each entry are grams per person per week. <pre class="ptx-sagecell sagecell-sage" id="sage-221"><script type="text/x-sage">import pandas as pd
+df = pd.read_csv('https://raw.githubusercontent.com/davidaustinm/ula_modules/master/data/uk-diet.csv', index_col=0)
+data_mean = vector(df.T.mean())
+A = matrix([vector(row) for row in (df.T-df.T.mean()).values]).T
+df
+</script></pre> We will view this as a dataset consisting of four points in <span class="process-math">\(\real^{17}\text{.}\)</span>  As such, it is impossible to visualize and studying the numbers themselves doesn’t lead to much insight.</div> <div class="para logical">
+<div class="para">In addition to loading the data, evaluating the cell above created a vector <code class="code-inline tex2jax_ignore">data_mean</code>, which is the mean of the four data points, and <code class="code-inline tex2jax_ignore">A</code>, the <span class="process-math">\(17\times4\)</span> matrix of demeaned data.</div>
+<ol class="lower-alpha">
+<li><div class="para">What is the average consumption of Beverages across the four nations? <pre class="ptx-sagecell sagecell-sage" id="sage-222"><script type="text/x-sage">
+</script></pre>
+</div></li>
+<li><div class="para">Find the covariance matrix <span class="process-math">\(C\)</span> and its eigenvalues.  Because there are four points in <span class="process-math">\(\real^{17}\)</span> whose mean is zero, there are only three nonzero eigenvalues.</div></li>
+<li><div class="para">For what percentage of the total variance does the first principal component account?</div></li>
+<li>
+<div class="para">Find the first principal component <span class="process-math">\(\uvec_1\)</span> and project the four demeaned data points onto the line defined by <span class="process-math">\(\uvec_1\text{.}\)</span>  Plot those points on <a href="" class="xref" data-knowl="./knowl/fig-pca-1d.html" title="Figure 7.3.2">Figure 7.3.2</a>
+</div>
+<figure class="figure figure-like"><div class="sidebyside"><div class="sbsrow" style="margin-left:5%;margin-right:5%;"><div class="sbspanel top" style="width:100%;"><img src="external/images/pca-plot-1.svg" role="img" class="contained"></div></div></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">7.3.2<span class="period">.</span></span><span class="space"> </span>A plot of the demeaned data projected onto the first principal component.</figcaption></figure>
+</li>
+<li><div class="para">For what percentage of the total variance do the first two principal components account?</div></li>
+<li>
+<div class="para">Find the coordinates of the demeaned data points projected onto <span class="process-math">\(W_2\text{,}\)</span> the two-dimensional subspace of <span class="process-math">\(\real^{17}\)</span> spanned by the first two principal components. <pre class="ptx-sagecell sagecell-sage" id="sage-223"><script type="text/x-sage">
+</script></pre>
+</div>
+<div class="para">Plot these coordinates in <a href="" class="xref" data-knowl="./knowl/fig-pca-2d.html" title="Figure 7.3.3">Figure 7.3.3</a>.</div>
+<figure class="figure figure-like"><div class="sidebyside"><div class="sbsrow" style="margin-left:5%;margin-right:5%;"><div class="sbspanel top" style="width:100%;"><img src="external/images/pca-plot-2.svg" role="img" class="contained"></div></div></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">7.3.3<span class="period">.</span></span><span class="space"> </span>The coordinates of the demeaned data points projected onto the first two principal components.</figcaption></figure>
+</li>
+<li><div class="para">What information do these plots reveal that is not clear from consideration of the original data points?</div></li>
+<li><div class="para">Study the first principal component <span class="process-math">\(\uvec_1\)</span> and find the first component of <span class="process-math">\(\uvec_1\text{,}\)</span> which corresponds to the dietary category Alcoholic Drinks. (To do this, you may wish to use <code class="code-inline tex2jax_ignore">N(u1, digits=2)</code> for a result that’s easier to read.) If a data point lies on the far right side of the plot in <a href="" class="xref" data-knowl="./knowl/fig-pca-2d.html" title="Figure 7.3.3">Figure 7.3.3</a>, what does it mean about that nation’s consumption of Alcoholic Drinks?</div></li>
+</ol>
+</div></article><span class="incontext"><a href="sec-pca.html#activity-99" class="internal">in-context</a></span>
+</body>
+</html>

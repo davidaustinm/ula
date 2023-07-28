@@ -1,0 +1,159 @@
+\documentclass[12pt]{article}
+
+\pagestyle{empty}
+\setlength{\topmargin}{0in}
+\setlength{\headheight}{0in}
+\setlength{\topsep}{0in}
+\setlength{\textheight}{9in}
+\setlength{\oddsidemargin}{0in}
+\setlength{\evensidemargin}{0in}
+\setlength{\textwidth}{6.5in}
+
+\usepackage{palatino,graphics,amsmath,amssymb,enumitem}
+
+\newcommand{\ds}{\displaystyle}
+\newcommand{\vs}[1]{\vspace{#1in}}
+\renewcommand{\vss}[1]{\vspace*{#1in}}
+\newcommand{\bvec}{{\mathbf b}}
+\newcommand{\cvec}{{\mathbf c}}
+\newcommand{\dvec}{{\mathbf d}}
+\newcommand{\evec}{{\mathbf e}}
+\newcommand{\fvec}{{\mathbf f}}
+\newcommand{\qvec}{{\mathbf q}}
+\newcommand{\uvec}{{\mathbf u}}
+\newcommand{\vvec}{{\mathbf v}}
+\newcommand{\wvec}{{\mathbf w}}
+\newcommand{\xvec}{{\mathbf x}}
+\newcommand{\yvec}{{\mathbf y}}
+\newcommand{\zvec}{{\mathbf y}}
+\newcommand{\zerovec}{{\mathbf 0}}
+\newcommand{\real}{{\mathbb R}}
+\newcommand{\twovec}[2]{\left[\begin{array}{r}#1 \\ #2
+    \end{array}\right]}
+\newcommand{\ctwovec}[2]{\left[\begin{array}{c}#1 \\ #2
+   \end{array}\right]}
+\newcommand{\threevec}[3]{\left[\begin{array}{r}#1 \\ #2 \\ #3
+  \end{array}\right]}
+\newcommand{\cthreevec}[3]{\left[\begin{array}{c}#1 \\ #2 \\ #3
+    \end{array}\right]}
+\newcommand{\fourvec}[4]{\left[\begin{array}{r}#1 \\ #2 \\ #3 \\ #4
+    \end{array}\right]}
+\newcommand{\cfourvec}[4]{\left[\begin{array}{c}#1 \\ #2 \\ #3 \\ #4
+    \end{array}\right]}
+\newcommand{\mattwo}[4]{\left[\begin{array}{rr}#1 & #2 \\ #3 & #4 \\ \end{array}\right]}
+\renewcommand{\span}[1]{\text{Span}\{#1\}}
+\newcommand{\bcal}{{\cal B}}
+\newcommand{\ccal}{{\cal C}}
+\newcommand{\scal}{{\cal S}}
+\newcommand{\wcal}{{\cal W}}
+\newcommand{\ecal}{{\cal E}}
+\newcommand{\coords}[2]{\left\{#1\right\}_{#2}}
+\newcommand{\gray}[1]{\color{gray}{#1}}
+\newcommand{\lgray}[1]{\color{lightgray}{#1}}
+\newcommand{\rank}{\text{rank}}
+\newcommand{\col}{\text{Col}}
+\newcommand{\nul}{\text{Nul}}
+
+\begin{document}
+
+\noindent
+{\bf Mathematics 227} \\ 
+{\bf Final Review, Part II}
+
+\begin{enumerate}
+\item Consider the matrix
+  $$
+  A =
+  \left[
+    \begin{array}{ccc}
+      -2 & 1 & 3 \\
+      2 & 1 & -1 \\
+      -4 & 0 & 8 \\
+    \end{array}
+  \right].
+  $$
+  Perform (by hand) a sequence of row operations to find a row
+  equivalent matrix that is upper-triangular.  Use this to compute
+  $\det(A)$.
+
+  \vs{4}
+    
+\item Suppose that $A$ is the $2\times2$ matrix that describes the
+  reflection in the line $y=2x$.  Think geometrically to give a
+  description of the eigenvalues and eigenvectors of $A$.
+
+  \vs{1.15}
+\item Suppose that $A$ is a square $n\times n$ matrix.  If $A$ is
+  invertible, what is the reduced row echelon form of $A$?
+
+  \vs{1}
+  Explain an algorithm to find $A^{-1}$ and why it works.
+
+  \vs{1}
+  Apply this algorithm to find $A^{-1}$ if
+  $
+  A =
+  \left[
+    \begin{array}{ccc}
+      1 & 2 & -1 \\
+      2 & 4 & -3 \\
+      1 & -2 & 0 \\
+    \end{array}
+  \right]
+  $.
+
+  \vs{1}
+  If $A$ is invertible, what can you say about $\col(A)$?
+
+  \vs{1}
+  If $A$ is invertible, what can you say about $\nul(A)$?
+
+  \vs{1}
+\item What do we mean by a basis of $\real^n$?
+
+  \vs{1}
+  Verify that
+  $$
+  \vvec_1=\threevec121,\hspace*{24pt}
+  \vvec_2=\threevec24{-2},,\hspace*{24pt}
+  \vvec_3=\threevec{-1}{-3}0
+  $$
+  form a basis $\bcal$.
+
+  \vs{1}
+  If $\xvec= \threevec{-6}70$, find $\coords{\xvec}{\bcal}$.
+
+  \vs{1}
+  If $\coords{\yvec}{\bcal}=\threevec{-2}{3}1$, find $\yvec$.
+
+  \vs{1}
+  Suppose that $A$ is a $3\times3$ matrix having eigenvectors
+  $\vvec_1$, $\vvec_2$, and $\vvec_3$ with associated eigenvalues
+  $\lambda_1 = 2$, $\lambda_2=-3$, and $\lambda_3=1$.  If
+  $\coords{\xvec}{\bcal} = \threevec134$, find
+  $\coords{A\xvec}{\bcal}$.
+
+  \vs{1}
+  Find a matrix $P$ such that $P\coords{\xvec}{\bcal} = \xvec$.
+
+  \vs{1}
+  Find a matrix $D$ such that $\coords{A\xvec}{\bcal} =
+  D\coords{\xvec}{\bcal}$.
+
+  \vs{1}
+  \newpage
+  Find $A\threevec100$ by first finding
+  $\coords{\threevec100}{\bcal}$, then
+  $\coords{A\threevec100}{\bcal}$, and finally $A\threevec100$.
+
+  \vs{3}
+  Explain why $A = PDP^{-1}$.
+
+  
+
+
+
+\end{enumerate}
+
+
+\end{document}

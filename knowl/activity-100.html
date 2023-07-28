@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*       on 2022-06-16T09:08:05-04:00       *-->
+<!--*   A recent stable commit (2020-08-09):   *-->
+<!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<script>// Make *any* pre with class 'sagecell-sage' an executable Sage cell
+// Their results will be linked, only within language type
+sagecell.makeSagecell({inputLocation: 'pre.sagecell-sage',
+                       linked: true,
+                       languages: ['sage'],
+                       evalButtonText: 'Evaluate (Sage)'});
+</script>
+</head>
+<body class="ignore-math">
+<article class="activity project-like"><h4 class="heading">
+<span class="type">Activity</span><span class="space"> </span><span class="codenumber">7.4.2</span><span class="period">.</span>
+</h4>
+<p>The following interactive figure will help us explore singular values and vectors geometrically before we begin a more algebraic approach.</p>
+<figure class="figure figure-like"><div style="width:600px;"><p id="p-7534">The four sliders at the top of this figure enable us to choose a <span class="process-math">\(2\times2\)</span> matrix <span class="process-math">\(A\text{.}\)</span>  Below on the left, we see the unit circle and the red unit vector <span class="process-math">\(\xvec\text{,}\)</span> which may be varied by clicking in the head of the vector and dragging it to a new unit vector.</p></div>
+<iframe id="interactive-svd" width="600" height="400" src="interactive-svd-if.html"></iframe><figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">7.4.1<span class="period">.</span></span><span class="space"> </span>Singular values, right singular vectors and left singular vectors</figcaption></figure><p>Select the matrix <span class="process-math">\(A=\begin{bmatrix}
+1 \amp 2 \\
+-2 \amp - 1 \\
+\end{bmatrix}\text{.}\)</span>  As we vary the vector <span class="process-math">\(\xvec\text{,}\)</span> we see the vector <span class="process-math">\(A\xvec\)</span> in gray while the height of the blue bar to the right tells us <span class="process-math">\(l_A(\xvec) =
+|A\xvec|\text{.}\)</span></p>
+<ol class="lower-alpha">
+<li>
+<p>The first <em class="emphasis">singular value</em> <span class="process-math">\(\sigma_1\)</span> is the maximum value of <span class="process-math">\(l_A(\xvec)\)</span> and an associated <em class="emphasis">right singular vector</em> <span class="process-math">\(\vvec_1\)</span> is a unit vector describing a direction in which this maximum occurs.</p>
+<p>Use the diagram to find the first singular value <span class="process-math">\(\sigma_1\)</span> and an associated right singular vector <span class="process-math">\(\vvec_1\text{.}\)</span></p>
+</li>
+<li>
+<p>The second singular value <span class="process-math">\(\sigma_2\)</span> is the minimum value of <span class="process-math">\(l_A(\xvec)\)</span> and an associated right singular vector <span class="process-math">\(\vvec_2\)</span> is a unit vector describing a direction in which this minimum occurs.</p>
+<p>Use the diagram to find the second singular value <span class="process-math">\(\sigma_2\)</span> and an associated right singular vector <span class="process-math">\(\vvec_2\text{.}\)</span></p>
+</li>
+<li><p>Here's how we can find the right singular values and vectors without using the diagram.  Remember that <span class="process-math">\(l_A(\xvec) = \sqrt{q_G(\xvec)}\)</span> where <span class="process-math">\(G=A^TA\)</span> is the Gram matrix associated to <span class="process-math">\(A\text{.}\)</span>  Since <span class="process-math">\(G\)</span> is symmetric, it is orthogonally diagonalizable.  Find <span class="process-math">\(G\)</span> and an orthogonal diagonalization of it. <pre class="ptx-sagecell sagecell-sage" id="sage-231"><script type="text/x-sage">
+</script></pre> What is the maximum value of the quadratic form <span class="process-math">\(q_G(\xvec)\)</span> among all unit vectors and in which direction does it occur?  What is the minimum value of <span class="process-math">\(q_G(\xvec)\)</span> and in which direction does it occur?</p></li>
+<li><p>Because <span class="process-math">\(l_A(\xvec) = \sqrt{q_G(\xvec)}\text{,}\)</span> the first singular value <span class="process-math">\(\sigma_1\)</span> will be the square root of the maximum value of <span class="process-math">\(q_G(\xvec)\)</span> and <span class="process-math">\(\sigma_2\)</span> the square root of the minimum. Verify that the singular values that you found from the diagram are the square roots of the maximum and minimum values of <span class="process-math">\(q_G(\xvec)\text{.}\)</span></p></li>
+<li><p>Verify that the right singular vectors <span class="process-math">\(\vvec_1\)</span> and <span class="process-math">\(\vvec_2\)</span> that you found from the diagram are the directions in which the maximum and minimum values occur.</p></li>
+<li><p>Finally, we introduce the <em class="emphasis">left singular vectors</em> <span class="process-math">\(\uvec_1\)</span> and <span class="process-math">\(\uvec_2\)</span> by requiring that <span class="process-math">\(A\vvec_1 = \sigma_1\uvec_1\)</span> and <span class="process-math">\(A\vvec_2=\sigma_2\uvec_2\text{.}\)</span>  Find the two left singular vectors. <pre class="ptx-sagecell sagecell-sage" id="sage-232"><script type="text/x-sage">
+</script></pre></p></li>
+<li>
+<p>Form the matrices</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+U = \begin{bmatrix}\uvec_1 \amp \uvec_2
+\end{bmatrix}, \hspace{24pt}
+\Sigma = \begin{bmatrix}
+\sigma_1 \amp 0 \\
+0 \amp \sigma_2 \\
+\end{bmatrix}, \hspace{24pt}
+V = \begin{bmatrix}\vvec_1 \amp \vvec_2
+\end{bmatrix}
+\end{equation*}
+</div>
+<p class="continuation">and explain why <span class="process-math">\(AV = U\Sigma\text{.}\)</span></p>
+</li>
+<li><p>Finally, explain why <span class="process-math">\(A=U\Sigma V^T\)</span> and verify that this relationship holds for this specific example.</p></li>
+</ol>
+<div class="solutions">
+<a href="" class="answer-knowl original" data-knowl="./knowl/answer-313-hidden.html" title="Answer 7.4.2.1"><span class="type">Answer</span><span class="period">.</span></a><a href="" class="solution-knowl original" data-knowl="./knowl/solution-385-hidden.html" title="Solution 7.4.2.1"><span class="type">Solution</span><span class="period">.</span></a>
+</div></article><span class="incontext"><a href="sec-svd-intro.html#activity-100" class="internal">in-context</a></span>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<script>// Make *any* pre with class 'sagecell-sage' an executable Sage cell
+// Their results will be linked, only within language type
+sagecell.makeSagecell({
+  "inputLocation": "pre.sagecell-sage",
+  "linked": true,
+  "languages": [
+    "sage"
+  ],
+  "evalButtonText": "Evaluate (Sage)"
+});
+</script>
+</head>
+<body class="ignore-math">
+<article class="activity project-like"><h4 class="heading">
+<span class="type">Activity</span><span class="space"> </span><span class="codenumber">4.5.5</span><span class="period">.</span>
+</h4>
+<div class="sidebyside"><div class="sbsrow" style="margin-left:1.25%;margin-right:1.25%;">
+<div class="sbspanel top" style="width:51.2820512820513%;"><div class="para">We will consider a simple model of the Internet that has three pages and links between them as shown here.  For instance, page 1 links to both pages 2 and 3, but page 2 only links to page 1.</div></div>
+<div class="sbspanel top" style="width:46.1538461538462%;"><figure class="figure figure-like"><img src="external/images/google-intro.svg" role="img" class="contained"><figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">4.5.7<span class="period">.</span></span><span class="space"> </span>Our first Internet.</figcaption></figure></div>
+</div></div> <div class="para">We will measure the quality of the <span class="process-math">\(j^{th}\)</span> page with a number <span class="process-math">\(x_j\text{,}\)</span> which is called the PageRank of page <span class="process-math">\(j\text{.}\)</span>  The PageRank is determined by the following rule:  each page divides its PageRank into equal pieces, one for each outgoing link, and gives one piece to each of the pages it links to.  A page’s PageRank is the sum of all the PageRank it receives from pages linking to it.</div> <div class="para logical">
+<div class="para">For instance, page 3 has two outgoing links.  It therefore divides its PageRank <span class="process-math">\(x_3\)</span> in half and gives half to page 1.  Page 2 has only one outgoing link so it gives all of its PageRank <span class="process-math">\(x_2\)</span> to page 1.  We therefore have</div>
+<div class="displaymath process-math">
+\begin{equation*}
+x_1 = x_2 + \frac12 x_3\text{.}
+\end{equation*}
+</div>
+</div> <div class="para logical"><ol class="lower-alpha">
+<li><div class="para">Find similar expressions for <span class="process-math">\(x_2\)</span> and <span class="process-math">\(x_3\text{.}\)</span>
+</div></li>
+<li><div class="para">We now form the PageRank vector <span class="process-math">\(\xvec =
+\threevec{x_1}{x_2}{x_3}\text{.}\)</span>  Find a matrix <span class="process-math">\(G\)</span> such that the expressions for <span class="process-math">\(x_1\text{,}\)</span> <span class="process-math">\(x_2\text{,}\)</span> and <span class="process-math">\(x_3\)</span> can be written in the form <span class="process-math">\(G\xvec = \xvec\text{.}\)</span>  The matrix <span class="process-math">\(G\)</span> is called the “Google matrix”.</div></li>
+<li><div class="para">Explain why <span class="process-math">\(G\)</span> is a stochastic matrix.</div></li>
+<li><div class="para">Since <span class="process-math">\(\xvec\)</span> is defined by the equation <span class="process-math">\(G\xvec = \xvec\text{,}\)</span> any vector in the eigenspace <span class="process-math">\(E_1\)</span> satisfies this equation.  So that we might work with a specific vector, we will define the PageRank vector to be the steady-state vector of the stochastic matrix <span class="process-math">\(G\text{.}\)</span>  Find this steady state vector. <pre class="ptx-sagecell sagecell-sage" id="sage-126"><script type="text/x-sage">
+</script></pre>
+</div></li>
+<li><div class="para">The PageRank vector <span class="process-math">\(\xvec\)</span> is composed of the PageRanks for each of the three pages.  Which page of the three is assessed to have the highest quality?  By referring to the structure of this small model of the Internet, explain why this is a good choice.</div></li>
+<li><div class="para">If we begin with the initial vector <span class="process-math">\(\xvec_0 =
+\threevec{1}{0}{0}\)</span> and form the Markov chain <span class="process-math">\(\xvec_{k+1} = G\xvec_k\text{,}\)</span> what does the Perron-Frobenius theorem tell us about the long-term behavior of the Markov chain?</div></li>
+<li><div class="para">Verify that this Markov chain converges to the steady-state PageRank vector. <pre class="ptx-sagecell sagecell-sage" id="sage-127"><script type="text/x-sage">def markov_chain(A, x0, N):
+    for i in range(N):
+        x0 = A*x0
+        print (x0.numerical_approx(digits=3))
+## define the matrix G and x0
+G =
+x0 =
+markov_chain(G, x0, 20)
+</script></pre>
+</div></li>
+</ol></div></article><span class="incontext"><a href="sec-stochastic.html#activity-59" class="internal">in-context</a></span>
+</body>
+</html>

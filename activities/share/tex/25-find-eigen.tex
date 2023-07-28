@@ -1,0 +1,245 @@
+\documentclass[12pt]{article}
+
+\pagestyle{empty}
+\setlength{\topmargin}{0in}
+\setlength{\headheight}{0in}
+\setlength{\topsep}{0in}
+\setlength{\textheight}{9in}
+\setlength{\oddsidemargin}{0in}
+\setlength{\evensidemargin}{0in}
+\setlength{\textwidth}{6.5in}
+
+\usepackage{palatino,graphics,amsmath,amssymb,enumitem}
+
+\newcommand{\ds}{\displaystyle}
+\newcommand{\vs}[1]{\vspace{#1in}}
+\renewcommand{\vss}[1]{\vspace*{#1in}}
+\newcommand{\bvec}{{\mathbf b}}
+\newcommand{\cvec}{{\mathbf c}}
+\newcommand{\dvec}{{\mathbf d}}
+\newcommand{\evec}{{\mathbf e}}
+\newcommand{\fvec}{{\mathbf f}}
+\newcommand{\qvec}{{\mathbf q}}
+\newcommand{\uvec}{{\mathbf u}}
+\newcommand{\vvec}{{\mathbf v}}
+\newcommand{\wvec}{{\mathbf w}}
+\newcommand{\xvec}{{\mathbf x}}
+\newcommand{\yvec}{{\mathbf y}}
+\newcommand{\zvec}{{\mathbf y}}
+\newcommand{\zerovec}{{\mathbf 0}}
+\newcommand{\real}{{\mathbb R}}
+\newcommand{\twovec}[2]{\left[\begin{array}{r}#1 \\ #2
+    \end{array}\right]}
+\newcommand{\ctwovec}[2]{\left[\begin{array}{c}#1 \\ #2
+   \end{array}\right]}
+\newcommand{\threevec}[3]{\left[\begin{array}{r}#1 \\ #2 \\ #3
+  \end{array}\right]}
+\newcommand{\cthreevec}[3]{\left[\begin{array}{c}#1 \\ #2 \\ #3
+    \end{array}\right]}
+\newcommand{\fourvec}[4]{\left[\begin{array}{r}#1 \\ #2 \\ #3 \\ #4
+    \end{array}\right]}
+\newcommand{\cfourvec}[4]{\left[\begin{array}{c}#1 \\ #2 \\ #3 \\ #4
+    \end{array}\right]}
+\newcommand{\mattwo}[4]{\left[\begin{array}{rr}#1 & #2 \\ #3 & #4 \\ \end{array}\right]}
+\renewcommand{\span}[1]{\text{Span}\{#1\}}
+\newcommand{\bcal}{{\cal B}}
+\newcommand{\ccal}{{\cal C}}
+\newcommand{\scal}{{\cal S}}
+\newcommand{\wcal}{{\cal W}}
+\newcommand{\ecal}{{\cal E}}
+\newcommand{\coords}[2]{\left\{#1\right\}_{#2}}
+\newcommand{\gray}[1]{\color{gray}{#1}}
+\newcommand{\lgray}[1]{\color{lightgray}{#1}}
+\newcommand{\rank}{\text{rank}}
+\newcommand{\col}{\text{Col}}
+\newcommand{\nul}{\text{Nul}}
+
+\begin{document}
+
+\noindent
+{\bf Mathematics 227} \\ 
+{\bf Finding eigenvectors and eigenvalues}
+
+\bigskip
+If $A$ is an $n\times n$ matrix, we can rewrite the condition
+$A\vvec = \lambda\vvec$ as
+$$
+(A-\lambda I)\vvec = \zerovec.
+$$
+We will now learn how to find eigenvalues $\lambda$ and eigenvectors
+$\vvec$.   
+
+\begin{enumerate}
+\item If $\vvec$ is an eigenvector of $A$ with associated eigenvalue
+  $\lambda$, then $\vvec$ is a nonzero solution to the homogeneous
+  equation $(A-\lambda I)\xvec = \zerovec$.  What does this imply
+  about the pivot positions of the matrix $A-\lambda I$?
+
+  \vs{1}
+  What does this say about the invertibility of $A-\lambda I$?
+
+  \vs{1}
+  What does this say about the determinant $\det(A-\lambda I)$?
+
+  \vs{1}
+\item Consider the matrix
+  $A =
+  \left[
+    \begin{array}{cc}
+      1 & 2 \\
+      2 & 1 \\
+    \end{array}
+  \right]
+  $ and construct the matrix
+  $$
+  A - \lambda I =
+  \left[
+    \begin{array}{cc}
+      1 & 2 \\
+      2 & 1 \\
+    \end{array}
+  \right]
+  -\lambda
+  \left[
+    \begin{array}{cc}
+      1 & 0 \\
+      0 & 1 \\
+    \end{array}
+  \right]
+  =
+  \left[
+    \begin{array}{cc}
+      1 & 2 \\
+      2 & 1 \\
+    \end{array}
+  \right]
+  -
+  \left[
+    \begin{array}{cc}
+      \lambda & 0 \\
+      0 & \lambda \\
+    \end{array}
+  \right]
+  =
+  \left[
+    \begin{array}{cc}
+      1-\lambda & 2 \\
+      2 & 1-\lambda \\
+    \end{array}
+  \right].
+  $$
+  Find the determinant $\det(A-\lambda I)$ and then find the values
+  $\lambda$ such that $\det(A-\lambda I) = 0$.  These are the
+  eigenvalues of $A$.
+
+  \vs{1}
+  
+  \newpage
+  The solution to the equation $\det(A-\lambda I) = 0$ are $\lambda =
+  3$ and $\lambda = -1$.  These are the eigenvalues of $A$.  Now let's
+  find the eigenvectors, which are the solutions to the equation
+  $(A-\lambda I)\xvec = \zerovec$.
+
+  Start with $\lambda = 3$, which gives us the matrix $A-3I$.  Find
+  the solutions to the homogeneous equation $(A-3I)\xvec = \zerovec$.
+  These will be the eigenvectors corresponding to $\lambda = 3$.
+
+  \vs{1.5}
+  Now use $\lambda = -1$, which gives us the matrix $A+I$.  Find the
+  solutions to the homogeneous equation $(A+I)\xvec = \zerovec$.
+  These will be the eigenvectors corresponding to $\lambda = -1$.
+
+  \vs{1.5}
+  Go to {\tt http://gvsu.edu/s/0Ja} and verify that you have found the
+  eigenvectors and eigenvalues for $A$.
+
+  \bigskip
+  We will call the set of all eigenvectors corresponding to an
+  eigenvalue $\lambda$ the {\em eigenspace} of $A$ corresponding to
+  $\lambda$ and denote it by $E_\lambda$.  Notice that
+  $E_\lambda = \nul(A-\lambda I)$, the null space of $A-\lambda I$.
+  For the matrix $A$, what are $\dim E_3$ and $\dim E_{-1}$?
+
+  \vs{1}
+  \newpage
+\item Let's now find the eigenvectors and eigenvalues of
+  $A =
+  \left[
+    \begin{array}{cc}
+      2 & 1 \\
+      0 & 2 \\
+    \end{array}
+  \right]
+  $.
+
+  Find the eigenvalues by solving the equation $\det(A-\lambda I) =
+  0$, then find a basis for the eigenspaces $E_\lambda$ for each
+  eigenvalue $\lambda$.
+
+  \vs{2}
+  You can check your results again using the interactive figure.
+
+\item Consider the matrix
+  $A =
+  \left[
+    \begin{array}{cc}
+      0 & -1 \\
+      1 & 0 \\
+    \end{array}
+  \right]
+  $ and find its eigenvalues and eigenvectors.  Verify your results
+  again with the interactive figure.
+
+  \vs{1}
+  
+\item Remember that the determinant of a triangular matrix, such as
+  $
+  A =
+  \left[
+    \begin{array}{ccc}
+      -2 & 1 & 2 \\
+      0 & -1 & 3 \\
+      0 & 0 & 3 \\
+    \end{array}
+  \right]
+  $,
+  is the product of the diagonal entries.  What does this say about
+  the eigenvalues of a triangular matrix?
+
+  \vs{1.5}
+\item Sage can find the eigenvalues of a matrix {\tt A} using {\tt
+    A.eigenvalues()}.  Use Sage to find the eigenvalues of
+  $$
+  A =
+  \left[
+    \begin{array}{cccc}
+      3 & 0 & 2 & 0 \\
+      1 & 3 & 1 & 0 \\
+      0 & 1 & 1 & 0 \\
+      0 & 0 & 0 & 4 \\
+    \end{array}
+  \right].
+  $$
+
+  \vs{0.5}
+  Then find a basis for the eigenspace $E_4$.  What is the dimension of
+  $E_4$?
+
+  \vs{2.5}
+  Find a basis for eigenspaces $E_2$ and $E_1$.
+
+  \vs{2.5}
+  Can you find a basis for $\real^4$ consisting of eigenvectors of
+  $A$? 
+
+  
+  
+  
+  
+  
+  
+
+\end{enumerate}
+
+
+\end{document}

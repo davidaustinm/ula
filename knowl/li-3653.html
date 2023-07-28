@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<script>// Make *any* pre with class 'sagecell-sage' an executable Sage cell
+// Their results will be linked, only within language type
+sagecell.makeSagecell({
+  "inputLocation": "pre.sagecell-sage",
+  "linked": true,
+  "languages": [
+    "sage"
+  ],
+  "evalButtonText": "Evaluate (Sage)"
+});
+</script>
+</head>
+<body class="ignore-math">
+<article class="li"><h5 class="heading">
+<span class="type">Item</span><span class="space"> </span><span class="codenumber">e</span><span class="period">.</span>
+</h5>
+<div class="para">Consider the matrix <span class="process-math">\(A = \left[\begin{array}{rrrr}
+3.6 \amp 1.6 \amp 4.0 \amp 7.6 \\
+1.6 \amp 2.2 \amp 4.4 \amp 4.1 \\
+3.9 \amp 4.3 \amp 9.0 \amp 0.6 \\
+7.6 \amp 4.1 \amp 0.6 \amp 5.0 \\
+\end{array}\right]
+\text{.}\)</span> If we use the power method and inverse power method, we find two eigenvalues, <span class="process-math">\(\lambda_1=16.35\)</span> and <span class="process-math">\(\lambda_2=0.75\text{.}\)</span>  Viewing these eigenvalues on a number line, we know that the other eigenvalues lie in the range between <span class="process-math">\(-\lambda_1\)</span> and <span class="process-math">\(\lambda_1\text{,}\)</span> as shaded in <a href="" class="xref" data-knowl="./knowl/fig-numerical-power-line.html" title="Figure 5.2.3">Figure 5.2.3</a>.</div>
+<figure class="figure figure-like"><div class="sidebyside"><div class="sbsrow" style="margin-left:12.5%;margin-right:12.5%;"><div class="sbspanel top" style="width:100%;"><img src="external/images/numerical-power-line.svg" role="img" class="contained"></div></div></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">5.2.3<span class="period">.</span></span><span class="space"> </span>The range of eigenvalues of <span class="process-math">\(A\text{.}\)</span></figcaption></figure><div class="para">The Sage cell below has a function <code class="code-inline tex2jax_ignore">find_closest_eigenvalue(A, s, x, N)</code> that implements <span class="process-math">\(N\)</span> steps of the inverse power method using the matrix <span class="process-math">\(A-sI\)</span> and an initial vector <span class="process-math">\(x\text{.}\)</span>  This function prints approximations to the eigenvalue of <span class="process-math">\(A\)</span> closest to <span class="process-math">\(s\)</span> and its associated eigenvector.  By trying different values of <span class="process-math">\(s\)</span> in the shaded regions of the number line shown in <a href="" class="xref" data-knowl="./knowl/fig-numerical-power-line.html" title="Figure 5.2.3">Figure 5.2.3</a>, find the other two eigenvalues of <span class="process-math">\(A\text{.}\)</span> <pre class="ptx-sagecell sagecell-sage" id="sage-145"><script type="text/x-sage">def find_closest_eigenvalue(A, s, x, N):
+    B = A-s*identity_matrix(A.nrows())
+    for i in range(N):
+        x = B \ x
+        m = max([comp for comp in x], key=abs).numerical_approx(digits=14)
+        x = 1/float(m)*x
+        print (1/float(m)+s, x)
+### define the matrix A and vector x0
+A =
+x0 =
+find_closest_eigenvalue(A, 2, x0, 20)
+</script></pre>
+</div></article><span class="incontext"><a href="sec-power-method.html#li-3653" class="internal">in-context</a></span>
+</body>
+</html>

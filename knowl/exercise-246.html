@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<script>// Make *any* pre with class 'sagecell-sage' an executable Sage cell
+// Their results will be linked, only within language type
+sagecell.makeSagecell({
+  "inputLocation": "pre.sagecell-sage",
+  "linked": true,
+  "languages": [
+    "sage"
+  ],
+  "evalButtonText": "Evaluate (Sage)"
+});
+</script>
+</head>
+<body class="ignore-math">
+<article class="exercise exercise-like"><h4 class="heading">
+<span class="type">Exercise</span><span class="space"> </span><span class="codenumber">10<span class="period">.</span></span>
+</h4>
+<div class="para logical">
+<div class="para">The following cell loads some data describing 1057 houses in a particular real estate market.  For each house, we record the living area in square feet, the lot size in acres, the age in years, and the price in dollars.  The cell also defines variables <code class="code-inline tex2jax_ignore">area</code>, <code class="code-inline tex2jax_ignore">size</code>, <code class="code-inline tex2jax_ignore">age</code>, and <code class="code-inline tex2jax_ignore">price</code>. <pre class="ptx-sagecell sagecell-sage" id="sage-203"><script type="text/x-sage">sage.repl.load.load('https://raw.githubusercontent.com/davidaustinm/ula_modules/master/orthogonality.py', globals())
+df = pd.read_csv('https://raw.githubusercontent.com/davidaustinm/ula_modules/master/data/housing.csv',index_col=0)
+df = df.fillna(df.mean())
+area = vector(df['Living.Area'])
+size = vector(df['Lot.Size'])
+age = vector(df['Age'])
+price = vector(df['Price'])
+df
+</script></pre> We will use linear regression to predict the price of a house given its living area, lot size, and age:</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\beta_0 + \beta_1~\text{Living Area} +
+\beta_2~\text{Lot Size} + \beta_3~\text{Age} = \text{Price}.
+\end{equation*}
+</div>
+<ol class="lower-alpha">
+<li><div class="para">Use a <span class="process-math">\(QR\)</span> factorization to find the least squares approximate solution <span class="process-math">\(\xhat\text{.}\)</span>
+</div></li>
+<li><div class="para">Discuss the significance of the signs of <span class="process-math">\(\beta_1\text{,}\)</span> <span class="process-math">\(\beta_2\text{,}\)</span> and <span class="process-math">\(\beta_3\text{.}\)</span>
+</div></li>
+<li><div class="para">If two houses are identical except for differing in age by one year, how would you predict that their prices compare to each another?</div></li>
+<li><div class="para">Find the coefficient of determination <span class="process-math">\(R^2\text{.}\)</span>  What does this say about the quality of the fit?</div></li>
+<li><div class="para">Predict the price of a house whose living area is 2000 square feet, lot size is 1.5 acres, and age is 50 years.</div></li>
+</ol>
+</div></article><span class="incontext"><a href="sec-least-squares.html#exercise-246" class="internal">in-context</a></span>
+</body>
+</html>

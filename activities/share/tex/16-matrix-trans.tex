@@ -1,0 +1,169 @@
+\documentclass[12pt]{article}
+
+\pagestyle{empty}
+\setlength{\topmargin}{0in}
+\setlength{\headheight}{0in}
+\setlength{\topsep}{0in}
+\setlength{\textheight}{9in}
+\setlength{\oddsidemargin}{0in}
+\setlength{\evensidemargin}{0in}
+\setlength{\textwidth}{6.5in}
+
+\usepackage{palatino,graphics,amsmath,amssymb,enumitem}
+
+\newcommand{\ds}{\displaystyle}
+\newcommand{\vs}[1]{\vspace{#1in}}
+\renewcommand{\vss}[1]{\vspace*{#1in}}
+\newcommand{\bvec}{{\mathbf b}}
+\newcommand{\cvec}{{\mathbf c}}
+\newcommand{\dvec}{{\mathbf d}}
+\newcommand{\evec}{{\mathbf e}}
+\newcommand{\fvec}{{\mathbf f}}
+\newcommand{\qvec}{{\mathbf q}}
+\newcommand{\uvec}{{\mathbf u}}
+\newcommand{\vvec}{{\mathbf v}}
+\newcommand{\wvec}{{\mathbf w}}
+\newcommand{\xvec}{{\mathbf x}}
+\newcommand{\yvec}{{\mathbf y}}
+\newcommand{\zvec}{{\mathbf y}}
+\newcommand{\zerovec}{{\mathbf 0}}
+\newcommand{\real}{{\mathbb R}}
+\newcommand{\twovec}[2]{\left[\begin{array}{r}#1 \\ #2
+    \end{array}\right]}
+\newcommand{\ctwovec}[2]{\left[\begin{array}{c}#1 \\ #2
+   \end{array}\right]}
+\newcommand{\threevec}[3]{\left[\begin{array}{r}#1 \\ #2 \\ #3
+  \end{array}\right]}
+\newcommand{\cthreevec}[3]{\left[\begin{array}{c}#1 \\ #2 \\ #3
+    \end{array}\right]}
+\newcommand{\fourvec}[4]{\left[\begin{array}{r}#1 \\ #2 \\ #3 \\ #4
+    \end{array}\right]}
+\newcommand{\cfourvec}[4]{\left[\begin{array}{c}#1 \\ #2 \\ #3 \\ #4
+    \end{array}\right]}
+\newcommand{\mattwo}[4]{\left[\begin{array}{rr}#1 & #2 \\ #3 & #4 \\ \end{array}\right]}
+\renewcommand{\span}[1]{\text{Span}\{#1\}}
+\newcommand{\bcal}{{\cal B}}
+\newcommand{\ccal}{{\cal C}}
+\newcommand{\scal}{{\cal S}}
+\newcommand{\wcal}{{\cal W}}
+\newcommand{\ecal}{{\cal E}}
+\newcommand{\coords}[2]{\left\{#1\right\}_{#2}}
+\newcommand{\gray}[1]{\color{gray}{#1}}
+\newcommand{\lgray}[1]{\color{lightgray}{#1}}
+\newcommand{\rank}{\text{rank}}
+\newcommand{\col}{\text{Col}}
+\newcommand{\nul}{\text{Nul}}
+
+\begin{document}
+
+\noindent
+{\bf Mathematics 227} \\ 
+{\bf Matrix transformations}
+
+\bigskip
+\begin{enumerate}
+\item Students in a school are sometimes absent due to illness.
+  We will record the fractions of healthy and ill students on one day
+  in a vector
+  $\xvec = \twovec HI$
+  where $H$ is the fraction of healthy students and $I$ is the
+  fraction of ill students.  For instance, if
+  $\xvec=\twovec{0.8}{0.2}$, 80\% of the students are healthy and 20\%
+  of the students are ill.
+
+  Suppose that
+  \begin{itemize}
+  \item 95\% of the students who are healthy one day are healthy the
+    next.
+  \item 50\% of the students who are ill one day are ill the next.
+  \end{itemize}
+
+  If we know the percentages of healthy and ill students one day, a
+  matrix transformation $T:\real^2\to\real^2$ tells us the percentages
+  the next day.
+
+  \begin{enumerate}[label=(\alph*)]
+  \item Find $T\left(\twovec10\right)$.  That is, if 100\% of the
+    students are healthy and none are ill one day, what are the
+    percentages the next day?
+
+    \vs{1}
+  \item Find $T\left(\twovec01\right)$.  That is, if 100\% of the
+    students are healthy and none are ill one day, what are the
+    percentages the next day?
+
+    \vs{1}
+  \item Use these results to find the matrix $A$ such that $T(\xvec) =
+    A\xvec$.
+
+    \vs{1}
+    \newpage
+  \item Suppose that 80\% of the students are healthy and 20\% are ill
+    on Tuesday.  What are the percentages on Wednesday?
+
+    \vs{1}
+  \item What were the percentages on Monday?
+
+    \vs{1}
+  \item What will be the percentages on Thursday and Friday?
+
+    \vs{1}
+  \item You can study how the percentages evolve over a long time
+    using Sage.  First, define the matrix $A$ and Tuesday's vector
+    $\xvec$.  Then use the following piece of code to show how $\xvec$
+    evolves over the next 20 days.
+
+\begin{verbatim}
+      for i in range(20):
+          x = A*x
+          print x
+
+\end{verbatim}
+    What happens to the fraction of healthy and ill students after a
+    very long time?
+
+    \vs{1}
+        
+
+  \end{enumerate}
+
+  \item Matrix transformation perform geometric operations.  Go to
+    {\tt gvsu.edu/s/0Jf} to study the effect that various matrix
+    transformations have on the plane.  On the left is the plane
+    before the transformation;  on the right is the plane after the
+    transformation.
+
+    Describe the geometric effect of the matrix transformations
+    defined by
+
+    \begin{enumerate}[label=(\alph*)]
+    \item $A=\mattwo 2001$
+      \vs{0.5}
+    \item $A=\mattwo 2002$
+      \vs{0.5}
+    \item $A=\mattwo 0{-1}10$
+      \vs{0.5}
+    \item $A=\mattwo 1101$
+      \vs{0.5}
+    \item $A=\mattwo {-1}001$
+      \vs{0.5}
+    \item $A=\mattwo {1}000$
+      \vs{0.5}
+    \item $A=\mattwo 1001$
+      \vs{0.5}
+    \item $A=\mattwo {1}{-1}{-2}2$
+      \vs{0.5}
+
+    \end{enumerate}
+
+    What matrix produces a $180^\circ$ rotation?
+
+    \vs{1}
+    What matrix produces a reflection over the line $y=-x$?
+
+    \vs{1}
+
+\end{enumerate}
+
+
+\end{document}

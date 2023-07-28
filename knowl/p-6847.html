@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<script>// Make *any* pre with class 'sagecell-sage' an executable Sage cell
+// Their results will be linked, only within language type
+sagecell.makeSagecell({
+  "inputLocation": "pre.sagecell-sage",
+  "linked": true,
+  "languages": [
+    "sage"
+  ],
+  "evalButtonText": "Evaluate (Sage)"
+});
+</script>
+</head>
+<body class="ignore-math">
+<h5 class="heading"><span class="type">Paragraph</span></h5>
+<div class="para logical">
+<div class="para">The following cell loads in some data showing the number of people in Bangladesh living without electricity over 27 years. It also defines vectors <code class="code-inline tex2jax_ignore">year</code>, which records the years in the data set, and <code class="code-inline tex2jax_ignore">people</code>, which records the number of people. <pre class="ptx-sagecell sagecell-sage" id="sage-200"><script type="text/x-sage">sage.repl.load.load('https://raw.githubusercontent.com/davidaustinm/ula_modules/master/orthogonality.py', globals())
+df = pd.read_csv('https://raw.githubusercontent.com/davidaustinm/ula_modules/master/data/bangladesh.csv')
+data = [vector(row) for row in df.values]
+year = vector(df['Year'])
+people = vector(df['People'])
+print(df)
+list_plot(data, size=40, color='blue')
+</script></pre>
+</div>
+<ol class="lower-alpha">
+<li><div class="para logical">
+<div class="para">Suppose we want to write</div>
+<div class="displaymath process-math">
+\begin{equation*}
+N = \beta_0 + \beta_1 t
+\end{equation*}
+</div>
+<div class="para">where <span class="process-math">\(t\)</span> is the year and <span class="process-math">\(N\)</span> is the number of people. Construct the matrix <span class="process-math">\(A\)</span> and vector <span class="process-math">\(\bvec\)</span> so that the linear system <span class="process-math">\(A\xvec=\bvec\)</span> describes the vector <span class="process-math">\(\xvec=\twovec{\beta_0}{\beta_1}\text{.}\)</span>
+</div>
+</div></li>
+<li><div class="para">Using a <span class="process-math">\(QR\)</span> factorization of <span class="process-math">\(A\text{,}\)</span> find the values of <span class="process-math">\(\beta_0\)</span> and <span class="process-math">\(\beta_1\)</span> in the least squares approximate solution <span class="process-math">\(\xhat\text{.}\)</span>
+</div></li>
+<li><div class="para">What is the coefficient of determination <span class="process-math">\(R^2\)</span> and what does this tell us about the quality of the approximation?</div></li>
+<li><div class="para">What is your prediction for the number of people living without electricity in 1985?</div></li>
+<li><div class="para">Estimate the year in which there will be no people living without electricity.</div></li>
+</ol>
+</div>
+<span class="incontext"><a href="sec-least-squares.html#p-6847" class="internal">in-context</a></span>
+</body>
+</html>

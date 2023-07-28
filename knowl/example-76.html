@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="example example-like"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">7.4.2</span><span class="period">.</span>
+</h4>
+<div class="para">We will find a singular value decomposition of the matrix <span class="process-math">\(A=\begin{bmatrix}
+1 \amp 2 \\
+-1 \amp 2
+\end{bmatrix}
+\text{.}\)</span>  Notice that this matrix is not symmetric so it cannot be orthogonally diagonalized.</div> <div class="para logical">
+<div class="para">We begin by constructing the Gram matrix <span class="process-math">\(G = A^TA =
+\begin{bmatrix} 
+2 \amp 0 \\
+0 \amp 8 \\
+\end{bmatrix}\text{.}\)</span>  Since <span class="process-math">\(G\)</span> is symmetric, it can be orthogonally diagonalized with</div>
+<div class="displaymath process-math">
+\begin{equation*}
+D = \begin{bmatrix}
+8 \amp 0 \\
+0 \amp 2 \\
+\end{bmatrix},\hspace{24pt}
+Q = \begin{bmatrix}
+0 \amp 1 \\
+1 \amp 0 \\
+\end{bmatrix}\text{.}
+\end{equation*}
+</div>
+</div> <div class="para">We now know that the maximum value of the quadratic form <span class="process-math">\(q_G(\xvec)\)</span> is 8, which occurs in the direction <span class="process-math">\(\twovec01\text{.}\)</span>  Since <span class="process-math">\(l_A(\xvec) =
+\sqrt{q_G(\xvec)}\text{,}\)</span> this tells us that the maximum value of <span class="process-math">\(l_A(\xvec)\text{,}\)</span> the first singular value, is <span class="process-math">\(\sigma_1=\sqrt{8}\)</span> and that this occurs in the direction of the first right singular vector <span class="process-math">\(\vvec_1=\twovec01\text{.}\)</span>
+</div> <div class="para">In the same way, we also know that the second singular value <span class="process-math">\(\sigma_2=\sqrt{2}\)</span> with associated right singular vector <span class="process-math">\(\vvec_2=\twovec10\text{.}\)</span>
+</div> <div class="para">The first left singular vector <span class="process-math">\(\uvec_1\)</span> is defined by <span class="process-math">\(A\vvec_1 = \twovec22 = \sigma_1\uvec_1\text{.}\)</span>  Because <span class="process-math">\(\sigma_1 = \sqrt{8}\text{,}\)</span> we have <span class="process-math">\(\uvec_1
+= \twovec{1/\sqrt{2}}{1/\sqrt{2}}\text{.}\)</span>  Notice that <span class="process-math">\(\uvec_1\)</span> is a unit vector because <span class="process-math">\(\sigma_1 =
+|A\vvec_1|\text{.}\)</span>
+</div> <div class="para">In the same way, the second left singular vector is defined by <span class="process-math">\(A\vvec_2 = \twovec1{-1} = \sigma_2\uvec_2\text{,}\)</span> which gives us <span class="process-math">\(\uvec_2 = \twovec{1/\sqrt{2}}{-1/\sqrt{2}}\text{.}\)</span>
+</div> <div class="para logical">
+<div class="para">We then construct</div>
+<div class="displaymath process-math">
+\begin{align*}
+U \amp {}={} \begin{bmatrix}
+\uvec_1 \amp \uvec_2 \end{bmatrix} =
+\begin{bmatrix}
+1/\sqrt{2} \amp 1/\sqrt{2} \\
+1/\sqrt{2} \amp -1/\sqrt{2} \\
+\end{bmatrix}\\
+\Sigma \amp {}={} \begin{bmatrix}
+\sigma_1 \amp 0 \\
+0 \amp \sigma_2 \\
+\end{bmatrix} = 
+\begin{bmatrix} 
+\sqrt{8} \amp 0 \\
+0 \amp \sqrt{2} \\
+\end{bmatrix}\\
+V \amp {}={} \begin{bmatrix}
+\vvec_1 \amp \vvec_2 \end{bmatrix} =
+\begin{bmatrix}
+0 \amp 1 \\
+1 \amp 0 \\
+\end{bmatrix}
+\end{align*}
+</div>
+</div> <div class="para logical">
+<div class="para">We now have <span class="process-math">\(AV=U\Sigma\)</span> because</div>
+<div class="displaymath process-math">
+\begin{equation*}
+AV = \begin{bmatrix}
+A\vvec_1 \amp A\vvec_2
+\end{bmatrix}
+= \begin{bmatrix}
+\sigma_1\uvec_1 \amp \sigma_2\uvec_2
+\end{bmatrix}
+= \Sigma U\text{.}
+\end{equation*}
+</div>
+<div class="para">Because the right singular vectors, the columns of <span class="process-math">\(V\text{,}\)</span> are eigenvectors of the symmetric matrix <span class="process-math">\(G\text{,}\)</span> they form an orthonormal basis, which means that <span class="process-math">\(V\)</span> is orthogonal.  Therefore, we have <span class="process-math">\((AV)V^T = A = U\Sigma
+V^T\text{.}\)</span>  This gives the singular value decomposition</div>
+<div class="displaymath process-math">
+\begin{equation*}
+A = \begin{bmatrix}
+1 \amp 2 \\
+-1 \amp 2 \\
+\end{bmatrix} =
+\begin{bmatrix}
+1/\sqrt{2} \amp 1/\sqrt{2} \\
+1/\sqrt{2} \amp -1/\sqrt{2} \\
+\end{bmatrix}
+\begin{bmatrix}
+\sqrt{8} \amp 0 \\
+0 \amp \sqrt{2} \\
+\end{bmatrix}
+\begin{bmatrix}
+0 \amp 1 \\
+1 \amp 0 \\
+\end{bmatrix}^T
+= U\Sigma V^T\text{.}
+\end{equation*}
+</div>
+</div></article><span class="incontext"><a href="sec-svd-intro.html#example-76" class="internal">in-context</a></span>
+</body>
+</html>

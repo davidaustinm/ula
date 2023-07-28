@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<script>// Make *any* pre with class 'sagecell-sage' an executable Sage cell
+// Their results will be linked, only within language type
+sagecell.makeSagecell({
+  "inputLocation": "pre.sagecell-sage",
+  "linked": true,
+  "languages": [
+    "sage"
+  ],
+  "evalButtonText": "Evaluate (Sage)"
+});
+</script>
+</head>
+<body class="ignore-math">
+<article class="li"><h5 class="heading">
+<span class="type">Item</span><span class="space"> </span><span class="codenumber">4.5.5.10.b</span><span class="period">.</span>
+</h5>
+<div class="para">We will now modify the game by adding one chute and one ladder as shown in <a href="" class="xref" data-knowl="./knowl/fig-chutes-ladders.html" title="Figure 4.5.14">Figure 4.5.14</a>.</div>
+<figure class="figure figure-like"><div class="sidebyside"><div class="sbsrow" style="margin-left:25%;margin-right:25%;"><div class="sbspanel top" style="width:100%;"><img src="external/images/chutes-ladders.svg" role="img" class="contained"></div></div></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">4.5.14<span class="period">.</span></span><span class="space"> </span>A version of Chutes and Ladders with one chute and one ladder.</figcaption></figure><div class="para">Even though there are eight squares, we only need to consider six of them.  For instance, if we arrive at the first white square, we move up to square 4. Similarly, if we arrive at the second white square, we move down to square 1.</div>
+<div class="para">Once again, construct the <span class="process-math">\(6\times6\)</span> stochastic matrix that records the probability that we move from one square to another on a given turn and generate some terms in the Markov chain that begins with <span class="process-math">\(\xvec_0=\evec_1\text{.}\)</span> <pre class="ptx-sagecell sagecell-sage" id="sage-134"><script type="text/x-sage">def markov_chain(A, x0, N):
+    for i in range(N):
+        x0 = A*x0
+        print (x0.numerical_approx(digits=3))
+## define the matrix A and x0
+A =
+x0 =
+markov_chain(A, x0, 10)
+</script></pre>
+</div>
+<div class="para logical"><ol class="decimal">
+<li><div class="para">What is the smallest number of moves we can make and arrive at square 6?  What is the probability that we arrive at square 6 using this number of moves?</div></li>
+<li><div class="para">What is the probability that we arrive at square 6 after five moves?</div></li>
+<li><div class="para">What is the probability that we are still on square 1 after five moves?  After seven moves?  After nine moves?</div></li>
+<li><div class="para">After how many moves do we have a 90% chance of having arrived at square 6?</div></li>
+<li><div class="para">Find the steady-state vector and discuss what this vector implies about the game.</div></li>
+</ol></div></article><span class="incontext"><a href="sec-stochastic.html#li-3470" class="internal">in-context</a></span>
+</body>
+</html>

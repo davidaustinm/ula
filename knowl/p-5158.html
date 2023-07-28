@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<h5 class="heading"><span class="type">Paragraph</span></h5>
+<div class="para logical"><ol class="lower-alpha">
+<li><div class="para logical">
+<div class="para">Sage gives us the matrices</div>
+<div class="displaymath process-math">
+\begin{equation*}
+P=\left[\begin{array}{rrr}
+0 \amp 1 \amp 0 \\
+1 \amp 0 \amp 0 \\
+0 \amp 0 \amp 1
+\end{array}\right],~~~
+L=\begin{bmatrix}
+1 \amp 0 \amp 0 \\
+-\frac12 \amp 1 \amp 0 \\
+-\frac12 \amp -1 \amp 1
+\end{bmatrix},~~~
+\begin{bmatrix}
+-4 \amp 5 \amp 0 \\
+0 \amp -\frac12 \amp 1 \\
+0 \amp 0 \amp 3 \\
+\end{bmatrix}.
+\end{equation*}
+</div>
+</div></li>
+<li><div class="para">We find <span class="process-math">\(P\bvec=\threevec{-13}8{8}\text{.}\)</span>
+</div></li>
+<li><div class="para">Solving <span class="process-math">\(L\cvec=P\bvec\text{,}\)</span> we have <span class="process-math">\(\cvec=\threevec{-13}{\frac32}{3}\text{.}\)</span>  Finally, solving <span class="process-math">\(U\xvec=\cvec\text{,}\)</span> we obtain <span class="process-math">\(\xvec=\threevec2{-1}1\text{.}\)</span>
+</div></li>
+<li><div class="para logical">
+<div class="para">We find</div>
+<div class="displaymath process-math">
+\begin{equation*}
+P\bvec=\threevec{-16}9{10},~~~
+\cvec=\threevec{-16}13,~~~
+\xvec=\threevec{4}{0}{1}.
+\end{equation*}
+</div>
+</div></li>
+<li><div class="para">Because <span class="process-math">\(P\text{,}\)</span> <span class="process-math">\(L\text{,}\)</span> and <span class="process-math">\(U\)</span> are invertible, it follows that <span class="process-math">\(\det A = (\det 
+L \det U)/\det P\neq 0\text{,}\)</span> which means that <span class="process-math">\(A\)</span> is invertible.</div></li>
+<li><div class="para logical">
+<div class="para">Sage tells us that</div>
+<div class="displaymath process-math">
+\begin{equation*}
+P = \left[\begin{array}{rrr}
+1 \amp 0 \amp 0 \\
+0 \amp 0 \amp 1 \\
+0 \amp 1 \amp 0
+\end{array}\right],
+L = 
+\left[\begin{array}{rrr}
+1 \amp 0 \amp 0 \\
+\frac{2}{3} \amp 1 \amp 0 \\
+\frac{2}{3} \amp -\frac{1}{5} \amp 1
+\end{array}\right],
+U= 
+\left[\begin{array}{rrr}
+3 \amp -1 \amp 2 \\
+0 \amp \frac{5}{3} \amp \frac{5}{3} \\
+0 \amp 0 \amp 0
+\end{array}\right]\text{.}
+\end{equation*}
+</div>
+<div class="para">Because <span class="process-math">\(U\)</span> is not invertible, we see that <span class="process-math">\(\det B =
+(\det L\det U)/\det P = 0\)</span> so <span class="process-math">\(B\)</span> is not invertible.</div>
+</div></li>
+<li>
+<div class="para logical">
+<div class="para">We have</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\begin{array}{c}
+P=
+\left[\begin{array}{rrr}
+0 \amp 1 \amp 0 \\
+0 \amp 0 \amp 1 \\
+1 \amp 0 \amp 0
+\end{array}\right],
+L=
+\left[\begin{array}{rrr}
+1 \amp 0 \amp 0 \\
+-\frac{2}{3} \amp 1 \amp 0 \\
+\frac{1}{3} \amp -\frac{5}{7} \amp 1
+\end{array}\right], \\
+U= \left[\begin{array}{rrrr}
+3 \amp 2 \amp -1 \amp 0 \\
+0 \amp \frac{7}{3} \amp \frac{4}{3} \amp -1 \\
+0 \amp 0 \amp \frac{9}{7} \amp \frac{9}{7}
+\end{array}\right]\text{.}
+\end{array}
+\end{equation*}
+</div>
+<div class="para">We may rewrite <span class="process-math">\(PC=LU\)</span> as <span class="process-math">\(C=P^{-1}LU\)</span> so if <span class="process-math">\(C\xvec=P^{-1}LU\xvec=\zerovec\text{,}\)</span> then <span class="process-math">\(U\xvec=\zerovec\)</span> because <span class="process-math">\(P\)</span> and <span class="process-math">\(L\)</span> are invertible.</div>
+</div>
+<div class="para logical">
+<div class="para">Notice that <span class="process-math">\(U\)</span> is upper triangular, which means that it is straightforward to find its reduced row echelon form:</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\begin{array}{rcl}
+U=
+\left[\begin{array}{rrrr}
+3 \amp 2 \amp -1 \amp 0 \\
+0 \amp \frac{7}{3} \amp \frac{4}{3} \amp -1 \\
+0 \amp 0 \amp \frac{9}{7} \amp \frac{9}{7}
+\end{array}\right]
+\amp
+\sim
+\amp
+\left[\begin{array}{rrrr}
+3 \amp 2 \amp -1 \amp 0 \\
+0 \amp 7 \amp 4 \amp -3 \\
+0 \amp 0 \amp 1 \amp 1
+\end{array}\right] \\
+\amp
+\sim
+\amp
+\left[\begin{array}{rrrr}
+3 \amp 2 \amp 0 \amp 1 \\
+0 \amp 1 \amp 0 \amp -1 \\
+0 \amp 0 \amp 1 \amp 1
+\end{array}\right] \\
+\amp
+\sim
+\amp
+\left[\begin{array}{rrrr}
+1 \amp 0 \amp 0 \amp 1 \\
+0 \amp 1 \amp 0 \amp -1 \\
+0 \amp 0 \amp 1 \amp 1
+\end{array}\right]\text{.} \\
+\end{array}
+\end{equation*}
+</div>
+<div class="para">This shows that a basis for <span class="process-math">\(\nul(C)=\nul(U)\)</span> is <span class="process-math">\(\fourvec{-1}1{-1}1\text{.}\)</span>
+</div>
+</div>
+</li>
+</ol></div>
+<span class="incontext"><a href="sec-gaussian-revisited.html#p-5158" class="internal">in-context</a></span>
+</body>
+</html>

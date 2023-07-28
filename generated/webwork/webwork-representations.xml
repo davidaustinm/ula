@@ -1,0 +1,114 @@
+<?xml version='1.0' encoding='utf-8'?>
+<webwork-representations>
+  <webwork-reps version="2" xml:id="extracted-webwork-add-numbers" ww-id="webwork-add-numbers">
+    <static seed="1">
+      <statement><p>Compute the determinant of <m>\det
+	  \begin{bmatrix}
+	  1 \amp 7 \\
+          2 \amp 9
+	  \end{bmatrix}
+	  =</m> <fillin name="AnSwEr0001" characters="5"/></p>
+</statement>
+      <answer>
+        <p>
+          <m>-5</m>
+        </p>
+      </answer>
+      <solution><p><m>1\cdot 9 -
+	  7\cdot 2 =
+	  {-5}
+	\text{.}</m></p>
+</solution>
+    </static>
+    <server-data problemSource="RE9DVU1FTlQoKTsKbG9hZE1hY3JvcygiUEdzdGFuZGFyZC5wbCIsIk1hdGhPYmplY3RzLnBsIiwiUEdNTC5wbCIsIkFuc3dlckZvcm1hdEhlbHAucGwiLCJQR2NvdXJzZS5wbCIsKTtURVhUKGJlZ2lucHJvYmxlbSgpKTsKVEVYVChNT0RFUyhQVFg9PicnLEhUTUw9Pic8ZGl2IHN0eWxlPSJkaXNwbGF5Om5vbmU7Ij5cKFxuZXdjb21tYW5ke1xhbXB9eyZ9XCk8L2Rpdj4nKSk7CkNvbnRleHQoJ051bWVyaWMnKTsgICAgICAgJGEgPSByYW5kb20oMSwgOSwgMSk7CiAgICAgICAkYiA9IHJhbmRvbSgxLCA5LCAxKTsKJGMgPSByYW5kb20oMSwgOSwgMSk7CiRkID0gcmFuZG9tKDEsIDksIDEpOwogICAgICAgJGRldCA9IENvbXB1dGUoJGEgKiAkZCAtICRiICogJGMpOwoKQkVHSU5fUEdNTApDb21wdXRlIHRoZSBkZXRlcm1pbmFudCBvZiBbYAoJICBcZGV0CgkgIFxiZWdpbntibWF0cml4fQoJICBbJGFdIFxhbXAgWyRiXSBcXAogICAgICAgICAgWyRjXSBcYW1wIFskZF0KCSAgXGVuZHtibWF0cml4fQoJICA9CglgXSBbX117JGRldH17NX0gW0BBbnN3ZXJGb3JtYXRIZWxwKCdudW1iZXJzJylAXSoKCgpFTkRfUEdNTAoKQkVHSU5fUEdNTF9TT0xVVElPTgpbYAoJICBbJGFdXGNkb3QgWyRkXSAtCgkgIFskYl1cY2RvdCBbJGNdID0KCSAgWyRkZXRdCglcdGV4dHsufWBdCgoKRU5EX1BHTUxfU09MVVRJT04KCkVORERPQ1VNRU5UKCk7" domain="https://webwork-ptx.aimath.org" course-id="anonymous" user-id="anonymous" course-password="anonymous" language="en-US"/>
+    <pg><![CDATA[
+#############################################
+###       Generated from PreTeXt source      
+###       on 2022-06-20T20:44:56-04:00       
+###   A recent stable commit (2020-08-09):   
+### 98f21740783f166a773df4dc83cab5293ab63a4a 
+###                                          
+###         https://pretextbook.org          
+###                                          
+#############################################
+## DBsubject()
+## DBchapter()
+## DBsection()
+## Level()
+## KEYWORDS()
+## TitleText1()
+## EditionText1()
+## AuthorText1()
+## Section1(not reported)
+## Problem1(1.2.5.1)
+## Author()
+## Institution()
+## Language(en-US)
+
+DOCUMENT();
+
+############################################################
+# Load Macros
+############################################################
+loadMacros(
+  "PGstandard.pl",
+  "MathObjects.pl",
+  "PGML.pl",
+  "AnswerFormatHelp.pl",
+  "PGcourse.pl",
+);
+COMMENT('Authored in PreTeXt');
+COMMENT('Add two positive single-digit integers.');
+
+############################################################
+# Header
+############################################################
+TEXT(beginproblem());
+
+############################################################
+# PG Setup Code
+############################################################
+Context('Numeric');
+       $a = random(1, 9, 1);
+       $b = random(1, 9, 1);
+$c = random(1, 9, 1);
+$d = random(1, 9, 1);
+       $det = Compute($a * $d - $b * $c);
+
+############################################################
+# Body
+############################################################
+
+BEGIN_PGML
+Compute the determinant of [`\newcommand{\amp}{&}
+	  \det
+	  \begin{bmatrix}
+	  [$a] \amp [$b] \\
+          [$c] \amp [$d]
+	  \end{bmatrix}
+	  =
+	`] [_]{$det}{5} [@AnswerFormatHelp('numbers')@]*
+
+END_PGML
+
+############################################################
+# Solution
+############################################################
+
+BEGIN_PGML_SOLUTION
+[`
+	  [$a]\cdot [$d] -
+	  [$b]\cdot [$c] =
+	  [$det]
+	\text{.}`]
+
+END_PGML_SOLUTION
+
+############################################################
+# End Problem
+############################################################
+
+ENDDOCUMENT();
+]]></pg>
+  </webwork-reps>
+</webwork-representations>

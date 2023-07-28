@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math"><div class="solution solution-like"><div class="para logical"><ol class="lower-alpha">
+<li><div class="para logical">
+<div class="para">Performing the matrix multiplication, we find that</div>
+<div class="displaymath process-math">
+\begin{equation*}
+RA = 
+\left[\begin{array}{rrr}
+1 \amp 0 \amp 0 \\
+-2 \amp 1 \amp 0 \\
+0 \amp 0 \amp 1 \\
+\end{array}\right]
+\left[\begin{array}{rrr}
+1 \amp 2 \amp 1 \\
+2 \amp 0 \amp -2 \\
+-1 \amp 2 \amp -1 \\
+\end{array}\right]
+=
+\left[\begin{array}{rrr}
+1 \amp 2 \amp 1 \\
+0 \amp -4 \amp -4 \\
+-1 \amp 2 \amp -1 \\
+\end{array}\right]\text{.}
+\end{equation*}
+</div>
+</div></li>
+<li><div class="para">We know that <span class="process-math">\(R\)</span> is invertible because it is a lower triangular matrix whose diagonal entries are all 1.  We find that <span class="process-math">\(R^{-1}
+= \left[\begin{array}{rrr}
+1 \amp 0 \amp 0 \\
+2 \amp 1 \amp 0 \\
+0 \amp 0 \amp 1 \\
+\end{array}\right]
+\text{,}\)</span> which can be verified.</div></li>
+<li><div class="para">But we can see this in another way as well. The replacement operation is reversible;  that is, multiplying the first row by <span class="process-math">\(-2\)</span> and adding it to the second row can be undone by multiplying the first row by <span class="process-math">\(2\)</span> and adding it to the second row.</div></li>
+<li><div class="para logical">
+<div class="para">We find that</div>
+<div class="displaymath process-math">
+\begin{equation*}
+S = \begin{bmatrix}
+1 \amp 0 \amp 0 \\
+0 \amp 4 \amp 0 \\
+0 \amp 0 \amp 1 \\
+\end{bmatrix},~~~
+S^{-1} = \begin{bmatrix}
+1 \amp 0 \amp 0 \\
+0 \amp \frac14 \amp 0 \\
+0 \amp 0 \amp 1 \\
+\end{bmatrix}.
+\end{equation*}
+</div>
+<div class="para">This makes sense because scaling a row by <span class="process-math">\(4\)</span> can be undone by scaling the same row by <span class="process-math">\(\frac14\text{.}\)</span>
+</div>
+</div></li>
+<li><div class="para logical">
+<div class="para">We find that</div>
+<div class="displaymath process-math">
+\begin{equation*}
+P = \begin{bmatrix}
+0 \amp 0 \amp 1 \\
+0 \amp 1 \amp 0 \\
+1 \amp 0 \amp 0 \\
+\end{bmatrix}.
+\end{equation*}
+</div>
+<div class="para">Moreover, <span class="process-math">\(P=P^{-1}\)</span> because we can undo the interchange operation by repeating it.</div>
+</div></li>
+<li><div class="para logical">
+<div class="para">Continuing with the Gaussian elimination algorithm, we have <span class="process-math">\(L_1 = R\text{,}\)</span> as above,</div>
+<div class="displaymath process-math">
+\begin{equation*}
+L_2 = \left[\begin{array}{rrr}
+1 \amp 0 \amp 0 \\
+0 \amp 1 \amp 0 \\
+1 \amp 0 \amp 1 \\
+\end{array}\right],~~~
+L_3 = \left[\begin{array}{rrr}
+1 \amp 0 \amp 0 \\
+0 \amp 1 \amp 0 \\
+0 \amp 1 \amp 1 \\
+\end{array}\right]\text{.}
+\end{equation*}
+</div>
+<div class="para">we then have <span class="process-math">\(L_3L_2L_1A = U\text{.}\)</span>
+</div>
+</div></li>
+<li><div class="para">Each of the matrices <span class="process-math">\(L_1\text{,}\)</span> <span class="process-math">\(L_2\text{,}\)</span> and <span class="process-math">\(L_3\)</span> is invertible so their product will be as well.  Since <span class="process-math">\((L_3L_2L_1)A = U\text{,}\)</span> we have <span class="process-math">\(A =
+(L_3L_2L_1)^{-1}U\text{.}\)</span> Moreover, <span class="process-math">\(L = (L_3L_2L_1)^{-1} = L_1^{-1}L_2^{-1}L_3^{-1}\)</span> gives <span class="process-math">\(L=\left[\begin{array}{rrr}
+1 \amp 0 \amp 0 \\
+2 \amp 1 \amp 0 \\
+-1 \amp -1 \amp 1 \\
+\end{array}\right]\text{.}\)</span>  Notice that this matrix is lower triangular so we call it <span class="process-math">\(L\text{.}\)</span>
+</div></li>
+</ol></div></div></body>
+</html>

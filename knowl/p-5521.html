@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<h5 class="heading"><span class="type">Paragraph</span></h5>
+<div class="para logical">
+<div class="para">To begin, we identify the <em class="emphasis">centroid</em>, or the average, of a set of vectors <span class="process-math">\(\vvec_1, \vvec_2, \ldots,\vvec_n\)</span> as</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/fig-centroid-plot.html ./knowl/fig-clustering-ex.html ./knowl/fig-clustering-ex.html ./knowl/fig-clustering-ex.html ./knowl/fig-clustering-ex-2.html ./knowl/fig-clustering-ex-2.html ./knowl/fig-clustering-ex-3.html">
+\begin{equation*}
+\frac1n\left(\vvec_1+\vvec_2+\ldots+\vvec_n\right).
+\end{equation*}
+</div>
+<ol class="lower-alpha">
+<li>
+<div class="para logical">
+<div class="para">Find the centroid of the vectors</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/fig-centroid-plot.html">
+\begin{equation*}
+\vvec_1=\twovec11,
+\vvec_2=\twovec41,
+\vvec_3=\twovec44.
+\end{equation*}
+</div>
+<div class="para">and sketch the vectors and the centroid using <a href="" class="xref" data-knowl="./knowl/fig-centroid-plot.html" title="Figure 6.1.11">Figure 6.1.11</a>.  You may wish to simply plot the points represented by the tips of the vectors rather than drawing the vectors themselves.</div>
+</div>
+<figure class="figure figure-like"><div class="sidebyside"><div class="sbsrow" style="margin-left:25%;margin-right:25%;"><div class="sbspanel top" style="width:100%;"><img src="external/images/empty-5-k.svg" role="img" class="contained"></div></div></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">6.1.11<span class="period">.</span></span><span class="space"> </span>The vectors <span class="process-math">\(\vvec_1\text{,}\)</span> <span class="process-math">\(\vvec_2\text{,}\)</span> <span class="process-math">\(\vvec_3\)</span> and their centroid.</figcaption></figure><div class="para">Notice that the centroid lies in the center of the points defined by the vectors.</div>
+</li>
+<li>
+<div class="para logical">
+<div class="para">Now we’ll illustrate an algorithm that forms clusterings.  To begin, consider the following points, represented as vectors,</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/fig-clustering-ex.html">
+\begin{equation*}
+\vvec_1=\twovec{-2}{1},
+\vvec_2=\twovec11,
+\vvec_3=\twovec12,
+\vvec_4=\twovec32,
+\end{equation*}
+</div>
+<div class="para">which are shown in <a href="" class="xref" data-knowl="./knowl/fig-clustering-ex.html" title="Figure 6.1.12">Figure 6.1.12</a>.</div>
+</div>
+<figure class="figure figure-like"><div class="sidebyside"><div class="sbsrow" style="margin-left:25%;margin-right:25%;"><div class="sbspanel top" style="width:100%;"><img src="external/images/kmeans-data.svg" role="img" class="contained"></div></div></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">6.1.12<span class="period">.</span></span><span class="space"> </span>We will group this set of four points into two clusters.</figcaption></figure><div class="para">Suppose that we would like to group these points into <span class="process-math">\(k=2\)</span> clusters. (Later on, we’ll see how to choose an appropriate value for <span class="process-math">\(k\text{,}\)</span> the number of clusters.)  We begin by choosing two points <span class="process-math">\(c_1\)</span> and <span class="process-math">\(c_2\)</span> at random and declaring them to be the “centers”’ of the two clusters.</div>
+<div class="para">For example, suppose we randomly choose <span class="process-math">\(c_1=\vvec_2\)</span> and <span class="process-math">\(c_2=\vvec_3\)</span> as the center of two clusters.  The cluster centered on <span class="process-math">\(c_1=\vvec_2\)</span> will be the set of points that are closer to <span class="process-math">\(c_1=\vvec_2\)</span> than to <span class="process-math">\(c_2=\vvec_3\text{.}\)</span> Determine which of the four data points are in this cluster, which we denote by <span class="process-math">\(C_1\text{,}\)</span> and circle them in <a href="" class="xref" data-knowl="./knowl/fig-clustering-ex.html" title="Figure 6.1.12">Figure 6.1.12</a>.</div>
+</li>
+<li><div class="para">The second cluster will consist of the data points that are closer to <span class="process-math">\(c_2=\vvec_3\)</span> than <span class="process-math">\(c_1=\vvec_2\text{.}\)</span>  Determine which of the four points are in this cluster, which we denote by <span class="process-math">\(C_2\text{,}\)</span> and circle them in <a href="" class="xref" data-knowl="./knowl/fig-clustering-ex.html" title="Figure 6.1.12">Figure 6.1.12</a>.</div></li>
+<li>
+<div class="para">We now have a clustering with two clusters, but we will try to improve upon it in the following way.  First, find the centroids of the two clusters;  that is, redefine <span class="process-math">\(c_1\)</span> to be the centroid of cluster <span class="process-math">\(C_1\)</span> and <span class="process-math">\(c_2\)</span> to be the centroid of <span class="process-math">\(C_2\text{.}\)</span> Find those centroids and indicate them in <a href="" class="xref" data-knowl="./knowl/fig-clustering-ex-2.html" title="Figure 6.1.13">Figure 6.1.13</a>
+</div>
+<figure class="figure figure-like"><div class="sidebyside"><div class="sbsrow" style="margin-left:25%;margin-right:25%;"><div class="sbspanel top" style="width:100%;"><img src="external/images/kmeans-data.svg" role="img" class="contained"></div></div></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">6.1.13<span class="period">.</span></span><span class="space"> </span>Indicate the new centroids and clusters.</figcaption></figure><div class="para">Now update the cluster <span class="process-math">\(C_1\)</span> to be the set of points closer to <span class="process-math">\(c_1\)</span> than <span class="process-math">\(c_2\text{.}\)</span> Update the cluster <span class="process-math">\(C_2\)</span> in a similar way and indicate the clusters in <a href="" class="xref" data-knowl="./knowl/fig-clustering-ex-2.html" title="Figure 6.1.13">Figure 6.1.13</a>.</div>
+</li>
+<li>
+<div class="para">Let’s perform this last step again.  That is, update the centroids <span class="process-math">\(c_1\)</span> and <span class="process-math">\(c_2\)</span> from the new clusters and then update the clusters <span class="process-math">\(C_1\)</span> and <span class="process-math">\(C_2\text{.}\)</span>  Indicate your centroids and clusters in <a href="" class="xref" data-knowl="./knowl/fig-clustering-ex-3.html" title="Figure 6.1.14">Figure 6.1.14</a>.</div>
+<figure class="figure figure-like"><div class="sidebyside"><div class="sbsrow" style="margin-left:25%;margin-right:25%;"><div class="sbspanel top" style="width:100%;"><img src="external/images/kmeans-data.svg" role="img" class="contained"></div></div></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">6.1.14<span class="period">.</span></span><span class="space"> </span>Indicate the new centroids and clusters.</figcaption></figure><div class="para">Notice that this last step produces the same set of clusters so there is no point in repeating it.  We declare this to be our final clustering.</div>
+</li>
+</ol>
+</div>
+<span class="incontext"><a href="sec-dot-product.html#p-5521" class="internal">in-context</a></span>
+</body>
+</html>

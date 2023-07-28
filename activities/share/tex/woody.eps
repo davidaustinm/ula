@@ -1,0 +1,453 @@
+%!
+
+%%BoundingBox: 100 400 200 500
+
+/xpt {		%% x (on stack) to points
+    dx mul
+} bind def
+
+/ypt {		%% y (on stack) to points
+    dy mul
+} bind def
+
+/init {		%% initialize--run before each new graph
+    /dx urx llx sub x1 x0 sub div def
+    /dy ury lly sub y1 y0 sub div def
+
+    llx lly moveto
+    urx lly lineto
+    urx ury lineto
+    llx ury lineto
+    closepath
+    newpath
+
+    0 x0 sub dx mul llx add 
+    0 y0 sub dy mul lly add translate
+    x0 x1 domain
+    50 setgrid
+} bind def
+
+/initclip {		%% initialize and clip
+    /dx urx llx sub x1 x0 sub div def
+    /dy ury lly sub y1 y0 sub div def
+
+    llx lly moveto
+    urx lly lineto
+    urx ury lineto
+    llx ury lineto
+    closepath
+    clip
+    newpath
+
+    0 x0 sub dx mul llx add 
+    0 y0 sub dy mul lly add translate
+    x0 x1 domain
+    50 setgrid
+} bind def
+
+/axes {		%% draw bare bones axes
+    x0 xpt 0 ypt dup 3 1 roll moveto
+    x1 xpt exch lineto
+    stroke
+    0 xpt dup y0 ypt moveto
+    y1 ypt lineto
+    stroke
+} bind def
+
+/xnum {			%% puts ticks on x-axis
+			%% left step right on stack
+    gsave
+    /Palatino-Roman findfont 10 scalefont setfont
+    { % for
+	dup 0 ne { % ifelse
+	    dup
+	    xpt dup 0 moveto
+	    0 2 rmoveto
+	    0 -4 rlineto
+	    stroke
+	    0 moveto
+	    0 -12 rmoveto
+	    10 string cvs
+	    dup stringwidth pop -2 div 0 rmoveto
+	    show
+	} {
+	pop
+	} ifelse
+    } for
+    grestore
+} bind def
+
+/ynum {			%% puts ticks on y-axis
+			%% left step right on stack
+    gsave
+    /Palatino-Roman findfont 10 scalefont setfont
+    { % for
+	dup 0 ne {
+	    dup
+	    ypt dup 0 exch moveto
+	    2 0 rmoveto
+	    -4 0 rlineto
+	    stroke
+	    0 exch moveto
+	    -4 -4 rmoveto
+	    10 string cvs
+	    dup stringwidth pop neg 0 rmoveto
+	    show
+	} if
+    } for
+    grestore
+} bind def
+
+/label {		%% draws a label
+			%% label x y on stack
+    gsave
+    /Palatino-Roman findfont 10 scalefont setfont
+    ypt exch xpt exch moveto
+    show
+    grestore
+} bind def
+
+/domain {		%% set domain for drawing
+    /right exch def
+    /left exch def
+} bind def
+
+/setgrid {		%% set gridsize for drawing
+    /gdsize exch def
+} bind def
+
+/dot {			%% draws a dot at (x, y)
+    ypt exch xpt exch 
+    2 0 360 arc closepath
+    gsave
+	0.8 setgray fill
+    grestore
+    stroke
+} bind def    
+
+/graph {		%% graphs a procedure over domain
+    4 dict begin
+    /f exch def
+    right left sub gdsize div /step exch def
+    /x left def
+    x dup xpt exch f ypt moveto
+    1 1 gdsize {
+ 	pop
+	/x x step add def
+	x dup xpt exch f ypt lineto
+    } for
+    stroke
+    end
+} bind def
+
+/fourpts {		%% four math points to ps points
+			%% a utility
+    ypt 4 1 roll
+    xpt 4 1 roll
+    ypt 4 1 roll
+    xpt 4 1 roll
+} bind def
+
+/line2pt {		%% draws a line through two points
+    fourpts
+    gsave
+    2 copy translate
+    3 -1 roll sub 3 1 roll exch sub atan rotate
+    ury lly sub dup mul 
+    urx llx sub dup mul add sqrt dup
+    neg 0 moveto
+    2 mul 0 rlineto
+    stroke
+    grestore
+} bind def
+
+/lineslope {		%% draws a line with given slope	
+			%% x y slope on stack	
+    gsave
+    3 1 roll ypt exch xpt exch translate
+    1 atan rotate
+    ury lly sub dup mul 
+    urx llx sub dup mul add sqrt dup
+    neg 0 moveto
+    2 mul 0 rlineto
+    stroke
+    grestore
+} bind def
+
+/param {		%% parametric curve using domain
+			%% x y procedures on stack
+    5 dict begin
+    /yf exch def
+    /xf exch def
+    right left sub gdsize div /step exch def
+    /t left def
+    t dup xf xpt exch yf ypt moveto
+    1 1 gdsize {
+ 	pop
+	/t t step add def
+	t dup xf xpt exch yf ypt lineto
+    } for
+    stroke
+    end
+} bind def
+
+/partition {		%% left partition
+			%% n, f on stack (uses domain)
+    gsave
+    7 dict begin
+    /f exch def
+    /n exch def
+    /delta right left sub n div def
+    /x left def
+    n {
+	/y x f def
+	/xn x delta add def
+	x xpt dup 0 moveto
+	y ypt dup 3 1 roll lineto
+	xn xpt dup 3 -1 roll lineto
+	0 lineto
+	closepath
+	gsave
+	    0.8 setgray fill
+	grestore
+	stroke
+	/x xn def
+    } repeat
+    grestore
+} def
+
+/area {			%% area under a curve
+			%% f on stack (uses domain)
+    gsave
+    4 dict begin
+    /f exch def
+    right left sub gdsize div /step exch def
+    /x left def
+    x xpt 0 moveto
+    x dup xpt exch f ypt lineto
+    1 1 gdsize {
+ 	pop
+	/x x step add def
+	x dup xpt exch f ypt lineto
+    } for
+    x xpt 0 lineto
+    closepath
+    gsave
+	0.8 setgray fill
+    grestore
+    stroke
+    end
+    grestore
+} bind def
+    
+	
+
+/areabetween {		%% area between two curves
+			%% f, g on stack (uses domain)
+    gsave
+    5 dict begin
+    /g exch def
+    /f exch def
+    right left sub gdsize div /step exch def
+    /x left def
+    x dup xpt exch f ypt moveto
+    1 1 gdsize {
+ 	pop
+	/x x step add def
+	x dup xpt exch f ypt lineto
+    } for
+    x dup xpt exch g ypt lineto
+    1 1 gdsize {
+	pop
+	/x x step sub def
+	x dup xpt exch g ypt lineto
+    } for
+    closepath
+    gsave
+	0.8 setgray fill
+    grestore
+    stroke
+    end
+    grestore
+} bind def
+
+/grid {			%% draws grid
+			%% lx rx ly uy sx sy on stack
+    5 dict begin
+    /uy exch def
+    /sy exch def
+    /ly exch def
+    /rx exch def
+    /sx exch def
+    /lx exch def
+    gsave
+	lx sx rx {
+	    xpt dup ly ypt moveto
+	    uy ypt lineto
+	    stroke
+	} for
+	ly sy uy {
+	    ypt dup rx xpt exch moveto
+	    lx xpt exch lineto
+	    stroke
+	} for
+    grestore
+    end
+} def
+
+%/grid {			%% draws grid
+%			%% lx sx rx ly sy uy     on stack
+%    gsave
+%    6 copy
+%    6 3 roll exch pop
+%    5 2 roll
+%    {
+%	ypt dup 4 2 roll
+%	2 copy 6 2 roll
+%	xpt 4 -1 roll moveto
+%	xpt exch lineto
+%	stroke
+%    } for
+%    pop pop
+%    exch pop
+%    5 2 roll
+%    newpath
+%    {
+%	xpt dup 4 2 roll
+%	2 copy 6 2 roll
+%	ypt 4 -1 roll exch moveto
+%	ypt lineto
+%	stroke
+%    } for
+%    pop pop
+%    grestore
+%} def
+	
+
+/arrowhead {		%% draws arrowhead -- utility
+    gsave
+	currentpoint 
+	4 2 roll exch 4 -1 roll exch 
+	sub 3 1 roll sub
+	exch atan rotate 
+	currentlinewidth dup scale
+	-1 2 rlineto
+	7 -2 rlineto
+	-7 -2 rlineto
+	closepath fill
+    grestore
+    newpath
+} bind def
+
+/arrow {		%% draw a line with arrowhead
+    fourpts
+    4 2 roll
+    2 copy moveto
+    4 2 roll lineto
+    currentpoint stroke moveto
+    arrowhead
+} bind def
+
+/relarrow {		%% draw an rlineto with arrowhead
+    ypt exch xpt exch
+    currentpoint 4 2 roll
+    rlineto
+    currentpoint stroke moveto
+    arrowhead
+} bind def
+    
+%%  End Procedures
+
+100 400 translate
+
+%% PS box
+/llx 0 def
+/lly 0 def
+/urx 100 def
+/ury 100 def
+
+%% Math box
+
+/x0 -4 def
+/x1 4 def
+/y0 -4 def
+/y1 4 def
+
+gsave
+
+init
+
+gsave
+0.8 setgray
+-4 1 4 -4 1 4 grid
+grestore
+
+gsave
+0.4 setgray
+axes
+grestore
+
+/dx 1 xpt 0 xpt sub def
+
+/drawwoody {
+  gsave
+  0 2 dx mul translate
+  0.5 dup scale
+  gsave
+  0.5 1 scale
+  0 0 dx 0 360 arc closepath
+  ctm setmatrix  
+  stroke
+  grestore
+
+  gsave
+  0 xpt -1 ypt moveto
+  0 xpt -3 ypt lineto
+  1 xpt -4 ypt lineto
+  ctm setmatrix  
+  stroke
+  grestore
+
+  gsave
+  0 xpt -1 ypt moveto
+  0 xpt -3 ypt lineto
+  -1 xpt -4 ypt lineto
+  ctm setmatrix  
+  stroke
+  grestore
+
+  gsave
+  0 xpt -1 ypt moveto
+  0 xpt -2 ypt lineto
+  -1 xpt -3 ypt lineto
+  ctm setmatrix  
+  stroke
+  grestore
+
+  gsave
+  0 xpt -1 ypt moveto
+  0 xpt -2 ypt lineto
+  1 xpt -1 ypt lineto
+  ctm setmatrix  
+  stroke
+  grestore
+  grestore
+
+} def
+
+/ctm matrix currentmatrix def
+
+drawwoody
+
+grestore
+
+
+
+
+
+
+
+
+
+
+showpage

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<script>// Make *any* pre with class 'sagecell-sage' an executable Sage cell
+// Their results will be linked, only within language type
+sagecell.makeSagecell({
+  "inputLocation": "pre.sagecell-sage",
+  "linked": true,
+  "languages": [
+    "sage"
+  ],
+  "evalButtonText": "Evaluate (Sage)"
+});
+</script>
+</head>
+<body class="ignore-math">
+<article class="exercise exercise-like"><h4 class="heading">
+<span class="type">Exercise</span><span class="space"> </span><span class="codenumber">2<span class="period">.</span></span>
+</h4>
+<div class="para">Every year, people move between urban (U), suburban (S), and rural (R) populations with the probabilities given in <a href="" class="xref" data-knowl="./knowl/fig-stoch-pops.html" title="Figure 4.5.12">Figure 4.5.12</a>.</div> <figure class="figure figure-like"><div class="sidebyside"><div class="sbsrow" style="margin-left:25%;margin-right:25%;"><div class="sbspanel top" style="width:100%;"><img src="external/images/stoch-pops.svg" role="img" class="contained"></div></div></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">4.5.12<span class="period">.</span></span><span class="space"> </span>The flow between urban, suburban, and rural populations.</figcaption></figure> <div class="para logical"><ol class="lower-alpha">
+<li><div class="para">Construct the stochastic matrix <span class="process-math">\(A\)</span> describing the movement of people.</div></li>
+<li><div class="para">Explain what the Perron-Frobenius theorem tells us about the existence of a steady-state vector <span class="process-math">\(\qvec\)</span> and the behavior of a Markov chain.</div></li>
+<li><div class="para">Use the Sage cell below to find the some terms of a Markov chain. <pre class="ptx-sagecell sagecell-sage" id="sage-130"><script type="text/x-sage">def markov_chain(A, x0, N):
+    for i in range(N):
+        x0 = A*x0
+        print (x0.numerical_approx(digits=3))
+## define the matrix G and x0
+A =
+x0 =
+markov_chain(A, x0, 20)
+</script></pre>
+</div></li>
+<li><div class="para">Describe the long-term distribution of people among urban, suburban, and rural populations.</div></li>
+</ol></div></article><span class="incontext"><a href="sec-stochastic.html#exercise-170" class="internal">in-context</a></span>
+</body>
+</html>

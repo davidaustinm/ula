@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<script>// Make *any* pre with class 'sagecell-sage' an executable Sage cell
+// Their results will be linked, only within language type
+sagecell.makeSagecell({
+  "inputLocation": "pre.sagecell-sage",
+  "linked": true,
+  "languages": [
+    "sage"
+  ],
+  "evalButtonText": "Evaluate (Sage)"
+});
+</script>
+</head>
+<body class="ignore-math">
+<article class="exercise exercise-like"><h4 class="heading">
+<span class="type">Exercise</span><span class="space"> </span><span class="codenumber">3<span class="period">.</span></span>
+</h4>
+<div class="para logical">
+<div class="para">The Fourier transform that we used in this section is often called the Discrete Fourier Cosine Transform because it is defined using a basis <span class="process-math">\(\ccal\)</span> consisting of cosine functions.  There is also a Fourier Sine Transform defined using a basis <span class="process-math">\(\scal\)</span> consisting of sine functions.  For instance, in <span class="process-math">\(\real^4\text{,}\)</span> the basis vectors of <span class="process-math">\(\scal\)</span> are</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/fig-fourier-sine-basis.html">
+\begin{equation*}
+\begin{aligned}
+\vvec_1 = \left[\begin{array}{c}
+\sin\left(\frac{1\cdot1\pi}{8}\right) \\
+\sin\left(\frac{3\cdot1\pi}{8}\right) \\
+\sin\left(\frac{5\cdot1\pi}{8}\right) \\
+\sin\left(\frac{7\cdot1\pi}{8}\right) \\
+\end{array}\right], \amp
+\vvec_2 = \left[\begin{array}{c}
+\sin\left(\frac{1\cdot2\pi}{8}\right) \\
+\sin\left(\frac{3\cdot2\pi}{8}\right) \\
+\sin\left(\frac{5\cdot2\pi}{8}\right) \\
+\sin\left(\frac{7\cdot2\pi}{8}\right) \\
+\end{array}\right], \\
+\\
+\vvec_3 = \left[\begin{array}{c}
+\sin\left(\frac{1\cdot3\pi}{8}\right) \\
+\sin\left(\frac{3\cdot3\pi}{8}\right) \\
+\sin\left(\frac{5\cdot3\pi}{8}\right) \\
+\sin\left(\frac{7\cdot3\pi}{8}\right) \\
+\end{array}\right], \amp
+\vvec_4 = \left[\begin{array}{c}
+\sin\left(\frac{1\cdot4\pi}{8}\right) \\
+\sin\left(\frac{3\cdot4\pi}{8}\right) \\
+\sin\left(\frac{5\cdot4\pi}{8}\right) \\
+\sin\left(\frac{7\cdot4\pi}{8}\right) \\
+\end{array}\right]\text{.} \\
+\end{aligned}
+\end{equation*}
+</div>
+<div class="para">We can think of these vectors graphically, as shown in <a href="" class="xref" data-knowl="./knowl/fig-fourier-sine-basis.html" title="Figure 3.3.15">Figure 3.3.15</a>.</div>
+</div> <figure class="figure figure-like"><div class="sidebyside"><div class="sbsrow" style="margin-left:5%;margin-right:5%;"><div class="sbspanel top" style="width:100%;"><img src="external/images/fourier-sine-basis.svg" role="img" class="contained"></div></div></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">3.3.15<span class="period">.</span></span><span class="space"> </span>The vectors <span class="process-math">\(\vvec_1,\vvec_2,\vvec_3,\vvec_4\)</span> that form the basis <span class="process-math">\(\scal\text{.}\)</span></figcaption></figure> <div class="para logical"><ol class="lower-alpha">
+<li>
+<div class="para">The Sage cell below defines the matrix <code class="code-inline tex2jax_ignore">S</code> whose columns are the vectors in the basis <span class="process-math">\(\scal\)</span> as well as the matrix <code class="code-inline tex2jax_ignore">C</code> whose columns form the basis <span class="process-math">\(\ccal\)</span> used in the Fourier Cosine Transform.</div>
+<pre class="ptx-sagecell sagecell-sage" id="sage-98"><script type="text/x-sage">sinmat = [[sin((2*i+1)*j*pi/8) for j in range(1,5)] for i in range(4)]
+cosmat = [[cos((2*i+1)*j*pi/8) for j in range(4)] for i in range(4)]
+S = matrix(sinmat).numerical_approx()    
+C = matrix(cosmat).numerical_approx()
+</script></pre>
+<div class="para">In the <span class="process-math">\(8\times8\)</span> block of luminance values we considered in this section, the first column begins with the four entries 176, 181, 165, and 139, as seen in <a href="" class="xref" data-knowl="./knowl/fig-jpeg-block-luminance.html" title="Figure 3.3.8">Figure 3.3.8</a>.  These form the vector <span class="process-math">\(\xvec=\fourvec{176}{181}{165}{139}\text{.}\)</span>  Find both <span class="process-math">\(\coords{\xvec}{\scal}\)</span> and <span class="process-math">\(\coords{\xvec}{\ccal}\text{.}\)</span>
+</div>
+</li>
+<li><div class="para">Write a sentence or two comparing the values for the Fourier Sine coefficients <span class="process-math">\(\coords{\xvec}{\scal}\)</span> and the Fourier Cosine coefficients <span class="process-math">\(\coords{\xvec}{\ccal}\text{.}\)</span>
+</div></li>
+<li><div class="para">Suppose now that <span class="process-math">\(\xvec=\fourvec{100}{100}{100}{100}\text{.}\)</span> Find the Fourier Sine coefficients <span class="process-math">\(\coords{\xvec}{\scal}\)</span> and the Fourier Cosine coefficients <span class="process-math">\(\coords{\xvec}{\ccal}\text{.}\)</span>
+</div></li>
+<li><div class="para">Write a few sentences explaining why we use the Fourier Cosine Transform in the JPEG compression algorithm rather than the Fourier Sine Transform.</div></li>
+</ol></div></article><span class="incontext"><a href="sec-jpeg.html#exercise-105" class="internal">in-context</a></span>
+</body>
+</html>

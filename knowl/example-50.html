@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="example example-like"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">5.2.1</span><span class="period">.</span>
+</h4>
+<div class="para">Let’s begin with the positive stochastic matrix <span class="process-math">\(A=\left[\begin{array}{rr}
+0.7 \amp 0.6 \\
+0.3 \amp 0.4 \\
+\end{array}\right]
+\text{.}\)</span> We spent quite a bit of time studying this type of matrix in <a href="sec-stochastic.html" class="internal" title="Section 4.5: Markov chains and Google’s PageRank algorithm">Section 4.5</a>; in particular, we saw that any Markov chain will converge to the unique steady state vector.  Let’s rephrase this statement in terms of the eigenvectors of <span class="process-math">\(A\text{.}\)</span>
+</div> <div class="para logical">
+<div class="para">This matrix has eigenvalues <span class="process-math">\(\lambda_1 = 1\)</span> and <span class="process-math">\(\lambda_2 =0.1\)</span> so the dominant eigenvalue is <span class="process-math">\(\lambda_1 = 1\text{.}\)</span> The associated eigenvectors are <span class="process-math">\(\vvec_1 =
+\twovec{2}{1}\)</span> and <span class="process-math">\(\vvec_2 = \twovec{-1}{1}\text{.}\)</span> Suppose we begin with the vector</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\xvec_0 = \twovec{1}{0} = \frac13 \vvec_1 - \frac13 \vvec_2
+\end{equation*}
+</div>
+<div class="para">and find</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\begin{aligned}
+\xvec_1 \amp {}={} A\xvec_0 = \frac13 \vvec_1 - \frac13(0.1)
+\vvec_2 \\
+\xvec_2 \amp {}={} A^2\xvec_0 = \frac13 \vvec_1 - \frac13(0.1)^2
+\vvec_2 \\
+\xvec_3 \amp {}={} A^3\xvec_0 = \frac13 \vvec_1 - \frac13(0.1)^3
+\vvec_2 \\
+\amp \vdots \\
+\xvec_k \amp {}={} A^k\xvec_0 = \frac13 \vvec_1 - \frac13(0.1)^k
+\vvec_2 \\
+\end{aligned}
+\end{equation*}
+</div>
+<div class="para">and so forth.  Notice that the powers <span class="process-math">\(0.1^k\)</span> become increasingly small as <span class="process-math">\(k\)</span> grows so that <span class="process-math">\(\xvec_k\approx
+\frac13\vvec_1\)</span> when <span class="process-math">\(k\)</span> is large.  Therefore, the vectors <span class="process-math">\(\xvec_k\)</span> become increasingly close to a vector in the eigenspace <span class="process-math">\(E_1\text{,}\)</span> the eigenspace associated to the dominant eigenvalue.  If we did not know the eigenvector <span class="process-math">\(\vvec_1\text{,}\)</span> we could use a Markov chain in this way to find a basis vector for <span class="process-math">\(E_1\text{,}\)</span> which is essentially how the Google PageRank algorithm works.</div>
+</div></article><span class="incontext"><a href="sec-power-method.html#example-50" class="internal">in-context</a></span>
+</body>
+</html>

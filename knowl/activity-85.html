@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*       on 2022-06-16T09:07:34-04:00       *-->
+<!--*   A recent stable commit (2020-08-09):   *-->
+<!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<script>// Make *any* pre with class 'sagecell-sage' an executable Sage cell
+// Their results will be linked, only within language type
+sagecell.makeSagecell({inputLocation: 'pre.sagecell-sage',
+                       linked: true,
+                       languages: ['sage'],
+                       evalButtonText: 'Evaluate (Sage)'});
+</script>
+</head>
+<body class="ignore-math">
+<article class="activity project-like"><h4 class="heading">
+<span class="type">Activity</span><span class="space"> </span><span class="codenumber">6.5.5</span><span class="period">.</span>
+</h4>
+<ol class="lower-alpha">
+<li>
+<p>Suppose that we have a small dataset containing the points <span class="process-math">\((0,2)\text{,}\)</span> <span class="process-math">\((1,1)\text{,}\)</span> <span class="process-math">\((2,3)\text{,}\)</span> and <span class="process-math">\((3,3)\text{,}\)</span> such as appear when the following cell is evaluated. <pre class="ptx-sagecell sagecell-sage" id="sage-179"><script type="text/x-sage">sage.repl.load.load('https://raw.githubusercontent.com/davidaustinm/ula_modules/master/orthogonality.py',
+globals())
+data = [[0, 2], [1, 1], [2, 3], [3, 3]]
+list_plot(data, color='blue', size=40)
+</script></pre> In addition to loading and plotting the data, evaluating that cell provides the following commands:</p>
+<ul class="disc">
+<li><p><code class="code-inline tex2jax_ignore">Q, R = QR(A)</code> returns the <span class="process-math">\(QR\)</span> factorization of <span class="process-math">\(A\text{.}\)</span></p></li>
+<li><p><code class="code-inline tex2jax_ignore">demean(v)</code> returns the demeaned vector <span class="process-math">\(\widetilde{\vvec}\text{.}\)</span></p></li>
+</ul>
+<p>Let's fit a quadratic function of the form</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\beta_0 + \beta_1 x + \beta_2 x^2 = y
+\end{equation*}
+</div>
+<p class="continuation">to this dataset.</p>
+<p>Write four equations, one for each data point, that describe the coefficients <span class="process-math">\(\beta_0\text{,}\)</span> <span class="process-math">\(\beta_1\text{,}\)</span> and <span class="process-math">\(\beta_2\text{.}\)</span></p>
+</li>
+<li>
+<p>Express these four equations as a linear system <span class="process-math">\(A\xvec = \bvec\)</span> where <span class="process-math">\(\xvec =
+\threevec{\beta_0}{\beta_1}{\beta_2}\text{.}\)</span></p>
+<p>Find the <span class="process-math">\(QR\)</span> factorization of <span class="process-math">\(A\)</span> and use it to find the least squares approximate solution <span class="process-math">\(\xhat\text{.}\)</span> <pre class="ptx-sagecell sagecell-sage" id="sage-180"><script type="text/x-sage">
+</script></pre></p>
+</li>
+<li><p>Use the parameters <span class="process-math">\(\beta_0\text{,}\)</span> <span class="process-math">\(\beta_1\text{,}\)</span> and <span class="process-math">\(\beta_2\)</span> that you found to write the quadratic function that fits the data.  You can plot this function, along with the data, by entering your function in the appropriate place below. <pre class="ptx-sagecell sagecell-sage" id="sage-181"><script type="text/x-sage">list_plot(data, color='blue', size=40) + plot( **your function here**,
+0, 3, color='red')
+</script></pre></p></li>
+<li><p>What is your predicted <span class="process-math">\(y\)</span> value when <span class="process-math">\(x=1.5\text{.}\)</span></p></li>
+<li><p>Find the coefficient of determination <span class="process-math">\(R^2\)</span> for the quadratic function?  What does this say about the quality of the fit?</p></li>
+<li>
+<p>Now fit a cubic polynomial of the form</p>
+<div class="displaymath process-math" data-contains-math-knowls="">
+\begin{equation*}
+\beta_0 + \beta_1x + \beta_2 x^2 + \beta_3x^3 = y
+\end{equation*}
+</div>
+<p class="continuation">to this dataset. <pre class="ptx-sagecell sagecell-sage" id="sage-182"><script type="text/x-sage">
+</script></pre></p>
+</li>
+<li><p>Find the coefficient of determination <span class="process-math">\(R^2\)</span> for the cubic function.  What does this say about the quality of the fit?</p></li>
+<li><p>What do you notice when you plot the cubic function along with the data?  How does this reflect the value of <span class="process-math">\(R^2\)</span> that you found? <pre class="ptx-sagecell sagecell-sage" id="sage-183"><script type="text/x-sage">list_plot(data, color='blue', size=40) + plot( **your function here**,
+0, 3, color='red')
+</script></pre></p></li>
+</ol>
+<div class="solutions">
+<a href="" class="answer-knowl original" data-knowl="./knowl/answer-262-hidden.html" title="Answer 6.5.5.1"><span class="type">Answer</span><span class="period">.</span></a><a href="" class="solution-knowl original" data-knowl="./knowl/solution-333-hidden.html" title="Solution 6.5.5.1"><span class="type">Solution</span><span class="period">.</span></a>
+</div></article><span class="incontext"><a href="sec-least-squares.html#activity-85" class="internal">in-context</a></span>
+</body>
+</html>

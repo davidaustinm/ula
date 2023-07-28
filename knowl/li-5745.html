@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<script>// Make *any* pre with class 'sagecell-sage' an executable Sage cell
+// Their results will be linked, only within language type
+sagecell.makeSagecell({
+  "inputLocation": "pre.sagecell-sage",
+  "linked": true,
+  "languages": [
+    "sage"
+  ],
+  "evalButtonText": "Evaluate (Sage)"
+});
+</script>
+</head>
+<body class="ignore-math">
+<article class="li"><h5 class="heading">
+<span class="type">Item</span><span class="space"> </span><span class="codenumber">c</span><span class="period">.</span>
+</h5>
+<div class="para logical">
+<div class="para">A second, related application of the singular value decomposition to image processing is called <em class="emphasis">denoising</em>.  For example, consider the image represented by the matrix <span class="process-math">\(A\)</span> below. <pre class="ptx-sagecell sagecell-sage" id="sage-263"><script type="text/x-sage">A = matrix(RDF, noise.values)		    
+display_matrix(A)
+</script></pre> This image is similar to the image of the letter "O" we first studied in this activity, but there are splotchy regions in the background that result, perhaps, from scanning the image.  We think of the splotchy regions as noise, and our goal is to improve the quality of the image by reducing the noise.</div>
+<ol class="decimal">
+<li><div class="para">Plot the singular values below.  How are the singular values of this matrix similar to those represented by the clean image that we considered earlier and how are they different? <pre class="ptx-sagecell sagecell-sage" id="sage-264"><script type="text/x-sage">plot_sv(A)
+</script></pre>
+</div></li>
+<li><div class="para">There is a natural point where the singular values dramatically decrease so it makes sense to think of the noise as being formed by the small singular values.  To denoise the image, we will therefore replace <span class="process-math">\(A\)</span> by its approximation <span class="process-math">\(A_k\text{,}\)</span> where <span class="process-math">\(k\)</span> is the point at which the singular values drop off. This has the effect of setting the small singular values to zero and hence eliminating the noise.  Choose an appropriate value of <span class="process-math">\(k\)</span> below and notice that the new image appears to be somewhat cleaned up as a result of removing the noise. <pre class="ptx-sagecell sagecell-sage" id="sage-265"><script type="text/x-sage">k = 
+display_matrix(approximate(A, k))
+</script></pre>
+</div></li>
+</ol>
+</div></article><span class="incontext"><a href="sec-svd-uses.html#li-5745" class="internal">in-context</a></span>
+</body>
+</html>

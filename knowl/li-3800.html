@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<script>// Make *any* pre with class 'sagecell-sage' an executable Sage cell
+// Their results will be linked, only within language type
+sagecell.makeSagecell({
+  "inputLocation": "pre.sagecell-sage",
+  "linked": true,
+  "languages": [
+    "sage"
+  ],
+  "evalButtonText": "Evaluate (Sage)"
+});
+</script>
+</head>
+<body class="ignore-math">
+<article class="li"><h5 class="heading">
+<span class="type">Item</span><span class="space"> </span><span class="codenumber">e</span><span class="period">.</span>
+</h5>
+<div class="para">For a given value of <span class="process-math">\(k\text{,}\)</span> our strategy is to run the algorithm several times and choose the clustering with the smallest objective.  After choosing a value of <span class="process-math">\(k\text{,}\)</span> the following cell will run the algorithm 10 times and display the clustering having the smallest objective. <pre class="ptx-sagecell sagecell-sage" id="sage-161"><script type="text/x-sage">k = 2  # you may change the value of k here
+clusters, centroids, objective = minimalobjective(data, k)
+print('Objective =', objective)
+plotclusters(clusters, centroids)
+</script></pre>
+</div>
+<div class="para">For each value of <span class="process-math">\(k\)</span> between 2 and 9, find the clustering having the smallest objective and plot your findings in <a href="" class="xref" data-knowl="./knowl/fig-clustering-elbow.html" title="Figure 6.1.15">Figure 6.1.15</a>.</div>
+<figure class="figure figure-like"><div class="sidebyside"><div class="sbsrow" style="margin-left:10%;margin-right:10%;"><div class="sbspanel top" style="width:100%;"><img src="external/images/clustering-elbow.svg" role="img" class="contained"></div></div></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">6.1.15<span class="period">.</span></span><span class="space"> </span>Construct a plot of the minimal objective as it depends on the choice of <span class="process-math">\(k\text{.}\)</span></figcaption></figure><div class="para">This plot is called an <em class="emphasis">elbow plot</em> due to its shape.  Notice how the objective decreases sharply when <span class="process-math">\(k\)</span> is small and then flattens out. This leads to a location, called the elbow, where the objective transitions from being sharply decreasing to relatively flat.  This means that increasing <span class="process-math">\(k\)</span> beyond the elbow does not significantly decrease the objective, which makes the elbow a good choice for <span class="process-math">\(k\text{.}\)</span>
+</div>
+<div class="para">Where does the elbow occur in your plot above?  How does this compare to the best value of <span class="process-math">\(k\)</span> that you estimated by simply looking at the data in <a href="" class="xref" data-knowl="./knowl/li-guess-clusters.html" title="Item c">Item c</a>.</div></article><span class="incontext"><a href="sec-dot-product.html#li-3800" class="internal">in-context</a></span>
+</body>
+</html>

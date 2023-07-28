@@ -1,0 +1,81 @@
+%!
+
+%%BoundingBox:  100 400 200 500
+
+115 412 translate
+
+/dot {
+  2 0 360 arc closepath fill
+} def
+
+/delta 25 def
+/x 0 def
+5 {
+  x 0 moveto
+  x 3 delta mul lineto
+  stroke
+  /y delta def
+  2 {
+    x y dot
+    /y delta y add def
+  } repeat
+  /x x delta add def
+} repeat
+
+/y 0 def
+
+4 {
+  0 y moveto
+  4 delta mul y lineto
+  stroke
+  /x delta def
+  3 {
+    x y dot
+    /x delta x add def
+  } repeat
+  /y y delta add def
+} repeat
+
+/Palatino-Roman findfont 12 scalefont setfont
+
+(25) (20) (15) 
+/x delta def
+/y 3 delta mul 3 add def
+3 {
+  x y moveto
+  dup stringwidth pop -2 div 0 rmoveto
+  show
+  /x x delta add def
+} repeat
+
+(30) (20) (10)
+/x delta def
+/y -12 def
+3 {
+  x y moveto
+  dup stringwidth pop -2 div 0 rmoveto
+  show
+  /x x delta add def
+} repeat
+
+(10) dup
+/y delta 5 sub def
+/x -15 def
+2 {
+  x y moveto
+  show
+  /y y delta add def
+} repeat
+
+(30) (40) 
+/y delta 5 sub def
+/x delta 4 mul 5 add def
+2 {
+  x y moveto
+  show
+  /y y delta add def
+} repeat
+
+
+
+showpage

@@ -1,0 +1,145 @@
+\documentclass[12pt]{article}
+
+\pagestyle{empty}
+\setlength{\topmargin}{0in}
+\setlength{\headheight}{0in}
+\setlength{\topsep}{0in}
+\setlength{\textheight}{9in}
+\setlength{\oddsidemargin}{0in}
+\setlength{\evensidemargin}{0in}
+\setlength{\textwidth}{6.5in}
+
+\usepackage{palatino,graphics,amsmath,amssymb,enumitem}
+
+\newcommand{\ds}{\displaystyle}
+\newcommand{\vs}[1]{\vspace{#1in}}
+\renewcommand{\vss}[1]{\vspace*{#1in}}
+\newcommand{\bvec}{{\mathbf b}}
+\newcommand{\cvec}{{\mathbf c}}
+\newcommand{\dvec}{{\mathbf d}}
+\newcommand{\evec}{{\mathbf e}}
+\newcommand{\fvec}{{\mathbf f}}
+\newcommand{\qvec}{{\mathbf q}}
+\newcommand{\uvec}{{\mathbf u}}
+\newcommand{\vvec}{{\mathbf v}}
+\newcommand{\wvec}{{\mathbf w}}
+\newcommand{\xvec}{{\mathbf x}}
+\newcommand{\yvec}{{\mathbf y}}
+\newcommand{\zvec}{{\mathbf y}}
+\newcommand{\zerovec}{{\mathbf 0}}
+\newcommand{\real}{{\mathbb R}}
+\newcommand{\twovec}[2]{\left[\begin{array}{r}#1 \\ #2
+    \end{array}\right]}
+\newcommand{\ctwovec}[2]{\left[\begin{array}{c}#1 \\ #2
+   \end{array}\right]}
+\newcommand{\threevec}[3]{\left[\begin{array}{r}#1 \\ #2 \\ #3
+  \end{array}\right]}
+\newcommand{\cthreevec}[3]{\left[\begin{array}{c}#1 \\ #2 \\ #3
+    \end{array}\right]}
+\newcommand{\fourvec}[4]{\left[\begin{array}{r}#1 \\ #2 \\ #3 \\ #4
+    \end{array}\right]}
+\newcommand{\cfourvec}[4]{\left[\begin{array}{c}#1 \\ #2 \\ #3 \\ #4
+    \end{array}\right]}
+\newcommand{\mattwo}[4]{\left[\begin{array}{rr}#1 & #2 \\ #3 & #4 \\ \end{array}\right]}
+\renewcommand{\span}[1]{\text{Span}\{#1\}}
+\newcommand{\bcal}{{\cal B}}
+\newcommand{\ccal}{{\cal C}}
+\newcommand{\scal}{{\cal S}}
+\newcommand{\wcal}{{\cal W}}
+\newcommand{\ecal}{{\cal E}}
+\newcommand{\coords}[2]{\left\{#1\right\}_{#2}}
+\newcommand{\gray}[1]{\color{gray}{#1}}
+\newcommand{\lgray}[1]{\color{lightgray}{#1}}
+\newcommand{\rank}{\text{rank}}
+\newcommand{\col}{\text{Col}}
+\newcommand{\nul}{\text{Nul}}
+
+\begin{document}
+
+\noindent
+{\bf Mathematics 227} \\ 
+{\bf Bases of Eigenvectors}
+
+\bigskip
+Here are some useful Sage commands:
+\begin{itemize}
+\item If {\tt A} is a square matrix, {\tt A.fcp()} will produce its
+  factored characteristic polynomial.
+\item If {\tt A} is a matrix, {\tt A.right\_kernel()} will produce a
+  basis for $\nul(A)$.
+\item The $n\times n$ identity is {\tt I = identity\_matrix(n)}.
+\end{itemize}
+
+\begin{enumerate}
+\item Consider the matrix
+  $A=
+  \left[
+    \begin{array}{cc}
+      -10 & 12 \\
+      -6 & 8 \\
+    \end{array}
+  \right].
+  $
+
+  Find the eigenvalues of $A$ and their multiplicity (maybe using {\tt
+    A.fcp()}).
+
+  \vs{1}
+  For each eigenvalue $\lambda$, find a basis for the eigenvectors
+  $E_\lambda$.
+
+  \vs{1.5}
+  Are you able to construct a basis for $\real^2$ consisting of
+  eigenvectors of $A$?  If so, what is the basis?  
+
+  \vs{1}
+
+\item Consider the matrix
+  $A=
+  \left[
+    \begin{array}{cc}
+      0 & 1 \\
+      -1 & 2 \\
+    \end{array}
+  \right].
+  $
+
+  Find the eigenvalues of $A$ and their multiplicity.
+
+  \vs{1}
+  \newpage
+  For each eigenvalue $\lambda$, find a basis for the eigenvectors
+  $E_\lambda$.
+
+  \vs{1.5}
+  Are you able to construct a basis for $\real^2$ consisting of
+  eigenvectors of $A$?  If so, what is the basis?
+
+  \vs{1}
+\item Consider the matrix
+  $A=
+  \left[
+    \begin{array}{rrr}
+      -3 & -5 & -1 \\
+      1 & 3 & 1 \\
+      1 & 5 & -1
+    \end{array}
+  \right]
+  $.
+
+  Find the eigenvalues of $A$ and their multiplicity.
+
+  \vs{1}
+  Find a basis for the eigenspaces $E_\lambda$.
+
+  \vs{2}
+  Are you able to construct a basis for $\real^3$ consisting of
+  eigenvectors of $A$?  If so, what is the basis?
+
+  \vs{1}
+  
+
+\end{enumerate}
+
+
+\end{document}

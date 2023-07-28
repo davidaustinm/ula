@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<script>// Make *any* pre with class 'sagecell-sage' an executable Sage cell
+// Their results will be linked, only within language type
+sagecell.makeSagecell({
+  "inputLocation": "pre.sagecell-sage",
+  "linked": true,
+  "languages": [
+    "sage"
+  ],
+  "evalButtonText": "Evaluate (Sage)"
+});
+</script>
+</head>
+<body class="ignore-math">
+<h5 class="heading"><span class="type">Paragraph</span></h5>
+<div class="para logical">
+<div class="para">Evaluating the following cell will load the dataset, which consists of 150 points in <span class="process-math">\(\real^4\text{.}\)</span>  In addition, we have a vector <code class="code-inline tex2jax_ignore">data_mean</code>, a four-dimensional vector holding the mean of the data points, and <code class="code-inline tex2jax_ignore">A</code>, the <span class="process-math">\(4\times150\)</span> demeaned data matrix. <pre class="ptx-sagecell sagecell-sage" id="sage-224"><script type="text/x-sage">sage.repl.load.load('https://raw.githubusercontent.com/davidaustinm/ula_modules/master/pca_iris.py', globals())
+df.T
+</script></pre> Since the data is four-dimensional, we are not able to visualize it.  Of course, we could forget about two of the measurements and plot the 150 points represented by their, say, sepal length and sepal width. <pre class="ptx-sagecell sagecell-sage" id="sage-225"><script type="text/x-sage">sepal_plot()
+</script></pre>
+</div>
+<ol class="lower-alpha">
+<li><div class="para">What is the mean sepal width?</div></li>
+<li><div class="para">Find the covariance matrix <span class="process-math">\(C\)</span> and its eigenvalues. <pre class="ptx-sagecell sagecell-sage" id="sage-226"><script type="text/x-sage">
+</script></pre>
+</div></li>
+<li><div class="para">Find the fraction of variance for which the first two principal components account.</div></li>
+<li><div class="para">Construct the first two principal components <span class="process-math">\(\uvec_1\)</span> and <span class="process-math">\(\uvec_2\)</span> along with the matrix <span class="process-math">\(Q\)</span> whose columns are <span class="process-math">\(\uvec_1\)</span> and <span class="process-math">\(\uvec_2\text{.}\)</span> <pre class="ptx-sagecell sagecell-sage" id="sage-227"><script type="text/x-sage">
+</script></pre>
+</div></li>
+<li><div class="para">As we have seen, the columns of the matrix <span class="process-math">\(Q^TA\)</span> hold the coordinates of the demeaned data points after projecting onto <span class="process-math">\(W_2\text{,}\)</span> the subspace spanned by the first two principal components.  Evaluating the following cell shows a plot of these coordinates. <pre class="ptx-sagecell sagecell-sage" id="sage-228"><script type="text/x-sage">pca_plot(Q.T*A)
+</script></pre> Suppose we have a flower whose coordinates in this plane are <span class="process-math">\((-2.5, -0.75)\text{.}\)</span>  To what species does this iris most likely belong?  Find an estimate of the sepal length, sepal width, petal length, and petal width for this flower.</div></li>
+<li><div class="para">Suppose you have an iris, but you only know that its sepal length is 5.65 cm and its sepal width is 2.75 cm.  Knowing only these two measurements, determine the coordinates <span class="process-math">\((c_1, c_2)\)</span> in the plane where this iris lies.  To what species does this iris most likely belong?  Now estimate the petal length and petal width of this iris. <pre class="ptx-sagecell sagecell-sage" id="sage-229"><script type="text/x-sage">
+</script></pre>
+</div></li>
+<li><div class="para">Suppose you find another iris whose sepal width is 3.2 cm and whose petal width is 2.2 cm.  Find the coordinates <span class="process-math">\((c_1, c_2)\)</span> of this iris and determine the species to which it most likely belongs.  Also, estimate the sepal length and the petal length. <pre class="ptx-sagecell sagecell-sage" id="sage-230"><script type="text/x-sage">
+</script></pre>
+</div></li>
+</ol>
+</div>
+<span class="incontext"><a href="sec-pca.html#p-7707" class="internal">in-context</a></span>
+</body>
+</html>

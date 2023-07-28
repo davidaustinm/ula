@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<script>// Make *any* pre with class 'sagecell-sage' an executable Sage cell
+// Their results will be linked, only within language type
+sagecell.makeSagecell({
+  "inputLocation": "pre.sagecell-sage",
+  "linked": true,
+  "languages": [
+    "sage"
+  ],
+  "evalButtonText": "Evaluate (Sage)"
+});
+</script>
+</head>
+<body class="ignore-math">
+<article class="exercise exercise-like"><h4 class="heading">
+<span class="type">Exercise</span><span class="space"> </span><span class="codenumber">3<span class="period">.</span></span>
+</h4>
+<div class="para logical">
+<div class="para">A typical problem in thermodynamics is to find the steady-state temperature distribution inside a thin plate if we know the temperature around the boundary.  Let <span class="process-math">\(T_1, T_2, \ldots,
+T_6\)</span> be the temperatures at the six nodes inside the plate as shown below. <div class="sidebyside"><div class="sbsrow" style="margin-left:25%;margin-right:25%;"><div class="sbspanel top" style="width:100%;"><img src="external/images/heat.svg" role="img" class="contained"></div></div></div> The temperature at a node is approximately the average of the four nearest nodes: for instance,</div>
+<div class="displaymath process-math">
+\begin{equation*}
+T_1 = (10 + 15 + T_2 + T_4)/4\text{,}
+\end{equation*}
+</div>
+<div class="para">which we may rewrite as</div>
+<div class="displaymath process-math">
+\begin{equation*}
+4T_1 - T_2 - T_4
+= 25\text{.}
+\end{equation*}
+</div>
+</div> <div class="para logical">
+<div class="para">Set up a linear system to find the temperature at these six points inside the plate.  Then use Sage to solve the linear system.  If all the entries of the matrix are integers, Sage will compute the reduced row echelon form using rational numbers.  To view a decimal approximation of the results, you may use</div>
+<pre class="code-display tex2jax_ignore">
+A.rref().numerical_approx(digits=4)
+      </pre>
+<div class="para"><pre class="ptx-sagecell sagecell-sage" id="sage-16"><script type="text/x-sage">
+</script></pre></div>
+</div> <div class="para">In the real world, the approximation becomes better as we add more and more points into the grid.  This is a situation where we may want to solve a linear system having millions of equations and millions of variables.</div></article><span class="incontext"><a href="sec-sage-introduction.html#exercise-9" class="internal">in-context</a></span>
+</body>
+</html>

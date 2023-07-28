@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<script>// Make *any* pre with class 'sagecell-sage' an executable Sage cell
+// Their results will be linked, only within language type
+sagecell.makeSagecell({
+  "inputLocation": "pre.sagecell-sage",
+  "linked": true,
+  "languages": [
+    "sage"
+  ],
+  "evalButtonText": "Evaluate (Sage)"
+});
+</script>
+</head>
+<body class="ignore-math">
+<article class="activity project-like"><h4 class="heading">
+<span class="type">Activity</span><span class="space"> </span><span class="codenumber">3.2.4</span><span class="period">.</span><span class="space"> </span><span class="title">Edge detection.</span>
+</h4>
+<div class="para">An important problem in the field of computer vision is to detect edges in a digital photograph, as is shown in <a href="" class="xref" data-knowl="./knowl/fig-edge-detection.html" title="Figure 3.2.12">Figure 3.2.12</a>.  Edge detection algorithms are useful when, say, we want a robot to locate an object in its field of view.  Graphic designers also use these algorithms to create artist effects.</div> <figure class="figure figure-like"><div class="sidebyside"><div class="sbsrow" style="margin-left:2.5%;margin-right:2.5%;">
+<div class="sbspanel top" style="width:47.3684210526316%;"><img src="external/images/spring-canyon-cropped.jpg" class="contained"></div>
+<div class="sbspanel top" style="width:47.3684210526316%;"><img src="external/images/spring-canyon-edges.jpg" class="contained"></div>
+</div></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">3.2.12<span class="period">.</span></span><span class="space"> </span>A canyon wall in Capitol Reef National Park and the result of an edge detection algorithm.</figcaption></figure> <div class="para">We will consider a very simple version of an edge detection algorithm to give a sense of how this works.  Rather than considering a two-dimensional photograph, we will think about a one-dimensional row of pixels in a photograph.  The grayscale values of a pixel measure the brightness of a pixel;  a grayscale value of 0 corresponds to black, and a value of 255 corresponds to white.</div> <div class="para">Suppose, for simplicity, that the grayscale values for a row of six pixels are represented by a vector <span class="process-math">\(\xvec\)</span> in <span class="process-math">\(\real^6\text{:}\)</span>
+</div> <div class="sidebyside"><div class="sbsrow" style="margin-left:0%;margin-right:0%;">
+<div class="sbspanel top" style="width:50%;"><div class="para logical"><div class="displaymath process-math">
+\begin{equation*}
+\xvec = \left[\begin{array}{r}
+25 \\ 34 \\ 30 \\ 45 \\ 190 \\ 200
+\end{array}\right]\text{.}
+\end{equation*}
+</div></div></div>
+<div class="sbspanel top" style="width:50%;"><img src="external/images/edges-grayscale.svg" role="img" class="contained"></div>
+</div></div> <div class="para logical">
+<div class="para">We can easily see that there is a jump in brightness between pixels 4 and 5, but how can we detect it computationally?  We will introduce a new basis <span class="process-math">\(\bcal\)</span> for <span class="process-math">\(\real^6\)</span> with vectors:</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\vvec_1=\left[\begin{array}{r} 1 \\ 0 \\ 0 \\ 0 \\ 0
+\\ 0 \end{array}\right],
+\vvec_2=\left[\begin{array}{r} 1 \\ 1 \\ 0 \\ 0 \\ 0
+\\ 0 \end{array}\right],
+\vvec_3=\left[\begin{array}{r} 1 \\ 1 \\ 1 \\ 0 \\ 0
+\\ 0 \end{array}\right],
+\vvec_4=\left[\begin{array}{r} 1 \\ 1 \\ 1 \\ 1 \\ 0
+\\ 0 \end{array}\right],
+\vvec_5=\left[\begin{array}{r} 1 \\ 1 \\ 1 \\ 1 \\ 1
+\\ 0 \end{array}\right],
+\vvec_6=\left[\begin{array}{r} 1 \\ 1 \\ 1 \\ 1 \\ 1
+\\ 1 \end{array}\right]\text{.}
+\end{equation*}
+</div>
+<ol class="lower-alpha">
+<li><div class="para">Construct the matrix <span class="process-math">\(P_\bcal\)</span> that relates the standard coordinate system with the coordinates in the basis <span class="process-math">\(\bcal\text{.}\)</span>
+</div></li>
+<li><div class="para">Determine the matrix <span class="process-math">\(P_\bcal^{-1}\)</span> that converts the representation of <span class="process-math">\(\xvec\)</span> in standard coordinates into the coordinate system defined by <span class="process-math">\(\bcal\text{.}\)</span> <pre class="ptx-sagecell sagecell-sage" id="sage-87"><script type="text/x-sage">
+</script></pre>
+</div></li>
+<li><div class="para logical">
+<div class="para">Suppose the vectors are expressed in general terms as</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\xvec = \left[\begin{array}{r}
+x_1 \\ x_2 \\ x_3 \\ x_4 \\ x_5 \\ x_6 \end{array}\right],~~~
+\coords{\xvec}{\bcal} = \left[\begin{array}{r}
+c_1 \\ c_2 \\ c_3 \\ c_4 \\ c_5 \\ c_6 \end{array}\right]\text{.}
+\end{equation*}
+</div>
+<div class="para">Using the relationship <span class="process-math">\(\coords{\xvec}{\bcal} =
+P_{\bcal}^{-1}\xvec\text{,}\)</span> determine an expression for the coefficient <span class="process-math">\(c_2\)</span> in terms of <span class="process-math">\(x_1,x_2,\ldots,x_6\text{.}\)</span> What does <span class="process-math">\(c_2\)</span> measure in terms of the grayscale values of the pixels?  What does <span class="process-math">\(c_4\)</span> measure in terms of the grayscale values of the pixels?</div>
+</div></li>
+<li><div class="para logical">
+<div class="para">Now for the specific vector</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\xvec = \left[\begin{array}{r}
+25 \\ 34 \\ 30 \\ 45 \\ 190 \\ 200
+\end{array}\right]\text{,}
+\end{equation*}
+</div>
+<div class="para">determine the representation of <span class="process-math">\(\xvec\)</span> in the <span class="process-math">\(\bcal\)</span>-coordinate system.</div>
+</div></li>
+<li><div class="para">Explain how the coefficients in <span class="process-math">\(\coords{\xvec}{\bcal}\)</span> determine the location of the jump in brightness in the grayscale values represented by the vector <span class="process-math">\(\xvec\text{.}\)</span>
+</div></li>
+</ol>
+</div> <div class="para">Readers who are familiar with calculus may recognize that this change of basis converts a vector <span class="process-math">\(\xvec\)</span> into <span class="process-math">\(\coords{\xvec}{\bcal}\text{,}\)</span> the set of changes in <span class="process-math">\(\xvec\text{.}\)</span>  This process is similar to differentiation in calculus.  Similarly, the process of converting <span class="process-math">\(\coords{\xvec}{\bcal}\)</span> into the vector <span class="process-math">\(\xvec\)</span> adds together the changes in a process similar to integration.  As a result, this change of basis represents a linear algebraic version of the Fundamental Theorem of Calculus.</div></article><span class="incontext"><a href="sec-bases.html#activity-33" class="internal">in-context</a></span>
+</body>
+</html>

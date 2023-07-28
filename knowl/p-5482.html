@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<script>// Make *any* pre with class 'sagecell-sage' an executable Sage cell
+// Their results will be linked, only within language type
+sagecell.makeSagecell({
+  "inputLocation": "pre.sagecell-sage",
+  "linked": true,
+  "languages": [
+    "sage"
+  ],
+  "evalButtonText": "Evaluate (Sage)"
+});
+</script>
+</head>
+<body class="ignore-math">
+<h5 class="heading"><span class="type">Paragraph</span></h5>
+<div class="para logical">
+<div class="para">Vectors are often used to represent how a quantity changes over time.  For instance, the vector <span class="process-math">\(\svec=\fourvec{78.3}{81.2}{82.1}{79.0}\)</span> might represent the value of a company’s stock on four consecutive days.  When interpreted in this way, we call the vector a <em class="emphasis">time series.</em> Evaluate the Sage cell below to see a representation of two time series <span class="process-math">\(\svec_1\text{,}\)</span> in blue, and <span class="process-math">\(\svec_2\text{,}\)</span> in orange, which we imagine represent the value of two stocks over a period of time.  (This cell relies on some data loaded by the first cell in this activity.) <pre class="ptx-sagecell sagecell-sage" id="sage-154"><script type="text/x-sage">series_plot(s1, 'blue') + series_plot(s2, 'orange')
+</script></pre> Even though one stock has a higher value than the other, the two appear to be related since they seem to rise and fall at roughly similar ways.  We often say that they are <em class="emphasis">correlated</em>, and we would like to measure the degree to which they are correlated.</div>
+<ol class="decimal">
+<li><div class="para">In order to compare the ways in which they rise and fall, we will first <em class="emphasis">demean</em> the time series;  that is, for each time series, we will subtract its average value to obtain a new time series.  There is a command <code class="code-inline tex2jax_ignore">demean(s)</code> that returns the demeaned time series of <code class="code-inline tex2jax_ignore">s</code>.  Use the Sage cell below to demean the series <span class="process-math">\(\svec_1\)</span> and <span class="process-math">\(\svec_2\)</span> and plot. <pre class="ptx-sagecell sagecell-sage" id="sage-155"><script type="text/x-sage">ds1 = demean(s1)
+ds2 = demean(s2)
+series_plot(ds1, 'blue') + series_plot(ds2, 'orange')
+</script></pre>
+</div></li>
+<li>
+<div class="para logical">
+<div class="para">If the demeaned series are <span class="process-math">\(\tilde{\svec}_1\)</span> and <span class="process-math">\(\tilde{\svec}_2\text{,}\)</span> then the correlation between <span class="process-math">\(\svec_1\)</span> and <span class="process-math">\(\svec_2\)</span> is defined to be</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\corr(\svec_1, \svec_2) =
+\frac{\tilde{\svec}_1\cdot\tilde{\svec}_2}
+{\len{\tilde{\svec}_1}\len{\tilde{\svec}_2}}.
+\end{equation*}
+</div>
+<div class="para">Given the geometric interpretation of the dot product, the correlation equals the cosine of the angle between the demeaned time series, and therefore <span class="process-math">\(\corr(\svec_1,\svec_2)\)</span> is between -1 and 1.</div>
+</div>
+<div class="para">Find the correlation between <span class="process-math">\(\svec_1\)</span> and <span class="process-math">\(\svec_2\text{.}\)</span> <pre class="ptx-sagecell sagecell-sage" id="sage-156"><script type="text/x-sage">
+</script></pre>
+</div>
+</li>
+<li>
+<div class="para">Suppose that two time series are such that their demeaned time series are scalar multiples of one another, as in <a href="" class="xref" data-knowl="./knowl/fig-correlation.html" title="Figure 6.1.9">Figure 6.1.9</a>
+</div>
+<figure class="figure figure-like"><div class="sidebyside"><div class="sbsrow" style="margin-left:5%;margin-right:5%;">
+<div class="sbspanel top" style="width:44.4444444444444%;"><img src="external/images/correlation-pos.svg" role="img" class="contained"></div>
+<div class="sbspanel top" style="width:44.4444444444444%;"><img src="external/images/correlation-neg.svg" role="img" class="contained"></div>
+</div></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">6.1.9<span class="period">.</span></span><span class="space"> </span>On the left, the demeaned time series are positive scalar multiples of one another.  On the right, they are negative scalar multiples.</figcaption></figure><div class="para">For instance, suppose we have time series <span class="process-math">\(\tvec_1\)</span> and <span class="process-math">\(\tvec_2\)</span> whose demeaned time series <span class="process-math">\(\tilde{\tvec}_1\)</span> and <span class="process-math">\(\tilde{\tvec}_2\)</span> are positive scalar multiples of one another.  What is the angle between the demeaned vectors?  What does this say about the correlation <span class="process-math">\(\corr(\tvec_1, \tvec_2)\text{?}\)</span>
+</div>
+</li>
+<li><div class="para">Suppose the demeaned time series <span class="process-math">\(\tilde{\tvec}_1\)</span> and <span class="process-math">\(\tilde{\tvec}_2\)</span> are negative scalar multiples of one another, what is the angle between the demeaned vectors?  What does this say about the correlation <span class="process-math">\(\corr(\tvec_1, \tvec_2)\text{?}\)</span>
+</div></li>
+<li><div class="para">Use the Sage cell below to plot the time series <span class="process-math">\(\svec_1\)</span> and <span class="process-math">\(\svec_3\)</span> and find their correlation. <pre class="ptx-sagecell sagecell-sage" id="sage-157"><script type="text/x-sage">series_plot(s1, 'blue') + series_plot(s3, 'orange')
+</script></pre>
+</div></li>
+<li><div class="para">Use the Sage cell below to plot the time series <span class="process-math">\(\svec_1\)</span> and <span class="process-math">\(\svec_4\)</span> and find their correlation. <pre class="ptx-sagecell sagecell-sage" id="sage-158"><script type="text/x-sage">series_plot(s1, 'blue') + series_plot(s4, 'orange')
+</script></pre>
+</div></li>
+</ol>
+</div>
+<span class="incontext"><a href="sec-dot-product.html#p-5482" class="internal">in-context</a></span>
+</body>
+</html>

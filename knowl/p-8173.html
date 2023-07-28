@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<script>// Make *any* pre with class 'sagecell-sage' an executable Sage cell
+// Their results will be linked, only within language type
+sagecell.makeSagecell({
+  "inputLocation": "pre.sagecell-sage",
+  "linked": true,
+  "languages": [
+    "sage"
+  ],
+  "evalButtonText": "Evaluate (Sage)"
+});
+</script>
+</head>
+<body class="ignore-math">
+<h5 class="heading"><span class="type">Paragraph</span></h5>
+<div class="para logical">
+<div class="para">Consider the equation <span class="process-math">\(A\xvec=\bvec\)</span> where</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\begin{bmatrix}
+1 \amp 0 \\
+1 \amp 1 \\
+1 \amp 2
+\end{bmatrix}
+\xvec = \threevec{-1}36
+\end{equation*}
+</div>
+<ol class="lower-alpha">
+<li><div class="para">Find a singular value decomposition for <span class="process-math">\(A\)</span> using the Sage cell below.  What are singular values of <span class="process-math">\(A\text{?}\)</span> <pre class="ptx-sagecell sagecell-sage" id="sage-246"><script type="text/x-sage">
+</script></pre>
+</div></li>
+<li><div class="para">What is <span class="process-math">\(r\text{,}\)</span> the rank of <span class="process-math">\(A\text{?}\)</span>  How can we identify an orthonormal basis for <span class="process-math">\(\col(A)\text{?}\)</span>
+</div></li>
+<li>
+<div class="para">Form the reduced singular value decomposition <span class="process-math">\(U_r\Sigma_rV_r^T\)</span> by constructing the matrix <span class="process-math">\(U_r\text{,}\)</span> consisting of the first <span class="process-math">\(r\)</span> columns of <span class="process-math">\(U\text{,}\)</span> the matrix <span class="process-math">\(V_r\text{,}\)</span> consisting of the first <span class="process-math">\(r\)</span> columns of <span class="process-math">\(V\text{,}\)</span> and <span class="process-math">\(\Sigma_r\text{,}\)</span> a square <span class="process-math">\(r\times r\)</span> diagonal matrix.  Verify that <span class="process-math">\(A=U_r\Sigma_r V_r^T\text{.}\)</span>
+</div>
+<div class="para">You may find it convenient to remember that if <code class="code-inline tex2jax_ignore">B</code> is a matrix defined in Sage, then <code class="code-inline tex2jax_ignore">B.matrix_from_columns( list )</code> and <code class="code-inline tex2jax_ignore">B.matrix_from_rows( list )</code> can be used to extract columns or rows from <code class="code-inline tex2jax_ignore">B</code>.  For instance, <code class="code-inline tex2jax_ignore">B.matrix_from_rows([0,1,2])</code> provides a matrix formed from the first three rows of <code class="code-inline tex2jax_ignore">B</code>. <pre class="ptx-sagecell sagecell-sage" id="sage-247"><script type="text/x-sage">
+</script></pre>
+</div>
+</li>
+<li><div class="para">How does the reduced singular value decomposition provide a matrix whose columns are an orthonormal basis for <span class="process-math">\(\col(A)\text{?}\)</span>
+</div></li>
+<li><div class="para logical">
+<div class="para">Explain why a least squares approximate solution <span class="process-math">\(\xhat\)</span> satisfies</div>
+<div class="displaymath process-math">
+\begin{equation*}
+A\xhat = U_rU_r^T\bvec.
+\end{equation*}
+</div>
+</div></li>
+<li><div class="para">What is the product <span class="process-math">\(V_r^TV_r\)</span> and why does it have this form?</div></li>
+<li><div class="para logical">
+<div class="para">Explain why</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\xhat = V_r\Sigma_r^{-1}U_r^T\bvec
+\end{equation*}
+</div>
+<div class="para">is the least squares approximate solution, and use this expression to find <span class="process-math">\(\xhat\text{.}\)</span> <pre class="ptx-sagecell sagecell-sage" id="sage-248"><script type="text/x-sage">
+</script></pre>
+</div>
+</div></li>
+</ol>
+</div>
+<span class="incontext"><a href="sec-svd-uses.html#p-8173" class="internal">in-context</a></span>
+</body>
+</html>

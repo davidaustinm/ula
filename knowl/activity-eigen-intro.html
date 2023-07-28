@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="activity project-like"><h4 class="heading">
+<span class="type">Activity</span><span class="space"> </span><span class="codenumber">4.1.3</span><span class="period">.</span>
+</h4>
+<div class="para">Let’s consider an example that illustrates how we can put these ideas to use.</div> <div class="para logical">
+<div class="para">Suppose that we work for a car rental company that has two locations, <span class="process-math">\(P\)</span> and <span class="process-math">\(Q\text{.}\)</span>  When a customer rents a car at one location, they have the option to return it to either location at the end of the day.  After doing some market research, we determine:</div>
+<ul class="disc">
+<li><div class="para">80% of the cars rented at location <span class="process-math">\(P\)</span> are returned to <span class="process-math">\(P\)</span> and 20% are returned to <span class="process-math">\(Q\text{.}\)</span>
+</div></li>
+<li><div class="para">40% of the cars rented at location <span class="process-math">\(Q\)</span> are returned to <span class="process-math">\(Q\)</span> and 60% are returned to <span class="process-math">\(P\text{.}\)</span>
+</div></li>
+</ul>
+<ol class="lower-alpha">
+<li><div class="para">Suppose that there are 1000 cars at location <span class="process-math">\(P\)</span> and no cars at location <span class="process-math">\(Q\)</span> on Monday morning.  How many cars are there are locations <span class="process-math">\(P\)</span> and <span class="process-math">\(Q\)</span> at the end of the day on Monday?</div></li>
+<li><div class="para">How many are at locations <span class="process-math">\(P\)</span> and <span class="process-math">\(Q\)</span> at end of the day on Tuesday?</div></li>
+<li>
+<div class="para logical">
+<div class="para">If we let <span class="process-math">\(P_k\)</span> and <span class="process-math">\(Q_k\)</span> be the number of cars at locations <span class="process-math">\(P\)</span> and <span class="process-math">\(Q\text{,}\)</span> respectively, at the end of day <span class="process-math">\(k\text{,}\)</span> we then have</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\begin{aligned}
+P_{k+1}\amp {}={} 0.8P_k + 0.6Q_k \\
+Q_{k+1}\amp {}={} 0.2P_k + 0.4Q_k\text{.} \\
+\end{aligned}
+\end{equation*}
+</div>
+<div class="para">We can write the vector <span class="process-math">\(\xvec_k = \twovec{P_k}{Q_k}\)</span> to reflect the number of cars at the two locations at the end of day <span class="process-math">\(k\text{,}\)</span> which says that</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\xvec_{k+1} =
+\left[\begin{array}{rr}
+0.8 \amp 0.6 \\
+0.2 \amp 0.4 \\
+\end{array}\right]
+\xvec_k
+\end{equation*}
+</div>
+<div class="para">or <span class="process-math">\(\xvec_{k+1} = A\xvec_k\)</span> where <span class="process-math">\(A=\left[\begin{array}{rr}0.8 \amp 0.6 \\ 0.2 \amp 0.4
+\end{array}\right]\text{.}\)</span>
+</div>
+</div>
+<div class="para logical">
+<div class="para">Suppose that</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\vvec_1 = \twovec{3}{1},
+\qquad
+\vvec_2 = \twovec{-1}{1}\text{.}
+\end{equation*}
+</div>
+<div class="para">Compute <span class="process-math">\(A\vvec_1\)</span> and <span class="process-math">\(A\vvec_2\)</span> to demonstrate that <span class="process-math">\(\vvec_1\)</span> and <span class="process-math">\(\vvec_2\)</span> are eigenvectors of <span class="process-math">\(A\text{.}\)</span> What are the associated eigenvalues <span class="process-math">\(\lambda_1\)</span> and <span class="process-math">\(\lambda_2\text{?}\)</span>
+</div>
+</div>
+</li>
+<li><div class="para">We said that 1000 cars are initially at location <span class="process-math">\(P\)</span> and none at location <span class="process-math">\(Q\text{.}\)</span>  This means that the initial vector describing the number of cars is <span class="process-math">\(\xvec_0 =
+\ctwovec{1000}{0}\text{.}\)</span>  Write <span class="process-math">\(\xvec_0\)</span> as a linear combination of <span class="process-math">\(\vvec_1\)</span> and <span class="process-math">\(\vvec_2\text{.}\)</span>
+</div></li>
+<li><div class="para">Remember that <span class="process-math">\(\vvec_1\)</span> and <span class="process-math">\(\vvec_2\)</span> are eigenvectors of <span class="process-math">\(A\text{.}\)</span>  Use the linearity of matrix multiplication to write the vector <span class="process-math">\(\xvec_1 =
+A\xvec_0\text{,}\)</span> describing the number of cars at the two locations at the end of the first day, as a linear combination of <span class="process-math">\(\vvec_1\)</span> and <span class="process-math">\(\vvec_2\text{.}\)</span>
+</div></li>
+<li><div class="para logical">
+<div class="para">Write the vector <span class="process-math">\(\xvec_2 = A\xvec_1\)</span> as a linear combination of <span class="process-math">\(\vvec_1\)</span> and <span class="process-math">\(\vvec_2\text{.}\)</span>  Then write the next few vectors as linear combinations of <span class="process-math">\(\vvec_1\)</span> and <span class="process-math">\(\vvec_2\text{:}\)</span>
+</div>
+<ol class="decimal">
+<li><div class="para"><span class="process-math">\(\xvec_3 = A\xvec_2\text{.}\)</span></div></li>
+<li><div class="para"><span class="process-math">\(\xvec_4 = A\xvec_3\text{.}\)</span></div></li>
+<li><div class="para"><span class="process-math">\(\xvec_5 = A\xvec_4\text{.}\)</span></div></li>
+<li><div class="para"><span class="process-math">\(\xvec_6 = A\xvec_5\text{.}\)</span></div></li>
+</ol>
+</div></li>
+<li><div class="para">What will happen to the number of cars at the two locations after a very long time?  Explain how writing <span class="process-math">\(\xvec_0\)</span> as a linear combination of eigenvectors helps you determine the long-term behavior.</div></li>
+</ol>
+</div></article><span class="incontext"><a href="sec-eigen-intro.html#activity-eigen-intro" class="internal">in-context</a></span>
+</body>
+</html>

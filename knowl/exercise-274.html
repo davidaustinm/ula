@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<script>// Make *any* pre with class 'sagecell-sage' an executable Sage cell
+// Their results will be linked, only within language type
+sagecell.makeSagecell({
+  "inputLocation": "pre.sagecell-sage",
+  "linked": true,
+  "languages": [
+    "sage"
+  ],
+  "evalButtonText": "Evaluate (Sage)"
+});
+</script>
+</head>
+<body class="ignore-math">
+<article class="exercise exercise-like"><h4 class="heading">
+<span class="type">Exercise</span><span class="space"> </span><span class="codenumber">6<span class="period">.</span></span>
+</h4>
+<div class="para">This problem explores a dataset describing 333 penguins. There are three species, Adelie, Chinstrap, and Gentoo, as illustrated on the left of <a href="" class="xref" data-knowl="./knowl/fig-penguins.html" title="Figure 7.3.9">Figure 7.3.9</a>, as well as both male and female penguins in the dataset.</div> <figure class="figure figure-like"><div class="sidebyside"><div class="sbsrow" style="margin-left:2.5%;margin-right:2.5%;">
+<div class="sbspanel top" style="width:57.8947368421053%;"><img src="external/images/lter_penguins.png" class="contained"></div>
+<div class="sbspanel top" style="width:36.8421052631579%;"><img src="external/images/culmen_depth.png" class="contained"></div>
+</div></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">7.3.9<span class="period">.</span></span><span class="space"> </span>Artwork by <a class="external" href="https://github.com/allisonhorst/palmerpenguins/blob/master/README.md" target="_blank">@allison_horst</a><a href="" class="fn-knowl original" data-knowl="./knowl/fn-6-hidden.html" title="Footnote 7.3.4"><sup> 4 </sup></a></figcaption></figure> <div class="para logical">
+<div class="para">Evaluating the next cell will load and display the data.  The meaning of the culmen length and width is contained in the illustration on the right of <a href="" class="xref" data-knowl="./knowl/fig-penguins.html" title="Figure 7.3.9">Figure 7.3.9</a>. <pre class="ptx-sagecell sagecell-sage" id="sage-233"><script type="text/x-sage">sage.repl.load.load('https://raw.githubusercontent.com/davidaustinm/ula_modules/master/pca_penguins.py', globals())
+df.T
+</script></pre> This dataset is a bit different from others that we’ve looked at because the scale of the measurements is significantly different.  For instance, the measurements for the body mass are roughly 100 times as large as those for the culmen length. For this reason, we will standardize the data by first demeaning it, as usual, and then rescaling each measurement by the reciprocal of its standard deviation.  The result is stored in the <span class="process-math">\(4\times333\)</span> matrix <code class="code-inline tex2jax_ignore">A</code>. <pre class="ptx-sagecell sagecell-sage" id="sage-234"><script type="text/x-sage">
+</script></pre>
+</div>
+<ol class="lower-alpha">
+<li><div class="para">Find the covariance matrix and its eigenvalues.</div></li>
+<li><div class="para">What fraction of the total variance is explained by the first two principal components?</div></li>
+<li><div class="para">Construct the <span class="process-math">\(2\times333\)</span> matrix <span class="process-math">\(B\)</span> whose columns are the coordinates of the demeaned data points projected onto the first two principal components. The following cell will create the plot. <pre class="ptx-sagecell sagecell-sage" id="sage-235"><script type="text/x-sage">pca_plot(B)
+</script></pre>
+</div></li>
+<li><div class="para">Examine the components of the first two principal component vectors. How does the body mass of Gentoo penguins compare to that of the other two species?</div></li>
+<li><div class="para">What seems to be generally true about the culmen measurements for a Chinstrap penguin compared to a Adelie?</div></li>
+<li><div class="para">You can plot just the males or females using the following cell. <pre class="ptx-sagecell sagecell-sage" id="sage-236"><script type="text/x-sage">pca_plot(B, sex='female')
+</script></pre> What seems to be generally true about the body mass measurements for a male Gentoo compared to a female Gentoo?</div></li>
+</ol>
+</div></article><span class="incontext"><a href="sec-pca.html#exercise-274" class="internal">in-context</a></span>
+</body>
+</html>

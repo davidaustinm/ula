@@ -1,0 +1,194 @@
+\documentclass[12pt]{article}
+
+\pagestyle{empty}
+\setlength{\topmargin}{0in}
+\setlength{\headheight}{0in}
+\setlength{\topsep}{0in}
+\setlength{\textheight}{9in}
+\setlength{\oddsidemargin}{0in}
+\setlength{\evensidemargin}{0in}
+\setlength{\textwidth}{6.5in}
+
+\usepackage{palatino,graphics,amsmath,amssymb,enumitem}
+
+\newcommand{\ds}{\displaystyle}
+\newcommand{\vs}[1]{\vspace{#1in}}
+\renewcommand{\vss}[1]{\vspace*{#1in}}
+\newcommand{\bvec}{{\mathbf b}}
+\newcommand{\cvec}{{\mathbf c}}
+\newcommand{\dvec}{{\mathbf d}}
+\newcommand{\evec}{{\mathbf e}}
+\newcommand{\fvec}{{\mathbf f}}
+\newcommand{\qvec}{{\mathbf q}}
+\newcommand{\uvec}{{\mathbf u}}
+\newcommand{\vvec}{{\mathbf v}}
+\newcommand{\wvec}{{\mathbf w}}
+\newcommand{\xvec}{{\mathbf x}}
+\newcommand{\yvec}{{\mathbf y}}
+\newcommand{\zvec}{{\mathbf y}}
+\newcommand{\zerovec}{{\mathbf 0}}
+\newcommand{\real}{{\mathbb R}}
+\newcommand{\twovec}[2]{\left[\begin{array}{r}#1 \\ #2
+    \end{array}\right]}
+\newcommand{\ctwovec}[2]{\left[\begin{array}{c}#1 \\ #2
+   \end{array}\right]}
+\newcommand{\threevec}[3]{\left[\begin{array}{r}#1 \\ #2 \\ #3
+  \end{array}\right]}
+\newcommand{\cthreevec}[3]{\left[\begin{array}{c}#1 \\ #2 \\ #3
+    \end{array}\right]}
+\newcommand{\fourvec}[4]{\left[\begin{array}{r}#1 \\ #2 \\ #3 \\ #4
+    \end{array}\right]}
+\newcommand{\cfourvec}[4]{\left[\begin{array}{c}#1 \\ #2 \\ #3 \\ #4
+    \end{array}\right]}
+\newcommand{\mattwo}[4]{\left[\begin{array}{rr}#1 & #2 \\ #3 & #4 \\ \end{array}\right]}
+\renewcommand{\span}[1]{\text{Span}\{#1\}}
+\newcommand{\bcal}{{\cal B}}
+\newcommand{\ccal}{{\cal C}}
+\newcommand{\scal}{{\cal S}}
+\newcommand{\wcal}{{\cal W}}
+\newcommand{\ecal}{{\cal E}}
+\newcommand{\coords}[2]{\left\{#1\right\}_{#2}}
+\newcommand{\gray}[1]{\color{gray}{#1}}
+\newcommand{\lgray}[1]{\color{lightgray}{#1}}
+\newcommand{\rank}{\text{rank}}
+\newcommand{\col}{\text{Col}}
+\newcommand{\nul}{\text{Nul}}
+
+\begin{document}
+
+\noindent
+{\bf Mathematics 227} \\ 
+{\bf Determinants}
+
+\bigskip
+\begin{enumerate}
+\item  Find the determinant of the matrix:
+$$
+A =
+\left[
+  \begin{array}{ccc}
+    2 & 1 & -3\\
+    1 & 4 & 0 \\
+    -2& 4 & 1
+  \end{array}
+\right].
+$$
+
+
+\vs{1.5}
+\item Find the determinant of the upper triangular matrix:
+$$
+U = \left[
+  \begin{array}{ccc}
+    3 & 1 & -3\\
+    0 & -2 & 2 \\
+    0& 0 & 5
+  \end{array}
+\right].
+$$
+
+\vs{1.5}
+How can you quickly find the determinant of an upper triangular matrix?
+
+\vs{1}
+What is the determinant of the identity matrix?
+
+\vs{1}
+\newpage
+\item Sage can easily find the determinant of a square matrix {\tt A}
+  with either {\tt A.det()} or {\tt A.determinant()}. 
+  Find the determinant of the matrix
+  $$
+  B = \left[
+    \begin{array}{ccc}
+      -1 & 4 & 0\\
+      6 & 1 & 1 \\
+      3 & 2 & 0 
+    \end{array}
+  \right].
+  $$
+
+  \vs{1}
+\item We are interested in understanding a connection between the
+  determinant of a matrix and the invertibility of that matrix.  To
+  understand this connection, we will study the effect of the three
+  row operations (interchange, 
+  scaling, and row replacement) on determinants.  
+
+  {\bf Interchange:} Take the matrix $B$
+  above and interchange any two rows to obtain a matrix $B_1$.
+  Compute $\det(B_1)$. How does it compare to $\det(B)$?  This is what 
+  generally happens.
+
+  \vs{1}
+  If a matrix $A$ has a nonzero determinant and we interchange two
+  rows, explain why the determinant of the new matrix is nonzero.
+
+  \vs{1} {\bf Scaling:} Now scale the first row of $B$ by $3$ to
+  obtain the matrix $B_2$.  Compute $\det(B_2)$ and compare it to
+  $\det(B)$.  This is also what happens generally.
+
+  \vs{1}
+  If a matrix $A$ has a nonzero determinant and we scale a row by a
+  nonzero number, explain why the determinant of the new matrix is
+  nonzero.
+
+  \vs{1}
+  \newpage
+  {\bf Row replacement:} Finally, perform a row replacement
+  operation on $B$ to obtain $B_3$.  Compute $\det(B_3)$ and comapre
+  it to $\det(B)$.  This is also what generally happens.
+
+  \vs{1}
+  If a matrix $A$ has a nonzero determinant and we perform a row
+  replacement operation, explain why the determinant of the new matrix
+  is nonzero.
+
+  \vs{1}
+  
+\item If you have a matrix $A$ whose determinant is nonzero, what can
+  you guarantee about the determinant of its row echelon form?
+  Explain your thinking.
+
+  \vs{1}
+  Consider the following two $3\times3$ matrices, both of which are in
+  reduced row echelon form:
+  $$
+  R_1 =
+  \left[
+    \begin{array}{ccc}
+      1 & 0 & -3 \\
+      0 & 1 & 4 \\
+      0 & 0 & 0 \\
+    \end{array}
+  \right],\hspace*{24pt}
+  R_2 =
+  \left[
+    \begin{array}{ccc}
+      1 & 0 & 0 \\
+      0 & 1 & 0 \\
+      0 & 0 & 1 \\
+    \end{array}
+  \right].
+  $$
+  Find $\det(R_1)$ and $\det(R_2)$ (you shouldn't need Sage to do
+  this).
+
+  \vs{1}
+
+  If $A$ is a $3\times3$ matrix with a nonzero determinant, which of
+  these two matrices is possible as the
+  reduced row echelon form of $A$?  Explain your thinking.
+
+  \vs{1}
+  What can you guarantee about the reduced row echelon form of $A$?
+
+  \vs{1}
+  \newpage
+\item If $A$ a square matrix with a nonzero determinant, explain why $A$
+  is invertible.
+  
+\end{enumerate}
+
+
+\end{document}
