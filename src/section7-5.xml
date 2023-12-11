@@ -19,8 +19,8 @@
       convey fundamental data about a matrix, it seems natural that
       some of our previous work can be reinterpreted in terms of
       singular value decompositions.  Therefore, we'll take some time
-      in this section to revisit some familiar issues, such as least
-      squares problems and principal component analysis, while also
+      in this section to revisit some familiar issues, such as
+      least-squares problems and principal component analysis, while also
       looking at some new applications.
     </p>
 
@@ -128,17 +128,17 @@
   </introduction>
 
   <subsection>
-    <title> Least squares problems </title>
+    <title> Least-squares problems </title>
 
     <p>
-      Least squares problems, which we explored in <xref
+      Least-squares problems, which we explored in <xref
       ref="sec-least-squares" />, arise when we are confronted with an
       inconsistent linear system <m>A\xvec=\bvec</m>.  Since there is
       no solution to the system, we instead find the vector
       <m>\xvec</m> minimizing the distance between <m>\bvec</m>
       and <m>A\xvec</m>. 
       That is, we find the
-      vector <m>\xhat</m>, the least squares approximate solution, by
+      vector <m>\xhat</m>, the least-squares approximate solution, by
       solving <m>A\xhat=\bhat</m> where <m>\bhat</m> is the orthogonal
       projection of <m>\bvec</m> onto the column space of <m>A</m>.
     </p>
@@ -149,7 +149,7 @@
       rank of <m>A</m>, and the first <m>r</m> columns of <m>U</m>
       form an orthonormal basis for <m>\col(A)</m>.  This basis may be
       used to project vectors onto <m>\col(A)</m> and hence to solve
-      least squares problems.
+      least-squares problems.
     </p>
 
     <p>
@@ -207,10 +207,10 @@ print(V)
 	    <li>
 	      <p>
 		Form the reduced singular value decomposition
-		<m>U_r\Sigma_rV_r^T</m> by constructing the matrix
+		<m>U_r\Sigma_rV_r^T</m> by constructing: the matrix
 		<m>U_r</m>, consisting of the first <m>r</m> columns
-		of <m>U</m>, the matrix <m>V_r</m>, consisting of the
-		first <m>r</m> columns of <m>V</m>, and
+		of <m>U</m>; the matrix <m>V_r</m>, consisting of the
+		first <m>r</m> columns of <m>V</m>; and
 		<m>\Sigma_r</m>, a square <m>r\times r</m> diagonal
 		matrix.  Verify that <m>A=U_r\Sigma_r V_r^T</m>.
 	      </p>
@@ -240,7 +240,7 @@ print(V)
 
 	    <li>
 	      <p>
-		Explain why a least squares
+		Explain why a least-squares
 		approximate solution <m>\xhat</m> satisfies
 		<me>
 		  A\xhat = U_rU_r^T\bvec.
@@ -261,7 +261,7 @@ print(V)
 		<me>
 		  \xhat = V_r\Sigma_r^{-1}U_r^T\bvec
 		</me>
-		is the least squares approximate solution, and
+		is the least-squares approximate solution, and
 		use this expression to find <m>\xhat</m>.
 		<sage>
 		  <input>
@@ -412,7 +412,7 @@ print(V)
 		
     <p>
       This activity demonstrates the power of a singular value
-      decomposition to find a least squares approximate solution for
+      decomposition to find a least-squares approximate solution for
       an equation <m>A\xvec = \bvec</m>.  Because it immediately
       provides an orthonormal basis for <m>\col(A)</m>, something that
       we've had to construct using the Gram-Schmidt process in the past,
@@ -424,7 +424,7 @@ print(V)
       <statement>
 	<p>
 	  If <m>A=U_r\Sigma_r V_r^T</m> is a reduced singular value
-	  decomposition of <m>A</m>, then a least squares approximate
+	  decomposition of <m>A</m>, then a least-squares approximate
 	  solution to <m>A\xvec=\bvec</m> is given by
 	  <me>
 	    \xhat = V_r\Sigma_r^{-1}U_r^T\bvec.
@@ -436,7 +436,7 @@ print(V)
     <p>
       If the columns of <m>A</m> are linearly independent, then the
       equation <m>A\xhat = \bhat</m> has only one solution so there is
-      a unique least squares approximate solution <m>\xhat</m>.
+      a unique least-squares approximate solution <m>\xhat</m>.
       Otherwise, the expression in <xref ref="prop-svd-ols"/> produces
       the solution to <m>A\xhat=\bhat</m> having the shortest
       length. 
@@ -906,7 +906,7 @@ Sigma = diagonal_matrix([500, 100, 20, 4])
     <activity>
       <statement>
 	<p>
-	  Let's revisit the iris data set that we studied in
+	  Let's revisit the iris dataset that we studied in
 	  <xref ref="sec-pca" />.  Remember that there are four
 	  measurements given for each of 150 irises and that each iris
 	  belongs to one of three species.
@@ -1997,7 +1997,7 @@ display_matrix(B.matrix_from_columns(range(50)))
 	    Because the first left singular vectors form an
 	    orthonormal basis for <m>\col(A)</m>, a singular value
 	    decomposition provides a convenient way to project vectors
-	    onto <m>\col(A)</m> and therefore to solve least squares
+	    onto <m>\col(A)</m> and therefore to solve least-squares
 	    problems.
 	  </p>
 	</li>
@@ -2039,7 +2039,7 @@ display_matrix(B.matrix_from_columns(range(50)))
 	<li>
 	  <p>
 	    If <m>A</m> is a demeaned data matrix, the left singular
-	    vectors give the principal components of <m>A</m> and the
+	    vectors give the principal components of <m>A</m>, and the
 	    variance in the direction of a principal component can be
 	    simply expressed in terms of the corresponding singular
 	    value.

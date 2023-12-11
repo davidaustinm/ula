@@ -436,7 +436,7 @@
       </md>
       Our approach finds the values for <m>b</m> and <m>m</m> that
       make this sum of squares as small as possible, which is
-      why we call this a <em>least squares</em> problem.
+      why we call this a <em>least-squares</em> problem.
     </p>
 
     <p>
@@ -446,7 +446,7 @@
       as shown in <xref ref="fig-least-squares-def" />.  Seen in this
       way, the square of the distance <m>\len{\bvec-A\xvec}^2</m> is a
       measure of how much the line defined by the vector <m>\xvec</m>
-      misses the data points.  The solution to the least squares
+      misses the data points.  The solution to the least-squares
       problem is the line that misses the data points by the smallest
       amount possible.
     </p>
@@ -456,14 +456,14 @@
 	<image source = "images/line-regress-1" />
       </sidebyside>
       <caption>
-	The solution of the least squares problem and the vertical
+	The solution of the least-squares problem and the vertical
 	distances between the line and the data points.
       </caption>
     </figure>
   </subsection>
 
   <subsection>
-    <title> Solving least squares problems </title>
+    <title> Solving least-squares problems </title>
     
     <p> Now that we've seen an example of what we're trying to
     accomplish, let's put this technique into a more general
@@ -484,7 +484,7 @@
     <p>
     We will usually denote the solution of
     <m>A\xvec = \bhat</m> by <m>\xhat</m> and call this vector the
-    <em>least squares approximate solution</em> of <m>A\xvec=\bvec</m>
+    <em>least-squares approximate solution</em> of <m>A\xvec=\bvec</m>
     to distinguish it from a (possibly non-existent) solution of
     <m>A\xvec=\bvec</m>.
     </p>
@@ -503,7 +503,7 @@
       <me>
 	A^T(\widehat\bvec-\bvec) = \zerovec\text{.}
       </me>
-      Because the least squares approximate
+      Because the least-squares approximate
       solution is the vector <m>\xhat</m> such that <m>A\xhat =
       \bhat</m>, we can rearrange this equation to see that
       <md>
@@ -525,7 +525,7 @@
     <proposition>
       <statement>
 	<p> If the columns of <m>A</m> are linearly independent, then
-	there is a unique least squares approximate solution
+	there is a unique least-squares approximate solution
 	<m>\xhat</m> to the equation <m>A\xvec=\bvec</m> given by the
 	normal equation
 	<me>
@@ -548,7 +548,7 @@
 	  = \threevec{16}{-1}7
 	</me>
 	with matrix <m>A</m> and vector <m>\bvec</m>.  
-	Since this equation is inconsistent, we will find the least squares
+	Since this equation is inconsistent, we will find the least-squares
 	approximate solution <m>\xhat</m> by solving the normal
 	equation <m>A^TA\xhat = A^T\bvec</m>, which has the form
 	<me>
@@ -644,7 +644,7 @@ list_plot(data, color='blue', size=40, xmin=12, xmax=22, ymin=60, ymax=100)
 
 	    <li>
 	      <p> Solve the normal equations to find <m>\xhat</m>, the
-	      least squares approximate solution to the equation
+	      least-squares approximate solution to the equation
 	      <m>A\xvec=\bvec</m>.  Call your solution <c>xhat</c>
 	      since <c>x</c>
 	      has another meaning in Sage.
@@ -769,7 +769,7 @@ plot_model(xhat, data, domain=(12, 22))
     <p>
       This example demonstrates an approach, called <em>linear
       regression</em>, in which a collection of data is modeled using
-      a linear function found by solving a least squares problem.
+      a linear function found by solving a least-squares problem.
       Once we have the linear function that best fits the data,
       we can make predictions about situations that we haven't
       encountered in the data.  
@@ -779,7 +779,11 @@ plot_model(xhat, data, domain=(12, 22))
       If we're going to use our function to make predictions, it's
       natural to ask how much confidence we have in these
       predictions.  This is a statistical question that leads to a
-      rich and well-developed theory, which we won't explore in much
+      rich and well-developed theory<fn>For example, see
+      Gareth James, Daniela Witten, Trevor Hastie, Robert
+      Tibshirani. <em>An Introduction to Statistical Learning: with
+      Applications in R.</em> Springer, 2013.
+      </fn>, which we won't explore in much
       detail here.  However, there is one simple measure of how well our
       linear function fits the data that is known as the coefficient
       of determination and denoted by <m>R^2</m>.
@@ -847,7 +851,7 @@ plot_model(xhat, data, domain=(12, 22))
       ref="fig-regression-scale" />, we find that <m>R^2 = 0.75</m>,
       and in our study of cricket chirp rates, we have
       <m>R^2=0.69</m>.  However, assessing the confidence we have in
-      predictions made by solving a least squares problem can require
+      predictions made by solving a least-squares problem can require
       considerable thought, and it would be naive to rely only on the
       value of <m>R^2</m>.
     </p>
@@ -858,7 +862,7 @@ plot_model(xhat, data, domain=(12, 22))
     <title> Using <m>QR</m> factorizations </title>
 
     <p>
-      As we've seen, the least squares approximate solution
+      As we've seen, the least-squares approximate solution
       <m>\xhat</m> to <m>A\xvec=\bvec</m> may be found by solving the
       normal equation <m>A^TA\xhat = A^T\bvec</m>, and this can be a
       practical strategy for some problems.  However, this approach
@@ -868,7 +872,7 @@ plot_model(xhat, data, domain=(12, 22))
 
     <p>
       As the next activity demonstrates, there is an alternate method
-      for finding the least squares approximate solution <m>\xhat</m>
+      for finding the least-squares approximate solution <m>\xhat</m>
       using a <m>QR</m> factorization of the matrix <m>A</m>, and this
       method is preferable as it is numerically more reliable.
     </p>
@@ -879,11 +883,11 @@ plot_model(xhat, data, domain=(12, 22))
 	  <ol marker="a.">
 	    <li>
 	      <p>
-		Suppose we are interested in finding the least squares
+		Suppose we are interested in finding the least-squares
 		approximate solution to the equation <m>A\xvec =
 		\bvec</m> and that we have the <m>QR</m> factorization
-		<m>A=QR</m>.  Explain why the least
-		squares approximation solution is given by solving
+		<m>A=QR</m>.  Explain why the least-squares
+		approximate solution is given by solving
 		<md>
 		  <mrow>
 		    A\xhat \amp = QQ^T\bvec \\
@@ -908,7 +912,7 @@ plot_model(xhat, data, domain=(12, 22))
 		Since <m>R</m> is upper triangular, this is a relatively
 		simple equation to solve using back substitution, as we
 		saw in <xref ref="sec-gaussian-revisited" />.  We will
-		therefore write the least squares approximate solution as
+		therefore write the least-squares approximate solution as
 		<me>
 		  \xhat = R^{-1}Q^T\bvec,
 		</me>
@@ -1024,7 +1028,7 @@ print(df)
 
 	    <li>
 	      <p>
-		Find the least squares approximate solution
+		Find the least-squares approximate solution
 		<m>\xhat</m> by solving the equation <m>R\xhat =
 		Q^T\bvec</m>.  You may want to use <c>N(xhat)</c> to
 		display a decimal approximation of the vector.
@@ -1193,8 +1197,8 @@ print(df)
       <statement>
 	<p>
 	  If the columns of <m>A</m> are linearly independent and we
-	  have the <m>QR</m> factorization <m>A=QR</m>, then the least
-	  squares approximate solution <m>\xhat</m> to the equation
+	  have the <m>QR</m> factorization <m>A=QR</m>, then the
+	  least-squares approximate solution <m>\xhat</m> to the equation
 	  <m>A\xvec=\bvec</m> is given by
 	  <me>
 	    \xhat = R^{-1}Q^T\bvec\text{.}
@@ -1277,7 +1281,7 @@ list_plot(data, color='blue', size=40)
 
 	      <p>
 		Find the <m>QR</m> factorization of <m>A</m> and use it
-		to find the least squares approximate solution
+		to find the least-squares approximate solution
 		<m>\xhat</m>.
 		<sage>
 		  <input>
@@ -1304,7 +1308,7 @@ list_plot(data, color='blue', size=40) + plot( **your function here**,
 
 	    <li>
 	      <p>
-		What is your predicted <m>y</m> value when <m>x=1.5</m>.
+		What is your predicted <m>y</m> value when <m>x=1.5</m>?
 	      </p>
 	    </li>
 
@@ -1312,7 +1316,7 @@ list_plot(data, color='blue', size=40) + plot( **your function here**,
 	      <p>
 		Find the coefficient of determination <m>R^2</m> for the
 		quadratic 
-		function?  What does this say about the quality of the
+		function.  What does this say about the quality of the
 		fit?
 	      </p>
 	    </li>
@@ -1574,7 +1578,7 @@ list_plot(data, color='blue', size=40)
 	  <ol marker="a.">
 	    <li>
 	      <p>
-		Find the vector <m>\xhat</m>, the least squares
+		Find the vector <m>\xhat</m>, the least-squares
 		approximate solution to the linear system that results
 		from fitting a degree 5 polynomial to the data.
 		<sage>
@@ -1761,13 +1765,13 @@ plot_model(xhat, data)
     <title> Summary </title>
 
     <p>
-      This section introduced some types of least squares problems and
+      This section introduced some types of least-squares problems and
       a framework for working with them.
       <ul>
 	<li>
 	  <p>
 	    Given an inconsistent system <m>A\xvec=\bvec</m>, we find
-	    <m>\xhat</m>, the least squares approximate solution, by
+	    <m>\xhat</m>, the least-squares approximate solution, by
 	    requiring that <m>A\xhat</m> be as 
 	    possible to <m>\bvec</m> as possible.  In other words,
 	    <m>A\xhat = \bhat</m> where <m>\bhat</m> is the
