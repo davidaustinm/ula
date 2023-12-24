@@ -9,56 +9,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="robots" content="noindex, nofollow">
-<script>// Make *any* pre with class 'sagecell-sage' an executable Sage cell
-// Their results will be linked, only within language type
-sagecell.makeSagecell({
-  "inputLocation": "pre.sagecell-sage",
-  "linked": true,
-  "languages": [
-    "sage"
-  ],
-  "evalButtonText": "Evaluate (Sage)"
-});
-</script>
 </head>
 <body class="ignore-math">
 <h5 class="heading"><span class="type">Paragraph</span></h5>
-<div class="para logical">
-<div class="para">The key to finding the eigenvalue of <span class="process-math">\(A\)</span> having the smallest absolute value is to note that the eigenvectors of <span class="process-math">\(A\)</span> are the same as those of <span class="process-math">\(A^{-1}\text{.}\)</span>
-</div>
-<ol class="lower-alpha">
-<li><div class="para">If <span class="process-math">\(\vvec\)</span> is an eigenvector of <span class="process-math">\(A\)</span> with associated eigenvector <span class="process-math">\(\lambda\text{,}\)</span> explain why <span class="process-math">\(\vvec\)</span> is an eigenvector of <span class="process-math">\(A^{-1}\)</span> with associated eigenvalue <span class="process-math">\(\lambda^{-1}\text{.}\)</span>
-</div></li>
-<li><div class="para">Explain why the eigenvalue of <span class="process-math">\(A\)</span> having the smallest absolute value is the reciprocal of the dominant eigenvalue of <span class="process-math">\(A^{-1}\text{.}\)</span>
-</div></li>
-<li><div class="para">Explain how to use the power method applied to <span class="process-math">\(A^{-1}\)</span> to find the eigenvalue of <span class="process-math">\(A\)</span> having the smallest absolute value.</div></li>
-<li><div class="para">If we apply the power method to <span class="process-math">\(A^{-1}\text{,}\)</span> we begin with an intial vector <span class="process-math">\(\xvec_0\)</span> and generate the sequence <span class="process-math">\(\xvec_{k+1} = A^{-1}\xvec_k\text{.}\)</span>  It is not computationally efficient to compute <span class="process-math">\(A^{-1}\text{,}\)</span> however, so instead we solve the equation <span class="process-math">\(A\xvec_{k+1} =
-\xvec_k\text{.}\)</span>  Explain why an <span class="process-math">\(LU\)</span> factorization of <span class="process-math">\(A\)</span> is useful for implementing the power method applied to <span class="process-math">\(A^{-1}\text{.}\)</span>
-</div></li>
-<li><div class="para">The following Sage cell defines a command called <code class="code-inline tex2jax_ignore">inverse_power</code> that applies the power method to <span class="process-math">\(A^{-1}\text{.}\)</span>  That is, <code class="code-inline tex2jax_ignore">inverse_power(A, x0, N)</code> prints the vectors <span class="process-math">\(\xvec_k\text{,}\)</span> where <span class="process-math">\(\xvec_{k+1} =
-A^{-1}\xvec_k\text{,}\)</span> and multipliers <span class="process-math">\(\frac{1}{m_k}\text{,}\)</span> which approximate the eigenvalue of <span class="process-math">\(A\text{.}\)</span>  Use it to find the eigenvalue of <span class="process-math">\(A=\left[\begin{array}{rr}
--5.1 \amp 5.7 \\
--3.8 \amp 4.4 \\
-\end{array}\right]\)</span> having the smallest absolute value. <pre class="ptx-sagecell sagecell-sage" id="sage-144"><script type="text/x-sage">def inverse_power(A, x, N):
-    for i in range(N):
-        x = A \ x
-        m = max([comp for comp in x], key=abs).numerical_approx(digits=14)
-        x = 1/float(m)*x
-        print (1/float(m), x)
-### define the matrix A and vector x0
-A =
-x0 =
-inverse_power(A, x0, 20)
-</script></pre>
-</div></li>
-<li><div class="para">The inverse power method only works if <span class="process-math">\(A\)</span> is invertible.  If <span class="process-math">\(A\)</span> is not invertible, what is its eigenvalue having the smallest absolute value?</div></li>
-<li><div class="para">Use the power method and the inverse power method to find the eigenvalues and associated eigenvectors of the matrix <span class="process-math">\(A = \left[\begin{array}{rr}
--0.23 \amp -2.33 \\
--1.16 \amp 1.08 \\
-\end{array}\right]
-\text{.}\)</span>
-</div></li>
-</ol>
+<div class="para">In the same way, we obtain <span class="process-math">\(\xvec_2=A\overline{\xvec}_1 = \twovec{0.66}{0.96}\text{.}\)</span> We see that <span class="process-math">\(m_2=0.96\)</span> so we have <span class="process-math">\(\overline{\xvec}_2= \twovec{0.688}{1}\text{.}\)</span>
 </div>
 <span class="incontext"><a href="sec-power-method.html#p-5312" class="internal">in-context</a></span>
 </body>

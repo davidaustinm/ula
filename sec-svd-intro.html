@@ -117,7 +117,7 @@ sagecell.makeSagecell({
 </head>
 <body id="ula" class="pretext book ignore-math">
 <a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner">
-<a id="logo-link" class="logo-link" href=""></a><div class="title-container">
+<a id="logo-link" class="logo-link" href="https://understandinglinearalgebra.org" target="_blank"><img src="external/images/ula-logo.png" alt="Logo image"></a><div class="title-container">
 <h1 class="heading"><a href="ula.html"><span class="title">Understanding Linear Algebra</span></a></h1>
 <p class="byline">David Austin</p>
 </div>
@@ -310,7 +310,9 @@ sagecell.makeSagecell({
 <ul class="structural">
 <li><div class="toc-item"><a href="dedication-1.html" class="internal"><span class="title">Dedication</span></a></div></li>
 <li><div class="toc-item"><a href="colophon-1.html" class="internal"><span class="title">Colophon</span></a></div></li>
+<li><div class="toc-item"><a href="acknowledgement-1.html" class="internal"><span class="title">Acknowledgements</span></a></div></li>
 <li><div class="toc-item"><a href="preface-1.html" class="internal"><span class="title">Our goals</span></a></div></li>
+<li><div class="toc-item"><a href="preface-2.html" class="internal"><span class="title">A note on the print version</span></a></div></li>
 </ul>
 </li>
 <li>
@@ -594,7 +596,7 @@ sagecell.makeSagecell({
 <div class="toc-item"><a href="sec-least-squares.html" class="internal"><span class="codenumber">6.5</span> <span class="title">Orthogonal least squares</span></a></div>
 <ul class="structural">
 <li><div class="toc-item"><a href="sec-least-squares.html#subsection-95" class="internal"><span class="codenumber">6.5.1</span> <span class="title">A first example</span></a></div></li>
-<li><div class="toc-item"><a href="sec-least-squares.html#subsection-96" class="internal"><span class="codenumber">6.5.2</span> <span class="title">Solving least squares problems</span></a></div></li>
+<li><div class="toc-item"><a href="sec-least-squares.html#subsection-96" class="internal"><span class="codenumber">6.5.2</span> <span class="title">Solving least-squares problems</span></a></div></li>
 <li><div class="toc-item"><a href="sec-least-squares.html#subsection-97" class="internal"><span class="codenumber">6.5.3</span> <span class="title">Using <span class="process-math">\(QR\)</span> factorizations</span></a></div></li>
 <li><div class="toc-item"><a href="sec-least-squares.html#subsection-98" class="internal"><span class="codenumber">6.5.4</span> <span class="title">Polynomial Regression</span></a></div></li>
 <li><div class="toc-item"><a href="sec-least-squares.html#subsection-99" class="internal"><span class="codenumber">6.5.5</span> <span class="title">Summary</span></a></div></li>
@@ -604,7 +606,7 @@ sagecell.makeSagecell({
 </ul>
 </li>
 <li>
-<div class="toc-item"><a href="chap7.html" class="internal"><span class="codenumber">7</span> <span class="title">The Spectral Theorem and singular value decompositions</span></a></div>
+<div class="toc-item"><a href="chap7.html" class="internal"><span class="codenumber">7</span> <span class="title">Singular value decompositions</span></a></div>
 <ul class="structural">
 <li>
 <div class="toc-item"><a href="sec-symmetric-matrices.html" class="internal"><span class="codenumber">7.1</span> <span class="title">Symmetric matrices and variance</span></a></div>
@@ -646,7 +648,7 @@ sagecell.makeSagecell({
 <li>
 <div class="toc-item"><a href="sec-svd-uses.html" class="internal"><span class="codenumber">7.5</span> <span class="title">Using Singular Value Decompositions</span></a></div>
 <ul class="structural">
-<li><div class="toc-item"><a href="sec-svd-uses.html#subsection-113" class="internal"><span class="codenumber">7.5.1</span> <span class="title">Least squares problems</span></a></div></li>
+<li><div class="toc-item"><a href="sec-svd-uses.html#subsection-113" class="internal"><span class="codenumber">7.5.1</span> <span class="title">Least-squares problems</span></a></div></li>
 <li><div class="toc-item"><a href="sec-svd-uses.html#subsection-114" class="internal"><span class="codenumber">7.5.2</span> <span class="title">Rank <span class="process-math">\(k\)</span> approximations</span></a></div></li>
 <li><div class="toc-item"><a href="sec-svd-uses.html#subsection-115" class="internal"><span class="codenumber">7.5.3</span> <span class="title">Principal component analysis</span></a></div></li>
 <li><div class="toc-item"><a href="sec-svd-uses.html#subsection-116" class="internal"><span class="codenumber">7.5.4</span> <span class="title">Image compressing and denoising</span></a></div></li>
@@ -669,7 +671,7 @@ sagecell.makeSagecell({
 <main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="sec-svd-intro"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">7.4</span> <span class="title">Singular Value Decompositions</span>
 </h2>
-<section class="introduction" id="introduction-37"><div class="para" id="p-7818">The Spectral Theorem has motivated the past few sections.  In particular, we applied the fact that symmetric matrices can be orthogonally diagonalized to simplify quadratic forms, which enabled us to use principal component analysis to reduce the dimension of a dataset.</div> <div class="para logical" id="p-7819">
+<section class="introduction" id="introduction-37"><div class="para" id="p-7826">The Spectral Theorem has motivated the past few sections.  In particular, we applied the fact that symmetric matrices can be orthogonally diagonalized to simplify quadratic forms, which enabled us to use principal component analysis to reduce the dimension of a dataset.</div> <div class="para logical" id="p-7827">
 <div class="para">But what can we do with matrices that are not symmetric or even square?  For instance, the following matrices are not diagonalizable, much less orthogonally so:</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -688,28 +690,28 @@ sagecell.makeSagecell({
 </div> <article class="exploration project-like" id="exploration-29"><h3 class="heading">
 <span class="type">Preview Activity</span><span class="space"> </span><span class="codenumber">7.4.1</span><span class="period">.</span>
 </h3>
-<div class="para logical" id="p-7820">
+<div class="para logical" id="p-7828">
 <div class="para">Let’s review orthogonal diagonalizations and quadratic forms as our understanding of singular value decompositions will rely on them.</div>
 <ol class="lower-alpha">
-<li id="li-5439"><div class="para" id="p-7821">Suppose that <span class="process-math">\(A\)</span> is any matrix.  Explain why the matrix <span class="process-math">\(G = A^TA\)</span> is symmetric.</div></li>
-<li id="li-5440"><div class="para" id="p-7822">Suppose that <span class="process-math">\(A = \begin{bmatrix}
+<li id="li-5439"><div class="para" id="p-7829">Suppose that <span class="process-math">\(A\)</span> is any matrix.  Explain why the matrix <span class="process-math">\(G = A^TA\)</span> is symmetric.</div></li>
+<li id="li-5440"><div class="para" id="p-7830">Suppose that <span class="process-math">\(A = \begin{bmatrix}
 1 \amp 2 \\
 -2 \amp -1 \\
 \end{bmatrix}\text{.}\)</span>  Find the matrix <span class="process-math">\(G=A^TA\)</span> and write out the quadratic form <span class="process-math">\(q_G\left(\twovec{x_1}{x_2}\right)\)</span> as a function of <span class="process-math">\(x_1\)</span> and <span class="process-math">\(x_2\text{.}\)</span>
 </div></li>
-<li id="li-5441"><div class="para" id="p-7823">What is the maximum value of <span class="process-math">\(q_G(\xvec)\)</span> and in which direction does it occur? <pre class="ptx-sagecell sagecell-sage" id="sage-237"><script type="text/x-sage">
+<li id="li-5441"><div class="para" id="p-7831">What is the maximum value of <span class="process-math">\(q_G(\xvec)\)</span> and in which direction does it occur? <pre class="ptx-sagecell sagecell-sage" id="sage-239"><script type="text/x-sage">
 </script></pre>
 </div></li>
-<li id="li-5442"><div class="para" id="p-7824">What is the minimum value of <span class="process-math">\(q_G(\xvec)\)</span> and in which direction does it occur?</div></li>
-<li id="li-5443"><div class="para" id="p-7825">What is the geometric relationship between the directions in which the maximum and minimum values occur?</div></li>
+<li id="li-5442"><div class="para" id="p-7832">What is the minimum value of <span class="process-math">\(q_G(\xvec)\)</span> and in which direction does it occur?</div></li>
+<li id="li-5443"><div class="para" id="p-7833">What is the geometric relationship between the directions in which the maximum and minimum values occur?</div></li>
 </ol>
 </div></article></section><section class="subsection" id="subsection-109"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber">7.4.1</span> <span class="title">Finding singular value decompositions</span>
 </h3>
-<div class="para" id="p-7832">We will begin by explaining what a singular value decomposition is and how we can find one for a given matrix <span class="process-math">\(A\text{.}\)</span>
+<div class="para" id="p-7840">We will begin by explaining what a singular value decomposition is and how we can find one for a given matrix <span class="process-math">\(A\text{.}\)</span>
 </div>
-<div class="para" id="p-7833">Recall how the orthogonal diagonalization of a symmetric matrix is formed: if <span class="process-math">\(A\)</span> is symmetric, we write <span class="process-math">\(A = QDQ^T\)</span> where the diagonal entries of <span class="process-math">\(D\)</span> are the eigenvalues of <span class="process-math">\(A\)</span> and the columns of <span class="process-math">\(Q\)</span> are the associated eigenvectors.  Moreover, the eigenvalues are related to the maximum and minimum values of the associated quadratic form <span class="process-math">\(q_A(\uvec)\)</span> among all unit vectors.</div>
-<div class="para logical" id="p-7834">
+<div class="para" id="p-7841">Recall how the orthogonal diagonalization of a symmetric matrix is formed: if <span class="process-math">\(A\)</span> is symmetric, we write <span class="process-math">\(A = QDQ^T\)</span> where the diagonal entries of <span class="process-math">\(D\)</span> are the eigenvalues of <span class="process-math">\(A\)</span> and the columns of <span class="process-math">\(Q\)</span> are the associated eigenvectors.  Moreover, the eigenvalues are related to the maximum and minimum values of the associated quadratic form <span class="process-math">\(q_A(\uvec)\)</span> among all unit vectors.</div>
+<div class="para logical" id="p-7842">
 <div class="para">A general matrix, particularly a matrix that is not square, may not have eigenvalues and eigenvectors, but we can discover analogous features, called <em class="emphasis">singular values</em> and <em class="emphasis">singular vectors</em>, by studying a function somewhat similar to a quadratic form.  More specifically, any matrix <span class="process-math">\(A\)</span> defines a function</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -722,7 +724,7 @@ l_A(\xvec) = |A\xvec|,
 \end{bmatrix}\)</span> gives the function <span class="process-math">\(l_D(\xvec) = \sqrt{9x_1^2 + 4x_2^2}\text{.}\)</span> The presence of the square root means that this function is not a quadratic form.  We can, however, define the singular values and vectors by looking for the maximum and minimum of this function <span class="process-math">\(l_A(\uvec)\)</span> among all unit vectors <span class="process-math">\(\uvec\text{.}\)</span>
 </div>
 </div>
-<div class="para logical" id="p-7835">
+<div class="para logical" id="p-7843">
 <div class="para">While <span class="process-math">\(l_A(\xvec)\)</span> is not itself a quadratic form, it becomes one if we square it:</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -741,37 +743,37 @@ l_A(\xvec) = \sqrt{q_G(\xvec)}\text{.}
 <article class="activity project-like" id="activity-101"><h4 class="heading">
 <span class="type">Activity</span><span class="space"> </span><span class="codenumber">7.4.2</span><span class="period">.</span>
 </h4>
-<div class="para" id="p-7836">The following interactive figure will help us explore singular values and vectors geometrically before we begin a more algebraic approach.</div> <figure class="figure figure-like" id="js-svd"><iframe id="interactive-svd" width="600" height="400" src="interactive-svd-if.html"></iframe><div class="instructions">
-<a href="" data-knowl="" class="id-ref instructions-knowl original" data-refid="hk-instructions-14" id="instructions-14"><h5 class="heading"><span class="type">Instructions<span class="period">.</span></span></h5></a><div class="hidden-content tex2jax_ignore" id="hk-instructions-14"><div class="solution-like"><div class="para" id="p-7838">You may choose a <span class="process-math">\(2\times2\)</span> matrix <span class="process-math">\(A=\begin{bmatrix}
+<div class="para" id="p-7844">The following interactive figure will help us explore singular values and vectors geometrically before we begin a more algebraic approach.</div> <figure class="figure figure-like" id="js-svd"><iframe id="interactive-svd" width="600" height="400" src="interactive-svd-if.html"></iframe><div class="instructions">
+<a href="" data-knowl="" class="id-ref instructions-knowl original" data-refid="hk-instructions-14" id="instructions-14"><h5 class="heading"><span class="type">Instructions<span class="period">.</span></span></h5></a><div class="hidden-content tex2jax_ignore" id="hk-instructions-14"><div class="solution-like"><div class="para" id="p-7846">You may choose a <span class="process-math">\(2\times2\)</span> matrix <span class="process-math">\(A=\begin{bmatrix}
 a \amp b \\
 c \amp d \\
 \end{bmatrix}\)</span> using the four sliders at the top of the diagram.  On the left, you may vary the red unit vector <span class="process-math">\(\xvec\)</span> by clicking in the head of the vector.</div></div></div>
 </div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">7.4.1<span class="period">.</span></span><span class="space"> </span>Singular values, right singular vectors and left singular vectors</figcaption></figure> <div class="para" id="p-7839">Select the matrix <span class="process-math">\(A=\begin{bmatrix}
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">7.4.1<span class="period">.</span></span><span class="space"> </span>Singular values, right singular vectors and left singular vectors</figcaption></figure> <div class="para" id="p-7847">Select the matrix <span class="process-math">\(A=\begin{bmatrix}
 1 \amp 2 \\
 -2 \amp - 1 \\
 \end{bmatrix}\text{.}\)</span> As we vary the vector <span class="process-math">\(\xvec\text{,}\)</span> we see the vector <span class="process-math">\(A\xvec\)</span> on the right in gray while the height of the blue bar to the right tells us <span class="process-math">\(l_A(\xvec) =
 |A\xvec|\text{.}\)</span>
-</div> <div class="para logical" id="p-7840"><ol class="lower-alpha">
+</div> <div class="para logical" id="p-7848"><ol class="lower-alpha">
 <li id="li-5449">
-<div class="para" id="p-7841">The first <em class="emphasis">singular value</em> <span class="process-math">\(\sigma_1\)</span> is the maximum value of <span class="process-math">\(l_A(\xvec)\)</span> and an associated <em class="emphasis">right singular vector</em> <span class="process-math">\(\vvec_1\)</span> is a unit vector describing a direction in which this maximum occurs.</div>
-<div class="para" id="p-7842">Use the diagram to find the first singular value <span class="process-math">\(\sigma_1\)</span> and an associated right singular vector <span class="process-math">\(\vvec_1\text{.}\)</span>
+<div class="para" id="p-7849">The first <em class="emphasis">singular value</em> <span class="process-math">\(\sigma_1\)</span> is the maximum value of <span class="process-math">\(l_A(\xvec)\)</span> and an associated <em class="emphasis">right singular vector</em> <span class="process-math">\(\vvec_1\)</span> is a unit vector describing a direction in which this maximum occurs.</div>
+<div class="para" id="p-7850">Use the diagram to find the first singular value <span class="process-math">\(\sigma_1\)</span> and an associated right singular vector <span class="process-math">\(\vvec_1\text{.}\)</span>
 </div>
 </li>
 <li id="li-5450">
-<div class="para" id="p-7843">The second singular value <span class="process-math">\(\sigma_2\)</span> is the minimum value of <span class="process-math">\(l_A(\xvec)\)</span> and an associated right singular vector <span class="process-math">\(\vvec_2\)</span> is a unit vector describing a direction in which this minimum occurs.</div>
-<div class="para" id="p-7844">Use the diagram to find the second singular value <span class="process-math">\(\sigma_2\)</span> and an associated right singular vector <span class="process-math">\(\vvec_2\text{.}\)</span>
+<div class="para" id="p-7851">The second singular value <span class="process-math">\(\sigma_2\)</span> is the minimum value of <span class="process-math">\(l_A(\xvec)\)</span> and an associated right singular vector <span class="process-math">\(\vvec_2\)</span> is a unit vector describing a direction in which this minimum occurs.</div>
+<div class="para" id="p-7852">Use the diagram to find the second singular value <span class="process-math">\(\sigma_2\)</span> and an associated right singular vector <span class="process-math">\(\vvec_2\text{.}\)</span>
 </div>
 </li>
-<li id="li-5451"><div class="para" id="p-7845">Here’s how we can find the right singular values and vectors without using the diagram.  Remember that <span class="process-math">\(l_A(\xvec) = \sqrt{q_G(\xvec)}\)</span> where <span class="process-math">\(G=A^TA\)</span> is the Gram matrix associated to <span class="process-math">\(A\text{.}\)</span>  Since <span class="process-math">\(G\)</span> is symmetric, it is orthogonally diagonalizable.  Find <span class="process-math">\(G\)</span> and an orthogonal diagonalization of it. <pre class="ptx-sagecell sagecell-sage" id="sage-238"><script type="text/x-sage">
+<li id="li-5451"><div class="para" id="p-7853">Here’s how we can find the right singular values and vectors without using the diagram.  Remember that <span class="process-math">\(l_A(\xvec) = \sqrt{q_G(\xvec)}\)</span> where <span class="process-math">\(G=A^TA\)</span> is the Gram matrix associated to <span class="process-math">\(A\text{.}\)</span>  Since <span class="process-math">\(G\)</span> is symmetric, it is orthogonally diagonalizable.  Find <span class="process-math">\(G\)</span> and an orthogonal diagonalization of it. <pre class="ptx-sagecell sagecell-sage" id="sage-240"><script type="text/x-sage">
 </script></pre> What is the maximum value of the quadratic form <span class="process-math">\(q_G(\xvec)\)</span> among all unit vectors and in which direction does it occur?  What is the minimum value of <span class="process-math">\(q_G(\xvec)\)</span> and in which direction does it occur?</div></li>
-<li id="li-5452"><div class="para" id="p-7846">Because <span class="process-math">\(l_A(\xvec) = \sqrt{q_G(\xvec)}\text{,}\)</span> the first singular value <span class="process-math">\(\sigma_1\)</span> will be the square root of the maximum value of <span class="process-math">\(q_G(\xvec)\)</span> and <span class="process-math">\(\sigma_2\)</span> the square root of the minimum. Verify that the singular values that you found from the diagram are the square roots of the maximum and minimum values of <span class="process-math">\(q_G(\xvec)\text{.}\)</span>
+<li id="li-5452"><div class="para" id="p-7854">Because <span class="process-math">\(l_A(\xvec) = \sqrt{q_G(\xvec)}\text{,}\)</span> the first singular value <span class="process-math">\(\sigma_1\)</span> will be the square root of the maximum value of <span class="process-math">\(q_G(\xvec)\)</span> and <span class="process-math">\(\sigma_2\)</span> the square root of the minimum. Verify that the singular values that you found from the diagram are the square roots of the maximum and minimum values of <span class="process-math">\(q_G(\xvec)\text{.}\)</span>
 </div></li>
-<li id="li-5453"><div class="para" id="p-7847">Verify that the right singular vectors <span class="process-math">\(\vvec_1\)</span> and <span class="process-math">\(\vvec_2\)</span> that you found from the diagram are the directions in which the maximum and minimum values occur.</div></li>
-<li id="li-5454"><div class="para" id="p-7848">Finally, we introduce the <em class="emphasis">left singular vectors</em> <span class="process-math">\(\uvec_1\)</span> and <span class="process-math">\(\uvec_2\)</span> by requiring that <span class="process-math">\(A\vvec_1 = \sigma_1\uvec_1\)</span> and <span class="process-math">\(A\vvec_2=\sigma_2\uvec_2\text{.}\)</span>  Find the two left singular vectors. <pre class="ptx-sagecell sagecell-sage" id="sage-239"><script type="text/x-sage">
+<li id="li-5453"><div class="para" id="p-7855">Verify that the right singular vectors <span class="process-math">\(\vvec_1\)</span> and <span class="process-math">\(\vvec_2\)</span> that you found from the diagram are the directions in which the maximum and minimum values occur.</div></li>
+<li id="li-5454"><div class="para" id="p-7856">Finally, we introduce the <em class="emphasis">left singular vectors</em> <span class="process-math">\(\uvec_1\)</span> and <span class="process-math">\(\uvec_2\)</span> by requiring that <span class="process-math">\(A\vvec_1 = \sigma_1\uvec_1\)</span> and <span class="process-math">\(A\vvec_2=\sigma_2\uvec_2\text{.}\)</span>  Find the two left singular vectors. <pre class="ptx-sagecell sagecell-sage" id="sage-241"><script type="text/x-sage">
 </script></pre>
 </div></li>
-<li id="li-5455"><div class="para logical" id="p-7849">
+<li id="li-5455"><div class="para logical" id="p-7857">
 <div class="para">Form the matrices</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -788,16 +790,16 @@ V = \begin{bmatrix}\vvec_1 \amp \vvec_2
 <div class="para">and explain why <span class="process-math">\(AV = U\Sigma\text{.}\)</span>
 </div>
 </div></li>
-<li id="li-5456"><div class="para" id="p-7850">Finally, explain why <span class="process-math">\(A=U\Sigma V^T\)</span> and verify that this relationship holds for this specific example.</div></li>
-</ol></div></article><div class="para" id="p-7869">As this activity shows, the singular values of <span class="process-math">\(A\)</span> are the maximum and minimum values of <span class="process-math">\(l_A(\xvec)=|A\xvec|\)</span> among all unit vectors and the right singular vectors <span class="process-math">\(\vvec_1\)</span> and <span class="process-math">\(\vvec_2\)</span> are the directions in which they occur.  The key to finding the singular values and vectors is to utilize the Gram matrix <span class="process-math">\(G\)</span> and its associated quadratic form <span class="process-math">\(q_G(\xvec)\text{.}\)</span>  We will illustrate with some more examples.</div>
+<li id="li-5456"><div class="para" id="p-7858">Finally, explain why <span class="process-math">\(A=U\Sigma V^T\)</span> and verify that this relationship holds for this specific example.</div></li>
+</ol></div></article><div class="para" id="p-7877">As this activity shows, the singular values of <span class="process-math">\(A\)</span> are the maximum and minimum values of <span class="process-math">\(l_A(\xvec)=|A\xvec|\)</span> among all unit vectors and the right singular vectors <span class="process-math">\(\vvec_1\)</span> and <span class="process-math">\(\vvec_2\)</span> are the directions in which they occur.  The key to finding the singular values and vectors is to utilize the Gram matrix <span class="process-math">\(G\)</span> and its associated quadratic form <span class="process-math">\(q_G(\xvec)\text{.}\)</span>  We will illustrate with some more examples.</div>
 <article class="example example-like" id="example-76"><h4 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">7.4.2</span><span class="period">.</span>
 </h4>
-<div class="para" id="p-7870">We will find a singular value decomposition of the matrix <span class="process-math">\(A=\begin{bmatrix}
+<div class="para" id="p-7878">We will find a singular value decomposition of the matrix <span class="process-math">\(A=\begin{bmatrix}
 1 \amp 2 \\
 -1 \amp 2
 \end{bmatrix}
-\text{.}\)</span>  Notice that this matrix is not symmetric so it cannot be orthogonally diagonalized.</div> <div class="para logical" id="p-7871">
+\text{.}\)</span>  Notice that this matrix is not symmetric so it cannot be orthogonally diagonalized.</div> <div class="para logical" id="p-7879">
 <div class="para">We begin by constructing the Gram matrix <span class="process-math">\(G = A^TA =
 \begin{bmatrix} 
 2 \amp 0 \\
@@ -815,14 +817,14 @@ Q = \begin{bmatrix}
 \end{bmatrix}\text{.}
 \end{equation*}
 </div>
-</div> <div class="para" id="p-7872">We now know that the maximum value of the quadratic form <span class="process-math">\(q_G(\xvec)\)</span> is 8, which occurs in the direction <span class="process-math">\(\twovec01\text{.}\)</span>  Since <span class="process-math">\(l_A(\xvec) =
+</div> <div class="para" id="p-7880">We now know that the maximum value of the quadratic form <span class="process-math">\(q_G(\xvec)\)</span> is 8, which occurs in the direction <span class="process-math">\(\twovec01\text{.}\)</span>  Since <span class="process-math">\(l_A(\xvec) =
 \sqrt{q_G(\xvec)}\text{,}\)</span> this tells us that the maximum value of <span class="process-math">\(l_A(\xvec)\text{,}\)</span> the first singular value, is <span class="process-math">\(\sigma_1=\sqrt{8}\)</span> and that this occurs in the direction of the first right singular vector <span class="process-math">\(\vvec_1=\twovec01\text{.}\)</span>
-</div> <div class="para" id="p-7873">In the same way, we also know that the second singular value <span class="process-math">\(\sigma_2=\sqrt{2}\)</span> with associated right singular vector <span class="process-math">\(\vvec_2=\twovec10\text{.}\)</span>
-</div> <div class="para" id="p-7874">The first left singular vector <span class="process-math">\(\uvec_1\)</span> is defined by <span class="process-math">\(A\vvec_1 = \twovec22 = \sigma_1\uvec_1\text{.}\)</span>  Because <span class="process-math">\(\sigma_1 = \sqrt{8}\text{,}\)</span> we have <span class="process-math">\(\uvec_1
+</div> <div class="para" id="p-7881">In the same way, we also know that the second singular value <span class="process-math">\(\sigma_2=\sqrt{2}\)</span> with associated right singular vector <span class="process-math">\(\vvec_2=\twovec10\text{.}\)</span>
+</div> <div class="para" id="p-7882">The first left singular vector <span class="process-math">\(\uvec_1\)</span> is defined by <span class="process-math">\(A\vvec_1 = \twovec22 = \sigma_1\uvec_1\text{.}\)</span>  Because <span class="process-math">\(\sigma_1 = \sqrt{8}\text{,}\)</span> we have <span class="process-math">\(\uvec_1
 = \twovec{1/\sqrt{2}}{1/\sqrt{2}}\text{.}\)</span>  Notice that <span class="process-math">\(\uvec_1\)</span> is a unit vector because <span class="process-math">\(\sigma_1 =
 |A\vvec_1|\text{.}\)</span>
-</div> <div class="para" id="p-7875">In the same way, the second left singular vector is defined by <span class="process-math">\(A\vvec_2 = \twovec1{-1} = \sigma_2\uvec_2\text{,}\)</span> which gives us <span class="process-math">\(\uvec_2 = \twovec{1/\sqrt{2}}{-1/\sqrt{2}}\text{.}\)</span>
-</div> <div class="para logical" id="p-7876">
+</div> <div class="para" id="p-7883">In the same way, the second left singular vector is defined by <span class="process-math">\(A\vvec_2 = \twovec1{-1} = \sigma_2\uvec_2\text{,}\)</span> which gives us <span class="process-math">\(\uvec_2 = \twovec{1/\sqrt{2}}{-1/\sqrt{2}}\text{.}\)</span>
+</div> <div class="para logical" id="p-7884">
 <div class="para">We then construct</div>
 <div class="displaymath process-math" id="md-31">
 \begin{align*}
@@ -848,7 +850,7 @@ V \amp {}={} \begin{bmatrix}
 \end{bmatrix}
 \end{align*}
 </div>
-</div> <div class="para logical" id="p-7877">
+</div> <div class="para logical" id="p-7885">
 <div class="para">We now have <span class="process-math">\(AV=U\Sigma\)</span> because</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -884,17 +886,17 @@ A = \begin{bmatrix}
 = U\Sigma V^T\text{.}
 \end{equation*}
 </div>
-</div></article><div class="para logical" id="p-7878">
+</div></article><div class="para logical" id="p-7886">
 <div class="para">To summarize, we find a singular value decomposition of a matrix <span class="process-math">\(A\)</span> in the following way:</div>
 <ul class="disc">
-<li id="li-5473"><div class="para" id="p-7879">Construct the Gram matrix <span class="process-math">\(G=A^TA\)</span> and find an orthogonal diagonalization to obtain eigenvalues <span class="process-math">\(\lambda_i\)</span> and an orthonormal basis of eigenvectors.</div></li>
-<li id="li-5474"><div class="para" id="p-7880">The singular values of <span class="process-math">\(A\)</span> are the squares roots of eigenvalues <span class="process-math">\(\lambda_i\)</span> of <span class="process-math">\(G\text{;}\)</span> that is, <span class="process-math">\(\sigma_i = \sqrt{\lambda_i}\text{.}\)</span>  By convention, the singular values are listed in decreasing order: <span class="process-math">\(\sigma_1 \geq \sigma_2 \geq \ldots
+<li id="li-5473"><div class="para" id="p-7887">Construct the Gram matrix <span class="process-math">\(G=A^TA\)</span> and find an orthogonal diagonalization to obtain eigenvalues <span class="process-math">\(\lambda_i\)</span> and an orthonormal basis of eigenvectors.</div></li>
+<li id="li-5474"><div class="para" id="p-7888">The singular values of <span class="process-math">\(A\)</span> are the squares roots of eigenvalues <span class="process-math">\(\lambda_i\)</span> of <span class="process-math">\(G\text{;}\)</span> that is, <span class="process-math">\(\sigma_i = \sqrt{\lambda_i}\text{.}\)</span>  By convention, the singular values are listed in decreasing order: <span class="process-math">\(\sigma_1 \geq \sigma_2 \geq \ldots
 \text{.}\)</span>  The right singular vectors <span class="process-math">\(\vvec_i\)</span> are the associated eigenvectors of <span class="process-math">\(G\text{.}\)</span>
 </div></li>
 <li id="li-5475">
-<div class="para" id="p-7881">The left singular vectors <span class="process-math">\(\uvec_i\)</span> are found by <span class="process-math">\(A\vvec_i = \sigma_i\uvec_i\text{.}\)</span>  Because <span class="process-math">\(\sigma_i=|A\vvec_i|\text{,}\)</span> we know that <span class="process-math">\(\uvec_i\)</span> will be a unit vector.</div>
-<div class="para logical" id="p-7882">
-<div class="para">In fact, the left singular vectors will also form an orthonormal basis.  To see this, suppose that the associcated singular values are nonzero.  We then have:</div>
+<div class="para" id="p-7889">The left singular vectors <span class="process-math">\(\uvec_i\)</span> are found by <span class="process-math">\(A\vvec_i = \sigma_i\uvec_i\text{.}\)</span>  Because <span class="process-math">\(\sigma_i=|A\vvec_i|\text{,}\)</span> we know that <span class="process-math">\(\uvec_i\)</span> will be a unit vector.</div>
+<div class="para logical" id="p-7890">
+<div class="para">In fact, the left singular vectors will also form an orthonormal basis.  To see this, suppose that the associated singular values are nonzero.  We then have:</div>
 <div class="displaymath process-math" id="md-32">
 \begin{align*}
 \sigma_i\sigma_j(\uvec_i\cdot\uvec_j) \amp {}={}
@@ -915,7 +917,7 @@ A = \begin{bmatrix}
 <article class="example example-like" id="example-77"><h4 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">7.4.3</span><span class="period">.</span>
 </h4>
-<div class="para logical" id="p-7883">
+<div class="para logical" id="p-7891">
 <div class="para">Let’s find a singular value decomposition for the symmetric matrix <span class="process-math">\(A=\begin{bmatrix}
 1 \amp 2 \\
 2 \amp 1
@@ -969,24 +971,24 @@ V = \begin{bmatrix}
 \end{bmatrix}.
 \end{equation*}
 </div>
-</div> <div class="para" id="p-7884">This example is special because <span class="process-math">\(A\)</span> is symmetric.  With a little thought, it’s possible to relate this singular value decomposition to an orthogonal diagonalization of <span class="process-math">\(A\)</span> using the fact that <span class="process-math">\(G=A^TA = A^2\text{.}\)</span>
+</div> <div class="para" id="p-7892">This example is special because <span class="process-math">\(A\)</span> is symmetric.  With a little thought, it’s possible to relate this singular value decomposition to an orthogonal diagonalization of <span class="process-math">\(A\)</span> using the fact that <span class="process-math">\(G=A^TA = A^2\text{.}\)</span>
 </div></article><article class="activity project-like" id="activity-102"><h4 class="heading">
 <span class="type">Activity</span><span class="space"> </span><span class="codenumber">7.4.3</span><span class="period">.</span>
 </h4>
-<div class="para logical" id="p-7885">
+<div class="para logical" id="p-7893">
 <div class="para">In this activity, we will construct the singular value decomposition of <span class="process-math">\(A=\begin{bmatrix} 1 \amp 0 \amp -1 \\
 1 \amp 1 \amp 1
 \end{bmatrix}\text{.}\)</span> Notice that this matrix is not square so there are no eigenvalues and eigenvectors associated to it.</div>
 <ol class="lower-alpha">
-<li id="li-5476"><div class="para" id="p-7886">Construct the Gram matrix <span class="process-math">\(G=A^TA\)</span> and find an orthogonal diagonalization of it. <pre class="ptx-sagecell sagecell-sage" id="sage-240"><script type="text/x-sage">
+<li id="li-5476"><div class="para" id="p-7894">Construct the Gram matrix <span class="process-math">\(G=A^TA\)</span> and find an orthogonal diagonalization of it. <pre class="ptx-sagecell sagecell-sage" id="sage-242"><script type="text/x-sage">
 </script></pre>
 </div></li>
-<li id="li-5477"><div class="para" id="p-7887">Identify the singular values of <span class="process-math">\(A\)</span> and the right singular vectors <span class="process-math">\(\vvec_1\text{,}\)</span> <span class="process-math">\(\vvec_2\text{,}\)</span> and <span class="process-math">\(\vvec_3\text{.}\)</span>  What is the dimension of these vectors?  How many nonzero singular values are there?</div></li>
-<li id="li-5478"><div class="para" id="p-7888">Find the left singular vectors <span class="process-math">\(\uvec_1\)</span> and <span class="process-math">\(\uvec_2\)</span> using the fact that <span class="process-math">\(A\vvec_i =
+<li id="li-5477"><div class="para" id="p-7895">Identify the singular values of <span class="process-math">\(A\)</span> and the right singular vectors <span class="process-math">\(\vvec_1\text{,}\)</span> <span class="process-math">\(\vvec_2\text{,}\)</span> and <span class="process-math">\(\vvec_3\text{.}\)</span>  What is the dimension of these vectors?  How many nonzero singular values are there?</div></li>
+<li id="li-5478"><div class="para" id="p-7896">Find the left singular vectors <span class="process-math">\(\uvec_1\)</span> and <span class="process-math">\(\uvec_2\)</span> using the fact that <span class="process-math">\(A\vvec_i =
 \sigma_i\uvec_i\text{.}\)</span> What is the dimension of these vectors? What happens if you try to find a third left singular vector <span class="process-math">\(\uvec_3\)</span> in this way?</div></li>
-<li id="li-5479"><div class="para" id="p-7889">As before, form the orthogonal matrices <span class="process-math">\(U\)</span> and <span class="process-math">\(V\)</span> from the left and right singular vectors. What are the shapes of <span class="process-math">\(U\)</span> and <span class="process-math">\(V\text{?}\)</span> How do these shapes relate to the number of rows and columns of <span class="process-math">\(A\text{?}\)</span>
+<li id="li-5479"><div class="para" id="p-7897">As before, form the orthogonal matrices <span class="process-math">\(U\)</span> and <span class="process-math">\(V\)</span> from the left and right singular vectors. What are the shapes of <span class="process-math">\(U\)</span> and <span class="process-math">\(V\text{?}\)</span> How do these shapes relate to the number of rows and columns of <span class="process-math">\(A\text{?}\)</span>
 </div></li>
-<li id="li-5480"><div class="para logical" id="p-7890">
+<li id="li-5480"><div class="para logical" id="p-7898">
 <div class="para">Now form <span class="process-math">\(\Sigma\)</span> so that it has the same shape as <span class="process-math">\(A\text{:}\)</span>
 </div>
 <div class="displaymath process-math">
@@ -997,11 +999,11 @@ V = \begin{bmatrix}
 \end{bmatrix}
 \end{equation*}
 </div>
-<div class="para">and verify that <span class="process-math">\(A = U\Sigma V^T\text{.}\)</span> <pre class="ptx-sagecell sagecell-sage" id="sage-241"><script type="text/x-sage">
+<div class="para">and verify that <span class="process-math">\(A = U\Sigma V^T\text{.}\)</span> <pre class="ptx-sagecell sagecell-sage" id="sage-243"><script type="text/x-sage">
 </script></pre>
 </div>
 </div></li>
-<li id="li-5481"><div class="para" id="p-7891">How can you use this singular value decomposition of <span class="process-math">\(A=U\Sigma V^T\)</span> to easily find a singular value decomposition of <span class="process-math">\(A^T=\begin{bmatrix}
+<li id="li-5481"><div class="para" id="p-7899">How can you use this singular value decomposition of <span class="process-math">\(A=U\Sigma V^T\)</span> to easily find a singular value decomposition of <span class="process-math">\(A^T=\begin{bmatrix}
 1 \amp 1 \\
 0 \amp 1 \\
 -1 \amp 1 \\
@@ -1011,11 +1013,11 @@ V = \begin{bmatrix}
 </div></article><article class="example example-like" id="example-svd-nonsquare"><h4 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">7.4.4</span><span class="period">.</span>
 </h4>
-<div class="para" id="p-7907">We will find a singular value decomposition of the matrix <span class="process-math">\(A=\begin{bmatrix}
+<div class="para" id="p-7915">We will find a singular value decomposition of the matrix <span class="process-math">\(A=\begin{bmatrix}
 2 \amp -2 \amp 1 \\
 -4 \amp -8 \amp -8 \\
 \end{bmatrix}\text{.}\)</span>
-</div> <div class="para logical" id="p-7908">
+</div> <div class="para logical" id="p-7916">
 <div class="para">Finding an orthogonal diagonalization of <span class="process-math">\(G=A^TA\)</span> gives</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -1033,7 +1035,7 @@ Q=\begin{bmatrix}
 </div>
 <div class="para">which gives singular values <span class="process-math">\(\sigma_1=\sqrt{144}=12\text{,}\)</span> <span class="process-math">\(\sigma_2 = \sqrt{9}= 3\text{,}\)</span> and <span class="process-math">\(\sigma_3 = 0\text{.}\)</span> The right singular vectors <span class="process-math">\(\vvec_i\)</span> appear as the columns of <span class="process-math">\(Q\)</span> so that <span class="process-math">\(V = Q\text{.}\)</span>
 </div>
-</div> <div class="para logical" id="p-7909">
+</div> <div class="para logical" id="p-7917">
 <div class="para">We now find</div>
 <div class="displaymath process-math" id="md-35">
 \begin{align*}
@@ -1068,11 +1070,11 @@ V=\begin{bmatrix}
 </div>
 <div class="para">which gives the singular value decomposition <span class="process-math">\(A=U\Sigma V^T\text{.}\)</span>
 </div>
-</div> <div class="para" id="p-7910">Notice that <span class="process-math">\(U\)</span> is a <span class="process-math">\(2\times2\)</span> orthogonal matrix because <span class="process-math">\(A\)</span> has two rows, and <span class="process-math">\(V\)</span> is a <span class="process-math">\(3\times3\)</span> orthogonal matrix because <span class="process-math">\(A\)</span> has three columns.</div></article><div class="para" id="p-7911">As we’ll see in the next section, some additional work may be needed to construct the left singular vectors <span class="process-math">\(\uvec_j\)</span> if more of the singular values are zero, but we won’t worry about that now.  For the time being, let’s record our work in the following theorem.</div>
+</div> <div class="para" id="p-7918">Notice that <span class="process-math">\(U\)</span> is a <span class="process-math">\(2\times2\)</span> orthogonal matrix because <span class="process-math">\(A\)</span> has two rows, and <span class="process-math">\(V\)</span> is a <span class="process-math">\(3\times3\)</span> orthogonal matrix because <span class="process-math">\(A\)</span> has three columns.</div></article><div class="para" id="p-7919">As we’ll see in the next section, some additional work may be needed to construct the left singular vectors <span class="process-math">\(\uvec_j\)</span> if more of the singular values are zero, but we won’t worry about that now.  For the time being, let’s record our work in the following theorem.</div>
 <article class="theorem theorem-like" id="theorem-svd"><h4 class="heading">
 <span class="type">Theorem</span><span class="space"> </span><span class="codenumber">7.4.5</span><span class="period">.</span><span class="space"> </span><span class="title">The singular value decomposition.</span>
 </h4>An <span class="process-math">\(m\times n\)</span> matrix <span class="process-math">\(A\)</span> may be written as <span class="process-math">\(A=U\Sigma V^T\)</span> where <span class="process-math">\(U\)</span> is an orthogonal <span class="process-math">\(m\times m\)</span> matrix, <span class="process-math">\(V\)</span> is an orthogonal <span class="process-math">\(n\times n\)</span> matrix, and <span class="process-math">\(\Sigma\)</span> is an <span class="process-math">\(m\times
-n\)</span> matrix whose entries are zero except for the singular values of <span class="process-math">\(A\)</span> which appear in decreasing order on the diagonal.</article><div class="para logical" id="p-7912">
+n\)</span> matrix whose entries are zero except for the singular values of <span class="process-math">\(A\)</span> which appear in decreasing order on the diagonal.</article><div class="para logical" id="p-7920">
 <div class="para">Notice that a singular value decomposition of <span class="process-math">\(A\)</span> gives us a singular value decomposition of <span class="process-math">\(A^T\text{.}\)</span>  More specifically, if <span class="process-math">\(A=U\Sigma V^T\text{,}\)</span> then</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -1083,15 +1085,15 @@ A^T = (U\Sigma V^T)^T = V\Sigma^T U^T.
 <article class="proposition theorem-like" id="prop-svd-transpose"><h4 class="heading">
 <span class="type">Proposition</span><span class="space"> </span><span class="codenumber">7.4.6</span><span class="period">.</span>
 </h4>
-<div class="para" id="p-7913">If <span class="process-math">\(A=U\Sigma V^T\text{,}\)</span> then <span class="process-math">\(A^T = V\Sigma^T U^T\text{.}\)</span> In other words, <span class="process-math">\(A\)</span> and <span class="process-math">\(A^T\)</span> share the same singular values, and the left singular vectors of <span class="process-math">\(A\)</span> are the right singular vectors of <span class="process-math">\(A^T\)</span> and vice-versa.</div></article><div class="para" id="p-7914">As we said earlier, a singular value decomposition should be thought of a generalization of an orthogonal diagonalization. For instance, the Spectral Theorem tells us that a symmetric matrix can be written as <span class="process-math">\(QDQ^T\text{.}\)</span>  Many matrices, however, are not symmetric and so they are not orthogonally diagonalizable.  However, every matrix has a singular value decomposition <span class="process-math">\(U\Sigma V^T\text{.}\)</span>  The price of this generalization is that we usually have two sets of singular vectors that form the orthogonal matrices <span class="process-math">\(U\)</span> and <span class="process-math">\(V\)</span> whereas a symmetric matrix has a single set of eignevectors that form the orthogonal matrix <span class="process-math">\(Q\text{.}\)</span>
+<div class="para" id="p-7921">If <span class="process-math">\(A=U\Sigma V^T\text{,}\)</span> then <span class="process-math">\(A^T = V\Sigma^T U^T\text{.}\)</span> In other words, <span class="process-math">\(A\)</span> and <span class="process-math">\(A^T\)</span> share the same singular values, and the left singular vectors of <span class="process-math">\(A\)</span> are the right singular vectors of <span class="process-math">\(A^T\)</span> and vice-versa.</div></article><div class="para" id="p-7922">As we said earlier, a singular value decomposition should be thought of a generalization of an orthogonal diagonalization. For instance, the Spectral Theorem tells us that a symmetric matrix can be written as <span class="process-math">\(QDQ^T\text{.}\)</span>  Many matrices, however, are not symmetric and so they are not orthogonally diagonalizable.  However, every matrix has a singular value decomposition <span class="process-math">\(U\Sigma V^T\text{.}\)</span>  The price of this generalization is that we usually have two sets of singular vectors that form the orthogonal matrices <span class="process-math">\(U\)</span> and <span class="process-math">\(V\)</span> whereas a symmetric matrix has a single set of eignevectors that form the orthogonal matrix <span class="process-math">\(Q\text{.}\)</span>
 </div></section><section class="subsection" id="subsection-110"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber">7.4.2</span> <span class="title">The structure of singular value decompositions</span>
 </h3>
-<div class="para" id="p-7915">Now that we have an understanding of what a singular value decomposition is and how to construct it, let’s explore the ways in which a singular value decomposition reveals the underlying structure of the matrix.  As we’ll see, the matrices <span class="process-math">\(U\)</span> and <span class="process-math">\(V\)</span> in a singular value decomposition provide convenient bases for some important subspaces, such as the column and null spaces of the matrix.  This observation will provide the key to some of our uses of these decompositions in the next section.</div>
+<div class="para" id="p-7923">Now that we have an understanding of what a singular value decomposition is and how to construct it, let’s explore the ways in which a singular value decomposition reveals the underlying structure of the matrix.  As we’ll see, the matrices <span class="process-math">\(U\)</span> and <span class="process-math">\(V\)</span> in a singular value decomposition provide convenient bases for some important subspaces, such as the column and null spaces of the matrix.  This observation will provide the key to some of our uses of these decompositions in the next section.</div>
 <article class="activity project-like" id="activity-103"><h4 class="heading">
 <span class="type">Activity</span><span class="space"> </span><span class="codenumber">7.4.4</span><span class="period">.</span>
 </h4>
-<div class="para logical" id="p-7916">
+<div class="para logical" id="p-7924">
 <div class="para">Let’s suppose that a matrix <span class="process-math">\(A\)</span> has a singular value decomposition <span class="process-math">\(A=U\Sigma V^T\)</span> where</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -1110,9 +1112,9 @@ V=\begin{bmatrix}
 \end{equation*}
 </div>
 <ol class="lower-alpha">
-<li id="li-5494"><div class="para" id="p-7917">What is the shape of <span class="process-math">\(A\text{;}\)</span> that is, how many rows and columns does <span class="process-math">\(A\)</span> have?</div></li>
+<li id="li-5494"><div class="para" id="p-7925">What is the shape of <span class="process-math">\(A\text{;}\)</span> that is, how many rows and columns does <span class="process-math">\(A\)</span> have?</div></li>
 <li id="li-5495">
-<div class="para logical" id="p-7918">
+<div class="para logical" id="p-7926">
 <div class="para">Suppose we write a three-dimensional vector <span class="process-math">\(\xvec\)</span> as a linear combination of right singular vectors:</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -1122,12 +1124,12 @@ V=\begin{bmatrix}
 <div class="para">We would like to find an expression for <span class="process-math">\(A\xvec\text{.}\)</span>
 </div>
 </div>
-<div class="para" id="p-7919">To begin, <span class="process-math">\(V^T\xvec = \threevec{\vvec_1\cdot\xvec}
+<div class="para" id="p-7927">To begin, <span class="process-math">\(V^T\xvec = \threevec{\vvec_1\cdot\xvec}
 {\vvec_2\cdot\xvec}
 {\vvec_3\cdot\xvec} = \threevec{c_1}{c_2}{c_3}
 \text{.}\)</span>
 </div>
-<div class="para" id="p-7920">Now <span class="process-math">\(\Sigma V^T \xvec = 
+<div class="para" id="p-7928">Now <span class="process-math">\(\Sigma V^T \xvec = 
 \begin{bmatrix}
 20 \amp 0 \amp 0 \\
 0 \amp 5 \amp 0 \\
@@ -1136,23 +1138,23 @@ V=\begin{bmatrix}
 \end{bmatrix}\threevec{c_1}{c_2}{c_3}
 = \cfourvec{20c_1}{5c_2}00\text{.}\)</span>
 </div>
-<div class="para" id="p-7921">And finally, <span class="process-math">\(A\xvec = U\Sigma V^T\xvec =
+<div class="para" id="p-7929">And finally, <span class="process-math">\(A\xvec = U\Sigma V^T\xvec =
 \begin{bmatrix}
 \uvec_1 \amp \uvec_2 \amp \uvec_3 \amp \uvec_4
 \end{bmatrix}
 \cfourvec{20c_1}{5c_2}00 =
 20c_1\uvec_1 + 5c_2\uvec_2\text{.}\)</span>
 </div>
-<div class="para" id="p-7922">To summarize, we have <span class="process-math">\(A\xvec = 20c_1\uvec_1 +
+<div class="para" id="p-7930">To summarize, we have <span class="process-math">\(A\xvec = 20c_1\uvec_1 +
 5c_2\uvec_2\text{.}\)</span>
 </div>
-<div class="para" id="p-7923">What condition on <span class="process-math">\(c_1\text{,}\)</span> <span class="process-math">\(c_2\text{,}\)</span> and <span class="process-math">\(c_3\)</span> must be satisfied if <span class="process-math">\(\xvec\)</span> is a solution to the equation <span class="process-math">\(A\xvec=40\uvec_1 + 20\uvec_2\text{?}\)</span> Is there a unique solution or infinitely many?</div>
+<div class="para" id="p-7931">What condition on <span class="process-math">\(c_1\text{,}\)</span> <span class="process-math">\(c_2\text{,}\)</span> and <span class="process-math">\(c_3\)</span> must be satisfied if <span class="process-math">\(\xvec\)</span> is a solution to the equation <span class="process-math">\(A\xvec=40\uvec_1 + 20\uvec_2\text{?}\)</span> Is there a unique solution or infinitely many?</div>
 </li>
-<li id="li-5496"><div class="para" id="p-7924">Remembering that <span class="process-math">\(\uvec_1\)</span> and <span class="process-math">\(\uvec_2\)</span> are linearly independent, what condition on <span class="process-math">\(c_1\text{,}\)</span> <span class="process-math">\(c_2\text{,}\)</span> and <span class="process-math">\(c_3\)</span> must be satisfied if <span class="process-math">\(A\xvec = \zerovec\text{?}\)</span>
+<li id="li-5496"><div class="para" id="p-7932">Remembering that <span class="process-math">\(\uvec_1\)</span> and <span class="process-math">\(\uvec_2\)</span> are linearly independent, what condition on <span class="process-math">\(c_1\text{,}\)</span> <span class="process-math">\(c_2\text{,}\)</span> and <span class="process-math">\(c_3\)</span> must be satisfied if <span class="process-math">\(A\xvec = \zerovec\text{?}\)</span>
 </div></li>
-<li id="li-5497"><div class="para" id="p-7925">How do the right singular vectors <span class="process-math">\(\vvec_i\)</span> provide a basis for <span class="process-math">\(\nul(A)\text{,}\)</span> the subspace of solutions to the equation <span class="process-math">\(A\xvec = \zerovec\text{?}\)</span>
+<li id="li-5497"><div class="para" id="p-7933">How do the right singular vectors <span class="process-math">\(\vvec_i\)</span> provide a basis for <span class="process-math">\(\nul(A)\text{,}\)</span> the subspace of solutions to the equation <span class="process-math">\(A\xvec = \zerovec\text{?}\)</span>
 </div></li>
-<li id="li-5498"><div class="para logical" id="p-7926">
+<li id="li-5498"><div class="para logical" id="p-7934">
 <div class="para">Remember that <span class="process-math">\(\bvec\)</span> is in <span class="process-math">\(\col(A)\)</span> if the equation <span class="process-math">\(A\xvec = \bvec\)</span> is consistent, which means that</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -1162,21 +1164,21 @@ A\xvec = 20c_1\uvec_1 + 5c_2\uvec_2 = \bvec
 <div class="para">for some coefficients <span class="process-math">\(c_1\)</span> and <span class="process-math">\(c_2\text{.}\)</span>  How do the left singular vectors <span class="process-math">\(\uvec_i\)</span> provide an orthonormal basis for <span class="process-math">\(\col(A)\text{?}\)</span>
 </div>
 </div></li>
-<li id="li-5499"><div class="para" id="p-7927">Remember that <span class="process-math">\(\rank(A)\)</span> is the dimension of the column space.  What is <span class="process-math">\(\rank(A)\)</span> and how do the number of nonzero singular values determine <span class="process-math">\(\rank(A)\text{?}\)</span>
+<li id="li-5499"><div class="para" id="p-7935">Remember that <span class="process-math">\(\rank(A)\)</span> is the dimension of the column space.  What is <span class="process-math">\(\rank(A)\)</span> and how do the number of nonzero singular values determine <span class="process-math">\(\rank(A)\text{?}\)</span>
 </div></li>
 </ol>
-</div></article><div class="para" id="p-7942">This activity shows how a singular value decomposition of a matrix encodes important information about its null and column spaces.  More specifically, the left and right singular vectors provide orthonormal bases for <span class="process-math">\(\nul(A)\)</span> and <span class="process-math">\(\col(A)\text{.}\)</span> This is one of the reasons that singular value decompositions are so useful.</div>
+</div></article><div class="para" id="p-7950">This activity shows how a singular value decomposition of a matrix encodes important information about its null and column spaces.  More specifically, the left and right singular vectors provide orthonormal bases for <span class="process-math">\(\nul(A)\)</span> and <span class="process-math">\(\col(A)\text{.}\)</span> This is one of the reasons that singular value decompositions are so useful.</div>
 <article class="example example-like" id="example-79"><h4 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">7.4.7</span><span class="period">.</span>
 </h4>
-<div class="para" id="p-7943">Suppose we have a singular value decomposition <span class="process-math">\(A=U\Sigma
+<div class="para" id="p-7951">Suppose we have a singular value decomposition <span class="process-math">\(A=U\Sigma
 V^T\)</span> where <span class="process-math">\(\Sigma = \begin{bmatrix}
 \sigma_1 \amp 0 \amp 0 \amp 0 \amp 0 \\
 0 \amp \sigma_2 \amp 0 \amp 0 \amp 0 \\
 0 \amp 0 \amp \sigma_3 \amp 0 \amp 0 \\
 0 \amp 0 \amp 0 \amp 0 \amp 0 \\
 \end{bmatrix}
-\text{.}\)</span>  This means that <span class="process-math">\(A\)</span> has four rows and five columns just as <span class="process-math">\(\Sigma\)</span> does.</div> <div class="para logical" id="p-7944">
+\text{.}\)</span>  This means that <span class="process-math">\(A\)</span> has four rows and five columns just as <span class="process-math">\(\Sigma\)</span> does.</div> <div class="para logical" id="p-7952">
 <div class="para">As in the activity, if <span class="process-math">\(\xvec = c_1 \vvec_1 + c_2\vvec_2 +
 \ldots + c_5\vvec_5\text{,}\)</span> we have</div>
 <div class="displaymath process-math">
@@ -1185,7 +1187,7 @@ A\xvec = \sigma_1c_1\uvec_1 + \sigma_2c_2\uvec_2 +
 \sigma_3c_3\uvec_3\text{.}
 \end{equation*}
 </div>
-</div> <div class="para logical" id="p-7945">
+</div> <div class="para logical" id="p-7953">
 <div class="para">If <span class="process-math">\(\bvec\)</span> is in <span class="process-math">\(\col(A)\text{,}\)</span> then <span class="process-math">\(\bvec\)</span> must have the form</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -1195,8 +1197,8 @@ A\xvec = \sigma_1c_1\uvec_1 + \sigma_2c_2\uvec_2 +
 </div>
 <div class="para">which says that <span class="process-math">\(\bvec\)</span> is a linear combination of <span class="process-math">\(\uvec_1\text{,}\)</span> <span class="process-math">\(\uvec_2\text{,}\)</span> and <span class="process-math">\(\uvec_3\text{.}\)</span> These three vectors therefore form a basis for <span class="process-math">\(\col(A)\text{.}\)</span>  In fact, since they are columns in the orthogonal matrix <span class="process-math">\(U\text{,}\)</span> they form an orthonormal basis for <span class="process-math">\(\col(A)\text{.}\)</span>
 </div>
-</div> <div class="para" id="p-7946">Remembering that <span class="process-math">\(\rank(A)=\dim\col(A)\text{,}\)</span> we see that <span class="process-math">\(\rank(A) = 3\text{,}\)</span> which results from the three nonzero singular values.  In general, the rank <span class="process-math">\(r\)</span> of a matrix <span class="process-math">\(A\)</span> equals the number of nonzero singular values, and <span class="process-math">\(\uvec_1, \uvec_2, \ldots,\uvec_r\)</span> form an orthonormal basis for <span class="process-math">\(\col(A)\text{.}\)</span>
-</div> <div class="para logical" id="p-7947">
+</div> <div class="para" id="p-7954">Remembering that <span class="process-math">\(\rank(A)=\dim\col(A)\text{,}\)</span> we see that <span class="process-math">\(\rank(A) = 3\text{,}\)</span> which results from the three nonzero singular values.  In general, the rank <span class="process-math">\(r\)</span> of a matrix <span class="process-math">\(A\)</span> equals the number of nonzero singular values, and <span class="process-math">\(\uvec_1, \uvec_2, \ldots,\uvec_r\)</span> form an orthonormal basis for <span class="process-math">\(\col(A)\text{.}\)</span>
+</div> <div class="para logical" id="p-7955">
 <div class="para">Moreover, if <span class="process-math">\(\xvec = c_1 \vvec_1 + c_2\vvec_2 +
 \ldots + c_5\vvec_5\)</span> satisfies <span class="process-math">\(A\xvec = \zerovec\text{,}\)</span> then</div>
 <div class="displaymath process-math">
@@ -1208,8 +1210,8 @@ A\xvec = \sigma_1c_1\uvec_1 + \sigma_2c_2\uvec_2 +
 <div class="para">which implies that <span class="process-math">\(c_1=0\text{,}\)</span> <span class="process-math">\(c_2=0\text{,}\)</span> and <span class="process-math">\(c_3=0\text{.}\)</span>  Therefore, <span class="process-math">\(\xvec =
 c_4\vvec_4+c_5\vvec_5\)</span> so <span class="process-math">\(\vvec_4\)</span> and <span class="process-math">\(\vvec_5\)</span> form an orthonormal basis for <span class="process-math">\(\nul(A)\text{.}\)</span>
 </div>
-</div> <div class="para" id="p-7948">More generally, if <span class="process-math">\(A\)</span> is an <span class="process-math">\(m\times n\)</span> matrix and if <span class="process-math">\(\rank(A) = r\text{,}\)</span> the last <span class="process-math">\(n-r\)</span> right singular vectors form an orthonormal basis for <span class="process-math">\(\nul(A)\text{.}\)</span>
-</div></article><div class="para logical" id="p-7949">
+</div> <div class="para" id="p-7956">More generally, if <span class="process-math">\(A\)</span> is an <span class="process-math">\(m\times n\)</span> matrix and if <span class="process-math">\(\rank(A) = r\text{,}\)</span> the last <span class="process-math">\(n-r\)</span> right singular vectors form an orthonormal basis for <span class="process-math">\(\nul(A)\text{.}\)</span>
+</div></article><div class="para logical" id="p-7957">
 <div class="para">Generally speaking, if the rank of an <span class="process-math">\(m\times n\)</span> matrix <span class="process-math">\(A\)</span> is <span class="process-math">\(r\text{,}\)</span> then there are <span class="process-math">\(r\)</span> nonzero singular values and <span class="process-math">\(\Sigma\)</span> has the form</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -1244,11 +1246,11 @@ V = \left[
 \end{equation*}
 </div>
 </div>
-<div class="para" id="p-7950">Remember that <a href="" class="xref" data-knowl="./knowl/prop-svd-transpose.html" title="Proposition 7.4.6">Proposition 7.4.6</a> says that <span class="process-math">\(A\)</span> and its transpose <span class="process-math">\(A^T\)</span> share the same singular values.  Since the rank of a matrix equals its number of nonzero singular values, this means that <span class="process-math">\(\rank(A)=\rank(A^T)\text{,}\)</span> a fact that we cited back in <a href="sec-transpose.html" class="internal" title="Section 6.2: Orthogonal complements and the matrix transpose">Section 6.2</a>.</div>
+<div class="para" id="p-7958">Remember that <a href="" class="xref" data-knowl="./knowl/prop-svd-transpose.html" title="Proposition 7.4.6">Proposition 7.4.6</a> says that <span class="process-math">\(A\)</span> and its transpose <span class="process-math">\(A^T\)</span> share the same singular values.  Since the rank of a matrix equals its number of nonzero singular values, this means that <span class="process-math">\(\rank(A)=\rank(A^T)\text{,}\)</span> a fact that we cited back in <a href="sec-transpose.html" class="internal" title="Section 6.2: Orthogonal complements and the matrix transpose">Section 6.2</a>.</div>
 <article class="proposition theorem-like" id="prop-rank-transpose"><h4 class="heading">
 <span class="type">Proposition</span><span class="space"> </span><span class="codenumber">7.4.8</span><span class="period">.</span>
 </h4>
-<div class="para logical" id="p-7951">
+<div class="para logical" id="p-7959">
 <div class="para">For any matrix <span class="process-math">\(A\text{,}\)</span>
 </div>
 <div class="displaymath process-math">
@@ -1257,7 +1259,7 @@ V = \left[
 \rank(A^T)\text{.}
 \end{equation*}
 </div>
-</div></article><div class="para logical" id="p-7952">
+</div></article><div class="para logical" id="p-7960">
 <div class="para">If we have a singular value decomposition of an <span class="process-math">\(m\times n\)</span> matrix <span class="process-math">\(A=U\Sigma V^T\text{,}\)</span> <a href="" class="xref" data-knowl="./knowl/prop-svd-transpose.html" title="Proposition 7.4.6">Proposition 7.4.6</a> also tells us that the left singular vectors of <span class="process-math">\(A\)</span> are the right singular vectors of <span class="process-math">\(A^T\text{.}\)</span>  Therefore, <span class="process-math">\(U\)</span> is the <span class="process-math">\(m\times m\)</span> matrix whose columns are the right singular vectors of <span class="process-math">\(A^T\text{.}\)</span>  This means that the last <span class="process-math">\(m-r\)</span> vectors form an orthonormal basis for <span class="process-math">\(\nul(A^T)\text{.}\)</span> Therefore, the columns of <span class="process-math">\(U\)</span> provide orthonormal bases for <span class="process-math">\(\col(A)\)</span> and <span class="process-math">\(\nul(A^T)\text{:}\)</span>
 </div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/prop-svd-transpose.html">
@@ -1271,7 +1273,7 @@ U = \left[
 <div class="para">This reflects the familiar fact that <span class="process-math">\(\nul(A^T)\)</span> is the orthogonal complement of <span class="process-math">\(\col(A)\text{.}\)</span>
 </div>
 </div>
-<div class="para logical" id="p-7953">
+<div class="para logical" id="p-7961">
 <div class="para"> In the same way, <span class="process-math">\(V\)</span> is the <span class="process-math">\(n\times n\)</span> matrix whose columns are the left singular vectors of <span class="process-math">\(A^T\text{,}\)</span> which means that the first <span class="process-math">\(r\)</span> vectors form an orthonormal basis for <span class="process-math">\(\col(A^T)\text{.}\)</span>  Because the columns of <span class="process-math">\(A^T\)</span> are the rows of <span class="process-math">\(A\text{,}\)</span> this subspace is sometimes called the <em class="emphasis">row space</em> of <span class="process-math">\(A\)</span> and denoted <span class="process-math">\(\row(A)\text{.}\)</span>  While we have yet to have an occasion to use <span class="process-math">\(\row(A)\text{,}\)</span> there are times when it is important to have an orthonormal basis for it, and a singular value decomposition provides just that.  To summarize, the columns of <span class="process-math">\(V\)</span> provide orthonormal bases for <span class="process-math">\(\col(A^T)\)</span> and <span class="process-math">\(\nul(A)\text{:}\)</span>
 </div>
 <div class="displaymath process-math">
@@ -1283,33 +1285,33 @@ V = \left[
 \end{equation*}
 </div>
 </div>
-<div class="para" id="p-7954">Considered altogether, the subspaces <span class="process-math">\(\col(A)\text{,}\)</span> <span class="process-math">\(\nul(A)\text{,}\)</span> <span class="process-math">\(\col(A^T)\text{,}\)</span> and <span class="process-math">\(\nul(A^T)\)</span> are called the <em class="emphasis">four fundamental subspaces</em> associated to <span class="process-math">\(A\text{.}\)</span>  In addition to telling us the rank of a matrix, a singular value decomposition gives us orthonormal bases for all four fundamental subspaces.</div>
+<div class="para" id="p-7962">Considered altogether, the subspaces <span class="process-math">\(\col(A)\text{,}\)</span> <span class="process-math">\(\nul(A)\text{,}\)</span> <span class="process-math">\(\col(A^T)\text{,}\)</span> and <span class="process-math">\(\nul(A^T)\)</span> are called the <em class="emphasis">four fundamental subspaces</em> associated to <span class="process-math">\(A\text{.}\)</span>  In addition to telling us the rank of a matrix, a singular value decomposition gives us orthonormal bases for all four fundamental subspaces.</div>
 <article class="theorem theorem-like" id="thm-four-subspaces"><h4 class="heading">
 <span class="type">Theorem</span><span class="space"> </span><span class="codenumber">7.4.9</span><span class="period">.</span>
 </h4>
-<div class="para logical" id="p-7955">
+<div class="para logical" id="p-7963">
 <div class="para">Suppose <span class="process-math">\(A\)</span> is an <span class="process-math">\(m\times n\)</span> matrix having a singular value decomposition <span class="process-math">\(A=U\Sigma V^T\text{.}\)</span>  Then</div>
 <ul class="disc">
-<li id="li-5512"><div class="para" id="p-7956">
+<li id="li-5512"><div class="para" id="p-7964">
 <span class="process-math">\(r=\rank(A)\)</span> is the number of nonzero singular values.</div></li>
-<li id="li-5513"><div class="para" id="p-7957">The columns <span class="process-math">\(\uvec_1,\uvec_2,\ldots,\uvec_r\)</span> form an orthonormal basis for <span class="process-math">\(\col(A)\text{.}\)</span>
+<li id="li-5513"><div class="para" id="p-7965">The columns <span class="process-math">\(\uvec_1,\uvec_2,\ldots,\uvec_r\)</span> form an orthonormal basis for <span class="process-math">\(\col(A)\text{.}\)</span>
 </div></li>
-<li id="li-5514"><div class="para" id="p-7958">The columns <span class="process-math">\(\uvec_{r+1},\ldots,\uvec_m\)</span> form an orthonormal basis for <span class="process-math">\(\nul(A^T)\text{.}\)</span>
+<li id="li-5514"><div class="para" id="p-7966">The columns <span class="process-math">\(\uvec_{r+1},\ldots,\uvec_m\)</span> form an orthonormal basis for <span class="process-math">\(\nul(A^T)\text{.}\)</span>
 </div></li>
-<li id="li-5515"><div class="para" id="p-7959">The columns <span class="process-math">\(\vvec_1,\vvec_2,\ldots,\vvec_r\)</span> form an orthonormal basis for <span class="process-math">\(\col(A^T)\text{.}\)</span>
+<li id="li-5515"><div class="para" id="p-7967">The columns <span class="process-math">\(\vvec_1,\vvec_2,\ldots,\vvec_r\)</span> form an orthonormal basis for <span class="process-math">\(\col(A^T)\text{.}\)</span>
 </div></li>
-<li id="li-5516"><div class="para" id="p-7960">The columns <span class="process-math">\(\vvec_{r+1},\ldots,\vvec_n\)</span> form an orthonormal basis for <span class="process-math">\(\nul(A)\text{.}\)</span>
+<li id="li-5516"><div class="para" id="p-7968">The columns <span class="process-math">\(\vvec_{r+1},\ldots,\vvec_n\)</span> form an orthonormal basis for <span class="process-math">\(\nul(A)\text{.}\)</span>
 </div></li>
 </ul>
-</div></article><div class="para" id="p-7961">When we previously outlined a procedure for finding a singular decomposition of an <span class="process-math">\(m\times n\)</span> matrix <span class="process-math">\(A\text{,}\)</span> we found the left singular vectors <span class="process-math">\(\uvec_j\)</span> using the expression <span class="process-math">\(A\vvec_j = \sigma_j\uvec_j\text{.}\)</span>  This produces left singular vectors <span class="process-math">\(\uvec_1, \uvec_2,\ldots,\uvec_r\text{,}\)</span> where <span class="process-math">\(r=\rank(A)\text{.}\)</span>  If <span class="process-math">\(r\lt m\text{,}\)</span> however, we still need to find the left singular vectors <span class="process-math">\(\uvec_{r+1},\ldots,\uvec_m\text{.}\)</span>  <a href="" class="xref" data-knowl="./knowl/thm-four-subspaces.html" title="Theorem 7.4.9">Theorem 7.4.9</a> tells us how to do that: because those vectors form an orthonormal basis for <span class="process-math">\(\nul(A^T)\text{,}\)</span> we can find them by solving <span class="process-math">\(A^T\xvec = \zerovec\)</span> to obtain a basis for <span class="process-math">\(\nul(A^T)\)</span> and applying the Gram-Schmidt algorithm.</div>
-<div class="para" id="p-7962">We won’t worry about this issue too much, however, as we will frequently use software to find singular value decompositions for us.</div></section><section class="subsection" id="subsection-111"><h3 class="heading hide-type">
+</div></article><div class="para" id="p-7969">When we previously outlined a procedure for finding a singular decomposition of an <span class="process-math">\(m\times n\)</span> matrix <span class="process-math">\(A\text{,}\)</span> we found the left singular vectors <span class="process-math">\(\uvec_j\)</span> using the expression <span class="process-math">\(A\vvec_j = \sigma_j\uvec_j\text{.}\)</span>  This produces left singular vectors <span class="process-math">\(\uvec_1, \uvec_2,\ldots,\uvec_r\text{,}\)</span> where <span class="process-math">\(r=\rank(A)\text{.}\)</span>  If <span class="process-math">\(r\lt m\text{,}\)</span> however, we still need to find the left singular vectors <span class="process-math">\(\uvec_{r+1},\ldots,\uvec_m\text{.}\)</span>  <a href="" class="xref" data-knowl="./knowl/thm-four-subspaces.html" title="Theorem 7.4.9">Theorem 7.4.9</a> tells us how to do that: because those vectors form an orthonormal basis for <span class="process-math">\(\nul(A^T)\text{,}\)</span> we can find them by solving <span class="process-math">\(A^T\xvec = \zerovec\)</span> to obtain a basis for <span class="process-math">\(\nul(A^T)\)</span> and applying the Gram-Schmidt algorithm.</div>
+<div class="para" id="p-7970">We won’t worry about this issue too much, however, as we will frequently use software to find singular value decompositions for us.</div></section><section class="subsection" id="subsection-111"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber">7.4.3</span> <span class="title">Reduced singular value decompositions</span>
 </h3>
-<div class="para" id="p-7963">As we’ll see in the next section, there are times when it is helpful to express a singular value decomposition in a slightly different form.</div>
+<div class="para" id="p-7971">As we’ll see in the next section, there are times when it is helpful to express a singular value decomposition in a slightly different form.</div>
 <article class="activity project-like" id="activity-104"><h4 class="heading">
 <span class="type">Activity</span><span class="space"> </span><span class="codenumber">7.4.5</span><span class="period">.</span>
 </h4>
-<div class="para logical" id="p-7964">
+<div class="para logical" id="p-7972">
 <div class="para">Suppose we have a singular value decomposition <span class="process-math">\(A =
 U\Sigma V^T\)</span> where</div>
 <div class="displaymath process-math">
@@ -1329,11 +1331,11 @@ V = \begin{bmatrix}
 \end{equation*}
 </div>
 <ol class="lower-alpha">
-<li id="li-5517"><div class="para" id="p-7965">What is the shape of <span class="process-math">\(A\text{?}\)</span>  What is <span class="process-math">\(\rank(A)\text{?}\)</span>
+<li id="li-5517"><div class="para" id="p-7973">What is the shape of <span class="process-math">\(A\text{?}\)</span>  What is <span class="process-math">\(\rank(A)\text{?}\)</span>
 </div></li>
-<li id="li-5518"><div class="para" id="p-7966">Identify bases for <span class="process-math">\(\col(A)\)</span> and <span class="process-math">\(\col(A^T)\text{.}\)</span>
+<li id="li-5518"><div class="para" id="p-7974">Identify bases for <span class="process-math">\(\col(A)\)</span> and <span class="process-math">\(\col(A^T)\text{.}\)</span>
 </div></li>
-<li id="li-5519"><div class="para logical" id="p-7967">
+<li id="li-5519"><div class="para logical" id="p-7975">
 <div class="para">Explain why</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -1347,7 +1349,7 @@ U\Sigma = \begin{bmatrix}
 \end{equation*}
 </div>
 </div></li>
-<li id="li-5520"><div class="para logical" id="p-7968">
+<li id="li-5520"><div class="para logical" id="p-7976">
 <div class="para">Explain why</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -1365,34 +1367,34 @@ U\Sigma = \begin{bmatrix}
 \end{equation*}
 </div>
 </div></li>
-<li id="li-5521"><div class="para" id="p-7969">If <span class="process-math">\(A = U\Sigma V^T\text{,}\)</span> explain why <span class="process-math">\(A=U_r\Sigma_rV_r^T\)</span> where the columns of <span class="process-math">\(U_r\)</span> are an orthonormal basis for <span class="process-math">\(\col(A)\text{,}\)</span> <span class="process-math">\(\Sigma_r\)</span> is a square, diagonal, invertible matrix, and the columns of <span class="process-math">\(V_r\)</span> form an orthonormal basis for <span class="process-math">\(\col(A^T)\text{.}\)</span>
+<li id="li-5521"><div class="para" id="p-7977">If <span class="process-math">\(A = U\Sigma V^T\text{,}\)</span> explain why <span class="process-math">\(A=U_r\Sigma_rV_r^T\)</span> where the columns of <span class="process-math">\(U_r\)</span> are an orthonormal basis for <span class="process-math">\(\col(A)\text{,}\)</span> <span class="process-math">\(\Sigma_r\)</span> is a square, diagonal, invertible matrix, and the columns of <span class="process-math">\(V_r\)</span> form an orthonormal basis for <span class="process-math">\(\col(A^T)\text{.}\)</span>
 </div></li>
 </ol>
-</div></article><div class="para" id="p-7982">We call this a <em class="emphasis">reduced singular value decomposition</em>.</div>
+</div></article><div class="para" id="p-7990">We call this a <em class="emphasis">reduced singular value decomposition</em>.</div>
 <article class="proposition theorem-like" id="prop-reduced-svd"><h4 class="heading">
 <span class="type">Proposition</span><span class="space"> </span><span class="codenumber">7.4.10</span><span class="period">.</span><span class="space"> </span><span class="title">Reduced singular value decomposition.</span>
 </h4>
-<div class="para logical" id="p-7983">
+<div class="para logical" id="p-7991">
 <div class="para">If <span class="process-math">\(A\)</span> is an <span class="process-math">\(m\times n\)</span> matrix having rank <span class="process-math">\(r\text{,}\)</span> then <span class="process-math">\(A=U_r \Sigma_r V_r^T\)</span> where</div>
 <ul class="disc">
-<li id="li-5532"><div class="para" id="p-7984">
+<li id="li-5532"><div class="para" id="p-7992">
 <span class="process-math">\(U_r\)</span> is an <span class="process-math">\(m\times r\)</span> matrix whose columns form an orthonormal basis for <span class="process-math">\(\col(A)\text{,}\)</span>
 </div></li>
-<li id="li-5533"><div class="para" id="p-7985">
+<li id="li-5533"><div class="para" id="p-7993">
 <span class="process-math">\(\Sigma_r=\begin{bmatrix}
 \sigma_1 \amp 0 \amp \ldots \amp 0 \\
 0 \amp \sigma_2 \amp \ldots \amp 0 \\
 \vdots \amp \vdots \amp \ddots \amp \vdots \\
 0 \amp 0 \amp 0 \amp \sigma_r \\
 \end{bmatrix}\)</span> is an <span class="process-math">\(r\times r\)</span> diagonal, invertible matrix, and</div></li>
-<li id="li-5534"><div class="para" id="p-7986">
+<li id="li-5534"><div class="para" id="p-7994">
 <span class="process-math">\(V_r\)</span> is an <span class="process-math">\(n\times r\)</span> matrix whose columns form an orthonormal basis for <span class="process-math">\(\col(A^T)\text{.}\)</span>
 </div></li>
 </ul>
 </div></article><article class="example example-like" id="example-80"><h4 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">7.4.11</span><span class="period">.</span>
 </h4>
-<div class="para logical" id="p-7987">
+<div class="para logical" id="p-7995">
 <div class="para">In <a href="" class="xref" data-knowl="./knowl/example-svd-nonsquare.html" title="Example 7.4.4">Example 7.4.4</a>, we found the singular value decomposition</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/example-svd-nonsquare.html">
 \begin{equation*}
@@ -1441,60 +1443,60 @@ A=\begin{bmatrix}
 </div></article></section><section class="subsection" id="subsection-112"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber">7.4.4</span> <span class="title">Summary</span>
 </h3>
-<div class="para logical" id="p-7988">
+<div class="para logical" id="p-7996">
 <div class="para">This section has explored singular value decompositions, how to find them, and how they organize important information about a matrix.</div>
 <ul class="disc">
-<li id="li-5535"><div class="para" id="p-7989">A singular value decomposition of a matrix <span class="process-math">\(A\)</span> is a factorization where <span class="process-math">\(A=U\Sigma V^T\text{.}\)</span>  The matrix <span class="process-math">\(\Sigma\)</span> has the same shape as <span class="process-math">\(A\text{,}\)</span> and its only nonzero entries are the singular values of <span class="process-math">\(A\text{,}\)</span> which appear in decreasing order on the diagonal.  The matrices <span class="process-math">\(U\)</span> and <span class="process-math">\(V\)</span> are orthogonal and contain the left and right singular vectors, respectively, as their columns.</div></li>
-<li id="li-5536"><div class="para" id="p-7990">To find a singular value decomposition of a matrix, we construct the Gram matrix <span class="process-math">\(G=A^TA\text{,}\)</span> which is symmetric.  The singular values of <span class="process-math">\(A\)</span> are the square roots of the eigenvalues of <span class="process-math">\(G\text{,}\)</span> and the right singular vectors <span class="process-math">\(\vvec_j\)</span> are the associated eigenvectors of <span class="process-math">\(G\text{.}\)</span>  The left singular vectors <span class="process-math">\(\uvec_j\)</span> are determined from the relationship <span class="process-math">\(A\vvec_j=\sigma_j\uvec_j\text{.}\)</span>
+<li id="li-5535"><div class="para" id="p-7997">A singular value decomposition of a matrix <span class="process-math">\(A\)</span> is a factorization where <span class="process-math">\(A=U\Sigma V^T\text{.}\)</span>  The matrix <span class="process-math">\(\Sigma\)</span> has the same shape as <span class="process-math">\(A\text{,}\)</span> and its only nonzero entries are the singular values of <span class="process-math">\(A\text{,}\)</span> which appear in decreasing order on the diagonal.  The matrices <span class="process-math">\(U\)</span> and <span class="process-math">\(V\)</span> are orthogonal and contain the left and right singular vectors, respectively, as their columns.</div></li>
+<li id="li-5536"><div class="para" id="p-7998">To find a singular value decomposition of a matrix, we construct the Gram matrix <span class="process-math">\(G=A^TA\text{,}\)</span> which is symmetric.  The singular values of <span class="process-math">\(A\)</span> are the square roots of the eigenvalues of <span class="process-math">\(G\text{,}\)</span> and the right singular vectors <span class="process-math">\(\vvec_j\)</span> are the associated eigenvectors of <span class="process-math">\(G\text{.}\)</span>  The left singular vectors <span class="process-math">\(\uvec_j\)</span> are determined from the relationship <span class="process-math">\(A\vvec_j=\sigma_j\uvec_j\text{.}\)</span>
 </div></li>
-<li id="li-5537"><div class="para" id="p-7991">A singular value decomposition reveals fundamental information about a matrix.  For instance, the number of nonzero singular values is the rank <span class="process-math">\(r\)</span> of the matrix.  The first <span class="process-math">\(r\)</span> left singular vectors form an orthonormal basis for <span class="process-math">\(\col(A)\)</span> with the remaining left singular vectors forming an orthonormal basis of <span class="process-math">\(\nul(A^T)\text{.}\)</span>  The first <span class="process-math">\(r\)</span> right singular vectors form an orthonormal basis for <span class="process-math">\(\col(A^T)\)</span> while the remaining right singular vectors form an orthonormal basis of <span class="process-math">\(\nul(A)\text{.}\)</span>
+<li id="li-5537"><div class="para" id="p-7999">A singular value decomposition reveals fundamental information about a matrix.  For instance, the number of nonzero singular values is the rank <span class="process-math">\(r\)</span> of the matrix.  The first <span class="process-math">\(r\)</span> left singular vectors form an orthonormal basis for <span class="process-math">\(\col(A)\)</span> with the remaining left singular vectors forming an orthonormal basis of <span class="process-math">\(\nul(A^T)\text{.}\)</span>  The first <span class="process-math">\(r\)</span> right singular vectors form an orthonormal basis for <span class="process-math">\(\col(A^T)\)</span> while the remaining right singular vectors form an orthonormal basis of <span class="process-math">\(\nul(A)\text{.}\)</span>
 </div></li>
-<li id="li-5538"><div class="para" id="p-7992">If <span class="process-math">\(A\)</span> is a rank <span class="process-math">\(r\)</span> matrix, we can write a reduced singular value decomposition as <span class="process-math">\(A=U_r\Sigma_rV_r^T\)</span> where the columns of <span class="process-math">\(U_r\)</span> form an orthonormal basis for <span class="process-math">\(\col(A)\text{,}\)</span> the columns of <span class="process-math">\(V_r\)</span> form an orthonormal basis for <span class="process-math">\(\col(A^T)\text{,}\)</span> and <span class="process-math">\(\Sigma_r\)</span> is an <span class="process-math">\(r\times
+<li id="li-5538"><div class="para" id="p-8000">If <span class="process-math">\(A\)</span> is a rank <span class="process-math">\(r\)</span> matrix, we can write a reduced singular value decomposition as <span class="process-math">\(A=U_r\Sigma_rV_r^T\)</span> where the columns of <span class="process-math">\(U_r\)</span> form an orthonormal basis for <span class="process-math">\(\col(A)\text{,}\)</span> the columns of <span class="process-math">\(V_r\)</span> form an orthonormal basis for <span class="process-math">\(\col(A^T)\text{,}\)</span> and <span class="process-math">\(\Sigma_r\)</span> is an <span class="process-math">\(r\times
 r\)</span> diagonal, invertible matrix.</div></li>
 </ul>
 </div></section><section class="exercises" id="exercises-30"><h3 class="heading hide-type">
 <span class="type">Exercises</span> <span class="codenumber">7.4.5</span> <span class="title">Exercises</span>
 </h3>
 <article class="exercise exercise-like" id="ex-7-4-1"><h4 class="heading"><span class="codenumber">1<span class="period">.</span></span></h4>
-<div class="para logical" id="p-7993">
+<div class="para logical" id="p-8001">
 <div class="para">Consider the matrix <span class="process-math">\(A = \begin{bmatrix}
 1 \amp 2 \amp 1 \\
 0 \amp -1 \amp 2 \\
 \end{bmatrix}
-\text{.}\)</span> <pre class="ptx-sagecell sagecell-sage" id="sage-242"><script type="text/x-sage">
+\text{.}\)</span> <pre class="ptx-sagecell sagecell-sage" id="sage-244"><script type="text/x-sage">
 </script></pre>
 </div>
 <ol class="lower-alpha">
-<li id="li-5539"><div class="para" id="p-7994">Find the Gram matrix <span class="process-math">\(G=A^TA\)</span> and use it to find the singular values and right singular vectors of <span class="process-math">\(A\text{.}\)</span>
+<li id="li-5539"><div class="para" id="p-8002">Find the Gram matrix <span class="process-math">\(G=A^TA\)</span> and use it to find the singular values and right singular vectors of <span class="process-math">\(A\text{.}\)</span>
 </div></li>
-<li id="li-5540"><div class="para" id="p-7995">Find the left singular vectors.</div></li>
-<li id="li-5541"><div class="para" id="p-7996">Form the matrices <span class="process-math">\(U\text{,}\)</span> <span class="process-math">\(\Sigma\text{,}\)</span> and <span class="process-math">\(V\)</span> and verify that <span class="process-math">\(A=U\Sigma V^T\text{.}\)</span>
+<li id="li-5540"><div class="para" id="p-8003">Find the left singular vectors.</div></li>
+<li id="li-5541"><div class="para" id="p-8004">Form the matrices <span class="process-math">\(U\text{,}\)</span> <span class="process-math">\(\Sigma\text{,}\)</span> and <span class="process-math">\(V\)</span> and verify that <span class="process-math">\(A=U\Sigma V^T\text{.}\)</span>
 </div></li>
-<li id="li-5542"><div class="para" id="p-7997">What is <span class="process-math">\(\rank(A)\)</span> and what does this say about <span class="process-math">\(\col(A)\text{?}\)</span>
+<li id="li-5542"><div class="para" id="p-8005">What is <span class="process-math">\(\rank(A)\)</span> and what does this say about <span class="process-math">\(\col(A)\text{?}\)</span>
 </div></li>
-<li id="li-5543"><div class="para" id="p-7998">Determine an orthonormal basis for <span class="process-math">\(\nul(A)\text{.}\)</span>
+<li id="li-5543"><div class="para" id="p-8006">Determine an orthonormal basis for <span class="process-math">\(\nul(A)\text{.}\)</span>
 </div></li>
 </ol>
 </div></article><article class="exercise exercise-like" id="exercise-276"><h4 class="heading"><span class="codenumber">2<span class="period">.</span></span></h4>
-<div class="para logical" id="p-8013">
+<div class="para logical" id="p-8021">
 <div class="para">Find singular value decompositions for the following matrices:</div>
 <ol class="lower-alpha">
-<li id="li-5554"><div class="para" id="p-8014"><span class="process-math">\(\begin{bmatrix} 0 \amp 0 \\ 0 \amp -8
+<li id="li-5554"><div class="para" id="p-8022"><span class="process-math">\(\begin{bmatrix} 0 \amp 0 \\ 0 \amp -8
 \end{bmatrix}\text{.}\)</span></div></li>
-<li id="li-5555"><div class="para" id="p-8015"><span class="process-math">\(\begin{bmatrix} 2 \amp 3 \\ 0 \amp 2
+<li id="li-5555"><div class="para" id="p-8023"><span class="process-math">\(\begin{bmatrix} 2 \amp 3 \\ 0 \amp 2
 \end{bmatrix}\text{.}\)</span></div></li>
-<li id="li-5556"><div class="para" id="p-8016"><span class="process-math">\(\displaystyle \begin{bmatrix}
+<li id="li-5556"><div class="para" id="p-8024"><span class="process-math">\(\displaystyle \begin{bmatrix}
 4 \amp 0 \amp 0 \\
 0 \amp 0 \amp 2
 \end{bmatrix}\)</span></div></li>
-<li id="li-5557"><div class="para" id="p-8017"><span class="process-math">\(\displaystyle \begin{bmatrix}
+<li id="li-5557"><div class="para" id="p-8025"><span class="process-math">\(\displaystyle \begin{bmatrix}
 4 \amp 0 \\
 0 \amp 0 \\
 0 \amp 2 
 \end{bmatrix}\)</span></div></li>
 </ol>
 </div></article><article class="exercise exercise-like" id="exercise-277"><h4 class="heading"><span class="codenumber">3<span class="period">.</span></span></h4>
-<div class="para logical" id="p-8028">
+<div class="para logical" id="p-8036">
 <div class="para">Consider the matrix <span class="process-math">\(A = \begin{bmatrix}
 2 \amp 1 \\
 1 \amp 2
@@ -1502,13 +1504,13 @@ r\)</span> diagonal, invertible matrix.</div></li>
 \text{.}\)</span>
 </div>
 <ol class="lower-alpha">
-<li id="li-5566"><div class="para" id="p-8029">Find a singular value decomposition of <span class="process-math">\(A\)</span> and verify that it is also an orthogonal diagonalization of <span class="process-math">\(A\text{.}\)</span>
+<li id="li-5566"><div class="para" id="p-8037">Find a singular value decomposition of <span class="process-math">\(A\)</span> and verify that it is also an orthogonal diagonalization of <span class="process-math">\(A\text{.}\)</span>
 </div></li>
-<li id="li-5567"><div class="para" id="p-8030">If <span class="process-math">\(A\)</span> is a symmetric, positive semidefinite matrix, explain why a singular value decomposition of <span class="process-math">\(A\)</span> is an orthogonal diagonalization of <span class="process-math">\(A\text{.}\)</span>
+<li id="li-5567"><div class="para" id="p-8038">If <span class="process-math">\(A\)</span> is a symmetric, positive semidefinite matrix, explain why a singular value decomposition of <span class="process-math">\(A\)</span> is an orthogonal diagonalization of <span class="process-math">\(A\text{.}\)</span>
 </div></li>
 </ol>
 </div></article><article class="exercise exercise-like" id="exercise-278"><h4 class="heading"><span class="codenumber">4<span class="period">.</span></span></h4>
-<div class="para logical" id="p-8039">
+<div class="para logical" id="p-8047">
 <div class="para">Suppose that the matrix <span class="process-math">\(A\)</span> has the singular value decomposition</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -1532,77 +1534,77 @@ r\)</span> diagonal, invertible matrix.</div></li>
 \end{equation*}
 </div>
 <ol class="lower-alpha">
-<li id="li-5572"><div class="para" id="p-8040">What are the dimensions of <span class="process-math">\(A\text{?}\)</span>
+<li id="li-5572"><div class="para" id="p-8048">What are the dimensions of <span class="process-math">\(A\text{?}\)</span>
 </div></li>
-<li id="li-5573"><div class="para" id="p-8041">What is <span class="process-math">\(\rank(A)\text{?}\)</span>
+<li id="li-5573"><div class="para" id="p-8049">What is <span class="process-math">\(\rank(A)\text{?}\)</span>
 </div></li>
-<li id="li-5574"><div class="para" id="p-8042">Find orthonormal bases for <span class="process-math">\(\col(A)\text{,}\)</span> <span class="process-math">\(\nul(A)\text{,}\)</span> <span class="process-math">\(\col(A^T)\text{,}\)</span> and <span class="process-math">\(\nul(A^T)\text{.}\)</span>
+<li id="li-5574"><div class="para" id="p-8050">Find orthonormal bases for <span class="process-math">\(\col(A)\text{,}\)</span> <span class="process-math">\(\nul(A)\text{,}\)</span> <span class="process-math">\(\col(A^T)\text{,}\)</span> and <span class="process-math">\(\nul(A^T)\text{.}\)</span>
 </div></li>
-<li id="li-5575"><div class="para" id="p-8043">Find the orthogonal projection of <span class="process-math">\(\bvec=\fourvec102{-1}\)</span> onto <span class="process-math">\(\col(A)\text{.}\)</span>
+<li id="li-5575"><div class="para" id="p-8051">Find the orthogonal projection of <span class="process-math">\(\bvec=\fourvec102{-1}\)</span> onto <span class="process-math">\(\col(A)\text{.}\)</span>
 </div></li>
 </ol>
 </div></article><article class="exercise exercise-like" id="exercise-279"><h4 class="heading"><span class="codenumber">5<span class="period">.</span></span></h4>
-<div class="para logical" id="p-8054">
+<div class="para logical" id="p-8062">
 <div class="para">Consider the matrix <span class="process-math">\(A = \begin{bmatrix}
 1 \amp 0 \amp -1 \\
 2 \amp 2 \amp 0 \\
 -1 \amp 1 \amp 2\\
 \end{bmatrix}
-\text{.}\)</span> <pre class="ptx-sagecell sagecell-sage" id="sage-243"><script type="text/x-sage">
+\text{.}\)</span> <pre class="ptx-sagecell sagecell-sage" id="sage-245"><script type="text/x-sage">
 </script></pre>
 </div>
 <ol class="lower-alpha">
-<li id="li-5584"><div class="para" id="p-8055">Construct the Gram matrix <span class="process-math">\(G\)</span> and use it to find the singular values and right singular vectors <span class="process-math">\(\vvec_1\text{,}\)</span> <span class="process-math">\(\vvec_2\text{,}\)</span> and <span class="process-math">\(\vvec_3\)</span> of <span class="process-math">\(A\text{.}\)</span>  What are the matrices <span class="process-math">\(\Sigma\)</span> and <span class="process-math">\(V\)</span> in a singular value decomposition?</div></li>
-<li id="li-5585"><div class="para" id="p-8056">What is <span class="process-math">\(\rank(A)\text{?}\)</span>
+<li id="li-5584"><div class="para" id="p-8063">Construct the Gram matrix <span class="process-math">\(G\)</span> and use it to find the singular values and right singular vectors <span class="process-math">\(\vvec_1\text{,}\)</span> <span class="process-math">\(\vvec_2\text{,}\)</span> and <span class="process-math">\(\vvec_3\)</span> of <span class="process-math">\(A\text{.}\)</span>  What are the matrices <span class="process-math">\(\Sigma\)</span> and <span class="process-math">\(V\)</span> in a singular value decomposition?</div></li>
+<li id="li-5585"><div class="para" id="p-8064">What is <span class="process-math">\(\rank(A)\text{?}\)</span>
 </div></li>
-<li id="li-5586"><div class="para" id="p-8057">Find as many left singular <span class="process-math">\(\uvec_j\)</span> as you can using the relationship <span class="process-math">\(A\vvec_j=\sigma_j\uvec_j\text{.}\)</span>
+<li id="li-5586"><div class="para" id="p-8065">Find as many left singular vectors <span class="process-math">\(\uvec_j\)</span> as you can using the relationship <span class="process-math">\(A\vvec_j=\sigma_j\uvec_j\text{.}\)</span>
 </div></li>
-<li id="li-5587"><div class="para" id="p-8058">Find an orthonormal basis for <span class="process-math">\(\nul(A^T)\)</span> and use it to construct the matrix <span class="process-math">\(U\)</span> so that <span class="process-math">\(A=U\Sigma
+<li id="li-5587"><div class="para" id="p-8066">Find an orthonormal basis for <span class="process-math">\(\nul(A^T)\)</span> and use it to construct the matrix <span class="process-math">\(U\)</span> so that <span class="process-math">\(A=U\Sigma
 V^T\text{.}\)</span>
 </div></li>
-<li id="li-5588"><div class="para" id="p-8059">State an orthonormal basis for <span class="process-math">\(\nul(A)\)</span> and an orthonormal basis for <span class="process-math">\(\col(A)\text{.}\)</span>
+<li id="li-5588"><div class="para" id="p-8067">State an orthonormal basis for <span class="process-math">\(\nul(A)\)</span> and an orthonormal basis for <span class="process-math">\(\col(A)\text{.}\)</span>
 </div></li>
 </ol>
 </div></article><article class="exercise exercise-like" id="exercise-280"><h4 class="heading"><span class="codenumber">6<span class="period">.</span></span></h4>
-<div class="para logical" id="p-8070">
+<div class="para logical" id="p-8078">
 <div class="para">Consider the matrix <span class="process-math">\(B=\begin{bmatrix}
 1 \amp 0 \\
 2 \amp -1 \\
 1 \amp 2
-\end{bmatrix}\)</span> and notice that <span class="process-math">\(B=A^T\)</span> where <span class="process-math">\(A\)</span> is the matrix in <a href="" class="xref" data-knowl="./knowl/ex-7-4-1.html" title="Exercise 7.4.5.1">Exercise 7.4.5.1</a>. <pre class="ptx-sagecell sagecell-sage" id="sage-244"><script type="text/x-sage">
+\end{bmatrix}\)</span> and notice that <span class="process-math">\(B=A^T\)</span> where <span class="process-math">\(A\)</span> is the matrix in <a href="" class="xref" data-knowl="./knowl/ex-7-4-1.html" title="Exercise 7.4.5.1">Exercise 7.4.5.1</a>. <pre class="ptx-sagecell sagecell-sage" id="sage-246"><script type="text/x-sage">
 </script></pre>
 </div>
 <ol class="lower-alpha">
-<li id="li-5599"><div class="para" id="p-8071">Use your result from <a href="" class="xref" data-knowl="./knowl/ex-7-4-1.html" title="Exercise 7.4.5.1">Exercise 7.4.5.1</a> to find a singular value decomposition of <span class="process-math">\(B=U\Sigma V^T\text{.}\)</span>
+<li id="li-5599"><div class="para" id="p-8079">Use your result from <a href="" class="xref" data-knowl="./knowl/ex-7-4-1.html" title="Exercise 7.4.5.1">Exercise 7.4.5.1</a> to find a singular value decomposition of <span class="process-math">\(B=U\Sigma V^T\text{.}\)</span>
 </div></li>
-<li id="li-5600"><div class="para" id="p-8072">What is <span class="process-math">\(\rank(B)\text{?}\)</span>  Determine a basis for <span class="process-math">\(\col(B)\)</span> and <span class="process-math">\(\col(B)^\perp\text{.}\)</span>
+<li id="li-5600"><div class="para" id="p-8080">What is <span class="process-math">\(\rank(B)\text{?}\)</span>  Determine a basis for <span class="process-math">\(\col(B)\)</span> and <span class="process-math">\(\col(B)^\perp\text{.}\)</span>
 </div></li>
-<li id="li-5601"><div class="para" id="p-8073">Suppose that <span class="process-math">\(\bvec=\threevec{-3}47\text{.}\)</span>  Use the bases you found in the previous part of this exericse to write <span class="process-math">\(\bvec=\bhat+\bvec^\perp\text{,}\)</span> where <span class="process-math">\(\bhat\)</span> is in <span class="process-math">\(\col(B)\)</span> and <span class="process-math">\(\bvec^\perp\)</span> is in <span class="process-math">\(\col(B)^\perp\text{.}\)</span>
+<li id="li-5601"><div class="para" id="p-8081">Suppose that <span class="process-math">\(\bvec=\threevec{-3}47\text{.}\)</span>  Use the bases you found in the previous part of this exericse to write <span class="process-math">\(\bvec=\bhat+\bvec^\perp\text{,}\)</span> where <span class="process-math">\(\bhat\)</span> is in <span class="process-math">\(\col(B)\)</span> and <span class="process-math">\(\bvec^\perp\)</span> is in <span class="process-math">\(\col(B)^\perp\text{.}\)</span>
 </div></li>
-<li id="li-5602"><div class="para" id="p-8074">Find the least squares approximate solution to the equation <span class="process-math">\(B\xvec=\bvec\text{.}\)</span>
+<li id="li-5602"><div class="para" id="p-8082">Find the least-squares approximate solution to the equation <span class="process-math">\(B\xvec=\bvec\text{.}\)</span>
 </div></li>
 </ol>
 </div></article><article class="exercise exercise-like" id="exercise-281"><h4 class="heading"><span class="codenumber">7<span class="period">.</span></span></h4>
-<div class="para logical" id="p-8085">
+<div class="para logical" id="p-8093">
 <div class="para">Suppose that <span class="process-math">\(A\)</span> is a square <span class="process-math">\(m\times m\)</span> matrix with singular value decomposition <span class="process-math">\(A=U\Sigma V^T\text{.}\)</span>
 </div>
 <ol class="lower-alpha">
-<li id="li-5611"><div class="para" id="p-8086">If <span class="process-math">\(A\)</span> is invertible, find a singular value decomposition of <span class="process-math">\(A^{-1}\text{.}\)</span>
+<li id="li-5611"><div class="para" id="p-8094">If <span class="process-math">\(A\)</span> is invertible, find a singular value decomposition of <span class="process-math">\(A^{-1}\text{.}\)</span>
 </div></li>
-<li id="li-5612"><div class="para" id="p-8087">What condition on the singular values must hold for <span class="process-math">\(A\)</span> to be invertible?</div></li>
-<li id="li-5613"><div class="para" id="p-8088">How are the singular values of <span class="process-math">\(A\)</span> and the singular values of <span class="process-math">\(A^{-1}\)</span> related to one another?</div></li>
-<li id="li-5614"><div class="para" id="p-8089">How are the right and left singular vectors of <span class="process-math">\(A\)</span> related to the right and left singular vectors of <span class="process-math">\(A^{-1}\text{?}\)</span>
+<li id="li-5612"><div class="para" id="p-8095">What condition on the singular values must hold for <span class="process-math">\(A\)</span> to be invertible?</div></li>
+<li id="li-5613"><div class="para" id="p-8096">How are the singular values of <span class="process-math">\(A\)</span> and the singular values of <span class="process-math">\(A^{-1}\)</span> related to one another?</div></li>
+<li id="li-5614"><div class="para" id="p-8097">How are the right and left singular vectors of <span class="process-math">\(A\)</span> related to the right and left singular vectors of <span class="process-math">\(A^{-1}\text{?}\)</span>
 </div></li>
 </ol>
 </div></article><article class="exercise exercise-like" id="exercise-282"><h4 class="heading"><span class="codenumber">8<span class="period">.</span></span></h4>
-<div class="para logical" id="p-8100"><ol class="lower-alpha">
-<li id="li-5623"><div class="para" id="p-8101">If <span class="process-math">\(Q\)</span> is an orthogonal matrix, remember that <span class="process-math">\(Q^TQ=I\text{.}\)</span>  Explain why <span class="process-math">\(\det Q = \pm 1\text{.}\)</span>
+<div class="para logical" id="p-8108"><ol class="lower-alpha">
+<li id="li-5623"><div class="para" id="p-8109">If <span class="process-math">\(Q\)</span> is an orthogonal matrix, remember that <span class="process-math">\(Q^TQ=I\text{.}\)</span>  Explain why <span class="process-math">\(\det Q = \pm 1\text{.}\)</span>
 </div></li>
-<li id="li-5624"><div class="para" id="p-8102">If <span class="process-math">\(A=U\Sigma V^T\)</span> is a singular value decomposition of a square matrix <span class="process-math">\(A\text{,}\)</span> explain why <span class="process-math">\(|\det A|\)</span> is the product of the singular values of <span class="process-math">\(A\text{.}\)</span>
+<li id="li-5624"><div class="para" id="p-8110">If <span class="process-math">\(A=U\Sigma V^T\)</span> is a singular value decomposition of a square matrix <span class="process-math">\(A\text{,}\)</span> explain why <span class="process-math">\(|\det A|\)</span> is the product of the singular values of <span class="process-math">\(A\text{.}\)</span>
 </div></li>
-<li id="li-5625"><div class="para" id="p-8103">What does this say about the singular values of <span class="process-math">\(A\)</span> if <span class="process-math">\(A\)</span> is invertible?</div></li>
+<li id="li-5625"><div class="para" id="p-8111">What does this say about the singular values of <span class="process-math">\(A\)</span> if <span class="process-math">\(A\)</span> is invertible?</div></li>
 </ol></div></article><article class="exercise exercise-like" id="exercise-283"><h4 class="heading"><span class="codenumber">9<span class="period">.</span></span></h4>
-<div class="para logical" id="p-8112">
+<div class="para logical" id="p-8120">
 <div class="para">If <span class="process-math">\(A\)</span> is a matrix and <span class="process-math">\(G=A^TA\)</span> its Gram matrix, remember that</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -1612,26 +1614,26 @@ V^T\text{.}\)</span>
 \end{equation*}
 </div>
 <ol class="lower-alpha">
-<li id="li-5632"><div class="para" id="p-8113">For a general matrix <span class="process-math">\(A\text{,}\)</span> explain why the eigenvalues of <span class="process-math">\(G\)</span> are nonnegative.</div></li>
-<li id="li-5633"><div class="para" id="p-8114">Given a symmetric matrix <span class="process-math">\(A\)</span> having an eigenvalue <span class="process-math">\(\lambda\text{,}\)</span> explain why <span class="process-math">\(\lambda^2\)</span> is an eigenvalue of <span class="process-math">\(G\text{.}\)</span>
+<li id="li-5632"><div class="para" id="p-8121">For a general matrix <span class="process-math">\(A\text{,}\)</span> explain why the eigenvalues of <span class="process-math">\(G\)</span> are nonnegative.</div></li>
+<li id="li-5633"><div class="para" id="p-8122">Given a symmetric matrix <span class="process-math">\(A\)</span> having an eigenvalue <span class="process-math">\(\lambda\text{,}\)</span> explain why <span class="process-math">\(\lambda^2\)</span> is an eigenvalue of <span class="process-math">\(G\text{.}\)</span>
 </div></li>
-<li id="li-5634"><div class="para" id="p-8115">If <span class="process-math">\(A\)</span> is symmetric, explain why the singular values of <span class="process-math">\(A\)</span> equal the absolute value of its eigenvalues:  <span class="process-math">\(\sigma_j = |\lambda_j|\text{.}\)</span>
+<li id="li-5634"><div class="para" id="p-8123">If <span class="process-math">\(A\)</span> is symmetric, explain why the singular values of <span class="process-math">\(A\)</span> equal the absolute value of its eigenvalues:  <span class="process-math">\(\sigma_j = |\lambda_j|\text{.}\)</span>
 </div></li>
 </ol>
 </div></article><article class="exercise exercise-like" id="exercise-284"><h4 class="heading"><span class="codenumber">10<span class="period">.</span></span></h4>
-<div class="para logical" id="p-8124">
+<div class="para logical" id="p-8132">
 <div class="para">Determine whether the following statements are true or false and explain your reasoning.</div>
 <ol class="lower-alpha">
-<li id="li-5641"><div class="para" id="p-8125">If <span class="process-math">\(A=U\Sigma V^T\)</span> is a singular value decomposition of <span class="process-math">\(A\text{,}\)</span> then <span class="process-math">\(G=V(\Sigma^T\Sigma)V^T\)</span> is an orthogonal diagonalization of its Gram matrix.</div></li>
-<li id="li-5642"><div class="para" id="p-8126">If <span class="process-math">\(A=U\Sigma V^T\)</span> is a singular value decomposition of a rank 2 matrix <span class="process-math">\(A\text{,}\)</span> then <span class="process-math">\(\vvec_1\)</span> and <span class="process-math">\(\vvec_2\)</span> form an orthonormal basis for the column space <span class="process-math">\(\col(A)\text{.}\)</span>
+<li id="li-5641"><div class="para" id="p-8133">If <span class="process-math">\(A=U\Sigma V^T\)</span> is a singular value decomposition of <span class="process-math">\(A\text{,}\)</span> then <span class="process-math">\(G=V(\Sigma^T\Sigma)V^T\)</span> is an orthogonal diagonalization of its Gram matrix.</div></li>
+<li id="li-5642"><div class="para" id="p-8134">If <span class="process-math">\(A=U\Sigma V^T\)</span> is a singular value decomposition of a rank 2 matrix <span class="process-math">\(A\text{,}\)</span> then <span class="process-math">\(\vvec_1\)</span> and <span class="process-math">\(\vvec_2\)</span> form an orthonormal basis for the column space <span class="process-math">\(\col(A)\text{.}\)</span>
 </div></li>
-<li id="li-5643"><div class="para" id="p-8127">If <span class="process-math">\(A\)</span> is a symmetric matrix, then its set of singular values is the same as its set of eigenvalues.</div></li>
-<li id="li-5644"><div class="para" id="p-8128">If <span class="process-math">\(A\)</span> is a <span class="process-math">\(10\times7\)</span> matrix and <span class="process-math">\(\sigma_7
+<li id="li-5643"><div class="para" id="p-8135">If <span class="process-math">\(A\)</span> is a symmetric matrix, then its set of singular values is the same as its set of eigenvalues.</div></li>
+<li id="li-5644"><div class="para" id="p-8136">If <span class="process-math">\(A\)</span> is a <span class="process-math">\(10\times7\)</span> matrix and <span class="process-math">\(\sigma_7
 = 4\text{,}\)</span> then the columns of <span class="process-math">\(A\)</span> are linearly independent.</div></li>
-<li id="li-5645"><div class="para" id="p-8129">The Gram matrix is always orthogonally diagonalizable.</div></li>
+<li id="li-5645"><div class="para" id="p-8137">The Gram matrix is always orthogonally diagonalizable.</div></li>
 </ol>
 </div></article><article class="exercise exercise-like" id="exercise-285"><h4 class="heading"><span class="codenumber">11<span class="period">.</span></span></h4>
-<div class="para logical" id="p-8142">
+<div class="para logical" id="p-8150">
 <div class="para">Suppose that <span class="process-math">\(A=U\Sigma V^T\)</span> is a singular value decomposition of the <span class="process-math">\(m\times n\)</span> matrix <span class="process-math">\(A\text{.}\)</span>  If <span class="process-math">\(\sigma_1,\ldots,\sigma_r\)</span> are the nonzero singular values, the general form of the matrix <span class="process-math">\(\Sigma\)</span> is</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -1647,11 +1649,11 @@ V^T\text{.}\)</span>
 \end{equation*}
 </div>
 <ol class="lower-alpha">
-<li id="li-5656"><div class="para" id="p-8143">If you know that the columns of <span class="process-math">\(A\)</span> are linearly independent, what more can you say about the form of <span class="process-math">\(\Sigma\text{?}\)</span>
+<li id="li-5656"><div class="para" id="p-8151">If you know that the columns of <span class="process-math">\(A\)</span> are linearly independent, what more can you say about the form of <span class="process-math">\(\Sigma\text{?}\)</span>
 </div></li>
-<li id="li-5657"><div class="para" id="p-8144">If you know that the columns of <span class="process-math">\(A\)</span> span <span class="process-math">\(\real^m\text{,}\)</span> what more can you say about the form of <span class="process-math">\(\Sigma\text{?}\)</span>
+<li id="li-5657"><div class="para" id="p-8152">If you know that the columns of <span class="process-math">\(A\)</span> span <span class="process-math">\(\real^m\text{,}\)</span> what more can you say about the form of <span class="process-math">\(\Sigma\text{?}\)</span>
 </div></li>
-<li id="li-5658"><div class="para" id="p-8145">If you know that the columns of <span class="process-math">\(A\)</span> are linearly independent and span <span class="process-math">\(\real^m\text{,}\)</span> what more can you say about the form of <span class="process-math">\(\Sigma\text{?}\)</span>
+<li id="li-5658"><div class="para" id="p-8153">If you know that the columns of <span class="process-math">\(A\)</span> are linearly independent and span <span class="process-math">\(\real^m\text{,}\)</span> what more can you say about the form of <span class="process-math">\(\Sigma\text{?}\)</span>
 </div></li>
 </ol>
 </div></article></section></section></div>

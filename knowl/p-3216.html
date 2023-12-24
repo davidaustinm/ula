@@ -12,7 +12,129 @@
 </head>
 <body class="ignore-math">
 <h5 class="heading"><span class="type">Paragraph</span></h5>
-<div class="para">Explain why an <span class="process-math">\(n\times n\)</span> matrix <span class="process-math">\(A\)</span> is invertible if and only if <span class="process-math">\(\det(A) \neq 0\text{.}\)</span>
+<div class="para logical">
+<div class="para">We will investigate the connection between the determinant of a matrix and its invertibility using Gaussian elimination.</div>
+<ol class="lower-alpha">
+<li><div class="para logical">
+<div class="para">Consider the two upper triangular matrices</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/proposition-triangular-invertibility.html">
+\begin{equation*}
+U_1 =
+\left[\begin{array}{rrr}
+1 \amp -1 \amp 2 \\
+0 \amp 2 \amp 4 \\
+0 \amp 0 \amp -2 \\
+\end{array}\right],~~~
+U_2 =
+\left[\begin{array}{rrr}
+1 \amp -1 \amp 2 \\
+0 \amp 2 \amp 4 \\
+0 \amp 0 \amp 0 \\
+\end{array}\right].
+\end{equation*}
+</div>
+<div class="para">Remembering <a href="" class="xref" data-knowl="./knowl/proposition-triangular-invertibility.html" title="Proposition 3.1.9">Proposition 3.1.9</a>, which of the matrices <span class="process-math">\(U_1\)</span> and <span class="process-math">\(U_2\)</span> are invertible?  What are the determinants <span class="process-math">\(\det(U_1)\)</span> and <span class="process-math">\(\det(U_2)\text{?}\)</span>
+</div>
+</div></li>
+<li><div class="para">Explain why an upper triangular matrix is invertible if and only if its determinant is not zero.</div></li>
+<li><div class="para logical">
+<div class="para">Let’s now consider the matrix</div>
+<div class="displaymath process-math">
+\begin{equation*}
+A = 
+\left[\begin{array}{rrr}
+1 \amp -1 \amp 2 \\
+-2 \amp 2 \amp -6 \\
+3 \amp -1 \amp 10 \\
+\end{array}\right]
+\end{equation*}
+</div>
+<div class="para">and begin the Gaussian elimination process with a row replacement operation</div>
+<div class="displaymath process-math">
+\begin{equation*}
+A = 
+\left[\begin{array}{rrr}
+1 \amp -1 \amp 2 \\
+-2 \amp 2 \amp -6 \\
+3 \amp -1 \amp 10 \\
+\end{array}\right]
+\sim
+\left[\begin{array}{rrr}
+1 \amp -1 \amp 2 \\
+0 \amp 0 \amp -2 \\
+3 \amp -1 \amp 10 \\
+\end{array}\right]
+= A_1\text{.}
+\end{equation*}
+</div>
+<div class="para">What is the relationship between <span class="process-math">\(\det(A)\)</span> and <span class="process-math">\(\det(A_1)\text{?}\)</span>
+</div>
+</div></li>
+<li><div class="para logical">
+<div class="para">Next we perform another row replacement operation:</div>
+<div class="displaymath process-math">
+\begin{equation*}
+A_1=
+\left[\begin{array}{rrr}
+1 \amp -1 \amp 2 \\
+0 \amp 0 \amp -2 \\
+3 \amp -1 \amp 10 \\
+\end{array}\right]
+\sim
+\left[\begin{array}{rrr}
+1 \amp -1 \amp 2 \\
+0 \amp 0 \amp -2 \\
+0 \amp 2 \amp 4 \\
+\end{array}\right]
+= A_2\text{.}
+\end{equation*}
+</div>
+<div class="para">What is the relationship between <span class="process-math">\(\det(A)\)</span> and <span class="process-math">\(\det(A_2)\text{?}\)</span>
+</div>
+</div></li>
+<li><div class="para logical">
+<div class="para">Finally, we perform an interchange:</div>
+<div class="displaymath process-math">
+\begin{equation*}
+A_2 =
+\left[\begin{array}{rrr}
+1 \amp -1 \amp 2 \\
+0 \amp 0 \amp -2 \\
+0 \amp 2 \amp 4 \\
+\end{array}\right]
+\sim
+\left[\begin{array}{rrr}
+1 \amp -1 \amp 2 \\
+0 \amp 2 \amp 4 \\
+0 \amp 0 \amp -2 \\
+\end{array}\right]
+= U
+\end{equation*}
+</div>
+<div class="para">to arrive at an upper triangular matrix <span class="process-math">\(U\text{.}\)</span>  What is the relationship between <span class="process-math">\(\det(A)\)</span> and <span class="process-math">\(\det(U)\text{?}\)</span>
+</div>
+</div></li>
+<li><div class="para">Since <span class="process-math">\(U\)</span> is upper triangular, we can compute its determinant, which allows us to find <span class="process-math">\(\det(A)\text{.}\)</span>  What is <span class="process-math">\(\det(A)\text{?}\)</span>  Is <span class="process-math">\(A\)</span> invertible?</div></li>
+<li><div class="para logical">
+<div class="para">Now consider the matrix</div>
+<div class="displaymath process-math">
+\begin{equation*}
+A = 
+\left[\begin{array}{rrr}
+1 \amp -1 \amp 3 \\
+0 \amp 2 \amp -2 \\
+2 \amp 1 \amp 3 \\
+\end{array}\right].
+\end{equation*}
+</div>
+<div class="para">Perform a sequence of row operations to find an upper triangular matrix <span class="process-math">\(U\)</span> that is row equivalent to <span class="process-math">\(A\text{.}\)</span>  Use this to determine <span class="process-math">\(\det(A)\)</span> and whether <span class="process-math">\(A\)</span> is invertible.</div>
+</div></li>
+<li><div class="para">Suppose we apply a sequence of row operations on a matrix <span class="process-math">\(A\)</span> to obtain <span class="process-math">\(A'\text{.}\)</span>  Explain why <span class="process-math">\(\det(A)
+\neq 0\)</span> if and only if <span class="process-math">\(\det(A') \neq 0\text{.}\)</span>
+</div></li>
+<li><div class="para">Explain why an <span class="process-math">\(n\times n\)</span> matrix <span class="process-math">\(A\)</span> is invertible if and only if <span class="process-math">\(\det(A) \neq 0\text{.}\)</span>
+</div></li>
+</ol>
 </div>
 <span class="incontext"><a href="sec-determinants.html#p-3216" class="internal">in-context</a></span>
 </body>

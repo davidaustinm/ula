@@ -29,7 +29,7 @@ sagecell.makeSagecell({
 <div class="para">Let’s begin by considering the matrix <span class="process-math">\(A = \left[\begin{array}{rr}
 0.5 \amp 0.2 \\
 0.4 \amp 0.7 \\
-\end{array}\right]\)</span> and the initial vector <span class="process-math">\(\xvec_0 = \twovec{1}{0}\text{.}\)</span> <pre class="ptx-sagecell sagecell-sage" id="sage-142"><script type="text/x-sage">
+\end{array}\right]\)</span> and the initial vector <span class="process-math">\(\xvec_0 = \twovec{1}{0}\text{.}\)</span> <pre class="ptx-sagecell sagecell-sage" id="sage-144"><script type="text/x-sage">
 </script></pre>
 </div>
 <ol class="lower-alpha">
@@ -43,7 +43,7 @@ A\xvec_0\text{.}\)</span>
 \frac1{m_2}\overline{\xvec}_1\)</span> to obtain a vector in which the component with the largest absolute value is <span class="process-math">\(1\text{.}\)</span>
 </div></li>
 <li>
-<div class="para">The Sage cell below defines a function that implements the power method.  Define the matrix <span class="process-math">\(A\)</span> and initial vector <span class="process-math">\(\xvec_0\)</span> below.  The command <code class="code-inline tex2jax_ignore">power(A, x0,	N)</code> will print out the multiplier <span class="process-math">\(m\)</span> and the vectors <span class="process-math">\(\overline{\xvec}_k\)</span> for <span class="process-math">\(N\)</span> steps of the power method. <pre class="ptx-sagecell sagecell-sage" id="sage-143"><script type="text/x-sage">def power(A, x, N):
+<div class="para">The Sage cell below defines a function that implements the power method.  Define the matrix <span class="process-math">\(A\)</span> and initial vector <span class="process-math">\(\xvec_0\)</span> below.  The command <code class="code-inline tex2jax_ignore">power(A, x0,	N)</code> will print out the multiplier <span class="process-math">\(m\)</span> and the vectors <span class="process-math">\(\overline{\xvec}_k\)</span> for <span class="process-math">\(N\)</span> steps of the power method. <pre class="ptx-sagecell sagecell-sage" id="sage-145"><script type="text/x-sage">def power(A, x, N):
     for i in range(N):
         x = A*x
         m = max([comp for comp in x], key=abs).numerical_approx(digits=14)

@@ -9,10 +9,58 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="robots" content="noindex, nofollow">
+<script>// Make *any* pre with class 'sagecell-sage' an executable Sage cell
+// Their results will be linked, only within language type
+sagecell.makeSagecell({
+  "inputLocation": "pre.sagecell-sage",
+  "linked": true,
+  "languages": [
+    "sage"
+  ],
+  "evalButtonText": "Evaluate (Sage)"
+});
+</script>
 </head>
 <body class="ignore-math">
 <h5 class="heading"><span class="type">Paragraph</span></h5>
 <div class="para logical">
+<div class="para">For instance, consider the matrices</div>
+<div class="displaymath process-math">
+\begin{equation*}
+A = \begin{bmatrix}
+1.0001 \amp 1 \\
+1 \amp 1 \\
+\end{bmatrix},\hspace{24pt}
+B = \begin{bmatrix}
+1 \amp 1 \\
+1 \amp 1 \\
+\end{bmatrix}.
+\end{equation*}
+</div>
+<div class="para">The entries in these matrices are quite close to one another, but <span class="process-math">\(A\)</span> is invertible while <span class="process-math">\(B\)</span> is not.  It seems like <span class="process-math">\(A\)</span> is <em class="emphasis">almost</em> singular. In fact, we can measure how close a matrix is to being singular by forming the <em class="emphasis">condition number</em>, <span class="process-math">\(\sigma_1/\sigma_n\text{,}\)</span> the ratio of the largest to smallest singular value.  If <span class="process-math">\(A\)</span> were singular, the condition number would be undefined because the singular value <span class="process-math">\(\sigma_n=0\text{.}\)</span>  Therefore, we will think of matrices with large condition numbers as being close to singular.</div>
+<ol class="lower-alpha">
+<li><div class="para">Define the matrix <span class="process-math">\(A\)</span> and find a singular value decomposition.  What is the condition number of <span class="process-math">\(A\text{?}\)</span> <pre class="ptx-sagecell sagecell-sage" id="sage-291"><script type="text/x-sage">
+</script></pre>
+</div></li>
+<li><div class="para logical">
+<div class="para">Define the left singular vectors <span class="process-math">\(\uvec_1\)</span> and <span class="process-math">\(\uvec_2\text{.}\)</span>  Compare the results <span class="process-math">\(A^{-1}\bvec\)</span> when</div>
+<ol class="decimal">
+<li><div class="para"><span class="process-math">\(\bvec=\uvec_1+\uvec_2\text{.}\)</span></div></li>
+<li><div class="para"><span class="process-math">\(\bvec=2\uvec_1+\uvec_2\text{.}\)</span></div></li>
+</ol>
+<div class="para">Notice how a small change in the vector <span class="process-math">\(\bvec\)</span> leads to a small change in <span class="process-math">\(A^{-1}\bvec\text{.}\)</span>
+</div>
+</div></li>
+<li><div class="para logical">
+<div class="para">Now compare the results <span class="process-math">\(A^{-1}\bvec\)</span> when</div>
+<ol class="decimal">
+<li><div class="para"><span class="process-math">\(\bvec=\uvec_1+\uvec_2\text{.}\)</span></div></li>
+<li><div class="para"><span class="process-math">\(\bvec=\uvec_1+2\uvec_2\text{.}\)</span></div></li>
+</ol>
+<div class="para">Notice now how a small change in <span class="process-math">\(\bvec\)</span> leads to a large change in <span class="process-math">\(A^{-1}\bvec\text{.}\)</span>
+</div>
+</div></li>
+<li><div class="para logical">
 <div class="para">Previously, we saw that, if we write <span class="process-math">\(\xvec\)</span> in terms of left singular vectors <span class="process-math">\(\xvec=c_1\vvec_1+c_2\vvec_2\text{,}\)</span> then we have</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -22,6 +70,9 @@ c_2\sigma_2\uvec_2.
 </div>
 <div class="para">If we write <span class="process-math">\(\bvec=d_1\uvec_1+d_2\uvec_2\text{,}\)</span> explain why <span class="process-math">\(A^{-1}\bvec\)</span> is sensitive to small changes in <span class="process-math">\(d_2\text{.}\)</span>
 </div>
+</div></li>
+</ol>
+<div class="para">Generally speaking, a square matrix <span class="process-math">\(A\)</span> with a large condition number will demonstrate this type of behavior so that the computation of <span class="process-math">\(A^{-1}\)</span> is likely to be affected by round off error.  We call such a matrix <em class="emphasis">ill-conditioned</em>.</div>
 </div>
 <span class="incontext"><a href="sec-svd-uses.html#p-8465" class="internal">in-context</a></span>
 </body>

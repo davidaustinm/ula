@@ -11,20 +11,100 @@
 <meta name="robots" content="noindex, nofollow">
 </head>
 <body class="ignore-math">
-<h4 class="heading"><span class="type">Paragraph</span></h4>
-<div class="para"> A <em class="emphasis">vector</em> is most simply thought of as a matrix with a single column.  For instance, <span class="process-math">\(\vvec = \left[
-\begin{array}{r}
-2 \\
-1 \\
-\end{array}
-\right]\)</span> and <span class="process-math">\(\wvec = \left[
-\begin{array}{r}
--3 \\
-1 \\
-0 \\
-2 \\
-\end{array}
-\right]\)</span> are both vectors.  The entries in a vector are called its components.  Since the vector <span class="process-math">\(\vvec\)</span> has two components, we say that it is a two-dimensional vector;  in the same way, the vector <span class="process-math">\(\wvec\)</span> is a four-dimensional vector.</div>
-<span class="incontext"><a href="sec-vectors-lin-combs.html#p-732" class="internal">in-context</a></span>
+<h5 class="heading"><span class="type">Paragraph</span></h5>
+<div class="para logical"><ol class="lower-alpha">
+<li><div class="para logical">
+<div class="para">The four equations we find are</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\begin{alignedat}{5}
+a \amp \amp \amp \amp \amp \amp 
+\amp {}={} \amp 2 \\
+a \amp {}+{} \amp b \amp {}+{} \amp c \amp {}+{} \amp d
+\amp {}={} \amp 3 \\
+a \amp {}+{} \amp 2b \amp {}+{} \amp 4c \amp {}+{} \amp 8d
+\amp {}={} \amp 0 \\
+a \amp {}+{} \amp 3b \amp {}+{} \amp 9c \amp {}+{} \amp 27d
+\amp {}={} \amp 1\text{.} \\
+\end{alignedat}
+\end{equation*}
+</div>
+</div></li>
+<li><div class="para logical">
+<div class="para">This leads to the augmented matrix</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\left[\begin{array}{rrrr|r}
+1 \amp 0 \amp 0 \amp 0 \amp 2 \\
+1 \amp 1 \amp 1 \amp 1 \amp 3 \\
+1 \amp 2 \amp 4 \amp 8 \amp 0 \\
+1 \amp 3 \amp 9 \amp 27 \amp 1 \\
+\end{array}\right]
+\sim
+\left[\begin{array}{rrrr|r}
+1 \amp 0 \amp 0 \amp 0 \amp 2 \\
+0 \amp 1 \amp 0 \amp 0 \amp \frac{17}{3} \\
+0 \amp 0 \amp 1 \amp 0 \amp -6 \\
+0 \amp 0 \amp 0 \amp 1 \amp \frac43 \\
+\end{array}\right]\text{.}
+\end{equation*}
+</div>
+<div class="para">This gives the coefficients <span class="process-math">\(a=2\text{,}\)</span> <span class="process-math">\(b=\frac{17}{3}\text{,}\)</span> <span class="process-math">\(c=-6\text{,}\)</span> and <span class="process-math">\(d=\frac43\text{.}\)</span>
+</div>
+</div></li>
+<li><div class="para logical">
+<div class="para">The polynomial</div>
+<div class="displaymath process-math">
+\begin{equation*}
+p(x) = 2 + \frac{17}{3}x -6x^2 + \frac43 x^3
+\end{equation*}
+</div>
+<div class="para">passes through the four given points.</div>
+</div></li>
+<li><div class="para logical">
+<div class="para">We have the augmented matrix</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\left[\begin{array}{rrr|r}
+1 \amp 0 \amp 0 \amp 2 \\
+1 \amp 1 \amp 1 \amp 3 \\
+1 \amp 2 \amp 4 \amp 0 \\
+1 \amp 3 \amp 9 \amp 1 \\
+\end{array}\right]
+\sim
+\left[\begin{array}{rrr|r}
+1 \amp 0 \amp 0 \amp 0 \\
+0 \amp 1 \amp 0 \amp 0 \\
+0 \amp 0 \amp 1 \amp 0 \\
+0 \amp 0 \amp 0 \amp 1 \\
+\end{array}\right]\text{.}
+\end{equation*}
+</div>
+<div class="para">This system is therefore inconsistent, which means there is no degree 2 polynomial passing through the four points.</div>
+</div></li>
+<li><div class="para logical">
+<div class="para">The augmented matrix we find is</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\left[\begin{array}{rrrrr|r}
+1 \amp 0 \amp 0 \amp 0 \amp 0 \amp 2 \\
+1 \amp 1 \amp 1 \amp 1 \amp 1 \amp 3 \\
+1 \amp 2 \amp 4 \amp 8 \amp 16 \amp 0 \\
+1 \amp 3 \amp 9 \amp 27 \amp 81 \amp 1 \\
+\end{array}\right]
+\sim
+\left[\begin{array}{rrrrr|r}
+1 \amp 0 \amp 0 \amp 0 \amp 0 \amp 2 \\
+0 \amp 1 \amp 0 \amp 0 \amp 6 \amp \frac{17}{3} \\
+0 \amp 0 \amp 1 \amp 0 \amp -11 \amp -6 \\
+0 \amp 0 \amp 0 \amp 1 \amp 6 \amp \frac43 \\
+\end{array}\right]\text{.}
+\end{equation*}
+</div>
+<div class="para">This shows that there are infinitely many polynomials whose degree is four and that pass through the four points.</div>
+</div></li>
+<li><div class="para">If there are 10 points, we should find a polynomial having 10 coefficients.  This means that the degree of the polynomial should be 9.</div></li>
+</ol></div>
+<span class="incontext"><a href="sec-pivots.html#p-732" class="internal">in-context</a></span>
 </body>
 </html>

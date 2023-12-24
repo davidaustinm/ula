@@ -11,19 +11,37 @@
 <meta name="robots" content="noindex, nofollow">
 </head>
 <body class="ignore-math">
-<h5 class="heading"><span class="type">Paragraph</span></h5>
+<h4 class="heading"><span class="type">Paragraph</span></h4>
 <div class="para logical">
-<div class="para">Let’s consider a new basis <span class="process-math">\(\bcal\)</span> for <span class="process-math">\(\real^4\)</span> using vectors</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/fig-basis-revenue-elements.html">
+<div class="para">This activity demonstrates how we can efficiently convert between coordinate systems defined by different bases.  Let’s consider a basis <span class="process-math">\(\bcal = \{\vvec_1,\vvec_2,\ldots,\vvec_m\}\)</span> and a vector <span class="process-math">\(\xvec\text{.}\)</span>  We know that</div>
+<div class="displaymath process-math">
 \begin{equation*}
-\vvec_1=\fourvec{1}{1}{1}{1},~~~
-\vvec_2=\fourvec{1}{1}{-1}{-1},~~~
-\vvec_3=\fourvec{1}{-1}{0}{0},~~~
-\vvec_4=\fourvec{0}{0}{1}{-1}\text{.}
+\begin{aligned}
+\xvec \amp {}={} c_1\vvec_1 +c_2\vvec_2+\ldots+c_m\vvec_m \\
+\\
+\amp {}={}
+\left[\begin{array}{rrrr}
+\vvec_1 \amp \vvec_2 \amp \cdots \amp \vvec_m
+\end{array}\right]
+\cfourvec{c_1}{c_2}{\vdots}{c_m} \\
+\\
+\amp {}={}
+\left[\begin{array}{rrrr}
+\vvec_1 \amp \vvec_2 \amp \cdots \amp \vvec_m
+\end{array}\right]
+\coords{\xvec}{\bcal}\text{.}
+\end{aligned}
 \end{equation*}
 </div>
-<div class="para">We may view these basis elements graphically, as in <a href="" class="xref" data-knowl="./knowl/fig-basis-revenue-elements.html" title="Figure 3.2.11">Figure 3.2.11</a>
+<div class="para">If we use <span class="process-math">\(P_{\bcal}\)</span> to denote the matrix whose columns are the basis vectors, then we find that</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\xvec = P_{\bcal}\coords{\xvec}{\bcal}
+\end{equation*}
 </div>
+<div class="para">where <span class="process-math">\(P_{\bcal} = \left[\begin{array}{rrrr}
+\vvec_1 \amp \vvec_2 \amp \cdots \amp \vvec_m
+\end{array}\right]\text{.}\)</span>  This means that the matrix <span class="process-math">\(P_{\bcal}\)</span> converts coordinates in the basis <span class="process-math">\(\bcal\)</span> into standard coordinates.</div>
 </div>
 <span class="incontext"><a href="sec-bases.html#p-2697" class="internal">in-context</a></span>
 </body>

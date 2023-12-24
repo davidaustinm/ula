@@ -9,10 +9,30 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="robots" content="noindex, nofollow">
+<script>// Make *any* pre with class 'sagecell-sage' an executable Sage cell
+// Their results will be linked, only within language type
+sagecell.makeSagecell({
+  "inputLocation": "pre.sagecell-sage",
+  "linked": true,
+  "languages": [
+    "sage"
+  ],
+  "evalButtonText": "Evaluate (Sage)"
+});
+</script>
 </head>
 <body class="ignore-math">
 <h5 class="heading"><span class="type">Paragraph</span></h5>
-<div class="para">Since all the entries of <span class="process-math">\(G^4\)</span> are positive, we can conclude that <span class="process-math">\(G\)</span> is a positive matrix.  The Perron-Frobenius theorem tells us there is a unique steady-state vector, which we have already seen, and that any Markov chain will converge to it.</div>
+<div class="para">Verify that this Markov chain converges to the steady-state PageRank vector. <pre class="ptx-sagecell sagecell-sage" id="sage-129"><script type="text/x-sage">def markov_chain(A, x0, N):
+    for i in range(N):
+        x0 = A*x0
+        print (x0.numerical_approx(digits=3))
+## define the matrix G and x0
+G =
+x0 =
+markov_chain(G, x0, 20)
+</script></pre>
+</div>
 <span class="incontext"><a href="sec-stochastic.html#p-4858" class="internal">in-context</a></span>
 </body>
 </html>

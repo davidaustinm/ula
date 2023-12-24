@@ -9,70 +9,85 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="robots" content="noindex, nofollow">
+<script>// Make *any* pre with class 'sagecell-sage' an executable Sage cell
+// Their results will be linked, only within language type
+sagecell.makeSagecell({
+  "inputLocation": "pre.sagecell-sage",
+  "linked": true,
+  "languages": [
+    "sage"
+  ],
+  "evalButtonText": "Evaluate (Sage)"
+});
+</script>
 </head>
 <body class="ignore-math">
 <h5 class="heading"><span class="type">Paragraph</span></h5>
-<div class="para logical"><ol class="lower-alpha">
+<div class="para logical">
+<div class="para">Suppose that <span class="process-math">\(A\)</span> is the <span class="process-math">\(4\times3\)</span> matrix whose columns are</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/activity-gram-schmidt.html">
+\begin{equation*}
+\vvec_1 = \fourvec1111,\hspace{24pt}
+\vvec_2 = \fourvec1322,\hspace{24pt}
+\vvec_3 = \fourvec1{-3}{-3}{-3}\text{.}
+\end{equation*}
+</div>
+<div class="para">These vectors form a basis for <span class="process-math">\(W\text{,}\)</span> the subspace of <span class="process-math">\(\real^4\)</span> that we encountered in <a href="" class="xref" data-knowl="./knowl/activity-gram-schmidt.html" title="Activity 6.4.2">Activity 6.4.2</a>.  Since these vectors are the columns of <span class="process-math">\(A\text{,}\)</span> we have <span class="process-math">\(\col(A) = W\text{.}\)</span> <pre class="ptx-sagecell sagecell-sage" id="sage-174"><script type="text/x-sage">
+</script></pre>
+</div>
+<ol class="lower-alpha">
 <li><div class="para logical">
+<div class="para">When we implemented Gram-Schmidt, we first found an orthogonal basis <span class="process-math">\(\wvec_1\text{,}\)</span> <span class="process-math">\(\wvec_2\text{,}\)</span> and <span class="process-math">\(\wvec_3\)</span> using</div>
 <div class="displaymath process-math">
 \begin{equation*}
 \begin{aligned}
 \wvec_1 \amp = \vvec_1 \\
-\wvec_2 \amp = \vvec_2 - 2\wvec_1 \\
-\wvec_3 \amp = \vvec_3 + 2\wvec_1 + 2\wvec_2 \\
+\wvec_2 \amp = \vvec_2 -
+\frac{\vvec_2\cdot\wvec_1}{\wvec_1\cdot\wvec_1}\wvec_1 \\
+\wvec_3 \amp = \vvec_3 -
+\frac{\vvec_3\cdot\wvec_1}{\wvec_1\cdot\wvec_1}\wvec_1 -
+\frac{\vvec_3\cdot\wvec_2}{\wvec_2\cdot\wvec_2}\wvec_2\text{.}
+\\
 \end{aligned}
 \end{equation*}
 </div>
-<div class="para">Therefore,</div>
-<div class="displaymath process-math">
-\begin{equation*}
-\begin{aligned}
-\vvec_1 \amp = \wvec_1 \\
-\vvec_2 \amp = 2\wvec_1 + \wvec_2 \\
-\vvec_3 \amp = -2\wvec_1 - 2\wvec_2 + \wvec_3 \\
-\end{aligned}
-\end{equation*}
+<div class="para">Use these expressions to write <span class="process-math">\(\vvec_1\text{,}\)</span> <span class="process-math">\(\vvec_1\text{,}\)</span> and <span class="process-math">\(\vvec_3\)</span> as linear combinations of <span class="process-math">\(\wvec_1\text{,}\)</span> <span class="process-math">\(\wvec_2\text{,}\)</span> and <span class="process-math">\(\wvec_3\text{.}\)</span>
 </div>
 </div></li>
-<li><div class="para logical">
-<div class="para">
-<span class="process-math">\(\wvec_i = \len{\wvec_i}\uvec_i\)</span> so we have</div>
-<div class="displaymath process-math">
-\begin{equation*}
-\wvec_1 = 2\uvec_1,\hspace{24pt}
-\wvec_1 = \sqrt{2}\uvec_2,\hspace{24pt}
-\wvec_1 = 2\uvec_3\text{.}
-\end{equation*}
+<li>
+<div class="para">We next normalized the orthogonal basis <span class="process-math">\(\wvec_1\text{,}\)</span> <span class="process-math">\(\wvec_2\text{,}\)</span> and <span class="process-math">\(\wvec_3\)</span> to obtain an orthonormal basis <span class="process-math">\(\uvec_1\text{,}\)</span> <span class="process-math">\(\uvec_2\text{,}\)</span> and <span class="process-math">\(\uvec_3\text{.}\)</span>
 </div>
-<div class="para">This leads to</div>
-<div class="displaymath process-math">
-\begin{equation*}
-\begin{aligned}
-\vvec_1 \amp = 2\uvec_1 \\
-\vvec_2 \amp = 4\uvec_1 + \sqrt{2}\uvec_2 \\
-\vvec_3 \amp = -4\uvec_1 - 2\sqrt{2}\uvec_2 + 2\uvec_3 \\
-\end{aligned}
-\end{equation*}
+<div class="para">Write the vectors <span class="process-math">\(\wvec_i\)</span> as scalar multiples of <span class="process-math">\(\uvec_i\text{.}\)</span> Then use these expressions to write <span class="process-math">\(\vvec_1\text{,}\)</span> <span class="process-math">\(\vvec_1\text{,}\)</span> and <span class="process-math">\(\vvec_3\)</span> as linear combinations of <span class="process-math">\(\uvec_1\text{,}\)</span> <span class="process-math">\(\uvec_2\text{,}\)</span> and <span class="process-math">\(\uvec_3\text{.}\)</span>
 </div>
+</li>
+<li><div class="para">Suppose that <span class="process-math">\(Q =
+\left[
+\begin{array}{ccc}
+\uvec_1 \amp \uvec_2 \amp \uvec_3
+\end{array}
+\right]\text{.}\)</span>  Use the result of the previous part to find a vector <span class="process-math">\(\rvec_1\)</span> so that <span class="process-math">\(Q\rvec_1 = \vvec_1\text{.}\)</span>
 </div></li>
-<li><div class="para">Since <span class="process-math">\(\vvec_1 = 2\uvec_1\text{,}\)</span> we have <span class="process-math">\(\vvec_1 =
-Q\threevec{2}00\text{.}\)</span>
+<li><div class="para">Then find vectors <span class="process-math">\(\rvec_2\)</span> and <span class="process-math">\(\rvec_3\)</span> such that <span class="process-math">\(Q\rvec_2 = \vvec_2\)</span> and <span class="process-math">\(Q\rvec_3 =
+\vvec_3\text{.}\)</span>
 </div></li>
-<li><div class="para">In the same way, we have <span class="process-math">\(\vvec_2 =
-Q\threevec4{\sqrt{2}}0\)</span> and <span class="process-math">\(\vvec_3=Q\threevec{-4}{-2\sqrt{2}}2\text{.}\)</span>
+<li><div class="para">Construct the matrix <span class="process-math">\(R =
+\left[
+\begin{array}{ccc}
+\rvec_1 \amp \rvec_2 \amp \rvec_3
+\end{array}
+\right]\text{.}\)</span>  Remembering that <span class="process-math">\(A =
+\left[
+\begin{array}{ccc}
+\vvec_1 \amp \vvec_2 \amp \vvec_3
+\end{array}
+\right]\text{,}\)</span> explain why <span class="process-math">\(A = QR\text{.}\)</span>
 </div></li>
-<li><div class="para">We have <span class="process-math">\(QR = \begin{bmatrix} Q\rvec_1 \amp Q\rvec_2
-\amp Q\rvec_3 \end{bmatrix} = A\text{.}\)</span>
+<li><div class="para">What is special about the shape of <span class="process-math">\(R\text{?}\)</span>
 </div></li>
-<li><div class="para">
-<span class="process-math">\(R=\begin{bmatrix}
-2 \amp 4 \amp -4 \\
-0 \amp \sqrt{2} \amp -2\sqrt{2} \\
-0 \amp 0 \amp 2 \\
-\end{bmatrix}\)</span> so <span class="process-math">\(R\)</span> is upper triangular.</div></li>
-<li><div class="para">
-<span class="process-math">\(Q\)</span> will be <span class="process-math">\(10\times6\)</span> and <span class="process-math">\(R\)</span> will be a <span class="process-math">\(6\times 6\)</span> upper triangular matrix.</div></li>
-</ol></div>
+<li><div class="para">Suppose that <span class="process-math">\(A\)</span> is a <span class="process-math">\(10\times 6\)</span> matrix whose columns are linearly independent.  This means that the columns of <span class="process-math">\(A\)</span> form a basis for <span class="process-math">\(W=\col(A)\text{,}\)</span> a 6-dimensional subspace of <span class="process-math">\(\real^{10}\text{.}\)</span>  Suppose that we apply Gram-Schmidt orthogonalization to create an orthonormal basis whose vectors form the columns of <span class="process-math">\(Q\)</span> and that we write <span class="process-math">\(A=QR\text{.}\)</span>  What are the shape of <span class="process-math">\(Q\)</span> and what the shape of <span class="process-math">\(R\text{?}\)</span>
+</div></li>
+</ol>
+</div>
 <span class="incontext"><a href="sec-gram-schmidt.html#p-6418" class="internal">in-context</a></span>
 </body>
 </html>

@@ -9,21 +9,36 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="robots" content="noindex, nofollow">
+<script>// Make *any* pre with class 'sagecell-sage' an executable Sage cell
+// Their results will be linked, only within language type
+sagecell.makeSagecell({
+  "inputLocation": "pre.sagecell-sage",
+  "linked": true,
+  "languages": [
+    "sage"
+  ],
+  "evalButtonText": "Evaluate (Sage)"
+});
+</script>
 </head>
 <body class="ignore-math">
 <h5 class="heading"><span class="type">Paragraph</span></h5>
 <div class="para logical">
-<div class="para">The exact solution is</div>
+<div class="para">Let’s first see an example showing that computer arithmetic really is an approximation.  First, consider the linear system</div>
 <div class="displaymath process-math">
 \begin{equation*}
-x=9, y=-36, z=30\text{.}
+\begin{alignedat}{4}
+x \amp {}+{} \amp \frac12y \amp {}+{} \amp \frac13z \amp
+{}={} \amp 1 \\
+\frac12x \amp {}+{} \amp \frac13y \amp {}+{} \amp \frac14z \amp
+{}={} \amp 0 \\
+\frac13x \amp {}+{} \amp \frac14y \amp {}+{} \amp \frac15z \amp
+{}={} \amp 0 \\
+\end{alignedat}
 \end{equation*}
 </div>
-<div class="para">However, if we compute with only 10 bits, we find the approximate solution</div>
-<div class="displaymath process-math">
-\begin{equation*}
-x=8.9, y=-35, z=29\text{.}
-\end{equation*}
+<div class="para">If the coefficients are entered into Sage as fractions, Sage will find the exact reduced row echelon form.  Find the exact solution to this linear system. <pre class="ptx-sagecell sagecell-sage" id="sage-22"><script type="text/x-sage">
+</script></pre>
 </div>
 </div>
 <span class="incontext"><a href="sec-sage-introduction.html#p-511" class="internal">in-context</a></span>

@@ -9,29 +9,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="robots" content="noindex, nofollow">
-<script>// Make *any* pre with class 'sagecell-sage' an executable Sage cell
-// Their results will be linked, only within language type
-sagecell.makeSagecell({
-  "inputLocation": "pre.sagecell-sage",
-  "linked": true,
-  "languages": [
-    "sage"
-  ],
-  "evalButtonText": "Evaluate (Sage)"
-});
-</script>
 </head>
 <body class="ignore-math">
-<h5 class="heading"><span class="type">Paragraph</span></h5>
-<div class="para">We will form the Markov chain beginning with the vector <span class="process-math">\(\xvec_0 = \twovec{1}{0}\)</span> and defining <span class="process-math">\(\xvec_{k+1} = A\xvec_k\text{.}\)</span>  The Sage cell below constructs the first <span class="process-math">\(N\)</span> terms of the Markov chain with the command <code class="code-inline tex2jax_ignore">markov_chain(A, x0, N)</code>.  Define the matrix <code class="code-inline tex2jax_ignore">A</code> and vector <code class="code-inline tex2jax_ignore">x0</code> and evaluate the cell to find the first 10 terms of the Markov chain. <pre class="ptx-sagecell sagecell-sage" id="sage-123"><script type="text/x-sage">def markov_chain(A, x0, N):
-    for i in range(N):
-        x0 = A*x0
-        print (x0)
-## define the matrix A and x0
-A =
-x0 =
-markov_chain(A, x0, 10)
-</script></pre> What do you notice about the Markov chain?  Does it converge to the steady-state vector for <span class="process-math">\(A\text{?}\)</span>
+<h4 class="heading"><span class="type">Paragraph</span></h4>
+<div class="para">The role of the eigenvalues is important in this example. Since <span class="process-math">\(\lambda_1=1\text{,}\)</span> we can find a probability vector <span class="process-math">\(\qvec\)</span> that is unchanged by multiplication by <span class="process-math">\(A\text{.}\)</span> Also, the other eigenvalues satisfy <span class="process-math">\(|\lambda_j| \lt 1\text{,}\)</span> which means that all the trajectories get pulled in to the eigenspace <span class="process-math">\(E_1\text{.}\)</span>  Since <span class="process-math">\(\xvec_k\)</span> is a sequence of probability vectors, these vectors converge to the probability vector <span class="process-math">\(\qvec\)</span> as they are pulled into <span class="process-math">\(E_1\text{.}\)</span>
 </div>
 <span class="incontext"><a href="sec-stochastic.html#p-4796" class="internal">in-context</a></span>
 </body>

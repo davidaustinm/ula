@@ -9,21 +9,29 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="robots" content="noindex, nofollow">
+<script>// Make *any* pre with class 'sagecell-sage' an executable Sage cell
+// Their results will be linked, only within language type
+sagecell.makeSagecell({
+  "inputLocation": "pre.sagecell-sage",
+  "linked": true,
+  "languages": [
+    "sage"
+  ],
+  "evalButtonText": "Evaluate (Sage)"
+});
+</script>
 </head>
 <body class="ignore-math">
 <h5 class="heading"><span class="type">Paragraph</span></h5>
-<div class="para logical">
-<div class="para">After creating a Markov chain to find the steady-state vector, we find</div>
-<div class="displaymath process-math">
-\begin{equation*}
-\begin{array}{rrrr}
-x_1 = 0.057, \amp x_2=0.085, \amp x_3=0.028, \amp
-x_4=0.085, \\
-x_5 = 0.071, \amp x_6=0.212, \amp x_7=0.170, \amp
-x_8=0.292\text{.}
-\end{array}
-\end{equation*}
-</div>
+<div class="para">Construct the Google matrix <span class="process-math">\(G\)</span> for this Internet.  Then use a Markov chain to find the steady-state PageRank vector <span class="process-math">\(\xvec\text{.}\)</span> <pre class="ptx-sagecell sagecell-sage" id="sage-130"><script type="text/x-sage">def markov_chain(A, x0, N):
+    for i in range(N):
+        x0 = A*x0
+        print (x0.numerical_approx(digits=3))
+## define the matrix G and x0
+G =
+x0 =
+markov_chain(G, x0, 20)
+</script></pre>
 </div>
 <span class="incontext"><a href="sec-stochastic.html#p-4873" class="internal">in-context</a></span>
 </body>

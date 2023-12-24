@@ -9,112 +9,23 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="robots" content="noindex, nofollow">
-<script>// Make *any* pre with class 'sagecell-sage' an executable Sage cell
-// Their results will be linked, only within language type
-sagecell.makeSagecell({
-  "inputLocation": "pre.sagecell-sage",
-  "linked": true,
-  "languages": [
-    "sage"
-  ],
-  "evalButtonText": "Evaluate (Sage)"
-});
-</script>
 </head>
 <body class="ignore-math">
 <h5 class="heading"><span class="type">Paragraph</span></h5>
-<div class="para logical">
-<div class="para">Consider the matrices</div>
-<div class="displaymath process-math">
-\begin{equation*}
-A = \left[\begin{array}{rrr}
-1 \amp 3 \amp 2 \\
--3 \amp 4 \amp -1 \\
-\end{array}\right],~~~
-B = \left[\begin{array}{rr}
-3 \amp 0 \\
-1 \amp 2 \\
--2 \amp -1 \\
-\end{array}\right]\text{.}
-\end{equation*}
-</div>
-<ol class="lower-alpha">
-<li><div class="para">Before computing, first explain why the shapes of <span class="process-math">\(A\)</span> and <span class="process-math">\(B\)</span> enable us to form the product <span class="process-math">\(AB\text{.}\)</span> Then describe the shape of <span class="process-math">\(AB\text{.}\)</span>
+<div class="para logical"><ol class="lower-alpha">
+<li><div class="para">
+<span class="process-math">\(A = \left[\begin{array}{rrr}
+2 \amp 1 \amp -3 \\
+-1 \amp 2 \amp 1 \\
+3 \amp -1 \amp 0 \\
+\end{array}\right]\)</span> and <span class="process-math">\(\bvec=\threevec{4}{3}{-4}\text{.}\)</span>
 </div></li>
-<li><div class="para">Compute the product <span class="process-math">\(AB\text{.}\)</span>
+<li><div class="para"><span class="process-math">\(\displaystyle \xvec = \threevec{x_1}{x_2}{x_3} =
+\threevec{-1}{3}{0}+x_3\threevec{3}{9}{1}\text{.}\)</span></div></li>
+<li><div class="para">There are no solutions.</div></li>
+<li><div class="para">There is at least one solution, namely, <span class="process-math">\(\xvec=\zerovec\text{.}\)</span>
 </div></li>
-<li><div class="para">Sage can multiply matrices using the <code class="code-inline tex2jax_ignore">*</code> operator.  Define the matrices <span class="process-math">\(A\)</span> and <span class="process-math">\(B\)</span> in the Sage cell below and check your work by computing <span class="process-math">\(AB\text{.}\)</span> <pre class="ptx-sagecell sagecell-sage" id="sage-43"><script type="text/x-sage">
-</script></pre>
-</div></li>
-<li><div class="para">Are we able to form the matrix product <span class="process-math">\(BA\text{?}\)</span>  If so, use the Sage cell above to find <span class="process-math">\(BA\text{.}\)</span>  Is it generally true that <span class="process-math">\(AB = BA\text{?}\)</span>
-</div></li>
-<li><div class="para logical">
-<div class="para">Suppose we form the three matrices.</div>
-<div class="displaymath process-math">
-\begin{equation*}
-A = \left[\begin{array}{rr}
-1 \amp 2 \\
-3 \amp -2 \\
-\end{array}\right],
-B = \left[\begin{array}{rr}
-0 \amp 4 \\
-2 \amp -1 \\
-\end{array}\right],
-C = \left[\begin{array}{rr}
--1 \amp 3 \\
-4 \amp 3 \\
-\end{array}\right]\text{.}
-\end{equation*}
-</div>
-<div class="para">Compare what happens when you compute <span class="process-math">\(A(B+C)\)</span> and <span class="process-math">\(AB
-+ AC\text{.}\)</span>  State your finding as a general principle. <pre class="ptx-sagecell sagecell-sage" id="sage-44"><script type="text/x-sage">
-</script></pre>
-</div>
-</div></li>
-<li><div class="para">Compare the results of evaluating <span class="process-math">\(A(BC)\)</span> and <span class="process-math">\((AB)C\)</span> and state your finding as a general principle.</div></li>
-<li><div class="para logical">
-<div class="para">When we are dealing with real numbers, we know if <span class="process-math">\(a\neq 0\)</span> and <span class="process-math">\(ab = ac\text{,}\)</span> then <span class="process-math">\(b=c\text{.}\)</span>  Define matrices</div>
-<div class="displaymath process-math">
-\begin{equation*}
-A = \left[\begin{array}{rr}
-1 \amp 2 \\
--2 \amp -4 \\
-\end{array}\right],
-B = \left[\begin{array}{rr}
-3 \amp 0 \\
-1 \amp 3 \\
-\end{array}\right],
-C = \left[\begin{array}{rr}
-1 \amp 2 \\
-2 \amp 2 \\
-\end{array}\right]
-\end{equation*}
-</div>
-<div class="para">and compute <span class="process-math">\(AB\)</span> and <span class="process-math">\(AC\text{.}\)</span> <pre class="ptx-sagecell sagecell-sage" id="sage-45"><script type="text/x-sage">
-</script></pre> If <span class="process-math">\(AB = AC\text{,}\)</span> is it necessarily true that <span class="process-math">\(B = C\text{?}\)</span>
-</div>
-</div></li>
-<li><div class="para logical">
-<div class="para">Again, with real numbers, we know that if <span class="process-math">\(ab =
-0\text{,}\)</span> then either <span class="process-math">\(a = 0\)</span> or <span class="process-math">\(b=0\text{.}\)</span>  Define</div>
-<div class="displaymath process-math">
-\begin{equation*}
-A = \left[\begin{array}{rr}
-1 \amp 2 \\
--2 \amp -4 \\
-\end{array}\right],
-B = \left[\begin{array}{rr}
-2 \amp -4 \\
--1 \amp 2 \\
-\end{array}\right]
-\end{equation*}
-</div>
-<div class="para">and compute <span class="process-math">\(AB\text{.}\)</span> <pre class="ptx-sagecell sagecell-sage" id="sage-46"><script type="text/x-sage">
-</script></pre> If <span class="process-math">\(AB = 0\text{,}\)</span> is it necessarily true that either <span class="process-math">\(A=0\)</span> or <span class="process-math">\(B=0\text{?}\)</span>
-</div>
-</div></li>
-</ol>
-</div>
+</ol></div>
 <span class="incontext"><a href="sec-matrices-lin-combs.html#p-1038" class="internal">in-context</a></span>
 </body>
 </html>

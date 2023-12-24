@@ -12,7 +12,13 @@
 </head>
 <body class="ignore-math">
 <h5 class="heading"><span class="type">Paragraph</span></h5>
-<div class="para">As seen in an image, these blocks are relatively small, which means that the approximations we reconstruct are probably not noticeably different from the original.  Also, the blocks are small enough so that the image does not typically change a lot over the block.  At the same time, the blocks are large enough to allow us to save storage by throwing away some of the Fourier coefficients.</div>
+<div class="para logical"><ol class="lower-alpha">
+<li><div class="para">The goal is to represent the image in a format that requires less storage but still allows us to reconstruct the image with most of the visual information preserved.</div></li>
+<li><div class="para">In the <span class="process-math">\(YC_bC_r\)</span> color model, the most significant visual information is stored in the <span class="process-math">\(Y\)</span> channel. Therefore, we should store most of this information.  The information in the <span class="process-math">\(C_b\)</span> and <span class="process-math">\(C_r\)</span> channels is not as visually significant so we can store a smaller amount of that data without noticing the effect.</div></li>
+<li><div class="para">As seen in an image, these blocks are relatively small, which means that the approximations we reconstruct are probably not noticeably different from the original.  Also, the blocks are small enough so that the image does not typically change a lot over the block.  At the same time, the blocks are large enough to allow us to save storage by throwing away some of the Fourier coefficients.</div></li>
+<li><div class="para">The Discrete Fourier Transform represents the data in a block as its average and variations from the average. Since the blocks are relatively small, there will typically be small variations away from the average.  Therefore, we can often ignore those variations without visually detecting the approximation.</div></li>
+<li><div class="para">Our eyes do not detect individual pixels so we do not detect differences from one pixel to the next.  This means that we do not typically notice rapid variations.</div></li>
+</ol></div>
 <span class="incontext"><a href="sec-jpeg.html#p-3067" class="internal">in-context</a></span>
 </body>
 </html>

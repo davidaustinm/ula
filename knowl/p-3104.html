@@ -9,21 +9,26 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="robots" content="noindex, nofollow">
+<script>// Make *any* pre with class 'sagecell-sage' an executable Sage cell
+// Their results will be linked, only within language type
+sagecell.makeSagecell({
+  "inputLocation": "pre.sagecell-sage",
+  "linked": true,
+  "languages": [
+    "sage"
+  ],
+  "evalButtonText": "Evaluate (Sage)"
+});
+</script>
 </head>
 <body class="ignore-math">
 <h5 class="heading"><span class="type">Paragraph</span></h5>
-<div class="para logical">
-<div class="para">We find the approximate luminance values to be</div>
-<div class="displaymath process-math">
-\begin{equation*}
-\left[\begin{array}{rrrr}
-177 \amp 177 \amp 170 \amp 170 \\
-177 \amp 177 \amp 170 \amp 170 \\
-156 \amp 156 \amp 165 \amp 165 \\
-156 \amp 156 \amp 165 \amp 165 \\
-\end{array}\right]\text{.}
-\end{equation*}
-</div>
+<div class="para">In the JPEG compression algorithm, we looked at the Fourier coefficients of all the columns of luminance values and then performed a Fourier transform on the rows.  The Sage cell below will perform the same operation using the wavelet transform;  that is, it will first find the wavelet coefficients of each of the columns and then perform the wavelet transform on the rows.  You only need to evaluate the cell to find the wavelet coefficients obtained in this way. <pre class="ptx-sagecell sagecell-sage" id="sage-102"><script type="text/x-sage">luminance = matrix(4,4,[176, 170, 170, 169, 181, 179, 175, 167, 165,
+170, 169, 161, 139, 150,  164, 166])
+Winv = W.inverse()
+wavelet_transform = (Winv*(Winv*luminance).transpose()).transpose()
+print (wavelet_transform.numerical_approx(digits=3))
+</script></pre>
 </div>
 <span class="incontext"><a href="sec-jpeg.html#p-3104" class="internal">in-context</a></span>
 </body>

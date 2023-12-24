@@ -11,33 +11,81 @@
 <meta name="robots" content="noindex, nofollow">
 </head>
 <body class="ignore-math">
-<h4 class="heading"><span class="type">Paragraph</span></h4>
-<div class="para logical">
-<div class="para">To make sense of this, suppose that there are <span class="process-math">\(N\)</span> pages on our internet.  The matrix</div>
+<h5 class="heading"><span class="type">Paragraph</span></h5>
+<div class="para logical"><ol class="lower-alpha">
+<li><div class="para logical">
+<div class="para">After creating a Markov chain to find the steady-state vector, we find</div>
 <div class="displaymath process-math">
 \begin{equation*}
-H_n = \left[\begin{array}{rrrr}
-\frac1n \amp \frac1n \amp \ldots \amp \frac1n \\
-\frac1n \amp \frac1n \amp \ldots \amp \frac1n \\
-\vdots \amp \vdots \amp \ddots \amp \vdots \\
-\frac1n \amp \frac1n \amp \ldots \amp \frac1n \\
-\end{array}\right]
+\begin{array}{rrrr}
+x_1 = 0.057, \amp x_2=0.085, \amp x_3=0.028, \amp
+x_4=0.085, \\
+x_5 = 0.071, \amp x_6=0.212, \amp x_7=0.170, \amp
+x_8=0.292\text{.}
+\end{array}
 \end{equation*}
 </div>
-<div class="para">is a positive stochastic matrix describing a process where we can move from any page to another with equal probability.  To form the modified Google matrix <span class="process-math">\(G'\text{,}\)</span> we choose a parameter <span class="process-math">\(\alpha\)</span> that is used to mix <span class="process-math">\(G\)</span> and <span class="process-math">\(H_n\)</span> together;  that is, <span class="process-math">\(G'\)</span> is the positive stochastic matrix</div>
+</div></li>
+<li><div class="para">This shows us that page <span class="process-math">\(8\)</span> is judged to be the most important and page <span class="process-math">\(3\)</span> the least important.  The pages <span class="process-math">\(6\text{,}\)</span> <span class="process-math">\(7\text{,}\)</span> and <span class="process-math">\(8\text{,}\)</span> are the most important.  This makes sense because there are a lot of links between these pages without many links going out from these pages to the others.</div></li>
+<li><div class="para logical">
+<div class="para">We have the matrix</div>
 <div class="displaymath process-math">
 \begin{equation*}
-G' = \alpha G +(1-\alpha)H_n\text{.}
+G = \left[\begin{array}{rrrrr}
+0 \amp 0 \amp 0 \amp 0 \amp 1 \\
+1 \amp 0 \amp 0 \amp 0 \amp 0 \\
+0 \amp 1 \amp 0 \amp 0 \amp 0 \\
+0 \amp 0 \amp 1 \amp 0 \amp 0 \\
+0 \amp 0 \amp 0 \amp 1 \amp 0 \\
+\end{array}\right]\text{,}
 \end{equation*}
 </div>
-<div class="para">In practice, it is thought that Google uses a value of <span class="process-math">\(\alpha=0.85\)</span> (Google doesn’t publish this number as it is a trade secret) so that we have</div>
+<div class="para">which leads to the Markov chain</div>
 <div class="displaymath process-math">
 \begin{equation*}
-G' = 0.85 G + 0.15H_n\text{.}
+\xvec_0=\left[\begin{array}{c} 1\\ 0\\ 0 \\ 0
+\\0\end{array}\right], 
+\xvec_1=\left[\begin{array}{c} 0\\ 1\\ 0 \\ 0
+\\0\end{array}\right], 
+\xvec_2=\left[\begin{array}{c} 0\\ 0\\ 1 \\ 0
+\\0\end{array}\right], 
+\xvec_3=\left[\begin{array}{c} 0\\ 0\\ 0 \\ 1
+\\0\end{array}\right], 
+\xvec_4=\left[\begin{array}{c} 0\\ 0\\ 0 \\ 0
+\\1\end{array}\right], \ldots
 \end{equation*}
 </div>
-<div class="para">Intuitively, this means that an Internet user will randomly follow a link from one page to another 85% of the time and will randomly jump to any other page on the Internet 15% of the time.  Since the matrix <span class="process-math">\(G'\)</span> is positive, the Perron-Frobenius theorem tells us that any Markov chain will converge to a unique steady-state vector that we call the PageRank vector.</div>
+<div class="para">This Markov chain does not converge to a steady-state vector.</div>
+</div></li>
+<li><div class="para logical">
+<div class="para">As all of the pages seem equally important, we should expect the PageRank vector to be</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\xvec=\left[\begin{array}{c}
+\frac 15 \\
+\frac 15 \\
+\frac 15 \\
+\frac 15 \\
+\frac 15
+\end{array}\right]\text{.}
+\end{equation*}
 </div>
+</div></li>
+<li><div class="para logical">
+<div class="para">After generating some terms of a Markov chain, we see that</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\begin{array}{rrrr}
+x_1 = 0.000, \amp x_2=0.000, \amp x_3=0.000, \amp
+x_4=0.000, \\
+x_5 = 0.120, \amp x_6=0.240, \amp x_7=0.240, \amp
+x_8=0.400\text{.}
+\end{array}
+\end{equation*}
+</div>
+<div class="para">These are not the components of a steady-state vector because some of the entries are zero.  The Google matrix <span class="process-math">\(G\)</span> cannot be a positive matrix in this example.  This is not desirable because we lose any information about the importance of the first four pages.  All the PageRank drains out of the left side into the pages on the right side.</div>
+</div></li>
+</ol></div>
 <span class="incontext"><a href="sec-stochastic.html#p-4881" class="internal">in-context</a></span>
 </body>
 </html>

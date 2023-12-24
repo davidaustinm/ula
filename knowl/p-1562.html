@@ -13,49 +13,33 @@
 <body class="ignore-math">
 <h5 class="heading"><span class="type">Paragraph</span></h5>
 <div class="para logical">
-<div class="para">We would like to develop a means to detect when a set of vectors is linearly dependent.  This activity will point the way.</div>
-<ol class="lower-alpha">
-<li><div class="para logical">
-<div class="para">Suppose we have five vectors in <span class="process-math">\(\real^4\)</span> that form the columns of a matrix having reduced row echelon form</div>
+<div class="para">Now let’s consider the set of three vectors:</div>
 <div class="displaymath process-math">
 \begin{equation*}
-\left[\begin{array}{rrrrr}
-\vvec_1 \amp 	  \vvec_2 \amp 	  \vvec_3 \amp
-\vvec_4 \amp	  \vvec_5 
-\end{array}\right]
-\sim
-\left[\begin{array}{rrrrr}
-1 \amp 0 \amp -1 \amp 0 \amp 2 \\
-0 \amp 1 \amp 2 \amp 0 \amp 3 \\
-0 \amp 0 \amp 0 \amp 1 \amp -1 \\
-0 \amp 0 \amp 0 \amp 0 \amp 0 \\
-\end{array}\right]\text{.}
+\wvec_1 = \threevec220,~~~
+\wvec_2 = \threevec11{-1},~~~
+\wvec_3 = \threevec{-5}{-5}{1}.
 \end{equation*}
 </div>
-<div class="para">Is it possible to write one of the vectors <span class="process-math">\(\vvec_1,\vvec_2,\ldots,\vvec_5\)</span> as a linear combination of the others?  If so, show explicitly how one vector appears as a linear combination of some of the other vectors.  Is this set of vectors linearly dependent or independent?</div>
-</div></li>
-<li><div class="para logical">
-<div class="para">Suppose we have another set of three vectors in <span class="process-math">\(\real^4\)</span> that form the columns of a matrix having reduced row echelon form</div>
+<div class="para">Forming the associated matrix gives</div>
 <div class="displaymath process-math">
 \begin{equation*}
-\left[\begin{array}{rrr}
-\wvec_1 \amp 	  \wvec_2 \amp 	  \wvec_3 \\
-\end{array}\right]
+\begin{bmatrix}\wvec_1\amp\wvec_2\amp\wvec_3\end{bmatrix}
+= 
+\begin{bmatrix}
+2 \amp 1 \amp -5 \\
+2 \amp 1 \amp -5 \\
+0 \amp -1 \amp 1 \\
+\end{bmatrix}
 \sim
-\left[\begin{array}{rrr}
-1 \amp 0 \amp 0 \\
-0 \amp 1 \amp 0 \\
-0 \amp 0 \amp 1 \\
+\begin{bmatrix}
+1 \amp 0 \amp -2 \\
+0 \amp 1 \amp -1 \\
 0 \amp 0 \amp 0 \\
-\end{array}\right]\text{.}
+\end{bmatrix}.
 \end{equation*}
 </div>
-<div class="para">Is it possible to write one of these vectors <span class="process-math">\(\wvec_1\text{,}\)</span> <span class="process-math">\(\wvec_2\text{,}\)</span> <span class="process-math">\(\wvec_3\)</span> as a linear combination of the others?  If so, show explicitly how one vector appears as a linear combination of some of the other vectors.  Is this set of vectors linearly dependent or independent?</div>
-</div></li>
-<li><div class="para">By looking at the pivot positions, how can you determine whether the columns of a matrix are linearly dependent or independent?</div></li>
-<li><div class="para">If one vector in a set is the zero vector <span class="process-math">\(\zerovec\text{,}\)</span> can the set of vectors be linearly independent?</div></li>
-<li><div class="para">Suppose a set of vectors in <span class="process-math">\(\real^{10}\)</span> has twelve vectors.  Is it possible for this set to be linearly independent?</div></li>
-</ol>
+<div class="para">Since the last row does not have a pivot position, we know that the span of these vectors is not <span class="process-math">\(\real^3\)</span> but is instead a plane.</div>
 </div>
 <span class="incontext"><a href="sec-linear-dep.html#p-1562" class="internal">in-context</a></span>
 </body>

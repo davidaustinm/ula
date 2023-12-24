@@ -9,14 +9,55 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="robots" content="noindex, nofollow">
+<script>// Make *any* pre with class 'sagecell-sage' an executable Sage cell
+// Their results will be linked, only within language type
+sagecell.makeSagecell({
+  "inputLocation": "pre.sagecell-sage",
+  "linked": true,
+  "languages": [
+    "sage"
+  ],
+  "evalButtonText": "Evaluate (Sage)"
+});
+</script>
 </head>
 <body class="ignore-math">
 <h5 class="heading"><span class="type">Paragraph</span></h5>
-<div class="para"><span class="process-math">\(AP = \begin{bmatrix}
-A\vvec_1 \amp A\vvec_2
-\end{bmatrix} = \begin{bmatrix}
-3\vvec_1 \amp -6\vvec_2
-\end{bmatrix}\text{.}\)</span></div>
+<div class="para logical">
+<div class="para">Suppose that <span class="process-math">\(A\)</span> is a <span class="process-math">\(2\times2\)</span> matrix having eigenvectors <span class="process-math">\(\vvec_1\)</span> and <span class="process-math">\(\vvec_2\)</span> with associated eigenvalues <span class="process-math">\(\lambda_1=3\)</span> and <span class="process-math">\(\lambda_2 = -6\text{.}\)</span> Because the eigenvalues are real and distinct, we know by <a href="" class="xref" data-knowl="./knowl/prop-eigen-basis.html" title="Proposition 4.2.9">Proposition 4.2.9</a> that these eigenvectors form a basis of <span class="process-math">\(\real^2\text{.}\)</span>
+</div>
+<ol class="lower-alpha">
+<li><div class="para">What are the products <span class="process-math">\(A\vvec_1\)</span> and <span class="process-math">\(A\vvec_2\)</span> in terms of <span class="process-math">\(\vvec_1\)</span> and <span class="process-math">\(\vvec_2\text{?}\)</span>
+</div></li>
+<li><div class="para">If we form the matrix <span class="process-math">\(P = \begin{bmatrix}
+\vvec_1 \amp \vvec_2
+\end{bmatrix}
+\text{,}\)</span> what is the product <span class="process-math">\(AP\)</span> in terms of <span class="process-math">\(\vvec_1\)</span> and <span class="process-math">\(\vvec_2\text{?}\)</span>
+</div></li>
+<li><div class="para">Use the eigenvalues to form the diagonal matrix <span class="process-math">\(D
+= \begin{bmatrix}
+3 \amp 0 \\
+0 \amp -6 
+\end{bmatrix}\)</span> and determine the product <span class="process-math">\(PD\)</span> in terms of <span class="process-math">\(\vvec_1\)</span> and <span class="process-math">\(\vvec_2\text{.}\)</span>
+</div></li>
+<li><div class="para">The results from the previous two parts of this activity demonstrate that <span class="process-math">\(AP=PD\text{.}\)</span> Using the fact that the eigenvectors <span class="process-math">\(\vvec_1\)</span> and <span class="process-math">\(\vvec_2\)</span> form a basis of <span class="process-math">\(\real^2\text{,}\)</span> explain why <span class="process-math">\(P\)</span> is invertible and that we must have <span class="process-math">\(A=PDP^{-1}\text{.}\)</span>
+</div></li>
+<li><div class="para">Suppose that <span class="process-math">\(A=\begin{bmatrix}
+-3 \amp 6 \\
+3 \amp 0 \\
+\end{bmatrix}\text{.}\)</span>  Verify that <span class="process-math">\(\vvec_1=\twovec11\)</span> and <span class="process-math">\(\vvec_2=\twovec2{-1}\)</span> are eigenvectors of <span class="process-math">\(A\)</span> with eigenvalues <span class="process-math">\(\lambda_1 = 3\)</span> and <span class="process-math">\(\lambda_2=-6\text{.}\)</span>
+</div></li>
+<li>
+<div class="para">Use the Sage cell below to define the matrices <span class="process-math">\(P\)</span> and <span class="process-math">\(D\)</span> and then verify that <span class="process-math">\(A=PDP^{-1}\text{.}\)</span>
+</div>
+<pre class="ptx-sagecell sagecell-sage" id="sage-116"><script type="text/x-sage"># enter the matrices P and D below	    
+P =
+D =	    
+P*D*P.inverse()
+</script></pre>
+</li>
+</ol>
+</div>
 <span class="incontext"><a href="sec-eigen-diag.html#p-4181" class="internal">in-context</a></span>
 </body>
 </html>

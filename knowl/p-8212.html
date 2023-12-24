@@ -9,60 +9,71 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="robots" content="noindex, nofollow">
+<script>// Make *any* pre with class 'sagecell-sage' an executable Sage cell
+// Their results will be linked, only within language type
+sagecell.makeSagecell({
+  "inputLocation": "pre.sagecell-sage",
+  "linked": true,
+  "languages": [
+    "sage"
+  ],
+  "evalButtonText": "Evaluate (Sage)"
+});
+</script>
 </head>
 <body class="ignore-math">
 <h5 class="heading"><span class="type">Paragraph</span></h5>
-<div class="para logical"><ol class="lower-alpha">
-<li><div class="para">We find that <span class="process-math">\(A\)</span> is the rank <span class="process-math">\(4\)</span> matrix: <span class="process-math">\(\begin{bmatrix}
-156 \amp 96 \amp -144 \amp -104 \\
-144 \amp 104 \amp -156 \amp -96 \\
-104 \amp 144 \amp -96 \amp -156 \\
-96 \amp 156 \amp -104 \amp -144
-\end{bmatrix}\text{.}\)</span>
+<div class="para logical">
+<div class="para">Let’s consider a matrix <span class="process-math">\(A=U\Sigma V^T\)</span> where</div>
+<div class="displaymath process-math">
+\begin{align*}
+\amp U = \begin{bmatrix}
+\frac{1}{2} \amp \frac{1}{2} \amp \frac{1}{2} \amp \frac{1}{2} \\
+\frac{1}{2} \amp \frac{1}{2} \amp -\frac{1}{2} \amp -\frac{1}{2} \\
+\frac{1}{2} \amp -\frac{1}{2} \amp \frac{1}{2} \amp -\frac{1}{2} \\
+\frac{1}{2} \amp -\frac{1}{2} \amp -\frac{1}{2} \amp \frac{1}{2} \\
+\end{bmatrix},\hspace{10pt}
+\Sigma = \begin{bmatrix}
+500 \amp 0 \amp 0 \amp 0 \\
+0 \amp 100 \amp 0 \amp 0 \\
+0 \amp 0 \amp 20 \amp 0  \\
+0 \amp 0 \amp 0 \amp 4
+\end{bmatrix}\\
+\amp V = \begin{bmatrix}
+\frac{1}{2} \amp \frac{1}{2} \amp \frac{1}{2} \amp \frac{1}{2} \\
+\frac{1}{2} \amp -\frac{1}{2} \amp -\frac{1}{2} \amp \frac{1}{2} \\
+-\frac{1}{2} \amp -\frac{1}{2} \amp \frac{1}{2} \amp \frac{1}{2} \\
+-\frac{1}{2} \amp \frac{1}{2} \amp -\frac{1}{2} \amp \frac{1}{2}
+\end{bmatrix}
+\end{align*}
+</div>
+<div class="para">Evaluating the following cell will create the matrices <code class="code-inline tex2jax_ignore">U</code>, <code class="code-inline tex2jax_ignore">V</code>, and <code class="code-inline tex2jax_ignore">Sigma</code>.  Notice how the <code class="code-inline tex2jax_ignore">diagonal_matrix</code> command provides a convenient way to form the diagonal matrix <span class="process-math">\(\Sigma\text{.}\)</span> <pre class="ptx-sagecell sagecell-sage" id="sage-251"><script type="text/x-sage">h = 1/2
+U = matrix(4,4,[h,h,h,h,  h,h,-h,-h,  h,-h,h,-h,  h,-h,-h,h])	    
+V = matrix(4,4,[h,h,h,h,  h,-h,-h,h,  -h,-h,h,h,  -h,h,-h,h])
+Sigma = diagonal_matrix([500, 100, 20, 4])
+</script></pre>
+</div>
+<ol class="lower-alpha">
+<li><div class="para">Form the matrix <span class="process-math">\(A=U\Sigma V^T\text{.}\)</span>  What is <span class="process-math">\(\rank(A)\text{?}\)</span> <pre class="ptx-sagecell sagecell-sage" id="sage-252"><script type="text/x-sage">
+</script></pre>
 </div></li>
-<li><div class="para">Because it has one nonzero singular value, <span class="process-math">\(A_1\)</span> has rank <span class="process-math">\(1\)</span> and has the form: <span class="process-math">\(A_1=\begin{bmatrix}
-125 \amp 125 \amp -125 \amp -125 \\
-125 \amp 125 \amp -125 \amp -125 \\
-125 \amp 125 \amp -125 \amp -125 \\
-125 \amp 125 \amp -125 \amp -125
-\end{bmatrix}\text{.}\)</span>
+<li><div class="para">Now form the approximating matrix <span class="process-math">\(A_1=U\Sigma^{(1)}
+V^T\text{.}\)</span>  What is <span class="process-math">\(\rank(A_1)\text{?}\)</span> <pre class="ptx-sagecell sagecell-sage" id="sage-253"><script type="text/x-sage">
+</script></pre>
 </div></li>
-<li><div class="para"><span class="process-math">\(\displaystyle A-A_1 = \begin{bmatrix}
-31 \amp -29 \amp -19 \amp 21 \\
-19 \amp -21 \amp -31 \amp 29 \\
--21 \amp 19 \amp 29 \amp -31 \\
--29 \amp 31 \amp 21 \amp -19
-\end{bmatrix}\)</span></div></li>
-<li><div class="para">
-<span class="process-math">\(A_2\)</span> is the rank <span class="process-math">\(2\)</span> matrix <span class="process-math">\(\begin{bmatrix}
-150 \amp 100 \amp -150 \amp -100 \\
-150 \amp 100 \amp -150 \amp -100 \\
-100 \amp 150 \amp -100 \amp -150 \\
-100 \amp 150 \amp -100 \amp -150
-\end{bmatrix}\)</span> and <span class="process-math">\(A-A_2 = \begin{bmatrix}
-6 \amp -4 \amp 6 \amp -4 \\
--6 \amp 4 \amp -6 \amp 4 \\
-4 \amp -6 \amp 4 \amp -6 \\
--4 \amp 6 \amp -4 \amp 6
-\end{bmatrix}\text{.}\)</span>
+<li><div class="para">Find the error in the approximation <span class="process-math">\(A\approx
+A_1\)</span> by finding <span class="process-math">\(A-A_1\text{.}\)</span>
 </div></li>
-<li><div class="para">
-<span class="process-math">\(A_3\)</span> is the rank <span class="process-math">\(3\)</span> matrix <span class="process-math">\(\begin{bmatrix}
-155 \amp 95 \amp -145 \amp -105 \\
-145 \amp 105 \amp -155 \amp -95 \\
-105 \amp 145 \amp -95 \amp -155 \\
-95 \amp 155 \amp -105 \amp -145
-\end{bmatrix}\)</span> with <span class="process-math">\(A-A_3 = \begin{bmatrix}
-1 \amp 1 \amp 1 \amp 1 \\
--1 \amp -1 \amp -1 \amp -1 \\
--1 \amp -1 \amp -1 \amp -1 \\
-1 \amp 1 \amp 1 \amp 1
-\end{bmatrix}\text{.}\)</span>
+<li><div class="para">Now find <span class="process-math">\(A_2 = U\Sigma^{(2)} V^T\)</span> and the error <span class="process-math">\(A-A_2\text{.}\)</span>  What is <span class="process-math">\(\rank(A_2)\text{?}\)</span> <pre class="ptx-sagecell sagecell-sage" id="sage-254"><script type="text/x-sage">
+</script></pre>
 </div></li>
-<li><div class="para">
-<span class="process-math">\(A_4=A\)</span> since <span class="process-math">\(A\)</span> is a rank <span class="process-math">\(4\)</span> matrix.</div></li>
-<li><div class="para">As <span class="process-math">\(k\)</span> increases, the entries in the <span class="process-math">\(A-A_k\)</span> get closer to <span class="process-math">\(0\text{.}\)</span>  This means that our approximations <span class="process-math">\(A\approx A_k\)</span> are improving.</div></li>
-</ol></div>
+<li><div class="para">Find <span class="process-math">\(A_3 = U\Sigma^{(3)} V^T\)</span> and the error <span class="process-math">\(A-A_3\text{.}\)</span>  What is <span class="process-math">\(\rank(A_3)\text{?}\)</span>
+</div></li>
+<li><div class="para">What would happen if we were to compute <span class="process-math">\(A_4\text{?}\)</span>
+</div></li>
+<li><div class="para">What do you notice about the error <span class="process-math">\(A-A_k\)</span> as <span class="process-math">\(k\)</span> increases?</div></li>
+</ol>
+</div>
 <span class="incontext"><a href="sec-svd-uses.html#p-8212" class="internal">in-context</a></span>
 </body>
 </html>

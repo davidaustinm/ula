@@ -9,11 +9,50 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="robots" content="noindex, nofollow">
+<script>// Make *any* pre with class 'sagecell-sage' an executable Sage cell
+// Their results will be linked, only within language type
+sagecell.makeSagecell({
+  "inputLocation": "pre.sagecell-sage",
+  "linked": true,
+  "languages": [
+    "sage"
+  ],
+  "evalButtonText": "Evaluate (Sage)"
+});
+</script>
 </head>
 <body class="ignore-math">
 <h5 class="heading"><span class="type">Paragraph</span></h5>
-<div class="para">We find that <span class="process-math">\(C\)</span> has eigenvalues <span class="process-math">\(\lambda_1=1\)</span> and <span class="process-math">\(\lambda_2 = -\frac12\)</span> with eigenvectors <span class="process-math">\(\vvec_1=\twovec12\)</span> and <span class="process-math">\(\vvec_2 =
-\twovec{-1}{1}\text{.}\)</span>  Therefore, the unique steady-state vector is <span class="process-math">\(\qvec=\twovec{\frac13}{\frac23}\)</span> for this is the only probability vector in the eigenspace <span class="process-math">\(E_1\text{.}\)</span>
+<div class="para logical">
+<div class="para">We will explore the meaning of the Perron-Frobenius theorem in this activity.</div>
+<ol class="lower-alpha">
+<li><div class="para">Consider the matrix <span class="process-math">\(C = \left[\begin{array}{rr}
+0 \amp 0.5 \\
+1 \amp 0.5 \\
+\end{array}\right]
+\text{.}\)</span> This is a positive matrix, as we saw in the previous example.  Find the eigenvectors of <span class="process-math">\(C\)</span> and verify there is a unique steady-state vector.</div></li>
+<li><div class="para">Using the Sage cell below, construct the Markov chain with initial vector <span class="process-math">\(\xvec_0= \twovec{1}{0}\)</span> and describe what happens to <span class="process-math">\(\xvec_k\)</span> as <span class="process-math">\(k\)</span> becomes large. <pre class="ptx-sagecell sagecell-sage" id="sage-126"><script type="text/x-sage">def markov_chain(A, x0, N):
+    for i in range(N):
+        x0 = A*x0
+        print (x0)
+## define the matrix C and x0
+C =
+x0 =
+markov_chain(C, x0, 10)
+</script></pre>
+</div></li>
+<li><div class="para">Construct another Markov chain with initial vector <span class="process-math">\(\xvec_0=\twovec{0.2}{0.8}\)</span> and describe what happens to <span class="process-math">\(\xvec_k\)</span> as <span class="process-math">\(k\)</span> becomes large.</div></li>
+<li><div class="para">Consider the matrix <span class="process-math">\(D = \left[\begin{array}{rrr}
+0 \amp 0.5 \amp 0 \\
+1 \amp 0.5 \amp 0 \\
+0 \amp 0 \amp 1 \\
+\end{array}\right]\)</span> and compute several powers of <span class="process-math">\(D\)</span> below. <pre class="ptx-sagecell sagecell-sage" id="sage-127"><script type="text/x-sage">
+</script></pre> Determine whether <span class="process-math">\(D\)</span> is a positive matrix.</div></li>
+<li><div class="para">Find the eigenvalues of <span class="process-math">\(D\)</span> and then find the steady-state vectors.  Is there a unique steady-state vector?</div></li>
+<li><div class="para">What happens to the Markov chain defined by <span class="process-math">\(D\)</span> with initial vector <span class="process-math">\(\xvec_0 =\threevec{1}{0}{0}\text{?}\)</span>  What happens to the Markov chain with initial vector <span class="process-math">\(\xvec_0=\threevec{0}{0}{1}\text{.}\)</span>
+</div></li>
+<li><div class="para">Explain how the matrices <span class="process-math">\(C\)</span> and <span class="process-math">\(D\text{,}\)</span> which we have considered in this activity, relate to the Perron-Frobenius theorem.</div></li>
+</ol>
 </div>
 <span class="incontext"><a href="sec-stochastic.html#p-4829" class="internal">in-context</a></span>
 </body>

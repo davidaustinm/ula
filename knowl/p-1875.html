@@ -9,48 +9,40 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="robots" content="noindex, nofollow">
+<script>// Make *any* pre with class 'sagecell-sage' an executable Sage cell
+// Their results will be linked, only within language type
+sagecell.makeSagecell({
+  "inputLocation": "pre.sagecell-sage",
+  "linked": true,
+  "languages": [
+    "sage"
+  ],
+  "evalButtonText": "Evaluate (Sage)"
+});
+</script>
 </head>
 <body class="ignore-math">
 <h5 class="heading"><span class="type">Paragraph</span></h5>
-<div class="para logical"><ol class="lower-alpha">
-<li><div class="para logical"><ol class="decimal">
-<li><div class="para">The matrix is <span class="process-math">\(B=AA=A^2 = \begin{bmatrix}
--1 \amp 0 \\
-0 \amp -1 \\
-\end{bmatrix}
-\text{.}\)</span>
+<div class="para logical">
+<div class="para">Suppose now that</div>
+<ul class="disc">
+<li><div class="para">Each cake requires 4 cups of flour and and 2 cups of sugar.</div></li>
+<li><div class="para">Each doughnut requires 1 cup of flour and 1 cup of sugar.</div></li>
+<li><div class="para">Each eclair requires 1 cup of flour and 2 cups of sugar.</div></li>
+</ul>
+<div class="para">We will describe a matrix transformation <span class="process-math">\(S:\real^3\to\real^2\)</span> where <span class="process-math">\(S\left(\threevec{y_1}{y_2}{y_3}\right)\)</span> is a two-dimensional vector describing the number of cups of flour and sugar required to make <span class="process-math">\(y_1\)</span> cakes, <span class="process-math">\(y_2\)</span> doughnuts, and <span class="process-math">\(y_3\)</span> eclairs.</div>
+<ol class="decimal">
+<li><div class="para">Use <a href="" class="xref" data-knowl="./knowl/prop-linear-trans-columns.html" title="Proposition 2.5.6">Proposition 2.5.6</a> to write the matrix <span class="process-math">\(B\)</span> associated to the transformation <span class="process-math">\(S\text{.}\)</span>
 </div></li>
-<li><div class="para"><span class="process-math">\((T\circ T)(\vvec) = A^2\vvec = \twovec21\text{.}\)</span></div></li>
-<li><div class="para">The matrix associated to <span class="process-math">\(R\)</span> is also <span class="process-math">\(A^2\)</span> since rotating by <span class="process-math">\(90^\circ\)</span> twice is the same as rotating once by <span class="process-math">\(180^\circ\text{.}\)</span>
+<li><div class="para">If we make 1200 cakes, 2850 doughnuts, and 2250 eclairs, how many cups of flour and sugar are required? <pre class="ptx-sagecell sagecell-sage" id="sage-72"><script type="text/x-sage">
+</script></pre>
 </div></li>
-<li><div class="para">
-<span class="process-math">\((T\circ T)(\xvec) = R(\xvec) = -\xvec\text{,}\)</span> which makes sense because multiplying a vector by <span class="process-math">\(-1\)</span> simply changes its direction.</div></li>
-</ol></div></li>
-<li><div class="para logical"><ol class="decimal">
-<li><div class="para"><span class="process-math">\(B = \begin{bmatrix}
-4 \amp 1 \amp 1 \\
-2 \amp 1 \amp 2 \\
-\end{bmatrix}
-\text{.}\)</span></div></li>
-<li><div class="para"><span class="process-math">\(S\left(\threevec{1200}{2850}{2250}\right) =
-B\threevec{1200}{2850}{2250} =
-\twovec{9900}{9750}\text{.}\)</span></div></li>
-<li><div class="para">
-<span class="process-math">\(T\left(\twovec{75}{53}\right) =
-\threevec{1810}{5340}{3840}\)</span> and <span class="process-math">\(S\left(\threevec{1810}{5340}{3840}\right) =
-\twovec{16430}{16640}\text{.}\)</span>
-</div></li>
-<li><div class="para">
-<span class="process-math">\((S\circ T)\)</span> takes as input a vector <span class="process-math">\(\xvec\)</span> that records the number of hours both bakeries operate and outputs a vector <span class="process-math">\((S\circ T)(\xvec)\)</span> that tells us the total number of cups of flour and sugar used.  The associated matrix is <span class="process-math">\(BA=\begin{bmatrix}
-120 \amp 140 \\
-130 \amp 130 \\
-\end{bmatrix}\text{.}\)</span>
-</div></li>
-<li><div class="para">We want to find the vector <span class="process-math">\(\xvec\)</span> for which <span class="process-math">\((S\circ T)(\xvec) = BA\xvec =
-\twovec{5800}{5980}\text{.}\)</span>  Solving this equation gives <span class="process-math">\(\xvec=\twovec{32}{14}\text{.}\)</span>
-</div></li>
-</ol></div></li>
-</ol></div>
+<li><div class="para">Suppose that Bakery 1 operates for 75 hours and Bakery 2 operates for 53 hours.  How many cakes, doughnuts, and eclairs are produced?  How many cups of flour and sugar are required?</div></li>
+<li><div class="para">What is the meaning of the composition <span class="process-math">\((S\circ
+T)\)</span> and what is its associated matrix?</div></li>
+<li><div class="para">In a certain time interval, both bakeries use a total of 5800 cups of flour and 5980 cups of sugar.  How long have the two bakeries been operating?</div></li>
+</ol>
+</div>
 <span class="incontext"><a href="sec-linear-trans.html#p-1875" class="internal">in-context</a></span>
 </body>
 </html>

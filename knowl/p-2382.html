@@ -9,34 +9,25 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="robots" content="noindex, nofollow">
-<script>// Make *any* pre with class 'sagecell-sage' an executable Sage cell
-// Their results will be linked, only within language type
-sagecell.makeSagecell({
-  "inputLocation": "pre.sagecell-sage",
-  "linked": true,
-  "languages": [
-    "sage"
-  ],
-  "evalButtonText": "Evaluate (Sage)"
-});
-</script>
 </head>
 <body class="ignore-math">
 <h5 class="heading"><span class="type">Paragraph</span></h5>
 <div class="para logical">
-<div class="para">If you have defined a matrix <code class="code-inline tex2jax_ignore">B</code> in Sage, you can find it’s inverse as <code class="code-inline tex2jax_ignore">B.inverse()</code> or <code class="code-inline tex2jax_ignore">B^-1</code>.  Use Sage to find the inverse of the matrix</div>
+<div class="para">The matrix <span class="process-math">\(A\)</span> is invertible if and only if the reduced row echelon form of <span class="process-math">\(A\)</span> is the identity matrix:  <span class="process-math">\(A\sim I\text{.}\)</span> In addition, we can find the inverse by augmenting <span class="process-math">\(A\)</span> by the identity and finding the reduced row echelon form:</div>
 <div class="displaymath process-math">
 \begin{equation*}
-B = \left[\begin{array}{rrr}
-1 \amp -2 \amp -1 \\
--1 \amp 5 \amp 6 \\
-5 \amp -4 \amp 6 \\
-\end{array}\right]
+\left[
+\begin{array}{r|r}
+A \amp I \\
+\end{array}
+\right]
+\sim
+\left[
+\begin{array}{r|r}
+I \amp A^{-1} \\
+\end{array}
+\right].
 \end{equation*}
-</div>
-<div class="para">and use it to solve the equation <span class="process-math">\(B\xvec =
-\threevec83{36}\text{.}\)</span> <pre class="ptx-sagecell sagecell-sage" id="sage-79"><script type="text/x-sage">
-</script></pre>
 </div>
 </div>
 <span class="incontext"><a href="sec-matrix-inverse.html#p-2382" class="internal">in-context</a></span>

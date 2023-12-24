@@ -9,10 +9,38 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="robots" content="noindex, nofollow">
+<script>// Make *any* pre with class 'sagecell-sage' an executable Sage cell
+// Their results will be linked, only within language type
+sagecell.makeSagecell({
+  "inputLocation": "pre.sagecell-sage",
+  "linked": true,
+  "languages": [
+    "sage"
+  ],
+  "evalButtonText": "Evaluate (Sage)"
+});
+</script>
 </head>
 <body class="ignore-math">
 <h5 class="heading"><span class="type">Paragraph</span></h5>
-<div class="para">In the first approximation, the reconstructed vector <span class="process-math">\(\yvec\)</span> agrees with the original vector <span class="process-math">\(\xvec\text{.}\)</span>  In the second approximation, there are only two nonzero Fourier coefficients, and we see that the approximating vector differs from the original vector.  In the second case, however, we are using only one quarter of the Fourier coefficients.  Though the entries in the vector <span class="process-math">\(\yvec\)</span> differ from those in the original vector <span class="process-math">\(\xvec\text{,}\)</span> the difference is probably not visually noticeable since the possible values range from 0 to 255.</div>
+<div class="para logical">
+<div class="para">Consider the vector <span class="process-math">\(\xvec=\left[\begin{array}{r}
+103 \\ 94 \\ 91 \\ 92 \\ 103 \\ 105 \\ 105 \\ 108
+\end{array}\right]
+\text{.}\)</span>
+</div>
+<ol class="lower-alpha">
+<li><div class="para">In the Sage cell below is a copy of the change of basis matrices that define the Fourier transform.  Find the Fourier coefficients of <span class="process-math">\(\xvec\text{.}\)</span> <pre class="ptx-sagecell sagecell-sage" id="sage-99"><script type="text/x-sage">mat = [[cos((2*i+1)*j*pi/16) for j in range(8)] for i in range(8)]
+P = matrix(mat).numerical_approx()
+Pinv = P.inverse()	
+print (Pinv.numerical_approx(digits=3))
+</script></pre>
+</div></li>
+<li><div class="para">We will now form the vector <span class="process-math">\(\yvec\text{,}\)</span> which is an approximation of <span class="process-math">\(\xvec\)</span> by rounding all the Fourier coefficients of <span class="process-math">\(\xvec\)</span> to the nearest integer to obtain <span class="process-math">\(\coords{\yvec}{\ccal}\text{.}\)</span>  Now find the vector <span class="process-math">\(\yvec\)</span> and compare this approximation to <span class="process-math">\(\xvec\text{.}\)</span>  What is the error in this approximation?</div></li>
+<li><div class="para">Repeat the last part of this problem, but set the rounded Fourier coefficients to zero if they have an absolute value less than five.  Use it to create a second approximation of <span class="process-math">\(\xvec\text{.}\)</span>  What is the error in this approximation?</div></li>
+<li><div class="para">Compare the number of nonzero Fourier coefficients that you have in the two approximations and compare the accuracy of the approximations.  Using a few sentences, discuss the comparisons that you find.</div></li>
+</ol>
+</div>
 <span class="incontext"><a href="sec-jpeg.html#p-3046" class="internal">in-context</a></span>
 </body>
 </html>

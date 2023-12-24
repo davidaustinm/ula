@@ -9,23 +9,44 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="robots" content="noindex, nofollow">
-<script>// Make *any* pre with class 'sagecell-sage' an executable Sage cell
-// Their results will be linked, only within language type
-sagecell.makeSagecell({
-  "inputLocation": "pre.sagecell-sage",
-  "linked": true,
-  "languages": [
-    "sage"
-  ],
-  "evalButtonText": "Evaluate (Sage)"
-});
-</script>
 </head>
 <body class="ignore-math">
 <h5 class="heading"><span class="type">Paragraph</span></h5>
-<div class="para">The following Sage cell defines the matrix <code class="code-inline tex2jax_ignore">W</code> whose columns are the basis vectors in <span class="process-math">\(\wcal\text{.}\)</span>  If <span class="process-math">\(\xvec\)</span> is the first column of luminance values in the <span class="process-math">\(4\times4\)</span> block above, find the wavelet coefficients <span class="process-math">\(\coords{\xvec}{\wcal}\text{.}\)</span> <pre class="ptx-sagecell sagecell-sage" id="sage-99"><script type="text/x-sage">W = matrix(4,4,[1,1,1,0,1,1,-1,0,1,-1,0,1,1,-1,0,-1])
-</script></pre>
+<div class="para logical"><ol class="lower-alpha">
+<li><div class="para logical">
+<div class="para">We find that</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\coords{\xvec}{\scal} =
+\left[\begin{array}{c}
+220 \\ 18.7 \\ 79.3 \\ 5.3 \\
+\end{array}\right],
+\coords{\xvec}{\ccal} =
+\left[\begin{array}{c}
+165 \\ 20.1 \\ -11.0 \\ -0.3 \\
+\end{array}\right]\text{.}
+\end{equation*}
 </div>
+</div></li>
+<li><div class="para">The higher Fourier Cosine coefficients are smaller than their counterparts in the Fourier Sine transform.  This means that we can ignore these coefficients in the Fourier Cosine transform without losing too much information.</div></li>
+<li><div class="para logical">
+<div class="para">We find that</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\coords{\xvec}{\scal} =
+\left[\begin{array}{c}
+131 \\ 0 \\ 54.1 \\ 0 \\
+\end{array}\right],
+\coords{\xvec}{\ccal} =
+\left[\begin{array}{c}
+100 \\ 0 \\ 0 \\ 0
+\end{array}\right]\text{.}
+\end{equation*}
+</div>
+</div></li>
+<li><div class="para">Generally speaking, we can safely ignore more of the coefficients in the Fourier Cosine transform.  Most of the important information is channeled into the first coefficient, which records the average of the components of the vector <span class="process-math">\(\xvec\text{.}\)</span>
+</div></li>
+</ol></div>
 <span class="incontext"><a href="sec-jpeg.html#p-3091" class="internal">in-context</a></span>
 </body>
 </html>

@@ -117,7 +117,7 @@ sagecell.makeSagecell({
 </head>
 <body id="ula" class="pretext book ignore-math">
 <a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner">
-<a id="logo-link" class="logo-link" href=""></a><div class="title-container">
+<a id="logo-link" class="logo-link" href="https://understandinglinearalgebra.org" target="_blank"><img src="external/images/ula-logo.png" alt="Logo image"></a><div class="title-container">
 <h1 class="heading"><a href="ula.html"><span class="title">Understanding Linear Algebra</span></a></h1>
 <p class="byline">David Austin</p>
 </div>
@@ -310,7 +310,9 @@ sagecell.makeSagecell({
 <ul class="structural">
 <li><div class="toc-item"><a href="dedication-1.html" class="internal"><span class="title">Dedication</span></a></div></li>
 <li><div class="toc-item"><a href="colophon-1.html" class="internal"><span class="title">Colophon</span></a></div></li>
+<li><div class="toc-item"><a href="acknowledgement-1.html" class="internal"><span class="title">Acknowledgements</span></a></div></li>
 <li><div class="toc-item"><a href="preface-1.html" class="internal"><span class="title">Our goals</span></a></div></li>
+<li><div class="toc-item"><a href="preface-2.html" class="internal"><span class="title">A note on the print version</span></a></div></li>
 </ul>
 </li>
 <li>
@@ -594,7 +596,7 @@ sagecell.makeSagecell({
 <div class="toc-item"><a href="sec-least-squares.html" class="internal"><span class="codenumber">6.5</span> <span class="title">Orthogonal least squares</span></a></div>
 <ul class="structural">
 <li><div class="toc-item"><a href="sec-least-squares.html#subsection-95" class="internal"><span class="codenumber">6.5.1</span> <span class="title">A first example</span></a></div></li>
-<li><div class="toc-item"><a href="sec-least-squares.html#subsection-96" class="internal"><span class="codenumber">6.5.2</span> <span class="title">Solving least squares problems</span></a></div></li>
+<li><div class="toc-item"><a href="sec-least-squares.html#subsection-96" class="internal"><span class="codenumber">6.5.2</span> <span class="title">Solving least-squares problems</span></a></div></li>
 <li><div class="toc-item"><a href="sec-least-squares.html#subsection-97" class="internal"><span class="codenumber">6.5.3</span> <span class="title">Using <span class="process-math">\(QR\)</span> factorizations</span></a></div></li>
 <li><div class="toc-item"><a href="sec-least-squares.html#subsection-98" class="internal"><span class="codenumber">6.5.4</span> <span class="title">Polynomial Regression</span></a></div></li>
 <li><div class="toc-item"><a href="sec-least-squares.html#subsection-99" class="internal"><span class="codenumber">6.5.5</span> <span class="title">Summary</span></a></div></li>
@@ -604,7 +606,7 @@ sagecell.makeSagecell({
 </ul>
 </li>
 <li>
-<div class="toc-item"><a href="chap7.html" class="internal"><span class="codenumber">7</span> <span class="title">The Spectral Theorem and singular value decompositions</span></a></div>
+<div class="toc-item"><a href="chap7.html" class="internal"><span class="codenumber">7</span> <span class="title">Singular value decompositions</span></a></div>
 <ul class="structural">
 <li>
 <div class="toc-item"><a href="sec-symmetric-matrices.html" class="internal"><span class="codenumber">7.1</span> <span class="title">Symmetric matrices and variance</span></a></div>
@@ -646,7 +648,7 @@ sagecell.makeSagecell({
 <li>
 <div class="toc-item"><a href="sec-svd-uses.html" class="internal"><span class="codenumber">7.5</span> <span class="title">Using Singular Value Decompositions</span></a></div>
 <ul class="structural">
-<li><div class="toc-item"><a href="sec-svd-uses.html#subsection-113" class="internal"><span class="codenumber">7.5.1</span> <span class="title">Least squares problems</span></a></div></li>
+<li><div class="toc-item"><a href="sec-svd-uses.html#subsection-113" class="internal"><span class="codenumber">7.5.1</span> <span class="title">Least-squares problems</span></a></div></li>
 <li><div class="toc-item"><a href="sec-svd-uses.html#subsection-114" class="internal"><span class="codenumber">7.5.2</span> <span class="title">Rank <span class="process-math">\(k\)</span> approximations</span></a></div></li>
 <li><div class="toc-item"><a href="sec-svd-uses.html#subsection-115" class="internal"><span class="codenumber">7.5.3</span> <span class="title">Principal component analysis</span></a></div></li>
 <li><div class="toc-item"><a href="sec-svd-uses.html#subsection-116" class="internal"><span class="codenumber">7.5.4</span> <span class="title">Image compressing and denoising</span></a></div></li>
@@ -669,12 +671,12 @@ sagecell.makeSagecell({
 <main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="sec-orthogonal-bases"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">6.3</span> <span class="title">Orthogonal bases and projections</span>
 </h2>
-<section class="introduction" id="introduction-30"><div class="para" id="p-6026">We know that a linear system <span class="process-math">\(A\xvec=\bvec\)</span> is inconsistent when <span class="process-math">\(\bvec\)</span> is not in <span class="process-math">\(\col(A)\text{,}\)</span> the column space of <span class="process-math">\(A\text{.}\)</span>  Later in this chapter, we’ll develop a strategy for dealing with inconsistent systems by finding <span class="process-math">\(\bhat\text{,}\)</span> the vector in <span class="process-math">\(\col(A)\)</span> that minimizes the distance to <span class="process-math">\(\bvec\text{.}\)</span>  The equation <span class="process-math">\(A\xvec=\bhat\)</span> is therefore consistent and its solution set can provide us with useful information about the original system <span class="process-math">\(A\xvec=\bvec\text{.}\)</span>
-</div> <div class="para" id="p-6027">In this section and the next, we’ll develop some techniques that enable us to find <span class="process-math">\(\bhat\text{,}\)</span> the vector in a given subspace <span class="process-math">\(W\)</span> that is closest to a given vector <span class="process-math">\(\bvec\text{.}\)</span>
+<section class="introduction" id="introduction-30"><div class="para" id="p-6035">We know that a linear system <span class="process-math">\(A\xvec=\bvec\)</span> is inconsistent when <span class="process-math">\(\bvec\)</span> is not in <span class="process-math">\(\col(A)\text{,}\)</span> the column space of <span class="process-math">\(A\text{.}\)</span>  Later in this chapter, we’ll develop a strategy for dealing with inconsistent systems by finding <span class="process-math">\(\bhat\text{,}\)</span> the vector in <span class="process-math">\(\col(A)\)</span> that minimizes the distance to <span class="process-math">\(\bvec\text{.}\)</span>  The equation <span class="process-math">\(A\xvec=\bhat\)</span> is therefore consistent and its solution set can provide us with useful information about the original system <span class="process-math">\(A\xvec=\bvec\text{.}\)</span>
+</div> <div class="para" id="p-6036">In this section and the next, we’ll develop some techniques that enable us to find <span class="process-math">\(\bhat\text{,}\)</span> the vector in a given subspace <span class="process-math">\(W\)</span> that is closest to a given vector <span class="process-math">\(\bvec\text{.}\)</span>
 </div> <article class="exploration project-like" id="preview-orthogonal-basis"><h3 class="heading">
 <span class="type">Preview Activity</span><span class="space"> </span><span class="codenumber">6.3.1</span><span class="period">.</span>
 </h3>
-<div class="para logical" id="p-6028">
+<div class="para logical" id="p-6037">
 <div class="para">For this activity, it will be helpful to recall the distributive property of dot products:</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -690,10 +692,10 @@ c_2\vvec\cdot\wvec_2\text{.}
 \end{equation*}
 </div>
 <ol class="lower-alpha">
-<li id="li-4146"><div class="para" id="p-6029">Verify that the vectors <span class="process-math">\(\wvec_1\)</span> and <span class="process-math">\(\wvec_2\)</span> are orthogonal.</div></li>
-<li id="li-4147"><div class="para" id="p-6030">Suppose that <span class="process-math">\(\bvec =\twovec74\)</span> and find the dot products <span class="process-math">\(\wvec_1\cdot\bvec\)</span> and <span class="process-math">\(\wvec_2\cdot\bvec\text{.}\)</span>
+<li id="li-4146"><div class="para" id="p-6038">Verify that the vectors <span class="process-math">\(\wvec_1\)</span> and <span class="process-math">\(\wvec_2\)</span> are orthogonal.</div></li>
+<li id="li-4147"><div class="para" id="p-6039">Suppose that <span class="process-math">\(\bvec =\twovec74\)</span> and find the dot products <span class="process-math">\(\wvec_1\cdot\bvec\)</span> and <span class="process-math">\(\wvec_2\cdot\bvec\text{.}\)</span>
 </div></li>
-<li id="li-4148"><div class="para logical" id="p-6031">
+<li id="li-4148"><div class="para logical" id="p-6040">
 <div class="para">We would like to express <span class="process-math">\(\bvec\)</span> as a linear combination of <span class="process-math">\(\wvec_1\)</span> and <span class="process-math">\(\wvec_2\text{,}\)</span> which means that we need to find weights <span class="process-math">\(c_1\)</span> and <span class="process-math">\(c_2\)</span> such that</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -710,20 +712,20 @@ c_2\wvec_2)\cdot\wvec_1\text{,}
 </div>
 <div class="para">and apply the distributive property.</div>
 </div></li>
-<li id="li-4149"><div class="para" id="p-6032">In a similar fashion, find the weight <span class="process-math">\(c_2\text{.}\)</span>
+<li id="li-4149"><div class="para" id="p-6041">In a similar fashion, find the weight <span class="process-math">\(c_2\text{.}\)</span>
 </div></li>
-<li id="li-4150"><div class="para" id="p-6033">Verify that <span class="process-math">\(\bvec = c_1\wvec_1+c_2\wvec_2\)</span> using the weights you have found.</div></li>
+<li id="li-4150"><div class="para" id="p-6042">Verify that <span class="process-math">\(\bvec = c_1\wvec_1+c_2\wvec_2\)</span> using the weights you have found.</div></li>
 </ol>
-</div></article> <div class="para" id="p-6040">We frequently ask to write a given vector as a linear combination of given basis vectors.  In the past, we have done this by solving a linear system.  The preview activity illustrates how this task can be simplified when the basis vectors are orthogonal to each other.  We’ll explore this and other uses of orthogonal bases in this section.</div></section><section class="subsection" id="subsection-89"><h3 class="heading hide-type">
+</div></article> <div class="para" id="p-6049">We frequently ask to write a given vector as a linear combination of given basis vectors.  In the past, we have done this by solving a linear system.  The preview activity illustrates how this task can be simplified when the basis vectors are orthogonal to each other.  We’ll explore this and other uses of orthogonal bases in this section.</div></section><section class="subsection" id="subsection-89"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber">6.3.1</span> <span class="title">Orthogonal sets</span>
 </h3>
-<div class="para" id="p-6041">The preview activity dealt with a basis of <span class="process-math">\(\real^2\)</span> formed by two orthogonal vectors.  More generally, we will consider a set of orthogonal vectors, as described in the next definition.</div>
+<div class="para" id="p-6050">The preview activity dealt with a basis of <span class="process-math">\(\real^2\)</span> formed by two orthogonal vectors.  More generally, we will consider a set of orthogonal vectors, as described in the next definition.</div>
 <article class="definition definition-like" id="definition-30"><h4 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">6.3.1</span><span class="period">.</span>
-</h4> <div class="para" id="p-6042">By an <em class="emphasis">orthogonal set</em> of vectors, we mean a set of nonzero vectors each of which is orthogonal to the others.</div></article><article class="example example-like" id="example-orthogonal-basis"><h4 class="heading">
+</h4> <div class="para" id="p-6051">By an <em class="emphasis">orthogonal set</em> of vectors, we mean a set of nonzero vectors each of which is orthogonal to the others.</div></article><article class="example example-like" id="example-orthogonal-basis"><h4 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">6.3.2</span><span class="period">.</span>
 </h4>
-<div class="para logical" id="p-6043">
+<div class="para logical" id="p-6052">
 <div class="para">The 3-dimensional vectors</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -747,7 +749,7 @@ c_2\wvec_2)\cdot\wvec_1\text{,}
 </div></article><article class="example example-like" id="example-orthogonal-set"><h4 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">6.3.3</span><span class="period">.</span>
 </h4>
-<div class="para logical" id="p-6044">
+<div class="para logical" id="p-6053">
 <div class="para">The vectors</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -758,7 +760,7 @@ c_2\wvec_2)\cdot\wvec_1\text{,}
 </div>
 <div class="para">form an orthogonal set of 4-dimensional vectors.  Since there are only three vectors, this set does not form a basis for <span class="process-math">\(\real^4\text{.}\)</span>  It does, however, form a basis for a 3-dimensional subspace <span class="process-math">\(W\)</span> of <span class="process-math">\(\real^4\text{.}\)</span>
 </div>
-</div></article><div class="para logical" id="p-6045">
+</div></article><div class="para logical" id="p-6054">
 <div class="para">Suppose that a vector <span class="process-math">\(\bvec\)</span> is a linear combination of an orthogonal set of vectors <span class="process-math">\(\wvec_1,\wvec_2,\ldots,\wvec_n\text{;}\)</span>  that is, suppose that</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -793,11 +795,11 @@ c_i = \frac{\bvec\cdot\wvec_i}{\wvec_i\cdot\wvec_i}
 \end{equation*}
 </div>
 </div>
-<div class="para" id="p-6046">We’ll record this fact in the following proposition.</div>
+<div class="para" id="p-6055">We’ll record this fact in the following proposition.</div>
 <article class="proposition theorem-like" id="prop-orthog-lincomb"><h4 class="heading">
 <span class="type">Proposition</span><span class="space"> </span><span class="codenumber">6.3.4</span><span class="period">.</span>
 </h4>
-<div class="para logical" id="p-6047">
+<div class="para logical" id="p-6056">
 <div class="para">If a vector <span class="process-math">\(\bvec\)</span> is a linear combination of an orthogonal set of vectors <span class="process-math">\(\wvec_1,\wvec_2,\ldots,\wvec_n\text{,}\)</span> then</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -807,7 +809,7 @@ c_i = \frac{\bvec\cdot\wvec_i}{\wvec_i\cdot\wvec_i}
 \frac{\bvec\cdot\wvec_n}{\wvec_n\cdot\wvec_n}\wvec_n\text{.}
 \end{equation*}
 </div>
-</div></article><div class="para logical" id="p-6048">
+</div></article><div class="para logical" id="p-6057">
 <div class="para">Using this proposition, we can see that an orthogonal set of vectors must be linearly independent.  Suppose, for instance, that <span class="process-math">\(\wvec_1,\wvec_2,\ldots,\wvec_n\)</span> is a set of nonzero orthogonal vectors and that one of the vectors is a linear combination of the others, say,</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -828,12 +830,12 @@ c_i = \frac{\bvec\cdot\wvec_i}{\wvec_i\cdot\wvec_i}
 <article class="proposition theorem-like" id="prop-orthog-lin-indep"><h4 class="heading">
 <span class="type">Proposition</span><span class="space"> </span><span class="codenumber">6.3.5</span><span class="period">.</span>
 </h4>
-<div class="para" id="p-6049">An orthogonal set of vectors <span class="process-math">\(\wvec_1,\wvec_2,\ldots,\wvec_n\)</span> is linearly independent.</div></article><div class="para" id="p-6050">If the vectors in an orthogonal set have dimension <span class="process-math">\(m\text{,}\)</span> they form a linearly independent set in <span class="process-math">\(\real^m\)</span> and are therefore a basis for the subspace <span class="process-math">\(W=\laspan{\wvec_1,\wvec_2,\ldots,\wvec_n}\text{.}\)</span>  If there are <span class="process-math">\(m\)</span> vectors in the orthogonal set, they form a basis for <span class="process-math">\(\real^m\text{.}\)</span>
+<div class="para" id="p-6058">An orthogonal set of vectors <span class="process-math">\(\wvec_1,\wvec_2,\ldots,\wvec_n\)</span> is linearly independent.</div></article><div class="para" id="p-6059">If the vectors in an orthogonal set have dimension <span class="process-math">\(m\text{,}\)</span> they form a linearly independent set in <span class="process-math">\(\real^m\)</span> and are therefore a basis for the subspace <span class="process-math">\(W=\laspan{\wvec_1,\wvec_2,\ldots,\wvec_n}\text{.}\)</span>  If there are <span class="process-math">\(m\)</span> vectors in the orthogonal set, they form a basis for <span class="process-math">\(\real^m\text{.}\)</span>
 </div>
 <article class="activity project-like" id="activity-76"><h4 class="heading">
 <span class="type">Activity</span><span class="space"> </span><span class="codenumber">6.3.2</span><span class="period">.</span>
 </h4>
-<div class="para logical" id="p-6051">
+<div class="para logical" id="p-6060">
 <div class="para">Consider the vectors</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/prop-orthog-lincomb.html ./knowl/prop-transpose-multiplication.html">
 \begin{equation*}
@@ -844,27 +846,27 @@ c_i = \frac{\bvec\cdot\wvec_i}{\wvec_i\cdot\wvec_i}
 </div>
 <ol class="lower-alpha">
 <li id="li-4156">
-<div class="para" id="p-6052">Verify that this set forms an orthogonal set of <span class="process-math">\(3\)</span>-dimensional vectors.</div>
-<pre class="ptx-sagecell sagecell-sage" id="sage-164"><script type="text/x-sage">
+<div class="para" id="p-6061">Verify that this set forms an orthogonal set of <span class="process-math">\(3\)</span>-dimensional vectors.</div>
+<pre class="ptx-sagecell sagecell-sage" id="sage-166"><script type="text/x-sage">
 </script></pre>
 </li>
-<li id="li-4157"><div class="para" id="p-6053">Explain why we know that this set of vectors forms a basis for <span class="process-math">\(\real^3\text{.}\)</span>
+<li id="li-4157"><div class="para" id="p-6062">Explain why we know that this set of vectors forms a basis for <span class="process-math">\(\real^3\text{.}\)</span>
 </div></li>
-<li id="li-4158"><div class="para" id="p-6054">Suppose that <span class="process-math">\(\bvec=\threevec24{-4}\text{.}\)</span>  Find the weights <span class="process-math">\(c_1\text{,}\)</span> <span class="process-math">\(c_2\text{,}\)</span> and <span class="process-math">\(c_3\)</span> that express <span class="process-math">\(\bvec\)</span> as a linear combination <span class="process-math">\(\bvec=c_1\wvec_1 + c_2\wvec_2 + c_3\wvec_3\)</span> using <a href="" class="xref" data-knowl="./knowl/prop-orthog-lincomb.html" title="Proposition 6.3.4">Proposition 6.3.4</a>.</div></li>
+<li id="li-4158"><div class="para" id="p-6063">Suppose that <span class="process-math">\(\bvec=\threevec24{-4}\text{.}\)</span>  Find the weights <span class="process-math">\(c_1\text{,}\)</span> <span class="process-math">\(c_2\text{,}\)</span> and <span class="process-math">\(c_3\)</span> that express <span class="process-math">\(\bvec\)</span> as a linear combination <span class="process-math">\(\bvec=c_1\wvec_1 + c_2\wvec_2 + c_3\wvec_3\)</span> using <a href="" class="xref" data-knowl="./knowl/prop-orthog-lincomb.html" title="Proposition 6.3.4">Proposition 6.3.4</a>.</div></li>
 <li id="li-4159">
-<div class="para" id="p-6055">If we multiply a vector <span class="process-math">\(\vvec\)</span> by a positive scalar <span class="process-math">\(s\text{,}\)</span> the length of <span class="process-math">\(\vvec\)</span> is also multiplied by <span class="process-math">\(s\text{;}\)</span>  that is, <span class="process-math">\(\len{s\vvec} = s\len{\vvec}\text{.}\)</span>
+<div class="para" id="p-6064">If we multiply a vector <span class="process-math">\(\vvec\)</span> by a positive scalar <span class="process-math">\(s\text{,}\)</span> the length of <span class="process-math">\(\vvec\)</span> is also multiplied by <span class="process-math">\(s\text{;}\)</span>  that is, <span class="process-math">\(\len{s\vvec} = s\len{\vvec}\text{.}\)</span>
 </div>
-<div class="para" id="p-6056"> Using this observation, find a vector <span class="process-math">\(\uvec_1\)</span> that is parallel to <span class="process-math">\(\wvec_1\)</span> and has length 1. Such vectors are called <em class="emphasis">unit vectors</em>. <pre class="ptx-sagecell sagecell-sage" id="sage-165"><script type="text/x-sage">
+<div class="para" id="p-6065"> Using this observation, find a vector <span class="process-math">\(\uvec_1\)</span> that is parallel to <span class="process-math">\(\wvec_1\)</span> and has length 1. Such vectors are called <em class="emphasis">unit vectors</em>. <pre class="ptx-sagecell sagecell-sage" id="sage-167"><script type="text/x-sage">
 </script></pre>
 </div>
 </li>
-<li id="li-4160"><div class="para" id="p-6057">Similarly, find a unit vector <span class="process-math">\(\uvec_2\)</span> that is parallel to <span class="process-math">\(\wvec_2\)</span> and a unit vector <span class="process-math">\(\uvec_3\)</span> that is parallel to <span class="process-math">\(\wvec_3\text{.}\)</span>
+<li id="li-4160"><div class="para" id="p-6066">Similarly, find a unit vector <span class="process-math">\(\uvec_2\)</span> that is parallel to <span class="process-math">\(\wvec_2\)</span> and a unit vector <span class="process-math">\(\uvec_3\)</span> that is parallel to <span class="process-math">\(\wvec_3\text{.}\)</span>
 </div></li>
-<li id="li-4161"><div class="para" id="p-6058">Construct the matrix <span class="process-math">\(Q=\begin{bmatrix}
+<li id="li-4161"><div class="para" id="p-6067">Construct the matrix <span class="process-math">\(Q=\begin{bmatrix}
 \uvec_1 \amp \uvec_2 \amp \uvec_3
 \end{bmatrix}\)</span> and find the product <span class="process-math">\(Q^TQ\text{.}\)</span>  Use <a href="" class="xref" data-knowl="./knowl/prop-transpose-multiplication.html" title="Proposition 6.2.8">Proposition 6.2.8</a> to explain your result.</div></li>
 </ol>
-</div></article><div class="para logical" id="p-6073">
+</div></article><div class="para logical" id="p-6082">
 <div class="para">This activity introduces an important way of modifying an orthogonal set so that the vectors in the set have unit length. Recall that we may multiply any nonzero vector <span class="process-math">\(\wvec\)</span> by a scalar so that the new vector has length 1. For instance, we know that if <span class="process-math">\(s\)</span> is a positive scalar, then <span class="process-math">\(\len{s\wvec} = s\len{\wvec}\text{.}\)</span>  To obtain a vector <span class="process-math">\(\uvec\)</span> having unit length, we want</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -880,13 +882,13 @@ c_i = \frac{\bvec\cdot\wvec_i}{\wvec_i\cdot\wvec_i}
 <div class="para">becomes a unit vector parallel to <span class="process-math">\(\wvec\text{.}\)</span>
 </div>
 </div>
-<div class="para" id="p-6074">Orthogonal sets in which the vectors have unit length are called <em class="emphasis">orthonormal</em> and are especially convenient.</div>
+<div class="para" id="p-6083">Orthogonal sets in which the vectors have unit length are called <em class="emphasis">orthonormal</em> and are especially convenient.</div>
 <article class="definition definition-like" id="definition-31"><h4 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">6.3.6</span><span class="period">.</span>
-</h4> <div class="para" id="p-6075">An <em class="emphasis">orthonormal</em> set is an orthogonal set of vectors each of which has unit length.</div></article><article class="example example-like" id="example-62"><h4 class="heading">
+</h4> <div class="para" id="p-6084">An <em class="emphasis">orthonormal</em> set is an orthogonal set of vectors each of which has unit length.</div></article><article class="example example-like" id="example-62"><h4 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">6.3.7</span><span class="period">.</span>
 </h4>
-<div class="para logical" id="p-6076">
+<div class="para logical" id="p-6085">
 <div class="para">The vectors</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -896,7 +898,7 @@ c_i = \frac{\bvec\cdot\wvec_i}{\wvec_i\cdot\wvec_i}
 </div>
 <div class="para">are an orthonormal set of vectors in <span class="process-math">\(\real^2\)</span> and form an orthonormal basis for <span class="process-math">\(\real^2\text{.}\)</span>
 </div>
-</div> <div class="para logical" id="p-6077">
+</div> <div class="para logical" id="p-6086">
 <div class="para">If we form the matrix</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/prop-transpose-multiplication.html">
 \begin{equation*}
@@ -923,21 +925,21 @@ Q^TQ = \begin{bmatrix}
 \end{bmatrix}
 \end{equation*}
 </div>
-</div></article><div class="para" id="p-6078">The previous activity and example illustrate the next proposition.</div>
+</div></article><div class="para" id="p-6087">The previous activity and example illustrate the next proposition.</div>
 <article class="proposition theorem-like" id="prop-orthonormal-QTQ"><h4 class="heading">
 <span class="type">Proposition</span><span class="space"> </span><span class="codenumber">6.3.8</span><span class="period">.</span>
 </h4>
-<div class="para" id="p-6079">If the columns of the <span class="process-math">\(m\times n\)</span> matrix <span class="process-math">\(Q\)</span> form an orthonormal set, then <span class="process-math">\(Q^TQ = I_n\text{,}\)</span> the <span class="process-math">\(n\times n\)</span> identity matrix.</div></article></section><section class="subsection" id="subsection-90"><h3 class="heading hide-type">
+<div class="para" id="p-6088">If the columns of the <span class="process-math">\(m\times n\)</span> matrix <span class="process-math">\(Q\)</span> form an orthonormal set, then <span class="process-math">\(Q^TQ = I_n\text{,}\)</span> the <span class="process-math">\(n\times n\)</span> identity matrix.</div></article></section><section class="subsection" id="subsection-90"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber">6.3.2</span> <span class="title">Orthogonal projections</span>
 </h3>
-<div class="para" id="p-6080">We now turn to an important problem that will appear in many forms in the rest of our explorations.  Suppose, as shown in <a href="" class="xref" data-knowl="./knowl/fig-3d-orthog-proj.html" title="Figure 6.3.9">Figure 6.3.9</a>, that we have a subspace <span class="process-math">\(W\)</span> of <span class="process-math">\(\real^m\)</span> and a vector <span class="process-math">\(\bvec\)</span> that is not in that subspace.  We would like to find the vector <span class="process-math">\(\bhat\)</span> in <span class="process-math">\(W\)</span> that is closest to <span class="process-math">\(\bvec\text{,}\)</span> meaning the distance between <span class="process-math">\(\bhat\)</span> and <span class="process-math">\(\bvec\)</span> is as small as possible.</div>
+<div class="para" id="p-6089">We now turn to an important problem that will appear in many forms in the rest of our explorations.  Suppose, as shown in <a href="" class="xref" data-knowl="./knowl/fig-3d-orthog-proj.html" title="Figure 6.3.9">Figure 6.3.9</a>, that we have a subspace <span class="process-math">\(W\)</span> of <span class="process-math">\(\real^m\)</span> and a vector <span class="process-math">\(\bvec\)</span> that is not in that subspace.  We would like to find the vector <span class="process-math">\(\bhat\)</span> in <span class="process-math">\(W\)</span> that is closest to <span class="process-math">\(\bvec\text{,}\)</span> meaning the distance between <span class="process-math">\(\bhat\)</span> and <span class="process-math">\(\bvec\)</span> is as small as possible.</div>
 <figure class="figure figure-like" id="fig-3d-orthog-proj"><div class="sidebyside"><div class="sbsrow" style="margin-left:22.5%;margin-right:22.5%;"><div class="sbspanel top" style="width:100%;"><img src="external/images/3d-orthog-proj-3.svg" role="img" class="contained"></div></div></div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">6.3.9<span class="period">.</span></span><span class="space"> </span>Given a plane in <span class="process-math">\(\real^3\)</span> and a vector <span class="process-math">\(\bvec\)</span> not in the plane, we wish to find the vector <span class="process-math">\(\bhat\)</span> in the plane that is closest to <span class="process-math">\(\bvec\text{.}\)</span></figcaption></figure><div class="para" id="p-6081">To get started, let’s consider a simpler problem where we have a line <span class="process-math">\(L\)</span> in <span class="process-math">\(\real^2\text{,}\)</span> defined by the vector <span class="process-math">\(\wvec\text{,}\)</span> and another vector <span class="process-math">\(\bvec\)</span> that is not on the line, as shown on the left of <a href="" class="xref" data-knowl="./knowl/fig-projection-line-a.html" title="Figure 6.3.10">Figure 6.3.10</a>.  We wish to find <span class="process-math">\(\bhat\text{,}\)</span> the vector on the line that is closest to <span class="process-math">\(\bvec\text{,}\)</span> as illustrated in the right of <a href="" class="xref" data-knowl="./knowl/fig-projection-line-a.html" title="Figure 6.3.10">Figure 6.3.10</a>.</div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">6.3.9<span class="period">.</span></span><span class="space"> </span>Given a plane in <span class="process-math">\(\real^3\)</span> and a vector <span class="process-math">\(\bvec\)</span> not in the plane, we wish to find the vector <span class="process-math">\(\bhat\)</span> in the plane that is closest to <span class="process-math">\(\bvec\text{.}\)</span></figcaption></figure><div class="para" id="p-6090">To get started, let’s consider a simpler problem where we have a line <span class="process-math">\(L\)</span> in <span class="process-math">\(\real^2\text{,}\)</span> defined by the vector <span class="process-math">\(\wvec\text{,}\)</span> and another vector <span class="process-math">\(\bvec\)</span> that is not on the line, as shown on the left of <a href="" class="xref" data-knowl="./knowl/fig-projection-line-a.html" title="Figure 6.3.10">Figure 6.3.10</a>.  We wish to find <span class="process-math">\(\bhat\text{,}\)</span> the vector on the line that is closest to <span class="process-math">\(\bvec\text{,}\)</span> as illustrated in the right of <a href="" class="xref" data-knowl="./knowl/fig-projection-line-a.html" title="Figure 6.3.10">Figure 6.3.10</a>.</div>
 <figure class="figure figure-like" id="fig-projection-line-a"><div class="sidebyside"><div class="sbsrow" style="margin-left:2.5%;margin-right:2.5%;">
 <div class="sbspanel top" style="width:47.3684210526316%;"><img src="external/images/projection-line-1.svg" role="img" class="contained"></div>
 <div class="sbspanel top" style="width:47.3684210526316%;"><img src="external/images/projection-line-4.svg" role="img" class="contained"></div>
 </div></div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">6.3.10<span class="period">.</span></span><span class="space"> </span>Given a line <span class="process-math">\(L\)</span> and a vector <span class="process-math">\(\bvec\text{,}\)</span> we seek the vector <span class="process-math">\(\bhat\)</span> on <span class="process-math">\(L\)</span> that is closest to <span class="process-math">\(\bvec\text{.}\)</span></figcaption></figure><div class="para logical" id="p-6082">
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">6.3.10<span class="period">.</span></span><span class="space"> </span>Given a line <span class="process-math">\(L\)</span> and a vector <span class="process-math">\(\bvec\text{,}\)</span> we seek the vector <span class="process-math">\(\bhat\)</span> on <span class="process-math">\(L\)</span> that is closest to <span class="process-math">\(\bvec\text{.}\)</span></figcaption></figure><div class="para logical" id="p-6091">
 <div class="para">To find <span class="process-math">\(\bhat\text{,}\)</span> we require that <span class="process-math">\(\bvec-\bhat\)</span> be orthogonal to <span class="process-math">\(L\text{.}\)</span>  For instance, if <span class="process-math">\(\yvec\)</span> is another vector on the line, as shown in <a href="" class="xref" data-knowl="./knowl/fig-projection-line-b.html" title="Figure 6.3.11">Figure 6.3.11</a>, then the Pythagorean theorem implies that</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/fig-projection-line-b.html">
 \begin{equation*}
@@ -951,22 +953,22 @@ Q^TQ = \begin{bmatrix}
 <figure class="figure figure-like" id="fig-projection-line-b"><div class="sidebyside"><div class="sbsrow" style="margin-left:27.5%;margin-right:27.5%;"><div class="sbspanel top" style="width:100%;"><img src="external/images/projection-line-3.svg" role="img" class="contained"></div></div></div>
 <figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">6.3.11<span class="period">.</span></span><span class="space"> </span>The vector <span class="process-math">\(\bhat\)</span> is closer to <span class="process-math">\(\bvec\)</span> than <span class="process-math">\(\yvec\)</span> because <span class="process-math">\(\bvec-\bhat\)</span> is orthogonal to <span class="process-math">\(L\text{.}\)</span></figcaption></figure><article class="definition definition-like" id="definition-32"><h4 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">6.3.12</span><span class="period">.</span>
-</h4> <div class="para" id="p-6083">Given a vector <span class="process-math">\(\bvec\)</span> in <span class="process-math">\(\real^m\)</span> and a subspace <span class="process-math">\(W\)</span> of <span class="process-math">\(\real^m\text{,}\)</span> the <em class="emphasis">orthogonal projection</em> of <span class="process-math">\(\bvec\)</span> onto <span class="process-math">\(W\)</span> is the vector <span class="process-math">\(\bhat\)</span> in <span class="process-math">\(W\)</span> that is closest to <span class="process-math">\(\bvec\text{.}\)</span> It is characterized by the property that <span class="process-math">\(\bvec-\bhat\)</span> is orthogonal to <span class="process-math">\(W\text{.}\)</span>
+</h4> <div class="para" id="p-6092">Given a vector <span class="process-math">\(\bvec\)</span> in <span class="process-math">\(\real^m\)</span> and a subspace <span class="process-math">\(W\)</span> of <span class="process-math">\(\real^m\text{,}\)</span> the <em class="emphasis">orthogonal projection</em> of <span class="process-math">\(\bvec\)</span> onto <span class="process-math">\(W\)</span> is the vector <span class="process-math">\(\bhat\)</span> in <span class="process-math">\(W\)</span> that is closest to <span class="process-math">\(\bvec\text{.}\)</span> It is characterized by the property that <span class="process-math">\(\bvec-\bhat\)</span> is orthogonal to <span class="process-math">\(W\text{.}\)</span>
 </div></article><article class="activity project-like" id="activity-77"><h4 class="heading">
 <span class="type">Activity</span><span class="space"> </span><span class="codenumber">6.3.3</span><span class="period">.</span>
 </h4>
-<div class="para logical" id="p-6084">
+<div class="para logical" id="p-6093">
 <div class="para">This activity demonstrates how to determine the orthogonal projection of a vector onto a subspace of <span class="process-math">\(\real^m\text{.}\)</span>
 </div>
 <ol class="lower-alpha">
 <li id="li-4174">
-<div class="para" id="p-6085">Let’s begin by considering a line <span class="process-math">\(L\text{,}\)</span> defined by the vector <span class="process-math">\(\wvec=\twovec21\text{,}\)</span> and a vector <span class="process-math">\(\bvec=\twovec24\)</span> not on <span class="process-math">\(L\text{,}\)</span> as illustrated in <a href="" class="xref" data-knowl="./knowl/fig-projection-line-c.html" title="Figure 6.3.13">Figure 6.3.13</a>.</div>
+<div class="para" id="p-6094">Let’s begin by considering a line <span class="process-math">\(L\text{,}\)</span> defined by the vector <span class="process-math">\(\wvec=\twovec21\text{,}\)</span> and a vector <span class="process-math">\(\bvec=\twovec24\)</span> not on <span class="process-math">\(L\text{,}\)</span> as illustrated in <a href="" class="xref" data-knowl="./knowl/fig-projection-line-c.html" title="Figure 6.3.13">Figure 6.3.13</a>.</div>
 <figure class="figure figure-like" id="fig-projection-line-c"><div class="sidebyside"><div class="sbsrow" style="margin-left:2.5%;margin-right:2.5%;">
 <div class="sbspanel top" style="width:47.3684210526316%;"><img src="external/images/projection-line-4.svg" role="img" class="contained"></div>
 <div class="sbspanel top" style="width:47.3684210526316%;"><img src="external/images/projection-line-2.svg" role="img" class="contained"></div>
 </div></div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">6.3.13<span class="period">.</span></span><span class="space"> </span>Finding the orthogonal projection of <span class="process-math">\(\bvec\)</span> onto the line defined by <span class="process-math">\(\wvec\text{.}\)</span></figcaption></figure><div class="para logical" id="p-6086"><ol class="decimal">
-<li id="li-4175"><div class="para logical" id="p-6087">
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">6.3.13<span class="period">.</span></span><span class="space"> </span>Finding the orthogonal projection of <span class="process-math">\(\bvec\)</span> onto the line defined by <span class="process-math">\(\wvec\text{.}\)</span></figcaption></figure><div class="para logical" id="p-6095"><ol class="decimal">
+<li id="li-4175"><div class="para logical" id="p-6096">
 <div class="para">To find <span class="process-math">\(\bhat\text{,}\)</span> first notice that <span class="process-math">\(\bhat =
 s\wvec\)</span> for some scalar <span class="process-math">\(s\text{.}\)</span> Since <span class="process-math">\(\bvec-\bhat = \bvec -
 s\wvec\)</span> is orthogonal to <span class="process-math">\(\wvec\text{,}\)</span> what do we know about the dot product</div>
@@ -976,9 +978,9 @@ s\wvec\)</span> is orthogonal to <span class="process-math">\(\wvec\text{,}\)</s
 \end{equation*}
 </div>
 </div></li>
-<li id="li-4176"><div class="para" id="p-6088">Apply the distributive property of dot products to find the scalar <span class="process-math">\(s\text{.}\)</span>  What is the vector <span class="process-math">\(\bhat\text{,}\)</span> the orthogonal projection of <span class="process-math">\(\bvec\)</span> onto <span class="process-math">\(L\text{?}\)</span>
+<li id="li-4176"><div class="para" id="p-6097">Apply the distributive property of dot products to find the scalar <span class="process-math">\(s\text{.}\)</span>  What is the vector <span class="process-math">\(\bhat\text{,}\)</span> the orthogonal projection of <span class="process-math">\(\bvec\)</span> onto <span class="process-math">\(L\text{?}\)</span>
 </div></li>
-<li id="li-4177"><div class="para logical" id="p-6089">
+<li id="li-4177"><div class="para logical" id="p-6098">
 <div class="para">More generally, explain why the orthogonal projection of <span class="process-math">\(\bvec\)</span> onto the line defined by <span class="process-math">\(\wvec\)</span> is</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -990,12 +992,12 @@ s\wvec\)</span> is orthogonal to <span class="process-math">\(\wvec\text{,}\)</s
 </ol></div>
 </li>
 <li id="li-4178">
-<div class="para" id="p-6090">The same ideas apply more generally.  Suppose we have an orthogonal set of vectors <span class="process-math">\(\wvec_1=\threevec22{-1}\)</span> and <span class="process-math">\(\wvec_2=\threevec102\)</span> that define a plane <span class="process-math">\(W\)</span> in <span class="process-math">\(\real^3\text{.}\)</span> If <span class="process-math">\(\bvec=\threevec396\)</span> another vector in <span class="process-math">\(\real^3\text{,}\)</span> we seek the vector <span class="process-math">\(\bhat\)</span> on the plane <span class="process-math">\(W\)</span> closest to <span class="process-math">\(\bvec\text{.}\)</span> As before, the vector <span class="process-math">\(\bvec-\bhat\)</span> will be orthogonal to <span class="process-math">\(W\text{,}\)</span> as illustrated in <a href="" class="xref" data-knowl="./knowl/fig-3d-orthog.html" title="Figure 6.3.14">Figure 6.3.14</a>.</div>
+<div class="para" id="p-6099">The same ideas apply more generally.  Suppose we have an orthogonal set of vectors <span class="process-math">\(\wvec_1=\threevec22{-1}\)</span> and <span class="process-math">\(\wvec_2=\threevec102\)</span> that define a plane <span class="process-math">\(W\)</span> in <span class="process-math">\(\real^3\text{.}\)</span> If <span class="process-math">\(\bvec=\threevec396\)</span> another vector in <span class="process-math">\(\real^3\text{,}\)</span> we seek the vector <span class="process-math">\(\bhat\)</span> on the plane <span class="process-math">\(W\)</span> closest to <span class="process-math">\(\bvec\text{.}\)</span> As before, the vector <span class="process-math">\(\bvec-\bhat\)</span> will be orthogonal to <span class="process-math">\(W\text{,}\)</span> as illustrated in <a href="" class="xref" data-knowl="./knowl/fig-3d-orthog.html" title="Figure 6.3.14">Figure 6.3.14</a>.</div>
 <figure class="figure figure-like" id="fig-3d-orthog"><div class="sidebyside"><div class="sbsrow" style="margin-left:22.5%;margin-right:22.5%;"><div class="sbspanel top" style="width:100%;"><img src="external/images/3d-orthog-proj-2.svg" role="img" class="contained"></div></div></div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">6.3.14<span class="period">.</span></span><span class="space"> </span>Given a plane <span class="process-math">\(W\)</span> defined by the orthogonal vectors <span class="process-math">\(\wvec_1\)</span> and <span class="process-math">\(\wvec_2\)</span> and another vector <span class="process-math">\(\bvec\text{,}\)</span> we seek the vector <span class="process-math">\(\bhat\)</span> on <span class="process-math">\(W\)</span> closest to <span class="process-math">\(\bvec\text{.}\)</span></figcaption></figure><div class="para logical" id="p-6091"><ol class="decimal">
-<li id="li-4179"><div class="para" id="p-6092">The vector <span class="process-math">\(\bvec-\bhat\)</span> is orthogonal to <span class="process-math">\(W\text{.}\)</span> What does this say about the dot products: <span class="process-math">\((\bvec-\bhat)\cdot\wvec_1\)</span> and <span class="process-math">\((\bvec-\bhat)\cdot\wvec_2\text{?}\)</span>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">6.3.14<span class="period">.</span></span><span class="space"> </span>Given a plane <span class="process-math">\(W\)</span> defined by the orthogonal vectors <span class="process-math">\(\wvec_1\)</span> and <span class="process-math">\(\wvec_2\)</span> and another vector <span class="process-math">\(\bvec\text{,}\)</span> we seek the vector <span class="process-math">\(\bhat\)</span> on <span class="process-math">\(W\)</span> closest to <span class="process-math">\(\bvec\text{.}\)</span></figcaption></figure><div class="para logical" id="p-6100"><ol class="decimal">
+<li id="li-4179"><div class="para" id="p-6101">The vector <span class="process-math">\(\bvec-\bhat\)</span> is orthogonal to <span class="process-math">\(W\text{.}\)</span> What does this say about the dot products: <span class="process-math">\((\bvec-\bhat)\cdot\wvec_1\)</span> and <span class="process-math">\((\bvec-\bhat)\cdot\wvec_2\text{?}\)</span>
 </div></li>
-<li id="li-4180"><div class="para logical" id="p-6093">
+<li id="li-4180"><div class="para logical" id="p-6102">
 <div class="para">Since <span class="process-math">\(\bhat\)</span> is in the plane <span class="process-math">\(W\text{,}\)</span> we can write it as a linear combination <span class="process-math">\(\bhat = c_1\wvec_1 + c_2\wvec_2\text{.}\)</span> Then</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -1005,11 +1007,11 @@ s\wvec\)</span> is orthogonal to <span class="process-math">\(\wvec\text{,}\)</s
 <div class="para">Find the weight <span class="process-math">\(c_1\)</span> by dotting <span class="process-math">\(\bvec-\bhat\)</span> with <span class="process-math">\(\wvec_1\)</span> and applying the distributive property of dot products.  Similarly, find the weight <span class="process-math">\(c_2\text{.}\)</span>
 </div>
 </div></li>
-<li id="li-4181"><div class="para" id="p-6094">What is the vector <span class="process-math">\(\bhat\text{,}\)</span> the orthogonal projection of <span class="process-math">\(\bvec\)</span> onto the plane <span class="process-math">\(W\text{?}\)</span>
+<li id="li-4181"><div class="para" id="p-6103">What is the vector <span class="process-math">\(\bhat\text{,}\)</span> the orthogonal projection of <span class="process-math">\(\bvec\)</span> onto the plane <span class="process-math">\(W\text{?}\)</span>
 </div></li>
 </ol></div>
 </li>
-<li id="li-4182"><div class="para logical" id="p-6095">
+<li id="li-4182"><div class="para logical" id="p-6104">
 <div class="para">Suppose that <span class="process-math">\(W\)</span> is a subspace of <span class="process-math">\(\real^m\)</span> with orthogonal basis <span class="process-math">\(\wvec_1,\wvec_2,\ldots,\wvec_n\)</span> and that <span class="process-math">\(\bvec\)</span> is a vector in <span class="process-math">\(\real^m\text{.}\)</span>  Explain why the orthogonal projection of <span class="process-math">\(\bvec\)</span> onto <span class="process-math">\(W\)</span> is the vector</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -1021,7 +1023,7 @@ s\wvec\)</span> is orthogonal to <span class="process-math">\(\wvec\text{,}\)</s
 \end{equation*}
 </div>
 </div></li>
-<li id="li-4183"><div class="para logical" id="p-6096">
+<li id="li-4183"><div class="para logical" id="p-6105">
 <div class="para">Suppose that <span class="process-math">\(\uvec_1,\uvec_2,\ldots,\uvec_n\)</span> is an <em class="emphasis">orthonormal</em> basis for <span class="process-math">\(W\text{;}\)</span>  that is, the vectors are orthogonal to one another and have unit length.  Explain why the orthogonal projection is</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -1033,14 +1035,14 @@ s\wvec\)</span> is orthogonal to <span class="process-math">\(\wvec\text{,}\)</s
 \end{equation*}
 </div>
 </div></li>
-<li id="li-4184"><div class="para" id="p-6097">If <span class="process-math">\(Q=\begin{bmatrix}
+<li id="li-4184"><div class="para" id="p-6106">If <span class="process-math">\(Q=\begin{bmatrix}
 \uvec_1 \amp \uvec_2 \amp \ldots \amp \uvec_n
 \end{bmatrix}\)</span> is the matrix whose columns are an orthonormal basis of <span class="process-math">\(W\text{,}\)</span> use <a href="" class="xref" data-knowl="./knowl/prop-transpose-multiplication.html" title="Proposition 6.2.8">Proposition 6.2.8</a> to explain why <span class="process-math">\(\bhat = QQ^T\bvec\text{.}\)</span>
 </div></li>
 </ol>
-</div></article><div class="para" id="p-6124">In all the cases considered in the activity, we are looking for <span class="process-math">\(\bhat\text{,}\)</span> the vector in a subspace <span class="process-math">\(W\)</span> closest to a vector <span class="process-math">\(\bvec\text{,}\)</span> which is found by requiring that <span class="process-math">\(\bvec-\bhat\)</span> be orthogonal to <span class="process-math">\(W\text{.}\)</span>  This means that <span class="process-math">\((\bvec-\bhat)\cdot\wvec = 0\)</span> for any vector <span class="process-math">\(\wvec\)</span> in <span class="process-math">\(W\text{.}\)</span>
+</div></article><div class="para" id="p-6133">In all the cases considered in the activity, we are looking for <span class="process-math">\(\bhat\text{,}\)</span> the vector in a subspace <span class="process-math">\(W\)</span> closest to a vector <span class="process-math">\(\bvec\text{,}\)</span> which is found by requiring that <span class="process-math">\(\bvec-\bhat\)</span> be orthogonal to <span class="process-math">\(W\text{.}\)</span>  This means that <span class="process-math">\((\bvec-\bhat)\cdot\wvec = 0\)</span> for any vector <span class="process-math">\(\wvec\)</span> in <span class="process-math">\(W\text{.}\)</span>
 </div>
-<div class="para logical" id="p-6125">
+<div class="para logical" id="p-6134">
 <div class="para">If we have an orthogonal basis <span class="process-math">\(\wvec_1,\wvec_2,\ldots,\wvec_n\)</span> for <span class="process-math">\(W\text{,}\)</span> then <span class="process-math">\(\bhat = c_1\wvec_1+c_w\wvec_2+\cdots+c_n\wvec_n\text{.}\)</span>  Therefore,</div>
 <div class="displaymath process-math" id="md-9">
 \begin{align*}
@@ -1057,7 +1059,7 @@ c_i \amp = \frac{\bvec\cdot\wvec_i}{\wvec_i\cdot\wvec_i}.
 <article class="proposition theorem-like" id="prop-proj-formula"><h4 class="heading">
 <span class="type">Proposition</span><span class="space"> </span><span class="codenumber">6.3.15</span><span class="period">.</span><span class="space"> </span><span class="title">Projection formula.</span>
 </h4>
-<div class="para logical" id="p-6126">
+<div class="para logical" id="p-6135">
 <div class="para">If <span class="process-math">\(W\)</span> is a subspace of <span class="process-math">\(\real^m\)</span> having an orthogonal basis <span class="process-math">\(\wvec_1,\wvec_2,\ldots, \wvec_n\)</span> and <span class="process-math">\(\bvec\)</span> is a vector in <span class="process-math">\(\real^m\text{,}\)</span> then the orthogonal projection of <span class="process-math">\(\bvec\)</span> onto <span class="process-math">\(W\)</span> is</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -1069,7 +1071,7 @@ c_i \amp = \frac{\bvec\cdot\wvec_i}{\wvec_i\cdot\wvec_i}.
 \end{equation*}
 </div>
 </div></article><article class="assemblage assemblage-like" id="assemblage-12"><h4 class="heading"><span class="title">Caution.</span></h4>
-<div class="para" id="p-6127">Remember that the projection formula given in <a href="" class="xref" data-knowl="./knowl/prop-proj-formula.html" title="Proposition 6.3.15: Projection formula">Proposition 6.3.15</a> applies only when the basis <span class="process-math">\(\wvec_1,\wvec_2,\cdots,\wvec_n\)</span> of <span class="process-math">\(W\)</span> is <em class="emphasis">orthogonal</em>.</div></article><div class="para logical" id="p-6128">
+<div class="para" id="p-6136">Remember that the projection formula given in <a href="" class="xref" data-knowl="./knowl/prop-proj-formula.html" title="Proposition 6.3.15: Projection formula">Proposition 6.3.15</a> applies only when the basis <span class="process-math">\(\wvec_1,\wvec_2,\cdots,\wvec_n\)</span> of <span class="process-math">\(W\)</span> is <em class="emphasis">orthogonal</em>.</div></article><div class="para logical" id="p-6137">
 <div class="para">If we have an orthonormal basis <span class="process-math">\(\uvec_1,\uvec_2,\ldots,\uvec_n\)</span> for <span class="process-math">\(W\text{,}\)</span> the projection formula simplifies to</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -1111,11 +1113,11 @@ Q =
 \end{align*}
 </div>
 </div>
-<div class="para" id="p-6129">This leads to the following proposition.</div>
+<div class="para" id="p-6138">This leads to the following proposition.</div>
 <article class="proposition theorem-like" id="prop-proj-orthonormal"><h4 class="heading">
 <span class="type">Proposition</span><span class="space"> </span><span class="codenumber">6.3.16</span><span class="period">.</span>
 </h4>
-<div class="para logical" id="p-6130">
+<div class="para logical" id="p-6139">
 <div class="para">If <span class="process-math">\(\uvec_1,\uvec_2,\ldots,\uvec_n\)</span> is an orthonormal basis for a subspace <span class="process-math">\(W\)</span> of <span class="process-math">\(\real^m\text{,}\)</span> then the matrix transformation that projects vectors in <span class="process-math">\(\real^m\)</span> orthogonally onto <span class="process-math">\(W\)</span> is represented by the matrix <span class="process-math">\(QQ^T\)</span> where</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -1128,7 +1130,7 @@ Q =
 </div></article><article class="example example-like" id="example-projection-matrix"><h4 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">6.3.17</span><span class="period">.</span>
 </h4>
-<div class="para logical" id="p-6131">
+<div class="para logical" id="p-6140">
 <div class="para">In the previous activity, we looked at the plane <span class="process-math">\(W\)</span> defined by the two orthogonal vectors</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -1177,7 +1179,7 @@ QQ^T =
 \end{bmatrix}\text{.}
 \end{equation*}
 </div>
-</div> <div class="para logical" id="p-6132">
+</div> <div class="para logical" id="p-6141">
 <div class="para">Let’s check that this works by considering the vector <span class="process-math">\(\bvec=\threevec100\)</span> and finding <span class="process-math">\(\bhat\text{,}\)</span> its orthogonal projection onto the plane <span class="process-math">\(W\text{.}\)</span>  In terms of the original basis <span class="process-math">\(\wvec_1\)</span> and <span class="process-math">\(\wvec_2\text{,}\)</span> the projection formula from <a href="" class="xref" data-knowl="./knowl/prop-proj-formula.html" title="Proposition 6.3.15: Projection formula">Proposition 6.3.15</a> tells us that</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/prop-proj-formula.html">
 \begin{equation*}
@@ -1189,7 +1191,7 @@ QQ^T =
 \cthreevec{{29}/{45}}{4/9}{8/{45}} \\
 \end{equation*}
 </div>
-</div> <div class="para logical" id="p-6133">
+</div> <div class="para logical" id="p-6142">
 <div class="para">Alternatively, we use the matrix <span class="process-math">\(QQ^T\text{,}\)</span> as in <a href="" class="xref" data-knowl="./knowl/prop-proj-orthonormal.html" title="Proposition 6.3.16">Proposition 6.3.16</a>, to find that</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/prop-proj-orthonormal.html">
 \begin{equation*}
@@ -1206,22 +1208,22 @@ QQ^T =
 </div></article><article class="activity project-like" id="activity-78"><h4 class="heading">
 <span class="type">Activity</span><span class="space"> </span><span class="codenumber">6.3.4</span><span class="period">.</span>
 </h4>
-<div class="para logical" id="p-6134"><ol class="lower-alpha">
-<li id="li-4207"><div class="para logical" id="p-6135">
-<div class="para">Suppose that <span class="process-math">\(L\)</span> is the line in <span class="process-math">\(\real^3\)</span> defined by the vector <span class="process-math">\(\wvec=\threevec{1}{2}{-2}\text{.}\)</span> <pre class="ptx-sagecell sagecell-sage" id="sage-166"><script type="text/x-sage">
+<div class="para logical" id="p-6143"><ol class="lower-alpha">
+<li id="li-4207"><div class="para logical" id="p-6144">
+<div class="para">Suppose that <span class="process-math">\(L\)</span> is the line in <span class="process-math">\(\real^3\)</span> defined by the vector <span class="process-math">\(\wvec=\threevec{1}{2}{-2}\text{.}\)</span> <pre class="ptx-sagecell sagecell-sage" id="sage-168"><script type="text/x-sage">
 </script></pre>
 </div>
 <ol class="decimal">
-<li id="li-4208"><div class="para" id="p-6136">Find an orthonormal basis <span class="process-math">\(\uvec\)</span> for <span class="process-math">\(L\text{.}\)</span>
+<li id="li-4208"><div class="para" id="p-6145">Find an orthonormal basis <span class="process-math">\(\uvec\)</span> for <span class="process-math">\(L\text{.}\)</span>
 </div></li>
-<li id="li-4209"><div class="para" id="p-6137">Construct the matrix <span class="process-math">\(Q = \begin{bmatrix}\uvec\end{bmatrix}\)</span> and use it to construct the matrix <span class="process-math">\(P\)</span> that projects vectors orthogonally onto <span class="process-math">\(L\text{.}\)</span>
+<li id="li-4209"><div class="para" id="p-6146">Construct the matrix <span class="process-math">\(Q = \begin{bmatrix}\uvec\end{bmatrix}\)</span> and use it to construct the matrix <span class="process-math">\(P\)</span> that projects vectors orthogonally onto <span class="process-math">\(L\text{.}\)</span>
 </div></li>
-<li id="li-4210"><div class="para" id="p-6138">Use your matrix to find <span class="process-math">\(\bhat\text{,}\)</span> the orthogonal projection of <span class="process-math">\(\bvec=\threevec111\)</span> onto <span class="process-math">\(L\text{.}\)</span>
+<li id="li-4210"><div class="para" id="p-6147">Use your matrix to find <span class="process-math">\(\bhat\text{,}\)</span> the orthogonal projection of <span class="process-math">\(\bvec=\threevec111\)</span> onto <span class="process-math">\(L\text{.}\)</span>
 </div></li>
-<li id="li-4211"><div class="para" id="p-6139">Find <span class="process-math">\(\rank(P)\)</span> and explain its geometric significance.</div></li>
+<li id="li-4211"><div class="para" id="p-6148">Find <span class="process-math">\(\rank(P)\)</span> and explain its geometric significance.</div></li>
 </ol>
 </div></li>
-<li id="li-4212"><div class="para logical" id="p-6140">
+<li id="li-4212"><div class="para logical" id="p-6149">
 <div class="para">The vectors</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/prop-proj-formula.html">
 \begin{equation*}
@@ -1229,17 +1231,17 @@ QQ^T =
 \wvec_2 = \fourvec011{-2}
 \end{equation*}
 </div>
-<div class="para">form an orthogonal basis of <span class="process-math">\(W\text{,}\)</span> a two-dimensional subspace of <span class="process-math">\(\real^4\text{.}\)</span> <pre class="ptx-sagecell sagecell-sage" id="sage-167"><script type="text/x-sage">
+<div class="para">form an orthogonal basis of <span class="process-math">\(W\text{,}\)</span> a two-dimensional subspace of <span class="process-math">\(\real^4\text{.}\)</span> <pre class="ptx-sagecell sagecell-sage" id="sage-169"><script type="text/x-sage">
 </script></pre>
 </div>
 <ol class="decimal">
-<li id="li-4213"><div class="para" id="p-6141">Use the projection formula from <a href="" class="xref" data-knowl="./knowl/prop-proj-formula.html" title="Proposition 6.3.15: Projection formula">Proposition 6.3.15</a> to find <span class="process-math">\(\bhat\text{,}\)</span> the orthogonal projection of <span class="process-math">\(\bvec=\fourvec92{-2}3\)</span> onto <span class="process-math">\(W\text{.}\)</span>
+<li id="li-4213"><div class="para" id="p-6150">Use the projection formula from <a href="" class="xref" data-knowl="./knowl/prop-proj-formula.html" title="Proposition 6.3.15: Projection formula">Proposition 6.3.15</a> to find <span class="process-math">\(\bhat\text{,}\)</span> the orthogonal projection of <span class="process-math">\(\bvec=\fourvec92{-2}3\)</span> onto <span class="process-math">\(W\text{.}\)</span>
 </div></li>
-<li id="li-4214"><div class="para" id="p-6142">Find an orthonormal basis <span class="process-math">\(\uvec_1\)</span> and <span class="process-math">\(\uvec_2\)</span> for <span class="process-math">\(W\)</span> and use it to construct the matrix <span class="process-math">\(P\)</span> that projects vectors orthogonally onto <span class="process-math">\(W\text{.}\)</span>  Check that <span class="process-math">\(P\bvec = \bhat\text{,}\)</span> the orthogonal projection you found in the previous part of this activity.</div></li>
-<li id="li-4215"><div class="para" id="p-6143">Find <span class="process-math">\(\rank(P)\)</span> and explain its geometric significance.</div></li>
-<li id="li-4216"><div class="para" id="p-6144">Find a basis for <span class="process-math">\(W^\perp\text{.}\)</span>
+<li id="li-4214"><div class="para" id="p-6151">Find an orthonormal basis <span class="process-math">\(\uvec_1\)</span> and <span class="process-math">\(\uvec_2\)</span> for <span class="process-math">\(W\)</span> and use it to construct the matrix <span class="process-math">\(P\)</span> that projects vectors orthogonally onto <span class="process-math">\(W\text{.}\)</span>  Check that <span class="process-math">\(P\bvec = \bhat\text{,}\)</span> the orthogonal projection you found in the previous part of this activity.</div></li>
+<li id="li-4215"><div class="para" id="p-6152">Find <span class="process-math">\(\rank(P)\)</span> and explain its geometric significance.</div></li>
+<li id="li-4216"><div class="para" id="p-6153">Find a basis for <span class="process-math">\(W^\perp\text{.}\)</span>
 </div></li>
-<li id="li-4217"><div class="para logical" id="p-6145">
+<li id="li-4217"><div class="para logical" id="p-6154">
 <div class="para">Find a vector <span class="process-math">\(\bvec^\perp\)</span> in <span class="process-math">\(W^\perp\)</span> such that</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -1247,10 +1249,10 @@ QQ^T =
 \end{equation*}
 </div>
 </div></li>
-<li id="li-4218"><div class="para" id="p-6146">Find the product <span class="process-math">\(Q^TQ\)</span> and explain your result.</div></li>
+<li id="li-4218"><div class="para" id="p-6155">If <span class="process-math">\(Q\)</span> is the matrix whose columns are <span class="process-math">\(\uvec_1\)</span> and <span class="process-math">\(\uvec_2\text{,}\)</span> find the product <span class="process-math">\(Q^TQ\)</span> and explain your result.</div></li>
 </ol>
 </div></li>
-</ol></div></article><div class="para" id="p-6173">This activity demonstrates one issue of note.  We found <span class="process-math">\(\bhat\text{,}\)</span> the orthogonal projection of <span class="process-math">\(\bvec\)</span> onto <span class="process-math">\(W\text{,}\)</span> by requiring that <span class="process-math">\(\bvec-\bhat\)</span> be orthogonal to <span class="process-math">\(W\text{.}\)</span>  In other words, <span class="process-math">\(\bvec-\bhat\)</span> is a vector in the orthogonal complement <span class="process-math">\(W^\perp\text{,}\)</span> which we may denote <span class="process-math">\(\bvec^\perp\text{.}\)</span>  This explains the following proposition, which is illustrated in <a href="" class="xref" data-knowl="./knowl/fig-orthog-decomp.html" title="Figure 6.3.19">Figure 6.3.19</a>
+</ol></div></article><div class="para" id="p-6182">This activity demonstrates one issue of note.  We found <span class="process-math">\(\bhat\text{,}\)</span> the orthogonal projection of <span class="process-math">\(\bvec\)</span> onto <span class="process-math">\(W\text{,}\)</span> by requiring that <span class="process-math">\(\bvec-\bhat\)</span> be orthogonal to <span class="process-math">\(W\text{.}\)</span>  In other words, <span class="process-math">\(\bvec-\bhat\)</span> is a vector in the orthogonal complement <span class="process-math">\(W^\perp\text{,}\)</span> which we may denote <span class="process-math">\(\bvec^\perp\text{.}\)</span>  This explains the following proposition, which is illustrated in <a href="" class="xref" data-knowl="./knowl/fig-orthog-decomp.html" title="Figure 6.3.19">Figure 6.3.19</a>
 </div>
 <article class="proposition theorem-like" id="prop-orthog-decomp"><h4 class="heading">
 <span class="type">Proposition</span><span class="space"> </span><span class="codenumber">6.3.18</span><span class="period">.</span>
@@ -1259,23 +1261,23 @@ QQ^T =
 \bvec = \bhat + \bvec^\perp
 \end{equation*}
 </div>where <span class="process-math">\(\bhat\)</span> is in <span class="process-math">\(W\)</span> and <span class="process-math">\(\bvec^\perp\)</span> is in <span class="process-math">\(W^\perp\text{.}\)</span>  The vector <span class="process-math">\(\bhat\)</span> is the orthogonal projection of <span class="process-math">\(\bvec\)</span> onto <span class="process-math">\(W\)</span> and <span class="process-math">\(\bvec^\perp\)</span> is the orthogonal projection of <span class="process-math">\(\bvec\)</span> onto <span class="process-math">\(W^\perp\text{.}\)</span></article><figure class="figure figure-like" id="fig-orthog-decomp"><div class="sidebyside"><div class="sbsrow" style="margin-left:27.5%;margin-right:27.5%;"><div class="sbspanel top" style="width:100%;"><img src="external/images/orthog-decomp.svg" role="img" class="contained"></div></div></div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">6.3.19<span class="period">.</span></span><span class="space"> </span>A vector <span class="process-math">\(\bvec\)</span> along with <span class="process-math">\(\bhat\text{,}\)</span> its orthogonal projection onto the line <span class="process-math">\(L\text{,}\)</span> and <span class="process-math">\(\bvec^\perp\text{,}\)</span> its orthogonal projection onto the orthogonal complement <span class="process-math">\(L^\perp\text{.}\)</span></figcaption></figure><div class="para logical" id="p-6174">
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">6.3.19<span class="period">.</span></span><span class="space"> </span>A vector <span class="process-math">\(\bvec\)</span> along with <span class="process-math">\(\bhat\text{,}\)</span> its orthogonal projection onto the line <span class="process-math">\(L\text{,}\)</span> and <span class="process-math">\(\bvec^\perp\text{,}\)</span> its orthogonal projection onto the orthogonal complement <span class="process-math">\(L^\perp\text{.}\)</span></figcaption></figure><div class="para logical" id="p-6183">
 <div class="para">Let’s summarize what we’ve found.  If <span class="process-math">\(Q\)</span> is a matrix whose columns <span class="process-math">\(\uvec_1, \uvec_2,\ldots,\uvec_n\)</span> form an orthonormal set in <span class="process-math">\(\real^m\text{,}\)</span> then</div>
 <ul class="disc">
-<li id="li-4243"><div class="para" id="p-6175">
+<li id="li-4243"><div class="para" id="p-6184">
 <span class="process-math">\(Q^TQ = I_n\text{,}\)</span> the <span class="process-math">\(n\times n\)</span> identity matrix, because this product computes the dot products between the columns of <span class="process-math">\(Q\text{.}\)</span>
 </div></li>
-<li id="li-4244"><div class="para" id="p-6176">
+<li id="li-4244"><div class="para" id="p-6185">
 <span class="process-math">\(QQ^T\)</span> is the matrix the projects vectors orthogonally onto <span class="process-math">\(W\text{,}\)</span> the subspace of <span class="process-math">\(\real^m\)</span> spanned by <span class="process-math">\(\uvec_1,\ldots,\uvec_n\text{.}\)</span>
 </div></li>
 </ul>
 <div class="para">As we’ve said before, matrix multiplication depends on the order in which we multiply the matrices, and we see this clearly here.</div>
 </div>
-<div class="para" id="p-6177">Because <span class="process-math">\(Q^TQ=I\text{,}\)</span> there is a temptation to say that <span class="process-math">\(Q\)</span> is invertible.  This is usually not the case, however. Remember that an invertible matrix must be a square matrix, and the matrix <span class="process-math">\(Q\)</span> will only be square if <span class="process-math">\(n=m\text{.}\)</span>  In this case, there are <span class="process-math">\(m\)</span> vectors in the orthonormal set so the subspace <span class="process-math">\(W\)</span> spanned by the vectors <span class="process-math">\(\uvec_1,\uvec_2,\ldots,\uvec_m\)</span> is <span class="process-math">\(\real^m\text{.}\)</span>  If <span class="process-math">\(\bvec\)</span> is a vector in <span class="process-math">\(\real^m\text{,}\)</span> then <span class="process-math">\(\bhat=QQ^T\bvec\)</span> is the orthogonal projection of <span class="process-math">\(\bvec\)</span> onto <span class="process-math">\(\real^m\text{.}\)</span>  In other words, <span class="process-math">\(QQ^T\bvec\)</span> is the closest vector in <span class="process-math">\(\real^m\)</span> to <span class="process-math">\(\bvec\text{,}\)</span> and this closest vector must be <span class="process-math">\(\bvec\)</span> itself.  Therefore, <span class="process-math">\(QQ^T\bvec = \bvec\text{,}\)</span> which means that <span class="process-math">\(QQ^T=I\text{.}\)</span>  In this case, <span class="process-math">\(Q\)</span> is an invertible matrix.</div>
+<div class="para" id="p-6186">Because <span class="process-math">\(Q^TQ=I\text{,}\)</span> there is a temptation to say that <span class="process-math">\(Q\)</span> is invertible.  This is usually not the case, however. Remember that an invertible matrix must be a square matrix, and the matrix <span class="process-math">\(Q\)</span> will only be square if <span class="process-math">\(n=m\text{.}\)</span>  In this case, there are <span class="process-math">\(m\)</span> vectors in the orthonormal set so the subspace <span class="process-math">\(W\)</span> spanned by the vectors <span class="process-math">\(\uvec_1,\uvec_2,\ldots,\uvec_m\)</span> is <span class="process-math">\(\real^m\text{.}\)</span>  If <span class="process-math">\(\bvec\)</span> is a vector in <span class="process-math">\(\real^m\text{,}\)</span> then <span class="process-math">\(\bhat=QQ^T\bvec\)</span> is the orthogonal projection of <span class="process-math">\(\bvec\)</span> onto <span class="process-math">\(\real^m\text{.}\)</span>  In other words, <span class="process-math">\(QQ^T\bvec\)</span> is the closest vector in <span class="process-math">\(\real^m\)</span> to <span class="process-math">\(\bvec\text{,}\)</span> and this closest vector must be <span class="process-math">\(\bvec\)</span> itself.  Therefore, <span class="process-math">\(QQ^T\bvec = \bvec\text{,}\)</span> which means that <span class="process-math">\(QQ^T=I\text{.}\)</span>  In this case, <span class="process-math">\(Q\)</span> is an invertible matrix.</div>
 <article class="example example-like" id="example-64"><h4 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">6.3.20</span><span class="period">.</span>
 </h4>
-<div class="para logical" id="p-6178">
+<div class="para logical" id="p-6187">
 <div class="para">Consider the orthonormal set of vectors</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -1298,7 +1300,7 @@ Q = \begin{bmatrix}
 </div></article><article class="example example-like" id="example-65"><h4 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">6.3.21</span><span class="period">.</span>
 </h4>
-<div class="para logical" id="p-6179">
+<div class="para logical" id="p-6188">
 <div class="para">Now consider the orthonormal set of vectors</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -1320,21 +1322,21 @@ Q = \begin{bmatrix}
 \end{equation*}
 </div>
 <div class="para">Here, <span class="process-math">\(\uvec_1\text{,}\)</span> <span class="process-math">\(\uvec_2\text{,}\)</span> and <span class="process-math">\(\uvec_3\)</span> form a basis for <span class="process-math">\(\real^3\)</span> so that both <span class="process-math">\(Q^TQ=I_3\)</span> and <span class="process-math">\(QQ^T=I_3\text{.}\)</span>  Therefore, <span class="process-math">\(Q\)</span> is a square matrix and is invertible.</div>
-</div> <div class="para" id="p-6180">Moreover, since <span class="process-math">\(Q^TQ = I\text{,}\)</span> we see that <span class="process-math">\(Q^{-1} =
+</div> <div class="para" id="p-6189">Moreover, since <span class="process-math">\(Q^TQ = I\text{,}\)</span> we see that <span class="process-math">\(Q^{-1} =
 Q^T\)</span> so finding the inverse of <span class="process-math">\(Q\)</span> is as simple as writing its transpose.  Matrices with this property are very special and will play an important role in our upcoming work.  We will therefore give them a special name.</div></article><article class="definition definition-like" id="definition-33"><h4 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">6.3.22</span><span class="period">.</span>
-</h4> <div class="para" id="p-6181">A square <span class="process-math">\(m\times m\)</span> matrix <span class="process-math">\(Q\)</span> whose columns form an orthonormal basis for <span class="process-math">\(\real^m\)</span> is called <em class="emphasis">orthogonal</em>.</div></article><div class="para" id="p-6182">This terminology can be a little confusing.  We call a basis orthogonal if the basis vectors are orthogonal to one another. However, a matrix is orthogonal if the columns are orthogonal to one another and have unit length.  It pays to keep this in mind when reading statements about orthogonal bases and orthogonal matrices.  In the meantime, we record the following proposition.</div>
+</h4> <div class="para" id="p-6190">A square <span class="process-math">\(m\times m\)</span> matrix <span class="process-math">\(Q\)</span> whose columns form an orthonormal basis for <span class="process-math">\(\real^m\)</span> is called <em class="emphasis">orthogonal</em>.</div></article><div class="para" id="p-6191">This terminology can be a little confusing.  We call a basis orthogonal if the basis vectors are orthogonal to one another. However, a matrix is orthogonal if the columns are orthogonal to one another and have unit length.  It pays to keep this in mind when reading statements about orthogonal bases and orthogonal matrices.  In the meantime, we record the following proposition.</div>
 <article class="proposition theorem-like" id="prop-orthog-matrix"><h4 class="heading">
 <span class="type">Proposition</span><span class="space"> </span><span class="codenumber">6.3.23</span><span class="period">.</span>
 </h4>
-<div class="para" id="p-6183">An orthogonal matrix <span class="process-math">\(Q\)</span> is invertible and its inverse <span class="process-math">\(Q^{-1} = Q^T\text{.}\)</span>
+<div class="para" id="p-6192">An orthogonal matrix <span class="process-math">\(Q\)</span> is invertible and its inverse <span class="process-math">\(Q^{-1} = Q^T\text{.}\)</span>
 </div></article></section><section class="subsection" id="subsection-91"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber">6.3.3</span> <span class="title">Summary</span>
 </h3>
-<div class="para logical" id="p-6184">
+<div class="para logical" id="p-6193">
 <div class="para">This section introduced orthogonal sets and the projection formula that allows us to project vectors orthogonally onto a subspace.</div>
 <ul class="disc">
-<li id="li-4245"><div class="para logical" id="p-6185">
+<li id="li-4245"><div class="para logical" id="p-6194">
 <div class="para">Given an orthogonal set <span class="process-math">\(\wvec_1,\wvec_2,\ldots,\wvec_n\)</span> that spans an <span class="process-math">\(n\)</span>-dimensional subspace <span class="process-math">\(W\)</span> of <span class="process-math">\(\real^m\text{,}\)</span> the orthogonal projection of <span class="process-math">\(\bvec\)</span> onto <span class="process-math">\(W\)</span> is the vector in <span class="process-math">\(W\)</span> closest to <span class="process-math">\(\bvec\)</span> and may be written as</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -1346,18 +1348,18 @@ Q^T\)</span> so finding the inverse of <span class="process-math">\(Q\)</span> i
 \end{equation*}
 </div>
 </div></li>
-<li id="li-4246"><div class="para" id="p-6186">If <span class="process-math">\(\uvec_1,\uvec_2,\ldots,\uvec_n\)</span> is an orthonormal basis of <span class="process-math">\(W\)</span> and <span class="process-math">\(Q\)</span> is the matrix whose columns are <span class="process-math">\(\uvec_i\text{,}\)</span> then the matrix <span class="process-math">\(P=QQ^T\)</span> projects vectors orthogonally onto <span class="process-math">\(W\text{.}\)</span>
+<li id="li-4246"><div class="para" id="p-6195">If <span class="process-math">\(\uvec_1,\uvec_2,\ldots,\uvec_n\)</span> is an orthonormal basis of <span class="process-math">\(W\)</span> and <span class="process-math">\(Q\)</span> is the matrix whose columns are <span class="process-math">\(\uvec_i\text{,}\)</span> then the matrix <span class="process-math">\(P=QQ^T\)</span> projects vectors orthogonally onto <span class="process-math">\(W\text{.}\)</span>
 </div></li>
-<li id="li-4247"><div class="para" id="p-6187">If the columns of <span class="process-math">\(Q\)</span> form an orthonormal basis for an <span class="process-math">\(n\)</span>-dimensional subspace of <span class="process-math">\(\real^m\text{,}\)</span> then <span class="process-math">\(Q^TQ=I_n\text{.}\)</span>
+<li id="li-4247"><div class="para" id="p-6196">If the columns of <span class="process-math">\(Q\)</span> form an orthonormal basis for an <span class="process-math">\(n\)</span>-dimensional subspace of <span class="process-math">\(\real^m\text{,}\)</span> then <span class="process-math">\(Q^TQ=I_n\text{.}\)</span>
 </div></li>
-<li id="li-4248"><div class="para" id="p-6188">An orthogonal matrix <span class="process-math">\(Q\)</span> is a square matrix whose columns form an orthonormal basis.  In this case, <span class="process-math">\(QQ^T=Q^TQ = I\)</span> so that <span class="process-math">\(Q^{-1} = Q^T\text{.}\)</span>
+<li id="li-4248"><div class="para" id="p-6197">An orthogonal matrix <span class="process-math">\(Q\)</span> is a square matrix whose columns form an orthonormal basis.  In this case, <span class="process-math">\(QQ^T=Q^TQ = I\)</span> so that <span class="process-math">\(Q^{-1} = Q^T\text{.}\)</span>
 </div></li>
 </ul>
 </div></section><section class="exercises" id="exercises-24"><h3 class="heading hide-type">
 <span class="type">Exercises</span> <span class="codenumber">6.3.4</span> <span class="title">Exercises</span>
 </h3>
 <article class="exercise exercise-like" id="exercise-219"><h4 class="heading"><span class="codenumber">1<span class="period">.</span></span></h4>
-<div class="para logical" id="p-6189">
+<div class="para logical" id="p-6198">
 <div class="para">Suppose that</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/prop-proj-formula.html">
 \begin{equation*}
@@ -1366,19 +1368,19 @@ Q^T\)</span> so finding the inverse of <span class="process-math">\(Q\)</span> i
 \end{equation*}
 </div>
 <ol class="lower-alpha">
-<li id="li-4249"><div class="para" id="p-6190">Verify that <span class="process-math">\(\wvec_1\)</span> and <span class="process-math">\(\wvec_2\)</span> form an orthogonal basis for a plane <span class="process-math">\(W\)</span> in <span class="process-math">\(\real^3\text{.}\)</span>
+<li id="li-4249"><div class="para" id="p-6199">Verify that <span class="process-math">\(\wvec_1\)</span> and <span class="process-math">\(\wvec_2\)</span> form an orthogonal basis for a plane <span class="process-math">\(W\)</span> in <span class="process-math">\(\real^3\text{.}\)</span>
 </div></li>
-<li id="li-4250"><div class="para" id="p-6191">Use <a href="" class="xref" data-knowl="./knowl/prop-proj-formula.html" title="Proposition 6.3.15: Projection formula">Proposition 6.3.15</a> to find <span class="process-math">\(\bhat\text{,}\)</span> the orthogonal projection of <span class="process-math">\(\bvec=\threevec21{-1}\)</span> onto <span class="process-math">\(W\text{.}\)</span>
+<li id="li-4250"><div class="para" id="p-6200">Use <a href="" class="xref" data-knowl="./knowl/prop-proj-formula.html" title="Proposition 6.3.15: Projection formula">Proposition 6.3.15</a> to find <span class="process-math">\(\bhat\text{,}\)</span> the orthogonal projection of <span class="process-math">\(\bvec=\threevec21{-1}\)</span> onto <span class="process-math">\(W\text{.}\)</span>
 </div></li>
-<li id="li-4251"><div class="para" id="p-6192">Find an orthonormal basis <span class="process-math">\(\uvec_1\text{,}\)</span> <span class="process-math">\(\uvec_2\)</span> for <span class="process-math">\(W\text{.}\)</span>
+<li id="li-4251"><div class="para" id="p-6201">Find an orthonormal basis <span class="process-math">\(\uvec_1\text{,}\)</span> <span class="process-math">\(\uvec_2\)</span> for <span class="process-math">\(W\text{.}\)</span>
 </div></li>
-<li id="li-4252"><div class="para" id="p-6193">Find the matrix <span class="process-math">\(P\)</span> representing the matrix transformation that projects vectors in <span class="process-math">\(\real^3\)</span> orthogonally onto <span class="process-math">\(W\text{.}\)</span>  Verify that <span class="process-math">\(\bhat =
+<li id="li-4252"><div class="para" id="p-6202">Find the matrix <span class="process-math">\(P\)</span> representing the matrix transformation that projects vectors in <span class="process-math">\(\real^3\)</span> orthogonally onto <span class="process-math">\(W\text{.}\)</span>  Verify that <span class="process-math">\(\bhat =
 P\bvec\text{.}\)</span>
 </div></li>
-<li id="li-4253"><div class="para" id="p-6194">Determine <span class="process-math">\(\rank(P)\)</span> and explain its geometric significance.</div></li>
+<li id="li-4253"><div class="para" id="p-6203">Determine <span class="process-math">\(\rank(P)\)</span> and explain its geometric significance.</div></li>
 </ol>
 </div></article><article class="exercise exercise-like" id="exercise-220"><h4 class="heading"><span class="codenumber">2<span class="period">.</span></span></h4>
-<div class="para logical" id="p-6207">
+<div class="para logical" id="p-6216">
 <div class="para">Consider the vectors</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -1388,20 +1390,20 @@ P\bvec\text{.}\)</span>
 \end{equation*}
 </div>
 <ol class="lower-alpha">
-<li id="li-4264"><div class="para" id="p-6208">Explain why these vectors form an orthogonal basis for <span class="process-math">\(\real^3\text{.}\)</span>
+<li id="li-4264"><div class="para" id="p-6217">Explain why these vectors form an orthogonal basis for <span class="process-math">\(\real^3\text{.}\)</span>
 </div></li>
-<li id="li-4265"><div class="para" id="p-6209">Suppose that <span class="process-math">\(A=\begin{bmatrix} \wvec_1 \amp \wvec_2 \amp \wvec_3
+<li id="li-4265"><div class="para" id="p-6218">Suppose that <span class="process-math">\(A=\begin{bmatrix} \wvec_1 \amp \wvec_2 \amp \wvec_3
 \end{bmatrix}\)</span> and evaluate the product <span class="process-math">\(A^TA\text{.}\)</span> Why is this product a diagonal matrix and what is the significance of the diagonal entries?</div></li>
-<li id="li-4266"><div class="para" id="p-6210">Express the vector <span class="process-math">\(\bvec=\threevec{-3}{-6}3\)</span> as a linear combination of <span class="process-math">\(\wvec_1\text{,}\)</span> <span class="process-math">\(\wvec_2\text{,}\)</span> and <span class="process-math">\(\wvec_3\text{.}\)</span>
+<li id="li-4266"><div class="para" id="p-6219">Express the vector <span class="process-math">\(\bvec=\threevec{-3}{-6}3\)</span> as a linear combination of <span class="process-math">\(\wvec_1\text{,}\)</span> <span class="process-math">\(\wvec_2\text{,}\)</span> and <span class="process-math">\(\wvec_3\text{.}\)</span>
 </div></li>
-<li id="li-4267"><div class="para" id="p-6211">Multiply the vectors <span class="process-math">\(\wvec_1\text{,}\)</span> <span class="process-math">\(\wvec_2\text{,}\)</span> <span class="process-math">\(\wvec_3\)</span> by appropriate scalars to find an orthonormal basis <span class="process-math">\(\uvec_1\text{,}\)</span> <span class="process-math">\(\uvec_2\text{,}\)</span> <span class="process-math">\(\uvec_3\)</span> of <span class="process-math">\(\real^3\text{.}\)</span>
+<li id="li-4267"><div class="para" id="p-6220">Multiply the vectors <span class="process-math">\(\wvec_1\text{,}\)</span> <span class="process-math">\(\wvec_2\text{,}\)</span> <span class="process-math">\(\wvec_3\)</span> by appropriate scalars to find an orthonormal basis <span class="process-math">\(\uvec_1\text{,}\)</span> <span class="process-math">\(\uvec_2\text{,}\)</span> <span class="process-math">\(\uvec_3\)</span> of <span class="process-math">\(\real^3\text{.}\)</span>
 </div></li>
-<li id="li-4268"><div class="para" id="p-6212">If <span class="process-math">\(Q=\begin{bmatrix} \uvec_1 \amp \uvec_2 \amp
+<li id="li-4268"><div class="para" id="p-6221">If <span class="process-math">\(Q=\begin{bmatrix} \uvec_1 \amp \uvec_2 \amp
 \uvec_3
 \end{bmatrix}\text{,}\)</span> find the matrix product <span class="process-math">\(QQ^T\)</span> and explain the result.</div></li>
 </ol>
 </div></article><article class="exercise exercise-like" id="exercise-221"><h4 class="heading"><span class="codenumber">3<span class="period">.</span></span></h4>
-<div class="para logical" id="p-6225">
+<div class="para logical" id="p-6234">
 <div class="para">Suppose that</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -1412,14 +1414,14 @@ P\bvec\text{.}\)</span>
 <div class="para">form an orthogonal basis for a subspace <span class="process-math">\(W\)</span> of <span class="process-math">\(\real^4\text{.}\)</span>
 </div>
 <ol class="lower-alpha">
-<li id="li-4279"><div class="para" id="p-6226">Find <span class="process-math">\(\bhat\text{,}\)</span> the orthogonal projection of <span class="process-math">\(\bvec=\fourvec{2}{-1}{-6}{7}\)</span> onto <span class="process-math">\(W\text{.}\)</span>
+<li id="li-4279"><div class="para" id="p-6235">Find <span class="process-math">\(\bhat\text{,}\)</span> the orthogonal projection of <span class="process-math">\(\bvec=\fourvec{2}{-1}{-6}{7}\)</span> onto <span class="process-math">\(W\text{.}\)</span>
 </div></li>
-<li id="li-4280"><div class="para" id="p-6227">Find the vector <span class="process-math">\(\bvec^\perp\)</span> in <span class="process-math">\(W^\perp\)</span> such that <span class="process-math">\(\bvec = \bhat + \bvec^\perp\text{.}\)</span>
+<li id="li-4280"><div class="para" id="p-6236">Find the vector <span class="process-math">\(\bvec^\perp\)</span> in <span class="process-math">\(W^\perp\)</span> such that <span class="process-math">\(\bvec = \bhat + \bvec^\perp\text{.}\)</span>
 </div></li>
-<li id="li-4281"><div class="para" id="p-6228">Find a basis for <span class="process-math">\(W^\perp\text{.}\)</span> and express <span class="process-math">\(\bvec^\perp\)</span> as a linear combination of the basis vectors.</div></li>
+<li id="li-4281"><div class="para" id="p-6237">Find a basis for <span class="process-math">\(W^\perp\text{.}\)</span> and express <span class="process-math">\(\bvec^\perp\)</span> as a linear combination of the basis vectors.</div></li>
 </ol>
 </div></article><article class="exercise exercise-like" id="exercise-222"><h4 class="heading"><span class="codenumber">4<span class="period">.</span></span></h4>
-<div class="para logical" id="p-6237">
+<div class="para logical" id="p-6246">
 <div class="para">Consider the vectors</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -1429,26 +1431,26 @@ P\bvec\text{.}\)</span>
 \end{equation*}
 </div>
 <ol class="lower-alpha">
-<li id="li-4288"><div class="para" id="p-6238">If <span class="process-math">\(L\)</span> is the line defined by the vector <span class="process-math">\(\wvec_1\text{,}\)</span> find the vector in <span class="process-math">\(L\)</span> closest to <span class="process-math">\(\bvec\text{.}\)</span>  Call this vector <span class="process-math">\(\bhat_1\text{.}\)</span>
+<li id="li-4288"><div class="para" id="p-6247">If <span class="process-math">\(L\)</span> is the line defined by the vector <span class="process-math">\(\wvec_1\text{,}\)</span> find the vector in <span class="process-math">\(L\)</span> closest to <span class="process-math">\(\bvec\text{.}\)</span>  Call this vector <span class="process-math">\(\bhat_1\text{.}\)</span>
 </div></li>
-<li id="li-4289"><div class="para" id="p-6239">If <span class="process-math">\(W\)</span> is the subspace spanned by <span class="process-math">\(\wvec_1\)</span> and <span class="process-math">\(\wvec_2\text{,}\)</span> find the vector in <span class="process-math">\(W\)</span> closest to <span class="process-math">\(\bvec\text{.}\)</span>  Call this vector <span class="process-math">\(\bhat_2\text{.}\)</span>
+<li id="li-4289"><div class="para" id="p-6248">If <span class="process-math">\(W\)</span> is the subspace spanned by <span class="process-math">\(\wvec_1\)</span> and <span class="process-math">\(\wvec_2\text{,}\)</span> find the vector in <span class="process-math">\(W\)</span> closest to <span class="process-math">\(\bvec\text{.}\)</span>  Call this vector <span class="process-math">\(\bhat_2\text{.}\)</span>
 </div></li>
-<li id="li-4290"><div class="para" id="p-6240">Determine whether <span class="process-math">\(\bhat_1\)</span> or <span class="process-math">\(\bhat_2\)</span> is closer to <span class="process-math">\(\bvec\)</span> and explain why.</div></li>
+<li id="li-4290"><div class="para" id="p-6249">Determine whether <span class="process-math">\(\bhat_1\)</span> or <span class="process-math">\(\bhat_2\)</span> is closer to <span class="process-math">\(\bvec\)</span> and explain why.</div></li>
 </ol>
 </div></article><article class="exercise exercise-like" id="exercise-223"><h4 class="heading"><span class="codenumber">5<span class="period">.</span></span></h4>
-<div class="para logical" id="p-6249">
+<div class="para logical" id="p-6258">
 <div class="para">Suppose that <span class="process-math">\(\wvec=\threevec2{-1}2\)</span> defines a line <span class="process-math">\(L\)</span> in <span class="process-math">\(\real^3\text{.}\)</span>
 </div>
 <ol class="lower-alpha">
-<li id="li-4297"><div class="para" id="p-6250">Find the orthogonal projections of the vectors <span class="process-math">\(\threevec100\text{,}\)</span> <span class="process-math">\(\threevec010\text{,}\)</span> <span class="process-math">\(\threevec001\)</span> onto <span class="process-math">\(L\text{.}\)</span>
+<li id="li-4297"><div class="para" id="p-6259">Find the orthogonal projections of the vectors <span class="process-math">\(\threevec100\text{,}\)</span> <span class="process-math">\(\threevec010\text{,}\)</span> <span class="process-math">\(\threevec001\)</span> onto <span class="process-math">\(L\text{.}\)</span>
 </div></li>
-<li id="li-4298"><div class="para" id="p-6251">Find the matrix <span class="process-math">\(P = \frac{1}{\len{\wvec}^2} \wvec
+<li id="li-4298"><div class="para" id="p-6260">Find the matrix <span class="process-math">\(P = \frac{1}{\len{\wvec}^2} \wvec
 \wvec^T\text{.}\)</span>
 </div></li>
-<li id="li-4299"><div class="para" id="p-6252">Use <a href="" class="xref" data-knowl="./knowl/prop-linear-trans-columns.html" title="Proposition 2.5.6">Proposition 2.5.6</a> to explain why the columns of <span class="process-math">\(P\)</span> are related to the orthogonal projections you found in the first part of this exericse.</div></li>
+<li id="li-4299"><div class="para" id="p-6261">Use <a href="" class="xref" data-knowl="./knowl/prop-linear-trans-columns.html" title="Proposition 2.5.6">Proposition 2.5.6</a> to explain why the columns of <span class="process-math">\(P\)</span> are related to the orthogonal projections you found in the first part of this exericse.</div></li>
 </ol>
 </div></article><article class="exercise exercise-like" id="exercise-224"><h4 class="heading"><span class="codenumber">6<span class="period">.</span></span></h4>
-<div class="para logical" id="p-6261">
+<div class="para logical" id="p-6270">
 <div class="para">Suppose that</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -1459,33 +1461,33 @@ P\bvec\text{.}\)</span>
 <div class="para">form the basis for a plane <span class="process-math">\(W\)</span> in <span class="process-math">\(\real^3\text{.}\)</span>
 </div>
 <ol class="lower-alpha">
-<li id="li-4306"><div class="para" id="p-6262">Find a basis for the line that is the orthogonal complement <span class="process-math">\(W^\perp\text{.}\)</span>
+<li id="li-4306"><div class="para" id="p-6271">Find a basis for the line that is the orthogonal complement <span class="process-math">\(W^\perp\text{.}\)</span>
 </div></li>
-<li id="li-4307"><div class="para" id="p-6263">Given the vector <span class="process-math">\(\bvec=\threevec6{-6}2\text{,}\)</span> find <span class="process-math">\(\yvec\text{,}\)</span> the orthogonal projection of <span class="process-math">\(\bvec\)</span> onto the line <span class="process-math">\(W^\perp\text{.}\)</span>
+<li id="li-4307"><div class="para" id="p-6272">Given the vector <span class="process-math">\(\bvec=\threevec6{-6}2\text{,}\)</span> find <span class="process-math">\(\yvec\text{,}\)</span> the orthogonal projection of <span class="process-math">\(\bvec\)</span> onto the line <span class="process-math">\(W^\perp\text{.}\)</span>
 </div></li>
-<li id="li-4308"><div class="para" id="p-6264">Explain why the vector <span class="process-math">\(\zvec = \bvec-\yvec\)</span> must be in <span class="process-math">\(W\)</span> and write <span class="process-math">\(\zvec\)</span> as a linear combination of <span class="process-math">\(\vvec_1\)</span> and <span class="process-math">\(\vvec_2\text{.}\)</span>
+<li id="li-4308"><div class="para" id="p-6273">Explain why the vector <span class="process-math">\(\zvec = \bvec-\yvec\)</span> must be in <span class="process-math">\(W\)</span> and write <span class="process-math">\(\zvec\)</span> as a linear combination of <span class="process-math">\(\vvec_1\)</span> and <span class="process-math">\(\vvec_2\text{.}\)</span>
 </div></li>
 </ol>
 </div></article><article class="exercise exercise-like" id="exercise-225"><h4 class="heading"><span class="codenumber">7<span class="period">.</span></span></h4>
-<div class="para logical" id="p-6273">
+<div class="para logical" id="p-6282">
 <div class="para">Determine whether the following statements are true or false and explain your thinking.</div>
 <ol class="lower-alpha">
-<li id="li-4315"><div class="para" id="p-6274">If the columns of <span class="process-math">\(Q\)</span> form an orthonormal basis for a subspace <span class="process-math">\(W\)</span> and <span class="process-math">\(\wvec\)</span> is a vector in <span class="process-math">\(W\text{,}\)</span> then <span class="process-math">\(QQ^T\wvec = \wvec\text{.}\)</span>
+<li id="li-4315"><div class="para" id="p-6283">If the columns of <span class="process-math">\(Q\)</span> form an orthonormal basis for a subspace <span class="process-math">\(W\)</span> and <span class="process-math">\(\wvec\)</span> is a vector in <span class="process-math">\(W\text{,}\)</span> then <span class="process-math">\(QQ^T\wvec = \wvec\text{.}\)</span>
 </div></li>
-<li id="li-4316"><div class="para" id="p-6275">An orthogonal set of vectors in <span class="process-math">\(\real^8\)</span> can have no more than 8 vectors.</div></li>
-<li id="li-4317"><div class="para" id="p-6276">If <span class="process-math">\(Q\)</span> is a <span class="process-math">\(7\times5\)</span> matrix whose columns are orthonormal, then <span class="process-math">\(QQ^T = I_7\text{.}\)</span>
+<li id="li-4316"><div class="para" id="p-6284">An orthogonal set of vectors in <span class="process-math">\(\real^8\)</span> can have no more than 8 vectors.</div></li>
+<li id="li-4317"><div class="para" id="p-6285">If <span class="process-math">\(Q\)</span> is a <span class="process-math">\(7\times5\)</span> matrix whose columns are orthonormal, then <span class="process-math">\(QQ^T = I_7\text{.}\)</span>
 </div></li>
-<li id="li-4318"><div class="para" id="p-6277">If <span class="process-math">\(Q\)</span> is a <span class="process-math">\(7\times5\)</span> matrix whose columns are orthonormal, then <span class="process-math">\(Q^TQ = I_5\text{.}\)</span>
+<li id="li-4318"><div class="para" id="p-6286">If <span class="process-math">\(Q\)</span> is a <span class="process-math">\(7\times5\)</span> matrix whose columns are orthonormal, then <span class="process-math">\(Q^TQ = I_5\text{.}\)</span>
 </div></li>
-<li id="li-4319"><div class="para" id="p-6278">If the orthogonal projection of <span class="process-math">\(\bvec\)</span> onto a subspace <span class="process-math">\(W\)</span> satisfies <span class="process-math">\(\bhat =
+<li id="li-4319"><div class="para" id="p-6287">If the orthogonal projection of <span class="process-math">\(\bvec\)</span> onto a subspace <span class="process-math">\(W\)</span> satisfies <span class="process-math">\(\bhat =
 \zerovec\text{,}\)</span> then <span class="process-math">\(\bvec\)</span> is in <span class="process-math">\(W^\perp\text{.}\)</span>
 </div></li>
 </ol>
 </div></article><article class="exercise exercise-like" id="exercise-226"><h4 class="heading"><span class="codenumber">8<span class="period">.</span></span></h4>
-<div class="para logical" id="p-6290">
+<div class="para logical" id="p-6299">
 <div class="para">Suppose that <span class="process-math">\(Q\)</span> is an orthogonal matrix.</div>
 <ol class="lower-alpha">
-<li id="li-4330"><div class="para logical" id="p-6291">
+<li id="li-4330"><div class="para logical" id="p-6300">
 <div class="para">Remembering that <span class="process-math">\(\vvec\cdot\wvec=\vvec^T\wvec\text{,}\)</span> explain why</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -1494,39 +1496,39 @@ Q\xvec\cdot(Q\yvec) = \xvec\cdot\yvec.
 </div>
 </div></li>
 <li id="li-4331">
-<div class="para" id="p-6292">Explain why <span class="process-math">\(\len{Q\xvec} = \len{\xvec}\text{.}\)</span>
+<div class="para" id="p-6301">Explain why <span class="process-math">\(\len{Q\xvec} = \len{\xvec}\text{.}\)</span>
 </div>
-<div class="para" id="p-6293">This means that the length of a vector is unchanged after multiplying by an orthogonal matrix.</div>
+<div class="para" id="p-6302">This means that the length of a vector is unchanged after multiplying by an orthogonal matrix.</div>
 </li>
-<li id="li-4332"><div class="para" id="p-6294">If <span class="process-math">\(\lambda\)</span> is a real eigenvalue of <span class="process-math">\(Q\text{,}\)</span> explain why <span class="process-math">\(\lambda=\pm1\text{.}\)</span>
+<li id="li-4332"><div class="para" id="p-6303">If <span class="process-math">\(\lambda\)</span> is a real eigenvalue of <span class="process-math">\(Q\text{,}\)</span> explain why <span class="process-math">\(\lambda=\pm1\text{.}\)</span>
 </div></li>
 </ol>
 </div></article><article class="exercise exercise-like" id="exercise-227"><h4 class="heading"><span class="codenumber">9<span class="period">.</span></span></h4>
-<div class="para logical" id="p-6303">
+<div class="para logical" id="p-6312">
 <div class="para">Explain why the following statements are true.</div>
 <ol class="lower-alpha">
-<li id="li-4339"><div class="para" id="p-6304">If <span class="process-math">\(Q\)</span> is an orthogonal matrix, then <span class="process-math">\(\det Q =
+<li id="li-4339"><div class="para" id="p-6313">If <span class="process-math">\(Q\)</span> is an orthogonal matrix, then <span class="process-math">\(\det Q =
 \pm 1\text{.}\)</span>
 </div></li>
-<li id="li-4340"><div class="para" id="p-6305">If <span class="process-math">\(Q\)</span> is a <span class="process-math">\(8\times 4\)</span> matrix whose columns are orthonormal, then <span class="process-math">\(QQ^T\)</span> is an <span class="process-math">\(8\times8\)</span> matrix whose rank is 4.</div></li>
-<li id="li-4341"><div class="para" id="p-6306">If <span class="process-math">\(\bhat\)</span> is the orthogonal projection of <span class="process-math">\(\bvec\)</span> onto a subspace <span class="process-math">\(W\text{,}\)</span> then <span class="process-math">\(\bvec-\bhat\)</span> is the orthogonal projection of <span class="process-math">\(\bvec\)</span> onto <span class="process-math">\(W^\perp\text{.}\)</span>
+<li id="li-4340"><div class="para" id="p-6314">If <span class="process-math">\(Q\)</span> is a <span class="process-math">\(8\times 4\)</span> matrix whose columns are orthonormal, then <span class="process-math">\(QQ^T\)</span> is an <span class="process-math">\(8\times8\)</span> matrix whose rank is 4.</div></li>
+<li id="li-4341"><div class="para" id="p-6315">If <span class="process-math">\(\bhat\)</span> is the orthogonal projection of <span class="process-math">\(\bvec\)</span> onto a subspace <span class="process-math">\(W\text{,}\)</span> then <span class="process-math">\(\bvec-\bhat\)</span> is the orthogonal projection of <span class="process-math">\(\bvec\)</span> onto <span class="process-math">\(W^\perp\text{.}\)</span>
 </div></li>
 </ol>
 </div></article><article class="exercise exercise-like" id="exercise-228"><h4 class="heading"><span class="codenumber">10<span class="period">.</span></span></h4>
-<div class="para logical" id="p-6315">
+<div class="para logical" id="p-6324">
 <div class="para">This exercise is about <span class="process-math">\(2\times2\)</span> orthogonal matrices.</div>
 <ol class="lower-alpha">
-<li id="li-4348"><div class="para" id="p-6316">In <a href="sec-transforms-geom.html" class="internal" title="Section 2.6: The geometry of matrix transformations">Section 2.6</a>, we saw that the matrix <span class="process-math">\(\begin{bmatrix}
+<li id="li-4348"><div class="para" id="p-6325">In <a href="sec-transforms-geom.html" class="internal" title="Section 2.6: The geometry of matrix transformations">Section 2.6</a>, we saw that the matrix <span class="process-math">\(\begin{bmatrix}
 \cos\theta \amp -\sin\theta \\
 \sin\theta \amp \cos\theta
 \end{bmatrix}\)</span> represents a rotation by an angle <span class="process-math">\(\theta\text{.}\)</span> Explain why this matrix is an orthogonal matrix.</div></li>
-<li id="li-4349"><div class="para" id="p-6317">We also saw that the matrix <span class="process-math">\(\begin{bmatrix}
+<li id="li-4349"><div class="para" id="p-6326">We also saw that the matrix <span class="process-math">\(\begin{bmatrix}
 \cos\theta \amp \sin\theta \\
 \sin\theta \amp -\cos\theta
 \end{bmatrix}\)</span> represents a reflection in a line. Explain why this matrix is an orthogonal matrix.</div></li>
-<li id="li-4350"><div class="para" id="p-6318">Suppose that <span class="process-math">\(\uvec_1=\twovec{\cos\theta}{\sin\theta}\)</span> is a 2-dimensional unit vector.  Use a sketch to indicate all the possible vectors <span class="process-math">\(\uvec_2\)</span> such that <span class="process-math">\(\uvec_1\)</span> and <span class="process-math">\(\uvec_2\)</span> form an orthonormal basis of <span class="process-math">\(\real^2\text{.}\)</span>
+<li id="li-4350"><div class="para" id="p-6327">Suppose that <span class="process-math">\(\uvec_1=\twovec{\cos\theta}{\sin\theta}\)</span> is a 2-dimensional unit vector.  Use a sketch to indicate all the possible vectors <span class="process-math">\(\uvec_2\)</span> such that <span class="process-math">\(\uvec_1\)</span> and <span class="process-math">\(\uvec_2\)</span> form an orthonormal basis of <span class="process-math">\(\real^2\text{.}\)</span>
 </div></li>
-<li id="li-4351"><div class="para" id="p-6319">Explain why every <span class="process-math">\(2\times2\)</span> orthogonal matrix is either a rotation or a reflection.</div></li>
+<li id="li-4351"><div class="para" id="p-6328">Explain why every <span class="process-math">\(2\times2\)</span> orthogonal matrix is either a rotation or a reflection.</div></li>
 </ol>
 </div></article></section></section></div>
 <div class="ptx-content-footer">

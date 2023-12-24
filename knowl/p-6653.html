@@ -9,105 +9,11 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="robots" content="noindex, nofollow">
-<script>// Make *any* pre with class 'sagecell-sage' an executable Sage cell
-// Their results will be linked, only within language type
-sagecell.makeSagecell({
-  "inputLocation": "pre.sagecell-sage",
-  "linked": true,
-  "languages": [
-    "sage"
-  ],
-  "evalButtonText": "Evaluate (Sage)"
-});
-</script>
 </head>
 <body class="ignore-math">
 <h5 class="heading"><span class="type">Paragraph</span></h5>
-<div class="para logical"><ol class="lower-alpha">
-<li><div class="para logical">
-<div class="para">Suppose we are interested in finding the least squares approximate solution to the equation <span class="process-math">\(A\xvec =
-\bvec\)</span> and that we have the <span class="process-math">\(QR\)</span> factorization <span class="process-math">\(A=QR\text{.}\)</span>  Explain why the least squares approximation solution is given by solving</div>
-<div class="displaymath process-math">
-\begin{align*}
-A\xhat \amp = QQ^T\bvec \\\\
-QR\xhat \amp = QQ^T\bvec \\
-\end{align*}
-</div>
-</div></li>
-<li>
-<div class="para logical">
-<div class="para">Multiply both sides of the second expression by <span class="process-math">\(Q^T\)</span> and explain why</div>
-<div class="displaymath process-math">
-\begin{equation*}
-R\xhat = Q^T\bvec.
-\end{equation*}
-</div>
-</div>
-<div class="para logical">
-<div class="para">Since <span class="process-math">\(R\)</span> is upper triangular, this is a relatively simple equation to solve using back substitution, as we saw in <a href="sec-gaussian-revisited.html" class="internal" title="Section 5.1: Gaussian elimination revisited">Section 5.1</a>.  We will therefore write the least squares approximate solution as</div>
-<div class="displaymath process-math" data-contains-math-knowls="./knowl/sec-gaussian-revisited.html">
-\begin{equation*}
-\xhat = R^{-1}Q^T\bvec,
-\end{equation*}
-</div>
-<div class="para">and put this to use in the following context.</div>
-</div>
-</li>
-<li>
-<div class="para logical">
-<div class="para">Brozak’s formula, which is used to calculate a person’s body fat index <span class="process-math">\(BFI\text{,}\)</span> is</div>
-<div class="displaymath process-math">
-\begin{equation*}
-BFI = 100 \left(\frac{4.57}{\rho} - 4.142\right)
-\end{equation*}
-</div>
-<div class="para">where <span class="process-math">\(\rho\)</span> denotes a person’s body density in grams per cubic centimeter.  Obtaining an accurate measure of <span class="process-math">\(\rho\)</span> is difficult, however, because it requires submerging the person in water and measuring the volume of water displaced.  Instead, we will gather several other body measurements, which are more easily obtained, and use it to predict <span class="process-math">\(BFI\text{.}\)</span>
-</div>
-</div>
-<div class="para logical">
-<div class="para">For instance, suppose we take 10 patients and measure their weight <span class="process-math">\(w\)</span> in pounds, height <span class="process-math">\(h\)</span> in inches, abdomen <span class="process-math">\(a\)</span> in centimeters, wrist circumference <span class="process-math">\(r\)</span> in centimeters, neck circumference <span class="process-math">\(n\)</span> in centimeters, and <span class="process-math">\(BFI\text{.}\)</span>  Evaluating the following cell loads and displays the data. <pre class="ptx-sagecell sagecell-sage" id="sage-183"><script type="text/x-sage">sage.repl.load.load('https://raw.githubusercontent.com/davidaustinm/ula_modules/master/orthogonality.py', globals())
-df = pd.read_csv('https://raw.githubusercontent.com/davidaustinm/ula_modules/master/data/bfi.csv')
-weight = vector(df['Weight'])
-height = vector(df['Height'])
-abdomen = vector(df['Abdomen'])
-wrist = vector(df['Wrist'])
-neck = vector(df['Neck'])
-BFI = vector(df['BFI'])
-print(df)
-</script></pre> In addition, that cell provides:</div>
-<ol class="lower-alpha">
-<li><div class="para">vectors <code class="code-inline tex2jax_ignore">weight</code>, <code class="code-inline tex2jax_ignore">height</code>, <code class="code-inline tex2jax_ignore">abdomen</code>, <code class="code-inline tex2jax_ignore">wrist</code>, <code class="code-inline tex2jax_ignore">neck</code>, and <code class="code-inline tex2jax_ignore">BFI</code> formed from the columns of the dataset.</div></li>
-<li><div class="para">the command <code class="code-inline tex2jax_ignore">onesvec(n)</code>, which returns an <span class="process-math">\(n\)</span>-dimensional vector whose entries are all one.</div></li>
-<li><div class="para">the command <code class="code-inline tex2jax_ignore">QR(A)</code> that returns the <span class="process-math">\(QR\)</span> factorization of <span class="process-math">\(A\)</span> as <code class="code-inline tex2jax_ignore">Q, R = QR(A)</code>.</div></li>
-<li><div class="para">the command <code class="code-inline tex2jax_ignore">demean(v)</code>, which returns the demeaned vector <span class="process-math">\(\widetilde{\vvec}\text{.}\)</span>
-</div></li>
-</ol>
-</div>
-<div class="para logical">
-<div class="para">We would like to find the linear function</div>
-<div class="displaymath process-math">
-\begin{equation*}
-\beta_0 + \beta_1w + \beta_2h + \beta_3a + \beta_4r +
-\beta_5n = BFI
-\end{equation*}
-</div>
-<div class="para">that best fits the data.</div>
-</div>
-<div class="para">Use the first data point to write an equation for the parameters <span class="process-math">\(\beta_0,\beta_1,\ldots,\beta_5\text{.}\)</span>
-</div>
-</li>
-<li><div class="para">Describe the linear system <span class="process-math">\(A\xvec = \bvec\)</span> for these parameters.  More specifically, describe how the matrix <span class="process-math">\(A\)</span> and the vector <span class="process-math">\(\bvec\)</span> are formed.</div></li>
-<li><div class="para">Construct the matrix <span class="process-math">\(A\)</span> and find its <span class="process-math">\(QR\)</span> factorization in the cell below. <pre class="ptx-sagecell sagecell-sage" id="sage-184"><script type="text/x-sage">
-</script></pre>
-</div></li>
-<li><div class="para">Find the least squares approximate solution <span class="process-math">\(\xhat\)</span> by solving the equation <span class="process-math">\(R\xhat =
-Q^T\bvec\text{.}\)</span>  You may want to use <code class="code-inline tex2jax_ignore">N(xhat)</code> to display a decimal approximation of the vector. What are the parameters <span class="process-math">\(\beta_0,\beta_1,\ldots,\beta_5\)</span> that best fit the data?</div></li>
-<li><div class="para">Find the coefficient of determination <span class="process-math">\(R^2\)</span> for your parameters.  What does this imply about the quality of the fit? <pre class="ptx-sagecell sagecell-sage" id="sage-185"><script type="text/x-sage">
-</script></pre>
-</div></li>
-<li><div class="para">Suppose a person’s measurements are: weight 190, height 70, abdomen 90, wrist 18, and neck 35.  Estimate this person’s <span class="process-math">\(BFI\text{.}\)</span>
-</div></li>
-</ol></div>
+<div class="para">
+<span class="process-math">\(97.9\)</span> degrees.</div>
 <span class="incontext"><a href="sec-least-squares.html#p-6653" class="internal">in-context</a></span>
 </body>
 </html>

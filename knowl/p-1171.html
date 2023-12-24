@@ -9,10 +9,75 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="robots" content="noindex, nofollow">
+<script>// Make *any* pre with class 'sagecell-sage' an executable Sage cell
+// Their results will be linked, only within language type
+sagecell.makeSagecell({
+  "inputLocation": "pre.sagecell-sage",
+  "linked": true,
+  "languages": [
+    "sage"
+  ],
+  "evalButtonText": "Evaluate (Sage)"
+});
+</script>
 </head>
 <body class="ignore-math">
 <h5 class="heading"><span class="type">Paragraph</span></h5>
-<div class="para"><span class="process-math">\(I\xvec = \xvec\text{.}\)</span></div>
+<div class="para logical">
+<div class="para">In this exercise, you will construct the <em class="emphasis">inverse</em> of a matrix, a subject that we will investigate more fully in the next chapter. Suppose that <span class="process-math">\(A\)</span> is the <span class="process-math">\(2\times2\)</span> matrix:</div>
+<div class="displaymath process-math">
+\begin{equation*}
+A = \left[\begin{array}{rr}
+3 \amp -2 \\
+-2 \amp 1 \\
+\end{array}\right]\text{.}
+\end{equation*}
+</div>
+<ol class="lower-alpha">
+<li><div class="para logical">
+<div class="para">Find the vectors <span class="process-math">\(\bvec_1\)</span> and <span class="process-math">\(\bvec_2\)</span> such that the matrix <span class="process-math">\(B=\left[\begin{array}{rr} \bvec_1 \amp \bvec_2
+\end{array}\right]\)</span> satisfies</div>
+<div class="displaymath process-math">
+\begin{equation*}
+AB = I =
+\left[\begin{array}{rr}
+1 \amp 0 \\
+0 \amp 1 \\
+\end{array}\right]\text{.}
+\end{equation*}
+</div>
+<div class="para"><pre class="ptx-sagecell sagecell-sage" id="sage-52"><script type="text/x-sage">
+</script></pre></div>
+</div></li>
+<li><div class="para">In general, it is not true that <span class="process-math">\(AB = BA\text{.}\)</span>  Check that it is true, however, for the specific <span class="process-math">\(A\)</span> and <span class="process-math">\(B\)</span> that appear in this problem. <pre class="ptx-sagecell sagecell-sage" id="sage-53"><script type="text/x-sage">
+</script></pre>
+</div></li>
+<li><div class="para">Suppose that <span class="process-math">\(\xvec = \twovec{x_1}{x_2}\text{.}\)</span>  What do you find when you evaluate <span class="process-math">\(I\xvec\text{?}\)</span>
+</div></li>
+<li>
+<div class="para logical">
+<div class="para">Suppose that we want to solve the equation <span class="process-math">\(A\xvec =
+\bvec\text{.}\)</span>  We know how to do this using Gaussian elimination; let’s use our matrix <span class="process-math">\(B\)</span> to find a different way:</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\begin{aligned}
+A\xvec \amp {}={} \bvec \\
+B(A\xvec) \amp {}={} B\bvec \\
+(BA)\xvec \amp {}={} B\bvec \\
+I\xvec \amp {}={} B\bvec \\
+\xvec \amp {}={} B\bvec \\
+\end{aligned}\text{.}
+\end{equation*}
+</div>
+<div class="para">In other words, the solution to the equation <span class="process-math">\(A\xvec=\bvec\)</span> is <span class="process-math">\(\xvec = B\bvec\text{.}\)</span>
+</div>
+</div>
+<div class="para">Consider the equation <span class="process-math">\(A\xvec = \twovec{5}{-2}\text{.}\)</span> Find the solution in two different ways, first using Gaussian elimination and then as <span class="process-math">\(\xvec = B\bvec\text{,}\)</span> and verify that you have found the same result.</div>
+<pre class="ptx-sagecell sagecell-sage" id="sage-54"><script type="text/x-sage">
+</script></pre>
+</li>
+</ol>
+</div>
 <span class="incontext"><a href="sec-matrices-lin-combs.html#p-1171" class="internal">in-context</a></span>
 </body>
 </html>

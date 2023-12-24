@@ -9,10 +9,67 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="robots" content="noindex, nofollow">
+<script>// Make *any* pre with class 'sagecell-sage' an executable Sage cell
+// Their results will be linked, only within language type
+sagecell.makeSagecell({
+  "inputLocation": "pre.sagecell-sage",
+  "linked": true,
+  "languages": [
+    "sage"
+  ],
+  "evalButtonText": "Evaluate (Sage)"
+});
+</script>
 </head>
 <body class="ignore-math">
 <h5 class="heading"><span class="type">Paragraph</span></h5>
-<div class="para">The coefficients are <span class="process-math">\(a=2\text{,}\)</span> <span class="process-math">\(b=\frac{17}{3}\text{,}\)</span> <span class="process-math">\(c=-6\text{,}\)</span> and <span class="process-math">\(d=\frac43\text{.}\)</span>
+<div class="para logical">
+<div class="para">A degree three polynomial can be written as</div>
+<div class="displaymath process-math">
+\begin{equation*}
+p(x) = a + bx + cx^2 + dx^3
+\end{equation*}
+</div>
+<div class="para">where <span class="process-math">\(a\text{,}\)</span> <span class="process-math">\(b\text{,}\)</span> <span class="process-math">\(c\text{,}\)</span> and <span class="process-math">\(d\)</span> are coefficients that we would like to determine. Since we want the polynomial to pass through the point <span class="process-math">\((3,1)\text{,}\)</span> we should require that</div>
+<div class="displaymath process-math">
+\begin{equation*}
+p(3) = a + 3b + 9c + 27d = 1\text{.}
+\end{equation*}
+</div>
+<div class="para">In this way, we obtain a linear equation for the coefficients <span class="process-math">\(a\text{,}\)</span> <span class="process-math">\(b\text{,}\)</span> <span class="process-math">\(c\text{,}\)</span> and <span class="process-math">\(d\text{.}\)</span>
+</div>
+<ol class="lower-alpha">
+<li><div class="para">Write the four linear equations for the coefficients obtained by requiring that the graph of the polynomial <span class="process-math">\(p(x)\)</span> passes through the four points above.</div></li>
+<li><div class="para">Write the augmented matrix corresponding to this system of equations and use the Sage cell below to solve for the coefficients. <pre class="ptx-sagecell sagecell-sage" id="sage-27"><script type="text/x-sage">
+</script></pre>
+</div></li>
+<li><div class="para">Write the polynomial <span class="process-math">\(p(x)\)</span> that you found and check your work by graphing it in the Sage cell below and verifying that it passes through the four points.  To plot a function over a range, you may use a command like <code class="code-inline tex2jax_ignore"> plot(1 + x- 2*x^2, xmin = -1, xmax = 4)</code>. <pre class="ptx-sagecell sagecell-sage" id="sage-28"><script type="text/x-sage">
+</script></pre>
+</div></li>
+<li><div class="para logical">
+<div class="para">Rather than looking for a degree three polynomial, suppose we wanted to find a polynomial that passes through the four points and that has degree two, such as</div>
+<div class="displaymath process-math">
+\begin{equation*}
+p(x) = a + bx + cx^2\text{.}
+\end{equation*}
+</div>
+<div class="para">Solve the linear system for the coefficients. What can you say about the existence and uniqueness of a degree two polynomial passing through these four points? <pre class="ptx-sagecell sagecell-sage" id="sage-29"><script type="text/x-sage">
+</script></pre>
+</div>
+</div></li>
+<li><div class="para logical">
+<div class="para">Rather than looking for a degree three polynomial, suppose we wanted to find a polynomial that passes through the four points and that has degree four, such as</div>
+<div class="displaymath process-math">
+\begin{equation*}
+p(x) = a + bx + cx^2 + dx^3 + ex^4\text{.}
+\end{equation*}
+</div>
+<div class="para">Solve the linear system for the coefficients. What can you say about the existence and uniqueness of a degree four polynomial passing through these four points? <pre class="ptx-sagecell sagecell-sage" id="sage-30"><script type="text/x-sage">
+</script></pre>
+</div>
+</div></li>
+<li><div class="para">Suppose you had 10 points and you wanted to find a polynomial passing through each of them.  What should the degree of the polynomial be to guarantee that there is exactly one such polynomial?  Explain your response.</div></li>
+</ol>
 </div>
 <span class="incontext"><a href="sec-pivots.html#p-718" class="internal">in-context</a></span>
 </body>

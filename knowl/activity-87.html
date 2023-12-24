@@ -25,9 +25,9 @@ sagecell.makeSagecell({
 <article class="activity project-like"><h4 class="heading">
 <span class="type">Activity</span><span class="space"> </span><span class="codenumber">6.5.6</span><span class="period">.</span>
 </h4>
-<div class="para">This activity explores a dataset describing Arctic sea ice and that comes from <a class="external" href="http://sustainabilitymath.org/" target="_blank">Sustainability Math.</a><a href="" class="fn-knowl original" data-knowl="./knowl/fn-2-hidden.html" title="Footnote 6.5.1"><sup> 1 </sup></a>
+<div class="para">This activity explores a dataset describing Arctic sea ice and that comes from <a class="external" href="http://sustainabilitymath.org/" target="_blank">Sustainability Math.</a><a href="" class="fn-knowl original" data-knowl="./knowl/fn-7-hidden.html" title="Footnote 6.5.2"><sup> 2 </sup></a>
 </div> <div class="para logical">
-<div class="para">Evaluating the cell below will plot the extent of Arctic sea ice, in millions of square kilometers, during the twelve months of 2012. <pre class="ptx-sagecell sagecell-sage" id="sage-191"><script type="text/x-sage">sage.repl.load.load('https://raw.githubusercontent.com/davidaustinm/ula_modules/master/orthogonality.py', globals())
+<div class="para">Evaluating the cell below will plot the extent of Arctic sea ice, in millions of square kilometers, during the twelve months of 2012. <pre class="ptx-sagecell sagecell-sage" id="sage-193"><script type="text/x-sage">sage.repl.load.load('https://raw.githubusercontent.com/davidaustinm/ula_modules/master/orthogonality.py', globals())
 df = pd.read_csv('https://raw.githubusercontent.com/davidaustinm/ula_modules/master/data/sea_ice.csv')
 data = [vector([row[0], row[2]]) for row in df.values]
 month = vector(df['Month'])
@@ -48,18 +48,18 @@ list_plot(data, color='blue', size=40)
 </div></li>
 </ul>
 </div> <div class="para logical"><ol class="lower-alpha">
-<li><div class="para">Find the vector <span class="process-math">\(\xhat\text{,}\)</span> the least squares approximate solution to the linear system that results from fitting a degree 5 polynomial to the data. <pre class="ptx-sagecell sagecell-sage" id="sage-192"><script type="text/x-sage">
+<li><div class="para">Find the vector <span class="process-math">\(\xhat\text{,}\)</span> the least-squares approximate solution to the linear system that results from fitting a degree 5 polynomial to the data. <pre class="ptx-sagecell sagecell-sage" id="sage-194"><script type="text/x-sage">
 </script></pre>
 </div></li>
-<li><div class="para">If your result is stored in the variable <code class="code-inline tex2jax_ignore">xhat</code>, you may plot the polynomial and the data together using the following cell. <pre class="ptx-sagecell sagecell-sage" id="sage-193"><script type="text/x-sage">plot_model(xhat, data)
+<li><div class="para">If your result is stored in the variable <code class="code-inline tex2jax_ignore">xhat</code>, you may plot the polynomial and the data together using the following cell. <pre class="ptx-sagecell sagecell-sage" id="sage-195"><script type="text/x-sage">plot_model(xhat, data)
 </script></pre>
 </div></li>
 <li><div class="para">Find the coefficient of determination <span class="process-math">\(R^2\)</span> for this polynomial fit.</div></li>
-<li><div class="para">Repeat these steps to fit a degree 8 polynomial to the data, plot the polynomial with the data, and find <span class="process-math">\(R^2\text{.}\)</span> <pre class="ptx-sagecell sagecell-sage" id="sage-194"><script type="text/x-sage">
+<li><div class="para">Repeat these steps to fit a degree 8 polynomial to the data, plot the polynomial with the data, and find <span class="process-math">\(R^2\text{.}\)</span> <pre class="ptx-sagecell sagecell-sage" id="sage-196"><script type="text/x-sage">
 </script></pre>
 </div></li>
 <li>
-<div class="para">Repeat one more time by fitting a degree 11 polynomial to the data, creating a plot, and finding <span class="process-math">\(R^2\text{.}\)</span> <pre class="ptx-sagecell sagecell-sage" id="sage-195"><script type="text/x-sage">
+<div class="para">Repeat one more time by fitting a degree 11 polynomial to the data, creating a plot, and finding <span class="process-math">\(R^2\text{.}\)</span> <pre class="ptx-sagecell sagecell-sage" id="sage-197"><script type="text/x-sage">
 </script></pre>
 </div>
 <div class="para">It’s certainly true that higher degree polynomials fit the data better, as seen by the increasing values of <span class="process-math">\(R^2\text{,}\)</span> but that’s not always a good thing. For instance, when <span class="process-math">\(k=11\text{,}\)</span> you may notice that the graph of the polynomial wiggles a little more than we would expect. In this case, the polynomial is trying too hard to fit the data, which usually contains some uncertainty, especially if it’s obtained from measurements.  The error built in to the data is called <em class="emphasis">noise,</em> and its presence means that we shouldn’t expect our polynomial to fit the data perfectly.  When we choose a polynomial whose degree is too high, we give the noise too much weight in the model, which leads to some undesirable behavior, like the wiggles in the graph.</div>

@@ -9,10 +9,32 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="robots" content="noindex, nofollow">
+<script>// Make *any* pre with class 'sagecell-sage' an executable Sage cell
+// Their results will be linked, only within language type
+sagecell.makeSagecell({
+  "inputLocation": "pre.sagecell-sage",
+  "linked": true,
+  "languages": [
+    "sage"
+  ],
+  "evalButtonText": "Evaluate (Sage)"
+});
+</script>
 </head>
 <body class="ignore-math">
 <h5 class="heading"><span class="type">Paragraph</span></h5>
-<div class="para">The fraction of the total variance represented by the first two principal components is <span class="process-math">\(97.8\%\text{.}\)</span>
+<div class="para">Now we’ve seen that the columns of <span class="process-math">\(\Gamma_2 =
+\Sigma_2 V_2^T\)</span> form the coordinates of the demeaned data points projected on to the two-dimensional subspace spanned by <span class="process-math">\(\uvec_1\)</span> and <span class="process-math">\(\uvec_2\text{.}\)</span> In the cell below, find a singular value decomposition of <span class="process-math">\(A\)</span> and use it to form the matrix <code class="code-inline tex2jax_ignore">Gamma2</code>.  When you evaluate this cell, you will see a plot of the projected demeaned data plots, similar to the one we created in <a href="sec-pca.html" class="internal" title="Section 7.3: Principal Component Analysis">Section 7.3</a>. <pre class="ptx-sagecell sagecell-sage" id="sage-257"><script type="text/x-sage"># Form the SVD of A and use it to form Gamma2
+
+		    
+Gamma2 = 
+
+# The following will plot the projected demeaned data points
+data = Gamma2.columns()
+(list_plot(data[:50], color='blue', aspect_ratio=1) +
+ list_plot(data[50:100], color='orange') +
+ list_plot(data[100:], color='green'))
+</script></pre>
 </div>
 <span class="incontext"><a href="sec-svd-uses.html#p-8249" class="internal">in-context</a></span>
 </body>

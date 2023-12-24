@@ -117,7 +117,7 @@ sagecell.makeSagecell({
 </head>
 <body id="ula" class="pretext book ignore-math">
 <a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner">
-<a id="logo-link" class="logo-link" href=""></a><div class="title-container">
+<a id="logo-link" class="logo-link" href="https://understandinglinearalgebra.org" target="_blank"><img src="external/images/ula-logo.png" alt="Logo image"></a><div class="title-container">
 <h1 class="heading"><a href="ula.html"><span class="title">Understanding Linear Algebra</span></a></h1>
 <p class="byline">David Austin</p>
 </div>
@@ -310,7 +310,9 @@ sagecell.makeSagecell({
 <ul class="structural">
 <li><div class="toc-item"><a href="dedication-1.html" class="internal"><span class="title">Dedication</span></a></div></li>
 <li><div class="toc-item"><a href="colophon-1.html" class="internal"><span class="title">Colophon</span></a></div></li>
+<li><div class="toc-item"><a href="acknowledgement-1.html" class="internal"><span class="title">Acknowledgements</span></a></div></li>
 <li><div class="toc-item"><a href="preface-1.html" class="internal"><span class="title">Our goals</span></a></div></li>
+<li><div class="toc-item"><a href="preface-2.html" class="internal"><span class="title">A note on the print version</span></a></div></li>
 </ul>
 </li>
 <li>
@@ -594,7 +596,7 @@ sagecell.makeSagecell({
 <div class="toc-item"><a href="sec-least-squares.html" class="internal"><span class="codenumber">6.5</span> <span class="title">Orthogonal least squares</span></a></div>
 <ul class="structural">
 <li><div class="toc-item"><a href="sec-least-squares.html#subsection-95" class="internal"><span class="codenumber">6.5.1</span> <span class="title">A first example</span></a></div></li>
-<li><div class="toc-item"><a href="sec-least-squares.html#subsection-96" class="internal"><span class="codenumber">6.5.2</span> <span class="title">Solving least squares problems</span></a></div></li>
+<li><div class="toc-item"><a href="sec-least-squares.html#subsection-96" class="internal"><span class="codenumber">6.5.2</span> <span class="title">Solving least-squares problems</span></a></div></li>
 <li><div class="toc-item"><a href="sec-least-squares.html#subsection-97" class="internal"><span class="codenumber">6.5.3</span> <span class="title">Using <span class="process-math">\(QR\)</span> factorizations</span></a></div></li>
 <li><div class="toc-item"><a href="sec-least-squares.html#subsection-98" class="internal"><span class="codenumber">6.5.4</span> <span class="title">Polynomial Regression</span></a></div></li>
 <li><div class="toc-item"><a href="sec-least-squares.html#subsection-99" class="internal"><span class="codenumber">6.5.5</span> <span class="title">Summary</span></a></div></li>
@@ -604,7 +606,7 @@ sagecell.makeSagecell({
 </ul>
 </li>
 <li>
-<div class="toc-item"><a href="chap7.html" class="internal"><span class="codenumber">7</span> <span class="title">The Spectral Theorem and singular value decompositions</span></a></div>
+<div class="toc-item"><a href="chap7.html" class="internal"><span class="codenumber">7</span> <span class="title">Singular value decompositions</span></a></div>
 <ul class="structural">
 <li>
 <div class="toc-item"><a href="sec-symmetric-matrices.html" class="internal"><span class="codenumber">7.1</span> <span class="title">Symmetric matrices and variance</span></a></div>
@@ -646,7 +648,7 @@ sagecell.makeSagecell({
 <li>
 <div class="toc-item"><a href="sec-svd-uses.html" class="internal"><span class="codenumber">7.5</span> <span class="title">Using Singular Value Decompositions</span></a></div>
 <ul class="structural">
-<li><div class="toc-item"><a href="sec-svd-uses.html#subsection-113" class="internal"><span class="codenumber">7.5.1</span> <span class="title">Least squares problems</span></a></div></li>
+<li><div class="toc-item"><a href="sec-svd-uses.html#subsection-113" class="internal"><span class="codenumber">7.5.1</span> <span class="title">Least-squares problems</span></a></div></li>
 <li><div class="toc-item"><a href="sec-svd-uses.html#subsection-114" class="internal"><span class="codenumber">7.5.2</span> <span class="title">Rank <span class="process-math">\(k\)</span> approximations</span></a></div></li>
 <li><div class="toc-item"><a href="sec-svd-uses.html#subsection-115" class="internal"><span class="codenumber">7.5.3</span> <span class="title">Principal component analysis</span></a></div></li>
 <li><div class="toc-item"><a href="sec-svd-uses.html#subsection-116" class="internal"><span class="codenumber">7.5.4</span> <span class="title">Image compressing and denoising</span></a></div></li>
@@ -669,44 +671,44 @@ sagecell.makeSagecell({
 <main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="sec-linear-trans"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">2.5</span> <span class="title">Matrix transformations</span>
 </h2>
-<section class="introduction" id="introduction-10"><div class="para" id="p-1767">The past few sections introduced us to matrix-vector multiplication as a means of thinking geometrically about the solutions to a linear system.  In particular, we rewrote a linear system as a matrix equation <span class="process-math">\(A\xvec = \bvec\)</span> and developed the concepts of span and linear independence in response to our <a href="" class="xref" data-knowl="./knowl/fundamental-questions.html" title="Question 1.4.2: Two Fundamental Questions">two fundamental questions.</a>
-</div> <div class="para" id="p-1768">In this section, we will explore how matrix-vector multiplication defines certain types of functions, which we call <em class="emphasis">matrix transformations</em>, similar to those encountered in previous algebra courses.  In particular, we will develop some algebraic tools for thinking about matrix transformations and look at some motivating examples.  In the next section, we will see how matrix transformations describe important geometric operations and how they are used in computer animation.</div> <article class="exploration project-like" id="exploration-7"><h3 class="heading">
+<section class="introduction" id="introduction-10"><div class="para" id="p-1776">The past few sections introduced us to matrix-vector multiplication as a means of thinking geometrically about the solutions to a linear system.  In particular, we rewrote a linear system as a matrix equation <span class="process-math">\(A\xvec = \bvec\)</span> and developed the concepts of span and linear independence in response to our <a href="" class="xref" data-knowl="./knowl/fundamental-questions.html" title="Question 1.4.2: Two Fundamental Questions">two fundamental questions.</a>
+</div> <div class="para" id="p-1777">In this section, we will explore how matrix-vector multiplication defines certain types of functions, which we call <em class="emphasis">matrix transformations</em>, similar to those encountered in previous algebra courses.  In particular, we will develop some algebraic tools for thinking about matrix transformations and look at some motivating examples.  In the next section, we will see how matrix transformations describe important geometric operations and how they are used in computer animation.</div> <article class="exploration project-like" id="exploration-7"><h3 class="heading">
 <span class="type">Preview Activity</span><span class="space"> </span><span class="codenumber">2.5.1</span><span class="period">.</span>
 </h3>
-<div class="para logical" id="p-1769">
+<div class="para logical" id="p-1778">
 <div class="para">We will begin by considering a more familiar situation; namely, the function <span class="process-math">\(f(x) = x^2\text{,}\)</span> which takes a real number <span class="process-math">\(x\)</span> as an input and produces its square <span class="process-math">\(x^2\)</span> as its output.</div>
 <ol class="lower-alpha">
-<li id="li-1162"><div class="para" id="p-1770">What is the value of <span class="process-math">\(f(3)\text{?}\)</span>
+<li id="li-1162"><div class="para" id="p-1779">What is the value of <span class="process-math">\(f(3)\text{?}\)</span>
 </div></li>
-<li id="li-1163"><div class="para" id="p-1771">Can we solve the equation <span class="process-math">\(f(x) = 4\text{?}\)</span>  If so, is the solution unique?</div></li>
-<li id="li-1164"><div class="para" id="p-1772">Can we solve the equation <span class="process-math">\(f(x) = -10\text{?}\)</span>  If so, is the solution unique?</div></li>
-<li id="li-1165"><div class="para" id="p-1773">Sketch a graph of the function <span class="process-math">\(f(x)=x^2\)</span> in <a href="" class="xref" data-knowl="./knowl/fig-graph-square.html" title="Figure 2.5.1">Figure 2.5.1</a> <figure class="figure figure-like" id="fig-graph-square"><div class="sidebyside"><div class="sbsrow" style="margin-left:25%;margin-right:25%;"><div class="sbspanel top" style="width:100%;"><img src="external/images/empty-4.svg" role="img" class="contained"></div></div></div>
+<li id="li-1163"><div class="para" id="p-1780">Can we solve the equation <span class="process-math">\(f(x) = 4\text{?}\)</span>  If so, is the solution unique?</div></li>
+<li id="li-1164"><div class="para" id="p-1781">Can we solve the equation <span class="process-math">\(f(x) = -10\text{?}\)</span>  If so, is the solution unique?</div></li>
+<li id="li-1165"><div class="para" id="p-1782">Sketch a graph of the function <span class="process-math">\(f(x)=x^2\)</span> in <a href="" class="xref" data-knowl="./knowl/fig-graph-square.html" title="Figure 2.5.1">Figure 2.5.1</a> <figure class="figure figure-like" id="fig-graph-square"><div class="sidebyside"><div class="sbsrow" style="margin-left:25%;margin-right:25%;"><div class="sbspanel top" style="width:100%;"><img src="external/images/empty-4.svg" role="img" class="contained"></div></div></div>
 <figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">2.5.1<span class="period">.</span></span><span class="space"> </span>Graph the function <span class="process-math">\(f(x)=x^2\)</span> above.</figcaption></figure>
 </div></li>
-<li id="li-1166"><div class="para" id="p-1774">We will now consider functions having the form <span class="process-math">\(g(x)=mx\text{.}\)</span>  Draw a graph of the function <span class="process-math">\(g(x) = 2x\)</span> on the left in <a href="" class="xref" data-knowl="./knowl/fig-graph-linear.html" title="Figure 2.5.2">Figure 2.5.2</a>. <figure class="figure figure-like" id="fig-graph-linear"><div class="sidebyside"><div class="sbsrow" style="margin-left:2.5%;margin-right:2.5%;">
+<li id="li-1166"><div class="para" id="p-1783">We will now consider functions having the form <span class="process-math">\(g(x)=mx\text{.}\)</span>  Draw a graph of the function <span class="process-math">\(g(x) = 2x\)</span> on the left in <a href="" class="xref" data-knowl="./knowl/fig-graph-linear.html" title="Figure 2.5.2">Figure 2.5.2</a>. <figure class="figure figure-like" id="fig-graph-linear"><div class="sidebyside"><div class="sbsrow" style="margin-left:2.5%;margin-right:2.5%;">
 <div class="sbspanel top" style="width:47.3684210526316%;"><img src="external/images/empty-4.svg" role="img" class="contained"></div>
 <div class="sbspanel top" style="width:47.3684210526316%;"><img src="external/images/empty-4.svg" role="img" class="contained"></div>
 </div></div>
 <figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">2.5.2<span class="period">.</span></span><span class="space"> </span>Graphs of the function <span class="process-math">\(g(x)=2x\)</span> and <span class="process-math">\(h(x) =
 -\frac13 x\text{.}\)</span></figcaption></figure>
 </div></li>
-<li id="li-1167"><div class="para" id="p-1775">Draw a graph of the function <span class="process-math">\(h(x) = -\frac13 x\)</span> on the right of <a href="" class="xref" data-knowl="./knowl/fig-graph-linear.html" title="Figure 2.5.2">Figure 2.5.2</a>.</div></li>
-<li id="li-1168"><div class="para" id="p-1776">Remember that composing two functions means we use the output from one function as the input into the other; that is, <span class="process-math">\((g\circ h)(x) = g(h(x))\text{.}\)</span>  What function results from composing <span class="process-math">\((g\circ h)(x)\text{?}\)</span>
+<li id="li-1167"><div class="para" id="p-1784">Draw a graph of the function <span class="process-math">\(h(x) = -\frac13 x\)</span> on the right of <a href="" class="xref" data-knowl="./knowl/fig-graph-linear.html" title="Figure 2.5.2">Figure 2.5.2</a>.</div></li>
+<li id="li-1168"><div class="para" id="p-1785">Remember that composing two functions means we use the output from one function as the input into the other; that is, <span class="process-math">\((g\circ h)(x) = g(h(x))\text{.}\)</span>  What function results from composing <span class="process-math">\((g\circ h)(x)\text{?}\)</span>
 </div></li>
 </ol>
 </div></article></section><section class="subsection" id="subsection-30"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber">2.5.1</span> <span class="title">Matrix transformations</span>
 </h3>
-<div class="para" id="p-1785">In the preview activity, we considered familiar linear functions of a single variable, such as <span class="process-math">\(g(x) = 2x\text{.}\)</span> We construct a function like this by choosing a number <span class="process-math">\(m\text{;}\)</span> when given an input <span class="process-math">\(x\text{,}\)</span> the output <span class="process-math">\(g(x) = mx\)</span> is formed by multiplying <span class="process-math">\(x\)</span> by <span class="process-math">\(m\text{.}\)</span>
+<div class="para" id="p-1794">In the preview activity, we considered familiar linear functions of a single variable, such as <span class="process-math">\(g(x) = 2x\text{.}\)</span> We construct a function like this by choosing a number <span class="process-math">\(m\text{;}\)</span> when given an input <span class="process-math">\(x\text{,}\)</span> the output <span class="process-math">\(g(x) = mx\)</span> is formed by multiplying <span class="process-math">\(x\)</span> by <span class="process-math">\(m\text{.}\)</span>
 </div>
-<div class="para" id="p-1786">In this section, we will consider functions whose inputs are vectors and whose outputs are vectors defined through matrix-vector multiplication.  That is, if <span class="process-math">\(A\)</span> is a matrix and <span class="process-math">\(\xvec\)</span> is a vector, the function <span class="process-math">\(T(\xvec) = A\xvec\)</span> forms the product <span class="process-math">\(A\xvec\)</span> as its output.  Such a function is called a matrix transformation.</div>
+<div class="para" id="p-1795">In this section, we will consider functions whose inputs are vectors and whose outputs are vectors defined through matrix-vector multiplication.  That is, if <span class="process-math">\(A\)</span> is a matrix and <span class="process-math">\(\xvec\)</span> is a vector, the function <span class="process-math">\(T(\xvec) = A\xvec\)</span> forms the product <span class="process-math">\(A\xvec\)</span> as its output.  Such a function is called a matrix transformation.</div>
 <article class="definition definition-like" id="definition-11"><h4 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">2.5.3</span><span class="period">.</span>
-</h4> <div class="para" id="p-1787">The <dfn class="terminology">matrix transformation</dfn> associated to the matrix <span class="process-math">\(A\)</span> is the function that assigns to the vector <span class="process-math">\(\xvec\)</span> the vector <span class="process-math">\(A\xvec\text{;}\)</span> that is, <span class="process-math">\(T(\xvec) = A\xvec\text{.}\)</span>
+</h4> <div class="para" id="p-1796">The <dfn class="terminology">matrix transformation</dfn> associated to the matrix <span class="process-math">\(A\)</span> is the function that assigns to the vector <span class="process-math">\(\xvec\)</span> the vector <span class="process-math">\(A\xvec\text{;}\)</span> that is, <span class="process-math">\(T(\xvec) = A\xvec\text{.}\)</span>
 </div></article><article class="example example-like" id="example-matrix-to-mt"><h4 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">2.5.4</span><span class="period">.</span>
 </h4>
-<div class="para logical" id="p-1788">
+<div class="para logical" id="p-1797">
 <div class="para">The matrix <span class="process-math">\(A =
 \begin{bmatrix} 3 \amp -2 \\
 1 \amp 2 \\
@@ -724,7 +726,7 @@ T\left(\twovec{x_1}{x_2}\right) =
 \cthreevec{3x_1 - 2x_2}{x_1 + 2x_2}{3x_2}.
 \end{equation*}
 </div>
-</div> <div class="para logical" id="p-1789">
+</div> <div class="para logical" id="p-1798">
 <div class="para">Notice that the input to <span class="process-math">\(T\)</span> is a two-dimensional vector <span class="process-math">\(\twovec{x_1}{x_2}\)</span> and the output is a three-dimensional vector <span class="process-math">\(\cthreevec{3x_1 - 2x_2}{x_1 +
 2x_2}{3x_2}\text{.}\)</span>  As a shorthand, we will write</div>
 <div class="displaymath process-math">
@@ -736,7 +738,7 @@ T:\real^2\to\real^3
 </div></article><article class="example example-like" id="example-mt-to-matrix"><h4 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">2.5.5</span><span class="period">.</span>
 </h4>
-<div class="para logical" id="p-1790">
+<div class="para logical" id="p-1799">
 <div class="para">Suppose we have a function <span class="process-math">\(T:\real^3\to\real^2\)</span> that has the form</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -780,10 +782,10 @@ x_1\twovec{-4}1 + x_2\twovec{-1}2 + x_3\twovec2{-1}  \\
 </div></article><article class="activity project-like" id="activity-21"><h4 class="heading">
 <span class="type">Activity</span><span class="space"> </span><span class="codenumber">2.5.2</span><span class="period">.</span>
 </h4>
-<div class="para logical" id="p-1791">
+<div class="para logical" id="p-1800">
 <div class="para">In this activity, we will look at some examples of matrix transformations.</div>
 <ol class="lower-alpha">
-<li id="li-1176"><div class="para logical" id="p-1792">
+<li id="li-1176"><div class="para logical" id="p-1801">
 <div class="para">To begin, suppose that <span class="process-math">\(A\)</span> is the matrix</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -797,18 +799,18 @@ A = \left[\begin{array}{rr}
 A\xvec\text{.}\)</span>
 </div>
 <ol class="decimal">
-<li id="li-1177"><div class="para" id="p-1793">What is <span class="process-math">\(T\left(\twovec{1}{-2}\right)\text{?}\)</span>
+<li id="li-1177"><div class="para" id="p-1802">What is <span class="process-math">\(T\left(\twovec{1}{-2}\right)\text{?}\)</span>
 </div></li>
-<li id="li-1178"><div class="para" id="p-1794">What is <span class="process-math">\(T\left(\twovec{1}{0}\right)\text{?}\)</span>
+<li id="li-1178"><div class="para" id="p-1803">What is <span class="process-math">\(T\left(\twovec{1}{0}\right)\text{?}\)</span>
 </div></li>
-<li id="li-1179"><div class="para" id="p-1795">What is <span class="process-math">\(T\left(\twovec{0}{1}\right)\text{?}\)</span>
+<li id="li-1179"><div class="para" id="p-1804">What is <span class="process-math">\(T\left(\twovec{0}{1}\right)\text{?}\)</span>
 </div></li>
-<li id="li-1180"><div class="para" id="p-1796">Is there a vector <span class="process-math">\(\xvec\)</span> such that <span class="process-math">\(T(\xvec) = \twovec{3}{0}\text{?}\)</span>
+<li id="li-1180"><div class="para" id="p-1805">Is there a vector <span class="process-math">\(\xvec\)</span> such that <span class="process-math">\(T(\xvec) = \twovec{3}{0}\text{?}\)</span>
 </div></li>
-<li id="li-1181"><div class="para" id="p-1797">Write <span class="process-math">\(T\left(\twovec xy\right)\)</span> as a two-dimensional vector.</div></li>
+<li id="li-1181"><div class="para" id="p-1806">Write <span class="process-math">\(T\left(\twovec xy\right)\)</span> as a two-dimensional vector.</div></li>
 </ol>
 </div></li>
-<li id="li-1182"><div class="para logical" id="p-1798">
+<li id="li-1182"><div class="para logical" id="p-1807">
 <div class="para">Suppose that <span class="process-math">\(T(\xvec) = A\xvec\)</span> where</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -820,19 +822,19 @@ A=\left[\begin{array}{rrrr}
 \end{equation*}
 </div>
 <ol class="decimal">
-<li id="li-1183"><div class="para" id="p-1799">What is the dimension of the vectors <span class="process-math">\(\xvec\)</span> that are inputs for <span class="process-math">\(T\text{?}\)</span>
+<li id="li-1183"><div class="para" id="p-1808">What is the dimension of the vectors <span class="process-math">\(\xvec\)</span> that are inputs for <span class="process-math">\(T\text{?}\)</span>
 </div></li>
-<li id="li-1184"><div class="para" id="p-1800">What is the dimension of the vectors <span class="process-math">\(T(\xvec)=A\xvec\)</span> that are outputs?</div></li>
-<li id="li-1185"><div class="para" id="p-1801">If we describe this transformation as <span class="process-math">\(T:\real^n\to\real^m\text{,}\)</span> what are the values of <span class="process-math">\(n\)</span> and <span class="process-math">\(m\)</span> and how do they relate to the shape of <span class="process-math">\(A\text{?}\)</span>
+<li id="li-1184"><div class="para" id="p-1809">What is the dimension of the vectors <span class="process-math">\(T(\xvec)=A\xvec\)</span> that are outputs?</div></li>
+<li id="li-1185"><div class="para" id="p-1810">If we describe this transformation as <span class="process-math">\(T:\real^n\to\real^m\text{,}\)</span> what are the values of <span class="process-math">\(n\)</span> and <span class="process-math">\(m\)</span> and how do they relate to the shape of <span class="process-math">\(A\text{?}\)</span>
 </div></li>
-<li id="li-1186"><div class="para" id="p-1802">Describe the vectors <span class="process-math">\(\xvec\)</span> for which <span class="process-math">\(T(\xvec) = \zerovec\text{.}\)</span>
+<li id="li-1186"><div class="para" id="p-1811">Describe the vectors <span class="process-math">\(\xvec\)</span> for which <span class="process-math">\(T(\xvec) = \zerovec\text{.}\)</span>
 </div></li>
 </ol>
 </div></li>
-<li id="li-1187"><div class="para" id="p-1803">If <span class="process-math">\(A\)</span> is the matrix <span class="process-math">\(A=\left[\begin{array}{rr} \vvec_1 \amp \vvec_2
+<li id="li-1187"><div class="para" id="p-1812">If <span class="process-math">\(A\)</span> is the matrix <span class="process-math">\(A=\left[\begin{array}{rr} \vvec_1 \amp \vvec_2
 \end{array}\right]\text{,}\)</span> what is <span class="process-math">\(T\left(\twovec10\right)\)</span> in terms of the vectors <span class="process-math">\(\vvec_1\)</span> and <span class="process-math">\(\vvec_2\text{?}\)</span> What about <span class="process-math">\(T\left(\twovec{0}{1}\right)\text{?}\)</span>
 </div></li>
-<li id="li-1188"><div class="para logical" id="p-1804">
+<li id="li-1188"><div class="para logical" id="p-1813">
 <div class="para">Suppose that <span class="process-math">\(A\)</span> is a <span class="process-math">\(3\times 2\)</span> matrix and that <span class="process-math">\(T(\xvec)=A\xvec\text{.}\)</span>  If</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -844,7 +846,7 @@ T\left(\twovec{0}{1}\right) = \threevec{2}{2}{-1}\text{,}
 </div>
 </div></li>
 </ol>
-</div></article><div class="para logical" id="p-1819">
+</div></article><div class="para logical" id="p-1828">
 <div class="para">Let’s discuss a few of the issues that appear in this activity.  First, notice that the shape of the matrix <span class="process-math">\(A\)</span> and the dimension of the input vector <span class="process-math">\(\xvec\)</span> must be compatible if the product <span class="process-math">\(A\xvec\)</span> is to be defined.  In particular, if <span class="process-math">\(A\)</span> is an <span class="process-math">\(m\times n\)</span> matrix, <span class="process-math">\(\xvec\)</span> needs to be an <span class="process-math">\(n\)</span>-dimensional vector, and the resulting product <span class="process-math">\(A\xvec\)</span> will be an <span class="process-math">\(m\)</span>-dimensional vector.  For the associated matrix transformation, we therefore write <span class="process-math">\(T:\real^n\to\real^m\)</span> meaning <span class="process-math">\(T\)</span> takes vectors in <span class="process-math">\(\real^n\)</span> as inputs and produces vectors in <span class="process-math">\(\real^m\)</span> as outputs.  For instance, if</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -857,7 +859,7 @@ A=\left[\begin{array}{rrrr}
 <div class="para">then <span class="process-math">\(T:\real^4\to\real^2\text{.}\)</span>
 </div>
 </div>
-<div class="para logical" id="p-1820">
+<div class="para logical" id="p-1829">
 <div class="para">Second, we can often reconstruct the matrix <span class="process-math">\(A\)</span> if we only know some output values from its associated linear transformation <span class="process-math">\(T\)</span> by remembering that matrix-vector multiplication constructs linear combinations. For instance, if <span class="process-math">\(A\)</span> is an <span class="process-math">\(m\times2\)</span> matrix <span class="process-math">\(A=\left[\begin{array}{rr} \vvec_1
 \amp \vvec_2 \end{array}\right]\text{,}\)</span> then</div>
 <div class="displaymath process-math">
@@ -872,7 +874,7 @@ T\left(\twovec{1}{0}\right) =
 <div class="para">That is, we can find the first column of <span class="process-math">\(A\)</span> by evaluating <span class="process-math">\(T\left(\twovec{1}{0}\right)\text{.}\)</span>  Similarly, the second column of <span class="process-math">\(A\)</span> is found by evaluating <span class="process-math">\(T\left(\twovec{0}{1}\right)\text{.}\)</span>
 </div>
 </div>
-<div class="para logical" id="p-1821">
+<div class="para logical" id="p-1830">
 <div class="para">More generally, we will write the columns of the <span class="process-math">\(n\times
 n\)</span> identity matrix as</div>
 <div class="displaymath process-math">
@@ -900,7 +902,7 @@ T(\evec_j) = \left[\begin{array}{rrrr}
 <article class="proposition theorem-like" id="prop-linear-trans-columns"><h4 class="heading">
 <span class="type">Proposition</span><span class="space"> </span><span class="codenumber">2.5.6</span><span class="period">.</span>
 </h4>
-<div class="para logical" id="p-1822">
+<div class="para logical" id="p-1831">
 <div class="para">If <span class="process-math">\(T:\real^n\to\real^m\)</span> is a matrix transformation given by <span class="process-math">\(T(\xvec) = A\xvec\text{,}\)</span> then the matrix <span class="process-math">\(A\)</span> has columns <span class="process-math">\(T(\evec_j)\text{;}\)</span> that is,</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -912,59 +914,59 @@ T(\evec_1) \amp T(\evec_2) \amp \cdots \amp T(\evec_n)
 </div></article><article class="activity project-like" id="activity-mt-intro"><h4 class="heading">
 <span class="type">Activity</span><span class="space"> </span><span class="codenumber">2.5.3</span><span class="period">.</span>
 </h4>
-<div class="para logical" id="p-1823">
+<div class="para logical" id="p-1832">
 <div class="para">Let’s look at some examples and apply these observations.</div>
 <ol class="lower-alpha">
 <li id="li-1202">
-<div class="para" id="p-1824">To begin, suppose that <span class="process-math">\(T\)</span> is the matrix transformation that takes a two-dimensional vector <span class="process-math">\(\xvec\)</span> as an input and outputs <span class="process-math">\(T(\xvec)\text{,}\)</span> the two-dimensional vector obtained by rotating <span class="process-math">\(\xvec\)</span> counterclockwise by <span class="process-math">\(90^\circ\text{,}\)</span> as shown in <a href="" class="xref" data-knowl="./knowl/fig-mt-rotate.html" title="Figure 2.5.7">Figure 2.5.7</a>.</div>
+<div class="para" id="p-1833">To begin, suppose that <span class="process-math">\(T\)</span> is the matrix transformation that takes a two-dimensional vector <span class="process-math">\(\xvec\)</span> as an input and outputs <span class="process-math">\(T(\xvec)\text{,}\)</span> the two-dimensional vector obtained by rotating <span class="process-math">\(\xvec\)</span> counterclockwise by <span class="process-math">\(90^\circ\text{,}\)</span> as shown in <a href="" class="xref" data-knowl="./knowl/fig-mt-rotate.html" title="Figure 2.5.7">Figure 2.5.7</a>.</div>
 <figure class="figure figure-like" id="fig-mt-rotate"><div class="sidebyside"><div class="sbsrow" style="margin-left:2%;margin-right:2%;">
 <div class="sbspanel top" style="width:46.875%;"><img src="external/images/two-dim-basis.svg" role="img" class="contained"></div>
 <div class="sbspanel top" style="width:46.875%;"><img src="external/images/two-dim-basis-rotate.svg" role="img" class="contained"></div>
 </div></div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">2.5.7<span class="period">.</span></span><span class="space"> </span>The matrix transformation <span class="process-math">\(T\)</span> takes two-dimensional vectors on the left and rotates them by <span class="process-math">\(90^\circ\)</span> counterclockwise into the vectors on the right.</figcaption></figure><div class="para logical" id="p-1825">
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">2.5.7<span class="period">.</span></span><span class="space"> </span>The matrix transformation <span class="process-math">\(T\)</span> takes two-dimensional vectors on the left and rotates them by <span class="process-math">\(90^\circ\)</span> counterclockwise into the vectors on the right.</figcaption></figure><div class="para logical" id="p-1834">
 <div class="para">We will see in the next section that many geometric operations like this one can be performed by matrix transformations.</div>
 <ol class="decimal">
-<li id="li-1203"><div class="para" id="p-1826">If we write <span class="process-math">\(T:\real^n\to\real^m\text{,}\)</span> what are the values of <span class="process-math">\(m\)</span> and <span class="process-math">\(n\text{,}\)</span> and what is the shape of the associated matrix <span class="process-math">\(A\text{?}\)</span>
+<li id="li-1203"><div class="para" id="p-1835">If we write <span class="process-math">\(T:\real^n\to\real^m\text{,}\)</span> what are the values of <span class="process-math">\(m\)</span> and <span class="process-math">\(n\text{,}\)</span> and what is the shape of the associated matrix <span class="process-math">\(A\text{?}\)</span>
 </div></li>
-<li id="li-1204"><div class="para" id="p-1827">Determine the matrix <span class="process-math">\(A\)</span> by applying <a href="" class="xref" data-knowl="./knowl/prop-linear-trans-columns.html" title="Proposition 2.5.6">Proposition 2.5.6</a>.</div></li>
-<li id="li-1205"><div class="para" id="p-1828">If <span class="process-math">\(\vvec=\twovec{-2}{-1}\)</span> as shown on the left in <a href="" class="xref" data-knowl="./knowl/fig-mt-rotate.html" title="Figure 2.5.7">Figure 2.5.7</a>, use your matrix to determine <span class="process-math">\(T(\vvec)\)</span> and verify that it agrees with that shown on the right of <a href="" class="xref" data-knowl="./knowl/fig-mt-rotate.html" title="Figure 2.5.7">Figure 2.5.7</a>.</div></li>
-<li id="li-1206"><div class="para" id="p-1829">If <span class="process-math">\(\xvec=\twovec xy\text{,}\)</span> determine the vector <span class="process-math">\(T(\xvec)\)</span> obtained by rotating <span class="process-math">\(\xvec\)</span> counterclockwise by <span class="process-math">\(90^\circ\text{.}\)</span>
+<li id="li-1204"><div class="para" id="p-1836">Determine the matrix <span class="process-math">\(A\)</span> by applying <a href="" class="xref" data-knowl="./knowl/prop-linear-trans-columns.html" title="Proposition 2.5.6">Proposition 2.5.6</a>.</div></li>
+<li id="li-1205"><div class="para" id="p-1837">If <span class="process-math">\(\vvec=\twovec{-2}{-1}\)</span> as shown on the left in <a href="" class="xref" data-knowl="./knowl/fig-mt-rotate.html" title="Figure 2.5.7">Figure 2.5.7</a>, use your matrix to determine <span class="process-math">\(T(\vvec)\)</span> and verify that it agrees with that shown on the right of <a href="" class="xref" data-knowl="./knowl/fig-mt-rotate.html" title="Figure 2.5.7">Figure 2.5.7</a>.</div></li>
+<li id="li-1206"><div class="para" id="p-1838">If <span class="process-math">\(\xvec=\twovec xy\text{,}\)</span> determine the vector <span class="process-math">\(T(\xvec)\)</span> obtained by rotating <span class="process-math">\(\xvec\)</span> counterclockwise by <span class="process-math">\(90^\circ\text{.}\)</span>
 </div></li>
 </ol>
 </div>
 </li>
 <li id="li-1207">
-<div class="para logical" id="p-1830">
+<div class="para logical" id="p-1839">
 <div class="para">Suppose that we work for a company that makes baked goods, including cakes, doughnuts, and eclairs.  The company operates two bakeries, Bakery 1 and Bakery 2.  In one hour of operation,</div>
 <ul class="disc">
-<li id="li-1208"><div class="para" id="p-1831">Bakery 1 produces 10 cakes, 50 doughnuts, and 30 eclairs.</div></li>
-<li id="li-1209"><div class="para" id="p-1832">Bakery 2 produces 20 cakes, 30 doughnuts, and 30 eclairs.</div></li>
+<li id="li-1208"><div class="para" id="p-1840">Bakery 1 produces 10 cakes, 50 doughnuts, and 30 eclairs.</div></li>
+<li id="li-1209"><div class="para" id="p-1841">Bakery 2 produces 20 cakes, 30 doughnuts, and 30 eclairs.</div></li>
 </ul>
 <div class="para">If Bakery 1 operates for <span class="process-math">\(x_1\)</span> hours and Bakery 2 for <span class="process-math">\(x_2\)</span> hours, we will use the vector <span class="process-math">\(\xvec=\twovec{x_1}{x_2}\)</span> to describe the operation of the two bakeries.</div>
 </div>
-<div class="para logical" id="p-1833">
+<div class="para logical" id="p-1842">
 <div class="para">We would like to describe a matrix transformation <span class="process-math">\(T\)</span> where <span class="process-math">\(\xvec\)</span> describes the number of hours the bakeries operate and <span class="process-math">\(T(\xvec)\)</span> describes the total number of cakes, doughnuts, and eclairs produced.  That is, <span class="process-math">\(T(\xvec) = \threevec{y_1}{y_2}{y_3}\)</span> where <span class="process-math">\(y_1\)</span> is the number of cakes, <span class="process-math">\(y_2\)</span> is the number of doughnuts, and <span class="process-math">\(y_3\)</span> is the number of eclairs produced.</div>
 <ol class="decimal">
-<li id="li-1210"><div class="para" id="p-1834">If <span class="process-math">\(T:\real^n\to\real^m\text{,}\)</span> what are the values of <span class="process-math">\(m\)</span> and <span class="process-math">\(n\text{,}\)</span> and what is the shape of the associated matrix <span class="process-math">\(A\text{?}\)</span>
+<li id="li-1210"><div class="para" id="p-1843">If <span class="process-math">\(T:\real^n\to\real^m\text{,}\)</span> what are the values of <span class="process-math">\(m\)</span> and <span class="process-math">\(n\text{,}\)</span> and what is the shape of the associated matrix <span class="process-math">\(A\text{?}\)</span>
 </div></li>
-<li id="li-1211"><div class="para" id="p-1835">We can determine the matrix <span class="process-math">\(A\)</span> using <a href="" class="xref" data-knowl="./knowl/prop-linear-trans-columns.html" title="Proposition 2.5.6">Proposition 2.5.6</a>.  For instance, <span class="process-math">\(T\left(\twovec10\right)\)</span> will describe the number of cakes, doughnuts, and eclairs produced when Bakery 1 operates for one hour and Bakery 2 sits idle.  What is this vector?</div></li>
-<li id="li-1212"><div class="para" id="p-1836">In the same way, determine <span class="process-math">\(T\left(\twovec01\right)\text{.}\)</span>  What is the matrix <span class="process-math">\(A\text{?}\)</span>
+<li id="li-1211"><div class="para" id="p-1844">We can determine the matrix <span class="process-math">\(A\)</span> using <a href="" class="xref" data-knowl="./knowl/prop-linear-trans-columns.html" title="Proposition 2.5.6">Proposition 2.5.6</a>.  For instance, <span class="process-math">\(T\left(\twovec10\right)\)</span> will describe the number of cakes, doughnuts, and eclairs produced when Bakery 1 operates for one hour and Bakery 2 sits idle.  What is this vector?</div></li>
+<li id="li-1212"><div class="para" id="p-1845">In the same way, determine <span class="process-math">\(T\left(\twovec01\right)\text{.}\)</span>  What is the matrix <span class="process-math">\(A\text{?}\)</span>
 </div></li>
-<li id="li-1213"><div class="para" id="p-1837">If Bakery 1 operates for 120 hours and Bakery 2 for 180 hours, what is the total number of cakes, doughnuts, and eclairs produced? <pre class="ptx-sagecell sagecell-sage" id="sage-69"><script type="text/x-sage">
+<li id="li-1213"><div class="para" id="p-1846">If Bakery 1 operates for 120 hours and Bakery 2 for 180 hours, what is the total number of cakes, doughnuts, and eclairs produced? <pre class="ptx-sagecell sagecell-sage" id="sage-71"><script type="text/x-sage">
 </script></pre>
 </div></li>
-<li id="li-1214"><div class="para" id="p-1838">Suppose that in one period of time, the company produces 5060 cakes, 14310 doughnuts, and 10470 eclairs.  How long did each bakery operate?</div></li>
-<li id="li-1215"><div class="para" id="p-1839">Suppose that the company receives an order for a certain number of cakes, doughnuts, and eclairs.  Can you guarantee that you can fill the order without having leftovers?</div></li>
+<li id="li-1214"><div class="para" id="p-1847">Suppose that in one period of time, the company produces 5060 cakes, 14310 doughnuts, and 10470 eclairs.  How long did each bakery operate?</div></li>
+<li id="li-1215"><div class="para" id="p-1848">Suppose that the company receives an order for a certain number of cakes, doughnuts, and eclairs.  Can you guarantee that you can fill the order without having leftovers?</div></li>
 </ol>
 </div>
 </li>
 </ol>
-</div></article><div class="para" id="p-1853">In these examples, we glided over an important point: how do we know these functions <span class="process-math">\(T:\real^n\to\real^m\)</span> can be expressed as matrix transformations?  We will take up this question in detail in the next section and not worry about it for now.</div></section><section class="subsection" id="subsection-31"><h3 class="heading hide-type">
+</div></article><div class="para" id="p-1862">In these examples, we glided over an important point: how do we know these functions <span class="process-math">\(T:\real^n\to\real^m\)</span> can be expressed as matrix transformations?  We will take up this question in detail in the next section and not worry about it for now.</div></section><section class="subsection" id="subsection-31"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber">2.5.2</span> <span class="title">Composing matrix transformations</span>
 </h3>
-<div class="para" id="p-1854">It sometimes happens that we want to combine matrix transformations by performing one and then another.  In the last activity, for instance, we considered the matrix transformation where <span class="process-math">\(T(\xvec)\)</span> is the result of rotating the two-dimensional vector <span class="process-math">\(\xvec\)</span> by <span class="process-math">\(90^\circ\text{.}\)</span> Now suppose we are interested in rotating that vector twice;  that is, we take a vector <span class="process-math">\(\xvec\text{,}\)</span> rotate it by <span class="process-math">\(90^\circ\)</span> to obtain <span class="process-math">\(T(\xvec)\text{,}\)</span> and then rotate the result by <span class="process-math">\(90^\circ\)</span> again to obtain <span class="process-math">\(T(T(\xvec))\text{.}\)</span>
+<div class="para" id="p-1863">It sometimes happens that we want to combine matrix transformations by performing one and then another.  In the last activity, for instance, we considered the matrix transformation where <span class="process-math">\(T(\xvec)\)</span> is the result of rotating the two-dimensional vector <span class="process-math">\(\xvec\)</span> by <span class="process-math">\(90^\circ\text{.}\)</span> Now suppose we are interested in rotating that vector twice;  that is, we take a vector <span class="process-math">\(\xvec\text{,}\)</span> rotate it by <span class="process-math">\(90^\circ\)</span> to obtain <span class="process-math">\(T(\xvec)\text{,}\)</span> and then rotate the result by <span class="process-math">\(90^\circ\)</span> again to obtain <span class="process-math">\(T(T(\xvec))\text{.}\)</span>
 </div>
-<div class="para logical" id="p-1855">
+<div class="para logical" id="p-1864">
 <div class="para">This process is called function <em class="emphasis">composition</em> and likely appeared in an earlier algebra course.  For instance, if <span class="process-math">\(g(x) = 2x + 1\)</span> and <span class="process-math">\(h(x) = x^2\text{,}\)</span> the composition of these functions obtained by first performing <span class="process-math">\(g\)</span> and then performing <span class="process-math">\(h\)</span> is denoted by</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -972,7 +974,7 @@ T(\evec_1) \amp T(\evec_2) \amp \cdots \amp T(\evec_n)
 \end{equation*}
 </div>
 </div>
-<div class="para logical" id="p-1856">
+<div class="para logical" id="p-1865">
 <div class="para">Composing matrix transformations is similar.  Suppose that we have two matrix transformations, <span class="process-math">\(T:\real^n\to\real^m\)</span> and <span class="process-math">\(S:\real^m\to\real^p\text{.}\)</span>  Their associated matrices will be denoted by <span class="process-math">\(A\)</span> and <span class="process-math">\(B\)</span> so that <span class="process-math">\(T(\xvec) =
 A\xvec\)</span> and <span class="process-math">\(S(\xvec) = B\xvec\text{.}\)</span>  If we apply <span class="process-math">\(T\)</span> to a vector <span class="process-math">\(\xvec\)</span> to obtain <span class="process-math">\(T(\xvec)\)</span> and then apply <span class="process-math">\(S\)</span> to the result, we have</div>
 <div class="displaymath process-math">
@@ -987,15 +989,15 @@ A\xvec\)</span> and <span class="process-math">\(S(\xvec) = B\xvec\text{.}\)</sp
 <article class="proposition theorem-like" id="proposition-13"><h4 class="heading">
 <span class="type">Proposition</span><span class="space"> </span><span class="codenumber">2.5.8</span><span class="period">.</span>
 </h4>If <span class="process-math">\(T:\real^n\to\real^m\)</span> and <span class="process-math">\(S:\real^m\to\real^p\)</span> are matrix transformations with associated matrices <span class="process-math">\(A\)</span> and <span class="process-math">\(B\)</span> respectively, then the composition <span class="process-math">\((S\circ
-T)\)</span> is also a matrix transformation whose associated matrix is the product <span class="process-math">\(BA\text{.}\)</span></article><div class="para" id="p-1857">Notice that the matrix transformations must be compatible if they are to be composed.  In particular, the vector <span class="process-math">\(T(\xvec)\text{,}\)</span> an <span class="process-math">\(m\)</span>-dimensional vector, must be a suitable input vector for <span class="process-math">\(S\text{,}\)</span> which means that the inputs to <span class="process-math">\(S\)</span> must be <span class="process-math">\(m\)</span>-dimensional. In fact, this is the same condition we need to form the product <span class="process-math">\(BA\)</span> of their associated matrices, namely, that the number of columns of <span class="process-math">\(B\)</span> is the same as the number of rows of <span class="process-math">\(A\text{.}\)</span>
+T)\)</span> is also a matrix transformation whose associated matrix is the product <span class="process-math">\(BA\text{.}\)</span></article><div class="para" id="p-1866">Notice that the matrix transformations must be compatible if they are to be composed.  In particular, the vector <span class="process-math">\(T(\xvec)\text{,}\)</span> an <span class="process-math">\(m\)</span>-dimensional vector, must be a suitable input vector for <span class="process-math">\(S\text{,}\)</span> which means that the inputs to <span class="process-math">\(S\)</span> must be <span class="process-math">\(m\)</span>-dimensional. In fact, this is the same condition we need to form the product <span class="process-math">\(BA\)</span> of their associated matrices, namely, that the number of columns of <span class="process-math">\(B\)</span> is the same as the number of rows of <span class="process-math">\(A\text{.}\)</span>
 </div>
 <article class="activity project-like" id="activity-23"><h4 class="heading">
 <span class="type">Activity</span><span class="space"> </span><span class="codenumber">2.5.4</span><span class="period">.</span>
 </h4>
-<div class="para logical" id="p-1858">
+<div class="para logical" id="p-1867">
 <div class="para">We will explore the composition of matrix transformations by revisiting the matrix transformations from <a href="" class="xref" data-knowl="./knowl/activity-mt-intro.html" title="Activity 2.5.3">Activity 2.5.3</a>.</div>
 <ol class="lower-alpha">
-<li id="li-1228"><div class="para logical" id="p-1859">
+<li id="li-1228"><div class="para logical" id="p-1868">
 <div class="para">Let’s begin with the matrix transformation <span class="process-math">\(T:\real^2\to\real^2\)</span> that rotates a two-dimensional vector <span class="process-math">\(\xvec\)</span> by <span class="process-math">\(90^\circ\)</span> to produce <span class="process-math">\(T(\xvec)\text{.}\)</span>  We saw in the earlier activity that the associated matrix is <span class="process-math">\(A = \begin{bmatrix}
 0 \amp -1 \\
 1 \amp 0 \\
@@ -1003,48 +1005,48 @@ T)\)</span> is also a matrix transformation whose associated matrix is the produ
 \text{.}\)</span> Suppose that we compose this matrix transformation with itself to obtain <span class="process-math">\((T\circ T)(\xvec) =
 T(T(\xvec))\text{,}\)</span> which is the result of rotating <span class="process-math">\(\xvec\)</span> by <span class="process-math">\(90^\circ\)</span> twice.</div>
 <ol class="decimal">
-<li id="li-1229"><div class="para" id="p-1860">What is the matrix associated to the composition <span class="process-math">\((T\circ T)\text{?}\)</span>
+<li id="li-1229"><div class="para" id="p-1869">What is the matrix associated to the composition <span class="process-math">\((T\circ T)\text{?}\)</span>
 </div></li>
-<li id="li-1230"><div class="para" id="p-1861">What is the result of rotating <span class="process-math">\(\vvec=\twovec{-2}{-1}\)</span> twice?</div></li>
+<li id="li-1230"><div class="para" id="p-1870">What is the result of rotating <span class="process-math">\(\vvec=\twovec{-2}{-1}\)</span> twice?</div></li>
 <li id="li-1231">
-<div class="para" id="p-1862">Suppose that <span class="process-math">\(R:\real^2\to\real^2\)</span> is the matrix transformation that rotates vectors by <span class="process-math">\(180^\circ\text{,}\)</span> as shown in <a href="" class="xref" data-knowl="./knowl/fig-mt-180.html" title="Figure 2.5.9">Figure 2.5.9</a>.</div>
+<div class="para" id="p-1871">Suppose that <span class="process-math">\(R:\real^2\to\real^2\)</span> is the matrix transformation that rotates vectors by <span class="process-math">\(180^\circ\text{,}\)</span> as shown in <a href="" class="xref" data-knowl="./knowl/fig-mt-180.html" title="Figure 2.5.9">Figure 2.5.9</a>.</div>
 <figure class="figure figure-like" id="fig-mt-180"><div class="sidebyside"><div class="sbsrow" style="margin-left:2%;margin-right:2%;">
 <div class="sbspanel top" style="width:46.875%;"><img src="external/images/two-dim-basis.svg" role="img" class="contained"></div>
 <div class="sbspanel top" style="width:46.875%;"><img src="external/images/two-dim-basis-180.svg" role="img" class="contained"></div>
 </div></div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">2.5.9<span class="period">.</span></span><span class="space"> </span>The matrix transformation <span class="process-math">\(R\)</span> takes two-dimensional vectors on the left and rotates them by <span class="process-math">\(180^\circ\)</span> into the vectors on the right.</figcaption></figure><div class="para" id="p-1863">Use <a href="" class="xref" data-knowl="./knowl/prop-linear-trans-columns.html" title="Proposition 2.5.6">Proposition 2.5.6</a> to find the matrix associated to <span class="process-math">\(R\)</span> and explain why it is the same matrix associated to <span class="process-math">\((T\circ T)\text{.}\)</span>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">2.5.9<span class="period">.</span></span><span class="space"> </span>The matrix transformation <span class="process-math">\(R\)</span> takes two-dimensional vectors on the left and rotates them by <span class="process-math">\(180^\circ\)</span> into the vectors on the right.</figcaption></figure><div class="para" id="p-1872">Use <a href="" class="xref" data-knowl="./knowl/prop-linear-trans-columns.html" title="Proposition 2.5.6">Proposition 2.5.6</a> to find the matrix associated to <span class="process-math">\(R\)</span> and explain why it is the same matrix associated to <span class="process-math">\((T\circ T)\text{.}\)</span>
 </div>
 </li>
-<li id="li-1232"><div class="para" id="p-1864">Write the two-dimensional vector <span class="process-math">\((T\circ
+<li id="li-1232"><div class="para" id="p-1873">Write the two-dimensional vector <span class="process-math">\((T\circ
 T)\left(\twovec xy\right)\text{.}\)</span>  How might this vector be expressed in terms of scalar multiplication and why does this make sense geometrically?</div></li>
 </ol>
 </div></li>
 <li id="li-1233">
-<div class="para" id="p-1865">In the previous activity, we imagined a company that operates two bakeries. We found the matrix transformation <span class="process-math">\(T:\real^2\to\real^3\)</span> where <span class="process-math">\(T\left(\twovec{x_1}{x_2}\right)\)</span> describes the number of cakes, doughnuts, and eclairs when Bakery1 runs for <span class="process-math">\(x_1\)</span> hours and Bakery 2 runs for <span class="process-math">\(x_2\)</span> hours.  The associated matrix is <span class="process-math">\(A = \begin{bmatrix}
+<div class="para" id="p-1874">In the previous activity, we imagined a company that operates two bakeries. We found the matrix transformation <span class="process-math">\(T:\real^2\to\real^3\)</span> where <span class="process-math">\(T\left(\twovec{x_1}{x_2}\right)\)</span> describes the number of cakes, doughnuts, and eclairs when Bakery1 runs for <span class="process-math">\(x_1\)</span> hours and Bakery 2 runs for <span class="process-math">\(x_2\)</span> hours.  The associated matrix is <span class="process-math">\(A = \begin{bmatrix}
 10 \amp 20 \\
 50 \amp 30 \\
 30 \amp 30 \\
 \end{bmatrix}
 \text{.}\)</span>
 </div>
-<div class="para logical" id="p-1866">
+<div class="para logical" id="p-1875">
 <div class="para">Suppose now that</div>
 <ul class="disc">
-<li id="li-1234"><div class="para" id="p-1867">Each cake requires 4 cups of flour and and 2 cups of sugar.</div></li>
-<li id="li-1235"><div class="para" id="p-1868">Each doughnut requires 1 cup of flour and 1 cup of sugar.</div></li>
-<li id="li-1236"><div class="para" id="p-1869">Each eclair requires 1 cup of flour and 2 cups of sugar.</div></li>
+<li id="li-1234"><div class="para" id="p-1876">Each cake requires 4 cups of flour and and 2 cups of sugar.</div></li>
+<li id="li-1235"><div class="para" id="p-1877">Each doughnut requires 1 cup of flour and 1 cup of sugar.</div></li>
+<li id="li-1236"><div class="para" id="p-1878">Each eclair requires 1 cup of flour and 2 cups of sugar.</div></li>
 </ul>
 <div class="para">We will describe a matrix transformation <span class="process-math">\(S:\real^3\to\real^2\)</span> where <span class="process-math">\(S\left(\threevec{y_1}{y_2}{y_3}\right)\)</span> is a two-dimensional vector describing the number of cups of flour and sugar required to make <span class="process-math">\(y_1\)</span> cakes, <span class="process-math">\(y_2\)</span> doughnuts, and <span class="process-math">\(y_3\)</span> eclairs.</div>
 <ol class="decimal">
-<li id="li-1237"><div class="para" id="p-1870">Use <a href="" class="xref" data-knowl="./knowl/prop-linear-trans-columns.html" title="Proposition 2.5.6">Proposition 2.5.6</a> to write the matrix <span class="process-math">\(B\)</span> associated to the transformation <span class="process-math">\(S\text{.}\)</span>
+<li id="li-1237"><div class="para" id="p-1879">Use <a href="" class="xref" data-knowl="./knowl/prop-linear-trans-columns.html" title="Proposition 2.5.6">Proposition 2.5.6</a> to write the matrix <span class="process-math">\(B\)</span> associated to the transformation <span class="process-math">\(S\text{.}\)</span>
 </div></li>
-<li id="li-1238"><div class="para" id="p-1871">If we make 1200 cakes, 2850 doughnuts, and 2250 eclairs, how many cups of flour and sugar are required? <pre class="ptx-sagecell sagecell-sage" id="sage-70"><script type="text/x-sage">
+<li id="li-1238"><div class="para" id="p-1880">If we make 1200 cakes, 2850 doughnuts, and 2250 eclairs, how many cups of flour and sugar are required? <pre class="ptx-sagecell sagecell-sage" id="sage-72"><script type="text/x-sage">
 </script></pre>
 </div></li>
-<li id="li-1239"><div class="para" id="p-1872">Suppose that Bakery 1 operates for 75 hours and Bakery 2 operates for 53 hours.  How many cakes, doughnuts, and eclairs are produced?  How many cups of flour and sugar are required?</div></li>
-<li id="li-1240"><div class="para" id="p-1873">What is the meaning of the composition <span class="process-math">\((S\circ
+<li id="li-1239"><div class="para" id="p-1881">Suppose that Bakery 1 operates for 75 hours and Bakery 2 operates for 53 hours.  How many cakes, doughnuts, and eclairs are produced?  How many cups of flour and sugar are required?</div></li>
+<li id="li-1240"><div class="para" id="p-1882">What is the meaning of the composition <span class="process-math">\((S\circ
 T)\)</span> and what is its associated matrix?</div></li>
-<li id="li-1241"><div class="para" id="p-1874">In a certain time interval, both bakeries use a total of 5800 cups of flour and 5980 cups of sugar.  How long have the two bakeries been operating?</div></li>
+<li id="li-1241"><div class="para" id="p-1883">In a certain time interval, both bakeries use a total of 5800 cups of flour and 5980 cups of sugar.  How long have the two bakeries been operating?</div></li>
 </ol>
 </div>
 </li>
@@ -1052,49 +1054,49 @@ T)\)</span> and what is its associated matrix?</div></li>
 </div></article></section><section class="subsection" id="subsec-dynamical-systems"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber">2.5.3</span> <span class="title">Discrete Dynamical Systems</span>
 </h3>
-<div class="para" id="p-1887">In <a href="chap4.html" class="internal" title="Chapter 4: Eigenvalues and eigenvectors">Chapter 4</a>, we will give considerable attention to a specific type of matrix transformation, which is illustrated in the next activity.</div>
+<div class="para" id="p-1896">In <a href="chap4.html" class="internal" title="Chapter 4: Eigenvalues and eigenvectors">Chapter 4</a>, we will give considerable attention to a specific type of matrix transformation, which is illustrated in the next activity.</div>
 <article class="activity project-like" id="activity-24"><h4 class="heading">
 <span class="type">Activity</span><span class="space"> </span><span class="codenumber">2.5.5</span><span class="period">.</span>
 </h4>
-<div class="para logical" id="p-1888">
+<div class="para logical" id="p-1897">
 <div class="para">Suppose we run a company that has two warehouses, which we will call <span class="process-math">\(P\)</span> and <span class="process-math">\(Q\text{,}\)</span> and a fleet of 1000 delivery trucks. Every morning, a delivery truck goes out from one of the warehouses and returns in the evening to one of the warehouses.  It is observed that</div>
 <ul class="disc">
-<li id="li-1253"><div class="para" id="p-1889">70% of the trucks that leave <span class="process-math">\(P\)</span> return to <span class="process-math">\(P\text{.}\)</span>  The other 30% return to <span class="process-math">\(Q\text{.}\)</span>
+<li id="li-1253"><div class="para" id="p-1898">70% of the trucks that leave <span class="process-math">\(P\)</span> return to <span class="process-math">\(P\text{.}\)</span>  The other 30% return to <span class="process-math">\(Q\text{.}\)</span>
 </div></li>
-<li id="li-1254"><div class="para" id="p-1890">50% of the trucks that leave <span class="process-math">\(Q\)</span> return to <span class="process-math">\(Q\)</span> and 50% return to <span class="process-math">\(P\text{.}\)</span>
+<li id="li-1254"><div class="para" id="p-1899">50% of the trucks that leave <span class="process-math">\(Q\)</span> return to <span class="process-math">\(Q\)</span> and 50% return to <span class="process-math">\(P\text{.}\)</span>
 </div></li>
 </ul>
-</div> <div class="para logical" id="p-1891">
-<div class="para">The distribution of trucks is represented by the vector <span class="process-math">\(\xvec=\twovec{x_1}{x_2}\)</span> when there are <span class="process-math">\(x_1\)</span> trucks at location <span class="process-math">\(P\)</span> and <span class="process-math">\(x_2\)</span> trucks at <span class="process-math">\(Q\text{.}\)</span>  If <span class="process-math">\(\xvec\)</span> describes the distribution of trucks in the morning, then the matrix transformation <span class="process-math">\(T(\xvec)\)</span> will describe the distribution in the evening. <pre class="ptx-sagecell sagecell-sage" id="sage-71"><script type="text/x-sage">
+</div> <div class="para logical" id="p-1900">
+<div class="para">The distribution of trucks is represented by the vector <span class="process-math">\(\xvec=\twovec{x_1}{x_2}\)</span> when there are <span class="process-math">\(x_1\)</span> trucks at location <span class="process-math">\(P\)</span> and <span class="process-math">\(x_2\)</span> trucks at <span class="process-math">\(Q\text{.}\)</span>  If <span class="process-math">\(\xvec\)</span> describes the distribution of trucks in the morning, then the matrix transformation <span class="process-math">\(T(\xvec)\)</span> will describe the distribution in the evening. <pre class="ptx-sagecell sagecell-sage" id="sage-73"><script type="text/x-sage">
 </script></pre>
 </div>
 <ol class="lower-alpha">
 <li id="li-1255">
-<div class="para" id="p-1892">Suppose that all 1000 trucks begin the day at location <span class="process-math">\(P\)</span> and none at <span class="process-math">\(Q\text{.}\)</span>  How many trucks are at each location that evening?  Using our vector representation, what is <span class="process-math">\(T\left(\ctwovec{1000}{0}\right)\text{?}\)</span>
+<div class="para" id="p-1901">Suppose that all 1000 trucks begin the day at location <span class="process-math">\(P\)</span> and none at <span class="process-math">\(Q\text{.}\)</span>  How many trucks are at each location that evening?  Using our vector representation, what is <span class="process-math">\(T\left(\ctwovec{1000}{0}\right)\text{?}\)</span>
 </div>
-<div class="para" id="p-1893">So that we can find the matrix <span class="process-math">\(A\)</span> associated to <span class="process-math">\(T\text{,}\)</span> what does this tell us about <span class="process-math">\(T\left(\twovec{1}{0}\right)\text{?}\)</span>
+<div class="para" id="p-1902">So that we can find the matrix <span class="process-math">\(A\)</span> associated to <span class="process-math">\(T\text{,}\)</span> what does this tell us about <span class="process-math">\(T\left(\twovec{1}{0}\right)\text{?}\)</span>
 </div>
 </li>
-<li id="li-1256"><div class="para" id="p-1894">In the same way, suppose that all 1000 trucks begin the day at location <span class="process-math">\(Q\)</span> and none at <span class="process-math">\(P\text{.}\)</span>  How many trucks are at each location that evening? What is the result <span class="process-math">\(T\left(\ctwovec{0}{1000}\right)\)</span> and what is <span class="process-math">\(T\left(\twovec01\right)\text{?}\)</span>
+<li id="li-1256"><div class="para" id="p-1903">In the same way, suppose that all 1000 trucks begin the day at location <span class="process-math">\(Q\)</span> and none at <span class="process-math">\(P\text{.}\)</span>  How many trucks are at each location that evening? What is the result <span class="process-math">\(T\left(\ctwovec{0}{1000}\right)\)</span> and what is <span class="process-math">\(T\left(\twovec01\right)\text{?}\)</span>
 </div></li>
-<li id="li-1257"><div class="para" id="p-1895">Find the matrix <span class="process-math">\(A\)</span> such that <span class="process-math">\(T(\xvec) =
+<li id="li-1257"><div class="para" id="p-1904">Find the matrix <span class="process-math">\(A\)</span> such that <span class="process-math">\(T(\xvec) =
 A\xvec\text{.}\)</span>
 </div></li>
-<li id="li-1258"><div class="para" id="p-1896">Suppose that there are 100 trucks at <span class="process-math">\(P\)</span> and 900 at <span class="process-math">\(Q\)</span> in the morning.  How many are there at the two locations in the evening?</div></li>
-<li id="li-1259"><div class="para" id="p-1897">Suppose that there are 550 trucks at <span class="process-math">\(P\)</span> and 450 at <span class="process-math">\(Q\)</span> in the evening.  How many trucks were there at the two locations that morning?</div></li>
-<li id="li-1260"><div class="para logical" id="p-1898">
+<li id="li-1258"><div class="para" id="p-1905">Suppose that there are 100 trucks at <span class="process-math">\(P\)</span> and 900 at <span class="process-math">\(Q\)</span> in the morning.  How many are there at the two locations in the evening?</div></li>
+<li id="li-1259"><div class="para" id="p-1906">Suppose that there are 550 trucks at <span class="process-math">\(P\)</span> and 450 at <span class="process-math">\(Q\)</span> in the evening.  How many trucks were there at the two locations that morning?</div></li>
+<li id="li-1260"><div class="para logical" id="p-1907">
 <div class="para">Suppose that all of the trucks are at location <span class="process-math">\(Q\)</span> on Monday morning.</div>
 <ol class="decimal">
-<li id="li-1261"><div class="para" id="p-1899">How many trucks are at each location Monday evening?</div></li>
-<li id="li-1262"><div class="para" id="p-1900">How many trucks are at each location Tuesday evening?</div></li>
-<li id="li-1263"><div class="para" id="p-1901">How many trucks are at each location Wednesday evening?</div></li>
+<li id="li-1261"><div class="para" id="p-1908">How many trucks are at each location Monday evening?</div></li>
+<li id="li-1262"><div class="para" id="p-1909">How many trucks are at each location Tuesday evening?</div></li>
+<li id="li-1263"><div class="para" id="p-1910">How many trucks are at each location Wednesday evening?</div></li>
 </ol>
 </div></li>
-<li id="li-1264"><div class="para" id="p-1902">Suppose that <span class="process-math">\(S\)</span> is the matrix transformation that transforms the distribution of trucks <span class="process-math">\(\xvec\)</span> one morning into the distribution of trucks in the morning one week (seven days) later.  What is the matrix that defines the transformation <span class="process-math">\(S\text{?}\)</span>
+<li id="li-1264"><div class="para" id="p-1911">Suppose that <span class="process-math">\(S\)</span> is the matrix transformation that transforms the distribution of trucks <span class="process-math">\(\xvec\)</span> one morning into the distribution of trucks in the morning one week (seven days) later.  What is the matrix that defines the transformation <span class="process-math">\(S\text{?}\)</span>
 </div></li>
 </ol>
-</div></article><div class="para" id="p-1914">As we will see later, this type of situation occurs frequently.  We have a vector <span class="process-math">\(\xvec\)</span> that describes the state of some system; in this case, <span class="process-math">\(\xvec\)</span> describes the distribution of trucks between the two locations at a particular time.  Then there is a matrix transformation  <span class="process-math">\(T(\xvec) = A\xvec\)</span> that describes the state at some later time.  We call <span class="process-math">\(\xvec\)</span> the <em class="emphasis">state</em> vector and <span class="process-math">\(T\)</span> the <em class="emphasis">transition</em> function, as it describes the transition of the state vector from one time to the next.  </div>
-<div class="para logical" id="p-1915">
+</div></article><div class="para" id="p-1923">As we will see later, this type of situation occurs frequently.  We have a vector <span class="process-math">\(\xvec\)</span> that describes the state of some system; in this case, <span class="process-math">\(\xvec\)</span> describes the distribution of trucks between the two locations at a particular time.  Then there is a matrix transformation  <span class="process-math">\(T(\xvec) = A\xvec\)</span> that describes the state at some later time.  We call <span class="process-math">\(\xvec\)</span> the <em class="emphasis">state</em> vector and <span class="process-math">\(T\)</span> the <em class="emphasis">transition</em> function, as it describes the transition of the state vector from one time to the next.  </div>
+<div class="para logical" id="p-1924">
 <div class="para">Beginning with an initial state <span class="process-math">\(\xvec_0\text{,}\)</span> we would like to know how the state evolves over time.  For instance,</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -1107,16 +1109,16 @@ A\xvec\text{.}\)</span>
 </div>
 <div class="para">and so on.</div>
 </div>
-<div class="para" id="p-1916"> We call this situation where the state of a system evolves from one time to the next according to the rule <span class="process-math">\(\xvec_{k+1}=A\xvec_k\)</span> a <em class="emphasis">discrete dynamical system</em>.  In <a href="chap4.html" class="internal" title="Chapter 4: Eigenvalues and eigenvectors">Chapter 4</a>, we will develop a theory that enables us to make long-term predictions about the evolution of the state vector.</div></section><section class="subsection" id="subsection-33"><h3 class="heading hide-type">
+<div class="para" id="p-1925"> We call this situation where the state of a system evolves from one time to the next according to the rule <span class="process-math">\(\xvec_{k+1}=A\xvec_k\)</span> a <em class="emphasis">discrete dynamical system</em>.  In <a href="chap4.html" class="internal" title="Chapter 4: Eigenvalues and eigenvectors">Chapter 4</a>, we will develop a theory that enables us to make long-term predictions about the evolution of the state vector.</div></section><section class="subsection" id="subsection-33"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber">2.5.4</span> <span class="title">Summary</span>
 </h3>
-<div class="para logical" id="p-1917">
+<div class="para logical" id="p-1926">
 <div class="para">This section introduced matrix transformations, functions that are defined by matrix-vector multiplication, such as <span class="process-math">\(T(\xvec) = A\xvec\)</span> for some matrix <span class="process-math">\(A\text{.}\)</span>
 </div>
 <ul class="disc">
-<li id="li-1275"><div class="para" id="p-1918">If <span class="process-math">\(A\)</span> is an <span class="process-math">\(m\times n\)</span> matrix, then <span class="process-math">\(T:\real^n\to\real^m\text{.}\)</span>
+<li id="li-1275"><div class="para" id="p-1927">If <span class="process-math">\(A\)</span> is an <span class="process-math">\(m\times n\)</span> matrix, then <span class="process-math">\(T:\real^n\to\real^m\text{.}\)</span>
 </div></li>
-<li id="li-1276"><div class="para logical" id="p-1919">
+<li id="li-1276"><div class="para logical" id="p-1928">
 <div class="para">The columns of the matrix <span class="process-math">\(A\)</span> are given by evaluating the transformation <span class="process-math">\(T\)</span> on the vectors <span class="process-math">\(\evec_j\text{;}\)</span>  that is,</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -1126,15 +1128,15 @@ T(\evec_1) \amp T(\evec_2) \amp \cdots \amp T(\evec_n)
 \end{equation*}
 </div>
 </div></li>
-<li id="li-1277"><div class="para" id="p-1920">The composition of matrix transformations corresponds to matrix multiplication.</div></li>
-<li id="li-1278"><div class="para" id="p-1921">A discrete dynamical system consists of a state vector <span class="process-math">\(\xvec\)</span> along with a transition function <span class="process-math">\(T(\xvec) =
+<li id="li-1277"><div class="para" id="p-1929">The composition of matrix transformations corresponds to matrix multiplication.</div></li>
+<li id="li-1278"><div class="para" id="p-1930">A discrete dynamical system consists of a state vector <span class="process-math">\(\xvec\)</span> along with a transition function <span class="process-math">\(T(\xvec) =
 A\xvec\)</span> that describes how the state vector evolves from one time to the next.  Powers of the matrix <span class="process-math">\(A\)</span> determine the long-term behavior of the state vector.</div></li>
 </ul>
 </div></section><section class="exercises" id="exercises-8"><h3 class="heading hide-type">
 <span class="type">Exercises</span> <span class="codenumber">2.5.5</span> <span class="title">Exercises</span>
 </h3>
 <article class="exercise exercise-like" id="exercise-64"><h4 class="heading"><span class="codenumber">1<span class="period">.</span></span></h4>
-<div class="para logical" id="p-1922">
+<div class="para logical" id="p-1931">
 <div class="para">Suppose that <span class="process-math">\(T\)</span> is the matrix transformation defined by the matrix <span class="process-math">\(A\)</span> and <span class="process-math">\(S\)</span> is the matrix transformation defined by <span class="process-math">\(B\)</span> where</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -1150,22 +1152,22 @@ B = \left[\begin{array}{rrr}
 \end{equation*}
 </div>
 <ol class="lower-alpha">
-<li id="li-1279"><div class="para" id="p-1923">If <span class="process-math">\(T:\real^n\to\real^m\text{,}\)</span> what are the values of <span class="process-math">\(m\)</span> and <span class="process-math">\(n\text{?}\)</span>  What values of <span class="process-math">\(m\)</span> and <span class="process-math">\(n\)</span> are appropriate for the transformation <span class="process-math">\(S\text{?}\)</span>
+<li id="li-1279"><div class="para" id="p-1932">If <span class="process-math">\(T:\real^n\to\real^m\text{,}\)</span> what are the values of <span class="process-math">\(m\)</span> and <span class="process-math">\(n\text{?}\)</span>  What values of <span class="process-math">\(m\)</span> and <span class="process-math">\(n\)</span> are appropriate for the transformation <span class="process-math">\(S\text{?}\)</span>
 </div></li>
-<li id="li-1280"><div class="para" id="p-1924">Evaluate <span class="process-math">\(T\left(\threevec{1}{-3}{2}\right)\text{.}\)</span>
+<li id="li-1280"><div class="para" id="p-1933">Evaluate <span class="process-math">\(T\left(\threevec{1}{-3}{2}\right)\text{.}\)</span>
 </div></li>
-<li id="li-1281"><div class="para" id="p-1925">Evaluate <span class="process-math">\(S\left(\threevec{-2}{2}{1}\right)\text{.}\)</span>
+<li id="li-1281"><div class="para" id="p-1934">Evaluate <span class="process-math">\(S\left(\threevec{-2}{2}{1}\right)\text{.}\)</span>
 </div></li>
-<li id="li-1282"><div class="para" id="p-1926">Evaluate <span class="process-math">\(S\circ T\left(\threevec{1}{-3}{2}\right)\text{.}\)</span>
+<li id="li-1282"><div class="para" id="p-1935">Evaluate <span class="process-math">\(S\circ T\left(\threevec{1}{-3}{2}\right)\text{.}\)</span>
 </div></li>
-<li id="li-1283"><div class="para" id="p-1927">Find the matrix <span class="process-math">\(C\)</span> that defines the matrix transformation <span class="process-math">\(S\circ T\text{.}\)</span>
+<li id="li-1283"><div class="para" id="p-1936">Find the matrix <span class="process-math">\(C\)</span> that defines the matrix transformation <span class="process-math">\(S\circ T\text{.}\)</span>
 </div></li>
 </ol>
 </div></article><article class="exercise exercise-like" id="exercise-65"><h4 class="heading"><span class="codenumber">2<span class="period">.</span></span></h4>
-<div class="para logical" id="p-1940">
+<div class="para logical" id="p-1949">
 <div class="para">This problem concerns the identification of matrix transformations, about which more will be said in the next section.</div>
 <ol class="lower-alpha">
-<li id="li-1294"><div class="para logical" id="p-1941">
+<li id="li-1294"><div class="para logical" id="p-1950">
 <div class="para">Check that the following function <span class="process-math">\(T:\real^3\to\real^2\)</span> is a matrix transformation by finding a matrix <span class="process-math">\(A\)</span> such that <span class="process-math">\(T(\xvec) = A\xvec\text{.}\)</span>
 </div>
 <div class="displaymath process-math">
@@ -1177,7 +1179,7 @@ T\left(\threevec{x_1}{x_2}{x_3}\right) =
 \end{equation*}
 </div>
 </div></li>
-<li id="li-1295"><div class="para logical" id="p-1942">
+<li id="li-1295"><div class="para logical" id="p-1951">
 <div class="para">Explain why</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -1191,7 +1193,7 @@ T\left(\threevec{x_1}{x_2}{x_3}\right) =
 </div></li>
 </ol>
 </div></article><article class="exercise exercise-like" id="exercise-66"><h4 class="heading"><span class="codenumber">3<span class="period">.</span></span></h4>
-<div class="para logical" id="p-1949">
+<div class="para logical" id="p-1958">
 <div class="para">Suppose that the matrix</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -1205,28 +1207,28 @@ A = \left[\begin{array}{rrr}
 <div class="para">defines the matrix transformation <span class="process-math">\(T:\real^3\to\real^3\text{.}\)</span>
 </div>
 <ol class="lower-alpha">
-<li id="li-1300"><div class="para" id="p-1950">Describe the vectors <span class="process-math">\(\xvec\)</span> that satisfy <span class="process-math">\(T(\xvec) = \zerovec\text{.}\)</span>
+<li id="li-1300"><div class="para" id="p-1959">Describe the vectors <span class="process-math">\(\xvec\)</span> that satisfy <span class="process-math">\(T(\xvec) = \zerovec\text{.}\)</span>
 </div></li>
-<li id="li-1301"><div class="para" id="p-1951">Describe the vectors <span class="process-math">\(\xvec\)</span> that satisfy <span class="process-math">\(T(\xvec) = \threevec{-8}{9}{2}\text{.}\)</span>
+<li id="li-1301"><div class="para" id="p-1960">Describe the vectors <span class="process-math">\(\xvec\)</span> that satisfy <span class="process-math">\(T(\xvec) = \threevec{-8}{9}{2}\text{.}\)</span>
 </div></li>
-<li id="li-1302"><div class="para" id="p-1952">Describe the vectors <span class="process-math">\(\xvec\)</span> that satisfy <span class="process-math">\(T(\xvec) = \threevec{-8}{2}{-4}\text{.}\)</span>
+<li id="li-1302"><div class="para" id="p-1961">Describe the vectors <span class="process-math">\(\xvec\)</span> that satisfy <span class="process-math">\(T(\xvec) = \threevec{-8}{2}{-4}\text{.}\)</span>
 </div></li>
 </ol>
 </div></article><article class="exercise exercise-like" id="exercise-67"><h4 class="heading"><span class="codenumber">4<span class="period">.</span></span></h4>
-<div class="para" id="p-1961">Suppose <span class="process-math">\(T:\real^3\to\real^2\)</span> is a matrix transformation with <span class="process-math">\(T(\evec_j) = \vvec_j\)</span> where <span class="process-math">\(\vvec_1\text{,}\)</span> <span class="process-math">\(\vvec_2\text{,}\)</span> and <span class="process-math">\(\vvec_3\)</span> are as shown in <a href="" class="xref" data-knowl="./knowl/fig-ex-linear-trans.html" title="Figure 2.5.10">Figure 2.5.10</a>.</div> <figure class="figure figure-like" id="fig-ex-linear-trans"><div class="sidebyside"><div class="sbsrow" style="margin-left:25%;margin-right:25%;"><div class="sbspanel top" style="width:100%;"><img src="external/images/ex-linear-trans.svg" role="img" class="contained"></div></div></div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">2.5.10<span class="period">.</span></span><span class="space"> </span>The vectors <span class="process-math">\(T(\evec_j)=\vvec_j\text{.}\)</span></figcaption></figure> <div class="para logical" id="p-1962"><ol class="lower-alpha">
-<li id="li-1309"><div class="para" id="p-1963">Sketch the vector <span class="process-math">\(T\left(\threevec{2}{1}{2}\right)\text{.}\)</span>
+<div class="para" id="p-1970">Suppose <span class="process-math">\(T:\real^3\to\real^2\)</span> is a matrix transformation with <span class="process-math">\(T(\evec_j) = \vvec_j\)</span> where <span class="process-math">\(\vvec_1\text{,}\)</span> <span class="process-math">\(\vvec_2\text{,}\)</span> and <span class="process-math">\(\vvec_3\)</span> are as shown in <a href="" class="xref" data-knowl="./knowl/fig-ex-linear-trans.html" title="Figure 2.5.10">Figure 2.5.10</a>.</div> <figure class="figure figure-like" id="fig-ex-linear-trans"><div class="sidebyside"><div class="sbsrow" style="margin-left:25%;margin-right:25%;"><div class="sbspanel top" style="width:100%;"><img src="external/images/ex-linear-trans.svg" role="img" class="contained"></div></div></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">2.5.10<span class="period">.</span></span><span class="space"> </span>The vectors <span class="process-math">\(T(\evec_j)=\vvec_j\text{.}\)</span></figcaption></figure> <div class="para logical" id="p-1971"><ol class="lower-alpha">
+<li id="li-1309"><div class="para" id="p-1972">Sketch the vector <span class="process-math">\(T\left(\threevec{2}{1}{2}\right)\text{.}\)</span>
 </div></li>
-<li id="li-1310"><div class="para" id="p-1964">What is the vector <span class="process-math">\(T\left(\threevec{0}{1}{0}\right)\text{?}\)</span>
+<li id="li-1310"><div class="para" id="p-1973">What is the vector <span class="process-math">\(T\left(\threevec{0}{1}{0}\right)\text{?}\)</span>
 </div></li>
-<li id="li-1311"><div class="para" id="p-1965">Find all the vectors <span class="process-math">\(\xvec\)</span> such that <span class="process-math">\(T(\xvec) =
+<li id="li-1311"><div class="para" id="p-1974">Find all the vectors <span class="process-math">\(\xvec\)</span> such that <span class="process-math">\(T(\xvec) =
 \zerovec\text{.}\)</span>
 </div></li>
 </ol></div></article><article class="exercise exercise-like" id="exercise-68"><h4 class="heading"><span class="codenumber">5<span class="period">.</span></span></h4>
-<div class="para logical" id="p-1974">
+<div class="para logical" id="p-1983">
 <div class="para">In <a href="" class="xref" data-knowl="./knowl/example-mt-to-matrix.html" title="Example 2.5.5">Example 2.5.5</a> and <a href="" class="xref" data-knowl="./knowl/example-matrix-to-mt.html" title="Example 2.5.4">Example 2.5.4</a>, we wrote matrix transformations in terms of the components of <span class="process-math">\(T(\xvec)\text{.}\)</span>  This exercise makes use of that form.</div>
 <ol class="lower-alpha">
-<li id="li-1318"><div class="para logical" id="p-1975">
+<li id="li-1318"><div class="para logical" id="p-1984">
 <div class="para">Let’s return to the example in <a href="" class="xref" data-knowl="./knowl/activity-mt-intro.html" title="Activity 2.5.3">Activity 2.5.3</a> concerning the company that operates two bakeries.  We used a matrix transformation with input <span class="process-math">\(\xvec\text{,}\)</span> which recorded the amount of time the two bakeries operated, and output <span class="process-math">\(T(\xvec)\text{,}\)</span> the number of cakes, doughnuts, and eclairs produced.  The associated matrix is <span class="process-math">\(A=\begin{bmatrix}
 10 \amp 20 \\
 50 \amp 30 \\
@@ -1235,69 +1237,69 @@ A = \left[\begin{array}{rrr}
 \text{.}\)</span>
 </div>
 <ol class="decimal">
-<li id="li-1319"><div class="para" id="p-1976">If <span class="process-math">\(\xvec=\twovec{x_1}{x_2}\text{,}\)</span> write the output <span class="process-math">\(T(\xvec)\)</span> as a three-dimensional vector in terms of <span class="process-math">\(x_1\)</span> and <span class="process-math">\(x_2\text{.}\)</span>
+<li id="li-1319"><div class="para" id="p-1985">If <span class="process-math">\(\xvec=\twovec{x_1}{x_2}\text{,}\)</span> write the output <span class="process-math">\(T(\xvec)\)</span> as a three-dimensional vector in terms of <span class="process-math">\(x_1\)</span> and <span class="process-math">\(x_2\text{.}\)</span>
 </div></li>
-<li id="li-1320"><div class="para" id="p-1977">If Bakery 1 operates for <span class="process-math">\(x_1\)</span> hours and Bakery 2 for <span class="process-math">\(x_2\)</span> hours, how many cakes are produced?</div></li>
-<li id="li-1321"><div class="para" id="p-1978">Explain how you may have discovered this expression by considering the rates at which the two locations make cakes.</div></li>
+<li id="li-1320"><div class="para" id="p-1986">If Bakery 1 operates for <span class="process-math">\(x_1\)</span> hours and Bakery 2 for <span class="process-math">\(x_2\)</span> hours, how many cakes are produced?</div></li>
+<li id="li-1321"><div class="para" id="p-1987">Explain how you may have discovered this expression by considering the rates at which the two locations make cakes.</div></li>
 </ol>
 </div></li>
-<li id="li-1322"><div class="para logical" id="p-1979">
+<li id="li-1322"><div class="para logical" id="p-1988">
 <div class="para">Suppose that a bicycle sharing program has two locations <span class="process-math">\(P\)</span> and <span class="process-math">\(Q\text{.}\)</span>  Bicycles are rented from some location in the morning and returned to a location in the evening.  Suppose that</div>
 <ul class="disc">
-<li id="li-1323"><div class="para" id="p-1980">60% of bicycles that begin at <span class="process-math">\(P\)</span> in the morning are returned to <span class="process-math">\(P\)</span> in the evening while the other 40% are returned to <span class="process-math">\(Q\text{.}\)</span>
+<li id="li-1323"><div class="para" id="p-1989">60% of bicycles that begin at <span class="process-math">\(P\)</span> in the morning are returned to <span class="process-math">\(P\)</span> in the evening while the other 40% are returned to <span class="process-math">\(Q\text{.}\)</span>
 </div></li>
-<li id="li-1324"><div class="para" id="p-1981">30% of bicycles that begin at <span class="process-math">\(Q\)</span> are returned to <span class="process-math">\(Q\)</span> and the other 70% are returned to <span class="process-math">\(P\text{.}\)</span>
+<li id="li-1324"><div class="para" id="p-1990">30% of bicycles that begin at <span class="process-math">\(Q\)</span> are returned to <span class="process-math">\(Q\)</span> and the other 70% are returned to <span class="process-math">\(P\text{.}\)</span>
 </div></li>
 </ul>
 <ol class="decimal">
-<li id="li-1325"><div class="para" id="p-1982">If <span class="process-math">\(x_1\)</span> is the number of bicycles at location <span class="process-math">\(P\)</span> and <span class="process-math">\(x_2\)</span> the number at <span class="process-math">\(Q\)</span> in the morning, write an expression for the number of bicycles at <span class="process-math">\(P\)</span> in the evening.</div></li>
-<li id="li-1326"><div class="para" id="p-1983">Write an expression for the number of bicycles at <span class="process-math">\(Q\)</span> in the evening.</div></li>
-<li id="li-1327"><div class="para" id="p-1984">Write an expression for <span class="process-math">\(T\left(\twovec{x_1}{x_2}\right)\text{,}\)</span> the vector that describs the distribution of bicycles in the evening.</div></li>
-<li id="li-1328"><div class="para" id="p-1985">Use this expression to identify the matrix <span class="process-math">\(A\)</span> associated to the matrix transformation <span class="process-math">\(T\text{.}\)</span>
+<li id="li-1325"><div class="para" id="p-1991">If <span class="process-math">\(x_1\)</span> is the number of bicycles at location <span class="process-math">\(P\)</span> and <span class="process-math">\(x_2\)</span> the number at <span class="process-math">\(Q\)</span> in the morning, write an expression for the number of bicycles at <span class="process-math">\(P\)</span> in the evening.</div></li>
+<li id="li-1326"><div class="para" id="p-1992">Write an expression for the number of bicycles at <span class="process-math">\(Q\)</span> in the evening.</div></li>
+<li id="li-1327"><div class="para" id="p-1993">Write an expression for <span class="process-math">\(T\left(\twovec{x_1}{x_2}\right)\text{,}\)</span> the vector that describs the distribution of bicycles in the evening.</div></li>
+<li id="li-1328"><div class="para" id="p-1994">Use this expression to identify the matrix <span class="process-math">\(A\)</span> associated to the matrix transformation <span class="process-math">\(T\text{.}\)</span>
 </div></li>
 </ol>
 </div></li>
 </ol>
 </div></article><article class="exercise exercise-like" id="exercise-69"><h4 class="heading"><span class="codenumber">6<span class="period">.</span></span></h4>
-<div class="para logical" id="p-2006">
+<div class="para logical" id="p-2015">
 <div class="para">Determine whether the following statements are true or false and provide a justification for your response.</div>
 <ol class="lower-alpha">
-<li id="li-1347"><div class="para" id="p-2007">A matrix transformation <span class="process-math">\(T:\real^4\to\real^5\)</span> is defined by <span class="process-math">\(T(\xvec) = A\xvec\)</span> where <span class="process-math">\(A\)</span> is a <span class="process-math">\(4\times5\)</span> matrix.</div></li>
-<li id="li-1348"><div class="para" id="p-2008">If <span class="process-math">\(T:\real^3\to\real^2\)</span> is a matrix transformation, then there are infinitely many vectors <span class="process-math">\(\xvec\)</span> such that <span class="process-math">\(T(\xvec) = \zerovec\text{.}\)</span>
+<li id="li-1347"><div class="para" id="p-2016">A matrix transformation <span class="process-math">\(T:\real^4\to\real^5\)</span> is defined by <span class="process-math">\(T(\xvec) = A\xvec\)</span> where <span class="process-math">\(A\)</span> is a <span class="process-math">\(4\times5\)</span> matrix.</div></li>
+<li id="li-1348"><div class="para" id="p-2017">If <span class="process-math">\(T:\real^3\to\real^2\)</span> is a matrix transformation, then there are infinitely many vectors <span class="process-math">\(\xvec\)</span> such that <span class="process-math">\(T(\xvec) = \zerovec\text{.}\)</span>
 </div></li>
-<li id="li-1349"><div class="para" id="p-2009">If <span class="process-math">\(T:\real^2\to\real^3\)</span> is a matrix transformation, then it is possible that every equation <span class="process-math">\(T(\xvec) = \bvec\)</span> has a solution for every vector <span class="process-math">\(\bvec\text{.}\)</span>
+<li id="li-1349"><div class="para" id="p-2018">If <span class="process-math">\(T:\real^2\to\real^3\)</span> is a matrix transformation, then it is possible that every equation <span class="process-math">\(T(\xvec) = \bvec\)</span> has a solution for every vector <span class="process-math">\(\bvec\text{.}\)</span>
 </div></li>
-<li id="li-1350"><div class="para" id="p-2010">If <span class="process-math">\(T:\real^n\to\real^m\)</span> is a matrix transformation, then the equation <span class="process-math">\(T(\xvec) =
+<li id="li-1350"><div class="para" id="p-2019">If <span class="process-math">\(T:\real^n\to\real^m\)</span> is a matrix transformation, then the equation <span class="process-math">\(T(\xvec) =
 \zerovec\)</span> always has a solution.</div></li>
 </ol>
 </div></article><article class="exercise exercise-like" id="exercise-70"><h4 class="heading"><span class="codenumber">7<span class="period">.</span></span></h4>
-<div class="para logical" id="p-2021">
+<div class="para logical" id="p-2030">
 <div class="para">Suppose that a company has three plants, called Plants 1, 2, and 3, that produce milk <span class="process-math">\(M\)</span> and yogurt <span class="process-math">\(Y\text{.}\)</span>  For every hour of operation,</div>
 <ul class="disc">
-<li id="li-1359"><div class="para" id="p-2022">Plant <span class="process-math">\(1\)</span> produces 20 units of milk and 15 units of yogurt.</div></li>
-<li id="li-1360"><div class="para" id="p-2023">Plant <span class="process-math">\(2\)</span> produces 30 units of milk and 5 units of yogurt.</div></li>
-<li id="li-1361"><div class="para" id="p-2024">Plant <span class="process-math">\(3\)</span> produces 0 units of milk and 40 units of yogurt.</div></li>
+<li id="li-1359"><div class="para" id="p-2031">Plant <span class="process-math">\(1\)</span> produces 20 units of milk and 15 units of yogurt.</div></li>
+<li id="li-1360"><div class="para" id="p-2032">Plant <span class="process-math">\(2\)</span> produces 30 units of milk and 5 units of yogurt.</div></li>
+<li id="li-1361"><div class="para" id="p-2033">Plant <span class="process-math">\(3\)</span> produces 0 units of milk and 40 units of yogurt.</div></li>
 </ul>
 <ol class="lower-alpha">
-<li id="li-1362"><div class="para" id="p-2025">Suppose that <span class="process-math">\(x_1\text{,}\)</span> <span class="process-math">\(x_2\text{,}\)</span> and <span class="process-math">\(x_3\)</span> record the amounts of time that the three plants are operated and that <span class="process-math">\(M\)</span> and <span class="process-math">\(Y\)</span> the amount of milk and yogurt produced. If we write <span class="process-math">\(\xvec=\threevec{x_1}{x_2}{x_3}\)</span> and <span class="process-math">\(\yvec = \twovec{M}{Y}\text{,}\)</span> find the matrix <span class="process-math">\(A\)</span> that defines the matrix transformation <span class="process-math">\(T(\xvec) =
+<li id="li-1362"><div class="para" id="p-2034">Suppose that <span class="process-math">\(x_1\text{,}\)</span> <span class="process-math">\(x_2\text{,}\)</span> and <span class="process-math">\(x_3\)</span> record the amounts of time that the three plants are operated and that <span class="process-math">\(M\)</span> and <span class="process-math">\(Y\)</span> record the amount of milk and yogurt produced. If we write <span class="process-math">\(\xvec=\threevec{x_1}{x_2}{x_3}\)</span> and <span class="process-math">\(\yvec = \twovec{M}{Y}\text{,}\)</span> find the matrix <span class="process-math">\(A\)</span> that defines the matrix transformation <span class="process-math">\(T(\xvec) =
 \yvec\text{.}\)</span>
 </div></li>
-<li id="li-1363"><div class="para logical" id="p-2026">
+<li id="li-1363"><div class="para logical" id="p-2035">
 <div class="para">Furthermore, suppose that producing each unit of</div>
 <ul class="disc">
-<li id="li-1364"><div class="para" id="p-2027">milk requires 5 units of electricity and 8 units of labor.</div></li>
-<li id="li-1365"><div class="para" id="p-2028">yogurt requires 6 units of electricity and 10 units of labor.</div></li>
+<li id="li-1364"><div class="para" id="p-2036">milk requires 5 units of electricity and 8 units of labor.</div></li>
+<li id="li-1365"><div class="para" id="p-2037">yogurt requires 6 units of electricity and 10 units of labor.</div></li>
 </ul>
 <div class="para">If we write the vector <span class="process-math">\(\zvec = \twovec{E}{L}\)</span> to record the required amounts of electricity <span class="process-math">\(E\)</span> and labor <span class="process-math">\(L\text{,}\)</span> find the matrix <span class="process-math">\(B\)</span> that defines the matrix transformation <span class="process-math">\(S(\yvec) =
 \zvec\text{.}\)</span>
 </div>
 </div></li>
-<li id="li-1366"><div class="para" id="p-2029">If <span class="process-math">\(\xvec = \threevec{30}{20}{10}\)</span> describes the amounts of time that the three plants are operated, how much milk and yogurt is produced?  How much electricity and labor are required?</div></li>
-<li id="li-1367"><div class="para" id="p-2030">Find the matrix <span class="process-math">\(C\)</span> that describes the matrix transformation <span class="process-math">\(R(\xvec)=\zvec\)</span> that gives the required amounts of electricity and labor when the each plants is operated an amount of time given by the vector <span class="process-math">\(\xvec\text{.}\)</span>
+<li id="li-1366"><div class="para" id="p-2038">If <span class="process-math">\(\xvec = \threevec{30}{20}{10}\)</span> describes the amounts of time that the three plants are operated, how much milk and yogurt is produced?  How much electricity and labor are required?</div></li>
+<li id="li-1367"><div class="para" id="p-2039">Find the matrix <span class="process-math">\(C\)</span> that describes the matrix transformation <span class="process-math">\(R(\xvec)=\zvec\)</span> that gives the required amounts of electricity and labor when the each plants is operated an amount of time given by the vector <span class="process-math">\(\xvec\text{.}\)</span>
 </div></li>
 </ol>
 </div></article><article class="exercise exercise-like" id="exercise-71"><h4 class="heading"><span class="codenumber">8<span class="period">.</span></span></h4>
-<div class="para logical" id="p-2041">
+<div class="para logical" id="p-2050">
 <div class="para">Suppose that <span class="process-math">\(T:\real^2\to\real^2\)</span> is a matrix transformation and that</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -1306,15 +1308,15 @@ T\left(\twovec{-1}{1}\right) = \twovec{1}{2}\text{.}
 \end{equation*}
 </div>
 <ol class="lower-alpha">
-<li id="li-1376"><div class="para" id="p-2042">Find the vector <span class="process-math">\(T\left(\twovec{1}{0}\right)\text{.}\)</span>
+<li id="li-1376"><div class="para" id="p-2051">Find the vector <span class="process-math">\(T\left(\twovec{1}{0}\right)\text{.}\)</span>
 </div></li>
-<li id="li-1377"><div class="para" id="p-2043">Find the matrix <span class="process-math">\(A\)</span> that defines <span class="process-math">\(T\text{.}\)</span>
+<li id="li-1377"><div class="para" id="p-2052">Find the matrix <span class="process-math">\(A\)</span> that defines <span class="process-math">\(T\text{.}\)</span>
 </div></li>
-<li id="li-1378"><div class="para" id="p-2044">Find the vector <span class="process-math">\(T\left(\twovec{4}{-5}\right)\text{.}\)</span>
+<li id="li-1378"><div class="para" id="p-2053">Find the vector <span class="process-math">\(T\left(\twovec{4}{-5}\right)\text{.}\)</span>
 </div></li>
 </ol>
 </div></article><article class="exercise exercise-like" id="exercise-72"><h4 class="heading"><span class="codenumber">9<span class="period">.</span></span></h4>
-<div class="para logical" id="p-2053">
+<div class="para logical" id="p-2062">
 <div class="para">Suppose that two species <span class="process-math">\(P\)</span> and <span class="process-math">\(Q\)</span> interact with one another and that we measure their populations every month.  We record their populations in a state vector <span class="process-math">\(\xvec = \twovec{p}{q}\text{,}\)</span> where <span class="process-math">\(p\)</span> and <span class="process-math">\(q\)</span> are the populations of <span class="process-math">\(P\)</span> and <span class="process-math">\(Q\text{,}\)</span> respectively.  We observe that there is a matrix</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -1324,36 +1326,36 @@ A = \left[\begin{array}{rr}
 \end{array}\right]
 \end{equation*}
 </div>
-<div class="para">such that the matrix transformation <span class="process-math">\(T(\xvec)=A\xvec\)</span> is the transition function describing how the state vector evolves from month to month.  We also observe that, at the beginning of July, the populations are described by the state vector <span class="process-math">\(\xvec=\twovec{1}{2}\text{.}\)</span> <pre class="ptx-sagecell sagecell-sage" id="sage-72"><script type="text/x-sage">
+<div class="para">such that the matrix transformation <span class="process-math">\(T(\xvec)=A\xvec\)</span> is the transition function describing how the state vector evolves from month to month.  We also observe that, at the beginning of July, the populations are described by the state vector <span class="process-math">\(\xvec=\twovec{1}{2}\text{.}\)</span> <pre class="ptx-sagecell sagecell-sage" id="sage-74"><script type="text/x-sage">
 </script></pre>
 </div>
 <ol class="lower-alpha">
-<li id="li-1385"><div class="para" id="p-2054">What will the populations be at the beginning of August?</div></li>
-<li id="li-1386"><div class="para" id="p-2055">What were the populations at the beginning of June?</div></li>
-<li id="li-1387"><div class="para" id="p-2056">What will the populations be at the beginning of December?</div></li>
-<li id="li-1388"><div class="para" id="p-2057">What will the populations be at the beginning of July in the following year?</div></li>
+<li id="li-1385"><div class="para" id="p-2063">What will the populations be at the beginning of August?</div></li>
+<li id="li-1386"><div class="para" id="p-2064">What were the populations at the beginning of June?</div></li>
+<li id="li-1387"><div class="para" id="p-2065">What will the populations be at the beginning of December?</div></li>
+<li id="li-1388"><div class="para" id="p-2066">What will the populations be at the beginning of July in the following year?</div></li>
 </ol>
 </div></article><article class="exercise exercise-like" id="exercise-73"><h4 class="heading"><span class="codenumber">10<span class="period">.</span></span></h4>
-<div class="para logical" id="p-2068">
+<div class="para logical" id="p-2077">
 <div class="para">Students in a school are sometimes absent due to an illness.  Suppose that</div>
 <ul class="disc">
-<li id="li-1397"><div class="para" id="p-2069">95% of the students who attend school will attend school the next day.</div></li>
-<li id="li-1398"><div class="para" id="p-2070">50% of the students are absent one day will be absent the next day.</div></li>
+<li id="li-1397"><div class="para" id="p-2078">95% of the students who attend school will attend school the next day.</div></li>
+<li id="li-1398"><div class="para" id="p-2079">50% of the students who are absent one day will be absent the next day.</div></li>
 </ul>
-<div class="para">We will record the number of present students <span class="process-math">\(p\)</span> and the number of absent students <span class="process-math">\(a\)</span> in a state vector <span class="process-math">\(\xvec=\twovec{p}{a}\)</span> and note that that state vector evolves from one day to the next according to the transition function <span class="process-math">\(T:\real^2\to\real^2\text{.}\)</span> On Tuesday, the state vector is <span class="process-math">\(\xvec=\ctwovec{1700}{100}\text{.}\)</span> <pre class="ptx-sagecell sagecell-sage" id="sage-73"><script type="text/x-sage">
+<div class="para">We will record the number of present students <span class="process-math">\(p\)</span> and the number of absent students <span class="process-math">\(a\)</span> in a state vector <span class="process-math">\(\xvec=\twovec{p}{a}\)</span> and note that that state vector evolves from one day to the next according to the transition function <span class="process-math">\(T:\real^2\to\real^2\text{.}\)</span> On Tuesday, the state vector is <span class="process-math">\(\xvec=\ctwovec{1700}{100}\text{.}\)</span> <pre class="ptx-sagecell sagecell-sage" id="sage-75"><script type="text/x-sage">
 </script></pre>
 </div>
 <ol class="lower-alpha">
-<li id="li-1399"><div class="para" id="p-2071">Suppose we initially have 1000 students who are present and none absent.  Find <span class="process-math">\(T\left(\ctwovec{1000}{0}\right)\text{.}\)</span>
+<li id="li-1399"><div class="para" id="p-2080">Suppose we initially have 1000 students who are present and none absent.  Find <span class="process-math">\(T\left(\ctwovec{1000}{0}\right)\text{.}\)</span>
 </div></li>
-<li id="li-1400"><div class="para" id="p-2072">Suppose we initially have 1000 students who are absent and none present.  Find <span class="process-math">\(T\left(\ctwovec{0}{1000}\right)\text{.}\)</span>
+<li id="li-1400"><div class="para" id="p-2081">Suppose we initially have 1000 students who are absent and none present.  Find <span class="process-math">\(T\left(\ctwovec{0}{1000}\right)\text{.}\)</span>
 </div></li>
-<li id="li-1401"><div class="para" id="p-2073">Use the results of parts a and b to find the matrix <span class="process-math">\(A\)</span> that defines the matrix transformation <span class="process-math">\(T\text{.}\)</span>
+<li id="li-1401"><div class="para" id="p-2082">Use the results of parts a and b to find the matrix <span class="process-math">\(A\)</span> that defines the matrix transformation <span class="process-math">\(T\text{.}\)</span>
 </div></li>
-<li id="li-1402"><div class="para" id="p-2074">If <span class="process-math">\(\xvec=\ctwovec{1700}{100}\)</span> on Tuesday, how are the students distributed on Wednesday?</div></li>
-<li id="li-1403"><div class="para" id="p-2075">How many students were present on Monday?</div></li>
-<li id="li-1404"><div class="para" id="p-2076">How many students are present on the following Tuesday?</div></li>
-<li id="li-1405"><div class="para" id="p-2077">What happens to the number of students who are present after a very long time?</div></li>
+<li id="li-1402"><div class="para" id="p-2083">If <span class="process-math">\(\xvec=\ctwovec{1700}{100}\)</span> on Tuesday, how are the students distributed on Wednesday?</div></li>
+<li id="li-1403"><div class="para" id="p-2084">How many students were present on Monday?</div></li>
+<li id="li-1404"><div class="para" id="p-2085">How many students are present on the following Tuesday?</div></li>
+<li id="li-1405"><div class="para" id="p-2086">What happens to the number of students who are present after a very long time?</div></li>
 </ol>
 </div></article></section></section></div>
 <div class="ptx-content-footer">

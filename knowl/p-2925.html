@@ -9,10 +9,97 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="robots" content="noindex, nofollow">
+<script>// Make *any* pre with class 'sagecell-sage' an executable Sage cell
+// Their results will be linked, only within language type
+sagecell.makeSagecell({
+  "inputLocation": "pre.sagecell-sage",
+  "linked": true,
+  "languages": [
+    "sage"
+  ],
+  "evalButtonText": "Evaluate (Sage)"
+});
+</script>
 </head>
 <body class="ignore-math">
 <h5 class="heading"><span class="type">Paragraph</span></h5>
+<div class="para logical"><ol class="lower-alpha">
+<li>
+<div class="para">First, we will explore the <span class="process-math">\(RGB\)</span> color model.</div>
+<figure class="figure figure-like"><iframe id="interactive-rgb" width="600" height="71" src="interactive-rgb-if.html"></iframe><div class="instructions">
+<a href="" data-knowl="" class="id-ref instructions-knowl original" data-refid="hk-instructions-6" id="instructions-6"><h5 class="heading"><span class="type">Instructions<span class="period">.</span></span></h5></a><div class="hidden-content tex2jax_ignore" id="hk-instructions-6"><div class="solution-like"><div class="para" id="p-2927">The diagram below enables you to create colors using various amounts of red, green, and blue.  For each of these three quantities, the slider varies between 0 and 255.</div></div></div>
+</div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">3.3.2<span class="period">.</span></span><span class="space"> </span>The <span class="process-math">\(RGB\)</span> color model.</figcaption></figure><div class="para logical"><ol class="decimal">
+<li><div class="para">What happens when <span class="process-math">\(G=0\text{,}\)</span> <span class="process-math">\(B=0\)</span> (pushed all the way to the left), and <span class="process-math">\(R\)</span> is allowed to vary?</div></li>
+<li><div class="para">What happens when <span class="process-math">\(R=0\text{,}\)</span> <span class="process-math">\(G=0\text{,}\)</span> and <span class="process-math">\(B\)</span> is allowed to vary?</div></li>
+<li><div class="para">How can you create black in this color model?</div></li>
+<li><div class="para">How can you create white?</div></li>
+</ol></div>
+</li>
+<li>
 <div class="para">Next, we will explore the <span class="process-math">\(YC_bC_r\)</span> color model.</div>
+<figure class="figure figure-like"><iframe id="interactive-ycbcr" width="600" height="71" src="interactive-ycbcr-if.html"></iframe><div class="instructions">
+<a href="" data-knowl="" class="id-ref instructions-knowl original" data-refid="hk-instructions-7" id="instructions-7"><h5 class="heading"><span class="type">Instructions<span class="period">.</span></span></h5></a><div class="hidden-content tex2jax_ignore" id="hk-instructions-7"><div class="solution-like"><div class="para" id="p-2935">The diagram below enables you to create colors using various amounts of luminance <span class="process-math">\(Y\text{,}\)</span> blue chrominance <span class="process-math">\(C_b\text{,}\)</span> and red chrominance <span class="process-math">\(C_r\text{.}\)</span>  The luminance slider moves between 0 and 255 while the chrominance sliders move between -127.5 and 127.5.</div></div></div>
+</div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">3.3.3<span class="period">.</span></span><span class="space"> </span>The <span class="process-math">\(YC_bC_r\)</span> color model.</figcaption></figure><div class="para logical"><ol class="decimal">
+<li><div class="para">What happens when <span class="process-math">\(C_b=0\)</span> and <span class="process-math">\(C_r=0\)</span> (kept in the center) and <span class="process-math">\(Y\)</span> is allowed to vary?</div></li>
+<li><div class="para">What happens when <span class="process-math">\(Y=0\)</span> (pushed to the left), <span class="process-math">\(C_r=0\)</span> (kept in the center), and <span class="process-math">\(C_b\)</span> is allowed to increase between 0 and 127.5?</div></li>
+<li><div class="para">What happens when <span class="process-math">\(Y=0\text{,}\)</span> <span class="process-math">\(C_b=0\text{,}\)</span> and <span class="process-math">\(C_r\)</span> is allowed to increase between 0 and 127.5?</div></li>
+<li><div class="para">How can you create black in this color model?</div></li>
+<li><div class="para">How can you create white?</div></li>
+</ol></div>
+</li>
+<li><div class="para">Verify that <span class="process-math">\(\bcal\)</span> is a basis for <span class="process-math">\(\real^3\text{.}\)</span> <pre class="ptx-sagecell sagecell-sage" id="sage-93"><script type="text/x-sage">
+</script></pre>
+</div></li>
+<li><div class="para">Find the matrix <span class="process-math">\(P_{\bcal}\)</span> that converts from <span class="process-math">\(\threevec{Y}{C_b}{C_r}\)</span> coordinates into <span class="process-math">\(\threevec{R}{G}{B}\)</span> coordinates.  Then find the matrix <span class="process-math">\(P_{\bcal}^{-1}\)</span> that converts from <span class="process-math">\(\threevec{R}{G}{B}\)</span> coordinates back into <span class="process-math">\(\threevec{Y}{C_b}{C_r}\)</span> coordinates.</div></li>
+<li><div class="para logical">
+<div class="para">Find the <span class="process-math">\(\threevec{Y}{C_b}{C_r}\)</span> coordinates for the following colors and check, using the diagrams above, that the two representations agree.</div>
+<ol class="decimal">
+<li><div class="para">Pure red is <span class="process-math">\(\threevec{R}{G}{B}=
+\threevec{255}{0}{0}\text{.}\)</span>
+</div></li>
+<li><div class="para">Pure blue is <span class="process-math">\(\threevec{R}{G}{B}=
+\threevec{0}{0}{255}\text{.}\)</span>
+</div></li>
+<li><div class="para">Pure white is <span class="process-math">\(\threevec{R}{G}{B}=
+\threevec{255}{255}{255}\text{.}\)</span>
+</div></li>
+<li><div class="para">Pure black is <span class="process-math">\(\threevec{R}{G}{B}=
+\threevec{0}{0}{0}\text{.}\)</span>
+</div></li>
+</ol>
+</div></li>
+<li><div class="para logical">
+<div class="para">Find the <span class="process-math">\(\threevec{R}{G}{B}\)</span> coordinates for the following colors and check, using the diagrams above, that the two representations agree.</div>
+<ol class="decimal">
+<li><div class="para"><span class="process-math">\(\threevec{Y}{C_b}{C_r}=\threevec{128}{0}{0}\text{.}\)</span></div></li>
+<li><div class="para"><span class="process-math">\(\threevec{Y}{C_b}{C_r}=\threevec{128}{60}{0}\text{.}\)</span></div></li>
+<li><div class="para"><span class="process-math">\(\threevec{Y}{C_b}{C_r}=\threevec{128}{0}{60}\text{.}\)</span></div></li>
+</ol>
+</div></li>
+<li>
+<div class="para logical">
+<div class="para">Write an expression for</div>
+<ol class="decimal">
+<li><div class="para">The luminance <span class="process-math">\(Y\)</span> as it depends on <span class="process-math">\(R\text{,}\)</span> <span class="process-math">\(G\text{,}\)</span> and <span class="process-math">\(B\text{.}\)</span>
+</div></li>
+<li><div class="para">The blue chrominance <span class="process-math">\(C_b\)</span> as it depends on <span class="process-math">\(R\text{,}\)</span> <span class="process-math">\(G\text{,}\)</span> and <span class="process-math">\(B\text{.}\)</span>
+</div></li>
+<li><div class="para">The red chrominance <span class="process-math">\(C_r\)</span> as it depends on <span class="process-math">\(R\text{,}\)</span> <span class="process-math">\(G\text{,}\)</span> and <span class="process-math">\(B\text{.}\)</span>
+</div></li>
+</ol>
+</div>
+<div class="para logical">
+<div class="para">Explain how these quantities can be roughly interpreted by stating that</div>
+<ol class="decimal">
+<li><div class="para">the luminance represents the brightness of the color.</div></li>
+<li><div class="para">the blue chrominance measures the amount of blue in the color.</div></li>
+<li><div class="para">the red chrominance measures the amount of red in the color.</div></li>
+</ol>
+</div>
+</li>
+</ol></div>
 <span class="incontext"><a href="sec-jpeg.html#p-2925" class="internal">in-context</a></span>
 </body>
 </html>

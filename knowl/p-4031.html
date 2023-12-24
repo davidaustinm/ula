@@ -11,29 +11,24 @@
 <meta name="robots" content="noindex, nofollow">
 </head>
 <body class="ignore-math">
-<h4 class="heading"><span class="type">Paragraph</span></h4>
-<div class="para logical">
-<div class="para">In this section, we developed a technique for finding the eigenvalues and eigenvectors of an <span class="process-math">\(n\times n\)</span> matrix <span class="process-math">\(A\text{.}\)</span>
-</div>
-<ul class="disc">
-<li><div class="para">The expression <span class="process-math">\(\det(A-\lambda I)\)</span> is a degree <span class="process-math">\(n\)</span> polynomial, known as the characteristic polynomial of <span class="process-math">\(A\text{.}\)</span>  The eigenvalues of <span class="process-math">\(A\)</span> are the roots of the characteristic polynomial found by solving the characteristic equation <span class="process-math">\(\det(A-\lambda I) = 0\text{.}\)</span>
-</div></li>
-<li><div class="para">The set of eigenvectors associated to the eigenvalue <span class="process-math">\(\lambda\)</span> forms a subspace of <span class="process-math">\(\real^n\text{,}\)</span> the eigenspace <span class="process-math">\(E_\lambda = 
-\nul(A-\lambda I)\text{.}\)</span>
-</div></li>
+<h5 class="heading"><span class="type">Paragraph</span></h5>
+<div class="para logical"><ol class="lower-alpha">
+<li><div class="para">The <code class="code-inline tex2jax_ignore">fcp</code> command will return the factored characteristic polynomial <code class="code-inline tex2jax_ignore">lambda^2 - 2*lambda - 3</code>.</div></li>
+<li><div class="para">The <code class="code-inline tex2jax_ignore">eigenvalues</code> command returns a list of eigenvalues <code class="code-inline tex2jax_ignore">[-3, -3]</code>.</div></li>
+<li><div class="para">The <code class="code-inline tex2jax_ignore">eigenvectors_right</code> command returns <code class="code-inline tex2jax_ignore">[(-3, [(1, 0)], 2)]</code>.</div></li>
 <li><div class="para logical">
-<div class="para">If the factor <span class="process-math">\((\lambda_j - \lambda)\)</span> appears <span class="process-math">\(m_j\)</span> times in the characteristic polynomial, we say that the eigenvalue <span class="process-math">\(\lambda_j\)</span> has multiplicity <span class="process-math">\(m_j\)</span> and note that</div>
-<div class="displaymath process-math">
-\begin{equation*}
-1 \leq \dim E_{\lambda_j} \leq m_j\text{.}
-\end{equation*}
-</div>
+<div class="para">If we begin with the matrix <span class="process-math">\(A\text{,}\)</span> we find</div>
+<ol class="decimal">
+<li><div class="para">The eigenvalues are <span class="process-math">\(\lambda=1\)</span> and <span class="process-math">\(\lambda=0.1\text{.}\)</span>
 </div></li>
-<li><div class="para">If each of the eigenvalues is real and has multiplicity <span class="process-math">\(1\text{,}\)</span> then we can form a basis of <span class="process-math">\(\real^n\)</span> consisting of eigenvectors of <span class="process-math">\(A\text{.}\)</span>
+<li><div class="para">The reduced row echelon form is <span class="process-math">\(\mattwo{-2}{1}{0}{0}\text{,}\)</span> which shows that <span class="process-math">\(A-I\)</span> is not invertible, as expected.</div></li>
+<li><div class="para">Sage returns <span class="process-math">\(\mattwo{1}{0}{0}{1}\text{,}\)</span> which is not correct because <span class="process-math">\(A-I\)</span> cannot be invertible if <span class="process-math">\(\lambda=1\)</span> is an eigenvalue of <span class="process-math">\(A\text{.}\)</span>
 </div></li>
-<li><div class="para">We can use Sage to find the eigenvalues and eigenvalues of matrices.  However, we need to be careful working with floating point numbers since floating point arithmetic is only an approximation.</div></li>
-</ul>
-</div>
+<li><div class="para">Here we find the correct eigenvalues, <span class="process-math">\(\lambda=1\)</span> with basis vector <span class="process-math">\(\twovec{1}{2}\)</span> for <span class="process-math">\(E_1\)</span> and <span class="process-math">\(\lambda=0.1\)</span> with basis vector <span class="process-math">\(\twovec{1}{-1}\)</span> for <span class="process-math">\(E_{0.1}\text{.}\)</span>
+</div></li>
+</ol>
+</div></li>
+</ol></div>
 <span class="incontext"><a href="sec-eigen-find.html#p-4031" class="internal">in-context</a></span>
 </body>
 </html>

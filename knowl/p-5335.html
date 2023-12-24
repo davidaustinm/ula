@@ -9,33 +9,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="robots" content="noindex, nofollow">
-<script>// Make *any* pre with class 'sagecell-sage' an executable Sage cell
-// Their results will be linked, only within language type
-sagecell.makeSagecell({
-  "inputLocation": "pre.sagecell-sage",
-  "linked": true,
-  "languages": [
-    "sage"
-  ],
-  "evalButtonText": "Evaluate (Sage)"
-});
-</script>
 </head>
 <body class="ignore-math">
 <h5 class="heading"><span class="type">Paragraph</span></h5>
-<div class="para">The Sage cell below has a function <code class="code-inline tex2jax_ignore">find_closest_eigenvalue(A, s, x, N)</code> that implements <span class="process-math">\(N\)</span> steps of the inverse power method using the matrix <span class="process-math">\(A-sI\)</span> and an initial vector <span class="process-math">\(x\text{.}\)</span>  This function prints approximations to the eigenvalue of <span class="process-math">\(A\)</span> closest to <span class="process-math">\(s\)</span> and its associated eigenvector.  By trying different values of <span class="process-math">\(s\)</span> in the shaded regions of the number line shown in <a href="" class="xref" data-knowl="./knowl/fig-numerical-power-line.html" title="Figure 5.2.3">Figure 5.2.3</a>, find the other two eigenvalues of <span class="process-math">\(A\text{.}\)</span> <pre class="ptx-sagecell sagecell-sage" id="sage-145"><script type="text/x-sage">def find_closest_eigenvalue(A, s, x, N):
-    B = A-s*identity_matrix(A.nrows())
-    for i in range(N):
-        x = B \ x
-        m = max([comp for comp in x], key=abs).numerical_approx(digits=14)
-        x = 1/float(m)*x
-        print (1/float(m)+s, x)
-### define the matrix A and vector x0
-A =
-x0 =
-find_closest_eigenvalue(A, 2, x0, 20)
-</script></pre>
-</div>
+<div class="para">If <span class="process-math">\(A\)</span> is not invertible, then <span class="process-math">\(\lambda=0\)</span> is the eigenvalue having the smallest absolute value.</div>
 <span class="incontext"><a href="sec-power-method.html#p-5335" class="internal">in-context</a></span>
 </body>
 </html>

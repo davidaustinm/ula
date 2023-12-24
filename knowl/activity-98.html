@@ -26,13 +26,13 @@ sagecell.makeSagecell({
 <span class="type">Activity</span><span class="space"> </span><span class="codenumber">7.3.3</span><span class="period">.</span>
 </h4>
 <div class="para logical">
-<div class="para">We will work here with a dataset having 100 3-dimensional demeaned data points.  Evaluating the following cell will plot those data points and define the demeaned data matrix <code class="code-inline tex2jax_ignore">A</code> whose shape is <span class="process-math">\(3\times100\text{.}\)</span> <pre class="ptx-sagecell sagecell-sage" id="sage-216"><script type="text/x-sage">sage.repl.load.load('https://raw.githubusercontent.com/davidaustinm/ula_modules/master/pca_demo.py', globals())
+<div class="para">We will work here with a dataset having 100 3-dimensional demeaned data points.  Evaluating the following cell will plot those data points and define the demeaned data matrix <code class="code-inline tex2jax_ignore">A</code> whose shape is <span class="process-math">\(3\times100\text{.}\)</span> <pre class="ptx-sagecell sagecell-sage" id="sage-218"><script type="text/x-sage">sage.repl.load.load('https://raw.githubusercontent.com/davidaustinm/ula_modules/master/pca_demo.py', globals())
 </script></pre> Notice that the data appears to cluster around a plane though it does not seem to be wholly contained within that plane.</div>
 <ol class="lower-alpha">
-<li><div class="para">Use the matrix <code class="code-inline tex2jax_ignore">A</code> to construct the covariance matrix <span class="process-math">\(C\text{.}\)</span>  Then determine the variance in the direction of <span class="process-math">\(\uvec=\threevec{1/3}{2/3}{2/3}\text{?}\)</span> <pre class="ptx-sagecell sagecell-sage" id="sage-217"><script type="text/x-sage">
+<li><div class="para">Use the matrix <code class="code-inline tex2jax_ignore">A</code> to construct the covariance matrix <span class="process-math">\(C\text{.}\)</span>  Then determine the variance in the direction of <span class="process-math">\(\uvec=\threevec{1/3}{2/3}{2/3}\text{?}\)</span> <pre class="ptx-sagecell sagecell-sage" id="sage-219"><script type="text/x-sage">
 </script></pre>
 </div></li>
-<li><div class="para">Find the eigenvalues of <span class="process-math">\(C\)</span> and determine the total variance. <pre class="ptx-sagecell sagecell-sage" id="sage-218"><script type="text/x-sage">
+<li><div class="para">Find the eigenvalues of <span class="process-math">\(C\)</span> and determine the total variance. <pre class="ptx-sagecell sagecell-sage" id="sage-220"><script type="text/x-sage">
 </script></pre> Notice that Sage does not necessarily sort the eigenvalues in decreasing order.</div></li>
 <li><div class="para">Use the <code class="code-inline tex2jax_ignore">right_eigenmatrix()</code> command to find the eigenvectors of <span class="process-math">\(C\text{.}\)</span>  Remembering that the Sage command <code class="code-inline tex2jax_ignore">B.column(1)</code> retrieves the vector represented by the second column of <code class="code-inline tex2jax_ignore">B</code>, define vectors <code class="code-inline tex2jax_ignore">u1</code>, <code class="code-inline tex2jax_ignore">u2</code>, and <code class="code-inline tex2jax_ignore">u3</code> representing the three principal components in order of decreasing eigenvalues.  How can you check if these vectors are an orthonormal basis for <span class="process-math">\(\real^3\text{?}\)</span>
 </div></li>
@@ -53,11 +53,11 @@ sagecell.makeSagecell({
 \end{equation*}
 </div>
 <div class="para">Construct the matrix <span class="process-math">\(Q\)</span> so that <span class="process-math">\(Q^T\xvec =
-\twovec{\uvec_1\cdot\xvec}{\uvec_2\cdot\xvec}\text{.}\)</span> <pre class="ptx-sagecell sagecell-sage" id="sage-219"><script type="text/x-sage">
+\twovec{\uvec_1\cdot\xvec}{\uvec_2\cdot\xvec}\text{.}\)</span> <pre class="ptx-sagecell sagecell-sage" id="sage-221"><script type="text/x-sage">
 </script></pre>
 </div>
 </div></li>
-<li><div class="para">Since each column of <span class="process-math">\(A\)</span> represents a data point, the matrix <span class="process-math">\(Q^TA\)</span> represents the coordinates of the projected data points.  Evaluating the following cell will plot those projected data points. <pre class="ptx-sagecell sagecell-sage" id="sage-220"><script type="text/x-sage">pca_plot(Q.T*A)
+<li><div class="para">Since each column of <span class="process-math">\(A\)</span> represents a data point, the matrix <span class="process-math">\(Q^TA\)</span> represents the coordinates of the projected data points.  Evaluating the following cell will plot those projected data points. <pre class="ptx-sagecell sagecell-sage" id="sage-222"><script type="text/x-sage">pca_plot(Q.T*A)
 </script></pre> Notice how this plot enables us to view the data as if it were two-dimensional. Why is this plot wider than it is tall?</div></li>
 </ol>
 </div></article><span class="incontext"><a href="sec-pca.html#activity-98" class="internal">in-context</a></span>

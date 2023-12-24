@@ -9,11 +9,27 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="robots" content="noindex, nofollow">
+<script>// Make *any* pre with class 'sagecell-sage' an executable Sage cell
+// Their results will be linked, only within language type
+sagecell.makeSagecell({
+  "inputLocation": "pre.sagecell-sage",
+  "linked": true,
+  "languages": [
+    "sage"
+  ],
+  "evalButtonText": "Evaluate (Sage)"
+});
+</script>
 </head>
 <body class="ignore-math">
 <h5 class="heading"><span class="type">Paragraph</span></h5>
-<div class="para">
-<span class="process-math">\(V_x = 1.38\)</span> and <span class="process-math">\(V_y=0.37\text{,}\)</span> which agrees with the fact that the data is more spread out in the horizontal than vertical direction.</div>
+<div class="para">Evaluating the following Sage cell loads a dataset consisting of 100 demeaned data points and provides a plot of them.  It also provides the demeaned data matrix <span class="process-math">\(A\text{.}\)</span> <pre class="ptx-sagecell sagecell-sage" id="sage-209"><script type="text/x-sage">import pandas as pd
+df = pd.read_csv('https://raw.githubusercontent.com/davidaustinm/ula_modules/master/data/variance-data.csv', header=None)
+data = [vector(row) for row in df.values]
+A = matrix(data).T
+list_plot(data, size=20, color='blue', aspect_ratio=1)
+</script></pre>
+</div>
 <span class="incontext"><a href="sec-symmetric-matrices.html#p-7128" class="internal">in-context</a></span>
 </body>
 </html>

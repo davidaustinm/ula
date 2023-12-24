@@ -9,12 +9,22 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="robots" content="noindex, nofollow">
+<script>// Make *any* pre with class 'sagecell-sage' an executable Sage cell
+// Their results will be linked, only within language type
+sagecell.makeSagecell({
+  "inputLocation": "pre.sagecell-sage",
+  "linked": true,
+  "languages": [
+    "sage"
+  ],
+  "evalButtonText": "Evaluate (Sage)"
+});
+</script>
 </head>
 <body class="ignore-math">
 <h5 class="heading"><span class="type">Paragraph</span></h5>
-<div class="para">This would most likely belong to Iris setosa.  To find its measurements, we evaluate <span class="process-math">\(-2.5\uvec_1 -
-0.75\uvec_2 + \mvec\)</span> where <span class="process-math">\(\mvec\)</span> is the vector of means.  This is the same as <span class="process-math">\(Q\twovec{-2.5}{-0.75} + \mvec\text{,}\)</span> which gives the vector of measurements <span class="process-math">\(\fourvec{5.43}{3.81}{1.49}{0.25}\text{.}\)</span>
-</div>
+<div class="para">As we have seen, the columns of the matrix <span class="process-math">\(Q^TA\)</span> hold the coordinates of the demeaned data points after projecting onto <span class="process-math">\(W_2\text{,}\)</span> the subspace spanned by the first two principal components.  Evaluating the following cell shows a plot of these coordinates. <pre class="ptx-sagecell sagecell-sage" id="sage-230"><script type="text/x-sage">pca_plot(Q.T*A)
+</script></pre> Suppose we have a flower whose coordinates in this plane are <span class="process-math">\((-2.5, -0.75)\text{.}\)</span>  To what species does this iris most likely belong?  Find an estimate of the sepal length, sepal width, petal length, and petal width for this flower.</div>
 <span class="incontext"><a href="sec-pca.html#p-7720" class="internal">in-context</a></span>
 </body>
 </html>

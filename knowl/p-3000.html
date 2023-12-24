@@ -9,10 +9,91 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="robots" content="noindex, nofollow">
+<script>// Make *any* pre with class 'sagecell-sage' an executable Sage cell
+// Their results will be linked, only within language type
+sagecell.makeSagecell({
+  "inputLocation": "pre.sagecell-sage",
+  "linked": true,
+  "languages": [
+    "sage"
+  ],
+  "evalButtonText": "Evaluate (Sage)"
+});
+</script>
 </head>
 <body class="ignore-math">
 <h5 class="heading"><span class="type">Paragraph</span></h5>
+<div class="para logical">
+<div class="para">We will explore the influence that the Fourier coefficients have on the vector <span class="process-math">\(\xvec\text{.}\)</span>
+</div>
+<ol class="lower-alpha">
+<li>
+<div class="para">To begin, we’ll look at the Fourier coefficient <span class="process-math">\(F_0\text{.}\)</span>
+</div>
+<figure class="figure figure-like"><iframe id="interactive-fourier-0" width="600" height="210" src="interactive-fourier-0-if.html"></iframe><div class="instructions">
+<a href="" data-knowl="" class="id-ref instructions-knowl original" data-refid="hk-instructions-8" id="instructions-8"><h5 class="heading"><span class="type">Instructions<span class="period">.</span></span></h5></a><div class="hidden-content tex2jax_ignore" id="hk-instructions-8"><div class="solution-like"><div class="para" id="p-3002">Use the slider below to explore how the Fourier coefficient <span class="process-math">\(F_0\)</span> influences the vector <span class="process-math">\(\xvec\text{.}\)</span>
+</div></div></div>
+</div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">3.3.10<span class="period">.</span></span><span class="space"> </span>The effect of the Fourier coefficient <span class="process-math">\(F_0\)</span> on the vector <span class="process-math">\(\xvec = F_0\vvec_0\text{.}\)</span></figcaption></figure><div class="para">Describe the effect that <span class="process-math">\(F_0\)</span> has on the vector <span class="process-math">\(\xvec\text{.}\)</span>  Would you describe the components in <span class="process-math">\(\xvec\)</span> as constant, slowly varying, or rapidly varying?</div>
+</li>
+<li>
+<div class="para">By comparison, let’s see how the Fourier coefficient <span class="process-math">\(F_3\)</span> influences <span class="process-math">\(\xvec\text{.}\)</span>
+</div>
+<figure class="figure figure-like"><iframe id="interactive-fourier-3" width="600" height="210" src="interactive-fourier-3-if.html"></iframe><div class="instructions">
+<a href="" data-knowl="" class="id-ref instructions-knowl original" data-refid="hk-instructions-9" id="instructions-9"><h5 class="heading"><span class="type">Instructions<span class="period">.</span></span></h5></a><div class="hidden-content tex2jax_ignore" id="hk-instructions-9"><div class="solution-like"><div class="para" id="p-3006">Use the slider below to explore how the Fourier coefficient <span class="process-math">\(F_3\)</span> influences the vector <span class="process-math">\(\xvec\text{.}\)</span>
+</div></div></div>
+</div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">3.3.11<span class="period">.</span></span><span class="space"> </span>The effect of the Fourier coefficient <span class="process-math">\(F_3\)</span> on the vector <span class="process-math">\(\xvec = F_3\vvec_3\text{.}\)</span></figcaption></figure><div class="para">Describe the effect that <span class="process-math">\(F_3\)</span> has on the vector <span class="process-math">\(\xvec\text{.}\)</span>  Would you describe the components in <span class="process-math">\(\xvec\)</span> as constant, slowly varying, or rapidly varying?</div>
+</li>
+<li>
 <div class="para">Let’s now investigate how the Fourier coefficient <span class="process-math">\(F_7\)</span> influences the vector <span class="process-math">\(\xvec\text{.}\)</span>
+</div>
+<figure class="figure figure-like"><iframe id="interactive-fourier-7" width="600" height="210" src="interactive-fourier-7-if.html"></iframe><div class="instructions">
+<a href="" data-knowl="" class="id-ref instructions-knowl original" data-refid="hk-instructions-10" id="instructions-10"><h5 class="heading"><span class="type">Instructions<span class="period">.</span></span></h5></a><div class="hidden-content tex2jax_ignore" id="hk-instructions-10"><div class="solution-like"><div class="para" id="p-3010">Use the slider below to explore how the Fourier coefficient <span class="process-math">\(F_7\)</span> influences the vector <span class="process-math">\(\xvec\text{.}\)</span>
+</div></div></div>
+</div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">3.3.12<span class="period">.</span></span><span class="space"> </span>The effect of the Fourier coefficient <span class="process-math">\(F_0\)</span> on the vector <span class="process-math">\(\xvec = F_7\vvec_7\text{.}\)</span></figcaption></figure><div class="para">Describe the effect that <span class="process-math">\(F_7\)</span> has on the vector <span class="process-math">\(\xvec\text{.}\)</span>  Would you describe the components in <span class="process-math">\(\xvec\)</span> as constant, slowly varying, or rapidly varying?</div>
+</li>
+<li><div class="para">If the components of <span class="process-math">\(\xvec\)</span> vary relatively slowly, what would you expect to be true of the Fourier coefficients <span class="process-math">\(F_j\text{?}\)</span>
+</div></li>
+<li><div class="para">The Sage cell below will construct the vector <span class="process-math">\(P_{\bcal}\text{,}\)</span> which is denoted <code class="code-inline tex2jax_ignore">P</code>, and its inverse <span class="process-math">\(P_{\bcal}^{-1}\text{,}\)</span> which is denoted <code class="code-inline tex2jax_ignore">Pinv</code>.  Evaluate this Sage cell and notice that it prints the matrix <span class="process-math">\(P_{\bcal}^{-1}\text{.}\)</span> <pre class="ptx-sagecell sagecell-sage" id="sage-dct-def"><script type="text/x-sage">mat = [[cos((2*i+1)*j*pi/16) for j in range(8)] for i in range(8)]
+P = matrix(mat).numerical_approx()
+Pinv = P.inverse()	
+print (Pinv.numerical_approx(digits=3))
+</script></pre> Now look at the form of <span class="process-math">\(P_{\bcal}^{-1}\)</span> and explain why <span class="process-math">\(F_0\)</span> is the average of the luminance values in the vector <span class="process-math">\(\xvec\text{.}\)</span>
+</div></li>
+<li><div class="para">The Sage cell below defines the vector <span class="process-math">\(\xvec\text{,}\)</span> which is the vector of luminance values in the first column, as seen in <a href="" class="xref" data-knowl="./knowl/fig-jpeg-block-luminance.html" title="Figure 3.3.8">Figure 3.3.8</a>. Use the cell below to find the vector <span class="process-math">\(\fvec\)</span> of Fourier coefficients <span class="process-math">\(F_0,F_1,\ldots,F_7\text{.}\)</span>  If you have evaluated the cell above, you will still be able to refer to <code class="code-inline tex2jax_ignore">P</code> and <code class="code-inline tex2jax_ignore">Pinv</code> in this cell. <pre class="ptx-sagecell sagecell-sage" id="sage-95"><script type="text/x-sage">x = vector([176,181,165,139,131,131,140,150])
+#  find the vector of Fourier coefficients f below
+f =
+print (f.numerical_approx(digits=4))
+</script></pre> Write the Fourier coefficients and discuss the relative sizes of the coefficients.</div></li>
+<li><div class="para">Let’s see what happens when we simply ignore the coefficients <span class="process-math">\(F_6\)</span> and <span class="process-math">\(F_7\text{.}\)</span>  Form a new vector of Fourier coefficients by rounding the coefficients to the nearest integer and setting <span class="process-math">\(F_6\)</span> and <span class="process-math">\(F_7\)</span> to zero. This is an approximation to <span class="process-math">\(\fvec\text{,}\)</span> the vector of Fourier coefficients.  Use the approximation to <span class="process-math">\(\fvec\)</span> to form an approximation of the vector <span class="process-math">\(\xvec\text{.}\)</span> <pre class="ptx-sagecell sagecell-sage" id="sage-96"><script type="text/x-sage"># define fapprox below and then find xapprox
+fapprox =
+xapprox =
+print ("x      =", x)
+print ("xapprox=", xapprox.numerical_approx(digits=3))
+</script></pre> How much does your approximation differ from the actual vector <span class="process-math">\(\xvec\text{?}\)</span>
+</div></li>
+<li>
+<div class="para">When we ignore the Fourier coefficients corresponding to rapidly varying basis elements, we see that the vector <span class="process-math">\(\xvec\)</span> that we reconstruct is very close to the original one.  In fact, the luminance values in the approximation differ by at most one or two from the actual luminance values. Our eyes are not sensitive enough to detect this difference.</div>
+<div class="para">So far, we have concentrated on only one column in our <span class="process-math">\(8\times8\)</span> block of luminance values.  Let’s now consider all of the columns. The following Sage cell defines a matrix called <code class="code-inline tex2jax_ignore">luminance</code>, which is the <span class="process-math">\(8\times8\)</span> matrix of luminance values.  Find the <span class="process-math">\(8\times8\)</span> matrix <span class="process-math">\(F\)</span> whose columns are the Fourier coefficients of the columns of luminance values. <pre class="ptx-sagecell sagecell-sage" id="sage-97"><script type="text/x-sage">luminance = matrix(8,8, [176, 170, 170, 169, 162, 160, 155, 150, 181,
+179, 175, 167, 162, 160, 154, 149, 165, 170, 169, 161, 162, 161, 160,
+158, 139, 150, 164, 166, 159, 160, 162, 163, 131, 137, 157, 165, 163,
+163, 164, 164, 131, 132, 153, 161, 167, 167, 167, 169, 140, 142, 157,
+166, 166, 166, 167, 169, 150, 152, 160, 168, 172, 170, 168, 168])
+# define your matrix F below
+F =
+print (F.numerical_approx(digits=3))
+</script></pre>
+</div>
+</li>
+<li><div class="para">Notice that the first row of this matrix consists of the Fourier coefficient <span class="process-math">\(F_0\)</span> for each of the columns.  Just as we saw before, the entries in this row do not change significantly as we move across the row.  In the Sage cell below, write these entries in the vector <span class="process-math">\(\yvec\)</span> and find the corresponding Fourier coefficients. <pre class="ptx-sagecell sagecell-sage" id="sage-98"><script type="text/x-sage"># define the vector y as the entries in the first row of F	    
+y = 
+y_fourier =
+print (y_fourier.numerical_approx(digits=3))
+</script></pre>
+</div></li>
+</ol>
 </div>
 <span class="incontext"><a href="sec-jpeg.html#p-3000" class="internal">in-context</a></span>
 </body>

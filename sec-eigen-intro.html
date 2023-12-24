@@ -117,7 +117,7 @@ sagecell.makeSagecell({
 </head>
 <body id="ula" class="pretext book ignore-math">
 <a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner">
-<a id="logo-link" class="logo-link" href=""></a><div class="title-container">
+<a id="logo-link" class="logo-link" href="https://understandinglinearalgebra.org" target="_blank"><img src="external/images/ula-logo.png" alt="Logo image"></a><div class="title-container">
 <h1 class="heading"><a href="ula.html"><span class="title">Understanding Linear Algebra</span></a></h1>
 <p class="byline">David Austin</p>
 </div>
@@ -310,7 +310,9 @@ sagecell.makeSagecell({
 <ul class="structural">
 <li><div class="toc-item"><a href="dedication-1.html" class="internal"><span class="title">Dedication</span></a></div></li>
 <li><div class="toc-item"><a href="colophon-1.html" class="internal"><span class="title">Colophon</span></a></div></li>
+<li><div class="toc-item"><a href="acknowledgement-1.html" class="internal"><span class="title">Acknowledgements</span></a></div></li>
 <li><div class="toc-item"><a href="preface-1.html" class="internal"><span class="title">Our goals</span></a></div></li>
+<li><div class="toc-item"><a href="preface-2.html" class="internal"><span class="title">A note on the print version</span></a></div></li>
 </ul>
 </li>
 <li>
@@ -594,7 +596,7 @@ sagecell.makeSagecell({
 <div class="toc-item"><a href="sec-least-squares.html" class="internal"><span class="codenumber">6.5</span> <span class="title">Orthogonal least squares</span></a></div>
 <ul class="structural">
 <li><div class="toc-item"><a href="sec-least-squares.html#subsection-95" class="internal"><span class="codenumber">6.5.1</span> <span class="title">A first example</span></a></div></li>
-<li><div class="toc-item"><a href="sec-least-squares.html#subsection-96" class="internal"><span class="codenumber">6.5.2</span> <span class="title">Solving least squares problems</span></a></div></li>
+<li><div class="toc-item"><a href="sec-least-squares.html#subsection-96" class="internal"><span class="codenumber">6.5.2</span> <span class="title">Solving least-squares problems</span></a></div></li>
 <li><div class="toc-item"><a href="sec-least-squares.html#subsection-97" class="internal"><span class="codenumber">6.5.3</span> <span class="title">Using <span class="process-math">\(QR\)</span> factorizations</span></a></div></li>
 <li><div class="toc-item"><a href="sec-least-squares.html#subsection-98" class="internal"><span class="codenumber">6.5.4</span> <span class="title">Polynomial Regression</span></a></div></li>
 <li><div class="toc-item"><a href="sec-least-squares.html#subsection-99" class="internal"><span class="codenumber">6.5.5</span> <span class="title">Summary</span></a></div></li>
@@ -604,7 +606,7 @@ sagecell.makeSagecell({
 </ul>
 </li>
 <li>
-<div class="toc-item"><a href="chap7.html" class="internal"><span class="codenumber">7</span> <span class="title">The Spectral Theorem and singular value decompositions</span></a></div>
+<div class="toc-item"><a href="chap7.html" class="internal"><span class="codenumber">7</span> <span class="title">Singular value decompositions</span></a></div>
 <ul class="structural">
 <li>
 <div class="toc-item"><a href="sec-symmetric-matrices.html" class="internal"><span class="codenumber">7.1</span> <span class="title">Symmetric matrices and variance</span></a></div>
@@ -646,7 +648,7 @@ sagecell.makeSagecell({
 <li>
 <div class="toc-item"><a href="sec-svd-uses.html" class="internal"><span class="codenumber">7.5</span> <span class="title">Using Singular Value Decompositions</span></a></div>
 <ul class="structural">
-<li><div class="toc-item"><a href="sec-svd-uses.html#subsection-113" class="internal"><span class="codenumber">7.5.1</span> <span class="title">Least squares problems</span></a></div></li>
+<li><div class="toc-item"><a href="sec-svd-uses.html#subsection-113" class="internal"><span class="codenumber">7.5.1</span> <span class="title">Least-squares problems</span></a></div></li>
 <li><div class="toc-item"><a href="sec-svd-uses.html#subsection-114" class="internal"><span class="codenumber">7.5.2</span> <span class="title">Rank <span class="process-math">\(k\)</span> approximations</span></a></div></li>
 <li><div class="toc-item"><a href="sec-svd-uses.html#subsection-115" class="internal"><span class="codenumber">7.5.3</span> <span class="title">Principal component analysis</span></a></div></li>
 <li><div class="toc-item"><a href="sec-svd-uses.html#subsection-116" class="internal"><span class="codenumber">7.5.4</span> <span class="title">Image compressing and denoising</span></a></div></li>
@@ -669,19 +671,19 @@ sagecell.makeSagecell({
 <main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="sec-eigen-intro"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">4.1</span> <span class="title">An introduction to eigenvalues and eigenvectors</span>
 </h2>
-<section class="introduction" id="introduction-19"><div class="para" id="p-3669">This section introduces the concept of eigenvalues and eigenvectors and offers an example that motivates our interest in them.  The point here is to develop an intuitive understanding of eigenvalues and eigenvectors and explain how they can be used to simplify some problems that we have previously encountered. In the rest of this chapter, we will develop this concept into a richer theory and illustrate its use with more meaningful examples.</div> <article class="exploration project-like" id="exploration-14"><h3 class="heading">
+<section class="introduction" id="introduction-19"><div class="para" id="p-3678">This section introduces the concept of eigenvalues and eigenvectors and offers an example that motivates our interest in them.  The point here is to develop an intuitive understanding of eigenvalues and eigenvectors and explain how they can be used to simplify some problems that we have previously encountered. In the rest of this chapter, we will develop this concept into a richer theory and illustrate its use with more meaningful examples.</div> <article class="exploration project-like" id="exploration-14"><h3 class="heading">
 <span class="type">Preview Activity</span><span class="space"> </span><span class="codenumber">4.1.1</span><span class="period">.</span>
 </h3>
-<div class="para logical" id="p-3670">
+<div class="para logical" id="p-3679">
 <div class="para">Before we introduce the definition of eigenvectors and eigenvalues, it will be helpful to remember some ideas we have seen previously.</div>
 <ol class="lower-alpha">
 <li id="li-2492"><div class="sidebyside"><div class="sbsrow" style="margin-left:1.25%;margin-right:1.25%;">
-<div class="sbspanel top" style="width:51.2820512820513%;"><div class="para" id="p-3671">Suppose that <span class="process-math">\(\vvec\)</span> is the vector shown in the figure.  Sketch the vector <span class="process-math">\(2\vvec\)</span> and the vector <span class="process-math">\(-\vvec\text{.}\)</span>
+<div class="sbspanel top" style="width:51.2820512820513%;"><div class="para" id="p-3680">Suppose that <span class="process-math">\(\vvec\)</span> is the vector shown in the figure.  Sketch the vector <span class="process-math">\(2\vvec\)</span> and the vector <span class="process-math">\(-\vvec\text{.}\)</span>
 </div></div>
 <div class="sbspanel top" style="width:46.1538461538462%;"><img src="external/images/eigen-intro-vec.svg" role="img" class="contained"></div>
 </div></div></li>
-<li id="li-2493"><div class="para" id="p-3672">State the geometric effect that scalar multiplication has on the vector <span class="process-math">\(\vvec\text{.}\)</span>  Then sketch all the vectors of the form <span class="process-math">\(\lambda \vvec\)</span> where <span class="process-math">\(\lambda\)</span> is a scalar.</div></li>
-<li id="li-2494"><div class="para logical" id="p-3673">
+<li id="li-2493"><div class="para" id="p-3681">State the geometric effect that scalar multiplication has on the vector <span class="process-math">\(\vvec\text{.}\)</span>  Then sketch all the vectors of the form <span class="process-math">\(\lambda \vvec\)</span> where <span class="process-math">\(\lambda\)</span> is a scalar.</div></li>
+<li id="li-2494"><div class="para logical" id="p-3682">
 <div class="para">State the geometric effect of the matrix transformation defined by</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -692,7 +694,7 @@ sagecell.makeSagecell({
 \end{equation*}
 </div>
 </div></li>
-<li id="li-2495"><div class="para logical" id="p-3674">
+<li id="li-2495"><div class="para logical" id="p-3683">
 <div class="para">Suppose that <span class="process-math">\(A\)</span> is a <span class="process-math">\(2\times 2\)</span> matrix and that <span class="process-math">\(\vvec_1\)</span> and <span class="process-math">\(\vvec_2\)</span> are vectors such that</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -702,22 +704,22 @@ A\vvec_1 = 3 \vvec_1, \qquad A\vvec_2 = -\vvec_2\text{.}
 <div class="para">Use the linearity of matrix multiplication to express the following vectors in terms of <span class="process-math">\(\vvec_1\)</span> and <span class="process-math">\(\vvec_2\text{.}\)</span>
 </div>
 <ol class="decimal">
-<li id="li-2496"><div class="para" id="p-3675"><span class="process-math">\(A(4\vvec_1)\text{.}\)</span></div></li>
-<li id="li-2497"><div class="para" id="p-3676"><span class="process-math">\(A(\vvec_1 + \vvec_2)\text{.}\)</span></div></li>
-<li id="li-2498"><div class="para" id="p-3677"><span class="process-math">\(A(4\vvec_1 -3\vvec_2)\text{.}\)</span></div></li>
-<li id="li-2499"><div class="para" id="p-3678"><span class="process-math">\(A^2\vvec_1\text{.}\)</span></div></li>
-<li id="li-2500"><div class="para" id="p-3679"><span class="process-math">\(A^2(4\vvec_1 - 3\vvec_2)\text{.}\)</span></div></li>
-<li id="li-2501"><div class="para" id="p-3680"><span class="process-math">\(A^4\vvec_1\text{.}\)</span></div></li>
+<li id="li-2496"><div class="para" id="p-3684"><span class="process-math">\(A(4\vvec_1)\text{.}\)</span></div></li>
+<li id="li-2497"><div class="para" id="p-3685"><span class="process-math">\(A(\vvec_1 + \vvec_2)\text{.}\)</span></div></li>
+<li id="li-2498"><div class="para" id="p-3686"><span class="process-math">\(A(4\vvec_1 -3\vvec_2)\text{.}\)</span></div></li>
+<li id="li-2499"><div class="para" id="p-3687"><span class="process-math">\(A^2\vvec_1\text{.}\)</span></div></li>
+<li id="li-2500"><div class="para" id="p-3688"><span class="process-math">\(A^2(4\vvec_1 - 3\vvec_2)\text{.}\)</span></div></li>
+<li id="li-2501"><div class="para" id="p-3689"><span class="process-math">\(A^4\vvec_1\text{.}\)</span></div></li>
 </ol>
 </div></li>
 </ol>
 </div></article></section><section class="subsection" id="subsection-56"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber">4.1.1</span> <span class="title">A few examples</span>
 </h3>
-<div class="para" id="p-3692">We will now introduce the definition of eigenvalues and eigenvectors and then look at a few simple examples.</div>
+<div class="para" id="p-3701">We will now introduce the definition of eigenvalues and eigenvectors and then look at a few simple examples.</div>
 <article class="definition definition-like" id="definition-21"><h4 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">4.1.1</span><span class="period">.</span>
-</h4> <div class="para logical" id="p-3693">
+</h4> <div class="para logical" id="p-3702">
 <div class="para">Given a square <span class="process-math">\(n\times n\)</span> matrix <span class="process-math">\(A\text{,}\)</span> we say that a nonzero vector <span class="process-math">\(\vvec\)</span> is an <em class="emphasis">eigenvector</em> of <span class="process-math">\(A\)</span> if there is a scalar <span class="process-math">\(\lambda\)</span> such that</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -726,11 +728,11 @@ A\vvec = \lambda \vvec\text{.}
 </div>
 <div class="para">The scalar <span class="process-math">\(\lambda\)</span> is called the <em class="emphasis">eigenvalue</em> associated to the eigenvector <span class="process-math">\(\vvec\text{.}\)</span>
 </div>
-</div></article><div class="para" id="p-3694">At first glance, there is a lot going on in this definition so let’s look at an example.</div>
+</div></article><div class="para" id="p-3703">At first glance, there is a lot going on in this definition so let’s look at an example.</div>
 <article class="example example-like" id="example-30"><h4 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">4.1.2</span><span class="period">.</span>
 </h4>
-<div class="para logical" id="p-3695">
+<div class="para logical" id="p-3704">
 <div class="para">Consider the matrix <span class="process-math">\(A = \left[\begin{array}{rr}
 7 \amp 6 \\
 6 \amp -2 \\
@@ -750,7 +752,7 @@ A\vvec = \left[\begin{array}{rr}
 </div>
 <div class="para">In other words, <span class="process-math">\(A\vvec = 10\vvec\text{,}\)</span> which says that <span class="process-math">\(\vvec\)</span> is an eigenvector of the matrix <span class="process-math">\(A\)</span> with associated eigenvalue <span class="process-math">\(\lambda = 10\text{.}\)</span>
 </div>
-</div> <div class="para logical" id="p-3696">
+</div> <div class="para logical" id="p-3705">
 <div class="para">Similarly, if <span class="process-math">\(\wvec = \twovec{-1}{2}\text{,}\)</span> we find that</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -770,42 +772,42 @@ A\wvec = \left[\begin{array}{rr}
 </div></article><article class="activity project-like" id="activity-eigen-geom"><h4 class="heading">
 <span class="type">Activity</span><span class="space"> </span><span class="codenumber">4.1.2</span><span class="period">.</span>
 </h4>
-<div class="para logical" id="p-3697">
+<div class="para logical" id="p-3706">
 <div class="para">This definition has an important geometric interpretation that we will investigate here.</div>
 <ol class="lower-alpha">
-<li id="li-2512"><div class="para" id="p-3698">Suppose that <span class="process-math">\(\vvec\)</span> is a nonzero vector and that <span class="process-math">\(\lambda\)</span> is a scalar.  What is the geometric relationship between <span class="process-math">\(\vvec\)</span> and <span class="process-math">\(\lambda\vvec\text{?}\)</span>
+<li id="li-2512"><div class="para" id="p-3707">Suppose that <span class="process-math">\(\vvec\)</span> is a nonzero vector and that <span class="process-math">\(\lambda\)</span> is a scalar.  What is the geometric relationship between <span class="process-math">\(\vvec\)</span> and <span class="process-math">\(\lambda\vvec\text{?}\)</span>
 </div></li>
-<li id="li-2513"><div class="para" id="p-3699">Let’s now consider the eigenvector condition: <span class="process-math">\(A\vvec = \lambda\vvec\text{.}\)</span>  Here we have two vectors, <span class="process-math">\(\vvec\)</span> and <span class="process-math">\(A\vvec\text{.}\)</span>  If <span class="process-math">\(A\vvec =
+<li id="li-2513"><div class="para" id="p-3708">Let’s now consider the eigenvector condition: <span class="process-math">\(A\vvec = \lambda\vvec\text{.}\)</span>  Here we have two vectors, <span class="process-math">\(\vvec\)</span> and <span class="process-math">\(A\vvec\text{.}\)</span>  If <span class="process-math">\(A\vvec =
 \lambda\vvec\text{,}\)</span> what is the geometric relationship between <span class="process-math">\(\vvec\)</span> and <span class="process-math">\(A\vvec\text{?}\)</span>
 </div></li>
 <li id="li-2514">
 <figure class="figure figure-like" id="js-eigen"><iframe id="interactive-eigen" width="600" height="567" src="interactive-eigen-if.html"></iframe><div class="instructions">
-<a href="" data-knowl="" class="id-ref instructions-knowl original" data-refid="hk-instructions-13" id="instructions-13"><h5 class="heading"><span class="type">Instructions<span class="period">.</span></span></h5></a><div class="hidden-content tex2jax_ignore" id="hk-instructions-13"><div class="solution-like"><div class="para" id="p-3700">The sliders in the diagram below allow you to choose a matrix <span class="process-math">\(A = \begin{bmatrix} a \amp b \\ c \amp d
+<a href="" data-knowl="" class="id-ref instructions-knowl original" data-refid="hk-instructions-13" id="instructions-13"><h5 class="heading"><span class="type">Instructions<span class="period">.</span></span></h5></a><div class="hidden-content tex2jax_ignore" id="hk-instructions-13"><div class="solution-like"><div class="para" id="p-3709">The sliders in the diagram below allow you to choose a matrix <span class="process-math">\(A = \begin{bmatrix} a \amp b \\ c \amp d
 \end{bmatrix}\text{.}\)</span>  The vector <span class="process-math">\(\vvec\text{,}\)</span> shaded red, may be moved by clicking in the head of the vector.  The vector <span class="process-math">\(A\vvec\)</span> is then shown in outline.</div></div></div>
 </div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">4.1.3<span class="period">.</span></span><span class="space"> </span>A geometric interpretation of the eigenvalue-eigenvector condition <span class="process-math">\(A\vvec = \lambda\vvec\)</span> .</figcaption></figure><div class="para" id="p-3702">Choose the matrix <span class="process-math">\(A=
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">4.1.3<span class="period">.</span></span><span class="space"> </span>A geometric interpretation of the eigenvalue-eigenvector condition <span class="process-math">\(A\vvec = \lambda\vvec\)</span> .</figcaption></figure><div class="para" id="p-3711">Choose the matrix <span class="process-math">\(A=
 \left[\begin{array}{rr}
 1\amp 2 \\
 2\amp 1 \\
 \end{array}\right]
 \text{.}\)</span> Move the vector <span class="process-math">\(\vvec\)</span> so that the eigenvector condition holds.  What is the eigenvector <span class="process-math">\(\vvec\)</span> and what is the associated eigenvalue?</div>
 </li>
-<li id="li-2515"><div class="para" id="p-3703">By algebraically computing <span class="process-math">\(A\vvec\text{,}\)</span> verify that the eigenvector condition holds for the vector <span class="process-math">\(\vvec\)</span> that you found.</div></li>
-<li id="li-2516"><div class="para" id="p-3704">If you multiply the eigenvector <span class="process-math">\(\vvec\)</span> that you found by <span class="process-math">\(2\text{,}\)</span> do you still have an eigenvector?  If so, what is the associated eigenvalue?</div></li>
-<li id="li-2517"><div class="para" id="p-3705">Are you able to find another eigenvector <span class="process-math">\(\vvec\)</span> that is not a scalar multiple of the first one that you found? If so, what is the eigenvector and what is the associated eigenvalue?</div></li>
-<li id="li-2518"><div class="para" id="p-3706">Now consider the matrix <span class="process-math">\(A = \left[\begin{array}{rr}
+<li id="li-2515"><div class="para" id="p-3712">By algebraically computing <span class="process-math">\(A\vvec\text{,}\)</span> verify that the eigenvector condition holds for the vector <span class="process-math">\(\vvec\)</span> that you found.</div></li>
+<li id="li-2516"><div class="para" id="p-3713">If you multiply the eigenvector <span class="process-math">\(\vvec\)</span> that you found by <span class="process-math">\(2\text{,}\)</span> do you still have an eigenvector?  If so, what is the associated eigenvalue?</div></li>
+<li id="li-2517"><div class="para" id="p-3714">Are you able to find another eigenvector <span class="process-math">\(\vvec\)</span> that is not a scalar multiple of the first one that you found? If so, what is the eigenvector and what is the associated eigenvalue?</div></li>
+<li id="li-2518"><div class="para" id="p-3715">Now consider the matrix <span class="process-math">\(A = \left[\begin{array}{rr}
 2 \amp 1 \\
 0 \amp 2 \\
 \end{array}\right]
 \text{.}\)</span> Use the diagram to describe any eigenvectors and associated eigenvalues.</div></li>
-<li id="li-2519"><div class="para" id="p-3707">Finally, consider the matrix <span class="process-math">\(A = \left[\begin{array}{rr}
+<li id="li-2519"><div class="para" id="p-3716">Finally, consider the matrix <span class="process-math">\(A = \left[\begin{array}{rr}
 0 \amp -1 \\
 1 \amp 0 \\
 \end{array}\right]
 \text{.}\)</span> Use the diagram to describe any eigenvectors and associated eigenvalues.  What geometric transformation does this matrix perform on vectors?  How does this explain the presence of any eigenvectors?</div></li>
 </ol>
-</div></article><div class="para" id="p-3717">Let’s consider the ideas we saw in the activity in some more depth.  To be an eigenvector of <span class="process-math">\(A\text{,}\)</span> the vector <span class="process-math">\(\vvec\)</span> must satisfy <span class="process-math">\(A\vvec = \lambda\vvec\)</span> for some scalar <span class="process-math">\(\lambda\text{.}\)</span>  This means that <span class="process-math">\(\vvec\)</span> and <span class="process-math">\(A\vvec\)</span> are scalar multiples of each other so they must lie on the same line.</div>
-<div class="para" id="p-3718">Consider now the matrix <span class="process-math">\(A = \left[\begin{array}{rr}
+</div></article><div class="para" id="p-3726">Let’s consider the ideas we saw in the activity in some more depth.  To be an eigenvector of <span class="process-math">\(A\text{,}\)</span> the vector <span class="process-math">\(\vvec\)</span> must satisfy <span class="process-math">\(A\vvec = \lambda\vvec\)</span> for some scalar <span class="process-math">\(\lambda\text{.}\)</span>  This means that <span class="process-math">\(\vvec\)</span> and <span class="process-math">\(A\vvec\)</span> are scalar multiples of each other so they must lie on the same line.</div>
+<div class="para" id="p-3727">Consider now the matrix <span class="process-math">\(A = \left[\begin{array}{rr}
 1 \amp 2 \\
 2 \amp 1 \\
 \end{array}\right]
@@ -815,16 +817,16 @@ A\wvec = \left[\begin{array}{rr}
 <div class="sbspanel top" style="width:47.3684210526316%;"><img src="external/images/eigen-intro-1-0.svg" role="img" class="contained"></div>
 <div class="sbspanel top" style="width:47.3684210526316%;"><img src="external/images/eigen-intro-1-1.svg" role="img" class="contained"></div>
 </div></div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">4.1.4<span class="period">.</span></span><span class="space"> </span>On the left, the vector <span class="process-math">\(\vvec\)</span> is not an eigenvector. On the right, the vector <span class="process-math">\(\vvec\)</span> is an eigenvector with eigenvalue <span class="process-math">\(\lambda = 3\text{.}\)</span></figcaption></figure><div class="para" id="p-3719">It is not difficult to see that any multiple of <span class="process-math">\(\twovec{1}{1}\)</span> is also an eigenvector of <span class="process-math">\(A\)</span> with eigenvalue <span class="process-math">\(\lambda = 3\text{.}\)</span>  Indeed, we will see later that all the eigenvectors associated to a given eigenvalue form a subspace of <span class="process-math">\(\real^n\text{.}\)</span>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">4.1.4<span class="period">.</span></span><span class="space"> </span>On the left, the vector <span class="process-math">\(\vvec\)</span> is not an eigenvector. On the right, the vector <span class="process-math">\(\vvec\)</span> is an eigenvector with eigenvalue <span class="process-math">\(\lambda = 3\text{.}\)</span></figcaption></figure><div class="para" id="p-3728">It is not difficult to see that any multiple of <span class="process-math">\(\twovec{1}{1}\)</span> is also an eigenvector of <span class="process-math">\(A\)</span> with eigenvalue <span class="process-math">\(\lambda = 3\text{.}\)</span>  Indeed, we will see later that all the eigenvectors associated to a given eigenvalue form a subspace of <span class="process-math">\(\real^n\text{.}\)</span>
 </div>
-<div class="para" id="p-3720">In <a href="" class="xref" data-knowl="./knowl/fig-eigen-intro-2.html" title="Figure 4.1.5">Figure 4.1.5</a>, we see that <span class="process-math">\(\vvec=\twovec{-1}{1}\)</span> is also an eigenvector with eigenvalue <span class="process-math">\(\lambda =-1\text{.}\)</span>
+<div class="para" id="p-3729">In <a href="" class="xref" data-knowl="./knowl/fig-eigen-intro-2.html" title="Figure 4.1.5">Figure 4.1.5</a>, we see that <span class="process-math">\(\vvec=\twovec{-1}{1}\)</span> is also an eigenvector with eigenvalue <span class="process-math">\(\lambda =-1\text{.}\)</span>
 </div>
 <figure class="figure figure-like" id="fig-eigen-intro-2"><div class="sidebyside"><div class="sbsrow" style="margin-left:27.5%;margin-right:27.5%;"><div class="sbspanel top" style="width:100%;"><img src="external/images/eigen-intro-1-m1.svg" role="img" class="contained"></div></div></div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">4.1.5<span class="period">.</span></span><span class="space"> </span>Here we see another eigenvector <span class="process-math">\(\vvec\)</span> with eigenvalue <span class="process-math">\(\lambda = -1\text{.}\)</span></figcaption></figure><div class="para" id="p-3721">The interactive diagram we used in the activity is meant to convey the fact that the eigenvectors of a matrix <span class="process-math">\(A\)</span> are special vectors.  Most of the time, the vectors <span class="process-math">\(\vvec\)</span> and <span class="process-math">\(A\vvec\)</span> appear visually unrelated.  For certain vectors, however, <span class="process-math">\(\vvec\)</span> and <span class="process-math">\(A\vvec\)</span> line up with one another. Something important is going on when that happens so we call attention to these vectors by calling them eigenvectors. For these vectors, the operation of multiplying by <span class="process-math">\(A\)</span> reduces to the much simpler operation of scalar multiplying by <span class="process-math">\(\lambda\text{.}\)</span>  The reason eigenvectors are important is because it is extremely convenient to be able to replace matrix multiplication by scalar multiplication.</div></section><section class="subsection" id="subsec-eigen-use"><h3 class="heading hide-type">
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">4.1.5<span class="period">.</span></span><span class="space"> </span>Here we see another eigenvector <span class="process-math">\(\vvec\)</span> with eigenvalue <span class="process-math">\(\lambda = -1\text{.}\)</span></figcaption></figure><div class="para" id="p-3730">The interactive diagram we used in the activity is meant to convey the fact that the eigenvectors of a matrix <span class="process-math">\(A\)</span> are special vectors.  Most of the time, the vectors <span class="process-math">\(\vvec\)</span> and <span class="process-math">\(A\vvec\)</span> appear visually unrelated.  For certain vectors, however, <span class="process-math">\(\vvec\)</span> and <span class="process-math">\(A\vvec\)</span> line up with one another. Something important is going on when that happens so we call attention to these vectors by calling them eigenvectors. For these vectors, the operation of multiplying by <span class="process-math">\(A\)</span> reduces to the much simpler operation of scalar multiplying by <span class="process-math">\(\lambda\text{.}\)</span>  The reason eigenvectors are important is because it is extremely convenient to be able to replace matrix multiplication by scalar multiplication.</div></section><section class="subsection" id="subsec-eigen-use"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber">4.1.2</span> <span class="title">The usefulness of eigenvalues and eigenvectors</span>
 </h3>
-<div class="para" id="p-3722">In the next section, we will introduce an algebraic technique for finding the eigenvalues and eigenvectors of a matrix.  Before doing that, however, we would like to discuss why eigenvalues and eigenvectors are so useful.</div>
-<div class="para logical" id="p-3723">
+<div class="para" id="p-3731">In the next section, we will introduce an algebraic technique for finding the eigenvalues and eigenvectors of a matrix.  Before doing that, however, we would like to discuss why eigenvalues and eigenvectors are so useful.</div>
+<div class="para logical" id="p-3732">
 <div class="para">Let’s continue looking at the example <span class="process-math">\(A = \left[\begin{array}{rr} 1 \amp 2 \\ 2 \amp 1 \\
 \end{array}\right] \text{.}\)</span>  We have seen that <span class="process-math">\(\vvec_1 =
 \twovec{1}{1}\)</span> is an eigenvector with eigenvalue <span class="process-math">\(\lambda=3\)</span> and <span class="process-math">\(\vvec_2=\twovec{-1}{1}\)</span> is an eigenvector with eigenvalue <span class="process-math">\(\lambda = -1\text{.}\)</span>  This means that <span class="process-math">\(A\vvec_1 = 3\vvec_1\)</span> and <span class="process-math">\(A\vvec_2=-\vvec_2\text{.}\)</span> By the linearity of matrix multiplication, we can determine what happens when we multiply a linear combination of <span class="process-math">\(\vvec_1\)</span> and <span class="process-math">\(\vvec_2\)</span> by <span class="process-math">\(A\text{:}\)</span>
@@ -836,7 +838,7 @@ A(c_1\vvec_1 + c_2\vvec_2) = 3c_1\vvec_1 - c_2\vvec_2\text{.}
 </div>
 </div>
 <div class="sidebyside"><div class="sbsrow" style="margin-left:0%;margin-right:0%;">
-<div class="sbspanel top" style="width:50%;"><div class="para logical" id="p-3724">
+<div class="sbspanel top" style="width:50%;"><div class="para logical" id="p-3733">
 <div class="para">For instance, if we consider the vector <span class="process-math">\(\xvec=\vvec_1-2\vvec_2\text{,}\)</span> we find that</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -850,19 +852,19 @@ A\xvec\amp{}={} 3\vvec_1 + 2\vvec_2
 </div></div>
 <div class="sbspanel top" style="width:50%;"><img src="external/images/eigen-basis.svg" role="img" class="contained"></div>
 </div></div>
-<div class="para" id="p-3725">In other words, multiplying by <span class="process-math">\(A\)</span> has the effect of stretching a vector <span class="process-math">\(\xvec\)</span> in the <span class="process-math">\(\vvec_1\)</span> direction by a factor of <span class="process-math">\(3\)</span> and flipping <span class="process-math">\(\xvec\)</span> in <span class="process-math">\(\vvec_2\)</span> direction.</div>
-<div class="para" id="p-3726">We can draw an analogy with the more familiar example of the diagonal matrix <span class="process-math">\(D=\left[\begin{array}{rr}
+<div class="para" id="p-3734">In other words, multiplying by <span class="process-math">\(A\)</span> has the effect of stretching a vector <span class="process-math">\(\xvec\)</span> in the <span class="process-math">\(\vvec_1\)</span> direction by a factor of <span class="process-math">\(3\)</span> and flipping <span class="process-math">\(\xvec\)</span> in <span class="process-math">\(\vvec_2\)</span> direction.</div>
+<div class="para" id="p-3735">We can draw an analogy with the more familiar example of the diagonal matrix <span class="process-math">\(D=\left[\begin{array}{rr}
 3 \amp 0 \\
 0 \amp -1 \\
 \end{array}\right]
 \text{.}\)</span> As we have seen, the matrix transformation defined by <span class="process-math">\(D\)</span> combines a horizontal stretching by a factor of 3 with a reflection across the horizontal axis, as is illustrated in <a href="" class="xref" data-knowl="./knowl/fig-eigen-intro-diagonal.html" title="Figure 4.1.6">Figure 4.1.6</a>.</div>
 <figure class="figure figure-like" id="fig-eigen-intro-diagonal"><div class="sidebyside"><div class="sbsrow" style="margin-left:10%;margin-right:10%;"><div class="sbspanel top" style="width:100%;"><img src="external/images/eigen-intro-diagonal.svg" role="img" class="contained"></div></div></div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">4.1.6<span class="period">.</span></span><span class="space"> </span>The diagonal matrix <span class="process-math">\(D\)</span> stretches vectors horizontally by a factor of <span class="process-math">\(3\)</span> and flips vectors vertically.</figcaption></figure><div class="para" id="p-3727">The matrix <span class="process-math">\(A=\left[\begin{array}{rr}
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">4.1.6<span class="period">.</span></span><span class="space"> </span>The diagonal matrix <span class="process-math">\(D\)</span> stretches vectors horizontally by a factor of <span class="process-math">\(3\)</span> and flips vectors vertically.</figcaption></figure><div class="para" id="p-3736">The matrix <span class="process-math">\(A=\left[\begin{array}{rr}
 1 \amp 2 \\
 2 \amp 1 \\
 \end{array}\right]\)</span> has a similar effect when viewed in the basis defined by the eigenvectors <span class="process-math">\(\vvec_1\)</span> and <span class="process-math">\(\vvec_2\text{,}\)</span> as seen in <a href="" class="xref" data-knowl="./knowl/fig-eigen-intro-A.html" title="Figure 4.1.7">Figure 4.1.7</a>.</div>
 <figure class="figure figure-like" id="fig-eigen-intro-A"><div class="sidebyside"><div class="sbsrow" style="margin-left:10%;margin-right:10%;"><div class="sbspanel top" style="width:100%;"><img src="external/images/eigen-intro-A.svg" role="img" class="contained"></div></div></div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">4.1.7<span class="period">.</span></span><span class="space"> </span>The matrix <span class="process-math">\(A\)</span> has the same geometric effect as the diagonal matrix <span class="process-math">\(D\)</span> when expressed in the coordinate system defined by the basis of eigenvectors.</figcaption></figure><div class="para" id="p-3728">In a sense that will be made precise later, having a set of eigenvectors of <span class="process-math">\(A\)</span> that forms a basis of <span class="process-math">\(\real^2\)</span> enables us to think of <span class="process-math">\(A\)</span> as being equivalent to a diagonal matrix <span class="process-math">\(D\text{.}\)</span>  Of course, as the other examples in the previous activity show, it may not always be possible to form a basis from the eigenvectors of a matrix.  For example, the only eigenvectors of the matrix <span class="process-math">\(\left[\begin{array}{rr} 2 \amp 1 \\ 0 \amp 2
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">4.1.7<span class="period">.</span></span><span class="space"> </span>The matrix <span class="process-math">\(A\)</span> has the same geometric effect as the diagonal matrix <span class="process-math">\(D\)</span> when expressed in the coordinate system defined by the basis of eigenvectors.</figcaption></figure><div class="para" id="p-3737">In a sense that will be made precise later, having a set of eigenvectors of <span class="process-math">\(A\)</span> that forms a basis of <span class="process-math">\(\real^2\)</span> enables us to think of <span class="process-math">\(A\)</span> as being equivalent to a diagonal matrix <span class="process-math">\(D\text{.}\)</span>  Of course, as the other examples in the previous activity show, it may not always be possible to form a basis from the eigenvectors of a matrix.  For example, the only eigenvectors of the matrix <span class="process-math">\(\left[\begin{array}{rr} 2 \amp 1 \\ 0 \amp 2
 \end{array}\right]\text{,}\)</span> which represents a shear, have the form <span class="process-math">\(\twovec{x}{0}\text{.}\)</span>  In this example, we are not able to create a basis for <span class="process-math">\(\real^2\)</span> consisting of eigenvectors of the matrix.  This is also true for the matrix <span class="process-math">\(\left[\begin{array}{rr}
 0 \amp -1 \\
 1 \amp 0 \\
@@ -871,19 +873,19 @@ A\xvec\amp{}={} 3\vvec_1 + 2\vvec_2
 <article class="activity project-like" id="activity-eigen-intro"><h4 class="heading">
 <span class="type">Activity</span><span class="space"> </span><span class="codenumber">4.1.3</span><span class="period">.</span>
 </h4>
-<div class="para" id="p-3729">Let’s consider an example that illustrates how we can put these ideas to use.</div> <div class="para logical" id="p-3730">
+<div class="para" id="p-3738">Let’s consider an example that illustrates how we can put these ideas to use.</div> <div class="para logical" id="p-3739">
 <div class="para">Suppose that we work for a car rental company that has two locations, <span class="process-math">\(P\)</span> and <span class="process-math">\(Q\text{.}\)</span>  When a customer rents a car at one location, they have the option to return it to either location at the end of the day.  After doing some market research, we determine:</div>
 <ul class="disc">
-<li id="li-2528"><div class="para" id="p-3731">80% of the cars rented at location <span class="process-math">\(P\)</span> are returned to <span class="process-math">\(P\)</span> and 20% are returned to <span class="process-math">\(Q\text{.}\)</span>
+<li id="li-2528"><div class="para" id="p-3740">80% of the cars rented at location <span class="process-math">\(P\)</span> are returned to <span class="process-math">\(P\)</span> and 20% are returned to <span class="process-math">\(Q\text{.}\)</span>
 </div></li>
-<li id="li-2529"><div class="para" id="p-3732">40% of the cars rented at location <span class="process-math">\(Q\)</span> are returned to <span class="process-math">\(Q\)</span> and 60% are returned to <span class="process-math">\(P\text{.}\)</span>
+<li id="li-2529"><div class="para" id="p-3741">40% of the cars rented at location <span class="process-math">\(Q\)</span> are returned to <span class="process-math">\(Q\)</span> and 60% are returned to <span class="process-math">\(P\text{.}\)</span>
 </div></li>
 </ul>
 <ol class="lower-alpha">
-<li id="li-2530"><div class="para" id="p-3733">Suppose that there are 1000 cars at location <span class="process-math">\(P\)</span> and no cars at location <span class="process-math">\(Q\)</span> on Monday morning.  How many cars are there are locations <span class="process-math">\(P\)</span> and <span class="process-math">\(Q\)</span> at the end of the day on Monday?</div></li>
-<li id="li-2531"><div class="para" id="p-3734">How many are at locations <span class="process-math">\(P\)</span> and <span class="process-math">\(Q\)</span> at end of the day on Tuesday?</div></li>
+<li id="li-2530"><div class="para" id="p-3742">Suppose that there are 1000 cars at location <span class="process-math">\(P\)</span> and no cars at location <span class="process-math">\(Q\)</span> on Monday morning.  How many cars are there are locations <span class="process-math">\(P\)</span> and <span class="process-math">\(Q\)</span> at the end of the day on Monday?</div></li>
+<li id="li-2531"><div class="para" id="p-3743">How many are at locations <span class="process-math">\(P\)</span> and <span class="process-math">\(Q\)</span> at end of the day on Tuesday?</div></li>
 <li id="li-2532">
-<div class="para logical" id="p-3735">
+<div class="para logical" id="p-3744">
 <div class="para">If we let <span class="process-math">\(P_k\)</span> and <span class="process-math">\(Q_k\)</span> be the number of cars at locations <span class="process-math">\(P\)</span> and <span class="process-math">\(Q\text{,}\)</span> respectively, at the end of day <span class="process-math">\(k\text{,}\)</span> we then have</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -908,7 +910,7 @@ Q_{k+1}\amp {}={} 0.2P_k + 0.4Q_k\text{.} \\
 \end{array}\right]\text{.}\)</span>
 </div>
 </div>
-<div class="para logical" id="p-3736">
+<div class="para logical" id="p-3745">
 <div class="para">Suppose that</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -921,26 +923,26 @@ Q_{k+1}\amp {}={} 0.2P_k + 0.4Q_k\text{.} \\
 </div>
 </div>
 </li>
-<li id="li-2533"><div class="para" id="p-3737">We said that 1000 cars are initially at location <span class="process-math">\(P\)</span> and none at location <span class="process-math">\(Q\text{.}\)</span>  This means that the initial vector describing the number of cars is <span class="process-math">\(\xvec_0 =
+<li id="li-2533"><div class="para" id="p-3746">We said that 1000 cars are initially at location <span class="process-math">\(P\)</span> and none at location <span class="process-math">\(Q\text{.}\)</span>  This means that the initial vector describing the number of cars is <span class="process-math">\(\xvec_0 =
 \ctwovec{1000}{0}\text{.}\)</span>  Write <span class="process-math">\(\xvec_0\)</span> as a linear combination of <span class="process-math">\(\vvec_1\)</span> and <span class="process-math">\(\vvec_2\text{.}\)</span>
 </div></li>
-<li id="li-2534"><div class="para" id="p-3738">Remember that <span class="process-math">\(\vvec_1\)</span> and <span class="process-math">\(\vvec_2\)</span> are eigenvectors of <span class="process-math">\(A\text{.}\)</span>  Use the linearity of matrix multiplication to write the vector <span class="process-math">\(\xvec_1 =
+<li id="li-2534"><div class="para" id="p-3747">Remember that <span class="process-math">\(\vvec_1\)</span> and <span class="process-math">\(\vvec_2\)</span> are eigenvectors of <span class="process-math">\(A\text{.}\)</span>  Use the linearity of matrix multiplication to write the vector <span class="process-math">\(\xvec_1 =
 A\xvec_0\text{,}\)</span> describing the number of cars at the two locations at the end of the first day, as a linear combination of <span class="process-math">\(\vvec_1\)</span> and <span class="process-math">\(\vvec_2\text{.}\)</span>
 </div></li>
-<li id="li-2535"><div class="para logical" id="p-3739">
+<li id="li-2535"><div class="para logical" id="p-3748">
 <div class="para">Write the vector <span class="process-math">\(\xvec_2 = A\xvec_1\)</span> as a linear combination of <span class="process-math">\(\vvec_1\)</span> and <span class="process-math">\(\vvec_2\text{.}\)</span>  Then write the next few vectors as linear combinations of <span class="process-math">\(\vvec_1\)</span> and <span class="process-math">\(\vvec_2\text{:}\)</span>
 </div>
 <ol class="decimal">
-<li id="li-2536"><div class="para" id="p-3740"><span class="process-math">\(\xvec_3 = A\xvec_2\text{.}\)</span></div></li>
-<li id="li-2537"><div class="para" id="p-3741"><span class="process-math">\(\xvec_4 = A\xvec_3\text{.}\)</span></div></li>
-<li id="li-2538"><div class="para" id="p-3742"><span class="process-math">\(\xvec_5 = A\xvec_4\text{.}\)</span></div></li>
-<li id="li-2539"><div class="para" id="p-3743"><span class="process-math">\(\xvec_6 = A\xvec_5\text{.}\)</span></div></li>
+<li id="li-2536"><div class="para" id="p-3749"><span class="process-math">\(\xvec_3 = A\xvec_2\text{.}\)</span></div></li>
+<li id="li-2537"><div class="para" id="p-3750"><span class="process-math">\(\xvec_4 = A\xvec_3\text{.}\)</span></div></li>
+<li id="li-2538"><div class="para" id="p-3751"><span class="process-math">\(\xvec_5 = A\xvec_4\text{.}\)</span></div></li>
+<li id="li-2539"><div class="para" id="p-3752"><span class="process-math">\(\xvec_6 = A\xvec_5\text{.}\)</span></div></li>
 </ol>
 </div></li>
-<li id="li-2540"><div class="para" id="p-3744">What will happen to the number of cars at the two locations after a very long time?  Explain how writing <span class="process-math">\(\xvec_0\)</span> as a linear combination of eigenvectors helps you determine the long-term behavior.</div></li>
+<li id="li-2540"><div class="para" id="p-3753">What will happen to the number of cars at the two locations after a very long time?  Explain how writing <span class="process-math">\(\xvec_0\)</span> as a linear combination of eigenvectors helps you determine the long-term behavior.</div></li>
 </ol>
-</div></article><div class="para" id="p-3746">This activity is important and motivates much of our work with eigenvalues and eigenvectors so it’s worth reviewing to make sure we have a clear understanding of the concepts.</div>
-<div class="para logical" id="p-3747">
+</div></article><div class="para" id="p-3755">This activity is important and motivates much of our work with eigenvalues and eigenvectors so it’s worth reviewing to make sure we have a clear understanding of the concepts.</div>
+<div class="para logical" id="p-3756">
 <div class="para">First, we compute</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -971,7 +973,7 @@ A\vvec_2 =
 <div class="para">This shows that <span class="process-math">\(\vvec_1\)</span> is an eigenvector of <span class="process-math">\(A\)</span> with eigenvalue <span class="process-math">\(\lambda_1 = 1\)</span> and <span class="process-math">\(\vvec_2\)</span> is an eigenvector of <span class="process-math">\(A\)</span> with eigenvalue <span class="process-math">\(\lambda_2=0.2\text{.}\)</span>
 </div>
 </div>
-<div class="para logical" id="p-3748">
+<div class="para logical" id="p-3757">
 <div class="para">By the linearity of matrix matrix multiplication, we have</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -1000,7 +1002,7 @@ c_1\vvec_2 + c_2 \vvec_2\text{.}\)</span>  To do, we form the augmented matrix a
 <div class="para">Therefore, <span class="process-math">\(\xvec_0 = 250\vvec_1 -250\vvec_2\text{.}\)</span>
 </div>
 </div>
-<div class="para logical" id="p-3749">
+<div class="para logical" id="p-3758">
 <div class="para">To determine the distribution of cars on subsequent days, we will repeatedly multiply by <span class="process-math">\(A\text{.}\)</span>  We find that</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -1019,7 +1021,7 @@ A(250\vvec_1 - (0.2)^4250\vvec_2) = 250\vvec_1 - (0.2)^5250\vvec_2 \\
 \end{equation*}
 </div>
 </div>
-<div class="para logical" id="p-3750">
+<div class="para logical" id="p-3759">
 <div class="para">In particular, this shows us that</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -1038,31 +1040,31 @@ A(250\vvec_1 - (0.2)^4250\vvec_2) = 250\vvec_1 - (0.2)^5250\vvec_2 \\
 <div class="para">Multiplying a number by <span class="process-math">\(0.2\)</span> is the same as taking 20% of that number.  As each day goes by, the second term is multiplied by <span class="process-math">\(0.2\)</span> so the coefficient of <span class="process-math">\(\vvec_2\)</span> in the expression for <span class="process-math">\(\xvec_k\)</span> will eventually become extremely small.  We therefore see that the distribution of cars will stabilize at <span class="process-math">\(\xvec=250\vvec_1=\twovec{750}{250}\text{.}\)</span>
 </div>
 </div>
-<div class="para" id="p-3751">Notice how our understanding of the eigenvectors of the matrix allows us to replace matrix multiplication with the simpler operation of scalar multiplication.  As a result, we can look far into the future without having to repeatedly perform matrix multiplication.</div>
-<div class="para" id="p-3752">Furthermore, notice how this example relies on the fact that we can express the initial vector <span class="process-math">\(\xvec_0\)</span> as a linear combination of eigenvectors.  For this reason, we would like, when given an <span class="process-math">\(n\times n\)</span> matrix, to be able to create a basis of <span class="process-math">\(\real^n\)</span> that consists of its eigenvectors.  We will frequently return to this question in later sections.</div>
+<div class="para" id="p-3760">Notice how our understanding of the eigenvectors of the matrix allows us to replace matrix multiplication with the simpler operation of scalar multiplication.  As a result, we can look far into the future without having to repeatedly perform matrix multiplication.</div>
+<div class="para" id="p-3761">Furthermore, notice how this example relies on the fact that we can express the initial vector <span class="process-math">\(\xvec_0\)</span> as a linear combination of eigenvectors.  For this reason, we would like, when given an <span class="process-math">\(n\times n\)</span> matrix, to be able to create a basis of <span class="process-math">\(\real^n\)</span> that consists of its eigenvectors.  We will frequently return to this question in later sections.</div>
 <article class="question example-like" id="question-eigen-basis"><h4 class="heading">
 <span class="type">Question</span><span class="space"> </span><span class="codenumber">4.1.8</span><span class="period">.</span>
 </h4>
-<div class="para" id="p-3753">If <span class="process-math">\(A\)</span> is an <span class="process-math">\(n\times n\)</span> matrix, can we form a basis of <span class="process-math">\(\real^n\)</span> consisting of eigenvectors of <span class="process-math">\(A\text{?}\)</span>
+<div class="para" id="p-3762">If <span class="process-math">\(A\)</span> is an <span class="process-math">\(n\times n\)</span> matrix, can we form a basis of <span class="process-math">\(\real^n\)</span> consisting of eigenvectors of <span class="process-math">\(A\text{?}\)</span>
 </div></article></section><section class="subsection" id="subsection-58"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber">4.1.3</span> <span class="title">Summary</span>
 </h3>
-<div class="para logical" id="p-3754">
+<div class="para logical" id="p-3763">
 <div class="para">We defined an eigenvector of a square matrix <span class="process-math">\(A\)</span> to be a nonzero vector <span class="process-math">\(\vvec\)</span> such that <span class="process-math">\(A\vvec = \lambda\vvec\)</span> for some scalar <span class="process-math">\(\lambda\text{,}\)</span> which is called the eigenvalue associated to <span class="process-math">\(\vvec\text{.}\)</span>
 </div>
 <ul class="disc">
-<li id="li-2541"><div class="para" id="p-3755">If <span class="process-math">\(\vvec\)</span> is an eigenvector, then matrix multiplication by <span class="process-math">\(A\)</span> reduces to the simpler operation of scalar multiplication by <span class="process-math">\(\lambda\text{.}\)</span>
+<li id="li-2541"><div class="para" id="p-3764">If <span class="process-math">\(\vvec\)</span> is an eigenvector, then matrix multiplication by <span class="process-math">\(A\)</span> reduces to the simpler operation of scalar multiplication by <span class="process-math">\(\lambda\text{.}\)</span>
 </div></li>
-<li id="li-2542"><div class="para" id="p-3756">Scalar multiples of an eigenvector are also eigenvectors.  In fact, we will see that the eigenvectors associated to an eigenvalue <span class="process-math">\(\lambda\)</span> form a subspace.</div></li>
-<li id="li-2543"><div class="para" id="p-3757">If we can form a basis for <span class="process-math">\(\real^n\)</span> consisting of eigenvectors of <span class="process-math">\(A\text{,}\)</span> then <span class="process-math">\(A\)</span> is, in some sense, equivalent to a diagonal matrix.</div></li>
-<li id="li-2544"><div class="para" id="p-3758">Rewriting a vector <span class="process-math">\(\xvec\)</span> as a linear combination of eigenvectors of <span class="process-math">\(A\)</span> simplifies the process of repeatedly multiplying <span class="process-math">\(\xvec\)</span> by <span class="process-math">\(A\text{.}\)</span>
+<li id="li-2542"><div class="para" id="p-3765">Scalar multiples of an eigenvector are also eigenvectors.  In fact, we will see that the eigenvectors associated to an eigenvalue <span class="process-math">\(\lambda\)</span> form a subspace.</div></li>
+<li id="li-2543"><div class="para" id="p-3766">If we can form a basis for <span class="process-math">\(\real^n\)</span> consisting of eigenvectors of <span class="process-math">\(A\text{,}\)</span> then <span class="process-math">\(A\)</span> is, in some sense, equivalent to a diagonal matrix.</div></li>
+<li id="li-2544"><div class="para" id="p-3767">Rewriting a vector <span class="process-math">\(\xvec\)</span> as a linear combination of eigenvectors of <span class="process-math">\(A\)</span> simplifies the process of repeatedly multiplying <span class="process-math">\(\xvec\)</span> by <span class="process-math">\(A\text{.}\)</span>
 </div></li>
 </ul>
 </div></section><section class="exercises" id="exercises-15"><h3 class="heading hide-type">
 <span class="type">Exercises</span> <span class="codenumber">4.1.4</span> <span class="title">Exercises</span>
 </h3>
 <article class="exercise exercise-like" id="exercise-131"><h4 class="heading"><span class="codenumber">1<span class="period">.</span></span></h4>
-<div class="para logical" id="p-3759">
+<div class="para logical" id="p-3768">
 <div class="para">Consider the matrix and vectors</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -1076,16 +1078,16 @@ A = \left[\begin{array}{rr}
 </div>
 <ol class="lower-alpha">
 <li id="li-2545">
-<div class="para" id="p-3760">Show that <span class="process-math">\(\vvec_1\)</span> and <span class="process-math">\(\vvec_2\)</span> are eigenvectors of <span class="process-math">\(A\)</span> and find their associated eigenvalues.</div>
-<pre class="ptx-sagecell sagecell-sage" id="sage-105"><script type="text/x-sage">
+<div class="para" id="p-3769">Show that <span class="process-math">\(\vvec_1\)</span> and <span class="process-math">\(\vvec_2\)</span> are eigenvectors of <span class="process-math">\(A\)</span> and find their associated eigenvalues.</div>
+<pre class="ptx-sagecell sagecell-sage" id="sage-107"><script type="text/x-sage">
 </script></pre>
 </li>
-<li id="li-2546"><div class="para" id="p-3761">Express the vector <span class="process-math">\(\xvec = \twovec{-4}{-1}\)</span> as a linear combination of <span class="process-math">\(\vvec_1\)</span> and <span class="process-math">\(\vvec_2\text{.}\)</span>
+<li id="li-2546"><div class="para" id="p-3770">Express the vector <span class="process-math">\(\xvec = \twovec{-4}{-1}\)</span> as a linear combination of <span class="process-math">\(\vvec_1\)</span> and <span class="process-math">\(\vvec_2\text{.}\)</span>
 </div></li>
-<li id="li-2547"><div class="para" id="p-3762">Use this expression to compute <span class="process-math">\(A\xvec\text{,}\)</span> <span class="process-math">\(A^2\xvec\text{,}\)</span> and <span class="process-math">\(A^{-1}\xvec\)</span> as a linear combination of eigenvectors.</div></li>
+<li id="li-2547"><div class="para" id="p-3771">Use this expression to compute <span class="process-math">\(A\xvec\text{,}\)</span> <span class="process-math">\(A^2\xvec\text{,}\)</span> and <span class="process-math">\(A^{-1}\xvec\)</span> as a linear combination of eigenvectors.</div></li>
 </ol>
 </div></article><article class="exercise exercise-like" id="exercise-132"><h4 class="heading"><span class="codenumber">2<span class="period">.</span></span></h4>
-<div class="para logical" id="p-3771">
+<div class="para logical" id="p-3780">
 <div class="para">Consider the matrix and vectors</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -1101,25 +1103,25 @@ A = \left[\begin{array}{rrr}
 </div>
 <ol class="lower-alpha">
 <li id="li-2554">
-<div class="para" id="p-3772">Show that the vectors <span class="process-math">\(\vvec_1\text{,}\)</span> <span class="process-math">\(\vvec_2\text{,}\)</span> and <span class="process-math">\(\vvec_3\)</span> are eigenvectors of <span class="process-math">\(A\)</span> and find their associated eigenvalues.</div>
-<pre class="ptx-sagecell sagecell-sage" id="sage-106"><script type="text/x-sage">
+<div class="para" id="p-3781">Show that the vectors <span class="process-math">\(\vvec_1\text{,}\)</span> <span class="process-math">\(\vvec_2\text{,}\)</span> and <span class="process-math">\(\vvec_3\)</span> are eigenvectors of <span class="process-math">\(A\)</span> and find their associated eigenvalues.</div>
+<pre class="ptx-sagecell sagecell-sage" id="sage-108"><script type="text/x-sage">
 </script></pre>
 </li>
-<li id="li-2555"><div class="para" id="p-3773">Express the vector <span class="process-math">\(\xvec = \threevec{0}{-3}{-4}\)</span> as a linear combination of the eigenvectors.</div></li>
-<li id="li-2556"><div class="para" id="p-3774">Use this expression to compute <span class="process-math">\(A\xvec\text{,}\)</span> <span class="process-math">\(A^2\xvec\text{,}\)</span> and <span class="process-math">\(A^{-1}\xvec\)</span> as a linear combination of eigenvectors.</div></li>
+<li id="li-2555"><div class="para" id="p-3782">Express the vector <span class="process-math">\(\xvec = \threevec{0}{-3}{-4}\)</span> as a linear combination of the eigenvectors.</div></li>
+<li id="li-2556"><div class="para" id="p-3783">Use this expression to compute <span class="process-math">\(A\xvec\text{,}\)</span> <span class="process-math">\(A^2\xvec\text{,}\)</span> and <span class="process-math">\(A^{-1}\xvec\)</span> as a linear combination of eigenvectors.</div></li>
 </ol>
 </div></article><article class="exercise exercise-like" id="exercise-133"><h4 class="heading"><span class="codenumber">3<span class="period">.</span></span></h4>
-<div class="para logical" id="p-3783">
+<div class="para logical" id="p-3792">
 <div class="para">Suppose that <span class="process-math">\(A\)</span> is an <span class="process-math">\(n\times n\)</span> matrix.</div>
 <ol class="lower-alpha">
-<li id="li-2563"><div class="para" id="p-3784">Explain why <span class="process-math">\(\lambda = 0\)</span> is an eigenvalue of <span class="process-math">\(A\)</span> if and only if there is a nonzero solution to the homogeneous equation <span class="process-math">\(A\xvec = 0\text{.}\)</span>
+<li id="li-2563"><div class="para" id="p-3793">Explain why <span class="process-math">\(\lambda = 0\)</span> is an eigenvalue of <span class="process-math">\(A\)</span> if and only if there is a nonzero solution to the homogeneous equation <span class="process-math">\(A\xvec = 0\text{.}\)</span>
 </div></li>
-<li id="li-2564"><div class="para" id="p-3785">Explain why <span class="process-math">\(A\)</span> is not invertible if and only if <span class="process-math">\(\lambda=0\)</span> is an eigenvalue.</div></li>
-<li id="li-2565"><div class="para" id="p-3786">If <span class="process-math">\(\vvec\)</span> is an eigenvector of <span class="process-math">\(A\)</span> having associated eigenvalue <span class="process-math">\(\lambda\text{,}\)</span> explain why <span class="process-math">\(\vvec\)</span> is also an eigenvector of <span class="process-math">\(A^2\)</span> with associated eigenvalue <span class="process-math">\(\lambda^2\text{.}\)</span>
+<li id="li-2564"><div class="para" id="p-3794">Explain why <span class="process-math">\(A\)</span> is not invertible if and only if <span class="process-math">\(\lambda=0\)</span> is an eigenvalue.</div></li>
+<li id="li-2565"><div class="para" id="p-3795">If <span class="process-math">\(\vvec\)</span> is an eigenvector of <span class="process-math">\(A\)</span> having associated eigenvalue <span class="process-math">\(\lambda\text{,}\)</span> explain why <span class="process-math">\(\vvec\)</span> is also an eigenvector of <span class="process-math">\(A^2\)</span> with associated eigenvalue <span class="process-math">\(\lambda^2\text{.}\)</span>
 </div></li>
-<li id="li-2566"><div class="para" id="p-3787">If <span class="process-math">\(A\)</span> is invertible and <span class="process-math">\(\vvec\)</span> is eigenvector of <span class="process-math">\(A\)</span> having associated eigenvalue <span class="process-math">\(\lambda\text{,}\)</span> explain why <span class="process-math">\(\vvec\)</span> is also an eigenvector of <span class="process-math">\(A^{-1}\)</span> with associated eigenvalue <span class="process-math">\(\lambda^{-1}\text{.}\)</span>
+<li id="li-2566"><div class="para" id="p-3796">If <span class="process-math">\(A\)</span> is invertible and <span class="process-math">\(\vvec\)</span> is eigenvector of <span class="process-math">\(A\)</span> having associated eigenvalue <span class="process-math">\(\lambda\text{,}\)</span> explain why <span class="process-math">\(\vvec\)</span> is also an eigenvector of <span class="process-math">\(A^{-1}\)</span> with associated eigenvalue <span class="process-math">\(\lambda^{-1}\text{.}\)</span>
 </div></li>
-<li id="li-2567"><div class="para" id="p-3788">The matrix <span class="process-math">\(A=\
+<li id="li-2567"><div class="para" id="p-3797">The matrix <span class="process-math">\(A=\
 \left[\begin{array}{rr}
 1 \amp 2 \\
 2 \amp 1 \\
@@ -1128,28 +1130,28 @@ A = \left[\begin{array}{rrr}
 </div></li>
 </ol>
 </div></article><article class="exercise exercise-like" id="exercise-134"><h4 class="heading"><span class="codenumber">4<span class="period">.</span></span></h4>
-<div class="para" id="p-3801">Suppose that <span class="process-math">\(A\)</span> is a matrix with eigenvectors <span class="process-math">\(\vvec_1\)</span> and <span class="process-math">\(\vvec_2\)</span> and eigenvalues <span class="process-math">\(\lambda_1 =
+<div class="para" id="p-3810">Suppose that <span class="process-math">\(A\)</span> is a matrix with eigenvectors <span class="process-math">\(\vvec_1\)</span> and <span class="process-math">\(\vvec_2\)</span> and eigenvalues <span class="process-math">\(\lambda_1 =
 -1\)</span> and <span class="process-math">\(\lambda_2=2\)</span> as shown in <a href="" class="xref" data-knowl="./knowl/figure-eigen-exercise.html" title="Figure 4.1.9">Figure 4.1.9</a>.</div> <figure class="figure figure-like" id="figure-eigen-exercise"><div class="sidebyside"><div class="sbsrow" style="margin-left:27.5%;margin-right:27.5%;"><div class="sbspanel top" style="width:100%;"><img src="external/images/ex-eigen-powers.svg" role="img" class="contained"></div></div></div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">4.1.9<span class="period">.</span></span><span class="space"> </span>The vectors <span class="process-math">\(\vvec_1\)</span> and <span class="process-math">\(\vvec_2\)</span> are eigenvectors of <span class="process-math">\(A\text{.}\)</span></figcaption></figure> <div class="para" id="p-3802">Sketch the vectors <span class="process-math">\(A\xvec\text{,}\)</span> <span class="process-math">\(A^2\xvec\text{,}\)</span> and <span class="process-math">\(A^{-1}\xvec\text{.}\)</span>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">4.1.9<span class="period">.</span></span><span class="space"> </span>The vectors <span class="process-math">\(\vvec_1\)</span> and <span class="process-math">\(\vvec_2\)</span> are eigenvectors of <span class="process-math">\(A\text{.}\)</span></figcaption></figure> <div class="para" id="p-3811">Sketch the vectors <span class="process-math">\(A\xvec\text{,}\)</span> <span class="process-math">\(A^2\xvec\text{,}\)</span> and <span class="process-math">\(A^{-1}\xvec\text{.}\)</span>
 </div></article><article class="exercise exercise-like" id="exercise-135"><h4 class="heading"><span class="codenumber">5<span class="period">.</span></span></h4>
-<div class="para logical" id="p-3805">
+<div class="para logical" id="p-3814">
 <div class="para">For the following matrices, find the eigenvectors and associated eigenvalues by thinking geometrically about the corresponding matrix transformation.</div>
 <ol class="lower-alpha">
-<li id="li-2578"><div class="para" id="p-3806"><span class="process-math">\(\left[\begin{array}{rr}
+<li id="li-2578"><div class="para" id="p-3815"><span class="process-math">\(\left[\begin{array}{rr}
 3 \amp 0 \\
 0 \amp 3 \\
 \end{array}\right]
 \text{.}\)</span></div></li>
-<li id="li-2579"><div class="para" id="p-3807"><span class="process-math">\(\left[\begin{array}{rr}
+<li id="li-2579"><div class="para" id="p-3816"><span class="process-math">\(\left[\begin{array}{rr}
 -2 \amp 0 \\
 0 \amp 4 \\
 \end{array}\right]
 \text{.}\)</span></div></li>
-<li id="li-2580"><div class="para" id="p-3808">What are the eigenvectors and associated eigenvalues of the identity matrix?</div></li>
-<li id="li-2581"><div class="para" id="p-3809">What are the eigenvectors and associated eigenvalues of a diagonal matrix with distinct diagonal entries?</div></li>
+<li id="li-2580"><div class="para" id="p-3817">What are the eigenvectors and associated eigenvalues of the identity matrix?</div></li>
+<li id="li-2581"><div class="para" id="p-3818">What are the eigenvectors and associated eigenvalues of a diagonal matrix with distinct diagonal entries?</div></li>
 </ol>
 </div></article><article class="exercise exercise-like" id="exercise-136"><h4 class="heading"><span class="codenumber">6<span class="period">.</span></span></h4>
-<div class="para logical" id="p-3820">
+<div class="para logical" id="p-3829">
 <div class="para">Suppose that <span class="process-math">\(A\)</span> is a <span class="process-math">\(2\times2\)</span> matrix having eigenvectors</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -1160,33 +1162,33 @@ A = \left[\begin{array}{rrr}
 <div class="para">and associated eigenvalues <span class="process-math">\(\lambda_1=2\)</span> and <span class="process-math">\(\lambda_2=-3\text{.}\)</span>
 </div>
 <ol class="lower-alpha">
-<li id="li-2590"><div class="para" id="p-3821">If <span class="process-math">\(\xvec=\twovec{5}{0}\text{,}\)</span> find the vector <span class="process-math">\(A^4\xvec\text{.}\)</span>
+<li id="li-2590"><div class="para" id="p-3830">If <span class="process-math">\(\xvec=\twovec{5}{0}\text{,}\)</span> find the vector <span class="process-math">\(A^4\xvec\text{.}\)</span>
 </div></li>
-<li id="li-2591"><div class="para" id="p-3822">Find the vectors <span class="process-math">\(A\twovec10\)</span> and <span class="process-math">\(A\twovec01\text{.}\)</span>
+<li id="li-2591"><div class="para" id="p-3831">Find the vectors <span class="process-math">\(A\twovec10\)</span> and <span class="process-math">\(A\twovec01\text{.}\)</span>
 </div></li>
-<li id="li-2592"><div class="para" id="p-3823">What is the matrix <span class="process-math">\(A\text{?}\)</span>
+<li id="li-2592"><div class="para" id="p-3832">What is the matrix <span class="process-math">\(A\text{?}\)</span>
 </div></li>
 </ol>
 </div></article><article class="exercise exercise-like" id="exercise-137"><h4 class="heading"><span class="codenumber">7<span class="period">.</span></span></h4>
-<div class="para logical" id="p-3832">
+<div class="para logical" id="p-3841">
 <div class="para">Determine whether the following statements are true or false and provide a justification for your response.</div>
 <ol class="lower-alpha">
-<li id="li-2599"><div class="para" id="p-3833">The eigenvalues of a diagonal matrix are equal to the entries on the diagonal.</div></li>
-<li id="li-2600"><div class="para" id="p-3834">If <span class="process-math">\(A\vvec=\lambda\vvec\text{,}\)</span> then <span class="process-math">\(A^2\vvec=\lambda\vvec\)</span> as well.</div></li>
-<li id="li-2601"><div class="para" id="p-3835">Every vector is an eigenvector of the identity matrix.</div></li>
-<li id="li-2602"><div class="para" id="p-3836">If <span class="process-math">\(\lambda=0\)</span> is an eigenvalue of <span class="process-math">\(A\text{,}\)</span> then <span class="process-math">\(A\)</span> is invertible.</div></li>
-<li id="li-2603"><div class="para" id="p-3837">For every <span class="process-math">\(n\times n\)</span> matrix <span class="process-math">\(A\text{,}\)</span> it is possible to find a basis of <span class="process-math">\(\real^n\)</span> consisting of eigenvectors of <span class="process-math">\(A\text{.}\)</span>
+<li id="li-2599"><div class="para" id="p-3842">The eigenvalues of a diagonal matrix are equal to the entries on the diagonal.</div></li>
+<li id="li-2600"><div class="para" id="p-3843">If <span class="process-math">\(A\vvec=\lambda\vvec\text{,}\)</span> then <span class="process-math">\(A^2\vvec=\lambda\vvec\)</span> as well.</div></li>
+<li id="li-2601"><div class="para" id="p-3844">Every vector is an eigenvector of the identity matrix.</div></li>
+<li id="li-2602"><div class="para" id="p-3845">If <span class="process-math">\(\lambda=0\)</span> is an eigenvalue of <span class="process-math">\(A\text{,}\)</span> then <span class="process-math">\(A\)</span> is invertible.</div></li>
+<li id="li-2603"><div class="para" id="p-3846">For every <span class="process-math">\(n\times n\)</span> matrix <span class="process-math">\(A\text{,}\)</span> it is possible to find a basis of <span class="process-math">\(\real^n\)</span> consisting of eigenvectors of <span class="process-math">\(A\text{.}\)</span>
 </div></li>
 </ol>
 </div></article><article class="exercise exercise-like" id="exercise-138"><h4 class="heading"><span class="codenumber">8<span class="period">.</span></span></h4>
-<div class="para logical" id="p-3850">
+<div class="para logical" id="p-3859">
 <div class="para">Suppose that <span class="process-math">\(A\)</span> is an <span class="process-math">\(n\times n\)</span> matrix.</div>
 <ol class="lower-alpha">
-<li id="li-2614"><div class="para" id="p-3851">Assuming that <span class="process-math">\(\vvec\)</span> is an eigenvector of <span class="process-math">\(A\)</span> whose associated eigenvector is nonzero, explain why <span class="process-math">\(\vvec\)</span> is in <span class="process-math">\(\col(A)\text{.}\)</span>
+<li id="li-2614"><div class="para" id="p-3860">Assuming that <span class="process-math">\(\vvec\)</span> is an eigenvector of <span class="process-math">\(A\)</span> whose associated eigenvector is nonzero, explain why <span class="process-math">\(\vvec\)</span> is in <span class="process-math">\(\col(A)\text{.}\)</span>
 </div></li>
-<li id="li-2615"><div class="para" id="p-3852">Assuming that <span class="process-math">\(\vvec\)</span> is an eigenvector of <span class="process-math">\(A\)</span> whose associated eigenvector is zero, explain why <span class="process-math">\(\vvec\)</span> is in <span class="process-math">\(\nul(A)\text{.}\)</span>
+<li id="li-2615"><div class="para" id="p-3861">Assuming that <span class="process-math">\(\vvec\)</span> is an eigenvector of <span class="process-math">\(A\)</span> whose associated eigenvector is zero, explain why <span class="process-math">\(\vvec\)</span> is in <span class="process-math">\(\nul(A)\text{.}\)</span>
 </div></li>
-<li id="li-2616"><div class="para logical" id="p-3853">
+<li id="li-2616"><div class="para logical" id="p-3862">
 <div class="para">Consider the two special matrices below and find their eigenvectors and associated eigenvalues.</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -1206,19 +1208,19 @@ B =
 </div></li>
 </ol>
 </div></article><article class="exercise exercise-like" id="exercise-139"><h4 class="heading"><span class="codenumber">9<span class="period">.</span></span></h4>
-<div class="para logical" id="p-3864">
+<div class="para logical" id="p-3873">
 <div class="para">For each of the following matrix transformations, describe the eigenvalues and eigenvectors of the corresponding matrix <span class="process-math">\(A\text{.}\)</span>
 </div>
 <ol class="lower-alpha">
-<li id="li-2623"><div class="para" id="p-3865">A reflection in <span class="process-math">\(\real^2\)</span> in the line <span class="process-math">\(y=x\text{.}\)</span>
+<li id="li-2623"><div class="para" id="p-3874">A reflection in <span class="process-math">\(\real^2\)</span> in the line <span class="process-math">\(y=x\text{.}\)</span>
 </div></li>
-<li id="li-2624"><div class="para" id="p-3866">A <span class="process-math">\(180^\circ\)</span> rotation in <span class="process-math">\(\real^2\text{.}\)</span>
+<li id="li-2624"><div class="para" id="p-3875">A <span class="process-math">\(180^\circ\)</span> rotation in <span class="process-math">\(\real^2\text{.}\)</span>
 </div></li>
-<li id="li-2625"><div class="para" id="p-3867">A <span class="process-math">\(180^\circ\)</span> rotation in <span class="process-math">\(\real^3\)</span> about the <span class="process-math">\(y\)</span>-axis.</div></li>
-<li id="li-2626"><div class="para" id="p-3868">A <span class="process-math">\(90^\circ\)</span> rotation in <span class="process-math">\(\real^3\)</span> about the <span class="process-math">\(x\)</span>-axis.</div></li>
+<li id="li-2625"><div class="para" id="p-3876">A <span class="process-math">\(180^\circ\)</span> rotation in <span class="process-math">\(\real^3\)</span> about the <span class="process-math">\(y\)</span>-axis.</div></li>
+<li id="li-2626"><div class="para" id="p-3877">A <span class="process-math">\(90^\circ\)</span> rotation in <span class="process-math">\(\real^3\)</span> about the <span class="process-math">\(x\)</span>-axis.</div></li>
 </ol>
 </div></article><article class="exercise exercise-like" id="exercise-140"><h4 class="heading"><span class="codenumber">10<span class="period">.</span></span></h4>
-<div class="para logical" id="p-3879">
+<div class="para logical" id="p-3888">
 <div class="para">Suppose we have two species, <span class="process-math">\(P\)</span> and <span class="process-math">\(Q\text{,}\)</span> where species <span class="process-math">\(P\)</span> preys on <span class="process-math">\(Q\text{.}\)</span>  Their populations, in millions, in year <span class="process-math">\(k\)</span> are denoted by <span class="process-math">\(P_k\)</span> and <span class="process-math">\(Q_k\)</span> and satisfy</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -1240,14 +1242,14 @@ Q_{k+1} \amp {}={} -0.3P_k + 1.5Q_k \\
 \end{equation*}
 </div>
 <ol class="lower-alpha">
-<li id="li-2635"><div class="para" id="p-3880">Show that <span class="process-math">\(\vvec_1=\twovec{1}{3}\)</span> and <span class="process-math">\(\vvec_2=\twovec{2}{1}\)</span> are eigenvectors of <span class="process-math">\(A\)</span> and find their associated eigenvalues.</div></li>
-<li id="li-2636"><div class="para" id="p-3881">Suppose that the initial populations are described by the vector <span class="process-math">\(\xvec_0 = \twovec{38}{44}\text{.}\)</span>  Express <span class="process-math">\(\xvec_0\)</span> as a linear combination of <span class="process-math">\(\vvec_1\)</span> and <span class="process-math">\(\vvec_2\text{.}\)</span>
+<li id="li-2635"><div class="para" id="p-3889">Show that <span class="process-math">\(\vvec_1=\twovec{1}{3}\)</span> and <span class="process-math">\(\vvec_2=\twovec{2}{1}\)</span> are eigenvectors of <span class="process-math">\(A\)</span> and find their associated eigenvalues.</div></li>
+<li id="li-2636"><div class="para" id="p-3890">Suppose that the initial populations are described by the vector <span class="process-math">\(\xvec_0 = \twovec{38}{44}\text{.}\)</span>  Express <span class="process-math">\(\xvec_0\)</span> as a linear combination of <span class="process-math">\(\vvec_1\)</span> and <span class="process-math">\(\vvec_2\text{.}\)</span>
 </div></li>
-<li id="li-2637"><div class="para" id="p-3882">Find the populations after one year, two years, and three years by writing the vectors <span class="process-math">\(\xvec_1\text{,}\)</span> <span class="process-math">\(\xvec_2\text{,}\)</span> and <span class="process-math">\(\xvec_3\)</span> as linear combinations of <span class="process-math">\(\vvec_1\)</span> and <span class="process-math">\(\vvec_2\text{.}\)</span>
+<li id="li-2637"><div class="para" id="p-3891">Find the populations after one year, two years, and three years by writing the vectors <span class="process-math">\(\xvec_1\text{,}\)</span> <span class="process-math">\(\xvec_2\text{,}\)</span> and <span class="process-math">\(\xvec_3\)</span> as linear combinations of <span class="process-math">\(\vvec_1\)</span> and <span class="process-math">\(\vvec_2\text{.}\)</span>
 </div></li>
-<li id="li-2638"><div class="para" id="p-3883">What is the general form for <span class="process-math">\(\xvec_k\text{?}\)</span>
+<li id="li-2638"><div class="para" id="p-3892">What is the general form for <span class="process-math">\(\xvec_k\text{?}\)</span>
 </div></li>
-<li id="li-2639"><div class="para" id="p-3884">After a very long time, what is the ratio of <span class="process-math">\(P_k\)</span> to <span class="process-math">\(Q_k\text{?}\)</span>
+<li id="li-2639"><div class="para" id="p-3893">After a very long time, what is the ratio of <span class="process-math">\(P_k\)</span> to <span class="process-math">\(Q_k\text{?}\)</span>
 </div></li>
 </ol>
 </div></article></section></section></div>

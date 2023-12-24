@@ -9,71 +9,11 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="robots" content="noindex, nofollow">
-<script>// Make *any* pre with class 'sagecell-sage' an executable Sage cell
-// Their results will be linked, only within language type
-sagecell.makeSagecell({
-  "inputLocation": "pre.sagecell-sage",
-  "linked": true,
-  "languages": [
-    "sage"
-  ],
-  "evalButtonText": "Evaluate (Sage)"
-});
-</script>
 </head>
 <body class="ignore-math">
 <h5 class="heading"><span class="type">Paragraph</span></h5>
-<div class="para logical">
-<div class="para">We can gain some intuition about this problem by graphing the quadratic form and paying particular attention to the unit vectors.</div>
-<ol class="lower-alpha">
-<li><div class="para">Evaluating the following cell defines the matrix <span class="process-math">\(D = \begin{bmatrix}
-3 \amp 0 \\
-0 \amp -1
-\end{bmatrix}\)</span> and displays the graph of the associated quadratic form <span class="process-math">\(q_D(\xvec)\text{.}\)</span>  In addition, the points corresponding to vectors <span class="process-math">\(\uvec\)</span> with unit length are displayed as a curve. <pre class="ptx-sagecell sagecell-sage" id="sage-213"><script type="text/x-sage">sage.repl.load.load('https://raw.githubusercontent.com/davidaustinm/ula_modules/master/quad_plot.py', globals())
-
-## We define our matrix here
-A = matrix(2, 2, [3, 0, 0, -1])
-
-quad_plot(A)
-</script></pre> Notice that the matrix <span class="process-math">\(D\)</span> is diagonal.  In which directions does the quadratic form have its maximum and minimum values?</div></li>
-<li><div class="para">Write the quadratic form <span class="process-math">\(q_D\)</span> associated to <span class="process-math">\(D\text{.}\)</span>  What is the value of <span class="process-math">\(q_D\left(\twovec10\right)\text{?}\)</span>  What is the value of <span class="process-math">\(q_D\left(\twovec01\right)\text{?}\)</span>
-</div></li>
-<li><div class="para">Consider a unit vector <span class="process-math">\(\uvec=\twovec{u_1}{u_2}\)</span> so that <span class="process-math">\(u_1^2+u_2^2 =
-1\text{,}\)</span> an expression we can rewrite as <span class="process-math">\(u_1^2 =
-1-u_2^2\text{.}\)</span>  Write the quadratic form <span class="process-math">\(q_D(\uvec)\)</span> and replace <span class="process-math">\(u_1^2\)</span> by <span class="process-math">\(1-u_2^2\text{.}\)</span>  Now explain why the maximum of <span class="process-math">\(q_D(\uvec)\)</span> is 3.  In which direction does the maximum occur?  Does this agree with what you observed from the graph above?</div></li>
-<li><div class="para">Write the quadratic form <span class="process-math">\(q_D(\uvec)\)</span> and replace <span class="process-math">\(u_2^2\)</span> by <span class="process-math">\(1-u_1^2\text{.}\)</span>  What is the minimum value of <span class="process-math">\(q_D(\uvec)\)</span> and in which direction does the minimum occur?</div></li>
-<li><div class="para">Use the previous Sage cell to change the matrix to <span class="process-math">\(A=\begin{bmatrix}
-1 \amp 2 \\
-2 \amp 1
-\end{bmatrix}\)</span> and display the graph of the quadratic form <span class="process-math">\(q_A(\xvec) = \xvec\cdot(A\xvec)\text{.}\)</span> Determine the directions in which the maximum and minimum occur?</div></li>
-<li>
-<div class="para logical">
-<div class="para">Remember that <span class="process-math">\(A=\begin{bmatrix}
-1 \amp 2 \\
-2 \amp 1
-\end{bmatrix}\)</span> is symmetric so that <span class="process-math">\(A=QDQ^T\)</span> where <span class="process-math">\(D\)</span> is the diagonal matrix above and <span class="process-math">\(Q\)</span> is the orthogonal matrix that rotates vectors by <span class="process-math">\(45^\circ\text{.}\)</span>  Notice that</div>
-<div class="displaymath process-math">
-\begin{equation*}
-q_A(\uvec) = \uvec\cdot(A\uvec) =
-\uvec\cdot(QDQ^T\uvec) = (Q^T\uvec)\cdot(DQ^T\uvec)
-= q_D(\vvec)
-\end{equation*}
-</div>
-<div class="para">where <span class="process-math">\(\vvec=Q^T\uvec\text{.}\)</span>  That is, we have <span class="process-math">\(q_A(\uvec) = q_D(\vvec)\text{.}\)</span>
-</div>
-</div>
-<div class="para logical">
-<div class="para">Explain why <span class="process-math">\(\vvec = Q^T\uvec\)</span> is also a unit vector;  that is, explain why</div>
-<div class="displaymath process-math">
-\begin{equation*}
-|\vvec|^2 = |Q^T\uvec|^2 =
-(Q^T\uvec)\cdot(Q^T\uvec) = 1.
-\end{equation*}
-</div>
-</div>
-</li>
-<li><div class="para">Using the fact that <span class="process-math">\(q_A(\uvec) = q_D(\vvec)\text{,}\)</span> explain how we now know the maximum value of <span class="process-math">\(q_A(\uvec)\)</span> is 3 and determine the direction in which it occurs.  Also, determine the minimum value of <span class="process-math">\(q_A(\uvec)\)</span> and determine the direction in which it occurs.</div></li>
-</ol>
+<div class="para">
+<span class="process-math">\(q_A(\xvec) = 2x_1^2 + 10x_1x_2-3x_2^2\)</span> and <span class="process-math">\(q_A\left(\twovec2{-1}\right) = -15\)</span>
 </div>
 <span class="incontext"><a href="sec-quadratic-forms.html#p-7332" class="internal">in-context</a></span>
 </body>

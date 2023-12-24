@@ -11,9 +11,34 @@
 <meta name="robots" content="noindex, nofollow">
 </head>
 <body class="ignore-math">
-<h5 class="heading"><span class="type">Paragraph</span></h5>
-<div class="para">Alternatively, consider the approximation <span class="process-math">\(A_2=U_2\Sigma_2V_2^T\)</span> of the demeaned data matrix <span class="process-math">\(A\text{.}\)</span> Explain why the 100th column of <span class="process-math">\(A_2\)</span> represents the projection of <span class="process-math">\(\xvec\)</span> onto the two-dimensional subspace spanned by the first two principal components, <span class="process-math">\(\uvec_1\)</span> and <span class="process-math">\(\uvec_2\text{.}\)</span>  Then explain why the coefficients in that projection, <span class="process-math">\(c_1\uvec_1 + c_2\uvec_2\text{,}\)</span> form the two-dimensional vector <span class="process-math">\(\twovec{c_1}{c_2}\)</span> that is the 100th column of <span class="process-math">\(\Gamma_2=\Sigma_2
-V_2^T\text{.}\)</span>
+<h4 class="heading"><span class="type">Paragraph</span></h4>
+<div class="para logical">
+<div class="para">Suppose that we have a dataset with <span class="process-math">\(N\)</span> points, that <span class="process-math">\(A\)</span> represents the demeaned data matrix, that <span class="process-math">\(A = U\Sigma V^T\)</span> is a singular value decomposition, and that the singular values are <span class="process-math">\(A\)</span> are denoted as <span class="process-math">\(\sigma_i\text{.}\)</span> It follows that the covariance matrix</div>
+<div class="displaymath process-math">
+\begin{equation*}
+C = \frac1N AA^T = \frac1N (U\Sigma V^T) (U\Sigma V^T)^T =
+U\left(\frac1N \Sigma \Sigma^T\right) U^T.
+\end{equation*}
+</div>
+<div class="para">Notice that <span class="process-math">\(\frac1N \Sigma\Sigma^T\)</span> is a diagonal matrix whose diagonal entries are <span class="process-math">\(\frac1N\sigma_i^2\text{.}\)</span>  Therefore, it follows that</div>
+<div class="displaymath process-math">
+\begin{equation*}
+C = 
+U\left(\frac1N \Sigma \Sigma^T\right) U^T
+\end{equation*}
+</div>
+<div class="para">is an orthogonal diagonalization of <span class="process-math">\(C\)</span> showing that</div>
+<ul class="disc">
+<li><div class="para">the principal components of the dataset, which are the eigenvectors of <span class="process-math">\(C\text{,}\)</span> are given by the columns of <span class="process-math">\(U\text{.}\)</span>  In other words, the left singular vectors of <span class="process-math">\(A\)</span> are the principal components of the dataset.</div></li>
+<li><div class="para logical">
+<div class="para">the variance in the direction of a principal component is the associated eigenvalue of <span class="process-math">\(C\)</span> and therefore</div>
+<div class="displaymath process-math">
+\begin{equation*}
+V_{\uvec_i} = \frac1N\sigma_i^2.
+\end{equation*}
+</div>
+</div></li>
+</ul>
 </div>
 <span class="incontext"><a href="sec-svd-uses.html#p-8240" class="internal">in-context</a></span>
 </body>

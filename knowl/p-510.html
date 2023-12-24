@@ -9,27 +9,113 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="robots" content="noindex, nofollow">
+<script>// Make *any* pre with class 'sagecell-sage' an executable Sage cell
+// Their results will be linked, only within language type
+sagecell.makeSagecell({
+  "inputLocation": "pre.sagecell-sage",
+  "linked": true,
+  "languages": [
+    "sage"
+  ],
+  "evalButtonText": "Evaluate (Sage)"
+});
+</script>
 </head>
 <body class="ignore-math">
 <h5 class="heading"><span class="type">Paragraph</span></h5>
-<div class="para logical"><ol class="lower-alpha">
-<li><div class="para logical">
-<div class="para">The exact solution is</div>
+<div class="para logical">
+<div class="para">In this exercise, we will see another limitation: computer arithmetic with real numbers is only an approximation because computers represent real numbers with only a finite number of bits.  For instance, the number pi</div>
 <div class="displaymath process-math">
 \begin{equation*}
-x=9, y=-36, z=30\text{.}
+\pi =
+3.141592653589793238462643383279502884197169399\ldots
 \end{equation*}
 </div>
-<div class="para">However, if we compute with only 10 bits, we find the approximate solution</div>
+<div class="para">would be approximated inside a computer by, say,</div>
 <div class="displaymath process-math">
 \begin{equation*}
-x=8.9, y=-35, z=29\text{.}
+\pi\approx 3.141592653589793
 \end{equation*}
 </div>
-</div></li>
-<li><div class="para">This solution to the first system is <span class="process-math">\(x=2\)</span> and <span class="process-math">\(y=0\text{.}\)</span>  However, with just a small change in the system, we find the solution <span class="process-math">\(x=1\)</span> and <span class="process-math">\(y=1\text{.}\)</span>
-</div></li>
-</ol></div>
+<div class="para">Most of the time, this is not a problem.  However, when we perform millions or even billions of arithmetic operations, the error in these approximations starts to accumulate and can lead to results that are wildly inaccurate.  Here are two examples demonstrating this.</div>
+<ol class="lower-alpha">
+<li>
+<div class="para logical">
+<div class="para">Let’s first see an example showing that computer arithmetic really is an approximation.  First, consider the linear system</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\begin{alignedat}{4}
+x \amp {}+{} \amp \frac12y \amp {}+{} \amp \frac13z \amp
+{}={} \amp 1 \\
+\frac12x \amp {}+{} \amp \frac13y \amp {}+{} \amp \frac14z \amp
+{}={} \amp 0 \\
+\frac13x \amp {}+{} \amp \frac14y \amp {}+{} \amp \frac15z \amp
+{}={} \amp 0 \\
+\end{alignedat}
+\end{equation*}
+</div>
+<div class="para">If the coefficients are entered into Sage as fractions, Sage will find the exact reduced row echelon form.  Find the exact solution to this linear system. <pre class="ptx-sagecell sagecell-sage" id="sage-22"><script type="text/x-sage">
+</script></pre>
+</div>
+</div>
+<div class="para logical">
+<div class="para">Now let’s ask Sage to compute with real numbers.  We can do this by representing one of the coefficients as a decimal.  For instance, the same linear system can be represented as</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\begin{alignedat}{4}
+x \amp {}+{} \amp 0.5y \amp {}+{} \amp \frac13z \amp
+{}={} \amp 1 \\
+\frac12x \amp {}+{} \amp \frac13y \amp {}+{} \amp \frac14z \amp
+{}={} \amp 0 \\
+\frac13x \amp {}+{} \amp \frac14y \amp {}+{} \amp \frac15z \amp
+{}={} \amp 0 \\
+\end{alignedat}
+\end{equation*}
+</div>
+<div class="para">Most computers do arithmetic using either 32 or 64 bits.  To magnify the problem so that we can see it better, we will ask Sage to do arithmetic using only 10 bits as follows. <pre class="ptx-sagecell sagecell-sage" id="sage-23"><script type="text/x-sage">R = RealNumber
+RealNumber = RealField(10)
+
+# enter the matrix below
+A = matrix( ..., ..., [ ... ] )
+
+print (A.rref())
+RealNumber = R
+</script></pre> What does Sage give for the solution now?  Compare this to the exact solution that you found previously.</div>
+</div>
+</li>
+<li>
+<div class="para logical">
+<div class="para">Some types of linear systems are particularly sensitive to errors resulting from computers’ approximate arithmetic. For instance, suppose we are interested in the linear system</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\begin{alignedat}{3}
+x \amp {}+{} \amp y \amp {}={} \amp 2 \\
+x \amp {}+{} 1.001\amp y \amp {}={} \amp 2 \\
+\end{alignedat}
+\end{equation*}
+</div>
+<div class="para">Find the solution to this linear system. <pre class="ptx-sagecell sagecell-sage" id="sage-24"><script type="text/x-sage">
+</script></pre>
+</div>
+</div>
+<div class="para logical">
+<div class="para">Suppose now that the computer has accumulated some error in one of the entries of this system so that it incorrectly stores the system as</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\begin{alignedat}{3}
+x \amp {}+{} \amp y \amp {}={} \amp 2 \\
+x \amp {}+{} 1.001\amp y \amp {}={} \amp 2.001 \\
+\end{alignedat}
+\end{equation*}
+</div>
+<div class="para">Find the solution to this linear system. <pre class="ptx-sagecell sagecell-sage" id="sage-25"><script type="text/x-sage">
+</script></pre>
+</div>
+</div>
+<div class="para">Notice how a small error in one of the entries in the linear system leads to a solution that has a dramatically large error.  Fortunately, this is an issue that has been well studied, and there are techniques that mitigate this type of behavior.</div>
+</li>
+</ol>
+</div>
 <span class="incontext"><a href="sec-sage-introduction.html#p-510" class="internal">in-context</a></span>
 </body>
 </html>

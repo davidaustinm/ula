@@ -9,10 +9,26 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="robots" content="noindex, nofollow">
+<script>// Make *any* pre with class 'sagecell-sage' an executable Sage cell
+// Their results will be linked, only within language type
+sagecell.makeSagecell({
+  "inputLocation": "pre.sagecell-sage",
+  "linked": true,
+  "languages": [
+    "sage"
+  ],
+  "evalButtonText": "Evaluate (Sage)"
+});
+</script>
 </head>
 <body class="ignore-math">
 <h5 class="heading"><span class="type">Paragraph</span></h5>
-<div class="para">Plot these coordinates in <a href="" class="xref" data-knowl="./knowl/fig-pca-2d.html" title="Figure 7.3.3">Figure 7.3.3</a>.</div>
+<div class="para">The next cell will load a dataset describing the average consumption of various food groups for citizens in each of the four nations of the United Kingdom.  The units for each entry are grams per person per week. <pre class="ptx-sagecell sagecell-sage" id="sage-223"><script type="text/x-sage">import pandas as pd
+df = pd.read_csv('https://raw.githubusercontent.com/davidaustinm/ula_modules/master/data/uk-diet.csv', index_col=0)
+data_mean = vector(df.T.mean())
+A = matrix([vector(row) for row in (df.T-df.T.mean()).values]).T
+df
+</script></pre> We will view this as a dataset consisting of four points in <span class="process-math">\(\real^{17}\text{.}\)</span>  As such, it is impossible to visualize and studying the numbers themselves doesn’t lead to much insight.</div>
 <span class="incontext"><a href="sec-pca.html#p-7682" class="internal">in-context</a></span>
 </body>
 </html>

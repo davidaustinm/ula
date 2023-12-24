@@ -11,50 +11,24 @@
 <meta name="robots" content="noindex, nofollow">
 </head>
 <body class="ignore-math">
-<h5 class="heading"><span class="type">Paragraph</span></h5>
+<h4 class="heading"><span class="type">Paragraph</span></h4>
 <div class="para logical">
-<div class="para">Suppose we have a hypothetical computer that represents numbers using only three decimal digits. We will consider the linear system</div>
+<div class="para">We first multiply the first row by <span class="process-math">\(-1\)</span> and add to the second row.  This can be represented by multiplying <span class="process-math">\(E_1A=A_1\)</span> where</div>
 <div class="displaymath process-math">
 \begin{equation*}
-\begin{alignedat}{3}
-0.0001x \amp  {}+{}  \amp y \amp  {}={}  \amp 1 \\
-x \amp  {}+{}  \amp y \amp  {}={}  \amp 2\text{.} \\
-\end{alignedat}
+E_1=\left[\begin{array}{rrr}
+1 \amp 0 \amp 0 \\
+-1 \amp 1 \amp 0 \\
+0 \amp 0 \amp 1 \\
+\end{array}\right],
+A_1=
+\left[\begin{array}{rrrr}
+1 \amp 2 \amp -1 \amp 2 \\
+0 \amp -2 \amp -1 \amp -1 \\
+3 \amp 2 \amp 1 \amp 0
+\end{array}\right]\text{.}
 \end{equation*}
 </div>
-<ol class="lower-alpha">
-<li><div class="para logical">
-<div class="para">Show that this system has the unique solution</div>
-<div class="displaymath process-math">
-\begin{equation*}
-\begin{aligned}
-x \amp {}={} \frac{10000}{9999} = 1.00010001\ldots, \\
-y \amp {}={} \frac{9998}{9999} =  0.99989998\ldots\text{.}
-\end{aligned}
-\end{equation*}
-</div>
-</div></li>
-<li><div class="para">If we represent this solution inside our computer that only holds 3 decimal digits, what do we find for the solution? This is the best that we can hope to find using our computer.</div></li>
-<li><div class="para">Let’s imagine that we use our computer to find the solution using Gaussian elimination; that is, after every arithmetic operation, we keep only three decimal digits.  Our first step is to multiply the first equation by 10000 and subtract it from the second equation.  If we represent numbers using only three decimal digits, what does this give for the value of <span class="process-math">\(y\text{?}\)</span>
-</div></li>
-<li><div class="para">By substituting our value for <span class="process-math">\(y\)</span> into the first equation, what do we find for <span class="process-math">\(x\text{?}\)</span>
-</div></li>
-<li><div class="para">Compare the solution we find on our computer with the actual solution and assess the quality of the approximation.</div></li>
-<li><div class="para logical">
-<div class="para">Let’s now modify the linear system by simplying interchanging the equations:</div>
-<div class="displaymath process-math">
-\begin{equation*}
-\begin{alignedat}{3}
-x \amp  {}+{}  \amp y \amp  {}={}  \amp 2 \\
-0.0001x \amp  {}+{}  \amp y \amp  {}={}  \amp 1\text{.} \\
-\end{alignedat}
-\end{equation*}
-</div>
-<div class="para">Of course, this doesn’t change the actual solution.  Let’s imagine we use our computer to find the solution using Gaussian elimination.  Perform the first step where we multiply the first equation by 0.0001 and subtract from the second equation.  What does this give for <span class="process-math">\(y\)</span> if we represent numbers using only three decimal digits?</div>
-</div></li>
-<li><div class="para">Substitute the value you found for <span class="process-math">\(y\)</span> into the first equation and solve for <span class="process-math">\(x\text{.}\)</span>  Then compare the approximate solution found with our hypothetical computer to the exact solution.</div></li>
-<li><div class="para">Which approach produces the most accurate approximation?</div></li>
-</ol>
 </div>
 <span class="incontext"><a href="sec-gaussian-revisited.html#p-5094" class="internal">in-context</a></span>
 </body>

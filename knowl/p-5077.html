@@ -11,9 +11,40 @@
 <meta name="robots" content="noindex, nofollow">
 </head>
 <body class="ignore-math">
-<h3 class="heading"><span class="type">Paragraph</span></h3>
-<div class="para">In this section, we revisit Gaussian elimination and explore some problems with implementing it in the straightforward way that we described back in <a href="sec-finding-solutions.html" class="internal" title="Section 1.2: Finding solutions to linear systems">Section 1.2</a>.  In particular, we will see how the fact that computers only approximate arithmetic operations can lead us to find solutions that are far from the actual solutions.  Second, we will explore how much work is required to implement Gaussian elimination and devise a more efficient means of implementing it when we want to solve equations <span class="process-math">\(A\xvec = \bvec\)</span> for several different vectors <span class="process-math">\(\bvec\text{.}\)</span>
+<h5 class="heading"><span class="type">Paragraph</span></h5>
+<div class="para logical">
+<div class="para">We have the matrix</div>
+<div class="displaymath process-math">
+\begin{equation*}
+A =
+\left[\begin{array}{rrrrrrrr}
+0 \amp 0 \amp 0 \amp 0 \amp 0 \amp 0 \amp 0 \amp 0 \\
+\frac{1}{2} \amp 0 \amp 0 \amp 0 \amp 0 \amp 0 \amp 0 \amp 0 \\
+\frac{1}{2} \amp \frac{1}{2} \amp 0 \amp 0 \amp 0 \amp 0 \amp 0 \amp 0 \\
+0 \amp \frac{1}{2} \amp \frac{1}{2} \amp 0 \amp 0 \amp 0 \amp 0 \amp 0 \\
+0 \amp 0 \amp \frac{1}{2} \amp \frac{1}{2} \amp 0 \amp 0 \amp 0 \amp 0 \\
+0 \amp 0 \amp 0 \amp \frac{1}{2} \amp \frac{1}{2} \amp 0 \amp 0 \amp 0 \\
+0 \amp 0 \amp 0 \amp 0 \amp \frac{1}{2} \amp \frac{1}{2} \amp 0 \amp 0 \\
+0 \amp 0 \amp 0 \amp 0 \amp 0 \amp \frac{1}{2} \amp 1 \amp 1
+\end{array}\right]\text{.}
+\end{equation*}
 </div>
-<span class="incontext"><a href="sec-gaussian-revisited.html#p-5077" class="internal">in-context</a></span>
+<div class="para">Starting a Markov chain with <span class="process-math">\(\xvec_0 = \evec_1\text{,}\)</span> we find that</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\xvec_4=\left[\begin{array}{c}
+0.000\\ 0.000\\ 0.000\\ 0.000\\ 0.0625\\ 0.250\\ 0.375\\ 0.312
+\end{array}\right],
+\xvec_6=\left[\begin{array}{c}
+0.000\\ 0.000\\ 0.000\\ 0.000\\ 0.000\\ 0.000\\ 0.0156\\ 0.984
+\end{array}\right],
+\xvec_7=\left[\begin{array}{c}
+0.000\\ 0.000\\ 0.000\\ 0.000\\ 0.000\\ 0.000\\ 0.000\\ 1.00
+\end{array}\right]\text{.}
+\end{equation*}
+</div>
+<div class="para">This says that the chances are <span class="process-math">\(31.2\)</span>% that we arrive at square <span class="process-math">\(8\)</span> after four moves and <span class="process-math">\(98.4\)</span>% that we arrive after five moves.  We are guaranteed to arrive after seven moves.</div>
+</div>
+<span class="incontext"><a href="sec-stochastic.html#p-5077" class="internal">in-context</a></span>
 </body>
 </html>

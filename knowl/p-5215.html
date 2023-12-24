@@ -12,13 +12,36 @@
 </head>
 <body class="ignore-math">
 <h5 class="heading"><span class="type">Paragraph</span></h5>
-<div class="para"><span class="process-math">\(A^{-1} = U^{-1}L^{-1}P =
+<div class="para logical"><ol class="lower-alpha">
+<li><div class="para">Since <span class="process-math">\(A\)</span> is a positive stochastic matrix, we know that <span class="process-math">\(\lambda=1\)</span> is an eigenvalue.  Therefore, <span class="process-math">\(A-I\)</span> should not be invertible.</div></li>
+<li><div class="para">Sage tells us that the reduced row echelon form of <span class="process-math">\(A-I\)</span> is <span class="process-math">\(\left[\begin{array}{rrr} 1 \amp 0 \amp 0 \\
+0 \amp 1 \amp 0 \\
+0 \amp 0 \amp 1 \\
+\end{array}\right]\text{.}\)</span>
+</div></li>
+<li><div class="para">The computation tells us that <span class="process-math">\(A-I\)</span> is invertible.  We know that this can’t be the case, however, since <span class="process-math">\(\lambda=1\)</span> is an eigenvalue.</div></li>
+<li><div class="para logical">
+<div class="para">Let’s trace through the work that goes into finding the reduced row echelon form of <span class="process-math">\(A-I\text{:}\)</span>
+</div>
+<div class="displaymath process-math">
+\begin{equation*}
+A-I=
 \left[\begin{array}{rrr}
--\frac{15}{13} \amp \frac{17}{13} \amp -\frac{8}{13} \\
-\frac{11}{13} \amp -\frac{9}{13} \amp \frac{5}{13} \\
--\frac{14}{13} \amp \frac{15}{13} \amp -\frac{4}{13}
+-0.8 \amp 0.2 \amp 0.4 \\
+0.2 \amp -0.7 \amp 0.1 \\
+0.6 \amp 0.5 \amp -0.5 \\
 \end{array}\right]
-\text{.}\)</span></div>
+\sim
+\left[\begin{array}{rrr}
+-0.8 \amp 0.2 \amp 0.4 \\
+0.0 \amp -0.65 \amp 0.2 \\
+0.0 \amp 0.65 \amp -0.2 \\
+\end{array}\right]\text{.}
+\end{equation*}
+</div>
+<div class="para">The next step is to multiply the second row by <span class="process-math">\(0.65/0.65\)</span> and add it to the third row.  The last entry in the third row would be <span class="process-math">\(-0.2 + 0.2(0.65)/0.65\text{,}\)</span> which we identify as being <span class="process-math">\(0\text{.}\)</span>  The problem is that the computer only approximates this result so it finds something close to <span class="process-math">\(0\)</span> but not quite equal to <span class="process-math">\(0\text{.}\)</span>  It therefore, thinks this is a pivot position and scales the row to have <span class="process-math">\(1\)</span> in that position.</div>
+</div></li>
+</ol></div>
 <span class="incontext"><a href="sec-gaussian-revisited.html#p-5215" class="internal">in-context</a></span>
 </body>
 </html>

@@ -9,52 +9,86 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="robots" content="noindex, nofollow">
+<script>// Make *any* pre with class 'sagecell-sage' an executable Sage cell
+// Their results will be linked, only within language type
+sagecell.makeSagecell({
+  "inputLocation": "pre.sagecell-sage",
+  "linked": true,
+  "languages": [
+    "sage"
+  ],
+  "evalButtonText": "Evaluate (Sage)"
+});
+</script>
 </head>
 <body class="ignore-math">
 <h5 class="heading"><span class="type">Paragraph</span></h5>
-<div class="para logical"><ol class="lower-alpha">
+<div class="para logical">
+<div class="para">We will look at some sets of vectors and the subspaces they form.</div>
+<ol class="lower-alpha">
+<li><div class="para">If <span class="process-math">\(\vvec_1, \vvec_2,\ldots,\vvec_n\)</span> is a set of vectors in <span class="process-math">\(\real^m\text{,}\)</span> explain why <span class="process-math">\(\zerovec\)</span> can be expressed as a linear combination of these vectors.  Use this fact to explain why the zero vector <span class="process-math">\(\zerovec\)</span> belongs to any subspace in <span class="process-math">\(\real^m\text{.}\)</span>
+</div></li>
+<li>
+<div class="para">Explain why the line on the left of <a href="" class="xref" data-knowl="./knowl/figure-lines-r2.html" title="Figure 3.5.3">Figure 3.5.3</a> is not a subspace of <span class="process-math">\(\real^2\)</span> and why the line on the right is.</div>
+<figure class="figure figure-like"><div class="sidebyside"><div class="sbsrow" style="margin-left:5%;margin-right:5%;">
+<div class="sbspanel top" style="width:44.4444444444444%;"><img src="external/images/subspace-line-skew.svg" role="img" class="contained"></div>
+<div class="sbspanel top" style="width:44.4444444444444%;"><img src="external/images/subspace-line-origin.svg" role="img" class="contained"></div>
+</div></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">3.5.3<span class="period">.</span></span><span class="space"> </span>Two lines in <span class="process-math">\(\real^2\text{,}\)</span> one of which is a subspace and one of which is not.</figcaption></figure>
+</li>
 <li><div class="para logical">
-<div class="para">If we choose all the weights <span class="process-math">\(c_1=c_2=\ldots=c_n =
-0\text{,}\)</span> then the linear combination</div>
+<div class="para">Consider the vectors</div>
 <div class="displaymath process-math">
 \begin{equation*}
-c_1\vvec_1 + c_2\vvec_2 + \cdots + c_n\vvec_n = \zerovec.
+\vvec_1=\threevec101,~~~
+\vvec_2=\threevec011,~~~
+\vvec_3=\threevec110,
 \end{equation*}
 </div>
-<div class="para">This means that <span class="process-math">\(\zerovec\)</span> is the subspace <span class="process-math">\(S=\laspan{\vvec_1,\vvec_2,\ldots,\vvec_n}\text{.}\)</span>
+<div class="para">and describe the subspace <span class="process-math">\(S=\laspan{\vvec_1,\vvec_2,\vvec_3}\)</span> of <span class="process-math">\(\real^3\text{.}\)</span> <pre class="ptx-sagecell sagecell-sage" id="sage-105"><script type="text/x-sage">
+</script></pre>
 </div>
-</div></li>
-<li><div class="para">The line on the left cannot be a subspace of <span class="process-math">\(\real^2\)</span> since it does not contain the zero vector.  The line on the right is a subspace because it can be represented as the span of any nonzero vector on the line.</div></li>
-<li><div class="para">The matrix whose columns are the given vectors has a pivot in every row.  Therefore, the span of these vectors is <span class="process-math">\(\real^3\)</span> and so <span class="process-math">\(S=\laspan{\vvec_1,\vvec_2,\vvec_3} = \real^3\text{.}\)</span>
-</div></li>
-<li><div class="para logical"><ol class="decimal">
-<li><div class="para">We see that <span class="process-math">\(\wvec_3 = \wvec_1 + 2\wvec_2\text{.}\)</span>
 </div></li>
 <li><div class="para logical">
-<div class="para">Any linear combination</div>
+<div class="para">Consider the vectors</div>
 <div class="displaymath process-math">
 \begin{equation*}
-c_1\wvec_1 + c_2\wvec_2 + c_2\wvec_3 =
-(c_1 + c_2)\wvec_1 + (c_2+2c_2)\wvec_2.
+\wvec_1=\threevec210,~~~
+\wvec_2=\threevec{-1}1{-1},~~~
+\wvec_3=\threevec03{-2}
 \end{equation*}
 </div>
+<ol class="decimal">
+<li><div class="para">Write <span class="process-math">\(\wvec_3\)</span> as a linear combination of <span class="process-math">\(\wvec_1\)</span> and <span class="process-math">\(\wvec_2\text{.}\)</span>
 </div></li>
-<li><div class="para">The subspace <span class="process-math">\(S=\laspan{\wvec_1,\wvec_2,\wvec_3} =
-\laspan{\wvec_1,\wvec_2}\)</span> is a plane in <span class="process-math">\(\real^3\text{.}\)</span>
+<li><div class="para">Explain why <span class="process-math">\(\laspan{\wvec_1,\wvec_2,\wvec_3} =
+\laspan{\wvec_1, \wvec_2}\text{.}\)</span>
 </div></li>
-</ol></div></li>
+<li><div class="para">Describe the subspace <span class="process-math">\(S =
+\laspan{\wvec_1,\wvec_2,\wvec_3}\)</span> of <span class="process-math">\(\real^3\text{.}\)</span>
+</div></li>
+</ol>
+</div></li>
 <li><div class="para logical">
-<div class="para">Since we can write <span class="process-math">\(\vvec_2 = 2\vvec_1\)</span> and <span class="process-math">\(\vvec_4 = -2\vvec_1 + \vvec_2\text{,}\)</span> then</div>
+<div class="para">Suppose that <span class="process-math">\(\vvec_1\text{,}\)</span> <span class="process-math">\(\vvec_2\text{,}\)</span> <span class="process-math">\(\vvec_3\text{,}\)</span> and <span class="process-math">\(\vvec_4\)</span> are four vectors in <span class="process-math">\(\real^3\)</span> and that</div>
 <div class="displaymath process-math">
 \begin{equation*}
-S = \laspan{\vvec_1,\vvec_2,\vvec_3,\vvec_4} =
-\laspan{\vvec_1,\vvec_3},
+\begin{bmatrix}
+\vvec_1 \amp \vvec_2 \amp \vvec_3 \amp \vvec_4
+\end{bmatrix}
+\sim
+\begin{bmatrix}
+1 \amp 2 \amp 0 \amp -2 \\
+0 \amp 0 \amp 1 \amp 1 \\
+0 \amp 0 \amp 0 \amp 0 \\
+\end{bmatrix}.
 \end{equation*}
 </div>
-<div class="para">which is a plane in <span class="process-math">\(\real^3\text{.}\)</span>
+<div class="para">Give a description of the subspace <span class="process-math">\(S=\laspan{\vvec_1,\vvec_2,\vvec_3,\vvec_4}\)</span> of <span class="process-math">\(\real^3\text{.}\)</span>
 </div>
 </div></li>
-</ol></div>
+</ol>
+</div>
 <span class="incontext"><a href="sec-subspaces.html#p-3445" class="internal">in-context</a></span>
 </body>
 </html>

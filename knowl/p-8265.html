@@ -23,8 +23,32 @@ sagecell.makeSagecell({
 </head>
 <body class="ignore-math">
 <h5 class="heading"><span class="type">Paragraph</span></h5>
-<div class="para">Plot the singular values of <span class="process-math">\(A\text{.}\)</span> <pre class="ptx-sagecell sagecell-sage" id="sage-261"><script type="text/x-sage">plot_sv(A)
+<div class="para logical">
+<div class="para">If we interpret 0 as black and 1 as white, this matrix represents an image as shown below. <pre class="ptx-sagecell sagecell-sage" id="sage-259"><script type="text/x-sage">display_matrix(A)
+</script></pre> We will explore how the singular value decomposition helps us to compress this image.</div>
+<ol class="decimal">
+<li><div class="para">By inspecting the image represented by <span class="process-math">\(A\text{,}\)</span> identify a basis for <span class="process-math">\(\col(A)\)</span> and determine <span class="process-math">\(\rank(A)\text{.}\)</span>
+</div></li>
+<li><div class="para">The following cell plots the singular values of <span class="process-math">\(A\text{.}\)</span>  Explain how this plot verifies that the rank is what you found in the previous part. <pre class="ptx-sagecell sagecell-sage" id="sage-260"><script type="text/x-sage">plot_sv(A)
 </script></pre>
+</div></li>
+<li><div class="para">There is a command <code class="code-inline tex2jax_ignore">approximate(A, k)</code> that creates the approximation <span class="process-math">\(A_k\text{.}\)</span>  Use the cell below to define <span class="process-math">\(k\)</span> and look at the images represented by the first few approximations.  What is the smallest value of <span class="process-math">\(k\)</span> for which <span class="process-math">\(A=A_k\text{?}\)</span> <pre class="ptx-sagecell sagecell-sage" id="sage-261"><script type="text/x-sage">k = 
+display_matrix(approximate(A, k))
+</script></pre>
+</div></li>
+<li><div class="para logical">
+<div class="para">Now we can see how the singular value decomposition allows us to compress images. Since this is a <span class="process-math">\(25\times15\)</span> matrix, we need <span class="process-math">\(25\cdot15=375\)</span> numbers to represent the image.  However, we can also reconstruct the image using a small number of singular values and vectors:</div>
+<div class="displaymath process-math">
+\begin{equation*}
+A = A_k = \sigma_1\uvec_1\vvec_1^T +
+\sigma_2\uvec_2\vvec_2^T + \ldots +
+\sigma_k\uvec_k\vvec_k^T.
+\end{equation*}
+</div>
+<div class="para">What are the dimensions of the singular vectors <span class="process-math">\(\uvec_i\)</span> and <span class="process-math">\(\vvec_i\text{?}\)</span>  Between the singular vectors and singular values, how many numbers do we need to reconstruct <span class="process-math">\(A_k\)</span> for the smallest <span class="process-math">\(k\)</span> for which <span class="process-math">\(A=A_k\text{?}\)</span>  This is the compressed size of the image.</div>
+</div></li>
+<li><div class="para">The <em class="emphasis">compression ratio</em> is the ratio of the uncompressed size to the compressed size.  What compression ratio does this represent?</div></li>
+</ol>
 </div>
 <span class="incontext"><a href="sec-svd-uses.html#p-8265" class="internal">in-context</a></span>
 </body>

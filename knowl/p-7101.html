@@ -9,12 +9,57 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="robots" content="noindex, nofollow">
+<script>// Make *any* pre with class 'sagecell-sage' an executable Sage cell
+// Their results will be linked, only within language type
+sagecell.makeSagecell({
+  "inputLocation": "pre.sagecell-sage",
+  "linked": true,
+  "languages": [
+    "sage"
+  ],
+  "evalButtonText": "Evaluate (Sage)"
+});
+</script>
 </head>
 <body class="ignore-math">
 <h5 class="heading"><span class="type">Paragraph</span></h5>
-<div class="para"><span class="process-math">\(\displaystyle A^T\uvec=\threevec{\dtil_1\cdot\uvec}
-{\dtil_2\cdot\uvec}
-{\dtil_3\cdot\uvec}\)</span></div>
+<div class="para logical">
+<div class="para">To begin, form the demeaned data matrix</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/prop-symmetric-dot.html">
+\begin{equation*}
+A = \begin{bmatrix}
+\dtil_1 \amp \dtil_2 \amp \dtil_3
+\end{bmatrix}
+\end{equation*}
+</div>
+<div class="para">and suppose that <span class="process-math">\(\uvec\)</span> is a unit vector.</div>
+<ol class="lower-alpha">
+<li><div class="para">Write the vector <span class="process-math">\(A^T\uvec\)</span> in terms of the dot products <span class="process-math">\(\dtil_j\cdot\uvec\text{.}\)</span>
+</div></li>
+<li><div class="para">Explain why <span class="process-math">\(V_{\uvec} = \frac13|A^T\uvec|^2\text{.}\)</span>
+</div></li>
+<li><div class="para logical">
+<div class="para">Apply <a href="" class="xref" data-knowl="./knowl/prop-symmetric-dot.html" title="Proposition 7.1.10">Proposition 7.1.10</a> to explain why</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/prop-symmetric-dot.html">
+\begin{equation*}
+V_{\uvec} =
+\frac13|A^T\uvec|^2 = 
+\frac13 (A^T\uvec)\cdot(A^T\uvec) =
+\uvec^T\left(\frac13 AA^T\right)\uvec = 
+\uvec\cdot\left(\frac13 AA^T\right)\uvec = 
+\end{equation*}
+</div>
+</div></li>
+<li><div class="para">In general, the matrix <span class="process-math">\(C=\frac1N~AA^T\)</span> is called the <em class="emphasis">covariance</em> matrix of the dataset, and it is useful because the variance <span class="process-math">\(V_{\uvec} =
+\uvec\cdot(C\uvec)\text{,}\)</span> as we have just seen.  Find the matrix <span class="process-math">\(C\)</span> for our dataset with three points. <pre class="ptx-sagecell sagecell-sage" id="sage-208"><script type="text/x-sage">
+</script></pre>
+</div></li>
+<li><div class="para">Use the covariance matrix to find the variance <span class="process-math">\(V_{\uvec_1}\)</span> when <span class="process-math">\(\uvec_1=\twovec{1/\sqrt{5}}{2/\sqrt{5}}\text{.}\)</span>
+</div></li>
+<li><div class="para">Use the covariance matrix to find the variance <span class="process-math">\(V_{\uvec_2}\)</span> when <span class="process-math">\(\uvec_2=\twovec{-2/\sqrt{5}}{1/\sqrt{5}}\text{.}\)</span> Since <span class="process-math">\(\uvec_1\)</span> and <span class="process-math">\(\uvec_2\)</span> are orthogonal, verify that the sum of <span class="process-math">\(V_{\uvec_1}\)</span> and <span class="process-math">\(V_{\uvec_2}\)</span> gives the total variance.</div></li>
+<li><div class="para">Explain why the covariance matrix <span class="process-math">\(C\)</span> is a symmetric matrix.</div></li>
+</ol>
+</div>
 <span class="incontext"><a href="sec-symmetric-matrices.html#p-7101" class="internal">in-context</a></span>
 </body>
 </html>

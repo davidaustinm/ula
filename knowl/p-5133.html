@@ -9,20 +9,79 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="robots" content="noindex, nofollow">
+<script>// Make *any* pre with class 'sagecell-sage' an executable Sage cell
+// Their results will be linked, only within language type
+sagecell.makeSagecell({
+  "inputLocation": "pre.sagecell-sage",
+  "linked": true,
+  "languages": [
+    "sage"
+  ],
+  "evalButtonText": "Evaluate (Sage)"
+});
+</script>
 </head>
 <body class="ignore-math">
 <h5 class="heading"><span class="type">Paragraph</span></h5>
 <div class="para logical">
-<div class="para">The third row replacement is performed by</div>
+<div class="para">We will consider the matrix</div>
 <div class="displaymath process-math">
 \begin{equation*}
-E_3 = \left[\begin{array}{rrr}
-1 \amp 0 \amp 0 \\
+A = \left[\begin{array}{rrr}
+1 \amp 2 \amp 1 \\
+-2 \amp -3 \amp -2 \\
+3 \amp 7 \amp 4 \\
+\end{array}\right]
+\end{equation*}
+</div>
+<div class="para">and begin performing Gaussian elimination without using partial pivoting.</div>
+<ol class="lower-alpha">
+<li><div class="para logical">
+<div class="para">Perform two row replacement operations to find the row equivalent matrix</div>
+<div class="displaymath process-math">
+\begin{equation*}
+A' = \left[\begin{array}{rrr}
+1 \amp 2 \amp 1 \\
 0 \amp 1 \amp 0 \\
-0 \amp -1 \amp 1 \\
+0 \amp 1 \amp 1 \\
 \end{array}\right]\text{.}
 \end{equation*}
 </div>
+<div class="para">Find elementary matrices <span class="process-math">\(E_1\)</span> and <span class="process-math">\(E_2\)</span> that perform these two operations so that <span class="process-math">\(E_2E_1 A = A'\text{.}\)</span>
+</div>
+</div></li>
+<li><div class="para logical">
+<div class="para">Perform a third row replacement to find the upper triangular matrix</div>
+<div class="displaymath process-math">
+\begin{equation*}
+U = \left[\begin{array}{rrr}
+1 \amp 2 \amp 1 \\
+0 \amp 1 \amp 0 \\
+0 \amp 0 \amp 1 \\
+\end{array}\right]\text{.}
+\end{equation*}
+</div>
+<div class="para">Find the elementary matrix <span class="process-math">\(E_3\)</span> such that <span class="process-math">\(E_3E_2E_1A
+= U\text{.}\)</span>
+</div>
+</div></li>
+<li><div class="para">We can write <span class="process-math">\(A=E_1^{-1}E_2^{-1}E_3^{-1} U\text{.}\)</span> Find the inverse matrices <span class="process-math">\(E_1^{-1}\text{,}\)</span> <span class="process-math">\(E_2^{-1}\text{,}\)</span> and <span class="process-math">\(E_3^{-1}\)</span> and the product <span class="process-math">\(L = E_1^{-1}E_2^{-1}E_3^{-1}\text{.}\)</span>  Then verify that <span class="process-math">\(A=LU\text{.}\)</span> <pre class="ptx-sagecell sagecell-sage" id="sage-137"><script type="text/x-sage">
+</script></pre>
+</div></li>
+<li><div class="para logical">
+<div class="para">Suppose that we want to solve the equation <span class="process-math">\(A\xvec = \bvec = \threevec4{-7}{12}\text{.}\)</span>  We will write</div>
+<div class="displaymath process-math">
+\begin{equation*}
+A\xvec = LU\xvec = L(U\xvec) = \bvec
+\end{equation*}
+</div>
+<div class="para">and introduce an unknown vector <span class="process-math">\(\cvec\)</span> such that <span class="process-math">\(U\xvec = \cvec\text{.}\)</span>  Find <span class="process-math">\(\cvec\)</span> by noting that <span class="process-math">\(L\cvec = \bvec\)</span> and solving this equation.</div>
+</div></li>
+<li><div class="para">Now that we have found <span class="process-math">\(\cvec\text{,}\)</span> find <span class="process-math">\(\xvec\)</span> by solving <span class="process-math">\(U\xvec = \cvec\text{.}\)</span>
+</div></li>
+<li><div class="para">Using the factorization <span class="process-math">\(A=LU\)</span> and this two-step process, solve the equation <span class="process-math">\(A\xvec = \threevec{2}{-2}{7}\text{.}\)</span>
+</div></li>
+</ol>
 </div>
 <span class="incontext"><a href="sec-gaussian-revisited.html#p-5133" class="internal">in-context</a></span>
 </body>

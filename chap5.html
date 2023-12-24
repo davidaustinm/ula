@@ -117,7 +117,7 @@ sagecell.makeSagecell({
 </head>
 <body id="ula" class="pretext book ignore-math">
 <a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner">
-<a id="logo-link" class="logo-link" href=""></a><div class="title-container">
+<a id="logo-link" class="logo-link" href="https://understandinglinearalgebra.org" target="_blank"><img src="external/images/ula-logo.png" alt="Logo image"></a><div class="title-container">
 <h1 class="heading"><a href="ula.html"><span class="title">Understanding Linear Algebra</span></a></h1>
 <p class="byline">David Austin</p>
 </div>
@@ -310,7 +310,9 @@ sagecell.makeSagecell({
 <ul class="structural">
 <li><div class="toc-item"><a href="dedication-1.html" class="internal"><span class="title">Dedication</span></a></div></li>
 <li><div class="toc-item"><a href="colophon-1.html" class="internal"><span class="title">Colophon</span></a></div></li>
+<li><div class="toc-item"><a href="acknowledgement-1.html" class="internal"><span class="title">Acknowledgements</span></a></div></li>
 <li><div class="toc-item"><a href="preface-1.html" class="internal"><span class="title">Our goals</span></a></div></li>
+<li><div class="toc-item"><a href="preface-2.html" class="internal"><span class="title">A note on the print version</span></a></div></li>
 </ul>
 </li>
 <li>
@@ -594,7 +596,7 @@ sagecell.makeSagecell({
 <div class="toc-item"><a href="sec-least-squares.html" class="internal"><span class="codenumber">6.5</span> <span class="title">Orthogonal least squares</span></a></div>
 <ul class="structural">
 <li><div class="toc-item"><a href="sec-least-squares.html#subsection-95" class="internal"><span class="codenumber">6.5.1</span> <span class="title">A first example</span></a></div></li>
-<li><div class="toc-item"><a href="sec-least-squares.html#subsection-96" class="internal"><span class="codenumber">6.5.2</span> <span class="title">Solving least squares problems</span></a></div></li>
+<li><div class="toc-item"><a href="sec-least-squares.html#subsection-96" class="internal"><span class="codenumber">6.5.2</span> <span class="title">Solving least-squares problems</span></a></div></li>
 <li><div class="toc-item"><a href="sec-least-squares.html#subsection-97" class="internal"><span class="codenumber">6.5.3</span> <span class="title">Using <span class="process-math">\(QR\)</span> factorizations</span></a></div></li>
 <li><div class="toc-item"><a href="sec-least-squares.html#subsection-98" class="internal"><span class="codenumber">6.5.4</span> <span class="title">Polynomial Regression</span></a></div></li>
 <li><div class="toc-item"><a href="sec-least-squares.html#subsection-99" class="internal"><span class="codenumber">6.5.5</span> <span class="title">Summary</span></a></div></li>
@@ -604,7 +606,7 @@ sagecell.makeSagecell({
 </ul>
 </li>
 <li>
-<div class="toc-item"><a href="chap7.html" class="internal"><span class="codenumber">7</span> <span class="title">The Spectral Theorem and singular value decompositions</span></a></div>
+<div class="toc-item"><a href="chap7.html" class="internal"><span class="codenumber">7</span> <span class="title">Singular value decompositions</span></a></div>
 <ul class="structural">
 <li>
 <div class="toc-item"><a href="sec-symmetric-matrices.html" class="internal"><span class="codenumber">7.1</span> <span class="title">Symmetric matrices and variance</span></a></div>
@@ -646,7 +648,7 @@ sagecell.makeSagecell({
 <li>
 <div class="toc-item"><a href="sec-svd-uses.html" class="internal"><span class="codenumber">7.5</span> <span class="title">Using Singular Value Decompositions</span></a></div>
 <ul class="structural">
-<li><div class="toc-item"><a href="sec-svd-uses.html#subsection-113" class="internal"><span class="codenumber">7.5.1</span> <span class="title">Least squares problems</span></a></div></li>
+<li><div class="toc-item"><a href="sec-svd-uses.html#subsection-113" class="internal"><span class="codenumber">7.5.1</span> <span class="title">Least-squares problems</span></a></div></li>
 <li><div class="toc-item"><a href="sec-svd-uses.html#subsection-114" class="internal"><span class="codenumber">7.5.2</span> <span class="title">Rank <span class="process-math">\(k\)</span> approximations</span></a></div></li>
 <li><div class="toc-item"><a href="sec-svd-uses.html#subsection-115" class="internal"><span class="codenumber">7.5.3</span> <span class="title">Principal component analysis</span></a></div></li>
 <li><div class="toc-item"><a href="sec-svd-uses.html#subsection-116" class="internal"><span class="codenumber">7.5.4</span> <span class="title">Image compressing and denoising</span></a></div></li>
@@ -669,7 +671,7 @@ sagecell.makeSagecell({
 <main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="chapter" id="chap5"><h2 class="heading">
 <span class="type">Chapter</span> <span class="codenumber">5</span> <span class="title">Linear algebra and computing</span>
 </h2>
-<section class="introduction" id="introduction-24"><div class="para" id="p-5075">Our principal tool for finding solutions to linear systems has been Gaussian elimination, which we first met back in <a href="sec-finding-solutions.html" class="internal" title="Section 1.2: Finding solutions to linear systems">Section 1.2</a>.  When presented with a linear system, we frequently find the reduced row echelon form of the system’s augmented matrix to read off the solution.</div> <div class="para" id="p-5076">While this is a convenient approach for learning linear algebra, people rarely use the reduced row echelon form of a matrix.  In fact, many linear algebra software packages do not include functions for finding the reduced row echelon form.  In this chapter, we will describe why this is the case and then explore some alternatives.  The intent of this chapter is to demonstrate how linear algebraic computations are handled in practice.  More specifically, we will improve our techniques for solving linear systems and for finding eigenvectors through Gaussian elimination.</div></section><nav class="summary-links"><ul>
+<section class="introduction" id="introduction-24"><div class="para" id="p-5084">Our principal tool for finding solutions to linear systems has been Gaussian elimination, which we first met back in <a href="sec-finding-solutions.html" class="internal" title="Section 1.2: Finding solutions to linear systems">Section 1.2</a>.  When presented with a linear system, we frequently find the reduced row echelon form of the system’s augmented matrix to read off the solution.</div> <div class="para" id="p-5085">While this is a convenient approach for learning linear algebra, people rarely use the reduced row echelon form of a matrix.  In fact, many linear algebra software packages do not include functions for finding the reduced row echelon form.  In this chapter, we will describe why this is the case and then explore some alternatives.  The intent of this chapter is to demonstrate how linear algebraic computations are handled in practice.  More specifically, we will improve our techniques for solving linear systems and for finding eigenvectors through Gaussian elimination.</div></section><nav class="summary-links"><ul>
 <li><a href="sec-gaussian-revisited.html" class="internal"><span class="codenumber">5.1</span> <span class="title">Gaussian elimination revisited</span></a></li>
 <li><a href="sec-power-method.html" class="internal"><span class="codenumber">5.2</span> <span class="title">Finding eigenvectors numerically</span></a></li>
 </ul></nav></section></div>

@@ -59,7 +59,7 @@ sagecell.makeSagecell({
 \end{equation*}
 </div>
 </div> <div class="para logical"><ol class="lower-alpha">
-<li><div class="para">The following Sage cell defines the matrix <code class="code-inline tex2jax_ignore">W</code> whose columns are the basis vectors in <span class="process-math">\(\wcal\text{.}\)</span>  If <span class="process-math">\(\xvec\)</span> is the first column of luminance values in the <span class="process-math">\(4\times4\)</span> block above, find the wavelet coefficients <span class="process-math">\(\coords{\xvec}{\wcal}\text{.}\)</span> <pre class="ptx-sagecell sagecell-sage" id="sage-99"><script type="text/x-sage">W = matrix(4,4,[1,1,1,0,1,1,-1,0,1,-1,0,1,1,-1,0,-1])
+<li><div class="para">The following Sage cell defines the matrix <code class="code-inline tex2jax_ignore">W</code> whose columns are the basis vectors in <span class="process-math">\(\wcal\text{.}\)</span>  If <span class="process-math">\(\xvec\)</span> is the first column of luminance values in the <span class="process-math">\(4\times4\)</span> block above, find the wavelet coefficients <span class="process-math">\(\coords{\xvec}{\wcal}\text{.}\)</span> <pre class="ptx-sagecell sagecell-sage" id="sage-101"><script type="text/x-sage">W = matrix(4,4,[1,1,1,0,1,1,-1,0,1,-1,0,1,1,-1,0,-1])
 </script></pre>
 </div></li>
 <li>
@@ -68,14 +68,14 @@ sagecell.makeSagecell({
 </div>
 </li>
 <li><div class="para">What impact does the fact that <span class="process-math">\(H_3=0\)</span> and <span class="process-math">\(H_4=0\)</span> have on the form of the vector <span class="process-math">\(\yvec\text{?}\)</span>  Explain how setting these coefficients to zero ignores the behavior of <span class="process-math">\(\xvec\)</span> on a small scale.</div></li>
-<li><div class="para">In the JPEG compression algorithm, we looked at the Fourier coefficients of all the columns of luminance values and then performed a Fourier transform on the rows.  The Sage cell below will perform the same operation using the wavelet transform;  that is, it will first find the wavelet coefficients of each of the columns and then perform the wavelet transform on the rows.  You only need to evaluate the cell to find the wavelet coefficients obtained in this way. <pre class="ptx-sagecell sagecell-sage" id="sage-100"><script type="text/x-sage">luminance = matrix(4,4,[176, 170, 170, 169, 181, 179, 175, 167, 165,
+<li><div class="para">In the JPEG compression algorithm, we looked at the Fourier coefficients of all the columns of luminance values and then performed a Fourier transform on the rows.  The Sage cell below will perform the same operation using the wavelet transform;  that is, it will first find the wavelet coefficients of each of the columns and then perform the wavelet transform on the rows.  You only need to evaluate the cell to find the wavelet coefficients obtained in this way. <pre class="ptx-sagecell sagecell-sage" id="sage-102"><script type="text/x-sage">luminance = matrix(4,4,[176, 170, 170, 169, 181, 179, 175, 167, 165,
 170, 169, 161, 139, 150,  164, 166])
 Winv = W.inverse()
 wavelet_transform = (Winv*(Winv*luminance).transpose()).transpose()
 print (wavelet_transform.numerical_approx(digits=3))
 </script></pre>
 </div></li>
-<li><div class="para">Now set all the wavelet coefficients equal to zero except those in the upper left <span class="process-math">\(2\times2\)</span> block and use them to define the matrix <code class="code-inline tex2jax_ignore">coeffs</code> in the Sage cell below.  This has the effect of ignoring all of the small-scale differences.  Evaluating this cell will recover the approximate luminance values. <pre class="ptx-sagecell sagecell-sage" id="sage-101"><script type="text/x-sage"># define the matrix of coefficients below
+<li><div class="para">Now set all the wavelet coefficients equal to zero except those in the upper left <span class="process-math">\(2\times2\)</span> block and use them to define the matrix <code class="code-inline tex2jax_ignore">coeffs</code> in the Sage cell below.  This has the effect of ignoring all of the small-scale differences.  Evaluating this cell will recover the approximate luminance values. <pre class="ptx-sagecell sagecell-sage" id="sage-103"><script type="text/x-sage"># define the matrix of coefficients below
 coeffs = 
 # this code will undo the wavelet transform
 approx_luminance = W*((W*(coeffs.transpose())).transpose())

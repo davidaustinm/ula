@@ -25,7 +25,7 @@ sagecell.makeSagecell({
 <article class="exercise exercise-like"><h4 class="heading">
 <span class="type">Exercise</span><span class="space"> </span><span class="codenumber">8<span class="period">.</span></span>
 </h4>
-<div class="para">This problem concerns a data set describing planets in our Solar system. For each planet, we have the length <span class="process-math">\(L\)</span> of the semi-major axis, essentially the distance from the planet to the Sun in AU (astronomical units), and the period <span class="process-math">\(P\text{,}\)</span> the length of time in years required to complete one orbit around the Sun.</div> <div class="para logical">
+<div class="para">This problem concerns a dataset describing planets in our Solar system. For each planet, we have the length <span class="process-math">\(L\)</span> of the semi-major axis, essentially the distance from the planet to the Sun in AU (astronomical units), and the period <span class="process-math">\(P\text{,}\)</span> the length of time in years required to complete one orbit around the Sun.</div> <div class="para logical">
 <div class="para">We would like to model this data using the function <span class="process-math">\(P = CL^r\)</span> where <span class="process-math">\(C\)</span> and <span class="process-math">\(r\)</span> are parameters we need to determine.  Since this isn’t a linear function, we will transform this relationship by taking the natural logarithm of both sides to obtain</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -33,7 +33,7 @@ sagecell.makeSagecell({
 \end{equation*}
 </div>
 </div> <div class="para logical">
-<div class="para">Evaluating the following cell loads the data set and defines two vectors <code class="code-inline tex2jax_ignore">logaxis</code>, whose components are <span class="process-math">\(\ln(L)\text{,}\)</span> and <code class="code-inline tex2jax_ignore">logperiod</code>, whose components are <span class="process-math">\(\ln(P)\text{.}\)</span> <pre class="ptx-sagecell sagecell-sage" id="sage-201"><script type="text/x-sage">import numpy as np	    
+<div class="para">Evaluating the following cell loads the dataset and defines two vectors <code class="code-inline tex2jax_ignore">logaxis</code>, whose components are <span class="process-math">\(\ln(L)\text{,}\)</span> and <code class="code-inline tex2jax_ignore">logperiod</code>, whose components are <span class="process-math">\(\ln(P)\text{.}\)</span> <pre class="ptx-sagecell sagecell-sage" id="sage-203"><script type="text/x-sage">import numpy as np	    
 sage.repl.load.load('https://raw.githubusercontent.com/davidaustinm/ula_modules/master/orthogonality.py', globals())
 df = pd.read_csv('https://raw.githubusercontent.com/davidaustinm/ula_modules/master/data/planets.csv',index_col=0)
 logaxis = vector(np.log(df['Semi-major axis']))
@@ -44,7 +44,7 @@ print(df)
 <ol class="lower-alpha">
 <li><div class="para">Construct the matrix <span class="process-math">\(A\)</span> and vector <span class="process-math">\(\bvec\)</span> so that the solution to <span class="process-math">\(A\xvec=\bvec\)</span> is the vector <span class="process-math">\(\xvec=\ctwovec{\ln(C)}r\text{.}\)</span>
 </div></li>
-<li><div class="para">Find the least squares approximate solution <span class="process-math">\(\xhat\text{.}\)</span>  What does this give for the values of <span class="process-math">\(C\)</span> and <span class="process-math">\(r\text{?}\)</span>
+<li><div class="para">Find the least-squares approximate solution <span class="process-math">\(\xhat\text{.}\)</span>  What does this give for the values of <span class="process-math">\(C\)</span> and <span class="process-math">\(r\text{?}\)</span>
 </div></li>
 <li><div class="para">Find the coefficient of determination <span class="process-math">\(R^2\text{.}\)</span>  What does this tell us about the quality of the approximation?</div></li>
 <li><div class="para">Suppose that the orbit of an asteroid has a semi-major axis whose length is <span class="process-math">\(L=4.0\)</span> AU.  Estimate the period <span class="process-math">\(P\)</span> of the asteroid’s orbit.</div></li>

@@ -9,51 +9,49 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="robots" content="noindex, nofollow">
+<script>// Make *any* pre with class 'sagecell-sage' an executable Sage cell
+// Their results will be linked, only within language type
+sagecell.makeSagecell({
+  "inputLocation": "pre.sagecell-sage",
+  "linked": true,
+  "languages": [
+    "sage"
+  ],
+  "evalButtonText": "Evaluate (Sage)"
+});
+</script>
 </head>
 <body class="ignore-math">
 <h5 class="heading"><span class="type">Paragraph</span></h5>
 <div class="para logical"><ol class="lower-alpha">
-<li><div class="sidebyside"><div class="sbsrow" style="margin-left:25%;margin-right:25%;"><div class="sbspanel top" style="width:100%;"><img src="external/images/ex-6-1-1-plot.svg" role="img" class="contained"></div></div></div></li>
-<li><div class="para logical">
-<div class="para">We find that</div>
-<div class="displaymath process-math">
-\begin{gather*}
-\vvec\cdot\vvec {}={} 13\\
-\wvec\cdot\wvec {}={} 10
-\end{gather*}
-</div>
-<div class="para">so that <span class="process-math">\(\len{\vvec} = \sqrt{13}\)</span> and <span class="process-math">\(\len{\wvec} =
-\sqrt{10}\text{.}\)</span>
-</div>
+<li>
+<div class="para">Sketch the vectors <span class="process-math">\(\vvec=\twovec32\)</span> and <span class="process-math">\(\wvec=\twovec{-1}3\)</span> using <a href="" class="xref" data-knowl="./knowl/fig-dot-empty.html" title="Figure 6.1.6">Figure 6.1.6</a>.</div>
+<figure class="figure figure-like"><div class="sidebyside"><div class="sbsrow" style="margin-left:25%;margin-right:25%;"><div class="sbspanel top" style="width:100%;"><img src="external/images/empty-4.svg" role="img" class="contained"></div></div></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">6.1.6<span class="period">.</span></span><span class="space"> </span>Sketch the vectors <span class="process-math">\(\vvec\)</span> and <span class="process-math">\(\wvec\)</span> here.</figcaption></figure>
+</li>
+<li><div class="para">Find the lengths <span class="process-math">\(\len{\vvec}\)</span> and <span class="process-math">\(\len{\wvec}\)</span> using the dot product.</div></li>
+<li><div class="para">Find the dot product <span class="process-math">\(\vvec\cdot\wvec\)</span> and use it to find the angle between <span class="process-math">\(\vvec\)</span> and <span class="process-math">\(\wvec\text{.}\)</span>
 </div></li>
-<li><div class="para logical">
-<div class="para">
-<span class="process-math">\(\vvec\cdot\wvec = 3\)</span> so that</div>
-<div class="displaymath process-math">
-\begin{equation*}
-\theta =
-\arccos\left(\frac{\vvec\cdot\wvec}{\len{\vvec}\len{\wvec}}\right)
-= 52.1^\circ.
-\end{equation*}
-</div>
+<li><div class="para">Consider the vector <span class="process-math">\(\xvec = \twovec{-2}{3}\text{.}\)</span> Include it in your sketch in <a href="" class="xref" data-knowl="./knowl/fig-dot-empty.html" title="Figure 6.1.6">Figure 6.1.6</a> and find the angle between <span class="process-math">\(\vvec\)</span> and <span class="process-math">\(\xvec\text{.}\)</span>
 </div></li>
-<li><div class="para logical">
-<div class="para">
-<span class="process-math">\(\vvec\cdot\xvec = 0\)</span> so that</div>
+<li><div class="para">If two vectors are perpendicular, what can you say about their dot product?  Explain your thinking.</div></li>
+<li><div class="para">For what value of <span class="process-math">\(k\)</span> is the vector <span class="process-math">\(\twovec6k\)</span> perpendicular to <span class="process-math">\(\wvec\text{?}\)</span>
+</div></li>
+<li>
+<div class="para">Sage can be used to find lengths of vectors and their dot products.  For instance, if <code class="code-inline tex2jax_ignore">v</code> and <code class="code-inline tex2jax_ignore">w</code> are vectors, then <code class="code-inline tex2jax_ignore">v.norm()</code> gives the length of <code class="code-inline tex2jax_ignore">v</code> and <code class="code-inline tex2jax_ignore">v * w</code> gives <span class="process-math">\(\vvec\cdot\wvec\text{.}\)</span>
+</div>
+<div class="para logical">
+<div class="para">Suppose that</div>
 <div class="displaymath process-math">
 \begin{equation*}
-\theta =
-\arccos\left(\frac{\vvec\cdot\xvec}{\len{\vvec}\len{\xvec}}\right)
-= 90^\circ.
+\vvec=\fourvec203{-2}, \hspace{24pt}
+\wvec=\fourvec1{-3}41\text{.}
 \end{equation*}
 </div>
-</div></li>
-<li><div class="para">If two vectors are perpendicular, then the angle between them is <span class="process-math">\(90^\circ\text{.}\)</span>  Since <span class="process-math">\(\cos(90^\circ) = 0\text{,}\)</span> their dot product must be zero.</div></li>
-<li><div class="para">The dot product is <span class="process-math">\(-6 + 3k = 0\)</span> so <span class="process-math">\(k=2\text{.}\)</span>
-</div></li>
-<li><div class="para">We find that <span class="process-math">\(\len{\vvec} = \sqrt{17}\text{,}\)</span> <span class="process-math">\(\len{\wvec} = 3\sqrt{3}\text{,}\)</span> <span class="process-math">\(\vvec\cdot\wvec =
-12\text{,}\)</span> and the angle between these vectors is <span class="process-math">\(55.9^\circ\text{.}\)</span>
-</div></li>
+<div class="para">Use the Sage cell below to find <span class="process-math">\(\len{\vvec}\text{,}\)</span> <span class="process-math">\(\len{\wvec}\text{,}\)</span> <span class="process-math">\(\vvec\cdot\wvec\text{,}\)</span> and the angle between <span class="process-math">\(\vvec\)</span> and <span class="process-math">\(\wvec\text{.}\)</span>  You may use <code class="code-inline tex2jax_ignore">arccos</code> to find the angle’s measure expressed in radians. <pre class="ptx-sagecell sagecell-sage" id="sage-153"><script type="text/x-sage"></script></pre>
+</div>
+</div>
+</li>
 </ol></div>
 <span class="incontext"><a href="sec-dot-product.html#p-5457" class="internal">in-context</a></span>
 </body>

@@ -12,7 +12,32 @@
 </head>
 <body class="ignore-math">
 <h4 class="heading"><span class="type">Paragraph</span></h4>
-<div class="para">The ability to access almost anything we want to know through the Internet is something we take for granted in today’s society. Without Google’s PageRank algorithm, however, the Internet would be a chaotic place indeed; imagine trying to find a useful web page among the 30 trillion available pages without it.  (There are, of course, other search algorithms, but Google’s is the most widely used.)  The fundamental role that Markov chains and the Perron-Frobenius theorem play in Google’s algorithm demonstrates the vast power that mathematics has to shape our society.</div>
+<div class="para logical">
+<div class="para">To make sense of this, suppose that there are <span class="process-math">\(N\)</span> pages on our internet.  The matrix</div>
+<div class="displaymath process-math">
+\begin{equation*}
+H_n = \left[\begin{array}{rrrr}
+\frac1n \amp \frac1n \amp \ldots \amp \frac1n \\
+\frac1n \amp \frac1n \amp \ldots \amp \frac1n \\
+\vdots \amp \vdots \amp \ddots \amp \vdots \\
+\frac1n \amp \frac1n \amp \ldots \amp \frac1n \\
+\end{array}\right]
+\end{equation*}
+</div>
+<div class="para">is a positive stochastic matrix describing a process where we can move from any page to another with equal probability.  To form the modified Google matrix <span class="process-math">\(G'\text{,}\)</span> we choose a parameter <span class="process-math">\(\alpha\)</span> that is used to mix <span class="process-math">\(G\)</span> and <span class="process-math">\(H_n\)</span> together;  that is, <span class="process-math">\(G'\)</span> is the positive stochastic matrix</div>
+<div class="displaymath process-math">
+\begin{equation*}
+G' = \alpha G +(1-\alpha)H_n\text{.}
+\end{equation*}
+</div>
+<div class="para">In practice, it is thought that Google uses a value of <span class="process-math">\(\alpha=0.85\)</span> (Google doesn’t publish this number as it is a trade secret) so that we have</div>
+<div class="displaymath process-math">
+\begin{equation*}
+G' = 0.85 G + 0.15H_n\text{.}
+\end{equation*}
+</div>
+<div class="para">Intuitively, this means that an Internet user will randomly follow a link from one page to another 85% of the time and will randomly jump to any other page on the Internet 15% of the time.  Since the matrix <span class="process-math">\(G'\)</span> is positive, the Perron-Frobenius theorem tells us that any Markov chain will converge to a unique steady-state vector that we call the PageRank vector.</div>
+</div>
 <span class="incontext"><a href="sec-stochastic.html#p-4890" class="internal">in-context</a></span>
 </body>
 </html>

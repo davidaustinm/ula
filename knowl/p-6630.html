@@ -9,10 +9,35 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="robots" content="noindex, nofollow">
+<script>// Make *any* pre with class 'sagecell-sage' an executable Sage cell
+// Their results will be linked, only within language type
+sagecell.makeSagecell({
+  "inputLocation": "pre.sagecell-sage",
+  "linked": true,
+  "languages": [
+    "sage"
+  ],
+  "evalButtonText": "Evaluate (Sage)"
+});
+</script>
 </head>
 <body class="ignore-math">
 <h5 class="heading"><span class="type">Paragraph</span></h5>
-<div class="para">What are the values of <span class="process-math">\(\beta_0\)</span> and <span class="process-math">\(\beta_1\)</span> that you found?</div>
+<div class="para logical">
+<div class="para">The rate at which a cricket chirps is related to the outdoor temperature, as reflected in some experimental data that we’ll study in this activity.  The chirp rate <span class="process-math">\(C\)</span> is expressed in chirps per second while the temperature <span class="process-math">\(T\)</span> is in degrees Fahrenheit.  Evaluate the following cell to load the data: <pre class="ptx-sagecell sagecell-sage" id="sage-181"><script type="text/x-sage">sage.repl.load.load('https://raw.githubusercontent.com/davidaustinm/ula_modules/master/orthogonality.py', globals())
+df = pd.read_csv('https://raw.githubusercontent.com/davidaustinm/ula_modules/master/data/crickets.csv')
+data = [vector(row) for row in df.values]
+chirps = vector(df['Chirps'])
+temps = vector(df['Temperature'])
+print(df)
+list_plot(data, color='blue', size=40, xmin=12, xmax=22, ymin=60, ymax=100)
+</script></pre> Evaluating this cell also provides:</div>
+<ul class="disc">
+<li><div class="para">the vectors <code class="code-inline tex2jax_ignore">chirps</code> and <code class="code-inline tex2jax_ignore">temps</code> formed from the columns of the dataset.</div></li>
+<li><div class="para">the command <code class="code-inline tex2jax_ignore">onesvec(n)</code>, which creates an <span class="process-math">\(n\)</span>-dimensional vector whose entries are all one.</div></li>
+<li><div class="para">Remember that you can form a matrix whose columns are the vectors <code class="code-inline tex2jax_ignore">v1</code> and <code class="code-inline tex2jax_ignore">v2</code> with <code class="code-inline tex2jax_ignore">matrix([v1, v2]).T</code>.</div></li>
+</ul>
+</div>
 <span class="incontext"><a href="sec-least-squares.html#p-6630" class="internal">in-context</a></span>
 </body>
 </html>

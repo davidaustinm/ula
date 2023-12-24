@@ -9,10 +9,27 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="robots" content="noindex, nofollow">
+<script>// Make *any* pre with class 'sagecell-sage' an executable Sage cell
+// Their results will be linked, only within language type
+sagecell.makeSagecell({
+  "inputLocation": "pre.sagecell-sage",
+  "linked": true,
+  "languages": [
+    "sage"
+  ],
+  "evalButtonText": "Evaluate (Sage)"
+});
+</script>
 </head>
 <body class="ignore-math">
 <h5 class="heading"><span class="type">Paragraph</span></h5>
-<div class="para">The luminance values are constant on <span class="process-math">\(2\times2\)</span> blocks.  It is as if the image is represented with pixels that are twice as wide and twice as tall.</div>
+<div class="para">Now set all the wavelet coefficients equal to zero except those in the upper left <span class="process-math">\(2\times2\)</span> block and use them to define the matrix <code class="code-inline tex2jax_ignore">coeffs</code> in the Sage cell below.  This has the effect of ignoring all of the small-scale differences.  Evaluating this cell will recover the approximate luminance values. <pre class="ptx-sagecell sagecell-sage" id="sage-103"><script type="text/x-sage"># define the matrix of coefficients below
+coeffs = 
+# this code will undo the wavelet transform
+approx_luminance = W*((W*(coeffs.transpose())).transpose())
+print (approx_luminance.numerical_approx(digits=3))
+</script></pre>
+</div>
 <span class="incontext"><a href="sec-jpeg.html#p-3105" class="internal">in-context</a></span>
 </body>
 </html>

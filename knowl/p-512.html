@@ -9,10 +9,43 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="robots" content="noindex, nofollow">
+<script>// Make *any* pre with class 'sagecell-sage' an executable Sage cell
+// Their results will be linked, only within language type
+sagecell.makeSagecell({
+  "inputLocation": "pre.sagecell-sage",
+  "linked": true,
+  "languages": [
+    "sage"
+  ],
+  "evalButtonText": "Evaluate (Sage)"
+});
+</script>
 </head>
 <body class="ignore-math">
 <h5 class="heading"><span class="type">Paragraph</span></h5>
-<div class="para">This solution to the first system is <span class="process-math">\(x=2\)</span> and <span class="process-math">\(y=0\text{.}\)</span>  However, with just a small change in the system, we find the solution <span class="process-math">\(x=1\)</span> and <span class="process-math">\(y=1\text{.}\)</span>
+<div class="para logical">
+<div class="para">Now let’s ask Sage to compute with real numbers.  We can do this by representing one of the coefficients as a decimal.  For instance, the same linear system can be represented as</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\begin{alignedat}{4}
+x \amp {}+{} \amp 0.5y \amp {}+{} \amp \frac13z \amp
+{}={} \amp 1 \\
+\frac12x \amp {}+{} \amp \frac13y \amp {}+{} \amp \frac14z \amp
+{}={} \amp 0 \\
+\frac13x \amp {}+{} \amp \frac14y \amp {}+{} \amp \frac15z \amp
+{}={} \amp 0 \\
+\end{alignedat}
+\end{equation*}
+</div>
+<div class="para">Most computers do arithmetic using either 32 or 64 bits.  To magnify the problem so that we can see it better, we will ask Sage to do arithmetic using only 10 bits as follows. <pre class="ptx-sagecell sagecell-sage" id="sage-23"><script type="text/x-sage">R = RealNumber
+RealNumber = RealField(10)
+
+# enter the matrix below
+A = matrix( ..., ..., [ ... ] )
+
+print (A.rref())
+RealNumber = R
+</script></pre> What does Sage give for the solution now?  Compare this to the exact solution that you found previously.</div>
 </div>
 <span class="incontext"><a href="sec-sage-introduction.html#p-512" class="internal">in-context</a></span>
 </body>

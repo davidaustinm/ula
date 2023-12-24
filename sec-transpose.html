@@ -117,7 +117,7 @@ sagecell.makeSagecell({
 </head>
 <body id="ula" class="pretext book ignore-math">
 <a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner">
-<a id="logo-link" class="logo-link" href=""></a><div class="title-container">
+<a id="logo-link" class="logo-link" href="https://understandinglinearalgebra.org" target="_blank"><img src="external/images/ula-logo.png" alt="Logo image"></a><div class="title-container">
 <h1 class="heading"><a href="ula.html"><span class="title">Understanding Linear Algebra</span></a></h1>
 <p class="byline">David Austin</p>
 </div>
@@ -310,7 +310,9 @@ sagecell.makeSagecell({
 <ul class="structural">
 <li><div class="toc-item"><a href="dedication-1.html" class="internal"><span class="title">Dedication</span></a></div></li>
 <li><div class="toc-item"><a href="colophon-1.html" class="internal"><span class="title">Colophon</span></a></div></li>
+<li><div class="toc-item"><a href="acknowledgement-1.html" class="internal"><span class="title">Acknowledgements</span></a></div></li>
 <li><div class="toc-item"><a href="preface-1.html" class="internal"><span class="title">Our goals</span></a></div></li>
+<li><div class="toc-item"><a href="preface-2.html" class="internal"><span class="title">A note on the print version</span></a></div></li>
 </ul>
 </li>
 <li>
@@ -594,7 +596,7 @@ sagecell.makeSagecell({
 <div class="toc-item"><a href="sec-least-squares.html" class="internal"><span class="codenumber">6.5</span> <span class="title">Orthogonal least squares</span></a></div>
 <ul class="structural">
 <li><div class="toc-item"><a href="sec-least-squares.html#subsection-95" class="internal"><span class="codenumber">6.5.1</span> <span class="title">A first example</span></a></div></li>
-<li><div class="toc-item"><a href="sec-least-squares.html#subsection-96" class="internal"><span class="codenumber">6.5.2</span> <span class="title">Solving least squares problems</span></a></div></li>
+<li><div class="toc-item"><a href="sec-least-squares.html#subsection-96" class="internal"><span class="codenumber">6.5.2</span> <span class="title">Solving least-squares problems</span></a></div></li>
 <li><div class="toc-item"><a href="sec-least-squares.html#subsection-97" class="internal"><span class="codenumber">6.5.3</span> <span class="title">Using <span class="process-math">\(QR\)</span> factorizations</span></a></div></li>
 <li><div class="toc-item"><a href="sec-least-squares.html#subsection-98" class="internal"><span class="codenumber">6.5.4</span> <span class="title">Polynomial Regression</span></a></div></li>
 <li><div class="toc-item"><a href="sec-least-squares.html#subsection-99" class="internal"><span class="codenumber">6.5.5</span> <span class="title">Summary</span></a></div></li>
@@ -604,7 +606,7 @@ sagecell.makeSagecell({
 </ul>
 </li>
 <li>
-<div class="toc-item"><a href="chap7.html" class="internal"><span class="codenumber">7</span> <span class="title">The Spectral Theorem and singular value decompositions</span></a></div>
+<div class="toc-item"><a href="chap7.html" class="internal"><span class="codenumber">7</span> <span class="title">Singular value decompositions</span></a></div>
 <ul class="structural">
 <li>
 <div class="toc-item"><a href="sec-symmetric-matrices.html" class="internal"><span class="codenumber">7.1</span> <span class="title">Symmetric matrices and variance</span></a></div>
@@ -646,7 +648,7 @@ sagecell.makeSagecell({
 <li>
 <div class="toc-item"><a href="sec-svd-uses.html" class="internal"><span class="codenumber">7.5</span> <span class="title">Using Singular Value Decompositions</span></a></div>
 <ul class="structural">
-<li><div class="toc-item"><a href="sec-svd-uses.html#subsection-113" class="internal"><span class="codenumber">7.5.1</span> <span class="title">Least squares problems</span></a></div></li>
+<li><div class="toc-item"><a href="sec-svd-uses.html#subsection-113" class="internal"><span class="codenumber">7.5.1</span> <span class="title">Least-squares problems</span></a></div></li>
 <li><div class="toc-item"><a href="sec-svd-uses.html#subsection-114" class="internal"><span class="codenumber">7.5.2</span> <span class="title">Rank <span class="process-math">\(k\)</span> approximations</span></a></div></li>
 <li><div class="toc-item"><a href="sec-svd-uses.html#subsection-115" class="internal"><span class="codenumber">7.5.3</span> <span class="title">Principal component analysis</span></a></div></li>
 <li><div class="toc-item"><a href="sec-svd-uses.html#subsection-116" class="internal"><span class="codenumber">7.5.4</span> <span class="title">Image compressing and denoising</span></a></div></li>
@@ -669,55 +671,55 @@ sagecell.makeSagecell({
 <main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="sec-transpose"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">6.2</span> <span class="title">Orthogonal complements and the matrix transpose</span>
 </h2>
-<section class="introduction" id="introduction-29"><div class="para" id="p-5723">We’ve now seen how the dot product enables us to determine the angle between two vectors and, more specifically, when two vectors are orthogonal.  Moving forward, we will explore how the orthogonality condition simplifies many common tasks, such as expressing a vector as a linear combination of a given set of vectors.</div> <div class="para" id="p-5724">This section introduces the notion of an orthogonal complement, the set of vectors each of which is orthogonal to a prescribed subspace.  We’ll also find a way to describe dot products using matrix products, which allows us to study orthogonality using many of the tools for understanding linear systems that we developed earlier.</div> <article class="exploration project-like" id="exploration-22"><h3 class="heading">
+<section class="introduction" id="introduction-29"><div class="para" id="p-5732">We’ve now seen how the dot product enables us to determine the angle between two vectors and, more specifically, when two vectors are orthogonal.  Moving forward, we will explore how the orthogonality condition simplifies many common tasks, such as expressing a vector as a linear combination of a given set of vectors.</div> <div class="para" id="p-5733">This section introduces the notion of an orthogonal complement, the set of vectors each of which is orthogonal to a prescribed subspace.  We’ll also find a way to describe dot products using matrix products, which allows us to study orthogonality using many of the tools for understanding linear systems that we developed earlier.</div> <article class="exploration project-like" id="exploration-22"><h3 class="heading">
 <span class="type">Preview Activity</span><span class="space"> </span><span class="codenumber">6.2.1</span><span class="period">.</span>
 </h3>
-<div class="para logical" id="p-5725"><ol class="lower-alpha">
-<li id="li-3920"><div class="para" id="p-5726">Sketch the vector <span class="process-math">\(\vvec=\twovec{-1}2\)</span> on <a href="" class="xref" data-knowl="./knowl/fig-pa-6-2.html" title="Figure 6.2.1">Figure 6.2.1</a> and one vector that is orthogonal to it. <figure class="figure figure-like" id="fig-pa-6-2"><div class="sidebyside"><div class="sbsrow" style="margin-left:25%;margin-right:25%;"><div class="sbspanel top" style="width:100%;"><img src="external/images/empty-4.svg" role="img" class="contained"></div></div></div>
+<div class="para logical" id="p-5734"><ol class="lower-alpha">
+<li id="li-3920"><div class="para" id="p-5735">Sketch the vector <span class="process-math">\(\vvec=\twovec{-1}2\)</span> on <a href="" class="xref" data-knowl="./knowl/fig-pa-6-2.html" title="Figure 6.2.1">Figure 6.2.1</a> and one vector that is orthogonal to it. <figure class="figure figure-like" id="fig-pa-6-2"><div class="sidebyside"><div class="sbsrow" style="margin-left:25%;margin-right:25%;"><div class="sbspanel top" style="width:100%;"><img src="external/images/empty-4.svg" role="img" class="contained"></div></div></div>
 <figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">6.2.1<span class="period">.</span></span><span class="space"> </span>Sketch the vector <span class="process-math">\(\vvec\)</span> and one vector orthogonal to it.</figcaption></figure>
 </div></li>
-<li id="li-3921"><div class="para" id="p-5727">If a vector <span class="process-math">\(\xvec\)</span> is orthogonal to <span class="process-math">\(\vvec\text{,}\)</span> what do we know about the dot product <span class="process-math">\(\vvec\cdot\xvec\text{?}\)</span>
+<li id="li-3921"><div class="para" id="p-5736">If a vector <span class="process-math">\(\xvec\)</span> is orthogonal to <span class="process-math">\(\vvec\text{,}\)</span> what do we know about the dot product <span class="process-math">\(\vvec\cdot\xvec\text{?}\)</span>
 </div></li>
-<li id="li-3922"><div class="para" id="p-5728">If we write <span class="process-math">\(\xvec=\twovec xy\text{,}\)</span> use the dot product to write an equation for the vectors orthogonal to <span class="process-math">\(\vvec\)</span> in terms of <span class="process-math">\(x\)</span> and <span class="process-math">\(y\text{.}\)</span>
+<li id="li-3922"><div class="para" id="p-5737">If we write <span class="process-math">\(\xvec=\twovec xy\text{,}\)</span> use the dot product to write an equation for the vectors orthogonal to <span class="process-math">\(\vvec\)</span> in terms of <span class="process-math">\(x\)</span> and <span class="process-math">\(y\text{.}\)</span>
 </div></li>
-<li id="li-3923"><div class="para" id="p-5729">Use this equation to sketch the set of all vectors orthogonal to <span class="process-math">\(\vvec\)</span> in <a href="" class="xref" data-knowl="./knowl/fig-pa-6-2.html" title="Figure 6.2.1">Figure 6.2.1</a>.</div></li>
-<li id="li-3924"><div class="para" id="p-5730">
+<li id="li-3923"><div class="para" id="p-5738">Use this equation to sketch the set of all vectors orthogonal to <span class="process-math">\(\vvec\)</span> in <a href="" class="xref" data-knowl="./knowl/fig-pa-6-2.html" title="Figure 6.2.1">Figure 6.2.1</a>.</div></li>
+<li id="li-3924"><div class="para" id="p-5739">
 <a href="sec-subspaces.html" class="internal" title="Section 3.5: Subspaces">Section 3.5</a> introduced the column space <span class="process-math">\(\col(A)\)</span> and null space <span class="process-math">\(\nul(A)\)</span> of a matrix <span class="process-math">\(A\text{.}\)</span> If <span class="process-math">\(A\)</span> is a matrix, what is the meaning of the null space <span class="process-math">\(\nul(A)\text{?}\)</span>
 </div></li>
-<li id="li-3925"><div class="para" id="p-5731">What is the meaning of the column space <span class="process-math">\(\col(A)\text{?}\)</span>
+<li id="li-3925"><div class="para" id="p-5740">What is the meaning of the column space <span class="process-math">\(\col(A)\text{?}\)</span>
 </div></li>
 </ol></div></article></section><section class="subsection" id="subsection-85"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber">6.2.1</span> <span class="title">Orthogonal complements</span>
 </h3>
-<div class="para" id="p-5739">The preview activity presented us with a vector <span class="process-math">\(\vvec\)</span> and led us through the process of describing all the vectors orthogonal to <span class="process-math">\(\vvec\text{.}\)</span>  Notice that the set of scalar multiples of <span class="process-math">\(\vvec\)</span> describes a line <span class="process-math">\(L\text{,}\)</span> a 1-dimensional subspace of <span class="process-math">\(\real^2\text{.}\)</span> We then described a second line consisting of all the vectors orthogonal to <span class="process-math">\(\vvec\text{.}\)</span>  Notice that every vector on this line is orthogonal to every vector on the line <span class="process-math">\(L\text{.}\)</span>  We call this new line the <em class="emphasis">orthogonal complement</em> of <span class="process-math">\(L\)</span> and denote it by <span class="process-math">\(L^\perp\text{.}\)</span>  The lines <span class="process-math">\(L\)</span> and <span class="process-math">\(L^\perp\)</span> are illustrated on the left of <a href="" class="xref" data-knowl="./knowl/fig-orthog-comps.html" title="Figure 6.2.2">Figure 6.2.2</a>.</div>
+<div class="para" id="p-5748">The preview activity presented us with a vector <span class="process-math">\(\vvec\)</span> and led us through the process of describing all the vectors orthogonal to <span class="process-math">\(\vvec\text{.}\)</span>  Notice that the set of scalar multiples of <span class="process-math">\(\vvec\)</span> describes a line <span class="process-math">\(L\text{,}\)</span> a 1-dimensional subspace of <span class="process-math">\(\real^2\text{.}\)</span> We then described a second line consisting of all the vectors orthogonal to <span class="process-math">\(\vvec\text{.}\)</span>  Notice that every vector on this line is orthogonal to every vector on the line <span class="process-math">\(L\text{.}\)</span>  We call this new line the <em class="emphasis">orthogonal complement</em> of <span class="process-math">\(L\)</span> and denote it by <span class="process-math">\(L^\perp\text{.}\)</span>  The lines <span class="process-math">\(L\)</span> and <span class="process-math">\(L^\perp\)</span> are illustrated on the left of <a href="" class="xref" data-knowl="./knowl/fig-orthog-comps.html" title="Figure 6.2.2">Figure 6.2.2</a>.</div>
 <figure class="figure figure-like" id="fig-orthog-comps"><div class="sidebyside"><div class="sbsrow" style="margin-left:2.5%;margin-right:2.5%;">
 <div class="sbspanel top" style="width:47.3684210526316%;"><img src="external/images/orthog-lines.svg" role="img" class="contained"></div>
 <div class="sbspanel top" style="width:47.3684210526316%;"><img src="external/images/orthog-comp.svg" role="img" class="contained"></div>
 </div></div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">6.2.2<span class="period">.</span></span><span class="space"> </span>On the left is a line <span class="process-math">\(L\)</span> and its orthogonal complement <span class="process-math">\(L^\perp\text{.}\)</span>  On the right is a plane <span class="process-math">\(W\)</span> and its orthogonal complement <span class="process-math">\(W^\perp\)</span> in <span class="process-math">\(\real^3\text{.}\)</span></figcaption></figure><div class="para" id="p-5740">The next definition places this example into a more general context.</div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">6.2.2<span class="period">.</span></span><span class="space"> </span>On the left is a line <span class="process-math">\(L\)</span> and its orthogonal complement <span class="process-math">\(L^\perp\text{.}\)</span>  On the right is a plane <span class="process-math">\(W\)</span> and its orthogonal complement <span class="process-math">\(W^\perp\)</span> in <span class="process-math">\(\real^3\text{.}\)</span></figcaption></figure><div class="para" id="p-5749">The next definition places this example into a more general context.</div>
 <article class="definition definition-like" id="definition-28"><h4 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">6.2.3</span><span class="period">.</span>
-</h4> <div class="para" id="p-5741">Given a subspace <span class="process-math">\(W\)</span> of <span class="process-math">\(\real^m\text{,}\)</span> the <dfn class="terminology">orthogonal complement</dfn> of <span class="process-math">\(W\)</span> is the set of vectors in <span class="process-math">\(\real^m\)</span> each of which is orthogonal to every vector in <span class="process-math">\(W\text{.}\)</span>  We denote the orthogonal complement by <span class="process-math">\(W^\perp\text{.}\)</span>
-</div></article><div class="para" id="p-5742">A typical example appears on the right of <a href="" class="xref" data-knowl="./knowl/fig-orthog-comps.html" title="Figure 6.2.2">Figure 6.2.2</a>.  Here we see a plane <span class="process-math">\(W\text{,}\)</span> a two-dimensional subspace of <span class="process-math">\(\real^3\text{,}\)</span> and its orthogonal complement <span class="process-math">\(W^\perp\text{,}\)</span> which is a line in <span class="process-math">\(\real^3\text{.}\)</span>
+</h4> <div class="para" id="p-5750">Given a subspace <span class="process-math">\(W\)</span> of <span class="process-math">\(\real^m\text{,}\)</span> the <dfn class="terminology">orthogonal complement</dfn> of <span class="process-math">\(W\)</span> is the set of vectors in <span class="process-math">\(\real^m\)</span> each of which is orthogonal to every vector in <span class="process-math">\(W\text{.}\)</span>  We denote the orthogonal complement by <span class="process-math">\(W^\perp\text{.}\)</span>
+</div></article><div class="para" id="p-5751">A typical example appears on the right of <a href="" class="xref" data-knowl="./knowl/fig-orthog-comps.html" title="Figure 6.2.2">Figure 6.2.2</a>.  Here we see a plane <span class="process-math">\(W\text{,}\)</span> a two-dimensional subspace of <span class="process-math">\(\real^3\text{,}\)</span> and its orthogonal complement <span class="process-math">\(W^\perp\text{,}\)</span> which is a line in <span class="process-math">\(\real^3\text{.}\)</span>
 </div>
-<div class="para" id="p-5743">As the next activity demonstrates, the orthogonal complement of a subspace <span class="process-math">\(W\)</span> is itself a subspace of <span class="process-math">\(\real^m\text{.}\)</span>
+<div class="para" id="p-5752">As the next activity demonstrates, the orthogonal complement of a subspace <span class="process-math">\(W\)</span> is itself a subspace of <span class="process-math">\(\real^m\text{.}\)</span>
 </div>
 <article class="activity project-like" id="activity-72"><h4 class="heading">
 <span class="type">Activity</span><span class="space"> </span><span class="codenumber">6.2.2</span><span class="period">.</span>
 </h4>
-<div class="para logical" id="p-5744">
+<div class="para logical" id="p-5753">
 <div class="para">Suppose that <span class="process-math">\(\wvec_1=\threevec10{-2}\)</span> and <span class="process-math">\(\wvec_2=\threevec11{-1}\)</span> form a basis for <span class="process-math">\(W\text{,}\)</span> a two-dimensional subspace of <span class="process-math">\(\real^3\text{.}\)</span>  We will find a description of the orthogonal complement <span class="process-math">\(W^\perp\text{.}\)</span>
 </div>
 <ol class="lower-alpha">
-<li id="li-3932"><div class="para" id="p-5745">Suppose that the vector <span class="process-math">\(\xvec\)</span> is orthogonal to <span class="process-math">\(\wvec_1\text{.}\)</span>  If we write <span class="process-math">\(\xvec=\threevec{x_1}{x_2}{x_3}\text{,}\)</span> use the fact that <span class="process-math">\(\wvec_1\cdot\xvec =
+<li id="li-3932"><div class="para" id="p-5754">Suppose that the vector <span class="process-math">\(\xvec\)</span> is orthogonal to <span class="process-math">\(\wvec_1\text{.}\)</span>  If we write <span class="process-math">\(\xvec=\threevec{x_1}{x_2}{x_3}\text{,}\)</span> use the fact that <span class="process-math">\(\wvec_1\cdot\xvec =
 0\)</span> to write a linear equation for <span class="process-math">\(x_1\text{,}\)</span> <span class="process-math">\(x_2\text{,}\)</span> and <span class="process-math">\(x_3\text{.}\)</span>
 </div></li>
-<li id="li-3933"><div class="para" id="p-5746">Suppose that <span class="process-math">\(\xvec\)</span> is also orthogonal to <span class="process-math">\(\wvec_2\text{.}\)</span>  In the same way, write a linear equation for <span class="process-math">\(x_1\text{,}\)</span> <span class="process-math">\(x_2\text{,}\)</span> and <span class="process-math">\(x_3\)</span> that arises from the fact that <span class="process-math">\(\wvec_2\cdot\xvec =
+<li id="li-3933"><div class="para" id="p-5755">Suppose that <span class="process-math">\(\xvec\)</span> is also orthogonal to <span class="process-math">\(\wvec_2\text{.}\)</span>  In the same way, write a linear equation for <span class="process-math">\(x_1\text{,}\)</span> <span class="process-math">\(x_2\text{,}\)</span> and <span class="process-math">\(x_3\)</span> that arises from the fact that <span class="process-math">\(\wvec_2\cdot\xvec =
 0\text{.}\)</span>
 </div></li>
-<li id="li-3934"><div class="para" id="p-5747">If <span class="process-math">\(\xvec\)</span> is orthogonal to both <span class="process-math">\(\wvec_1\)</span> and <span class="process-math">\(\wvec_2\text{,}\)</span> these two equations give us a linear system <span class="process-math">\(B\xvec=\zerovec\)</span> for some matrix <span class="process-math">\(B\text{.}\)</span>  Identify the matrix <span class="process-math">\(B\)</span> and write a parametric description of the solution space to the equation <span class="process-math">\(B\xvec = \zerovec\text{.}\)</span>
+<li id="li-3934"><div class="para" id="p-5756">If <span class="process-math">\(\xvec\)</span> is orthogonal to both <span class="process-math">\(\wvec_1\)</span> and <span class="process-math">\(\wvec_2\text{,}\)</span> these two equations give us a linear system <span class="process-math">\(B\xvec=\zerovec\)</span> for some matrix <span class="process-math">\(B\text{.}\)</span>  Identify the matrix <span class="process-math">\(B\)</span> and write a parametric description of the solution space to the equation <span class="process-math">\(B\xvec = \zerovec\text{.}\)</span>
 </div></li>
-<li id="li-3935"><div class="para logical" id="p-5748">
+<li id="li-3935"><div class="para logical" id="p-5757">
 <div class="para">Since <span class="process-math">\(\wvec_1\)</span> and <span class="process-math">\(\wvec_2\)</span> form a basis for the two-dimensional subspace <span class="process-math">\(W\text{,}\)</span> any vector <span class="process-math">\(\wvec\)</span> in <span class="process-math">\(W\)</span> can be written as a linear combination</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -727,23 +729,23 @@ sagecell.makeSagecell({
 <div class="para">If <span class="process-math">\(\xvec\)</span> is orthogonal to both <span class="process-math">\(\wvec_1\)</span> and <span class="process-math">\(\wvec_2\text{,}\)</span> use the distributive property of dot products to explain why <span class="process-math">\(\xvec\)</span> is orthogonal to <span class="process-math">\(\wvec\text{.}\)</span>
 </div>
 </div></li>
-<li id="li-3936"><div class="para" id="p-5749">Give a basis for the orthogonal complement <span class="process-math">\(W^\perp\)</span> and state the dimension <span class="process-math">\(\dim W^\perp\text{.}\)</span>
+<li id="li-3936"><div class="para" id="p-5758">Give a basis for the orthogonal complement <span class="process-math">\(W^\perp\)</span> and state the dimension <span class="process-math">\(\dim W^\perp\text{.}\)</span>
 </div></li>
-<li id="li-3937"><div class="para" id="p-5750">Describe <span class="process-math">\((W^\perp)^\perp\text{,}\)</span> the orthogonal complement of <span class="process-math">\(W^\perp\text{.}\)</span>
+<li id="li-3937"><div class="para" id="p-5759">Describe <span class="process-math">\((W^\perp)^\perp\text{,}\)</span> the orthogonal complement of <span class="process-math">\(W^\perp\text{.}\)</span>
 </div></li>
 </ol>
 </div></article><article class="example example-like" id="example-orthog-comp-line"><h4 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">6.2.4</span><span class="period">.</span>
 </h4>
-<div class="para" id="p-5765">If <span class="process-math">\(L\)</span> is the line defined by <span class="process-math">\(\vvec=\threevec1{-2}3\)</span> in <span class="process-math">\(\real^3\text{,}\)</span> we will describe the orthogonal complement <span class="process-math">\(L^\perp\text{,}\)</span> the set of vectors orthogonal to <span class="process-math">\(L\text{.}\)</span>
-</div> <div class="para logical" id="p-5766">
+<div class="para" id="p-5774">If <span class="process-math">\(L\)</span> is the line defined by <span class="process-math">\(\vvec=\threevec1{-2}3\)</span> in <span class="process-math">\(\real^3\text{,}\)</span> we will describe the orthogonal complement <span class="process-math">\(L^\perp\text{,}\)</span> the set of vectors orthogonal to <span class="process-math">\(L\text{.}\)</span>
+</div> <div class="para logical" id="p-5775">
 <div class="para">If <span class="process-math">\(\xvec\)</span> is orthogonal to <span class="process-math">\(L\text{,}\)</span> it must be orthogonal to <span class="process-math">\(\vvec\)</span> so we have</div>
 <div class="displaymath process-math">
 \begin{equation*}
 \vvec\cdot\xvec = x_1-2x_2+3x_3 = 0\text{.}
 \end{equation*}
 </div>
-</div> <div class="para logical" id="p-5767">
+</div> <div class="para logical" id="p-5776">
 <div class="para">We can describe the solutions to this equation parametrically as</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -757,7 +759,7 @@ x_2\threevec210+x_3\threevec{-3}01\text{.}
 </div></article><article class="example example-like" id="example-orthog-comp-gen"><h4 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">6.2.5</span><span class="period">.</span>
 </h4>
-<div class="para logical" id="p-5768">
+<div class="para logical" id="p-5777">
 <div class="para">Suppose that <span class="process-math">\(W\)</span> is the <span class="process-math">\(2\)</span>-dimensional subspace of <span class="process-math">\(\real^5\)</span> with basis</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -767,7 +769,7 @@ x_2\threevec210+x_3\threevec{-3}01\text{.}
 </div>
 <div class="para">We will give a description of the orthogonal complement <span class="process-math">\(W^\perp\text{.}\)</span>
 </div>
-</div> <div class="para logical" id="p-5769">
+</div> <div class="para logical" id="p-5778">
 <div class="para">If <span class="process-math">\(\xvec\)</span> is in <span class="process-math">\(W^\perp\text{,}\)</span> we know that <span class="process-math">\(\xvec\)</span> is orthogonal to both <span class="process-math">\(\wvec_1\)</span> and <span class="process-math">\(\wvec_2\text{.}\)</span>  Therefore,</div>
 <div class="displaymath process-math" id="md-5">
 \begin{align*}
@@ -820,14 +822,14 @@ c_2\wvec_2\cdot\xvec = 0\text{.}
 </div></article></section><section class="subsection" id="subsection-86"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber">6.2.2</span> <span class="title">The matrix transpose</span>
 </h3>
-<div class="para" id="p-5770">The previous activity and examples show how we can describe the orthogonal complement of a subspace as the solution set of a particular linear system.  We will make this connection more explicit by defining a new matrix operation called the <em class="emphasis">transpose</em>.</div>
+<div class="para" id="p-5779">The previous activity and examples show how we can describe the orthogonal complement of a subspace as the solution set of a particular linear system.  We will make this connection more explicit by defining a new matrix operation called the <em class="emphasis">transpose</em>.</div>
 <article class="definition definition-like" id="definition-29"><h4 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">6.2.6</span><span class="period">.</span>
-</h4> <div class="para" id="p-5771">The <dfn class="terminology">transpose</dfn> of the <span class="process-math">\(m\times n\)</span> matrix <span class="process-math">\(A\)</span> is the <span class="process-math">\(n\times m\)</span> matrix <span class="process-math">\(A^T\)</span> whose rows are the columns of <span class="process-math">\(A\text{.}\)</span>
+</h4> <div class="para" id="p-5780">The <dfn class="terminology">transpose</dfn> of the <span class="process-math">\(m\times n\)</span> matrix <span class="process-math">\(A\)</span> is the <span class="process-math">\(n\times m\)</span> matrix <span class="process-math">\(A^T\)</span> whose rows are the columns of <span class="process-math">\(A\text{.}\)</span>
 </div></article><article class="example example-like" id="example-56"><h4 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">6.2.7</span><span class="period">.</span>
 </h4>
-<div class="para" id="p-5772">If <span class="process-math">\(A=\begin{bmatrix}
+<div class="para" id="p-5781">If <span class="process-math">\(A=\begin{bmatrix}
 4 \amp -3 \amp 0 \amp 5 \\
 -1 \amp 2 \amp 1 \amp 3 \\
 \end{bmatrix}
@@ -840,10 +842,10 @@ c_2\wvec_2\cdot\xvec = 0\text{.}
 </div></article><article class="activity project-like" id="activity-73"><h4 class="heading">
 <span class="type">Activity</span><span class="space"> </span><span class="codenumber">6.2.3</span><span class="period">.</span>
 </h4>
-<div class="para logical" id="p-5773">
+<div class="para logical" id="p-5782">
 <div class="para">This activity illustrates how multiplying a vector by <span class="process-math">\(A^T\)</span> is related to computing dot products with the columns of <span class="process-math">\(A\text{.}\)</span>  You’ll develop a better understanding of this relationship if you compute the dot products and matrix products in this activity without using technology.</div>
 <ol class="lower-alpha">
-<li id="li-3950"><div class="para" id="p-5774">If <span class="process-math">\(B =
+<li id="li-3950"><div class="para" id="p-5783">If <span class="process-math">\(B =
 \begin{bmatrix}
 3 \amp 4 \\
 -1 \amp 2 \\
@@ -851,7 +853,7 @@ c_2\wvec_2\cdot\xvec = 0\text{.}
 \end{bmatrix}
 \text{,}\)</span> write the matrix <span class="process-math">\(B^T\text{.}\)</span>
 </div></li>
-<li id="li-3951"><div class="para logical" id="p-5775">
+<li id="li-3951"><div class="para logical" id="p-5784">
 <div class="para">Suppose that</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -863,22 +865,22 @@ c_2\wvec_2\cdot\xvec = 0\text{.}
 <div class="para">Find the dot products <span class="process-math">\(\vvec_1\cdot\wvec\)</span> and <span class="process-math">\(\vvec_2\cdot\wvec\text{.}\)</span>
 </div>
 </div></li>
-<li id="li-3952"><div class="para" id="p-5776">Now write the matrix <span class="process-math">\(A = \begin{bmatrix} \vvec_1 \amp \vvec_2 \end{bmatrix}\)</span> and its transpose <span class="process-math">\(A^T\text{.}\)</span>  Find the product <span class="process-math">\(A^T\wvec\)</span> and describe how this product computes both dot products <span class="process-math">\(\vvec_1\cdot\wvec\)</span> and <span class="process-math">\(\vvec_2\cdot\wvec\text{.}\)</span>
+<li id="li-3952"><div class="para" id="p-5785">Now write the matrix <span class="process-math">\(A = \begin{bmatrix} \vvec_1 \amp \vvec_2 \end{bmatrix}\)</span> and its transpose <span class="process-math">\(A^T\text{.}\)</span>  Find the product <span class="process-math">\(A^T\wvec\)</span> and describe how this product computes both dot products <span class="process-math">\(\vvec_1\cdot\wvec\)</span> and <span class="process-math">\(\vvec_2\cdot\wvec\text{.}\)</span>
 </div></li>
-<li id="li-3953"><div class="para" id="p-5777">Suppose that <span class="process-math">\(\xvec\)</span> is a vector that is orthogonal to both <span class="process-math">\(\vvec_1\)</span> and <span class="process-math">\(\vvec_2\text{.}\)</span>  What does this say about the dot products <span class="process-math">\(\vvec_1\cdot\xvec\)</span> and <span class="process-math">\(\vvec_2\cdot\xvec\text{?}\)</span>  What does this say about the product <span class="process-math">\(A^T\xvec\text{?}\)</span>
+<li id="li-3953"><div class="para" id="p-5786">Suppose that <span class="process-math">\(\xvec\)</span> is a vector that is orthogonal to both <span class="process-math">\(\vvec_1\)</span> and <span class="process-math">\(\vvec_2\text{.}\)</span>  What does this say about the dot products <span class="process-math">\(\vvec_1\cdot\xvec\)</span> and <span class="process-math">\(\vvec_2\cdot\xvec\text{?}\)</span>  What does this say about the product <span class="process-math">\(A^T\xvec\text{?}\)</span>
 </div></li>
-<li id="li-3954"><div class="para" id="p-5778">Use the matrix <span class="process-math">\(A^T\)</span> to give a parametric description of all the vectors <span class="process-math">\(\xvec\)</span> that are orthogonal to <span class="process-math">\(\vvec_1\)</span> and <span class="process-math">\(\vvec_2\text{.}\)</span>
+<li id="li-3954"><div class="para" id="p-5787">Use the matrix <span class="process-math">\(A^T\)</span> to give a parametric description of all the vectors <span class="process-math">\(\xvec\)</span> that are orthogonal to <span class="process-math">\(\vvec_1\)</span> and <span class="process-math">\(\vvec_2\text{.}\)</span>
 </div></li>
-<li id="li-3955"><div class="para" id="p-5779">Remember that <span class="process-math">\(\nul(A^T)\text{,}\)</span> the null space of <span class="process-math">\(A^T\text{,}\)</span> is the solution set of the equation <span class="process-math">\(A^T\xvec=\zerovec\text{.}\)</span>  If <span class="process-math">\(\xvec\)</span> is a vector in <span class="process-math">\(\nul(A^T)\text{,}\)</span> explain why <span class="process-math">\(\xvec\)</span> must be orthogonal to both <span class="process-math">\(\vvec_1\)</span> and <span class="process-math">\(\vvec_2\text{.}\)</span>
+<li id="li-3955"><div class="para" id="p-5788">Remember that <span class="process-math">\(\nul(A^T)\text{,}\)</span> the null space of <span class="process-math">\(A^T\text{,}\)</span> is the solution set of the equation <span class="process-math">\(A^T\xvec=\zerovec\text{.}\)</span>  If <span class="process-math">\(\xvec\)</span> is a vector in <span class="process-math">\(\nul(A^T)\text{,}\)</span> explain why <span class="process-math">\(\xvec\)</span> must be orthogonal to both <span class="process-math">\(\vvec_1\)</span> and <span class="process-math">\(\vvec_2\text{.}\)</span>
 </div></li>
-<li id="li-3956"><div class="para" id="p-5780">Remember that <span class="process-math">\(\col(A)\text{,}\)</span> the column space of <span class="process-math">\(A\text{,}\)</span> is the set of linear combinations of the columns of <span class="process-math">\(A\text{.}\)</span>  Therefore, any vector in <span class="process-math">\(\col(A)\)</span> can be written as <span class="process-math">\(c_1\vvec_1+c_2\vvec_2\text{.}\)</span> If <span class="process-math">\(\xvec\)</span> is a vector in <span class="process-math">\(\nul(A^T)\text{,}\)</span> explain why <span class="process-math">\(\xvec\)</span> is orthogonal to every vector in <span class="process-math">\(\col(A)\text{.}\)</span>
+<li id="li-3956"><div class="para" id="p-5789">Remember that <span class="process-math">\(\col(A)\text{,}\)</span> the column space of <span class="process-math">\(A\text{,}\)</span> is the set of linear combinations of the columns of <span class="process-math">\(A\text{.}\)</span>  Therefore, any vector in <span class="process-math">\(\col(A)\)</span> can be written as <span class="process-math">\(c_1\vvec_1+c_2\vvec_2\text{.}\)</span> If <span class="process-math">\(\xvec\)</span> is a vector in <span class="process-math">\(\nul(A^T)\text{,}\)</span> explain why <span class="process-math">\(\xvec\)</span> is orthogonal to every vector in <span class="process-math">\(\col(A)\text{.}\)</span>
 </div></li>
 </ol>
-</div></article><div class="para" id="p-5797">The previous activity demonstrates an important connection between the matrix transpose and dot products.  More specifically, the components of the product <span class="process-math">\(A^T\xvec\)</span> are simply the dot products of the columns of <span class="process-math">\(A\)</span> with <span class="process-math">\(\xvec\text{.}\)</span>  We will make frequent use of this observation so let’s record it as a proposition.</div>
+</div></article><div class="para" id="p-5806">The previous activity demonstrates an important connection between the matrix transpose and dot products.  More specifically, the components of the product <span class="process-math">\(A^T\xvec\)</span> are simply the dot products of the columns of <span class="process-math">\(A\)</span> with <span class="process-math">\(\xvec\text{.}\)</span>  We will make frequent use of this observation so let’s record it as a proposition.</div>
 <article class="proposition theorem-like" id="prop-transpose-multiplication"><h4 class="heading">
 <span class="type">Proposition</span><span class="space"> </span><span class="codenumber">6.2.8</span><span class="period">.</span>
 </h4>
-<div class="para logical" id="p-5798">
+<div class="para logical" id="p-5807">
 <div class="para">If <span class="process-math">\(A\)</span> is the matrix whose columns are <span class="process-math">\(\vvec_1,\vvec_2,\ldots,\vvec_n\text{,}\)</span> then</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -894,7 +896,7 @@ A^T\xvec =
 </div></article><article class="example example-like" id="example-57"><h4 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">6.2.9</span><span class="period">.</span>
 </h4>
-<div class="para logical" id="p-5799">
+<div class="para logical" id="p-5808">
 <div class="para">Suppose that <span class="process-math">\(W\)</span> is a subspace of <span class="process-math">\(\real^4\)</span> having basis</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -904,7 +906,7 @@ A^T\xvec =
 </div>
 <div class="para">and that we wish to describe the orthogonal complement <span class="process-math">\(W^\perp\text{.}\)</span>
 </div>
-</div> <div class="para logical" id="p-5800">
+</div> <div class="para logical" id="p-5809">
 <div class="para">If <span class="process-math">\(A\)</span> is the matrix <span class="process-math">\(A = \begin{bmatrix}\wvec_1 \amp
 \wvec_2\end{bmatrix}\)</span> and <span class="process-math">\(\xvec\)</span> is in <span class="process-math">\(W^\perp\text{,}\)</span> we have</div>
 <div class="displaymath process-math">
@@ -929,13 +931,13 @@ x_4\fourvec{-1}{-2}01\text{.}
 </div>
 <div class="para">form a basis for <span class="process-math">\(W^\perp\text{,}\)</span> which is a two-dimensional subspace of <span class="process-math">\(\real^4\text{.}\)</span>
 </div>
-</div></article><div class="para" id="p-5801">To place this example in a slightly more general context, note that <span class="process-math">\(\wvec_1\)</span> and <span class="process-math">\(\wvec_2\text{,}\)</span> the columns of <span class="process-math">\(A\text{,}\)</span> form a basis of <span class="process-math">\(W\text{.}\)</span>  Since <span class="process-math">\(\col(A)\text{,}\)</span> the column space of <span class="process-math">\(A\)</span> is the subspace of linear combinations of the columns of <span class="process-math">\(A\text{,}\)</span> we have <span class="process-math">\(W=\col(A)\text{.}\)</span>
+</div></article><div class="para" id="p-5810">To place this example in a slightly more general context, note that <span class="process-math">\(\wvec_1\)</span> and <span class="process-math">\(\wvec_2\text{,}\)</span> the columns of <span class="process-math">\(A\text{,}\)</span> form a basis of <span class="process-math">\(W\text{.}\)</span>  Since <span class="process-math">\(\col(A)\text{,}\)</span> the column space of <span class="process-math">\(A\)</span> is the subspace of linear combinations of the columns of <span class="process-math">\(A\text{,}\)</span> we have <span class="process-math">\(W=\col(A)\text{.}\)</span>
 </div>
-<div class="para" id="p-5802">This example also shows that the orthogonal complement <span class="process-math">\(W^\perp = \col(A)^\perp\)</span> is described by the solution set of <span class="process-math">\(A^T\xvec = \zerovec\text{.}\)</span>  This solution set is what we have called <span class="process-math">\(\nul(A^T)\text{,}\)</span> the null space of <span class="process-math">\(A^T\text{.}\)</span>  In this way, we see the following proposition, which is visually represented in <a href="" class="xref" data-knowl="./knowl/fig-orthog-comp.html" title="Figure 6.2.11">Figure 6.2.11</a>.</div>
+<div class="para" id="p-5811">This example also shows that the orthogonal complement <span class="process-math">\(W^\perp = \col(A)^\perp\)</span> is described by the solution set of <span class="process-math">\(A^T\xvec = \zerovec\text{.}\)</span>  This solution set is what we have called <span class="process-math">\(\nul(A^T)\text{,}\)</span> the null space of <span class="process-math">\(A^T\text{.}\)</span>  In this way, we see the following proposition, which is visually represented in <a href="" class="xref" data-knowl="./knowl/fig-orthog-comp.html" title="Figure 6.2.11">Figure 6.2.11</a>.</div>
 <article class="proposition theorem-like" id="prop-col-orthog"><h4 class="heading">
 <span class="type">Proposition</span><span class="space"> </span><span class="codenumber">6.2.10</span><span class="period">.</span>
 </h4>
-<div class="para logical" id="p-5803">
+<div class="para logical" id="p-5812">
 <div class="para">For any matrix <span class="process-math">\(A\text{,}\)</span> the orthogonal complement of <span class="process-math">\(\col(A)\)</span> is <span class="process-math">\(\nul(A^T)\text{;}\)</span> that is,</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -946,11 +948,11 @@ x_4\fourvec{-1}{-2}01\text{.}
 <figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">6.2.11<span class="period">.</span></span><span class="space"> </span>The orthogonal complement of the column space of <span class="process-math">\(A\)</span> is the null space of <span class="process-math">\(A^T\text{.}\)</span></figcaption></figure></section><section class="subsection" id="subsection-87"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber">6.2.3</span> <span class="title">Properties of the matrix transpose</span>
 </h3>
-<div class="para" id="p-5804">The transpose is a simple algebraic operation performed on a matrix.  The next activity explores some of its properties.</div>
+<div class="para" id="p-5813">The transpose is a simple algebraic operation performed on a matrix.  The next activity explores some of its properties.</div>
 <article class="activity project-like" id="activity-74"><h4 class="heading">
 <span class="type">Activity</span><span class="space"> </span><span class="codenumber">6.2.4</span><span class="period">.</span>
 </h4>
-<div class="para logical" id="p-5805">
+<div class="para logical" id="p-5814">
 <div class="para">In Sage, the transpose of a matrix <code class="code-inline tex2jax_ignore">A</code> is given by <code class="code-inline tex2jax_ignore">A.T</code>.  Define the matrices</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -974,49 +976,49 @@ C=
 \end{bmatrix}\text{.}
 \end{equation*}
 </div>
-<div class="para"><pre class="ptx-sagecell sagecell-sage" id="sage-162"><script type="text/x-sage">
+<div class="para"><pre class="ptx-sagecell sagecell-sage" id="sage-164"><script type="text/x-sage">
 </script></pre></div>
 <ol class="lower-alpha">
-<li id="li-3971"><div class="para" id="p-5806">Evaluate <span class="process-math">\((A+B)^T\)</span> and <span class="process-math">\(A^T+B^T\text{.}\)</span>  What do you notice about the relationship between these two matrices?</div></li>
-<li id="li-3972"><div class="para" id="p-5807">What happens if you transpose a matrix twice;  that is, what is <span class="process-math">\((A^T)^T\text{?}\)</span>
+<li id="li-3971"><div class="para" id="p-5815">Evaluate <span class="process-math">\((A+B)^T\)</span> and <span class="process-math">\(A^T+B^T\text{.}\)</span>  What do you notice about the relationship between these two matrices?</div></li>
+<li id="li-3972"><div class="para" id="p-5816">What happens if you transpose a matrix twice;  that is, what is <span class="process-math">\((A^T)^T\text{?}\)</span>
 </div></li>
-<li id="li-3973"><div class="para" id="p-5808">Find <span class="process-math">\(\det(C)\)</span> and <span class="process-math">\(\det(C^T)\text{.}\)</span>  What do you notice about the relationship between these determinants?</div></li>
-<li id="li-3974"><div class="para logical" id="p-5809"><ol class="decimal">
-<li id="li-3975"><div class="para" id="p-5810">Find the product <span class="process-math">\(AC\)</span> and its transpose <span class="process-math">\((AC)^T\text{.}\)</span>
+<li id="li-3973"><div class="para" id="p-5817">Find <span class="process-math">\(\det(C)\)</span> and <span class="process-math">\(\det(C^T)\text{.}\)</span>  What do you notice about the relationship between these determinants?</div></li>
+<li id="li-3974"><div class="para logical" id="p-5818"><ol class="decimal">
+<li id="li-3975"><div class="para" id="p-5819">Find the product <span class="process-math">\(AC\)</span> and its transpose <span class="process-math">\((AC)^T\text{.}\)</span>
 </div></li>
-<li id="li-3976"><div class="para" id="p-5811">Is it possible to compute the product <span class="process-math">\(A^TC^T\text{?}\)</span> Explain why or why not.</div></li>
-<li id="li-3977"><div class="para" id="p-5812">Find the product <span class="process-math">\(C^TA^T\)</span> and compare it to <span class="process-math">\((AC)^T\text{.}\)</span>  What do you notice about the relationship between these two matrices?</div></li>
+<li id="li-3976"><div class="para" id="p-5820">Is it possible to compute the product <span class="process-math">\(A^TC^T\text{?}\)</span> Explain why or why not.</div></li>
+<li id="li-3977"><div class="para" id="p-5821">Find the product <span class="process-math">\(C^TA^T\)</span> and compare it to <span class="process-math">\((AC)^T\text{.}\)</span>  What do you notice about the relationship between these two matrices?</div></li>
 </ol></div></li>
-<li id="li-3978"><div class="para" id="p-5813">What is the transpose of the identity matrix <span class="process-math">\(I\text{?}\)</span>
+<li id="li-3978"><div class="para" id="p-5822">What is the transpose of the identity matrix <span class="process-math">\(I\text{?}\)</span>
 </div></li>
-<li id="li-3979"><div class="para" id="p-5814">If a square matrix <span class="process-math">\(D\)</span> is invertible, explain why you can guarantee that <span class="process-math">\(D^T\)</span> is invertible and why <span class="process-math">\((D^T)^{-1} = (D^{-1})^T\text{.}\)</span>
+<li id="li-3979"><div class="para" id="p-5823">If a square matrix <span class="process-math">\(D\)</span> is invertible, explain why you can guarantee that <span class="process-math">\(D^T\)</span> is invertible and why <span class="process-math">\((D^T)^{-1} = (D^{-1})^T\text{.}\)</span>
 </div></li>
 </ol>
-</div></article><div class="para" id="p-5832">In spite of the fact that we are looking at some specific examples, this activity demonstrates the following general properties of the transpose, which may be verified with a little effort.</div>
+</div></article><div class="para" id="p-5841">In spite of the fact that we are looking at some specific examples, this activity demonstrates the following general properties of the transpose, which may be verified with a little effort.</div>
 <article class="assemblage assemblage-like" id="assemblage-11"><h4 class="heading"><span class="title">Properties of the transpose.</span></h4>
-<div class="para logical" id="p-5833">
+<div class="para logical" id="p-5842">
 <div class="para">Here are some properties of the matrix transpose, expressed in terms of general matrices <span class="process-math">\(A\text{,}\)</span> <span class="process-math">\(B\text{,}\)</span> and <span class="process-math">\(C\text{.}\)</span>  We assume that <span class="process-math">\(C\)</span> is a square matrix.</div>
 <ul class="disc">
-<li id="li-3995"><div class="para" id="p-5834">If <span class="process-math">\(A+B\)</span> is defined, then <span class="process-math">\((A+B)^T =
+<li id="li-3995"><div class="para" id="p-5843">If <span class="process-math">\(A+B\)</span> is defined, then <span class="process-math">\((A+B)^T =
 A^T+B^T\text{.}\)</span>
 </div></li>
-<li id="li-3996"><div class="para" id="p-5835"><span class="process-math">\((sA)^T = sA^T\text{.}\)</span></div></li>
-<li id="li-3997"><div class="para" id="p-5836"><span class="process-math">\((A^T)^T = A\text{.}\)</span></div></li>
-<li id="li-3998"><div class="para" id="p-5837"><span class="process-math">\(\det(C) = \det(C^T)\text{.}\)</span></div></li>
-<li id="li-3999"><div class="para" id="p-5838">If <span class="process-math">\(AB\)</span> is defined, then <span class="process-math">\((AB)^T = B^TA^T\text{.}\)</span> Notice that the order of the multiplication is reversed.</div></li>
-<li id="li-4000"><div class="para" id="p-5839"><span class="process-math">\((C^T)^{-1} = (C^{-1})^T\text{.}\)</span></div></li>
+<li id="li-3996"><div class="para" id="p-5844"><span class="process-math">\((sA)^T = sA^T\text{.}\)</span></div></li>
+<li id="li-3997"><div class="para" id="p-5845"><span class="process-math">\((A^T)^T = A\text{.}\)</span></div></li>
+<li id="li-3998"><div class="para" id="p-5846"><span class="process-math">\(\det(C) = \det(C^T)\text{.}\)</span></div></li>
+<li id="li-3999"><div class="para" id="p-5847">If <span class="process-math">\(AB\)</span> is defined, then <span class="process-math">\((AB)^T = B^TA^T\text{.}\)</span> Notice that the order of the multiplication is reversed.</div></li>
+<li id="li-4000"><div class="para" id="p-5848"><span class="process-math">\((C^T)^{-1} = (C^{-1})^T\text{.}\)</span></div></li>
 </ul>
-</div></article><div class="para" id="p-5840">There is one final property we wish to record though we will wait until <a href="sec-svd-intro.html" class="internal" title="Section 7.4: Singular Value Decompositions">Section 7.4</a> to explain why it is true.</div>
+</div></article><div class="para" id="p-5849">There is one final property we wish to record though we will wait until <a href="sec-svd-intro.html" class="internal" title="Section 7.4: Singular Value Decompositions">Section 7.4</a> to explain why it is true.</div>
 <article class="proposition theorem-like" id="prop-col-row-rank"><h4 class="heading">
 <span class="type">Proposition</span><span class="space"> </span><span class="codenumber">6.2.12</span><span class="period">.</span>
 </h4>For any matrix <span class="process-math">\(A\text{,}\)</span> we have<div class="displaymath process-math">
 \begin{equation*}
 \rank(A) = \rank(A^T)\text{.}
 \end{equation*}
-</div></article><div class="para" id="p-5841">This proposition is important because it implies a relationship between the dimensions of a subspace and its orthogonal complement.  For instance, if <span class="process-math">\(A\)</span> is an <span class="process-math">\(m\times n\)</span> matrix, we saw in <a href="sec-subspaces.html" class="internal" title="Section 3.5: Subspaces">Section 3.5</a> that <span class="process-math">\(\dim\col(A) = \rank(A)\)</span> and <span class="process-math">\(\dim\nul(A) =
+</div></article><div class="para" id="p-5850">This proposition is important because it implies a relationship between the dimensions of a subspace and its orthogonal complement.  For instance, if <span class="process-math">\(A\)</span> is an <span class="process-math">\(m\times n\)</span> matrix, we saw in <a href="sec-subspaces.html" class="internal" title="Section 3.5: Subspaces">Section 3.5</a> that <span class="process-math">\(\dim\col(A) = \rank(A)\)</span> and <span class="process-math">\(\dim\nul(A) =
 n-\rank(A)\text{.}\)</span>
 </div>
-<div class="para logical" id="p-5842">
+<div class="para logical" id="p-5851">
 <div class="para">Now suppose that <span class="process-math">\(W\)</span> is an <span class="process-math">\(n\)</span>-dimensional subspace of <span class="process-math">\(\real^m\)</span> with basis <span class="process-math">\(\wvec_1,\wvec_2,\ldots,\wvec_n\text{.}\)</span>  If we form the <span class="process-math">\(m\times n\)</span> matrix <span class="process-math">\(A=\begin{bmatrix}\wvec_1 \amp \wvec_2
 \amp \ldots \amp \wvec_n\end{bmatrix}\text{,}\)</span> then <span class="process-math">\(\col(A) = W\)</span> so that</div>
 <div class="displaymath process-math">
@@ -1025,7 +1027,7 @@ n-\rank(A)\text{.}\)</span>
 \end{equation*}
 </div>
 </div>
-<div class="para logical" id="p-5843">
+<div class="para logical" id="p-5852">
 <div class="para">The transpose <span class="process-math">\(A^T\)</span> is an <span class="process-math">\(n\times m\)</span> matrix having <span class="process-math">\(\rank(A^T) = \rank(A)= n\text{.}\)</span>  Since <span class="process-math">\(W^\perp =
 \nul(A^T)\text{,}\)</span> we have</div>
 <div class="displaymath process-math">
@@ -1039,7 +1041,7 @@ m-\dim W\text{.}
 <article class="proposition theorem-like" id="prop-orthog-dim"><h4 class="heading">
 <span class="type">Proposition</span><span class="space"> </span><span class="codenumber">6.2.13</span><span class="period">.</span>
 </h4>
-<div class="para logical" id="p-5844">
+<div class="para logical" id="p-5853">
 <div class="para">If <span class="process-math">\(W\)</span> is a subspace of <span class="process-math">\(\real^m\text{,}\)</span> then</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -1049,35 +1051,35 @@ m-\dim W\text{.}
 </div></article><article class="example example-like" id="example-58"><h4 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">6.2.14</span><span class="period">.</span>
 </h4>
-<div class="para" id="p-5845">In <a href="" class="xref" data-knowl="./knowl/example-orthog-comp-line.html" title="Example 6.2.4">Example 6.2.4</a>, we constructed the orthogonal complement of a line in <span class="process-math">\(\real^3\text{.}\)</span>  The dimension of the orthogonal complement should be <span class="process-math">\(3 - 1 = 2\text{,}\)</span> which explains why we found the orthogonal complement to be a plane.</div></article><article class="example example-like" id="example-59"><h4 class="heading">
+<div class="para" id="p-5854">In <a href="" class="xref" data-knowl="./knowl/example-orthog-comp-line.html" title="Example 6.2.4">Example 6.2.4</a>, we constructed the orthogonal complement of a line in <span class="process-math">\(\real^3\text{.}\)</span>  The dimension of the orthogonal complement should be <span class="process-math">\(3 - 1 = 2\text{,}\)</span> which explains why we found the orthogonal complement to be a plane.</div></article><article class="example example-like" id="example-59"><h4 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">6.2.15</span><span class="period">.</span>
 </h4>
-<div class="para" id="p-5846">In <a href="" class="xref" data-knowl="./knowl/example-orthog-comp-gen.html" title="Example 6.2.5">Example 6.2.5</a>, we looked at <span class="process-math">\(W\text{,}\)</span> a <span class="process-math">\(2\)</span>-dimensional subspace of <span class="process-math">\(\real^5\)</span> and found its orthogonal complement <span class="process-math">\(W^\perp\)</span> to be a <span class="process-math">\(5-2=3\)</span>-dimensional subspace of <span class="process-math">\(\real^5\text{.}\)</span>
+<div class="para" id="p-5855">In <a href="" class="xref" data-knowl="./knowl/example-orthog-comp-gen.html" title="Example 6.2.5">Example 6.2.5</a>, we looked at <span class="process-math">\(W\text{,}\)</span> a <span class="process-math">\(2\)</span>-dimensional subspace of <span class="process-math">\(\real^5\)</span> and found its orthogonal complement <span class="process-math">\(W^\perp\)</span> to be a <span class="process-math">\(5-2=3\)</span>-dimensional subspace of <span class="process-math">\(\real^5\text{.}\)</span>
 </div></article><article class="activity project-like" id="activity-75"><h4 class="heading">
 <span class="type">Activity</span><span class="space"> </span><span class="codenumber">6.2.5</span><span class="period">.</span>
 </h4>
-<div class="para logical" id="p-5847"><ol class="lower-alpha">
-<li id="li-4001"><div class="para logical" id="p-5848">
+<div class="para logical" id="p-5856"><ol class="lower-alpha">
+<li id="li-4001"><div class="para logical" id="p-5857">
 <div class="para">Suppose that <span class="process-math">\(W\)</span> is a <span class="process-math">\(5\)</span>-dimensional subspace of <span class="process-math">\(\real^9\)</span> and that <span class="process-math">\(A\)</span> is a matrix whose columns form a basis for <span class="process-math">\(W\text{;}\)</span>  that is, <span class="process-math">\(\col(A) =
 W\text{.}\)</span>
 </div>
 <ol class="decimal">
-<li id="li-4002"><div class="para" id="p-5849">What is the shape of <span class="process-math">\(A\text{?}\)</span>
+<li id="li-4002"><div class="para" id="p-5858">What is the shape of <span class="process-math">\(A\text{?}\)</span>
 </div></li>
-<li id="li-4003"><div class="para" id="p-5850">What is the rank of <span class="process-math">\(A\text{?}\)</span>
+<li id="li-4003"><div class="para" id="p-5859">What is the rank of <span class="process-math">\(A\text{?}\)</span>
 </div></li>
-<li id="li-4004"><div class="para" id="p-5851">What is the shape of <span class="process-math">\(A^T\text{?}\)</span>
+<li id="li-4004"><div class="para" id="p-5860">What is the shape of <span class="process-math">\(A^T\text{?}\)</span>
 </div></li>
-<li id="li-4005"><div class="para" id="p-5852">What is the rank of <span class="process-math">\(A^T\text{?}\)</span>
+<li id="li-4005"><div class="para" id="p-5861">What is the rank of <span class="process-math">\(A^T\text{?}\)</span>
 </div></li>
-<li id="li-4006"><div class="para" id="p-5853">What is <span class="process-math">\(\dim\nul(A^T)\text{?}\)</span>
+<li id="li-4006"><div class="para" id="p-5862">What is <span class="process-math">\(\dim\nul(A^T)\text{?}\)</span>
 </div></li>
-<li id="li-4007"><div class="para" id="p-5854">What is <span class="process-math">\(\dim W^\perp\text{?}\)</span>
+<li id="li-4007"><div class="para" id="p-5863">What is <span class="process-math">\(\dim W^\perp\text{?}\)</span>
 </div></li>
-<li id="li-4008"><div class="para" id="p-5855">How are the dimensions of <span class="process-math">\(W\)</span> and <span class="process-math">\(W^\perp\)</span> related?</div></li>
+<li id="li-4008"><div class="para" id="p-5864">How are the dimensions of <span class="process-math">\(W\)</span> and <span class="process-math">\(W^\perp\)</span> related?</div></li>
 </ol>
 </div></li>
-<li id="li-4009"><div class="para logical" id="p-5856">
+<li id="li-4009"><div class="para logical" id="p-5865">
 <div class="para">Suppose that <span class="process-math">\(W\)</span> is a subspace of <span class="process-math">\(\real^4\)</span> having basis</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -1086,29 +1088,29 @@ W\text{.}\)</span>
 \end{equation*}
 </div>
 <ol class="decimal">
-<li id="li-4010"><div class="para" id="p-5857">Find the dimensions <span class="process-math">\(\dim W\)</span> and <span class="process-math">\(\dim
+<li id="li-4010"><div class="para" id="p-5866">Find the dimensions <span class="process-math">\(\dim W\)</span> and <span class="process-math">\(\dim
 W^\perp\text{.}\)</span>
 </div></li>
-<li id="li-4011"><div class="para" id="p-5858">Find a basis for <span class="process-math">\(W^\perp\text{.}\)</span>  It may be helpful to know that the Sage command <code class="code-inline tex2jax_ignore">A.right_kernel()</code> produces a basis for <span class="process-math">\(\nul(A)\text{.}\)</span> <pre class="ptx-sagecell sagecell-sage" id="sage-163"><script type="text/x-sage">
+<li id="li-4011"><div class="para" id="p-5867">Find a basis for <span class="process-math">\(W^\perp\text{.}\)</span>  It may be helpful to know that the Sage command <code class="code-inline tex2jax_ignore">A.right_kernel()</code> produces a basis for <span class="process-math">\(\nul(A)\text{.}\)</span> <pre class="ptx-sagecell sagecell-sage" id="sage-165"><script type="text/x-sage">
 </script></pre>
 </div></li>
-<li id="li-4012"><div class="para" id="p-5859">Verify that each of the basis vectors you found for <span class="process-math">\(W^\perp\)</span> are orthogonal to the basis vectors for <span class="process-math">\(W\text{.}\)</span>
+<li id="li-4012"><div class="para" id="p-5868">Verify that each of the basis vectors you found for <span class="process-math">\(W^\perp\)</span> are orthogonal to the basis vectors for <span class="process-math">\(W\text{.}\)</span>
 </div></li>
 </ol>
 </div></li>
 </ol></div></article></section><section class="subsection" id="subsection-88"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber">6.2.4</span> <span class="title">Summary</span>
 </h3>
-<div class="para logical" id="p-5886">
+<div class="para logical" id="p-5895">
 <div class="para">This section introduced the matrix transpose, its connection to dot products, and its use in describing the orthogonal complement of a subspace.</div>
 <ul class="disc">
-<li id="li-4037"><div class="para" id="p-5887">The columns of the matrix <span class="process-math">\(A\)</span> are the rows of the matrix transpose <span class="process-math">\(A^T\text{.}\)</span>
+<li id="li-4037"><div class="para" id="p-5896">The columns of the matrix <span class="process-math">\(A\)</span> are the rows of the matrix transpose <span class="process-math">\(A^T\text{.}\)</span>
 </div></li>
-<li id="li-4038"><div class="para" id="p-5888">The components of the product <span class="process-math">\(A^T\xvec\)</span> are the dot products of <span class="process-math">\(\xvec\)</span> with the columns of <span class="process-math">\(A\text{.}\)</span>
+<li id="li-4038"><div class="para" id="p-5897">The components of the product <span class="process-math">\(A^T\xvec\)</span> are the dot products of <span class="process-math">\(\xvec\)</span> with the columns of <span class="process-math">\(A\text{.}\)</span>
 </div></li>
-<li id="li-4039"><div class="para" id="p-5889">The orthogonal complement of the column space of <span class="process-math">\(A\)</span> equals the null space of <span class="process-math">\(A^T\text{;}\)</span>  that is, <span class="process-math">\(\col(A)^\perp = \nul(A^T)\text{.}\)</span>
+<li id="li-4039"><div class="para" id="p-5898">The orthogonal complement of the column space of <span class="process-math">\(A\)</span> equals the null space of <span class="process-math">\(A^T\text{;}\)</span>  that is, <span class="process-math">\(\col(A)^\perp = \nul(A^T)\text{.}\)</span>
 </div></li>
-<li id="li-4040"><div class="para logical" id="p-5890">
+<li id="li-4040"><div class="para logical" id="p-5899">
 <div class="para">If <span class="process-math">\(W\)</span> is a subspace of <span class="process-math">\(\real^p\text{,}\)</span> then</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -1121,7 +1123,7 @@ W^\perp\text{.}\)</span>
 <span class="type">Exercises</span> <span class="codenumber">6.2.5</span> <span class="title">Exercises</span>
 </h3>
 <article class="exercise exercise-like" id="exercise-209"><h4 class="heading"><span class="codenumber">1<span class="period">.</span></span></h4>
-<div class="para logical" id="p-5891">
+<div class="para logical" id="p-5900">
 <div class="para">Suppose that <span class="process-math">\(W\)</span> is a subspace of <span class="process-math">\(\real^4\)</span> with basis</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -1130,16 +1132,16 @@ W^\perp\text{.}\)</span>
 \end{equation*}
 </div>
 <ol class="lower-alpha">
-<li id="li-4041"><div class="para" id="p-5892">What are the dimensions <span class="process-math">\(\dim W\)</span> and <span class="process-math">\(\dim
+<li id="li-4041"><div class="para" id="p-5901">What are the dimensions <span class="process-math">\(\dim W\)</span> and <span class="process-math">\(\dim
 W^\perp\text{?}\)</span>
 </div></li>
-<li id="li-4042"><div class="para" id="p-5893">Find a basis for <span class="process-math">\(W^\perp\text{.}\)</span>
+<li id="li-4042"><div class="para" id="p-5902">Find a basis for <span class="process-math">\(W^\perp\text{.}\)</span>
 </div></li>
-<li id="li-4043"><div class="para" id="p-5894">Verify that each of the basis vectors for <span class="process-math">\(W^\perp\)</span> are orthogonal to <span class="process-math">\(\wvec_1\)</span> and <span class="process-math">\(\wvec_2\text{.}\)</span>
+<li id="li-4043"><div class="para" id="p-5903">Verify that each of the basis vectors for <span class="process-math">\(W^\perp\)</span> are orthogonal to <span class="process-math">\(\wvec_1\)</span> and <span class="process-math">\(\wvec_2\text{.}\)</span>
 </div></li>
 </ol>
 </div></article><article class="exercise exercise-like" id="exercise-210"><h4 class="heading"><span class="codenumber">2<span class="period">.</span></span></h4>
-<div class="para logical" id="p-5903">
+<div class="para logical" id="p-5912">
 <div class="para">Consider the matrix <span class="process-math">\(A = \begin{bmatrix}
 -1 \amp -2 \amp -2 \\
 1 \amp 3 \amp 4 \\
@@ -1147,12 +1149,12 @@ W^\perp\text{?}\)</span>
 \end{bmatrix}\text{.}\)</span>
 </div>
 <ol class="lower-alpha">
-<li id="li-4050"><div class="para" id="p-5904">Find <span class="process-math">\(\rank(A)\)</span> and a basis for <span class="process-math">\(\col(A)\text{.}\)</span>
+<li id="li-4050"><div class="para" id="p-5913">Find <span class="process-math">\(\rank(A)\)</span> and a basis for <span class="process-math">\(\col(A)\text{.}\)</span>
 </div></li>
-<li id="li-4051"><div class="para" id="p-5905">Determine the dimension of <span class="process-math">\(\col(A)^\perp\)</span> and find a basis for it.</div></li>
+<li id="li-4051"><div class="para" id="p-5914">Determine the dimension of <span class="process-math">\(\col(A)^\perp\)</span> and find a basis for it.</div></li>
 </ol>
 </div></article><article class="exercise exercise-like" id="exercise-211"><h4 class="heading"><span class="codenumber">3<span class="period">.</span></span></h4>
-<div class="para logical" id="p-5912">
+<div class="para logical" id="p-5921">
 <div class="para">Suppose that <span class="process-math">\(W\)</span> is the subspace of <span class="process-math">\(\real^4\)</span> defined as the solution set of the equation</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -1160,14 +1162,14 @@ x_1 - 3x_2 + 5x_3 - 2x_4 = 0.
 \end{equation*}
 </div>
 <ol class="lower-alpha">
-<li id="li-4056"><div class="para" id="p-5913">What are the dimensions <span class="process-math">\(\dim W\)</span> and <span class="process-math">\(\dim
+<li id="li-4056"><div class="para" id="p-5922">What are the dimensions <span class="process-math">\(\dim W\)</span> and <span class="process-math">\(\dim
 W^\perp\text{?}\)</span>
 </div></li>
-<li id="li-4057"><div class="para" id="p-5914">Find a basis for <span class="process-math">\(W\text{.}\)</span>
+<li id="li-4057"><div class="para" id="p-5923">Find a basis for <span class="process-math">\(W\text{.}\)</span>
 </div></li>
-<li id="li-4058"><div class="para" id="p-5915">Find a basis for <span class="process-math">\(W^\perp\text{.}\)</span>
+<li id="li-4058"><div class="para" id="p-5924">Find a basis for <span class="process-math">\(W^\perp\text{.}\)</span>
 </div></li>
-<li id="li-4059"><div class="para logical" id="p-5916">
+<li id="li-4059"><div class="para logical" id="p-5925">
 <div class="para">In general, how can you easily find a basis for <span class="process-math">\(W^\perp\)</span> when <span class="process-math">\(W\)</span> is defined by</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -1177,64 +1179,64 @@ Ax_1+Bx_2+Cx_3+Dx_4 = 0?
 </div></li>
 </ol>
 </div></article><article class="exercise exercise-like" id="exercise-212"><h4 class="heading"><span class="codenumber">4<span class="period">.</span></span></h4>
-<div class="para logical" id="p-5927">
+<div class="para logical" id="p-5936">
 <div class="para">Determine whether the following statements are true or false and explain your reasoning.</div>
 <ol class="lower-alpha">
-<li id="li-4068"><div class="para" id="p-5928">If <span class="process-math">\(A=\begin{bmatrix}
+<li id="li-4068"><div class="para" id="p-5937">If <span class="process-math">\(A=\begin{bmatrix}
 2 \amp 1 \\
 1 \amp 1 \\
 -3 \amp 1
 \end{bmatrix}\text{,}\)</span> then <span class="process-math">\(\xvec=\threevec{4}{-5}1\)</span> is in <span class="process-math">\(\col(A)^\perp\text{.}\)</span>
 </div></li>
-<li id="li-4069"><div class="para" id="p-5929">If <span class="process-math">\(A\)</span> is a <span class="process-math">\(2\times3\)</span> matrix and <span class="process-math">\(B\)</span> is a <span class="process-math">\(3\times4\)</span> matrix, then <span class="process-math">\((AB)^T = A^TB^T\)</span> is a <span class="process-math">\(4\times2\)</span> matrix.</div></li>
-<li id="li-4070"><div class="para" id="p-5930">If the columns of <span class="process-math">\(A\)</span> are <span class="process-math">\(\vvec_1\text{,}\)</span> <span class="process-math">\(\vvec_2\text{,}\)</span> and <span class="process-math">\(\vvec_3\)</span> and <span class="process-math">\(A^T\xvec =
+<li id="li-4069"><div class="para" id="p-5938">If <span class="process-math">\(A\)</span> is a <span class="process-math">\(2\times3\)</span> matrix and <span class="process-math">\(B\)</span> is a <span class="process-math">\(3\times4\)</span> matrix, then <span class="process-math">\((AB)^T = A^TB^T\)</span> is a <span class="process-math">\(4\times2\)</span> matrix.</div></li>
+<li id="li-4070"><div class="para" id="p-5939">If the columns of <span class="process-math">\(A\)</span> are <span class="process-math">\(\vvec_1\text{,}\)</span> <span class="process-math">\(\vvec_2\text{,}\)</span> and <span class="process-math">\(\vvec_3\)</span> and <span class="process-math">\(A^T\xvec =
 \threevec{2}01\text{,}\)</span> then <span class="process-math">\(\xvec\)</span> is orthogonal to <span class="process-math">\(\vvec_2\text{.}\)</span>
 </div></li>
-<li id="li-4071"><div class="para" id="p-5931">If <span class="process-math">\(A\)</span> is a <span class="process-math">\(4\times 4\)</span> matrix with <span class="process-math">\(\rank(A) = 3\text{,}\)</span> then <span class="process-math">\(\col(A)^\perp\)</span> is a line in <span class="process-math">\(\real^4\text{.}\)</span>
+<li id="li-4071"><div class="para" id="p-5940">If <span class="process-math">\(A\)</span> is a <span class="process-math">\(4\times 4\)</span> matrix with <span class="process-math">\(\rank(A) = 3\text{,}\)</span> then <span class="process-math">\(\col(A)^\perp\)</span> is a line in <span class="process-math">\(\real^4\text{.}\)</span>
 </div></li>
-<li id="li-4072"><div class="para" id="p-5932">If <span class="process-math">\(A\)</span> is a <span class="process-math">\(5\times 7\)</span> matrix with <span class="process-math">\(\rank(A) = 5\text{,}\)</span> then <span class="process-math">\(\rank(A^T) = 7\text{.}\)</span>
+<li id="li-4072"><div class="para" id="p-5941">If <span class="process-math">\(A\)</span> is a <span class="process-math">\(5\times 7\)</span> matrix with <span class="process-math">\(\rank(A) = 5\text{,}\)</span> then <span class="process-math">\(\rank(A^T) = 7\text{.}\)</span>
 </div></li>
 </ol>
 </div></article><article class="exercise exercise-like" id="exercise-213"><h4 class="heading"><span class="codenumber">5<span class="period">.</span></span></h4>
-<div class="para logical" id="p-5945">
+<div class="para logical" id="p-5954">
 <div class="para">Apply properties of matrix operations to simplify the following expressions.</div>
 <ol class="lower-alpha">
-<li id="li-4083"><div class="para" id="p-5946"><span class="process-math">\(\displaystyle A^T(BA^T)^{-1} \)</span></div></li>
-<li id="li-4084"><div class="para" id="p-5947"><span class="process-math">\(\displaystyle (A+B)^T(A+B) \)</span></div></li>
-<li id="li-4085"><div class="para" id="p-5948"><span class="process-math">\(\displaystyle [A(A+B)^T]^T \)</span></div></li>
-<li id="li-4086"><div class="para" id="p-5949"><span class="process-math">\(\displaystyle (A + 2I)^T \)</span></div></li>
+<li id="li-4083"><div class="para" id="p-5955"><span class="process-math">\(\displaystyle A^T(BA^T)^{-1} \)</span></div></li>
+<li id="li-4084"><div class="para" id="p-5956"><span class="process-math">\(\displaystyle (A+B)^T(A+B) \)</span></div></li>
+<li id="li-4085"><div class="para" id="p-5957"><span class="process-math">\(\displaystyle [A(A+B)^T]^T \)</span></div></li>
+<li id="li-4086"><div class="para" id="p-5958"><span class="process-math">\(\displaystyle (A + 2I)^T \)</span></div></li>
 </ol>
 </div></article><article class="exercise exercise-like" id="exercise-214"><h4 class="heading"><span class="codenumber">6<span class="period">.</span></span></h4>
-<div class="para logical" id="p-5960">
+<div class="para logical" id="p-5969">
 <div class="para">A symmetric matrix <span class="process-math">\(A\)</span> is one for which <span class="process-math">\(A=A^T\text{.}\)</span>
 </div>
 <ol class="lower-alpha">
-<li id="li-4095"><div class="para" id="p-5961">Explain why a symmetric matrix must be square.</div></li>
-<li id="li-4096"><div class="para logical" id="p-5962">
+<li id="li-4095"><div class="para" id="p-5970">Explain why a symmetric matrix must be square.</div></li>
+<li id="li-4096"><div class="para logical" id="p-5971">
 <div class="para">If <span class="process-math">\(A\)</span> and <span class="process-math">\(B\)</span> are general matrices and <span class="process-math">\(D\)</span> is a square diagonal matrix, which of the following matrices can you guarantee are symmetric?</div>
 <ol class="decimal">
-<li id="li-4097"><div class="para" id="p-5963"><span class="process-math">\(\displaystyle D\)</span></div></li>
-<li id="li-4098"><div class="para" id="p-5964"><span class="process-math">\(\displaystyle BAB^{-1} \)</span></div></li>
-<li id="li-4099"><div class="para" id="p-5965"><span class="process-math">\(AA^T\text{.}\)</span></div></li>
-<li id="li-4100"><div class="para" id="p-5966"><span class="process-math">\(\displaystyle BDB^T\)</span></div></li>
+<li id="li-4097"><div class="para" id="p-5972"><span class="process-math">\(\displaystyle D\)</span></div></li>
+<li id="li-4098"><div class="para" id="p-5973"><span class="process-math">\(\displaystyle BAB^{-1} \)</span></div></li>
+<li id="li-4099"><div class="para" id="p-5974"><span class="process-math">\(AA^T\text{.}\)</span></div></li>
+<li id="li-4100"><div class="para" id="p-5975"><span class="process-math">\(\displaystyle BDB^T\)</span></div></li>
 </ol>
 </div></li>
 </ol>
 </div></article><article class="exercise exercise-like" id="exercise-215"><h4 class="heading"><span class="codenumber">7<span class="period">.</span></span></h4>
-<div class="para logical" id="p-5981">
+<div class="para logical" id="p-5990">
 <div class="para">If <span class="process-math">\(A\)</span> is a square matrix, remember that the characteristic polynomial of <span class="process-math">\(A\)</span> is <span class="process-math">\(\det(A-\lambda
 I)\)</span> and that the roots of the characteristic polynomial are the eigenvalues of <span class="process-math">\(A\text{.}\)</span>
 </div>
 <ol class="lower-alpha">
-<li id="li-4113"><div class="para" id="p-5982">Explain why <span class="process-math">\(A\)</span> and <span class="process-math">\(A^T\)</span> have the same characteristic polynomial.</div></li>
-<li id="li-4114"><div class="para" id="p-5983">Explain why <span class="process-math">\(A\)</span> and <span class="process-math">\(A^T\)</span> have the same set of eigenvalues.</div></li>
-<li id="li-4115"><div class="para" id="p-5984">Suppose that <span class="process-math">\(A\)</span> is diagonalizable with diagonalization <span class="process-math">\(A=PDP^{-1}\text{.}\)</span>  Explain why <span class="process-math">\(A^T\)</span> is diagonalizable and find a diagonalization.</div></li>
+<li id="li-4113"><div class="para" id="p-5991">Explain why <span class="process-math">\(A\)</span> and <span class="process-math">\(A^T\)</span> have the same characteristic polynomial.</div></li>
+<li id="li-4114"><div class="para" id="p-5992">Explain why <span class="process-math">\(A\)</span> and <span class="process-math">\(A^T\)</span> have the same set of eigenvalues.</div></li>
+<li id="li-4115"><div class="para" id="p-5993">Suppose that <span class="process-math">\(A\)</span> is diagonalizable with diagonalization <span class="process-math">\(A=PDP^{-1}\text{.}\)</span>  Explain why <span class="process-math">\(A^T\)</span> is diagonalizable and find a diagonalization.</div></li>
 </ol>
 </div></article><article class="exercise exercise-like" id="exercise-216"><h4 class="heading"><span class="codenumber">8<span class="period">.</span></span></h4>
-<div class="para logical" id="p-5993">
+<div class="para logical" id="p-6002">
 <div class="para">This exercise introduces a version of the Pythagorean theorem that we’ll use later.</div>
 <ol class="lower-alpha">
-<li id="li-4122"><div class="para logical" id="p-5994">
+<li id="li-4122"><div class="para logical" id="p-6003">
 <div class="para">Suppose that <span class="process-math">\(\vvec\)</span> and <span class="process-math">\(\wvec\)</span> are orthogonal to one another.  Use the dot product to explain why</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -1242,7 +1244,7 @@ I)\)</span> and that the roots of the characteristic polynomial are the eigenval
 \end{equation*}
 </div>
 </div></li>
-<li id="li-4123"><div class="para logical" id="p-5995">
+<li id="li-4123"><div class="para logical" id="p-6004">
 <div class="para">Suppose that <span class="process-math">\(W\)</span> is a subspace of <span class="process-math">\(\real^m\)</span> and that <span class="process-math">\(\zvec\)</span> is a vector in <span class="process-math">\(\real^m\)</span> for which</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -1259,31 +1261,31 @@ I)\)</span> and that the roots of the characteristic polynomial are the eigenval
 </div></li>
 </ol>
 </div></article><article class="exercise exercise-like" id="exercise-217"><h4 class="heading"><span class="codenumber">9<span class="period">.</span></span></h4>
-<div class="para logical" id="p-6002">
+<div class="para logical" id="p-6011">
 <div class="para">In the next chapter, symmetric matrices---that is, matrices for which <span class="process-math">\(A=A^T\)</span>---play an important role.  It turns out that eigenvectors of a symmetric matrix that are associated to different eigenvalues are orthogonal.  We will explain this fact in this exercise.</div>
 <ol class="lower-alpha">
-<li id="li-4128"><div class="para" id="p-6003">Viewing a vector as a matrix having one column, we may write <span class="process-math">\(\xvec\cdot\yvec = 
+<li id="li-4128"><div class="para" id="p-6012">Viewing a vector as a matrix having one column, we may write <span class="process-math">\(\xvec\cdot\yvec = 
 \xvec^T\yvec\text{.}\)</span> If <span class="process-math">\(A\)</span> is a matrix, explain why <span class="process-math">\(\xvec\cdot (A\yvec) = (A^T\xvec) \cdot
 \yvec\text{.}\)</span>
 </div></li>
-<li id="li-4129"><div class="para" id="p-6004">We have seen that the matrix <span class="process-math">\(A=\begin{bmatrix}
+<li id="li-4129"><div class="para" id="p-6013">We have seen that the matrix <span class="process-math">\(A=\begin{bmatrix}
 1 \amp 2 \\
 2 \amp 1 
 \end{bmatrix}\)</span> has eigenvectors <span class="process-math">\(\vvec_1=\twovec11\text{,}\)</span> with associated eigenvalue <span class="process-math">\(\lambda_1=3\text{,}\)</span> and <span class="process-math">\(\vvec_2
 = \twovec{1}{-1}\text{,}\)</span> with associated eigenvalue <span class="process-math">\(\lambda_2 = -1\text{.}\)</span>  Verify that <span class="process-math">\(A\)</span> is symmetric and that <span class="process-math">\(\vvec_1\)</span> and <span class="process-math">\(\vvec_2\)</span> are orthogonal.</div></li>
-<li id="li-4130"><div class="para" id="p-6005">Suppose that <span class="process-math">\(A\)</span> is a general symmetric matrix and that <span class="process-math">\(\vvec_1\)</span> is an eigenvector associated to eigenvalue <span class="process-math">\(\lambda_1\)</span> and that <span class="process-math">\(\vvec_2\)</span> is an eigenvector associated to a different eigenvalue <span class="process-math">\(\lambda_2\text{.}\)</span>  Beginning with <span class="process-math">\(\vvec_1\cdot
+<li id="li-4130"><div class="para" id="p-6014">Suppose that <span class="process-math">\(A\)</span> is a general symmetric matrix and that <span class="process-math">\(\vvec_1\)</span> is an eigenvector associated to eigenvalue <span class="process-math">\(\lambda_1\)</span> and that <span class="process-math">\(\vvec_2\)</span> is an eigenvector associated to a different eigenvalue <span class="process-math">\(\lambda_2\text{.}\)</span>  Beginning with <span class="process-math">\(\vvec_1\cdot
 (A\vvec_2)\text{,}\)</span> apply the identity from the first part of this exercise to explain why <span class="process-math">\(\vvec_1\)</span> and <span class="process-math">\(\vvec_2\)</span> are orthogonal.</div></li>
 </ol>
 </div></article><article class="exercise exercise-like" id="exercise-218"><h4 class="heading"><span class="codenumber">10<span class="period">.</span></span></h4>
-<div class="para logical" id="p-6014">
+<div class="para logical" id="p-6023">
 <div class="para">Given an <span class="process-math">\(m\times n\)</span> matrix <span class="process-math">\(A\text{,}\)</span> the <em class="emphasis">row space</em> of <span class="process-math">\(A\)</span> is the column space of <span class="process-math">\(A^T\text{;}\)</span> that is, <span class="process-math">\(\row(A) = \col(A^T)\text{.}\)</span>
 </div>
 <ol class="lower-alpha">
-<li id="li-4137"><div class="para" id="p-6015">Suppose that <span class="process-math">\(A\)</span> is a <span class="process-math">\(7\times 15\)</span> matrix. For what <span class="process-math">\(p\)</span> is <span class="process-math">\(\row(A)\)</span> a subspace of <span class="process-math">\(\real^p\text{?}\)</span>
+<li id="li-4137"><div class="para" id="p-6024">Suppose that <span class="process-math">\(A\)</span> is a <span class="process-math">\(7\times 15\)</span> matrix. For what <span class="process-math">\(p\)</span> is <span class="process-math">\(\row(A)\)</span> a subspace of <span class="process-math">\(\real^p\text{?}\)</span>
 </div></li>
-<li id="li-4138"><div class="para" id="p-6016">How can <a href="" class="xref" data-knowl="./knowl/prop-col-orthog.html" title="Proposition 6.2.10">Proposition 6.2.10</a> help us describe <span class="process-math">\(\row(A)^\perp\text{?}\)</span>
+<li id="li-4138"><div class="para" id="p-6025">How can <a href="" class="xref" data-knowl="./knowl/prop-col-orthog.html" title="Proposition 6.2.10">Proposition 6.2.10</a> help us describe <span class="process-math">\(\row(A)^\perp\text{?}\)</span>
 </div></li>
-<li id="li-4139"><div class="para" id="p-6017">Suppose that <span class="process-math">\(A = \begin{bmatrix}
+<li id="li-4139"><div class="para" id="p-6026">Suppose that <span class="process-math">\(A = \begin{bmatrix}
 -1 \amp -2 \amp 2 \amp 1 \\
 2 \amp 4 \amp -1 \amp 5 \\
 1 \amp 2 \amp 0 \amp 3

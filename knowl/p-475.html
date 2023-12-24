@@ -9,28 +9,41 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="robots" content="noindex, nofollow">
-<script>// Make *any* pre with class 'sagecell-sage' an executable Sage cell
-// Their results will be linked, only within language type
-sagecell.makeSagecell({
-  "inputLocation": "pre.sagecell-sage",
-  "linked": true,
-  "languages": [
-    "sage"
-  ],
-  "evalButtonText": "Evaluate (Sage)"
-});
-</script>
 </head>
 <body class="ignore-math">
 <h5 class="heading"><span class="type">Paragraph</span></h5>
 <div class="para logical">
-<div class="para">Suppose you work at a company that makes model rocket motors.  When you come into work one morning, you learn that yesterday’s first shift made a perfect batch of fuel.  The second shift, however, misread the recipe and used 50% charcoal, 20% potassium nitrate and 30% sulfur.  Then the two batches were mixed together.  A chemical analysis shows that there are 100.3 pounds of charcoal in the mixture and 46.9 pounds of potassium nitrate.</div>
-<ol class="lower-alpha">
-<li><div class="para">Assuming the first shift produced <span class="process-math">\(x\)</span> pounds of fuel and the second <span class="process-math">\(y\)</span> pounds, set up a linear system in terms of <span class="process-math">\(x\)</span> and <span class="process-math">\(y\text{.}\)</span>  How many pounds of fuel did the first shift produce and how many did the second shift produce? <pre class="ptx-sagecell sagecell-sage" id="sage-17"><script type="text/x-sage">
-</script></pre>
-</div></li>
-<li><div class="para">How much sulfur would you expect to find in the mixture?</div></li>
-</ol>
+<div class="para">In this case, we find the equations:</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\begin{alignedat}{5}
+x \amp {}+{} \amp y \amp \amp \amp \amp \amp {}={} \amp 650 \\
+x \amp \amp \amp {}-{} \amp z \amp \amp \amp {}={}
+\amp -150 \\
+\amp \amp y \amp \amp \amp {}+{} \amp w \amp {}={} \amp 580 \\
+\amp \amp \amp \amp z \amp {}-{} \amp w \amp {}={}
+\amp 220\text{.} \\
+\end{alignedat}
+\end{equation*}
+</div>
+<div class="para">This gives the augmented matrix:</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\left[\begin{array}{rrrr|r}
+1 \amp 1 \amp 0 \amp 0 \amp 650 \\
+1 \amp 0 \amp -1 \amp 0 \amp -150 \\
+0 \amp 1 \amp 0 \amp 1 \amp 580 \\
+0 \amp 0 \amp 1 \amp -1 \amp 220
+\end{array}\right]
+\sim
+\left[\begin{array}{rrrrr}
+1 \amp 0 \amp 0 \amp -1 \amp 70 \\
+0 \amp 1 \amp 0 \amp 1 \amp 580 \\
+0 \amp 0 \amp 1 \amp -1 \amp 220 \\
+0 \amp 0 \amp 0 \amp 0 \amp 0
+\end{array}\right]\text{.}
+\end{equation*}
+</div>
 </div>
 <span class="incontext"><a href="sec-sage-introduction.html#p-475" class="internal">in-context</a></span>
 </body>

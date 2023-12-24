@@ -9,10 +9,42 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="robots" content="noindex, nofollow">
+<script>// Make *any* pre with class 'sagecell-sage' an executable Sage cell
+// Their results will be linked, only within language type
+sagecell.makeSagecell({
+  "inputLocation": "pre.sagecell-sage",
+  "linked": true,
+  "languages": [
+    "sage"
+  ],
+  "evalButtonText": "Evaluate (Sage)"
+});
+</script>
 </head>
 <body class="ignore-math">
 <h4 class="heading"><span class="type">Paragraph</span></h4>
-<div class="para">In the same way, if <span class="process-math">\(\lambda\)</span> is an eigenvalue of <span class="process-math">\(A\text{,}\)</span> then <span class="process-math">\(A\vvec=\lambda\vvec\)</span> for an associated eigenvector <span class="process-math">\(\vvec\text{.}\)</span>  This means that <span class="process-math">\((A-3I)\vvec = (\lambda-3)\vvec\)</span> so that <span class="process-math">\(\lambda-3\)</span> is an eigenvalue of <span class="process-math">\(A-3I\text{.}\)</span>
+<div class="para logical">
+<div class="para">Let’s recall some earlier observations about eigenvalues and eigenvectors.</div>
+<ol class="lower-alpha">
+<li><div class="para">How are the eigenvalues and associated eigenvectors of <span class="process-math">\(A\)</span> related to those of <span class="process-math">\(A^{-1}\text{?}\)</span>
+</div></li>
+<li><div class="para">How are the eigenvalues and associated eigenvectors of <span class="process-math">\(A\)</span> related to those of <span class="process-math">\(A-3I\text{?}\)</span>
+</div></li>
+<li><div class="para">If <span class="process-math">\(\lambda\)</span> is an eigenvalue of <span class="process-math">\(A\text{,}\)</span> what can we say about the pivot positions of <span class="process-math">\(A-\lambda
+I\text{?}\)</span>
+</div></li>
+<li><div class="para">Suppose that <span class="process-math">\(A = \left[\begin{array}{rr}
+0.8 \amp 0.4 \\
+0.2 \amp 0.6 \\
+\end{array}\right]
+\text{.}\)</span>  Explain how we know that <span class="process-math">\(1\)</span> is an eigenvalue of <span class="process-math">\(A\)</span> and then explain why the following Sage computation is incorrect. <pre class="ptx-sagecell sagecell-sage" id="sage-143"><script type="text/x-sage">A = matrix(2,2,[0.8, 0.4, 0.2, 0.6])
+I = matrix(2,2,[1, 0, 0, 1])	  
+(A-I).rref()
+</script></pre>
+</div></li>
+<li><div class="para">Suppose that <span class="process-math">\(\xvec_0 = \twovec{1}{0}\text{,}\)</span> and we define a sequence <span class="process-math">\(\xvec_{k+1} = A\xvec_k\text{;}\)</span>  in other words, <span class="process-math">\(\xvec_{k} = A^k\xvec_0\text{.}\)</span>  What happens to <span class="process-math">\(\xvec_k\)</span> as <span class="process-math">\(k\)</span> grows increasingly large?</div></li>
+<li><div class="para">Explain how the eigenvalues of <span class="process-math">\(A\)</span> are responsible for the behavior noted in the previous question.</div></li>
+</ol>
 </div>
 <span class="incontext"><a href="sec-power-method.html#p-5278" class="internal">in-context</a></span>
 </body>

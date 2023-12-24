@@ -9,67 +9,16 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="robots" content="noindex, nofollow">
-<script>// Make *any* pre with class 'sagecell-sage' an executable Sage cell
-// Their results will be linked, only within language type
-sagecell.makeSagecell({
-  "inputLocation": "pre.sagecell-sage",
-  "linked": true,
-  "languages": [
-    "sage"
-  ],
-  "evalButtonText": "Evaluate (Sage)"
-});
-</script>
 </head>
 <body class="ignore-math">
 <h5 class="heading"><span class="type">Paragraph</span></h5>
-<div class="para logical">
-<div class="para">To keep track of the bicycles, we form a vector</div>
-<div class="displaymath process-math">
-\begin{equation*}
-\xvec_k = \twovec{B_k}{C_k}
-\end{equation*}
-</div>
-<div class="para">where <span class="process-math">\(B_k\)</span> is the number of bicycles at location <span class="process-math">\(B\)</span> at the beginning of day <span class="process-math">\(k\)</span> and <span class="process-math">\(C_k\)</span> is the number of bicycles at <span class="process-math">\(C\text{.}\)</span>  The information above tells us how to determine the distribution of bicycles the following day:</div>
-<div class="displaymath process-math">
-\begin{equation*}
-\begin{alignedat}{3}
-B_{k+1} \amp {}={} 0.8B_k \amp {}+{} \amp 0.5 C_k \\
-C_{k+1} \amp {}={} 0.2B_k \amp {}+{} \amp 0.5 C_k. \\
-\end{alignedat}
-\end{equation*}
-</div>
-<div class="para">Expressed in matrix-vector form, these expressions give</div>
-<div class="displaymath process-math">
-\begin{equation*}
-\xvec_{k+1} = A\xvec_k
-\end{equation*}
-</div>
-<div class="para">where</div>
-<div class="displaymath process-math">
-\begin{equation*}
-A = \left[\begin{array}{rr}
-0.8 \amp 0.5 \\
-0.2 \amp 0.5 \\
-\end{array}\right]\text{.}
-\end{equation*}
-</div>
-<div class="para"><pre class="ptx-sagecell sagecell-sage" id="sage-55"><script type="text/x-sage">
-</script></pre></div>
-<ol class="lower-alpha">
-<li><div class="para logical">
-<div class="para">Let’s check that this makes sense.</div>
-<ol class="decimal">
-<li><div class="para">Suppose that there are 1000 bicycles at location <span class="process-math">\(B\)</span> and none at <span class="process-math">\(C\)</span> on day 1.  This means we have <span class="process-math">\(\xvec_1 = \twovec{1000}{0}\text{.}\)</span>  Find the number of bicycles at both locations on day 2 by evaluating <span class="process-math">\(\xvec_2 = A\xvec_1\text{.}\)</span>
+<div class="para logical"><ol class="lower-alpha">
+<li><div class="para"><span class="process-math">\(\xvec = x_3\threevec{-2}{-1}{1}\text{.}\)</span></div></li>
+<li><div class="para"><span class="process-math">\(\xvec=\threevec{1}{-2}{0}+x_3\threevec{-2}{-1}{1}\text{.}\)</span></div></li>
+<li><div class="para">Notice that <span class="process-math">\(A(\xvec_h + \xvec_p) = A\xvec_h + A\xvec_p = \zerovec +
+\bvec = \bvec\text{.}\)</span>
 </div></li>
-<li><div class="para">Suppose that there are 1000 bicycles at location <span class="process-math">\(C\)</span> and none at <span class="process-math">\(B\)</span> on day 1.  Form the vector <span class="process-math">\(\xvec_1\)</span> and determine the number of bicycles at the two locations the next day by finding <span class="process-math">\(\xvec_2 = A\xvec_1\text{.}\)</span>
-</div></li>
-</ol>
-</div></li>
-<li><div class="para">Suppose that one day there are 1050 bicycles at location <span class="process-math">\(B\)</span> and 450 at location <span class="process-math">\(C\text{.}\)</span>  How many bicycles were there at each location the previous day?</div></li>
-<li><div class="para">Suppose that there are 500 bicycles at location <span class="process-math">\(B\)</span> and 500 at location <span class="process-math">\(C\)</span> on Monday.  How many bicycles are there at the two locations on Tuesday?  on Wednesday? on Thursday?</div></li>
-</ol>
-</div>
+</ol></div>
 <span class="incontext"><a href="sec-matrices-lin-combs.html#p-1226" class="internal">in-context</a></span>
 </body>
 </html>

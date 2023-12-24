@@ -26,7 +26,7 @@ sagecell.makeSagecell({
 <span class="type">Exercise</span><span class="space"> </span><span class="codenumber">9<span class="period">.</span></span>
 </h4>
 <div class="para logical">
-<div class="para">Evaluating the following cell loads a data set describing the temperature in the Earth’s atmosphere at various altitudes. There are also two vectors <code class="code-inline tex2jax_ignore">altitude</code>, expressed in kilometers, and <code class="code-inline tex2jax_ignore">temperature</code>, in degrees Celsius. <pre class="ptx-sagecell sagecell-sage" id="sage-202"><script type="text/x-sage">sage.repl.load.load('https://raw.githubusercontent.com/davidaustinm/ula_modules/master/orthogonality.py', globals())
+<div class="para">Evaluating the following cell loads a dataset describing the temperature in the Earth’s atmosphere at various altitudes. There are also two vectors <code class="code-inline tex2jax_ignore">altitude</code>, expressed in kilometers, and <code class="code-inline tex2jax_ignore">temperature</code>, in degrees Celsius. <pre class="ptx-sagecell sagecell-sage" id="sage-204"><script type="text/x-sage">sage.repl.load.load('https://raw.githubusercontent.com/davidaustinm/ula_modules/master/orthogonality.py', globals())
 df = pd.read_csv('https://raw.githubusercontent.com/davidaustinm/ula_modules/master/data/altitude-temps.csv')
 data = [vector(row) for row in df.values]
 altitude = vector(df['Altitude'])
@@ -37,7 +37,7 @@ list_plot(data, size=40, color='blue')
 </div>
 <ol class="lower-alpha">
 <li><div class="para">Describe how to form the matrix <span class="process-math">\(A\)</span> and vector <span class="process-math">\(\bvec\)</span> so that the linear system <span class="process-math">\(A\xvec=\bvec\)</span> describes a degree <span class="process-math">\(k\)</span> polynomial fitting the data.</div></li>
-<li><div class="para">After choosing a value of <span class="process-math">\(k\text{,}\)</span> construct the matrix <span class="process-math">\(A\)</span> and vector <span class="process-math">\(\bvec\text{,}\)</span> and find the least squares approximate solution <span class="process-math">\(\xhat\text{.}\)</span>
+<li><div class="para">After choosing a value of <span class="process-math">\(k\text{,}\)</span> construct the matrix <span class="process-math">\(A\)</span> and vector <span class="process-math">\(\bvec\text{,}\)</span> and find the least-squares approximate solution <span class="process-math">\(\xhat\text{.}\)</span>
 </div></li>
 <li><div class="para">Plot the polynomial and data using <code class="code-inline tex2jax_ignore">plot_model(xhat, data)</code>.</div></li>
 <li><div class="para">Now examine what happens as you vary the degree of the polynomial <span class="process-math">\(k\text{.}\)</span>  Choose an appropriate value of <span class="process-math">\(k\)</span> that seems to capture the most important features of the data while avoiding overfitting, and explain your choice.</div></li>

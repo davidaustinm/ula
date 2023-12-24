@@ -9,82 +9,44 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="robots" content="noindex, nofollow">
+<script>// Make *any* pre with class 'sagecell-sage' an executable Sage cell
+// Their results will be linked, only within language type
+sagecell.makeSagecell({
+  "inputLocation": "pre.sagecell-sage",
+  "linked": true,
+  "languages": [
+    "sage"
+  ],
+  "evalButtonText": "Evaluate (Sage)"
+});
+</script>
 </head>
 <body class="ignore-math">
 <h5 class="heading"><span class="type">Paragraph</span></h5>
 <div class="para logical"><ol class="lower-alpha">
-<li><div class="para logical">
-<div class="para">After creating a Markov chain to find the steady-state vector, we find</div>
-<div class="displaymath process-math">
-\begin{equation*}
-\begin{array}{rrrr}
-x_1 = 0.057, \amp x_2=0.085, \amp x_3=0.028, \amp
-x_4=0.085, \\
-x_5 = 0.071, \amp x_6=0.212, \amp x_7=0.170, \amp
-x_8=0.292\text{.}
-\end{array}
-\end{equation*}
-</div>
+<li><div class="para">Construct the Google matrix <span class="process-math">\(G\)</span> for this Internet.  Then use a Markov chain to find the steady-state PageRank vector <span class="process-math">\(\xvec\text{.}\)</span> <pre class="ptx-sagecell sagecell-sage" id="sage-130"><script type="text/x-sage">def markov_chain(A, x0, N):
+    for i in range(N):
+        x0 = A*x0
+        print (x0.numerical_approx(digits=3))
+## define the matrix G and x0
+G =
+x0 =
+markov_chain(G, x0, 20)
+</script></pre>
 </div></li>
-<li><div class="para">This shows us that page <span class="process-math">\(8\)</span> is judged to be the most important and page <span class="process-math">\(3\)</span> the least important.  The pages <span class="process-math">\(6\text{,}\)</span> <span class="process-math">\(7\text{,}\)</span> and <span class="process-math">\(8\text{,}\)</span> are the most important.  This makes sense because there are a lot of links between these pages without many links going out from these pages to the others.</div></li>
-<li><div class="para logical">
-<div class="para">We have the matrix</div>
-<div class="displaymath process-math">
-\begin{equation*}
-G = \left[\begin{array}{rrrrr}
-0 \amp 0 \amp 0 \amp 0 \amp 1 \\
-1 \amp 0 \amp 0 \amp 0 \amp 0 \\
-0 \amp 1 \amp 0 \amp 0 \amp 0 \\
-0 \amp 0 \amp 1 \amp 0 \amp 0 \\
-0 \amp 0 \amp 0 \amp 1 \amp 0 \\
-\end{array}\right]\text{,}
-\end{equation*}
-</div>
-<div class="para">which leads to the Markov chain</div>
-<div class="displaymath process-math">
-\begin{equation*}
-\xvec_0=\left[\begin{array}{c} 1\\ 0\\ 0 \\ 0
-\\0\end{array}\right], 
-\xvec_1=\left[\begin{array}{c} 0\\ 1\\ 0 \\ 0
-\\0\end{array}\right], 
-\xvec_2=\left[\begin{array}{c} 0\\ 0\\ 1 \\ 0
-\\0\end{array}\right], 
-\xvec_3=\left[\begin{array}{c} 0\\ 0\\ 0 \\ 1
-\\0\end{array}\right], 
-\xvec_4=\left[\begin{array}{c} 0\\ 0\\ 0 \\ 0
-\\1\end{array}\right], \ldots
-\end{equation*}
-</div>
-<div class="para">This Markov chain does not converge to a steady-state vector.</div>
-</div></li>
-<li><div class="para logical">
-<div class="para">As all of the pages seem equally important, we should expect the PageRank vector to be</div>
-<div class="displaymath process-math">
-\begin{equation*}
-\xvec=\left[\begin{array}{c}
-\frac 15 \\
-\frac 15 \\
-\frac 15 \\
-\frac 15 \\
-\frac 15
-\end{array}\right]\text{.}
-\end{equation*}
-</div>
-</div></li>
-<li><div class="para logical">
-<div class="para">After generating some terms of a Markov chain, we see that</div>
-<div class="displaymath process-math">
-\begin{equation*}
-\begin{array}{rrrr}
-x_1 = 0.000, \amp x_2=0.000, \amp x_3=0.000, \amp
-x_4=0.000, \\
-x_5 = 0.120, \amp x_6=0.240, \amp x_7=0.240, \amp
-x_8=0.400\text{.}
-\end{array}
-\end{equation*}
-</div>
-<div class="para">These are not the components of a steady-state vector because some of the entries are zero.  The Google matrix <span class="process-math">\(G\)</span> cannot be a positive matrix in this example.  This is not desirable because we lose any information about the importance of the first four pages.  All the PageRank drains out of the left side into the pages on the right side.</div>
-</div></li>
+<li><div class="para">What does this vector tell us about the relative quality of the pages in this Internet?  Which page has the highest quality and which the lowest?</div></li>
+<li>
+<div class="para">Now consider the Internet with five pages, shown in <a href="" class="xref" data-knowl="./knowl/fig-google-cyclic.html" title="Figure 4.5.9">Figure 4.5.9</a>.</div>
+<figure class="figure figure-like"><div class="sidebyside"><div class="sbsrow" style="margin-left:25%;margin-right:25%;"><div class="sbspanel top" style="width:100%;"><img src="external/images/google-cyclic.svg" role="img" class="contained"></div></div></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">4.5.9<span class="period">.</span></span><span class="space"> </span>A model of the Internet with five web pages.</figcaption></figure><div class="para">What happens when you begin the Markov chain with the vector <span class="process-math">\(\xvec_0=\fivevec{1}{0}{0}{0}{0}\text{?}\)</span>  Explain why this behavior is consistent with the Perron-Frobenius theorem.</div>
+</li>
+<li><div class="para">What do you think the PageRank vector for this Internet should be?  Is any one page of a higher quality than another?</div></li>
+<li>
+<div class="para">Now consider the Internet with eight web pages, shown in <a href="" class="xref" data-knowl="./knowl/fig-google-reducible.html" title="Figure 4.5.10">Figure 4.5.10</a>.</div>
+<figure class="figure figure-like"><div class="sidebyside"><div class="sbsrow" style="margin-left:5%;margin-right:5%;"><div class="sbspanel top" style="width:100%;"><img src="external/images/google-reducible.svg" role="img" class="contained"></div></div></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">4.5.10<span class="period">.</span></span><span class="space"> </span>Another model of the Internet with eight web pages.</figcaption></figure><div class="para">Notice that this version of the Internet is identical to the first one that we saw in this activity, except that a single link from page 7 to page 1 has been removed.  We can therefore find its Google matrix <span class="process-math">\(G\)</span> by slightly modifying the earlier matrix.</div>
+<div class="para">What is the long-term behavior of a Markov chain defined by <span class="process-math">\(G\)</span> and why is this behavior not desirable?  How is this behavior consistent with the Perron-Frobenius theorem?</div>
+</li>
 </ol></div>
 <span class="incontext"><a href="sec-stochastic.html#p-4872" class="internal">in-context</a></span>
 </body>

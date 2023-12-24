@@ -9,42 +9,27 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="robots" content="noindex, nofollow">
-<script>// Make *any* pre with class 'sagecell-sage' an executable Sage cell
-// Their results will be linked, only within language type
-sagecell.makeSagecell({
-  "inputLocation": "pre.sagecell-sage",
-  "linked": true,
-  "languages": [
-    "sage"
-  ],
-  "evalButtonText": "Evaluate (Sage)"
-});
-</script>
 </head>
 <body class="ignore-math">
-<h5 class="heading"><span class="type">Paragraph</span></h5>
+<h4 class="heading"><span class="type">Paragraph</span></h4>
 <div class="para logical">
-<div class="para">Consider the matrix and vectors</div>
+<div class="para">In particular, this shows us that</div>
 <div class="displaymath process-math">
 \begin{equation*}
-A = \left[\begin{array}{rr}
-8 \amp -10 \\
-5 \amp -7 \\
-\end{array}\right],\qquad
-\vvec_1=\twovec{2}{1},~~~
-\vvec_2=\twovec{1}{1}\text{.}
+\xvec_5 = 250\vvec_1 - (0.2)^5250\vvec_2 =
+\twovec{250\cdot 3 - (0.2)^5250\cdot(-1)}
+{250\cdot 1 - (0.2)^5250\cdot 1}
+= \twovec{750.09}{249.92}\text{.}
 \end{equation*}
 </div>
-<ol class="lower-alpha">
-<li>
-<div class="para">Show that <span class="process-math">\(\vvec_1\)</span> and <span class="process-math">\(\vvec_2\)</span> are eigenvectors of <span class="process-math">\(A\)</span> and find their associated eigenvalues.</div>
-<pre class="ptx-sagecell sagecell-sage" id="sage-105"><script type="text/x-sage">
-</script></pre>
-</li>
-<li><div class="para">Express the vector <span class="process-math">\(\xvec = \twovec{-4}{-1}\)</span> as a linear combination of <span class="process-math">\(\vvec_1\)</span> and <span class="process-math">\(\vvec_2\text{.}\)</span>
-</div></li>
-<li><div class="para">Use this expression to compute <span class="process-math">\(A\xvec\text{,}\)</span> <span class="process-math">\(A^2\xvec\text{,}\)</span> and <span class="process-math">\(A^{-1}\xvec\)</span> as a linear combination of eigenvectors.</div></li>
-</ol>
+<div class="para">Taking notice of the pattern, we may write</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\xvec_k = 250\vvec_1 - (0.2)^k250\vvec_2\text{.}
+\end{equation*}
+</div>
+<div class="para">Multiplying a number by <span class="process-math">\(0.2\)</span> is the same as taking 20% of that number.  As each day goes by, the second term is multiplied by <span class="process-math">\(0.2\)</span> so the coefficient of <span class="process-math">\(\vvec_2\)</span> in the expression for <span class="process-math">\(\xvec_k\)</span> will eventually become extremely small.  We therefore see that the distribution of cars will stabilize at <span class="process-math">\(\xvec=250\vvec_1=\twovec{750}{250}\text{.}\)</span>
+</div>
 </div>
 <span class="incontext"><a href="sec-eigen-intro.html#p-3759" class="internal">in-context</a></span>
 </body>

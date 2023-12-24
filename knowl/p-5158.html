@@ -9,145 +9,91 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="robots" content="noindex, nofollow">
+<script>// Make *any* pre with class 'sagecell-sage' an executable Sage cell
+// Their results will be linked, only within language type
+sagecell.makeSagecell({
+  "inputLocation": "pre.sagecell-sage",
+  "linked": true,
+  "languages": [
+    "sage"
+  ],
+  "evalButtonText": "Evaluate (Sage)"
+});
+</script>
 </head>
 <body class="ignore-math">
 <h5 class="heading"><span class="type">Paragraph</span></h5>
-<div class="para logical"><ol class="lower-alpha">
-<li><div class="para logical">
-<div class="para">Sage gives us the matrices</div>
-<div class="displaymath process-math">
-\begin{equation*}
-P=\left[\begin{array}{rrr}
-0 \amp 1 \amp 0 \\
-1 \amp 0 \amp 0 \\
-0 \amp 0 \amp 1
-\end{array}\right],~~~
-L=\begin{bmatrix}
-1 \amp 0 \amp 0 \\
--\frac12 \amp 1 \amp 0 \\
--\frac12 \amp -1 \amp 1
-\end{bmatrix},~~~
-\begin{bmatrix}
--4 \amp 5 \amp 0 \\
-0 \amp -\frac12 \amp 1 \\
-0 \amp 0 \amp 3 \\
-\end{bmatrix}.
-\end{equation*}
+<div class="para logical">
+<div class="para">Sage will create <span class="process-math">\(LU\)</span> factorizations;  once we have a matrix <code class="code-inline tex2jax_ignore">A</code>, we write <code class="code-inline tex2jax_ignore">P, L, U = A.LU()</code> to obtain the matrices <span class="process-math">\(P\text{,}\)</span> <span class="process-math">\(L\text{,}\)</span> and <span class="process-math">\(U\)</span> such that <span class="process-math">\(PA =
+LU\text{.}\)</span> <pre class="ptx-sagecell sagecell-sage" id="sage-138"><script type="text/x-sage">
+</script></pre>
 </div>
-</div></li>
-<li><div class="para">We find <span class="process-math">\(P\bvec=\threevec{-13}8{8}\text{.}\)</span>
-</div></li>
-<li><div class="para">Solving <span class="process-math">\(L\cvec=P\bvec\text{,}\)</span> we have <span class="process-math">\(\cvec=\threevec{-13}{\frac32}{3}\text{.}\)</span>  Finally, solving <span class="process-math">\(U\xvec=\cvec\text{,}\)</span> we obtain <span class="process-math">\(\xvec=\threevec2{-1}1\text{.}\)</span>
-</div></li>
-<li><div class="para logical">
-<div class="para">We find</div>
-<div class="displaymath process-math">
-\begin{equation*}
-P\bvec=\threevec{-16}9{10},~~~
-\cvec=\threevec{-16}13,~~~
-\xvec=\threevec{4}{0}{1}.
-\end{equation*}
-</div>
-</div></li>
-<li><div class="para">Because <span class="process-math">\(P\text{,}\)</span> <span class="process-math">\(L\text{,}\)</span> and <span class="process-math">\(U\)</span> are invertible, it follows that <span class="process-math">\(\det A = (\det 
-L \det U)/\det P\neq 0\text{,}\)</span> which means that <span class="process-math">\(A\)</span> is invertible.</div></li>
-<li><div class="para logical">
-<div class="para">Sage tells us that</div>
-<div class="displaymath process-math">
-\begin{equation*}
-P = \left[\begin{array}{rrr}
-1 \amp 0 \amp 0 \\
-0 \amp 0 \amp 1 \\
-0 \amp 1 \amp 0
-\end{array}\right],
-L = 
-\left[\begin{array}{rrr}
-1 \amp 0 \amp 0 \\
-\frac{2}{3} \amp 1 \amp 0 \\
-\frac{2}{3} \amp -\frac{1}{5} \amp 1
-\end{array}\right],
-U= 
-\left[\begin{array}{rrr}
-3 \amp -1 \amp 2 \\
-0 \amp \frac{5}{3} \amp \frac{5}{3} \\
-0 \amp 0 \amp 0
-\end{array}\right]\text{.}
-\end{equation*}
-</div>
-<div class="para">Because <span class="process-math">\(U\)</span> is not invertible, we see that <span class="process-math">\(\det B =
-(\det L\det U)/\det P = 0\)</span> so <span class="process-math">\(B\)</span> is not invertible.</div>
-</div></li>
+<ol class="lower-alpha">
 <li>
 <div class="para logical">
-<div class="para">We have</div>
-<div class="displaymath process-math">
+<div class="para">In <a href="" class="xref" data-knowl="./knowl/example-LU.html" title="Example 5.1.1">Example 5.1.1</a>, we found the <span class="process-math">\(LU\)</span> factorization</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/example-LU.html">
 \begin{equation*}
-\begin{array}{c}
-P=
-\left[\begin{array}{rrr}
-0 \amp 1 \amp 0 \\
-0 \amp 0 \amp 1 \\
-1 \amp 0 \amp 0
-\end{array}\right],
-L=
-\left[\begin{array}{rrr}
+A = 
+\begin{bmatrix}
+2 \amp -3 \amp 1 \\
+-4 \amp 5 \amp 0 \\
+2 \amp -2 \amp 2
+\end{bmatrix}
+= 
+\begin{bmatrix}
 1 \amp 0 \amp 0 \\
--\frac{2}{3} \amp 1 \amp 0 \\
-\frac{1}{3} \amp -\frac{5}{7} \amp 1
-\end{array}\right], \\
-U= \left[\begin{array}{rrrr}
-3 \amp 2 \amp -1 \amp 0 \\
-0 \amp \frac{7}{3} \amp \frac{4}{3} \amp -1 \\
-0 \amp 0 \amp \frac{9}{7} \amp \frac{9}{7}
-\end{array}\right]\text{.}
-\end{array}
+-2 \amp 1 \amp 0 \\
+1 \amp -1 \amp 1
+\end{bmatrix}
+\begin{bmatrix}
+2 \amp -3 \amp 1 \\
+0 \amp -1 \amp 2 \\
+0 \amp 0 \amp 3
+\end{bmatrix}=LU.
 \end{equation*}
 </div>
-<div class="para">We may rewrite <span class="process-math">\(PC=LU\)</span> as <span class="process-math">\(C=P^{-1}LU\)</span> so if <span class="process-math">\(C\xvec=P^{-1}LU\xvec=\zerovec\text{,}\)</span> then <span class="process-math">\(U\xvec=\zerovec\)</span> because <span class="process-math">\(P\)</span> and <span class="process-math">\(L\)</span> are invertible.</div>
+<div class="para">Using Sage, define the matrix <span class="process-math">\(A\text{,}\)</span> and then ask Sage for the <span class="process-math">\(LU\)</span> factorization.  What are the matrices <span class="process-math">\(P\text{,}\)</span> <span class="process-math">\(L\text{,}\)</span> and <span class="process-math">\(U\text{?}\)</span>
 </div>
-<div class="para logical">
-<div class="para">Notice that <span class="process-math">\(U\)</span> is upper triangular, which means that it is straightforward to find its reduced row echelon form:</div>
+</div>
+<div class="para">Notice that Sage finds a different <span class="process-math">\(LU\)</span> factorization than we found in the previous activity because Sage uses partial pivoting, as described in the previous section, when it performs Gaussian elimination.</div>
+</li>
+<li><div class="para">Define the vector <span class="process-math">\(\bvec = \threevec8{-13}{8}\)</span> in Sage and compute <span class="process-math">\(P\bvec\text{.}\)</span>
+</div></li>
+<li><div class="para">Use the matrices <code class="code-inline tex2jax_ignore">L</code> and <code class="code-inline tex2jax_ignore">U</code> to solve <span class="process-math">\(L\cvec = P\bvec\)</span> and <span class="process-math">\(U\xvec = \cvec\text{.}\)</span>  You should find the same solution <span class="process-math">\(\xvec\)</span> that you found in the previous activity.</div></li>
+<li><div class="para">Use the factorization to solve the equation <span class="process-math">\(A\xvec
+= \threevec9{-16}{10}\text{.}\)</span>
+</div></li>
+<li><div class="para">How does the factorization show us that <span class="process-math">\(A\)</span> is invertible and that, therefore, every equation <span class="process-math">\(A\xvec=\bvec\)</span> has a unique solution?</div></li>
+<li><div class="para logical">
+<div class="para">Suppose that we have the matrix</div>
 <div class="displaymath process-math">
 \begin{equation*}
-\begin{array}{rcl}
-U=
-\left[\begin{array}{rrrr}
-3 \amp 2 \amp -1 \amp 0 \\
-0 \amp \frac{7}{3} \amp \frac{4}{3} \amp -1 \\
-0 \amp 0 \amp \frac{9}{7} \amp \frac{9}{7}
-\end{array}\right]
-\amp
-\sim
-\amp
-\left[\begin{array}{rrrr}
-3 \amp 2 \amp -1 \amp 0 \\
-0 \amp 7 \amp 4 \amp -3 \\
-0 \amp 0 \amp 1 \amp 1
-\end{array}\right] \\
-\amp
-\sim
-\amp
-\left[\begin{array}{rrrr}
-3 \amp 2 \amp 0 \amp 1 \\
-0 \amp 1 \amp 0 \amp -1 \\
-0 \amp 0 \amp 1 \amp 1
-\end{array}\right] \\
-\amp
-\sim
-\amp
-\left[\begin{array}{rrrr}
-1 \amp 0 \amp 0 \amp 1 \\
-0 \amp 1 \amp 0 \amp -1 \\
-0 \amp 0 \amp 1 \amp 1
-\end{array}\right]\text{.} \\
-\end{array}
+B = \left[\begin{array}{rrr}
+3 \amp -1 \amp 2 \\
+2 \amp -1 \amp 1 \\
+2 \amp 1 \amp 3 \\
+\end{array}\right]\text{.}
 \end{equation*}
 </div>
-<div class="para">This shows that a basis for <span class="process-math">\(\nul(C)=\nul(U)\)</span> is <span class="process-math">\(\fourvec{-1}1{-1}1\text{.}\)</span>
+<div class="para">Use Sage to find the <span class="process-math">\(LU\)</span> factorization.  Explain how the factorization shows that <span class="process-math">\(B\)</span> is not invertible.</div>
+</div></li>
+<li><div class="para logical">
+<div class="para">Consider the matrix</div>
+<div class="displaymath process-math">
+\begin{equation*}
+C = \left[\begin{array}{rrrr}
+-2 \amp 1 \amp 2 \amp -1 \\
+1 \amp -1 \amp 0 \amp 2 \\
+3 \amp 2 \amp -1 \amp 0 \\
+\end{array}\right]
+\end{equation*}
 </div>
+<div class="para">and find its <span class="process-math">\(LU\)</span> factorization.  Explain why <span class="process-math">\(C\)</span> and <span class="process-math">\(U\)</span> have the same null space and use this observation to find a basis for <span class="process-math">\(\nul(A)\text{.}\)</span>
 </div>
-</li>
-</ol></div>
+</div></li>
+</ol>
+</div>
 <span class="incontext"><a href="sec-gaussian-revisited.html#p-5158" class="internal">in-context</a></span>
 </body>
 </html>

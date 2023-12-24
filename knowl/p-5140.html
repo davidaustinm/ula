@@ -12,25 +12,76 @@
 </head>
 <body class="ignore-math">
 <h5 class="heading"><span class="type">Paragraph</span></h5>
-<div class="para logical">
-<div class="para">The first step is to multiply the first row of <span class="process-math">\(A\)</span> by <span class="process-math">\(2\)</span> and add it to the second row.  The elementary matrix</div>
+<div class="para logical"><ol class="lower-alpha">
+<li><div class="para logical">
+<div class="para">We have</div>
 <div class="displaymath process-math">
 \begin{equation*}
-E_1 = \begin{bmatrix}
+E_1 =
+\left[\begin{array}{rrr}
 1 \amp 0 \amp 0 \\
 2 \amp 1 \amp 0 \\
-0 \amp 0 \amp 0 \\
-\end{bmatrix}
+0 \amp 0 \amp 1
+\end{array}\right],
+E_2 = \left[\begin{array}{rrr}
+1 \amp 0 \amp 0 \\
+0 \amp 1 \amp 0 \\
+-3 \amp 0 \amp 1
+\end{array}\right]\text{.}
 \end{equation*}
 </div>
-<div class="para">performs this operation so that <span class="process-math">\(E_1A = \begin{bmatrix}
-2 \amp -3 \amp 1 \\
-0 \amp -1 \amp 2 \\
-2 \amp -2 \amp 2
-\end{bmatrix}
-\text{.}\)</span>
+</div></li>
+<li><div class="para logical">
+<div class="para">The third row replacement is performed by</div>
+<div class="displaymath process-math">
+\begin{equation*}
+E_3 = \left[\begin{array}{rrr}
+1 \amp 0 \amp 0 \\
+0 \amp 1 \amp 0 \\
+0 \amp -1 \amp 1 \\
+\end{array}\right]\text{.}
+\end{equation*}
 </div>
+</div></li>
+<li><div class="para logical">
+<div class="para">The inverse matrices are found to be</div>
+<div class="displaymath process-math">
+\begin{equation*}
+E_1^{-1}=
+\left[\begin{array}{rrr}
+1 \amp 0 \amp 0 \\
+-2 \amp 1 \amp 0 \\
+0 \amp 0 \amp 1 \\
+\end{array}\right],
+E_2^{-1}=
+\left[\begin{array}{rrr}
+1 \amp 0 \amp 0 \\
+0 \amp 1 \amp 0 \\
+3 \amp 0 \amp 1 \\
+\end{array}\right],
+E_3^{-1}=
+\left[\begin{array}{rrr}
+1 \amp 0 \amp 0 \\
+0 \amp 1 \amp 0 \\
+0 \amp 1 \amp 1 \\
+\end{array}\right]
+\end{equation*}
 </div>
+<div class="para">giving <span class="process-math">\(L = E_1^{-1}E_2^{-1}E_3^{-1} =
+\left[\begin{array}{rrr}
+1 \amp 0 \amp 0 \\
+-2 \amp 1 \amp 0 \\
+3 \amp 1 \amp 1
+\end{array}\right]\)</span> so that <span class="process-math">\(A = LU\text{.}\)</span>
+</div>
+</div></li>
+<li><div class="para">Noting that <span class="process-math">\(L\cvec=\bvec\text{,}\)</span> we find <span class="process-math">\(\cvec=\threevec41{-1}\text{.}\)</span>
+</div></li>
+<li><div class="para">To find <span class="process-math">\(\xvec\text{,}\)</span> we solve the equation <span class="process-math">\(U\xvec=\cvec\)</span> to obtain <span class="process-math">\(\xvec=\threevec31{-1}\text{.}\)</span>
+</div></li>
+<li><div class="para">We solve <span class="process-math">\(L\cvec=\threevec{2}{-2}{7}\)</span> to find <span class="process-math">\(\cvec=\threevec22{-1}\)</span> and <span class="process-math">\(U\xvec=\cvec\)</span> to find <span class="process-math">\(\xvec=\threevec{-1}{2}{-1}\text{.}\)</span>
+</div></li>
+</ol></div>
 <span class="incontext"><a href="sec-gaussian-revisited.html#p-5140" class="internal">in-context</a></span>
 </body>
 </html>

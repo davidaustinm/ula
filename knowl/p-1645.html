@@ -12,8 +12,49 @@
 </head>
 <body class="ignore-math">
 <h5 class="heading"><span class="type">Paragraph</span></h5>
-<div class="para">Suppose that <span class="process-math">\(\bvec\)</span> is a vector in <span class="process-math">\(\real^3\text{.}\)</span>  In how many ways can <span class="process-math">\(\bvec\)</span> be written as a linear combination of <span class="process-math">\(\vvec_1\text{,}\)</span> <span class="process-math">\(\vvec_2\text{,}\)</span> and <span class="process-math">\(\vvec_3\text{?}\)</span>
+<div class="para logical"><ol class="lower-alpha">
+<li><div class="para logical">
+<div class="para">We view the vectors as the columns of a matrix so that</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\left[\begin{array}{rrrr}
+1 \amp 0 \amp 2 \amp -2 \\
+2 \amp 1 \amp 3 \amp 4 \\
+1 \amp 3 \amp -1 \amp -1
+\end{array}\right]
+\sim
+\left[\begin{array}{rrrr}
+1 \amp 0 \amp 2 \amp 0 \\
+0 \amp 1 \amp -1 \amp 0 \\
+0 \amp 0 \amp 0 \amp 1
+\end{array}\right]\text{.}
+\end{equation*}
 </div>
+<div class="para">Since there is a column without a pivot position, the vectors must be linearly dependent.  We also expect this because four vectors in <span class="process-math">\(\real^3\)</span> must always be linearly dependent.</div>
+</div></li>
+<li><div class="para logical">
+<div class="para">If we view the first three columns as an augmented matrix, we have</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\left[\begin{array}{rr|r}
+1 \amp 0 \amp 2 \\
+2 \amp 1 \amp 3 \\
+1 \amp 3 \amp -1 \\
+\end{array}\right]
+\sim
+\left[\begin{array}{rr|r}
+1 \amp 0 \amp 2 \\
+0 \amp 1 \amp -1 \\
+0 \amp 0 \amp 0 \\
+\end{array}\right]\text{.}
+\end{equation*}
+</div>
+<div class="para">We see that <span class="process-math">\(\vvec_3 = 2\vvec_1-\vvec_2\text{.}\)</span>
+</div>
+</div></li>
+<li><div class="para">From the solution to the previous part, we have <span class="process-math">\(-2\vvec_1+\vvec_2+\vvec_3 = \zerovec\text{,}\)</span> which says that <span class="process-math">\(c_1=-2\text{,}\)</span> <span class="process-math">\(c_2=1\text{,}\)</span> <span class="process-math">\(c_3=1\text{,}\)</span> and <span class="process-math">\(c_4=0\)</span> is an appropriate choice of weights.</div></li>
+<li><div class="para">From the solution to the previous part, we see that <span class="process-math">\(\xvec = \fourvec{-2}{1}{1}{0}\)</span> is a solution of the homogeneous equation.</div></li>
+</ol></div>
 <span class="incontext"><a href="sec-linear-dep.html#p-1645" class="internal">in-context</a></span>
 </body>
 </html>

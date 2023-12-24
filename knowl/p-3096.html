@@ -9,26 +9,21 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="robots" content="noindex, nofollow">
-<script>// Make *any* pre with class 'sagecell-sage' an executable Sage cell
-// Their results will be linked, only within language type
-sagecell.makeSagecell({
-  "inputLocation": "pre.sagecell-sage",
-  "linked": true,
-  "languages": [
-    "sage"
-  ],
-  "evalButtonText": "Evaluate (Sage)"
-});
-</script>
 </head>
 <body class="ignore-math">
 <h5 class="heading"><span class="type">Paragraph</span></h5>
-<div class="para">Now set all the wavelet coefficients equal to zero except those in the upper left <span class="process-math">\(2\times2\)</span> block and use them to define the matrix <code class="code-inline tex2jax_ignore">coeffs</code> in the Sage cell below.  This has the effect of ignoring all of the small-scale differences.  Evaluating this cell will recover the approximate luminance values. <pre class="ptx-sagecell sagecell-sage" id="sage-101"><script type="text/x-sage"># define the matrix of coefficients below
-coeffs = 
-# this code will undo the wavelet transform
-approx_luminance = W*((W*(coeffs.transpose())).transpose())
-print (approx_luminance.numerical_approx(digits=3))
-</script></pre>
+<div class="para logical">
+<div class="para">In <a href="" class="xref" data-knowl="./knowl/example-wavelet-basis.html" title="Example 3.2.9">Example 3.2.9</a>, we looked at a basis for <span class="process-math">\(\real^4\)</span> that we called the Haar wavelet basis. The basis vectors are</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/example-wavelet-basis.html ./knowl/fig-haar-wavelet-basis.html">
+\begin{equation*}
+\vvec_1=\fourvec{1}{1}{1}{1},
+\vvec_2=\fourvec{1}{1}{-1}{-1},
+\vvec_3=\fourvec{1}{-1}{0}{0},
+\vvec_4=\fourvec{0}{0}{1}{-1}\text{,}
+\end{equation*}
+</div>
+<div class="para">which may be understood graphically as in <a href="" class="xref" data-knowl="./knowl/fig-haar-wavelet-basis.html" title="Figure 3.3.16">Figure 3.3.16</a>. We will denote this basis by <span class="process-math">\(\wcal\text{.}\)</span>
+</div>
 </div>
 <span class="incontext"><a href="sec-jpeg.html#p-3096" class="internal">in-context</a></span>
 </body>
