@@ -1,0 +1,151 @@
+a, p, li, td, h1, h2, h3, h4, h5, h6 {
+    font-family:Arial, Helvetica, sans-serif;
+    font-size:20px
+}
+a, p, li, td {
+    font-size:16px
+}
+
+h1 {
+    font-size: 36px;
+}
+
+h2 {
+    font-size: 24px;
+}
+
+h3 {
+    font-size: 16px;
+}
+
+h3 {
+    font-weight:bold
+}
+
+h2, h4, h5, h6 {
+    font-weight:normal
+}
+
+.header {
+    color: white;
+    margin:auto;
+    background-color: #043959;
+    padding-left:20px;
+    padding-bottom:10px;
+    display: flex;
+    flex-direction: column
+}
+
+.title {
+    padding-left: 35px;
+    flex: 0 1 100%;
+    margin-bottom:0px;
+}
+
+.subtitle {
+    padding-left: 35px;
+    flex: 0 1 100%;
+    margin-top:0px;
+}
+
+.container {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    align-items: flex-start;
+}
+
+.cover {
+    flex: 1 0px;
+    width: 100%;
+    height: auto;
+    padding-top:20px;
+}
+
+.about {
+    vertical align: top;
+    height: auto;
+    padding-left: 20px;
+    flex:2 0px;
+}
+
+.update {
+    background-color: white;
+    border: 2px solid black;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 15px;
+    padding-right: 15px;
+					 
+}
+
+/* Large */
+.navigation {
+    display: flex;
+    flex-flow: row wrap;
+    /* This aligns items to the end line on main-axis */
+    justify-content: flex-end;
+}
+
+/* Medium screens */
+@media all and (max-width: 800px) {
+    .navigation {
+	/* When on medium sized screens, we center it by evenly distributing empty space around items */
+	justify-content: space-around;
+    }
+}
+
+/* Small screens */
+@media all and (max-width: 500px) {
+    .navigation {
+	/* On small screens, we are no longer using row direction but column */
+	flex-direction: column;
+    }
+    .about {flex:5 0px;}
+    .cover {flex: 1 auto;}
+}
+
+.navigation {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+    list-style: none;
+    margin: 0; 
+    background: #666666;
+}
+
+.navigation a {
+    text-decoration: none;
+    display: block;
+    padding: 1em;
+    color: white;
+}
+
+.navigation a:hover {
+    background: #333333;
+}
+
+@media all and (max-width: 800px) {
+    .navigation {
+	justify-content: space-around;
+    }
+}
+
+@media all and (max-width: 600px) {
+    .navigation {
+	flex-flow: column wrap;
+	padding: 0;
+    }
+    .navigation a { 
+	text-align: center; 
+	padding: 0px;
+	border-top: 1px solid rgba(255, 0, 255,0.3); 
+	border-bottom: 1px solid rgba(0, 0, 0, 0.1); 
+    }
+    .navigation li:last-of-type a {
+	border-bottom: none;
+    }
+}
+
+
+    
