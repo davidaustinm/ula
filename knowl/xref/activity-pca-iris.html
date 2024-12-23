@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<script>// Make *any* div with class 'sagecell-sage' an executable Sage cell
+// Their results will be linked, only within language type
+sagecell.makeSagecell({
+  "inputLocation": "div.sagecell-sage",
+  "linked": true,
+  "linkKey": "linked-sage",
+  "autoeval": false,
+  "languages": [
+    "sage"
+  ],
+  "evalButtonText": "Evaluate (Sage)"
+});
+</script>
+</head>
+<body class="ignore-math">
+<article class="activity project-like"><h4 class="heading">
+<span class="type">Activity</span><span class="space"> </span><span class="codenumber">7.3.5</span><span class="period">.</span>
+</h4>
+<div class="para">In this activity, we’ll look at a <a class="external" href="https://archive.ics.uci.edu/ml/datasets/Iris" target="_blank">well-known dataset</a><details class="ptx-footnote" aria-live="polite" id="activity-pca-iris-1-1-2"><summary class="ptx-footnote__number" title="Footnote 7.3.1"><sup> 1 </sup></summary><div class="ptx-footnote__contents" id="activity-pca-iris-1-1-2"><code class="code-inline tex2jax_ignore">archive.ics.uci.edu</code></div></details> that describes 150 irises representing three species of iris: Iris setosa, Iris versicolor, and Iris virginica. For each flower, the length and width of its sepal and the length and width of its petal, all in centimeters, are recorded.</div> <figure class="figure figure-like"><div class="sidebyside"><div class="sbsrow" style="margin-left:15%;margin-right:15%;"><div class="sbspanel top" style="width:100%;"><img src="external/images/Iris_versicolor.jpg" class="contained"></div></div></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">7.3.8<span class="period">.</span></span><span class="space"> </span>One of the three species, iris versicolor, represented in the dataset showing three shorter petals and three longer sepals. (Source: <a class="external" href="https://commons.wikimedia.org/wiki/File:Iris_versicolor_3.jpg" target="_blank">Wikipedia</a><details class="ptx-footnote" aria-live="polite" id="fig-iris-2-2"><summary class="ptx-footnote__number" title="Footnote 7.3.2"><sup> 2 </sup></summary><div class="ptx-footnote__contents" id="fig-iris-2-2"><code class="code-inline tex2jax_ignore">gvsu.edu/s/21D</code></div></details>, License: <a class="external" href="https://commons.wikimedia.org/wiki/Commons:GNU_Free_Documentation_License,_version_1.2" target="_blank">GNU Free Documetation License</a><details class="ptx-footnote" aria-live="polite" id="fig-iris-2-4"><summary class="ptx-footnote__number" title="Footnote 7.3.3"><sup> 3 </sup></summary><div class="ptx-footnote__contents" id="fig-iris-2-4"><code class="code-inline tex2jax_ignore">gvsu.edu/s/21E</code></div></details>)</figcaption></figure> <div class="para logical">
+<div class="para">Evaluating the following cell will load the dataset, which consists of 150 points in <span class="process-math">\(\real^4\text{.}\)</span>  In addition, we have a vector <code class="code-inline tex2jax_ignore">data_mean</code>, a four-dimensional vector holding the mean of the data points, and <code class="code-inline tex2jax_ignore">A</code>, the <span class="process-math">\(4\times150\)</span> demeaned data matrix. <div id="activity-pca-iris-1-3-5" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">sage.repl.load.load('https://raw.githubusercontent.com/davidaustinm/ula_modules/master/pca_iris.py', globals())
+df.T
+</script></div> Since the data is four-dimensional, we are not able to visualize it.  Of course, we could forget about two of the measurements and plot the 150 points represented by their, say, sepal length and sepal width. <div id="activity-pca-iris-1-3-6" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">sepal_plot()
+</script></div>
+</div>
+<ol class="lower-alpha" id="activity-pca-iris-1-3-7">
+<li><div class="para">What is the mean sepal width?</div></li>
+<li><div class="para">Find the covariance matrix <span class="process-math">\(C\)</span> and its eigenvalues. <div id="activity-pca-iris-1-3-7-2-1-2" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">
+</script></div>
+</div></li>
+<li><div class="para">Find the fraction of variance for which the first two principal components account.</div></li>
+<li><div class="para">Construct the first two principal components <span class="process-math">\(\uvec_1\)</span> and <span class="process-math">\(\uvec_2\)</span> along with the matrix <span class="process-math">\(Q\)</span> whose columns are <span class="process-math">\(\uvec_1\)</span> and <span class="process-math">\(\uvec_2\text{.}\)</span> <div id="activity-pca-iris-1-3-7-4-1-6" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">
+</script></div>
+</div></li>
+<li><div class="para">As we have seen, the columns of the matrix <span class="process-math">\(Q^TA\)</span> hold the coordinates of the demeaned data points after projecting onto <span class="process-math">\(W_2\text{,}\)</span> the subspace spanned by the first two principal components.  Evaluating the following cell shows a plot of these coordinates. <div id="activity-pca-iris-1-3-7-5-1-3" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">pca_plot(Q.T*A)
+</script></div> Suppose we have a flower whose coordinates in this plane are <span class="process-math">\((-2.5, -0.75)\text{.}\)</span>  To what species does this iris most likely belong?  Find an estimate of the sepal length, sepal width, petal length, and petal width for this flower.</div></li>
+<li><div class="para">Suppose you have an iris, but you only know that its sepal length is 5.65 cm and its sepal width is 2.75 cm.  Knowing only these two measurements, determine the coordinates <span class="process-math">\((c_1, c_2)\)</span> in the plane where this iris lies.  To what species does this iris most likely belong?  Now estimate the petal length and petal width of this iris. <div id="activity-pca-iris-1-3-7-6-1-2" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">
+</script></div>
+</div></li>
+<li><div class="para">Suppose you find another iris whose sepal width is 3.2 cm and whose petal width is 2.2 cm.  Find the coordinates <span class="process-math">\((c_1, c_2)\)</span> of this iris and determine the species to which it most likely belongs.  Also, estimate the sepal length and the petal length. <div id="activity-pca-iris-1-3-7-7-1-2" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">
+</script></div>
+</div></li>
+</ol>
+</div></article><span class="incontext"><a class="internal" href="sec-pca.html#activity-pca-iris">in-context</a></span>
+</body>
+</html>
