@@ -4,37 +4,55 @@
     project. To edit the content of your document, open `source/main.ptx`
     (default location).
 -->
-<project>
+<project
+    ptx-version="2"
+    source="src"
+    publication="publication"
+    output-dir="output"
+    site="site"
+    stage="output/stage"
+    xsl="xsl"
+    >
   <targets>
-    <target name="html">
-      <format>html</format>
-      <source>src/ula.xml</source>
-      <publication>publication/publication.ptx</publication>
-      <output-dir>output/html</output-dir>
-      <deploy-dir>.</deploy-dir>
-      <xsl>xsl/html.xsl</xsl>
-    </target>
-    <target name="runestone">
-      <format>html</format>
-      <source>src/ula.xml</source>
-      <publication>publication/runestone.ptx</publication>
-      <xsl>xsl/html.xsl</xsl>
-      <output-dir>published/ula</output-dir>
-    </target>
-    <target name="latex">
-      <format>latex</format>
-      <source>src/ula.xml</source>
-      <publication>publication/publication.ptx</publication>
-      <output-dir>output/latex</output-dir>
-      <xsl>xsl/latex.xsl</xsl>
-    </target>
-    <target name="pdf" pdf-method="xelatex">
-      <format>pdf</format>
-      <source>src/ula.xml</source>
-      <publication>publication/publication.ptx</publication>
-      <output-dir>output/pdf</output-dir>
-      <xsl>xsl/latex.xsl</xsl>
-    </target>
+    <target
+        name="html"
+        format="html"
+        source="ula.xml"
+        publication="publication.ptx"
+        output-dir="html"
+        deploy-dir="."
+        xsl="html.xsl"
+        />
+    <target
+        name="pdf"
+        format="pdf"
+        pdf-method="xelatex"
+        source="ula.xml"
+        publication="publication.ptx"
+        output-dir="pdf"
+        xsl="latex.xsl"
+        />
+    <target
+        name="latex"
+        format="latex"
+        source="ula.xml"
+        publication="publication.ptx"
+        output-dir="latex"
+        xsl="latex.xsl"
+        />
+    <target
+        name="runestone"
+        format="pdf"
+        source="ula.xml"
+        publication="runestone.ptx"
+        xsl="html.xsl"
+        output-dir="published/ula"
+        />
+        
+  </targets>
+</project>
+
+<!--
     <target name="solutions" pdf-method="xelatex">
       <format>pdf</format>
       <source>src/solution-manual.xml</source>
@@ -64,31 +82,6 @@
       <xsl>xsl/solution-manual.xsl</xsl>      
     </target>
 
-    <target name="subset">
-      <format>html</format>
-      <source>src/ula.xml</source>
-      <publication>publication/publication.ptx</publication>
-      <output-dir>output/subset</output-dir>
-      <!-- edit this to change the section/chapter/etc. to include
-           in your subset build. Use the xml:id, not the file name! -->
-      <xmlid-root>chap6</xmlid-root>
-      <xsl>xsl/html.xsl</xsl>
-    </target>
-
   </targets>
-  <executables>
-      <latex>latex</latex>
-      <pdflatex>pdflatex</pdflatex>
-      <xelatex>xelatex</xelatex>
-      <pdfsvg>pdf2svg</pdfsvg>
-      <asy>asy</asy>
-      <sage>sage</sage>
-      <pdfpng>convert</pdfpng>
-      <pdfeps>pdftops</pdfeps>
-      <pdfcrop>pdf-crop-margins</pdfcrop>
-      <pageres>pageres</pageres>
-      <node>node</node>
-      <liblouis>file2brl</liblouis>
-    </executables>
-</project>
 
+-->
