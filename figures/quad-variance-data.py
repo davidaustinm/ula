@@ -1,0 +1,38 @@
+from figures import *
+
+width=150
+height=150
+margin = 5
+
+def project(p, v):
+    return smult(dot(p,v)/float(dot(v,v)), v)
+
+def fig(s, v):
+    beginfigure(s, width+2*margin, height+2*margin)
+    setupcoordinates([margin, margin, width+margin, height+margin],
+                     [-4,-4,4,4])
+
+    Grid([-4,1,4],[-4,1,4]).draw()
+    settexenv('ACTexConfig')
+    axes = Axes()
+    axes.draw()
+    axes.setticks([-4,1,4], [-4,1,4])
+    axes.setlabels([-4,1,4], [-4,1,4])
+    axes.drawticks()
+    axes.drawlabels()
+    
+    points = [[-3,-3], [2,1], [1,2]]
+    
+    u1 = [1,1]
+    u2 = [-1,1]
+
+    for p in points:
+        pp = Point(p, 2.5, fillcolor=blue)
+        pp.fill()
+        pp.draw()
+ 
+    endfigure()
+
+fig('quad-variance-data', [-1,1])
+
+    

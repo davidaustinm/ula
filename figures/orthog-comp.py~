@@ -1,0 +1,27 @@
+from figures import *
+
+width=150
+height=150
+margin = 5
+
+beginfigure('orthog-comp', width+2*margin, height+2*margin)
+setupcoordinates([margin, margin, width+margin, height+margin],
+                 [-5,-5,5,5])
+
+corner = [-3,-2]
+u = [7,1]
+v = [-2,2])
+
+def plane():
+    newpath()
+    moveto(corner)
+    rlineto(u)
+    rlineto(v)
+    rlineto(smul(-1,u))
+    closepath()
+
+plane()
+fill(0.8)
+stroke()
+
+endfigure()
