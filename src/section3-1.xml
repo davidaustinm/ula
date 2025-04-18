@@ -128,7 +128,7 @@
     
   </introduction>
 
-  <subsection>
+  <subsection xml:id="subsec-invertible-matrices">
     <title> Invertible matrices </title>
 
     <p> The preview activity began with a familiar type of 
@@ -1297,6 +1297,41 @@
       </statement>
     </example>
 
+  </subsection>
+
+  <subsection>
+    <title> Summary </title>
+
+    <p> In this section, we found conditions guaranteeing that a
+    matrix has an inverse.  When these conditions hold, we also found
+    an algorithm for finding the inverse.
+    <ul>
+      <li><p> A square matrix is invertible if there is a matrix
+      <m>B</m>, known as the inverse of <m>A</m>, such that <m>AB =
+      I</m>.  We usually write <m>A^{-1} = B</m>.  </p></li>
+
+      <li><p> The <m>n\times n</m> matrix <m>A</m> is
+      invertible if and only if it is row equivalent to <m>I_n</m>,
+      the <m>n\times n</m> identity matrix. </p></li>
+
+      <li><p> If a matrix <m>A</m> is invertible, we can use Gaussian 
+      elimination to find its inverse:
+      <me>
+	\left[\begin{array}{r|r} A \amp I \end{array}\right] \sim 
+	\left[\begin{array}{r|r} I \amp A^{-1} \end{array}\right]
+      </me>. </p></li>
+
+      <li><p> If a matrix <m>A</m> is invertible, then the solution to
+      the equation <m>A\xvec = \bvec</m> is <m>\xvec =
+      A^{-1}\bvec</m>. </p></li> 
+
+      <li><p> The row operations of replacement, scaling, and
+      interchange can be performed 
+      by multiplying by elementary
+      matrices.  </p></li>
+    </ul>
+    </p>
+
     <exercise component="proteus"
               label="matching-matrix-invertibility">
       <title>Determine the invertibility of matrices</title>
@@ -1309,6 +1344,15 @@
           needed. 
         </p>
       </statement>
+
+      <feedback>
+        <p>You may wish to review how the structure of a triangular
+        matrix determines its invertibility.  
+        The chapter summary
+        above may help as well as material in <xref
+        ref="subsec-triangular-invertible"/>.
+        </p>
+      </feedback>
 
       <matches>
         <match>
@@ -1395,6 +1439,15 @@
         </p>
       </statement>
 
+      <feedback>
+        <p>You may wish to review how the reduced row
+        echelon form of a matrix determines whether it is invertible
+        and what consequences arise as a result.  The chapter summary
+        above may help as well as material in <xref
+        ref="subsec-invertible-matrices"/>.
+        </p>
+      </feedback>
+
       <matches>
         <match>
           <premise>
@@ -1440,45 +1493,10 @@
         <p>If <m>A</m> is a matrix such that
         <m>A\xvec=\threevec1{-1}0</m> has the unique solution <m>\xvec
         = \threevec102</m>, is there anything that we can conclude
-        about the invertibility of <m>A</m>?</p>
+        about the invertibility of <m>A</m>?  Explain your thinking.</p>
       </statement>
       <response/>
     </exercise>
-  </subsection>
-
-  <subsection>
-    <title> Summary </title>
-
-    <p> In this section, we found conditions guaranteeing that a
-    matrix has an inverse.  When these conditions hold, we also found
-    an algorithm for finding the inverse.
-    <ul>
-      <li><p> A square matrix is invertible if there is a matrix
-      <m>B</m>, known as the inverse of <m>A</m>, such that <m>AB =
-      I</m>.  We usually write <m>A^{-1} = B</m>.  </p></li>
-
-      <li><p> The <m>n\times n</m> matrix <m>A</m> is
-      invertible if and only if it is row equivalent to <m>I_n</m>,
-      the <m>n\times n</m> identity matrix. </p></li>
-
-      <li><p> If a matrix <m>A</m> is invertible, we can use Gaussian 
-      elimination to find its inverse:
-      <me>
-	\left[\begin{array}{r|r} A \amp I \end{array}\right] \sim 
-	\left[\begin{array}{r|r} I \amp A^{-1} \end{array}\right]
-      </me>. </p></li>
-
-      <li><p> If a matrix <m>A</m> is invertible, then the solution to
-      the equation <m>A\xvec = \bvec</m> is <m>\xvec =
-      A^{-1}\bvec</m>. </p></li> 
-
-      <li><p> The row operations of replacement, scaling, and
-      interchange can be performed 
-      by multiplying by elementary
-      matrices.  </p></li>
-    </ul>
-    </p>
-
   </subsection>
 
   <xi:include href="exercises/exercises3-1.xml" />
