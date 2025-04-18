@@ -1298,118 +1298,143 @@
     </example>
 
     <exercise component="proteus"
-              label="invertibility-matching">
-      <title>Invertibility matching exercise</title>
+              label="matching-matrix-invertibility">
+      <title>Determine the invertibility of matrices</title>
 
       <statement>
         <p>
-          Consider each of the following conditions on a matrix and
-          determine its implication for the invertibility of the
-          matrix.
+          Given below are some descriptions of matrices where <m>*</m>
+          represents a nonzero number.  For each matrix, determine
+          it is invertibile or whether more information is
+          needed. 
         </p>
       </statement>
 
       <matches>
-        <match order="4">
-          <premise>Monroe Doctrine</premise>
-          <response>1823</response>
+        <match>
+          <premise>
+            <m>\begin{bmatrix}
+            * \amp 0 \amp 0 \\
+            * \amp * \amp 0 \\
+            * \amp * \amp * \\
+            \end{bmatrix}
+            </m>
+          </premise>
+          <premise>
+            <m>\begin{bmatrix}
+            * \amp * \amp * \\
+            0 \amp * \amp * \\
+            0 \amp 0 \amp * \\
+            \end{bmatrix}
+            </m>
+          </premise>
+          <premise>
+            <m>\begin{bmatrix}
+            * \amp * \amp * \\
+            * \amp * \amp 0 \\
+            * \amp 0 \amp 0 \\
+            \end{bmatrix}
+            </m>
+          </premise>
+          <premise>
+            <m>\begin{bmatrix}
+            0 \amp 0 \amp * \\
+            0 \amp * \amp 0 \\
+            * \amp 0 \amp 0 \\
+            \end{bmatrix}
+            </m>
+          </premise>
+          <response>Definitely invertible</response>
         </match>
-        <match order="3">
-          <premise>Haymarket Riot</premise>
-          <response>1886</response>
+        <match>
+          <premise>
+            <m>\begin{bmatrix}
+            * \amp * \amp 0 \\
+            0 \amp 0 \amp * \\
+            0 \amp 0 \amp * \\
+            \end{bmatrix}
+            </m>
+          </premise>
+          <premise>
+            <m>\begin{bmatrix}
+            * \amp * \amp * \\
+            0 \amp * \amp * \\
+            0 \amp 0 \amp 0 \\
+            \end{bmatrix}
+            </m>
+          </premise>
+          <response>Definitely not invertible</response>
         </match>
-        <match order="1">
-          <premise>Louisiana Purchase</premise>
-          <response>1803</response>
-        </match>
-        <match order="2">
-          <premise>Battle of Gettysburg</premise>
-          <response>1863</response>
+        <match>
+          <premise>
+            <m>\begin{bmatrix}
+            0 \amp * \amp * \\
+            * \amp * \amp 0 \\
+            * \amp 0 \amp * \\
+            \end{bmatrix}
+            </m>
+          </premise>
         </match>
       </matches>
     </exercise>
 
     <exercise component="proteus"
-        label="multiple-choice-not-randomized">
-      <title>Multiple-Choice, Not Randomized, One Answer</title>
-      <idx>stop signs</idx>
+              label="matching-invertibility-conditions">
+      <title>Determine conditions for invertibility</title>
+
       <statement>
         <p>
-          What color is a stop sign?
+          Suppose that <m>\vvec_1,\vvec_2,\ldots,\vvec_n</m> are
+          vectors in <m>\real^n</m> and let
+          <m>A=\begin{bmatrix}
+          \vvec_1 \amp \vvec_2 \amp \ldots \amp \vvec_n
+          \end{bmatrix}
+          </m>.  Match each of the following conditions with
+          the appropriate description of <m>A</m>, if possible.
         </p>
       </statement>
-      <choices>
-        <choice>
-          <statement>
-            <p>
-              Green
-            </p>
-          </statement>
-          <feedback>
-            <p>
-              Green means
-              <q>go!</q>.
-            </p>
-          </feedback>
-        </choice>
-        <choice correct="yes">
-          <statement>
-            <p>
-              Red
-            </p>
-          </statement>
-          <feedback>
-            <p>
-              Red is universally used for prohibited activities or serious warnings.
-            </p>
-          </feedback>
-        </choice>
-        <choice>
-          <statement>
-            <p>
-              White
-            </p>
-          </statement>
-          <feedback>
-            <p>
-              White might be hard to see.
-            </p>
-          </feedback>
-        </choice>
-      </choices>
-      <hint>
-        <p>
-          What did you see last time you went driving?
-        </p>
-      </hint>
-      <hint>
-        <p>
-          Maybe go out for a drive?
-        </p>
-      </hint>
+
+      <matches>
+        <match>
+          <premise>
+            <m>\{\vvec_1,\vvec_2,\ldots,\vvec_n\}</m> is a linearly
+            independent set of vectors.
+          </premise>
+          <premise>
+            <m>A</m> is row equivalent to the identity matrix <m>I</m>.
+          </premise>
+          <premise>
+            <m>A\xvec = \zerovec</m> has exactly one solution.
+          </premise>
+          <premise>
+            <m>\laspan{\vvec_1,\vvec_2,\ldots,\vvec_n} = \real^n
+            </m>.
+          </premise>
+          <response><m>A</m> is invertible</response>
+        </match>
+        <match>
+          <premise>
+            The reduced row echelon form of <m>A</m> has a row whose
+            entries are all zero.
+          </premise>
+          <premise>
+            <m>A\threevec1{-1}{-3} = \zerovec</m>.
+          </premise>
+          <response><m>A</m> is not invertible</response>
+        </match>
+      </matches>
     </exercise>
-    
+
     <exercise component="proteus"
-        label="vector-space-dimension">
-      <title>True/False</title>
-      <idx>vector space</idx>
-      <statement correct="no">
-        <p>
-          Every vector space has finite dimension.
-        </p>
+              label="reading-invertibility">
+      <title>Condition for invertibility</title>
+      <statement>
+        <p>If <m>A</m> is a matrix such that
+        <m>A\xvec=\threevec1{-1}0</m> has the unique solution <m>\xvec
+        = \threevec102</m>, is there anything that we can conclude
+        about the invertibility of <m>A</m>?</p>
       </statement>
-      <feedback>
-        <p>
-          The vector space of all polynomials with finite degree has a basis,
-          <m>B = \{1,x,x^2,x^3,\dots\}</m>, which is infinte.
-        </p>
-      </feedback>
-      <hint>
-        <p>
-          <m>P_n</m>, the vector space of polynomials with degree at most <m>n</m>,
-          has dimension <m>n+1</m>. What happens if we relax the defintion and remove the parameter <m>n</m>?
-        </p>
-      </hint>
+      <response/>
     </exercise>
   </subsection>
 
