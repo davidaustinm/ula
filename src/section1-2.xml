@@ -1452,6 +1452,449 @@
       </ul>
     </p>
 
+    <exercise component="proteus"
+              label="ula-proteus-1-2-augmented-system-v1">
+      <!--
+          Created at Proteus Ann Arbor workshop, 6/23/25
+      -->
+      <title>Linear systems and augmented matrices</title>
+
+      <statement>
+        <p>
+          If possible, match each linear system with its
+          representation as an augmented matrix.
+        </p>
+      </statement>
+
+      <matches>
+        <match>
+          <premise>
+            <md>
+              <mrow>
+                2x \amp {}={} \amp y \amp {}-{} \amp 3z \amp {}+{} \amp 4
+              </mrow>
+              <mrow>
+                y \amp {}={} \amp  \amp {}{} \amp z \amp {}+{} \amp 3
+              </mrow>
+              <mrow>
+                4y \amp {}={} \amp \amp {}{} \amp z \amp {}+{} \amp 2
+              </mrow>
+            </md>
+          </premise>
+
+          <response>
+            <m>\left[\begin{array}{ccc|c}
+            2 \amp -1 \amp 3 \amp 4 \\
+            0 \amp 1 \amp -1 \amp 3 \\
+            0 \amp 4 \amp -1 \amp 2 \\
+            \end{array}\right]</m>
+          </response>
+        </match>
+
+        <match>
+          <premise>
+            <md>
+              <mrow>
+                3x \amp {}+{} \amp 3y \amp {}-{} \amp z \amp {}={} \amp 0
+              </mrow>
+              <mrow>
+                2x \amp {}-{} \amp y \amp {}+{} \amp 3z \amp {}={} \amp 3
+              </mrow>
+              <mrow>
+                4x \amp {}{} \amp \amp {}-{} \amp z \amp {}={} \amp 3
+              </mrow>
+            </md>
+          </premise>
+
+          <premise>
+            <md>
+              <mrow>
+                2x \amp {}-{} \amp y \amp {}+{} \amp 3z \amp {}+{} \amp 4
+              </mrow>
+              <mrow>
+                4y \amp {}{} \amp  \amp {}-{} \amp z \amp {}+{} \amp 3
+              </mrow>
+              <mrow>
+                3x \amp {}+{} \amp 3y \amp {}-{} \amp z \amp {}+{} \amp 0
+              </mrow>
+            </md>
+          </premise>
+
+          <premise>
+            <md>
+              <mrow>
+                2x_1 \amp {}-{} \amp x_2 \amp {}+{} \amp 3z \amp {}+{} \amp 4
+              </mrow>
+              <mrow>
+                4x_1 \amp {}{} \amp  \amp {}-{} \amp x_3 \amp {}+{} \amp 3
+              </mrow>
+              <mrow>
+                3x_2 \amp {}+{} \amp 3x_2 \amp {}-{} \amp x_3 \amp {}+{} \amp 0
+              </mrow>
+            </md>
+          </premise>
+
+          <response>
+            <m>\left[\begin{array}{ccc|c}
+            2 \amp -1 \amp 3 \amp 4 \\
+            4 \amp 0 \amp -1 \amp 3 \\
+            3 \amp 3 \amp -1 \amp 0 \\
+            \end{array}\right]</m>
+          </response>
+        </match>
+
+        <match>
+          <premise>
+            <md>
+              <mrow>
+                2x \amp {}+{} \amp 3z \amp {}-{} \amp y \amp {}={} \amp 4
+              </mrow>
+              <mrow>
+                \amp {}{} \amp 2y \amp {}{} \amp z \amp {}={} \amp 3
+              </mrow>
+              <mrow>
+                \amp {}{} \amp -z\amp {}+{} \amp 3y \amp {}={} \amp 0
+              </mrow>
+            </md>
+          </premise>
+
+          <premise>
+            <md>
+              <mrow>
+                2a \amp {}-{} \amp b \amp {}+{} \amp 3c \amp {}-{}
+                \amp 4 \amp {}={} 0
+              </mrow>
+              <mrow>
+                \amp \amp 2b \amp {}-{} \amp c \amp {}-{}
+                \amp 3 \amp {}={} 0
+              </mrow>
+              <mrow>
+                \amp \amp 3b \amp {}-{} \amp c \amp {}{}
+                \amp \amp {}={} 0
+              </mrow>
+            </md>
+          </premise>
+
+          <response>
+            <m>\left[\begin{array}{ccc|c}
+            2 \amp -1 \amp 3 \amp 4 \\
+            0 \amp 2 \amp -1 \amp 3 \\
+            0 \amp 3 \amp -1 \amp 0 \\
+            \end{array}\right]</m>
+          </response>
+        </match>
+      </matches>
+    </exercise>
+
+    <exercise component="proteus"
+              label="ula-proteus-1-2-rref-identify-v1">
+      <!--
+          Created at Proteus Ann Arbor workshop, 6/23/25
+      -->
+      <title>Identifying reduced row echelon form</title>
+      <statement>
+        <p>Consider each of the following matrices, some of whose
+        entries are represented by a <m>*</m> to indicate an arbitrary
+        real number.  Determine whether each matrix represents a
+        matrix in reduced row echelon form or whether additional
+        information is required.
+        </p>
+      </statement>
+
+      <matches>
+        <match>
+          <premise>
+            <m>
+              \left[\begin{array}{ccc|c}
+              1 \amp * \amp 2 \amp -3 \\
+              0 \amp 0 \amp -1 \amp -2 \\
+              0 \amp 0 \amp 0 \amp 0 \\
+              \end{array}\right]
+            </m>
+          </premise>
+          <premise>
+            <m> \left[\begin{array}{ccc|c}
+            1 \amp * \amp 2 \amp -3 \\
+            0 \amp 0 \amp 0 \amp 0 \\
+            0 \amp 0 \amp 1 \amp -2 \\
+            \end{array}\right]</m>
+          </premise>
+          <premise>
+            <m>\left[\begin{array}{ccc|c}
+            1 \amp * \amp 2 \amp * \\
+            0 \amp 0 \amp 1 \amp * \\
+            0 \amp 0 \amp 0 \amp 1 \\
+            \end{array}\right]</m>
+          </premise>
+          <premise>
+            <m> \left[\begin{array}{ccc|c}
+            0 \amp 1 \amp 0 \amp * \\
+            1 \amp 0 \amp 0 \amp * \\
+            0 \amp 0 \amp 1 \amp * \\
+            \end{array}\right]</m>
+          </premise>
+          <response>Not in reduced row echelon form</response>
+        </match>
+        <match>
+          <premise>
+            <m>  \left[\begin{array}{ccc|c}
+            1 \amp 0 \amp * \amp * \\
+            0 \amp 1 \amp * \amp * \\
+            0 \amp 0 \amp 0 \amp 0 \\
+            \end{array}\right]</m>
+          </premise>
+          <premise>
+            <m> \left[\begin{array}{ccc|c}
+            1 \amp * \amp 0 \amp -3 \\
+            0 \amp 0 \amp 1 \amp -2 \\
+            0 \amp 0 \amp 0 \amp 0 \\
+            \end{array}\right]</m>
+          </premise>
+          <premise>
+            <m> \left[\begin{array}{ccc|c}
+            1 \amp 0 \amp 0 \amp * \\
+            0 \amp 1 \amp 0 \amp * \\
+            0 \amp 0 \amp 1 \amp * \\
+            \end{array}\right]</m>            
+          </premise>
+          <premise>
+            <m>\left[\begin{array}{cccc}
+            1 \amp 0 \amp 1 \amp * \\
+            0 \amp 1 \amp -1 \amp * \\
+            0 \amp 0 \amp 0 \amp 0 \\
+            \end{array}\right]</m>
+          </premise>
+          <response>In reduced row echelon form</response>
+        </match>
+
+        <match>
+          <premise>
+            <m>\left[\begin{array}{ccc|c}
+            1 \amp * \amp * \amp -3 \\
+            0 \amp 0 \amp 1 \amp -2 \\
+            0 \amp 0 \amp 0 \amp 0 \\
+            \end{array}\right]</m>
+          </premise>
+          <response>Not enough information to determine</response>
+        </match>
+      </matches>
+    </exercise>
+
+    <exercise component="proteus">
+      <!--
+          Created at Proteus Ann Arbor workshop, 6/23/25
+      -->
+      <statement>
+        <p>The Gaussian elimination algorithm is a process that will
+        produce information about the set of solutions to a linear
+        system.  This set of questions asks about the order in which
+        the steps of the algorithm are performed.</p>
+      </statement>
+
+      <task label="ula-proteus-1-2-elimination-sort-a-v1">
+        <statement>
+          <p>
+            Put the following systems of equations in order from most
+            complicated to least complicated to solve.
+          </p>
+        </statement>
+        
+        <blocks>
+          <block>
+            <md>
+              <mrow>
+                x \amp {}+{} \amp y \amp {}+{} \amp z \amp {}={} \amp 3
+              </mrow>
+              <mrow>
+                2x \amp {}-{} \amp y \amp {}+{} \amp z \amp {}={} \amp 6
+              </mrow>
+              <mrow>
+                -3x \amp {}+{} \amp y \amp {}+{} \amp 2z \amp {}={} \amp 2
+              </mrow>
+            </md>
+          </block>
+          
+          <block>
+            <md>
+              <mrow>
+                x \amp {}+{} \amp y \amp {}+{} \amp z \amp {}={} \amp 3
+              </mrow>
+              <mrow>
+                \amp  \amp 3y \amp {}+{} \amp z \amp {}={} \amp 0
+              </mrow>
+              <mrow>
+                \amp  \amp \amp \amp 11z \amp {}={} \amp 33
+              </mrow>
+            </md>
+          </block>
+          
+          <block>
+            <md>
+              <mrow>
+                x \amp {}+{} \amp y \amp \amp \amp = \amp 0
+              </mrow>
+              <mrow>
+                \amp  \amp 3y \amp {}+{} \amp z \amp {}={} \amp 0
+              </mrow>
+              <mrow>
+                \amp  \amp \amp \amp z \amp {}={} \amp 3
+              </mrow>
+            </md>
+          </block>
+          
+          <block>
+            <md>
+              <mrow>
+                x \amp \amp \amp \amp \amp {}={} \amp 1
+              </mrow>
+              <mrow>
+                \amp  \amp y \amp \amp \amp {}={} \amp -1
+              </mrow>
+              <mrow>
+                \amp  \amp \amp \amp z \amp {}={} \amp 3
+              </mrow>
+            </md>
+          </block>
+        </blocks>
+      </task>
+
+      <task label="ula-proteus-1-2-elimination-sort-b-v1">
+        <statement>
+          <p>
+            Beginning with the augmented matrix
+            <m>\left[\begin{array}{ccc|c}
+            1 \amp -1 \amp 1 \amp 3 \\
+            2 \amp -1 \amp 1 \amp 6 \\
+            -3 \amp 1 \amp 2 \amp 2 \\
+            \end{array}\right]
+            </m>, indicate the next three steps in the Gaussian
+            elimination.
+          </p>
+        </statement>
+
+        <blocks>
+          <block>
+            <m>-2R_1+R_2 \to R_2</m>
+          </block>
+          <block>
+            <m>3R_1 + R_3 \to R_3</m>
+          </block>
+          <block>
+            <m>4R_2 + R_3 \to R_3</m>
+          </block>
+          <block correct="no">
+            <m>R_2+R_3 \to R_3</m>
+          </block>
+          <block correct="no">
+            <m>R_1+R_2 \to R_2</m>
+          </block>
+          <block correct="no">
+            <m>-4R_1+R_3 \to R_3</m>
+          </block>
+        </blocks>
+      </task>
+
+      <task label="ula-proteus-1-2-elimination-sort-c-v1">
+        <statement>
+          <p>Give a description of the set of solution to the linear
+          system represented in the previous parts of this question.
+          </p>
+        </statement>
+        <response/>
+      </task>
+            
+    </exercise>
+      
+    <exercise component="proteus"
+              label="ula_proteus_1-2_Solutions_from_RREF_v1">
+      <title>Determine number of solutions from RREF.</title>
+      <statement>
+        <p>
+          Each of the following is the RREF of a linear system in
+          augmented matrix form.  
+          The symbol <m>*</m> represents an unknown real number.  
+          For each associated linear system, choose the correct response.
+        </p>
+      </statement>
+      <matches>
+        <match>
+          <premise>
+            <m>\left[ \begin{array}{rrr|r}
+	    1 \amp 0 \amp 0 \amp * \\
+	    0 \amp 1 \amp 0 \amp * \\
+	    0 \amp 0 \amp 1 \amp * \\
+            \end{array}\right]
+            </m>
+          </premise>
+          <premise>
+          <m>  \left[\begin{array}{rr|r}
+          1 \amp 0 \amp  * \\
+          0 \amp 1 \amp  *\\
+          0 \amp 0 \amp  0 \\
+          \end{array} \right]</m>
+          </premise>
+          <response>
+            The linear system has one and only one solution.
+          </response>
+        </match>
+        <match>
+          <premise>
+            <m>\left[\begin{array}{rrr|r}
+	    1 \amp 0 \amp * \amp * \\
+	    0 \amp 1 \amp * \amp *\\
+	    0 \amp 0 \amp 0 \amp 1 \\
+            \end{array} \right]
+            </m>
+          </premise>
+          <response>
+            The linear system has no solution.
+          </response>
+        </match>
+        <match>
+          <premise>
+            <m>\left[\begin{array}{rrr|r}
+	    1 \amp * \amp 0 \amp * \\
+	    0 \amp 0 \amp 1 \amp *\\
+	    0 \amp 0 \amp 0 \amp 0 \\
+            \end{array} \right]
+            </m>
+          </premise>
+          <premise>
+            <m>\left[\begin{array}{rrr|r}
+	    0 \amp 1 \amp 0 \amp * \\
+	    0 \amp 0 \amp 1 \amp *\\
+	    0 \amp 0 \amp 0 \amp 0 \\
+            \end{array} \right]
+            </m>
+          </premise>
+          <premise>
+            <m>\left[\begin{array}{rrr|r}
+            1 \amp 0 \amp * \amp 0 \\
+            0 \amp 1 \amp * \amp 1\\
+            0 \amp 0 \amp 0 \amp 0 \\
+            \end{array} \right]
+            </m>
+          </premise>
+          <response>
+            The linear system has infinitely many solutions.
+          </response>
+        </match>
+        <match>
+          <premise>
+            <m>\left[\begin{array}{rrr|r}
+	    1 \amp 0 \amp * \amp * \\
+	    0 \amp 1 \amp * \amp *\\
+	    0 \amp 0 \amp 0 \amp * \\
+            \end{array} \right]
+            </m>
+          </premise>
+          <response>
+            More information is needed to determine the number of solutions.
+          </response>
+        </match>
+      </matches>
+    </exercise>
+
   </subsection>
 
   <xi:include href="exercises/exercises1-2.xml" />
