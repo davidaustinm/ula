@@ -1477,7 +1477,7 @@
                 \\ 
                 4y \amp {}={} \amp \amp {}{} \amp z \amp {}+{} \amp 2 \\
                 \end{alignedat}
-            </me>.
+            </me>
           </premise>
 
           <response>
@@ -1517,7 +1517,7 @@
           <premise>
             <me>
               \begin{alignedat}{4}
-                2x_1 \amp {}-{} \amp x_2 \amp {}+{} \amp 3z \amp {}={}
+                2x_1 \amp {}-{} \amp x_2 \amp {}+{} \amp 3x_3 \amp {}={}
                 \amp 4 \\
                 4x_1 \amp {}{} \amp  \amp {}-{} \amp x_3 \amp {}={}
                 \amp 3 \\
@@ -1591,6 +1591,7 @@
 
       <matches>
         <match>
+          <!--
           <premise>
             <m>
               \left[\begin{array}{ccc|c}
@@ -1599,7 +1600,8 @@
               0 \amp 0 \amp 0 \amp 0 \\
               \end{array}\right]
             </m>
-          </premise>
+            </premise>
+          -->
           <premise>
             <m> \left[\begin{array}{ccc|c}
             1 \amp * \amp 2 \amp -3 \\
@@ -1739,7 +1741,7 @@
           <p>
             Beginning with the augmented matrix
             <m>\left[\begin{array}{ccc|c}
-            1 \amp -1 \amp 1 \amp 3 \\
+            1 \amp 1 \amp 1 \amp 3 \\
             2 \amp -1 \amp 1 \amp 6 \\
             -3 \amp 1 \amp 2 \amp 2 \\
             \end{array}\right]
@@ -1883,18 +1885,28 @@
         </match>
 
         <match>
+          <!--
           <premise> <m>5R_3\rightarrow R_3</m></premise>
           <premise> <m>R_2\leftrightarrow R_3</m></premise>
+          <premise>
+            <m>R_2\leftrightarrow R_3</m> then
+            <m>5R_2 \rightarrow R_2</m>
+          </premise> 
+          -->
           <premise> <m>5R_2+R_3\rightarrow R_3</m></premise>
           <premise> <m>R_1\leftrightarrow R_2</m></premise>
-          <premise> <m>R_2\leftrightarrow R_3</m> then
-          <m>5R_2 \rightarrow R_2</m></premise> 
-            <premise><m>5R_2+R_1\rightarrow R_1</m> then
-            <m>R_2\leftrightarrow R_3</m></premise> 
-            <premise><m>-5R_2+R_1 \rightarrow R_1</m> then <m>5R_1+R_2
-            \rightarrow R_2</m></premise> 
-            <premise><m>\frac{1}{5}R_2 \rightarrow R_2</m> then
-            <m>R_2\leftrightarrow R_3</m></premise> 
+          <premise>
+            <m>5R_2+R_1\rightarrow R_1</m> then
+            <m>R_2\leftrightarrow R_3</m>
+          </premise> 
+          <premise>
+            <m>-5R_2+R_1 \rightarrow R_1</m> then <m>5R_1+R_2
+            \rightarrow R_2</m>
+          </premise> 
+          <premise>
+            <m>\frac{1}{5}R_2 \rightarrow R_2</m> then
+            <m>R_2\leftrightarrow R_3</m>
+          </premise> 
         </match>
       </matches>
     </exercise>
@@ -1934,8 +1946,8 @@
         <match>
           <premise>
             <m>\left[\begin{array}{rrr|r}
-	    1 \amp 0 \amp * \amp * \\
-	    0 \amp 1 \amp * \amp *\\
+	    1 \amp 0 \amp * \amp 0 \\
+	    0 \amp 1 \amp * \amp 0\\
 	    0 \amp 0 \amp 0 \amp 1 \\
             \end{array} \right]
             </m>

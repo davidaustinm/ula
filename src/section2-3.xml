@@ -1275,6 +1275,280 @@
       at least <m>m</m> vectors. </p></li>
 
     </ul></p>
+
+    <exercise component="proteus">
+      <title>Describing span geometrically</title>
+      <!--
+          Written at Proteus Ann Arbor workshop, 6/24/25
+      -->
+
+      <task label="ula-proteus-2-3-span-geometric-a-v1">
+        <statement>
+          <p>
+            Let <m>\vvec</m> be a nonzero vector in
+            <m>\real^3</m>. Explain why 
+            <m>\laspan{\vvec}</m>
+            is always an infinite set of vectors and describe
+            <m>\laspan{\vvec}</m>
+            geometrically.
+          </p>
+        </statement>
+        <response/>
+      </task>
+
+      <task label="ula-proteus-2-3-span-geometric-b-v1">
+        <statement>
+          <p>
+            If <m>\vvec_1</m>, <m>\vvec_2</m>, and <m>\vvec_3</m> are
+            nonzero vectors in <m>\real^4</m> and
+            <m>\laspan{\vvec_1, \vvec_2,\vvec_3}</m> is a line, 
+            what can you say about the vectors <m>\vvec_1</m>,
+            <m>\vvec_2</m>, and <m>\vvec_3</m>?  Explain your
+            thinking. 
+          </p>
+        </statement>
+        <response/>
+      </task>
+    </exercise>
+
+    <exercise component="proteus">
+      <title>Describing span algebraically</title>
+
+      <!--
+          Written at Proteus Ann Arbor workshop, 6/24/25
+      -->
+      <introduction>
+        <p>
+          Suppose that <m>A</m> is a <m>4\times3</m> matrix whose
+          columns are <m>\vvec_1</m>, <m>\vvec_2</m>, and
+          <m>\vvec_3</m> and that <m>\bvec</m> is a vector in
+          <m>\real^4</m>. 
+        </p>
+      </introduction>
+
+      <task label="ula-proteus-2-3-span-algebraic-a-v1">
+        <statement>
+          <p>If <m>\bvec</m> is in
+            <m>\laspan{\vvec_1,\vvec_2,\vvec_3}</m> , what 
+            can we conclude about the set of solutions to the equation
+            <m>A\xvec = \bvec</m>?  Explain your thinking.
+          </p>
+        </statement>
+        <response/>
+      </task>
+
+      <task label="ula-proteus-2-3-span-algebraic-b-v1">
+        <statement>
+          <p>
+            If <m>2\vvec_1-\vvec_2+3\vvec_3 = \bvec</m>, what can we
+            say about the relationship between <m>\bvec</m> and
+            <m>\laspan{\vvec_1,\vvec_2,\vvec_3}</m>?
+            Explain your thinking. 
+
+          </p>
+        </statement>
+        <response/>
+      </task>
+    </exercise>
+
+    <exercise component="proteus">
+      <title>Connecting span with reduced row echelon form</title>
+      <!--
+          Written at Proteus Ann Arbor workshop, 6/24/25
+      -->
+
+      <statement>
+        <p>Suppose that <m>\vvec_1, \vvec_2, \vvec_3, \vvec_4</m> are
+        vectors in 
+        <m>\real^3</m>. The matrices in the left column are some possible
+        reduced row echelon forms for the matrix
+        <m>
+          \begin{bmatrix}
+          \vvec_1\amp\vvec_2\amp\vvec_3\amp\vvec_4
+          \end{bmatrix}
+        </m>. If possible, match the matrices to the corresponding
+        geometric object for <m>\laspan{\vvec_1,\vvec_2, \vvec_3,
+        \vvec_4}</m>. Note that not all geometric objects correspond to a
+        matrix, and some geometric objects may correspond to more than one
+        matrix.</p> 
+      </statement>
+
+      <cardsort>
+        <match>
+  
+          <premise>
+            <m>
+              \begin{bmatrix}
+              1 \amp 0 \amp 1 \amp 2 \\
+              0 \amp 1 \amp 0 \amp 1 \\
+              0 \amp 0 \amp  0\amp 0
+              \end{bmatrix}
+            </m>
+          </premise>
+          <premise >
+            <m>
+              \begin{bmatrix}
+              1 \amp 0 \amp 0 \amp 2 \\
+              0 \amp 0 \amp 1 \amp 1 \\
+              0 \amp 0 \amp  0\amp 0
+              \end{bmatrix}
+            </m>
+          </premise>
+          <response>
+            <p>
+              <m>\laspan{\vvec_1,\vvec_2, \vvec_3, \vvec_4}</m> is a plane
+              in <m>\real^3</m>.
+            </p>
+          </response>
+        </match>
+
+        <match>
+          <premise>
+            <m>
+              \begin{bmatrix}
+              0 \amp 0 \amp 1 \amp 2 \\
+              0 \amp 0 \amp 0 \amp 0 \\
+              0 \amp 0 \amp  0\amp 0
+              \end{bmatrix}
+            </m>
+          </premise>
+          <response>
+            <p>
+              <m>\laspan{\vvec_1,\vvec_2, \vvec_3, \vvec_4}</m> is a line
+              in <m>\real^3</m>.
+            </p>
+          </response>
+        </match>
+
+        <match>
+          <premise>
+            <m>
+              \begin{bmatrix}
+              1 \amp 0 \amp 0 \amp 1 \\
+              0 \amp 1 \amp 0 \amp 2 \\
+              0 \amp 0 \amp  1\amp 2
+              \end{bmatrix}
+            </m>
+          </premise>
+          <premise>
+            <m>
+              \begin{bmatrix}
+              1 \amp 0 \amp 0 \amp 0 \\
+              0 \amp 0 \amp 1 \amp 0 \\
+              0 \amp 0 \amp  0\amp 1
+              \end{bmatrix}
+            </m>
+          </premise>
+          <response>
+            <p>
+              <m>\laspan{\vvec_1,\vvec_2, \vvec_3, \vvec_4}</m> is
+              <m>\real^3</m>.
+            </p>
+          </response> 
+        </match>
+        <match>
+          <response>
+            <p>
+              <m>\laspan{\vvec_1,\vvec_2, \vvec_3, \vvec_4}</m> is
+              <m>\real^2</m>.
+            </p>
+          </response> 
+        </match>
+        <match>
+          <response>
+            <p>
+              <m>\laspan{\vvec_1,\vvec_2, \vvec_3, \vvec_4}</m> is
+              <m>\real^4</m>.
+            </p>
+          </response> 
+        </match>
+      </cardsort>
+    </exercise>
+
+    <exercise component="proteus"
+              label="ula_proteus_Section_2-3_Span_Matching_True_False_Sometimes_v1">
+      <title>Understanding Span - True/False/Sometimes</title>
+      <statement>
+        <p>
+        Determine whether each of the statements in the left column is
+        always true, always false, or sometimes true.
+        </p> 
+      </statement>
+
+      <cardsort>
+        <match>
+          <premise>
+            If <m>\bvec</m> is in
+            <m>\laspan{\vvec_1,\vvec_2,\vvec_1+\vvec_2}</m>, then 
+            <m>\bvec</m> is in <m>\laspan{\vvec_1,\vvec_2}</m>.
+          </premise>
+          <premise>
+            If <m>\vvec_1,\ldots,\vvec_{n}</m> are vectors
+            in <m>\real^{23}</m> and
+            <m>A= \begin{bmatrix}
+            \vvec_1\amp\vvec_2\amp\cdots\amp\vvec_{n}
+            \end{bmatrix}</m>
+            has a pivot in every row, then 
+            <m>\laspan{\vvec_1,\ldots,\vvec_{23}}=\real^{23}</m>.
+          </premise>
+          <premise>
+            If <m>\vvec_1,\ldots,\vvec_{23}</m> are vectors
+            in <m>\real^{23}</m> and
+            <m>\laspan{\vvec_1,\ldots,\vvec_{23}}=\real^{23}</m>, then  
+            <m>A= \begin{bmatrix}
+            \vvec_1\amp\vvec_2\amp\cdots\amp\vvec_{23}
+            \end{bmatrix}</m> 
+            has a pivot in every column.
+          </premise>
+          <response>
+            Always True
+          </response>
+        </match>
+
+        <match>
+          <premise>
+            If <m>\vvec_1,\ldots,\vvec_{22}</m> is a set of 22 vectors
+            in <m>\real^{23}</m>, 
+            then  <m>\laspan{\vvec_1,\ldots,\vvec_{22}}=\real^{23}</m>.
+          </premise>
+          <response>
+            Always False
+          </response>
+        </match>
+
+        <match>
+          <premise>
+            If <m>\vvec_1</m> and <m>\vvec_2</m> are vectors in
+            <m>\real^3</m>, then  
+            <m>\laspan{\vvec_1,\vvec_2}</m> is a plane.
+          </premise>
+          <premise>
+            If <m>\vvec_1,\ldots,\vvec_{23}</m> are vectors
+            in <m>\real^{23}</m>, then
+            <m>\laspan{\vvec_1,\ldots,\vvec_{23}}=\real^{23}</m>. 
+          </premise>
+          <premise>
+            If <m>\vvec_1,\ldots,\vvec_{n}</m> are vectors
+            in <m>\real^{23}</m> and
+            <m>\laspan{\vvec_1,\ldots,\vvec_{n}}=\real^{23}</m>, 
+            then <m>n=23</m>.
+          </premise>
+          <premise>
+            If <m>\vvec_1,\ldots,\vvec_{n}</m> are vectors
+            in <m>\real^{23}</m> and
+            <m>A= \begin{bmatrix}
+            \vvec_1\amp\vvec_2\amp\cdots\amp\vvec_{n}
+            \end{bmatrix}</m>
+            has a pivot in every column, then 
+            <m>\laspan{\vvec_1,\ldots,\vvec_{23}}=\real^{23}</m>.
+          </premise>
+          <response>
+            Sometimes True
+          </response>
+        </match>
+      </cardsort>
+    </exercise>
+    
       
   </subsection>
 
