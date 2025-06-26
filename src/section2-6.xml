@@ -1193,6 +1193,509 @@
     </ul>
     </p>
 
+    <exercise component="proteus">
+      <title> Seeing matrix transformations as functions </title>
+
+      <introduction>
+        <p>Consider the function
+        <me>
+          T\left(\threevec{x_1}{x_2}{x_3}\right) =
+          \twovec{x_1 - 2x_2+4x_3}{2x_2+2x_3}
+        </me>.
+        </p>
+      </introduction>
+
+      <task label="ula-proteus-2-6-seeing-functions-a-v1">
+        <statement>
+          <p>Evaluate <m>T(\xvec)</m> if <m>\xvec=\threevec312</m>
+          </p>
+        </statement>
+        <response/>
+      </task>
+
+      <task label="ula-proteus-2-6-seeing-functions-b-v1">
+        <statement>
+          <p>If we write <m>T:\real^m\to\real^n</m>, what are the
+          values of <m>m</m> and <m>n</m>?
+          </p>
+        </statement>
+        <response/>
+      </task>
+
+      <task label="ula-proteus-2-6-seeing-functions-c-v1">
+        <statement>
+          <p>Find the vectors <m>\xvec</m> for which <m>T(\xvec) =
+          \zerovec</m>.
+          </p>
+        </statement>
+        <response/>
+      </task>
+
+      <task label="ula-proteus-2-6-seeing-functions-d-v1">
+        <statement>
+          <p>What is the matrix <m>A</m> for
+          which <m>T(\xvec) = A\xvec</m>.
+          </p>
+        </statement>
+        <response/>
+      </task>
+
+      <task label="ula-proteus-2-6-seeing-functions-e-v1">
+        <statement>
+          <p>Find the vectors <m>\xvec</m> for which <m>T(\xvec) =
+          \twovec88</m>.
+          </p>
+        </statement>
+        <response/>
+      </task>
+
+    </exercise>
+
+    <exercise component="proteus">
+      <title> Identifying the matrix that defines a transformation </title>
+
+      <task label="ula-proteus-2-6-identifying-matrix-a-v1">
+        <statement>
+          <p>Suppose that <m>T</m> is a matrix transformation and that
+          <me>
+            T\left(\twovec10\right) = \threevec13{-1},
+            \hspace{24pt}
+            T\left(\twovec01\right) = \threevec021
+          </me>.
+          Find <m>T\left(\twovec45\right)</m>.
+          </p>
+        </statement>
+        <response/>
+      </task>
+
+      <task label="ula-proteus-2-6-identifying-matrix-b-v1">
+        <statement>
+          <p>On the left of <xref ref="diagram-identify-matrix"/> is
+          the unit square in the plane <m>\real^2</m> while on the
+          right is the image of the unit square under a matrix
+          transformation <m>T:\real^2\to\real^2</m>.
+        </p>
+
+        <figure xml:id="diagram-identify-matrix">
+          <caption> The unit square and its image under the
+          matrix transformation <m>T</m>.
+          <sidebyside widths="35% 35%">
+            <image>
+              <prefigure xmlns="https://prefigure.org"
+                         label="prefigure-unit-square">
+                <diagram dimensions="(200,200)" margins="5">
+                  <definition>origin=(0,0)</definition>
+                  <definition>v1=(1,0)</definition>
+                  <definition>v2=(0,1)</definition>
+                  <coordinates bbox="(-3,-3,3,3)">
+                    <grid-axes decorations="no"/>
+                    <polygon points="(origin,v1,v1+v2,v2)" closed="yes"
+                             fill="cornflowerblue" stroke="black"/>
+                  </coordinates>
+                </diagram>
+              </prefigure>
+            </image>
+
+            <image>
+              <prefigure xmlns="https://prefigure.org"
+                         label="prefigure-image-unit-square">
+                <diagram dimensions="(200,200)" margins="5">
+                  <definition>origin=(0,0)</definition>
+                  <definition>v1=(2,2)</definition>
+                  <definition>v2=(0,1)</definition>
+                  <coordinates bbox="(-3,-3,3,3)">
+                    <grid-axes decorations="no"/>
+                    <polygon points="(origin,v1,v1+v2,v2)" closed="yes"
+                             fill="cornflowerblue" stroke="black"/>
+                  </coordinates>
+                </diagram>
+              </prefigure>
+            </image>
+          </sidebyside>
+        </figure>
+
+        <p>
+          Find the matrix <m>A</m> such that <m>T(\xvec) =
+          A\xvec</m>.
+        </p>
+        </statement>
+        <response/>
+      </task>
+    </exercise>
+
+    <exercise component="proteus"
+              label="ula_proteus_Section_2-6_Find_Matrix_from_Unit_Square_Image_v1">
+      <title>Find the Matrix for a Transformation Given the Image of
+      the Unit Square</title>
+      <statement>
+        <p>
+          In the answer box below, give the matrix of the matrix
+          transformation <m>T</m> that will transform
+          the unit square into the quadrilateral shown.
+        </p>
+      </statement>
+      <response/>
+      <statement>
+        <p>
+          Using your transformation <m>T</m> from above, match each of
+          the expressions on the left with the appropriate
+          output.
+        </p>
+      </statement>
+      <cardsort>
+        <match>
+          <premise>
+            <me> T\left(\twovec{1}{1}\right)</me>
+          </premise>
+          <response>
+            <me> \twovec{4}{1}</me>
+        </response>
+        </match>
+        <match>
+          <premise>
+            <me> T\left(\twovec{0}{1}\right)</me>
+          </premise>
+          <response>
+            <me> \twovec{1}{2}</me>
+        </response>
+        </match>
+        <match>
+          <premise>
+            <me> T\left(\twovec{-1}{0}\right)</me>
+          </premise>
+          <response>
+            <me> \twovec{-3}{1}</me>
+        </response>
+        </match>
+        <match>
+          <premise>
+            <me> T\left(\twovec{1}{0}\right)</me>
+          </premise>
+          <response>
+            <me> \twovec{3}{-1}</me>
+        </response>
+        </match>
+        <match>
+          <premise>
+            <me> T\left(\twovec{2}{-1}\right)</me>
+          </premise>
+          <response>
+            <me> \twovec{5}{-4}</me>
+        </response>
+        </match>
+        <match>
+          <premise>
+            <me> T\left(\twovec{0}{0}\right)</me>
+          </premise>
+          <response>
+            <me> \twovec{0}{0}</me>
+        </response>
+        </match>
+      </cardsort>
+    </exercise>
+
+    <exercise component="proteus"
+              label="ula_proteus_Section_2-6_Correct_Matrix_for_Transformation_v1">
+      <title>Matrices of Transformations</title>
+      <statement>
+        <p>On the left, you are given some transformations in vector
+        form. If the transformation is a matrix
+          transformation, drag it to the associated matrix. Otherwise,
+          drag it to "Not a matrix transformation".
+        </p>
+      </statement>
+      <cardsort>
+        <match>
+          <premise>
+            <m>
+              T\left(\cthreevec{x}{y}{z}\right)=
+            \cthreevec{4x-z}{y-2x}{2x-3z+5y}</m>
+          </premise>
+          <response>
+            <m>
+              \begin{bmatrix}
+              4 \amp 0 \amp -1 \\ -2 \amp 1 \amp 0 \\ 2 \amp 5 \amp -3
+              \end{bmatrix}
+            </m>
+        </response>
+        </match>
+        <match>
+          <premise>
+            <m> T\left(\cthreevec{x}{y}{z}\right)=
+            \cthreevec{4x+2z-2y}{y+5z}{-3z-x}</m>
+          </premise>
+          <response>
+            <m>
+              \begin{bmatrix}
+              4 \amp -2 \amp 2 \\ 0 \amp 1 \amp 5 \\ -1 \amp 0 \amp -3
+              \end{bmatrix}
+            </m>
+        </response>
+        </match>
+        <match>
+          <premise>
+            <m> T\left(\cthreevec{x}{y}{z}\right)=\ctwovec{z}{y-4x}</m>
+          </premise>
+          <response>
+            <m>
+              \begin{bmatrix}
+              0 \amp 0 \amp 1 \\ -4 \amp 1 \amp 0
+              \end{bmatrix}
+            </m>
+        </response>
+        </match>
+        <match>
+          <premise>
+            <m> T\left(\ctwovec{x_1}{x_2}\right)=
+            \cthreevec{-4x_2}{x_2}{x_1}</m>
+          </premise>
+          <response>
+
+              \begin{bmatrix}
+              0 \amp -4 \\ 0 \amp 1 \\ 1 \amp 0
+              \end{bmatrix}
+            </m>
+       </response>
+        </match>
+        <match>
+          <premise>
+            <m> T\left(\cthreevec{x}{y}{z}\right)=
+            \cthreevec{z-x^2}{x+y+z}{0}</m>
+          </premise>
+          <premise>
+            <m> T\left(\cthreevec{a}{b}{c}\right)=
+            \cthreevec{4a-c}{b-2a}{2a-3c+5}</m>
+          </premise>
+          <response>
+              Not a matrix transformation
+        </response>
+        </match>
+      </cardsort>
+    </exercise>
+
+    <exercise component="proteus"
+              label="ula-proteus-2-6-algebraic-properties">
+      <title>Algebraic properties of matrix transformations</title>
+
+      <statement>
+        <p>
+        Let <m>T</m> be a matrix transformation with associated matrix
+        <m>A</m>. Determine whether each of the following properties
+        is always true, always false, or sometimes true.
+        </p>
+      </statement>
+      <cardsort>
+        <match>
+          <premise>
+            <p>
+              If <m>T(\xvec_1)=\zerovec</m> and
+              <m>T(\xvec_2)=\zerovec</m>, then <m>T(\xvec_1
+              +\xvec_2)=\zerovec</m>.
+            </p>
+          </premise>
+          <premise>
+            <m>T(\zerovec)=\zerovec</m>
+          </premise>
+          <premise>
+            <p>
+              If <m>T(\xvec)=\zerovec</m>, then <m>T(r\xvec)=\zerovec</m>
+              for any scalar <m>r</m>.
+            </p>
+          </premise>
+          <response>Always True</response>
+        </match>
+
+        <match>
+          <premise>
+            <p>
+              If <m>A</m> is a <m>4\times 5</m> matrix and
+              <m>T(\xvec)=\yvec</m>, then <m>\yvec</m> is in <m>\real^5</m>.
+            </p>
+          </premise>
+          <response>Always False</response>
+        </match>
+
+        <match>
+          <premise>
+            <p>
+              If <m>T(\xvec_1)=T(\xvec_2)</m>, then
+              <m>\xvec_1=\xvec_2</m>.
+            </p>
+          </premise>
+          <premise>
+            <p>
+              If <m>T(\xvec)=\zerovec</m>, then <m>\xvec=\zerovec</m>.
+            </p>
+          </premise>
+          <premise>
+            <p>
+              If <m>A\xvec=\zerovec</m>, then <m>\xvec=\zerovec</m>.
+            </p>
+          </premise>
+          <response>Sometimes True</response>
+        </match>
+      </cardsort>
+    </exercise>
+
+
+    <!--
+
+    <exercise component="proteus">
+      <title>Identifying matrix transformations graphically</title>
+
+      <statement>
+        <p>
+          The unit square is depicted in <xref
+          ref="diagram-unit-square"/>.  The right columns shows the
+          image of the unit square under a matrix transformation.
+          Match each matrix in the left column with the corresponding
+          image of the unit square.
+        </p>
+
+        <figure xml:id="diagram-unit-square">
+          <caption>The unit square</caption>
+          <image width="40%">
+            <prefigure xmlns="https://prefigure.org"
+                       label="prefigure-unit-square">
+              <diagram dimensions="(200,200)" margins="5">
+                <rectangle lower-left="(-10,-10)"
+                           dimensions="(220,220)" fill="white"/>
+                <coordinates bbox="(-3,-3,3,3)">
+                  <grid-axes decorations="no"/>
+                  <group transform="rotate(0)">
+                    <rectangle lower-left="(0,0)" dimensions="(1,1)"
+                               fill="cornflowerblue" stroke="black"/>
+                  </group>
+                </coordinates>
+              </diagram>
+            </prefigure>
+          </image>
+        </figure>
+
+      </statement>
+
+      <cardsort>
+        <match order="1">
+          <premise>
+            <m>\begin{bmatrix}
+            0 \amp -1 \\
+            1 \amp 0 \\
+            \end{bmatrix}
+            </m>
+          </premise>
+          <response>
+            <figure>
+              <image width="50%">
+                <prefigure xmlns="https://prefigure.org"
+                           label="prefigure-grid-1">
+                  <diagram dimensions="(200,200)" margins="5">
+                    <rectangle lower-left="(-10,-10)" dimensions="(220,220)" fill="white"/>
+              <coordinates bbox="(-3,-3,3,3)">
+                <grid-axes decorations="no"/>
+                <group transform="rotate(90)">
+                  <rectangle lower-left="(0,0)" dimensions="(1,1)"
+                    fill="cornflowerblue" stroke="black"/>
+                </group>
+              </coordinates>
+            </diagram>
+          </prefigure>
+          </image>
+        </figure>
+        </response>
+      </match>
+
+      <match order="2">
+        <premise>
+          <m>\begin{bmatrix}
+            -1 \amp 0 \\
+            0 \amp 2 \\
+            \end{bmatrix}
+          </m>
+        </premise>
+        <response>
+          <figure>
+          <image width="50%">
+            <prefigure xmlns="https://prefigure.org"
+                label="prefigure-grid-2">
+            <diagram dimensions="(200,200)" margins="5">
+              <rectangle lower-left="(-10,-10)"
+                         dimensions="(220,220)" fill="white"/>
+              <coordinates bbox="(-3,-3,3,3)">
+                <grid-axes decorations="no"/>
+                <group transform="scale(-1,2,[0,0])">
+                  <rectangle lower-left="(0,0)" dimensions="(1,1)"
+                             fill="cornflowerblue" stroke="black"/>
+                </group>
+              </coordinates>
+            </diagram>
+            </prefigure>
+          </image>
+          </figure>
+        </response>
+      </match>
+
+      <match order="3">
+        <premise>
+          <m>\begin{bmatrix}
+          1 \amp 1 \\
+          0 \amp 1 \\
+          \end{bmatrix}
+          </m>
+        </premise>
+        <response>
+          <figure>
+            <image width="50%">
+              <prefigure xmlns="https://prefigure.org"
+                         label="prefigure-grid-3">
+                <diagram dimensions="(200,200)" margins="5">
+                  <rectangle lower-left="(-10,-10)"
+                             dimensions="(220,220)" fill="white"/>
+                  <coordinates bbox="(-3,-3,3,3)">
+                    <grid-axes decorations="no"/>
+                    <polygon points="((0,0),(1,0),(2,1),(1,1))" closed="yes"
+                             fill="cornflowerblue" stroke="black"/>
+
+                  </coordinates>
+                </diagram>
+              </prefigure>
+            </image>
+          </figure>
+        </response>
+      </match>
+
+      <match order="4">
+        <premise>
+          <m>\begin{bmatrix}
+          1 \amp 0 \\
+          0 \amp 1 \\
+          \end{bmatrix}
+          </m>
+        </premise>
+        <response>
+          <figure>
+            <image width="50%">
+              <prefigure xmlns="https://prefigure.org"
+                         label="prefigure-grid-4">
+                <diagram dimensions="(200,200)" margins="5">
+                  <rectangle lower-left="(-10,-10)"
+                             dimensions="(220,220)" fill="white"/>
+                  <coordinates bbox="(-3,-3,3,3)">
+                    <grid-axes decorations="no"/>
+                    <group transform="rotate(0)">
+                      <rectangle lower-left="(0,0)" dimensions="(1,1)"
+                                 fill="cornflowerblue" stroke="black"/>
+                    </group>
+                  </coordinates>
+                </diagram>
+              </prefigure>
+            </image>
+          </figure>
+        </response>
+      </match>
+      </cardsort>
+
+    </exercise>
+    -->
   </subsection>
 
   <xi:include href="exercises/exercises2-6.xml" />
