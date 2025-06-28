@@ -1419,13 +1419,6 @@
           transforms
           the unit square into the parallelogram shown on the
           right.
-          <!--
-          (The segment of the unit 
-          square from <m>(0,0)</m> to <m>(1,0)</m> should transform to
-          the segment 
-          of the parallelogram from 
-          <m>(0,0)</m> to <m>(3,-1)</m>.)
-          -->
         </p>
         <figure xml:id="diagram-unit-square-transformed">
           <sidebyside widths="40% 40%">
@@ -1439,9 +1432,6 @@
 	                     closed="yes" fill="cornflowerblue"
 	                     stroke="gray" thickness="3"/>
                     <vector v="(1,0)" stroke="red" thickness="4"/>
-                    <point p="(-1,4)" alignment="nw">
-                      Hello
-                    </point>
                   </coordinates>
                 </diagram>
               </prefigure>
@@ -1534,81 +1524,6 @@
       </task>
     </exercise>
          
-        
-<!--        
-        <exercise component="proteus"
-              label="ula_proteus_Section_2-6_Find_Matrix_from_Unit_Square_Image_v1">
-      <title>Find the Matrix for a Transformation Given the Image of
-      the Unit Square</title>
-
-      <statement>
-        <p>
-          In the answer box below, give the matrix of the matrix
-          transformation <m>T</m> that will transform
-          the unit square into the quadrilateral shown.
-        </p>
-      </statement>
-      <response/>
-      <statement>
-        <p>
-          Using your transformation <m>T</m> from above, match each of
-          the expressions on the left with the appropriate
-          output.
-        </p>
-      </statement>
-      <cardsort>
-        <match>
-          <premise>
-            <me> T\left(\twovec{1}{1}\right)</me>
-          </premise>
-          <response>
-            <me> \twovec{4}{1}</me>
-        </response>
-        </match>
-        <match>
-          <premise>
-            <me> T\left(\twovec{0}{1}\right)</me>
-          </premise>
-          <response>
-            <me> \twovec{1}{2}</me>
-        </response>
-        </match>
-        <match>
-          <premise>
-            <me> T\left(\twovec{-1}{0}\right)</me>
-          </premise>
-          <response>
-            <me> \twovec{-3}{1}</me>
-        </response>
-        </match>
-        <match>
-          <premise>
-            <me> T\left(\twovec{1}{0}\right)</me>
-          </premise>
-          <response>
-            <me> \twovec{3}{-1}</me>
-        </response>
-        </match>
-        <match>
-          <premise>
-            <me> T\left(\twovec{2}{-1}\right)</me>
-          </premise>
-          <response>
-            <me> \twovec{5}{-4}</me>
-        </response>
-        </match>
-        <match>
-          <premise>
-            <me> T\left(\twovec{0}{0}\right)</me>
-          </premise>
-          <response>
-            <me> \twovec{0}{0}</me>
-        </response>
-        </match>
-      </cardsort>
-    </exercise>
--->
-
     <exercise component="proteus"
               label="ula-proteus-2-6-algebraic-properties">
       <title>Algebraic properties of matrix transformations</title>
@@ -1675,10 +1590,8 @@
       </cardsort>
     </exercise>
 
-
-    <!--
-
-    <exercise component="proteus">
+    <exercise component="proteus"
+              label="ula-proteus-2-6-identify-matrix-graphically">
       <title>Identifying matrix transformations graphically</title>
 
       <statement>
@@ -1696,25 +1609,24 @@
             <prefigure xmlns="https://prefigure.org"
                        label="prefigure-unit-square">
               <diagram dimensions="(200,200)" margins="5">
-                <rectangle lower-left="(-10,-10)"
-                           dimensions="(220,220)" fill="white"/>
+                <definition>origin=(0,0)</definition>
+                <definition>v1=(1,0)</definition>
+                <definition>v2=(0,1)</definition>
+                <rectangle lower-left="(-10,-10)" dimensions="(220,220)" fill="white"/>
                 <coordinates bbox="(-3,-3,3,3)">
                   <grid-axes decorations="no"/>
-                  <group transform="rotate(0)">
-                    <rectangle lower-left="(0,0)" dimensions="(1,1)"
-                               fill="cornflowerblue" stroke="black"/>
-                  </group>
+                  <polygon points="(origin,v1,v1+v2,v2)" closed="yes"
+                           fill="cornflowerblue" stroke="gray"/>
                 </coordinates>
               </diagram>
             </prefigure>
           </image>
         </figure>
-
       </statement>
 
       <cardsort>
-        <match order="1">
-          <premise>
+        <match>
+          <premise order="2">
             <m>\begin{bmatrix}
             0 \amp -1 \\
             1 \amp 0 \\
@@ -1723,120 +1635,182 @@
           </premise>
           <response>
             <figure>
-              <image width="50%">
+              <image width="40%">
                 <prefigure xmlns="https://prefigure.org"
                            label="prefigure-grid-1">
                   <diagram dimensions="(200,200)" margins="5">
+                    <definition>origin=(0,0)</definition>
+                    <definition>v1=(0,1)</definition>
+                    <definition>v2=(-1,0)</definition>
                     <rectangle lower-left="(-10,-10)" dimensions="(220,220)" fill="white"/>
-              <coordinates bbox="(-3,-3,3,3)">
-                <grid-axes decorations="no"/>
-                <group transform="rotate(90)">
-                  <rectangle lower-left="(0,0)" dimensions="(1,1)"
-                    fill="cornflowerblue" stroke="black"/>
-                </group>
-              </coordinates>
-            </diagram>
-          </prefigure>
-          </image>
-        </figure>
-        </response>
-      </match>
+                    <coordinates bbox="(-3,-3,3,3)">
+                      <grid-axes decorations="no"/>
+                      <polygon points="(origin,v1,v1+v2,v2)" closed="yes"
+                               fill="cornflowerblue" stroke="gray"/>
+                    </coordinates>
+                  </diagram>
+                </prefigure>
+              </image>
+            </figure>
+          </response>
+        </match>
 
-      <match order="2">
-        <premise>
-          <m>\begin{bmatrix}
+        <match>
+          <premise order="6">
+            <m>\begin{bmatrix}
             -1 \amp 0 \\
             0 \amp 2 \\
             \end{bmatrix}
-          </m>
-        </premise>
-        <response>
-          <figure>
-          <image width="50%">
-            <prefigure xmlns="https://prefigure.org"
-                label="prefigure-grid-2">
-            <diagram dimensions="(200,200)" margins="5">
-              <rectangle lower-left="(-10,-10)"
-                         dimensions="(220,220)" fill="white"/>
-              <coordinates bbox="(-3,-3,3,3)">
-                <grid-axes decorations="no"/>
-                <group transform="scale(-1,2,[0,0])">
-                  <rectangle lower-left="(0,0)" dimensions="(1,1)"
-                             fill="cornflowerblue" stroke="black"/>
-                </group>
-              </coordinates>
-            </diagram>
-            </prefigure>
-          </image>
-          </figure>
-        </response>
-      </match>
+            </m>
+          </premise>
+          <response>
+            <figure>
+              <image width="40%">
+                <prefigure xmlns="https://prefigure.org"
+                           label="prefigure-grid-2">
+                  <diagram dimensions="(200,200)" margins="5">
+                    <definition>origin=(0,0)</definition>
+                    <definition>v1=(-1,0)</definition>
+                    <definition>v2=(0,2)</definition>
+                    <rectangle lower-left="(-10,-10)" dimensions="(220,220)" fill="white"/>
+                    <coordinates bbox="(-3,-3,3,3)">
+                      <grid-axes decorations="no"/>
+                      <polygon points="(origin,v1,v1+v2,v2)" closed="yes"
+                               fill="cornflowerblue" stroke="gray"/>
+                    </coordinates>
+                  </diagram>
+                </prefigure>
+              </image>
+            </figure>
+          </response>
+        </match>
 
-      <match order="3">
-        <premise>
-          <m>\begin{bmatrix}
-          1 \amp 1 \\
-          0 \amp 1 \\
-          \end{bmatrix}
-          </m>
-        </premise>
-        <response>
-          <figure>
-            <image width="50%">
-              <prefigure xmlns="https://prefigure.org"
-                         label="prefigure-grid-3">
-                <diagram dimensions="(200,200)" margins="5">
-                  <rectangle lower-left="(-10,-10)"
-                             dimensions="(220,220)" fill="white"/>
-                  <coordinates bbox="(-3,-3,3,3)">
-                    <grid-axes decorations="no"/>
-                    <polygon points="((0,0),(1,0),(2,1),(1,1))" closed="yes"
-                             fill="cornflowerblue" stroke="black"/>
+        <match>
+          <premise order="3">
+            <m>\begin{bmatrix}
+            1 \amp 1 \\
+            0 \amp 1 \\
+            \end{bmatrix}
+            </m>
+          </premise>
+          <response>
+            <figure>
+              <image width="40%">
+                <prefigure xmlns="https://prefigure.org"
+                           label="prefigure-grid-3">
+                  <diagram dimensions="(200,200)" margins="5">
+                    <definition>origin=(0,0)</definition>
+                    <definition>v1=(1,0)</definition>
+                    <definition>v2=(1,1)</definition>
+                    <rectangle lower-left="(-10,-10)" dimensions="(220,220)" fill="white"/>
+                    <coordinates bbox="(-3,-3,3,3)">
+                      <grid-axes decorations="no"/>
+                      <polygon points="(origin,v1,v1+v2,v2)" closed="yes"
+                               fill="cornflowerblue" stroke="gray"/>
+                    </coordinates>
+                  </diagram>
+                </prefigure>
+              </image>
+            </figure>
+          </response>
+        </match>
 
-                  </coordinates>
-                </diagram>
-              </prefigure>
-            </image>
-          </figure>
-        </response>
-      </match>
+        <match>
+          <premise order="1">
+            <m>\begin{bmatrix}
+            1 \amp 0 \\
+            0 \amp 1 \\
+            \end{bmatrix}
+            </m>
+          </premise>
+          <response>
+            <figure>
+              <image width="40%">
+                <prefigure xmlns="https://prefigure.org"
+                           label="prefigure-grid-4">
+                  <diagram dimensions="(200,200)" margins="5">
+                    <definition>origin=(0,0)</definition>
+                    <definition>v1=(1,0)</definition>
+                    <definition>v2=(0,1)</definition>
+                    <rectangle lower-left="(-10,-10)" dimensions="(220,220)" fill="white"/>
+                    <coordinates bbox="(-3,-3,3,3)">
+                      <grid-axes decorations="no"/>
+                      <polygon points="(origin,v1,v1+v2,v2)" closed="yes"
+                               fill="cornflowerblue" stroke="gray"/>
+                    </coordinates>
+                  </diagram>
+                </prefigure>
+              </image>
+            </figure>
+          </response>
+        </match>
 
-      <match order="4">
-        <premise>
-          <m>\begin{bmatrix}
-          1 \amp 0 \\
-          0 \amp 1 \\
-          \end{bmatrix}
-          </m>
-        </premise>
-        <response>
-          <figure>
-            <image width="50%">
-              <prefigure xmlns="https://prefigure.org"
-                         label="prefigure-grid-4">
-                <diagram dimensions="(200,200)" margins="5">
-                  <rectangle lower-left="(-10,-10)"
-                             dimensions="(220,220)" fill="white"/>
-                  <coordinates bbox="(-3,-3,3,3)">
-                    <grid-axes decorations="no"/>
-                    <group transform="rotate(0)">
-                      <rectangle lower-left="(0,0)" dimensions="(1,1)"
-                                 fill="cornflowerblue" stroke="black"/>
-                    </group>
-                  </coordinates>
-                </diagram>
-              </prefigure>
-            </image>
-          </figure>
-        </response>
-      </match>
+        <match>
+          <premise order="6">
+            <m>\begin{bmatrix}
+            1 \amp -1 \\
+            1 \amp 1 \\
+            \end{bmatrix}
+            </m>
+          </premise>
+          <response>
+            <figure>
+              <image width="40%">
+                <prefigure xmlns="https://prefigure.org"
+                           label="prefigure-grid-5">
+                  <diagram dimensions="(200,200)" margins="5">
+                    <definition>origin=(0,0)</definition>
+                    <definition>v1=(1,1)</definition>
+                    <definition>v2=(-1,1)</definition>
+                    <rectangle lower-left="(-10,-10)" dimensions="(220,220)" fill="white"/>
+                    <coordinates bbox="(-3,-3,3,3)">
+                      <grid-axes decorations="no"/>
+                      <polygon points="(origin,v1,v1+v2,v2)" closed="yes"
+                               fill="cornflowerblue" stroke="gray"/>
+                    </coordinates>
+                  </diagram>
+                </prefigure>
+              </image>
+            </figure>
+          </response>
+        </match>
+
+        <match>
+          <premise order="4">
+            <m>\begin{bmatrix}
+            1 \amp 1 \\
+            1 \amp 1 \\
+            \end{bmatrix}
+            </m>
+          </premise>
+          <response>
+            <figure>
+              <image width="40%">
+                <prefigure xmlns="https://prefigure.org"
+                           label="prefigure-grid-6">
+                  <diagram dimensions="(200,200)" margins="5">
+                    <definition>origin=(0,0)</definition>
+                    <definition>v1=(1,1)</definition>
+                    <definition>v2=(1,1)</definition>
+                    <rectangle lower-left="(-10,-10)" dimensions="(220,220)" fill="white"/>
+                    <coordinates bbox="(-3,-3,3,3)">
+                      <grid-axes decorations="no"/>
+                      <polygon points="(origin,v1,v1+v2,v2)" closed="yes"
+                               fill="cornflowerblue" stroke="gray"/>
+                    </coordinates>
+                  </diagram>
+                </prefigure>
+              </image>
+            </figure>
+          </response>
+        </match>
+
       </cardsort>
-
     </exercise>
-    -->
+
   </subsection>
 
   <xi:include href="exercises/exercises2-6.xml" />
-  
+
 </section>
 
