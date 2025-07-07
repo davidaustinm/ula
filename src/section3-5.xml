@@ -1187,7 +1187,105 @@ p	  </p></li>
       </task>
 
     </exercise>
-          
+
+    <exercise component="proteus"
+              label="ula-proteus-3-5-eltsofspaces-v1">
+      <title>Determining elements of spaces</title>
+      <statement>
+        <p>Consider the matrix <m>A</m> and its reduced row
+        echelon form:
+        <me>
+          A=
+          \begin{bmatrix}
+          3 \amp 1 \amp -5 \amp 0 \\
+          1 \amp 1 \amp -1 \amp -4 \\
+          2 \amp 0 \amp  -4\amp 4 \\
+          1 \amp 0 \amp  -2\amp 1
+          \end{bmatrix} \sim
+          \begin{bmatrix}
+          1 \amp 0 \amp -2 \amp 0 \\
+          0 \amp 1 \amp  1 \amp 0 \\
+          0 \amp 0 \amp  0 \amp 1 \\
+          0 \amp 0 \amp  0 \amp 0
+          \end{bmatrix}
+        </me>.
+        If possible, determine if the given vectors are in
+        <m>\nul(A)</m> and/or <m>\col(A)</m>.</p>
+      </statement>
+
+      <cardsort>
+        <match>
+          <premise><m>\fourvec{2}{-1}{1}{0}</m></premise>
+          <response><p>In <m>\nul(A)</m>, not in <m>\col(A)</m>.</p></response>
+        </match>
+        <match>
+          <premise><m>\fourvec{3}{1}{2}{1}</m></premise>
+          <premise><m>\fourvec{4}{-2}{6}{2}</m></premise>
+          <premise><m>\fourvec{-5}{-1}{-4}{-2}</m></premise>
+          <response><p>In <m>\col(A)</m>, not in <m>\nul(A)</m>.</p></response>
+        </match>
+
+        <match>
+          <premise><m>\fourvec{1}{0}{0}{0}</m></premise>
+          <premise><m>\fourvec{1}{0}{-2}{0}</m></premise>
+          <premise><m>\fivevec{1}{1}{0}{0}{0}</m></premise>
+          <response><p>In neither <m>\nul(A)</m> nor
+          <m>\col(A)</m>.</p></response>
+        </match>
+        <match>
+          <premise>
+            <m>\fourvec{0}{0}{0}{0}</m>
+          </premise>
+          <response>
+            <p>In both <m>\nul(A)</m> and
+            <m>\col(A)</m>.</p>
+          </response>
+        </match>
+      </cardsort>
+    </exercise>
+
+    <exercise component="proteus"
+              label="ula-proteus-3-5-matchdim-v1">
+      <title>Determining dimensions of subspaces</title>
+      <statement>
+        <p>Suppose <m>A</m> is a <m>23\times 24</m> matrix with
+        <m>\rank(A)=22</m>. Match the unknown values on the left with
+        the values on the right.</p>
+      </statement>
+      <cardsort>
+        <match>
+          <response><m>1</m></response>
+        </match>
+        <match>
+          <premise><p>The dimension of <m>\nul(A)</m></p></premise>
+          <premise><p>The number of free variables describing the
+          solutions to <m>A\xvec =\zerovec</m>.</p></premise>
+          <response><m>2</m></response>
+        </match>
+        <match>
+          <response><m>3</m></response>
+        </match>
+        <match>
+          <premise><p>The dimension of <m>\col(A)</m></p></premise>
+          <premise><p>The number of pivot positions in <m>A</m></p></premise>
+          <premise><p>The number of linearly independent columns of <m>A</m></p></premise>
+          <response><m>22</m></response>
+        </match>
+
+        <match>
+          <premise><p><m>\col(A)</m> is a subspace of <m>\real^p</m> for which <m>p</m>?</p></premise>
+          <response><m>23</m></response>
+        </match>
+        <match>
+          <premise><p><m>\nul(A)</m> is a subspace of <m>\real^p</m> for which <m>p</m>?</p></premise>
+          <premise><p><m>\dim(\nul(A))+\dim(\col(A))=</m>?</p></premise>
+          <response><m>24</m></response>
+        </match>
+
+      </cardsort>
+
+    </exercise>
+
   </subsection>
 
   <xi:include href="exercises/exercises3-5.xml" />
