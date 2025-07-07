@@ -1286,6 +1286,79 @@ p	  </p></li>
 
     </exercise>
 
+    <exercise component="proteus"
+              label="ula-proteus-3-5-matching-rank-true-false-sometimes">
+      <title>Implications of an <m>n\times n</m> matrix having rank
+      <m>n</m></title>
+
+      <statement>
+        <p>
+          Suppose <m>A</m> is a <m>7\times 7</m> matrix with <m>\rank
+          A = 7</m>.  Decide whether each of the statements on the
+          left is always true, sometimes true, or never true.
+        </p>
+      </statement>
+
+      <feedback>
+        <p>You may wish to review how the rank of a matrix relates to
+        its RREF, as well as how the RREF relates to concepts such as
+        invertibility, the determinant, solutions to linear systems,
+        and the dimensions of the column space and the null space.
+        </p>
+      </feedback>
+
+      <cardsort>
+        <match>
+          <premise>
+            <m>A</m> is invertible
+          </premise>
+          <premise>
+            <m>\col A</m> is <m>\real^7</m>
+          </premise>
+          <premise>
+            The columns of <m>A</m> form a basis of <m>\real^7</m>
+          </premise>
+          <premise>
+            The reduced row echelon form of <m>A</m> is <m>I_7</m>
+          </premise>
+          <premise>
+            If <m>A\xvec = \zerovec</m> then <m>\xvec=\zerovec</m>
+          </premise>
+          <response>Always true</response>
+        </match>
+        <match>
+          <premise>
+            <m>\nul A</m> is a line in <m>\real^7</m>
+          </premise>
+          <premise>
+            <m>\det A=0</m>
+          </premise>
+          <premise>
+            <m>A\xvec = \zerovec</m> for some nonzero <m>\xvec</m> in
+            <m>\real^7</m>
+          </premise>
+          <premise>
+            <m>A\xvec = \bvec</m> is inconsistent for some vector
+            <m>\bvec</m> in <m>\real^7</m>
+          </premise>
+          <premise>
+            <m>A</m> has a column that is not a pivot
+          </premise>
+          <response>Never true</response>
+        </match>
+        <match>
+          <premise>
+            <m>A=I_7</m>
+          </premise>
+          <premise>
+            <m>\det A=1</m>
+          </premise>
+          <response>Sometimes true</response>
+        </match>
+      </cardsort>
+    </exercise>
+
+
   </subsection>
 
   <xi:include href="exercises/exercises3-5.xml" />
