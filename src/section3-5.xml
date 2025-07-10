@@ -1117,8 +1117,10 @@ p	  </p></li>
       <choices>
         <choice>
           <statement>
-            <p>The columns of <m>A</m> that have a pivot.</p>
+            <p>The columns of <m>A</m> that have a pivot position.</p>
           </statement>
+          <feedback>This is the algorithm for finding a basis for
+          <m>\col(A)</m> but not the definition.</feedback>
         </choice>
         <choice>
           <statement>
@@ -1126,17 +1128,25 @@ p	  </p></li>
             is consistent.
             </p>
           </statement>
+          <feedback>This is a consequence of the definition but not
+          the simplest way in which to think about
+          <m>\col(A)</m>.</feedback>
         </choice>
         <choice>
           <statement>
             <p>The span of <m>A</m>.</p>
           </statement>
+          <feedback>We think about the span of a set of vectors and
+          not the span of a matrix.</feedback>
         </choice>
         <choice correct="yes">
           <statement>
             <p>The span of the columns of <m>A</m>.</p>
           </statement>
         </choice>
+        <feedback>This is correct!  You may wish to select the other
+        choices and consider why each is not the best
+        definition.</feedback>
       </choices>
     </exercise>
 
@@ -1227,7 +1237,6 @@ p	  </p></li>
 
         <match>
           <premise><m>\fourvec{1}{0}{0}{0}</m></premise>
-          <premise><m>\fourvec{1}{0}{-2}{0}</m></premise>
           <premise><m>\fivevec{1}{1}{0}{0}{0}</m></premise>
           <response><p>In neither <m>\nul(A)</m> nor
           <m>\col(A)</m>.</p></response>
@@ -1257,7 +1266,7 @@ p	  </p></li>
           <response><m>1</m></response>
         </match>
         <match>
-          <premise><p>The dimension of <m>\nul(A)</m></p></premise>
+          <premise><p>The dimension of <m>\nul(A)</m>.</p></premise>
           <premise><p>The number of free variables describing the
           solutions to <m>A\xvec =\zerovec</m>.</p></premise>
           <response><m>2</m></response>
@@ -1266,9 +1275,10 @@ p	  </p></li>
           <response><m>3</m></response>
         </match>
         <match>
-          <premise><p>The dimension of <m>\col(A)</m></p></premise>
-          <premise><p>The number of pivot positions in <m>A</m></p></premise>
-          <premise><p>The number of linearly independent columns of <m>A</m></p></premise>
+          <premise><p>The dimension of <m>\col(A)</m>.</p></premise>
+          <premise><p>The number of pivot positions in <m>A</m>.</p></premise>
+          <premise><p>The number of linearly independent columns of
+          <m>A</m>.</p></premise>
           <response><m>22</m></response>
         </match>
 
@@ -1293,9 +1303,9 @@ p	  </p></li>
 
       <statement>
         <p>
-          Suppose <m>A</m> is a <m>7\times 7</m> matrix with <m>\rank
-          A = 7</m>.  Decide whether each of the statements on the
-          left is always true, sometimes true, or never true.
+          Suppose <m>A</m> is a <m>7\times 7</m> matrix with
+          <m>\rank(A) = 7</m>.  Decide whether each of the statements
+          on the left is always true, sometimes true, or never true.
         </p>
       </statement>
 
@@ -1310,39 +1320,36 @@ p	  </p></li>
       <cardsort>
         <match>
           <premise>
-            <m>A</m> is invertible
+            <m>A</m> is invertible.
           </premise>
           <premise>
-            <m>\col A</m> is <m>\real^7</m>
+            <m>\col(A)</m> is <m>\real^7</m>.
           </premise>
           <premise>
-            The columns of <m>A</m> form a basis of <m>\real^7</m>
+            The columns of <m>A</m> form a basis of <m>\real^7</m>.
           </premise>
           <premise>
-            The reduced row echelon form of <m>A</m> is <m>I_7</m>
+            The reduced row echelon form of <m>A</m> is <m>I_7</m>.
           </premise>
           <premise>
-            If <m>A\xvec = \zerovec</m> then <m>\xvec=\zerovec</m>
+            If <m>A\xvec = \zerovec</m>, then <m>\xvec=\zerovec</m>.
           </premise>
           <response>Always true</response>
         </match>
         <match>
           <premise>
-            <m>\nul A</m> is a line in <m>\real^7</m>
-          </premise>
-          <premise>
-            <m>\det A=0</m>
+            <m>\det(A)=0</m>.
           </premise>
           <premise>
             <m>A\xvec = \zerovec</m> for some nonzero <m>\xvec</m> in
-            <m>\real^7</m>
+            <m>\real^7</m>.
           </premise>
           <premise>
             <m>A\xvec = \bvec</m> is inconsistent for some vector
-            <m>\bvec</m> in <m>\real^7</m>
+            <m>\bvec</m> in <m>\real^7</m>.
           </premise>
           <premise>
-            <m>A</m> has a column that is not a pivot
+            <m>A</m> has a column without a pivot position.
           </premise>
           <response>Never true</response>
         </match>
@@ -1351,7 +1358,7 @@ p	  </p></li>
             <m>A=I_7</m>
           </premise>
           <premise>
-            <m>\det A=1</m>
+            <m>\det(A)=1</m>
           </premise>
           <response>Sometimes true</response>
         </match>
