@@ -17,60 +17,87 @@
     transformations are used in computer animation. </p>
 
     <exploration>
-      <statement>
-      <p> We will describe the matrix transformation <m>T</m> that
-      reflects 2-dimensional vectors across the horizontal axis.  For
-      instance, <xref ref="fig-reflect-intro" /> illustrates how a
-      vector <m>\xvec</m> is reflected onto the vector
-      <m>T(\xvec)</m>. </p>
+      <introduction>
+        <p> We will describe the matrix transformation <m>T</m> that
+        reflects 2-dimensional vectors across the horizontal axis.  For
+        instance, <xref ref="fig-reflect-intro" /> illustrates how a
+        vector <m>\xvec</m> is reflected onto the vector
+        <m>T(\xvec)</m>. </p>
 
-      <figure xml:id="fig-reflect-intro">
-	<sidebyside width="45%">
-	  <image source="images/reflect-intro" />
-	</sidebyside>
-	<caption> A vector <m>\xvec</m> and its reflection
-	<m>T(\xvec)</m> across the horizontal axis. </caption>
-      </figure>
+        <figure xml:id="fig-reflect-intro">
+	  <sidebyside width="45%">
+	    <image source="images/reflect-intro" />
+	  </sidebyside>
+	  <caption> A vector <m>\xvec</m> and its reflection
+	  <m>T(\xvec)</m> across the horizontal axis. </caption>
+        </figure>
+      </introduction>
 
-      <p><ol marker="a.">
-	<li><p> If <m>\xvec = \twovec{2}{4}</m>, what is the vector
-	<m>T(\xvec)</m>?  Sketch the vectors
-	<m>\xvec</m> and <m>T(\xvec)</m>. </p></li>
-
-	<li><p> More generally, if <m>\xvec=\twovec{x}{y}</m>, what is
-	<m>T(\xvec)</m>?  </p></li>
-
-	<li><p> Find the vectors <m>T\left(\twovec{1}{0}\right)</m>
-	and <m>T\left(\twovec{0}{1}\right)</m>. </p></li>
-
-	<li><p> Use your results to
-	write the matrix <m>A</m> so that <m>T(\xvec) = A\xvec</m>.
-	Then verify that <m>T\left(\twovec{x}{y}\right)</m> agrees
-	with what you found in part b. </p></li>
-
-	<li><p> Describe the transformation that results from
-	composing <m>T</m> with itself;  that is, what is the
-	transformation <m>T\circ T</m>?  Explain how matrix
-	multiplication can be used to justify your response. </p></li>
-      </ol></p>
-      </statement>
-
-      <solution>
-	<p><ol marker="a.">
-	  <li><p>
+      <task label="ula-preview-2-6-a">
+        <statement>
+          <p>If <m>\xvec = \twovec{2}{4}</m>, what is the vector
+	  <m>T(\xvec)</m>?  Sketch the vectors
+	  <m>\xvec</m> and <m>T(\xvec)</m>. </p>
+        </statement>
+        <response component="rs-preview"/>
+        <solution>
+	  <p>
 	    <m>T(\xvec) = \twovec{2}{-4}</m>.
-	  </p></li>
+	  </p>
+        </solution>
+        <answer>
+	  <p>
+	    <m>T(\xvec) = \twovec{2}{-4}</m>.
+	  </p>
+        </answer>
+      </task>
 
-	  <li><p>
+      <task label="ula-preview-2-6-b">
+        <statement>
+	  <p> More generally, if <m>\xvec=\twovec{x}{y}</m>, what is
+	  <m>T(\xvec)</m>?  </p>
+        </statement>
+        <response component="rs-preview"/>
+        <solution>
+	  <p>
 	    <m>T(\xvec) = \twovec{x}{-y}</m>.
-	  </p></li>
-
-	  <li><p>
+	  </p>
+        </solution>
+        <answer>
+	  <p>
+	    <m>T(\xvec) = \twovec{x}{-y}</m>.
+	  </p>
+        </answer>
+      </task>
+      <task label="ula-preview-2-6-c">
+        <statement>
+	  <p> Find the vectors <m>T\left(\twovec{1}{0}\right)</m>
+	  and <m>T\left(\twovec{0}{1}\right)</m>. </p>
+        </statement>
+        <response component="rs-preview"/>
+        <solution>
+	  <p>
 	    <m>T\left(\twovec{1}{0}\right) = \twovec{1}{0}</m> and
 	    <m>T\left(\twovec{0}{1}\right) = \twovec{0}{-1}</m>.
-	  </p></li>
-
-	  <li><p>
+	  </p>
+        </solution>
+        <answer>
+	  <p>
+	    <m>T\left(\twovec{1}{0}\right) = \twovec{1}{0}</m> and
+	    <m>T\left(\twovec{0}{1}\right) = \twovec{0}{-1}</m>.
+	  </p>
+        </answer>
+      </task>
+      <task label="ula-preview-2-6-d">
+        <statement>
+	  <p> Use your results to
+	  write the matrix <m>A</m> so that <m>T(\xvec) = A\xvec</m>.
+	  Then verify that <m>T\left(\twovec{x}{y}\right)</m> agrees
+	  with what you found in part b. </p>
+        </statement>
+        <response component="rs-preview"/>
+        <solution>
+	  <p>
 	    We have the matrix
 	    <m>A=\left[\begin{array}{rr}
 	    1 \amp 0 \\
@@ -78,19 +105,66 @@
 	    \end{array}\right]</m>.  It follows that
 	    <m>T\left(\twovec{x}{y}\right) = A\twovec{x}{y} =
 	    \twovec{x}{-y}</m> as expected.
-	  </p></li>
-
-	  <li><p>
+	  </p>
+        </solution>
+        <answer>
+          <p><m>A=\left[\begin{array}{rr}
+	    1 \amp 0 \\
+	    0 \amp -1 \\
+	    \end{array}\right]</m>.
+          </p>
+        </answer>
+      </task>
+      <task label="ula-preview-2-6-e">
+        <statement>
+	  <p> Describe the transformation that results from
+	  composing <m>T</m> with itself;  that is, what is the
+	  transformation <m>T\circ T</m>?  Explain how matrix
+	  multiplication can be used to justify your response. </p>
+        </statement>
+        <response component="rs-preview"/>
+        <solution>
+	  <p>
 	    If we reflect a vector twice in the horizontal axis, we
 	    obtain the original vector.
 	    The matrix for the transformation <m>T\circ T</m> is
 	    simply <m>AA= A^2 = \left[\begin{array}{rr}1\amp 0 \\ 0
 	    \amp 1 \\
 	    \end{array}\right]</m>.
-	  </p></li>
-	</ol></p>
-      </solution>
-	    
+	  </p>
+        </solution>
+        <answer>
+          <p><m>AA= A^2 = \left[\begin{array}{rr}1\amp 0 \\ 0
+	    \amp 1 \\
+	    \end{array}\right]</m>.
+          </p>
+        </answer>
+      </task>
+
+      <task component="rs-preview">
+        <query label="ula-preview-2-6-poll" visibility="instructor">
+          <statement>
+            <p>I feel confident with the material in this activity.</p>
+          </statement>
+          <choices>
+            <choice><p>Strongly Agree</p></choice>
+            <choice><p>Agree</p></choice>
+            <choice><p>Neutral</p></choice>
+            <choice><p>Disagree</p></choice>
+            <choice><p>Strongly Disagree</p></choice>
+          </choices>
+        </query>
+      </task>
+
+      <task component="rs-preview"
+            label="ula-preview-2-6-what-else">
+        <statement>
+          <p>What would you need to know to feel
+          more confident about this material?</p>
+        </statement>
+        <response/>
+      </task>
+
     </exploration>
 
   </introduction>

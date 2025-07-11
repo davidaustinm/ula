@@ -28,165 +28,232 @@
     </p>
 
     <exploration>
-      <statement>
-      <p>
-	Let's begin by looking at some sets of vectors in
-	<m>\real^3</m>.  As we saw in the previous section, the span of
-	a set of vectors in <m>\real^3</m> will be either a line, a
-	plane, or <m>\real^3</m> itself.
-      <ol marker="a.">
-	<li> <p>
-	  Consider the following vectors in <m>\real^3</m>:
-	  <me>
-	    \vvec_1=\threevec{0}{-1}{2},
-	    \vvec_2=\threevec{3}{1}{-1},
-	    \vvec_3=\threevec{2}{0}{1}
-	  </me>.
-	  Describe the span of these vectors,
-	  <m>\laspan{\vvec_1,\vvec_2,\vvec_3}</m>, as a line, a plane,
-	  or <m>\real^3</m>. 
-	  <sage>
-	    <input>
-	    </input>
-	  </sage>
-	</p></li>
+      <introduction>
+        <p>
+	  Let's begin by looking at some sets of vectors in
+	  <m>\real^3</m>.  As we saw in the previous section, the span of
+	  a set of vectors in <m>\real^3</m> will be either a line, a
+	  plane, or <m>\real^3</m> itself.
+        </p>
+      </introduction>
 
-	<li><p>
-	  Now consider the set of vectors:
-	  <me>
-	    \wvec_1=\threevec{0}{-1}{2},
-	    \wvec_2=\threevec{3}{1}{-1},
-	    \wvec_3=\threevec{3}{0}{1}
-	  </me>.
-	  Describe the span of these vectors,
-	  <m>\laspan{\wvec_1,\wvec_2,\wvec_3}</m>, as a line, a plane,
-	  or <m>\real^3</m>.
-	  <sage>
-	    <input>
-	    </input>
-	  </sage>
-	</p></li>
+      <task label="ula-preview-2-4-a">
+        <statement>
+	  <p>
+	    Consider the following vectors in <m>\real^3</m>:
+	    <me>
+	      \vvec_1=\threevec{0}{-1}{2},
+	      \vvec_2=\threevec{3}{1}{-1},
+	      \vvec_3=\threevec{2}{0}{1}
+	    </me>.
+	    Describe the span of these vectors,
+	    <m>\laspan{\vvec_1,\vvec_2,\vvec_3}</m>, as a line, a plane,
+	    or <m>\real^3</m>.
+	    <sage>
+	      <input>
+	      </input>
+	    </sage>
+	  </p>
+        </statement>
+        <response component="rs-preview"/>
+        <solution>
+	  <p>
+	    We will construct the matrix whose columns are
+	    <m>\vvec_1</m>, <m>\vvec_2</m>, and <m>\vvec_3</m>:
+	    <me>
+	      \begin{bmatrix}
+	      0 \amp 3 \amp 2 \\
+	      -1 \amp 1 \amp 0 \\
+	      2 \amp -1 \amp 1 \\
+	      \end{bmatrix}
+	      \sim
+	      \begin{bmatrix}
+	      1 \amp 0 \amp 0 \\
+	      0 \amp 1 \amp 0 \\
+	      0 \amp 0 \amp 1 \\
+	      \end{bmatrix}.
+	    </me>
+	    Because there is a pivot in every row, <xref
+	    ref="prop-pivot-row" /> tells us that
+	    <m>\laspan{\vvec_1,\vvec_2,\vvec_3} = \real^3</m>.
+	  </p>
+        </solution>
+        <answer>
+          <p><m>\laspan{\vvec_1,\vvec_2,\vvec_3} = \real^3</m>.</p>
+        </answer>
+      </task>
 
-	<li><p> 
-	  Show that the vector <m>\wvec_3</m> is a linear combination
-	  of <m>\wvec_1</m> and <m>\wvec_2</m> by finding weights such
-	  that
-	  <me>
-	    \wvec_3 = c\wvec_1 + d\wvec_2
-	  </me>.
-	</p></li>
+      <task label="ula-preview-2-4-b">
+        <statement>
+	  <p>
+	    Now consider the set of vectors:
+	    <me>
+	      \wvec_1=\threevec{0}{-1}{2},
+	      \wvec_2=\threevec{3}{1}{-1},
+	      \wvec_3=\threevec{3}{0}{1}
+	    </me>.
+	    Describe the span of these vectors,
+	    <m>\laspan{\wvec_1,\wvec_2,\wvec_3}</m>, as a line, a plane,
+	    or <m>\real^3</m>.
+	    <sage>
+	      <input>
+	      </input>
+	    </sage>
+	  </p>
+        </statement>
+        <response component="rs-preview"/>
+        <solution>
+	  <p>
+	    Similarly,
+	    <me>
+	      \begin{bmatrix}
+	      0 \amp 3 \amp 3 \\
+	      -1 \amp 1 \amp 0 \\
+	      2 \amp -1 \amp 1 \\
+	      \end{bmatrix}
+	      \sim
+	      \begin{bmatrix}
+	      1 \amp 0 \amp 1 \\
+	      0 \amp 1 \amp 1 \\
+	      0 \amp 0 \amp 0 \\
+	      \end{bmatrix}.
+	    </me>
+	    As there are two pivot positions, we see that
+	    <m>\laspan{\wvec_1, \wvec_2, \wvec_3}</m> is a plane
+	    in <m>\real^3</m>.
+	  </p>
+        </solution>
+        <answer>
+          <p><m>\laspan{\wvec_1, \wvec_2, \wvec_3}</m> is a plane
+	  in <m>\real^3</m>.</p>
+        </answer>
+      </task>
 
-	<li><p>
-	  Explain why any linear combination of <m>\wvec_1</m>,
-	  <m>\wvec_2</m>, and <m>\wvec_3</m>,
-	  <me>
-	    c_1\wvec_1 + c_2\wvec_2 + c_3\wvec_3
-	  </me>
-	  can be written as a linear combination of <m>\wvec_1</m> and
-	  <m>\wvec_2</m>. 
-	</p></li>
+      <task label="ula-preview-2-4-c">
+        <statement>
+	  <p>
+	    Show that the vector <m>\wvec_3</m> is a linear combination
+	    of <m>\wvec_1</m> and <m>\wvec_2</m> by finding weights such
+	    that
+	    <me>
+	      \wvec_3 = c\wvec_1 + d\wvec_2
+	    </me>.
+	  </p>
+        </statement>
+        <response component="rs-preview"/>
+        <solution>
+	  <p>
+	    We see that
+	    <me>
+	      \left[
+	      \begin{array}{rr|r}
+	      0 \amp 3 \amp 3 \\
+	      -1 \amp 1 \amp 0 \\
+	      2 \amp -1 \amp 1 \\
+	      \end{array}
+	      \right]
+	      \sim
+	      \left[
+	      \begin{array}{rr|r}
+	      1 \amp 0 \amp 1 \\
+	      0 \amp 1 \amp 1 \\
+	      0 \amp 0 \amp 0 \\
+	      \end{array}
+	      \right],
+	    </me>
+	    which tells us that <m>\wvec_3 = \wvec_1 +
+	    \wvec_2</m>.
+	  </p>
+        </solution>
+        <answer>
+          <p><m>\wvec_3 = \wvec_1 +
+	  \wvec_2</m>.</p>
+        </answer>
+      </task>
 
-	<li><p>
-	  Explain why
-	  <me>
-	    \laspan{\wvec_1,\wvec_2,\wvec_3} = \laspan{\wvec_1,\wvec_2}
-	  </me>.
-	</p></li>
+      <task label="ula-preview-2-4-d">
+        <statement>
+          <p>
+	    Explain why any linear combination of <m>\wvec_1</m>,
+	    <m>\wvec_2</m>, and <m>\wvec_3</m>,
+	    <me>
+	      c_1\wvec_1 + c_2\wvec_2 + c_3\wvec_3
+	    </me>
+	    can be written as a linear combination of <m>\wvec_1</m> and
+	    <m>\wvec_2</m>.
+	  </p>
+        </statement>
+        <response component="rs-preview"/>
+        <solution>
+	  <p>
+	    We have
+	    <me>
+	      c_1\wvec_1 + c_2\wvec_2 + c_3\wvec_3 =
+	      c_1\wvec_1 + c_2\wvec_2 + c_3(\wvec_1+\wvec_2)=
+	      (c_1+c_3)\wvec_1 + (c_2+c_3)\wvec_2.
+	    </me>
+	  </p>
+        </solution>
+        <answer>
+	  <p>
+	    We have
+	    <me>
+	      c_1\wvec_1 + c_2\wvec_2 + c_3\wvec_3 =
+	      c_1\wvec_1 + c_2\wvec_2 + c_3(\wvec_1+\wvec_2)=
+	      (c_1+c_3)\wvec_1 + (c_2+c_3)\wvec_2.
+	    </me>
+	  </p>
+        </answer>
+      </task>
+      <task label="ula-preview-2-4-e">
+        <statement>
+	  <p>
+	    Explain why
+	    <me>
+	      \laspan{\wvec_1,\wvec_2,\wvec_3} = \laspan{\wvec_1,\wvec_2}
+	    </me>.
+	  </p>
+        </statement>
+        <response component="rs-preview"/>
+        <solution>
+	  <p>
+	    Any linear combination of <m>\wvec_1</m>,
+	    <m>\wvec_2</m>, and <m>\wvec_3</m> is itself a linear
+	    combination of <m>\wvec_1</m> and <m>\wvec_2</m>.
+	  </p>
+        </solution>
+        <answer>
+	  <p>
+	    Any linear combination of <m>\wvec_1</m>,
+	    <m>\wvec_2</m>, and <m>\wvec_3</m> is itself a linear
+	    combination of <m>\wvec_1</m> and <m>\wvec_2</m>.
+	  </p>
+        </answer>
+      </task>
 
-      </ol>
-      </p>
-      </statement>
+      <task component="rs-preview">
+        <query label="ula-preview-2-4-poll" visibility="instructor">
+          <statement>
+            <p>I feel confident with the material in this activity.</p>
+          </statement>
+          <choices>
+            <choice><p>Strongly Agree</p></choice>
+            <choice><p>Agree</p></choice>
+            <choice><p>Neutral</p></choice>
+            <choice><p>Disagree</p></choice>
+            <choice><p>Strongly Disagree</p></choice>
+          </choices>
+        </query>
+      </task>
 
-      <solution>
-	<p>
-	  <ol marker="a.">
-	    <li>
-	      <p>
-		We will construct the matrix whose columns are
-		<m>\vvec_1</m>, <m>\vvec_2</m>, and <m>\vvec_3</m>:
-		<me>
-		  \begin{bmatrix}
-		  0 \amp 3 \amp 2 \\
-		  -1 \amp 1 \amp 0 \\
-		  2 \amp -1 \amp 1 \\
-		  \end{bmatrix}
-		  \sim
-		  \begin{bmatrix}
-		  1 \amp 0 \amp 0 \\
-		  0 \amp 1 \amp 0 \\
-		  0 \amp 0 \amp 1 \\
-		  \end{bmatrix}.
-		</me>
-		Because there is a pivot in every row, <xref
-		ref="prop-pivot-row" /> tells us that
-		<m>\laspan{\vvec_1,\vvec_2,\vvec_3} = \real^3</m>.
-	      </p>
-	    </li>
-	    <li>
-	      <p>
-		Similarly,
-		<me>
-		  \begin{bmatrix}
-		  0 \amp 3 \amp 3 \\
-		  -1 \amp 1 \amp 0 \\
-		  2 \amp -1 \amp 1 \\
-		  \end{bmatrix}
-		  \sim
-		  \begin{bmatrix}
-		  1 \amp 0 \amp 1 \\
-		  0 \amp 1 \amp 1 \\
-		  0 \amp 0 \amp 0 \\
-		  \end{bmatrix}.
-		</me>
-		As there are two pivot positions, we see that
-		<m>\laspan{\wvec_1, \wvec_2, \wvec_3}</m> is a plane
-		in <m>\real^3</m>.
-	      </p>
-	    </li>
-	    <li>
-	      <p>
-		We see that
-		<me>
-		  \left[
-		  \begin{array}{rr|r}
-		  0 \amp 3 \amp 3 \\
-		  -1 \amp 1 \amp 0 \\
-		  2 \amp -1 \amp 1 \\
-		  \end{array}
-		  \right]
-		  \sim
-		  \left[
-		  \begin{array}{rr|r}
-		  1 \amp 0 \amp 1 \\
-		  0 \amp 1 \amp 1 \\
-		  0 \amp 0 \amp 0 \\
-		  \end{array}
-		  \right],
-		</me>
-		which tells us that <m>\wvec_3 = \wvec_1 +
-		\wvec_2</m>.
-	      </p>
-	    </li>
-	    <li>
-	      <p>
-		We have
-		<me>
-		  c_1\wvec_1 + c_2\wvec_2 + c_3\wvec_3 =
-		  c_1\wvec_1 + c_2\wvec_2 + c_3(\wvec_1+\wvec_2)=
-		  (c_1+c_3)\wvec_1 + (c_2+c_3)\wvec_2.
-		</me>
-	      </p>
-	    </li>
-	    <li>
-	      <p>
-		Any linear combination of <m>\wvec_1</m>,
-		<m>\wvec_2</m>, and <m>\wvec_3</m> is itself a linear
-		combination of <m>\wvec_1</m> and <m>\wvec_2</m>.
-	      </p>
-	    </li>
-	  </ol>
-	</p>
-      </solution>
+      <task component="rs-preview"
+            label="ula-preview-2-4-what-else">
+        <statement>
+          <p>What would you need to know to feel
+          more confident about this material?</p>
+        </statement>
+        <response/>
+      </task>
     </exploration>
 
   </introduction>
