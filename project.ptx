@@ -64,24 +64,28 @@
         output-dir="published/ula-proteus-dev"
         />
         
+    <target
+        name="solutions"
+        format="pdf"
+        source="solution-manual.xml"
+        publication="publication/publication-solutions.ptx"
+        output-dir="solutions-pdf"
+        xsl="solution-manual.xsl"
+        latex-engine="xelatex"
+        />
+
+    <target
+        name="solutions-latex"
+        format="latex"
+        source="solution-manual.xml"
+        publication="publication-solutions.ptx"
+        output-dir="solutions-latex"
+        xsl="solution-manual.xsl"
+        />
   </targets>
 </project>
 
 <!--
-    <target name="solutions" pdf-method="xelatex">
-      <format>pdf</format>
-      <source>src/solution-manual.xml</source>
-      <publication>publication/publication-solutions.ptx</publication>
-      <output-dir>output/solutions-pdf</output-dir>
-      <xsl>xsl/solution-manual.xsl</xsl>      
-    </target>
-    <target name="solutions-latex">
-      <format>latex</format>
-      <source>src/solution-manual.xml</source>
-      <publication>publication/publication-solutions.ptx</publication>
-      <output-dir>output/solutions-latex</output-dir>
-      <xsl>xsl/solution-manual.xsl</xsl>
-    </target>
     <target name="workbook" pdf-method="xelatex">
       <format>pdf</format>
       <source>src/activity-workbook.xml</source>
