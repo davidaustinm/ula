@@ -16,44 +16,17 @@
     familiar examples.
     </p>
     
-    <exploration>
-      <statement>
-      <p>
-	<ol marker="a.">
-	  <li><p> Explain how you would solve the equation <m>3x =
-	  5</m> using multiplication rather than
-	  division. </p></li>
-
-	  <li><p> Find the <m>2\times2</m> matrix <m>A</m> that
-	  rotates vectors counterclockwise by
-	  <m>90^\circ</m>. </p></li>
-
-	  <li><p> Find the <m>2\times2</m> matrix <m>B</m> that
-	  rotates vectors <em>clockwise</em> by
-	  <m>90^\circ</m>. </p></li>
-
-	  <li><p> What do you expect the product <m>AB</m> to be?  
-	  Explain the reasoning behind your expectation and then
-	  compute <m>AB</m> to verify it. </p></li>
-
-	  <li><p> Solve the equation <m>A\xvec = \twovec{3}{-2}</m>
-	  using Gaussian elimination.
-	  <sage>
-	    <input>
-	    </input>
-	  </sage>
-	  </p></li>
-
-	  <li><p> Explain why your solution may also be found by
-	  computing <m>\xvec = B\twovec{3}{-2}</m>. </p></li>
-	</ol>
-      </p>
-
-      </statement>
-
-      <solution>
-	<p><ol marker="a.">
-	  <li><p> Dividing by <m>3</m> is the same as
+    <exploration label="ula-preview-3-1">
+      <task label="ula-preview-3-1-a">
+        <statement>
+          <p>
+            Explain how you would solve the equation <m>3x =
+	    5</m> using multiplication rather than
+	  division. </p>
+        </statement>
+        <response component="rs-preview"/>
+        <solution>
+          <p> Dividing by <m>3</m> is the same as
 	  multiplying by <m>\frac13</m>, the multiplicative inverse
 	  <m>\frac13</m> of <m>3</m>.  We have
 	    <me>
@@ -64,34 +37,78 @@
 	      x \amp = \dfrac53\text{.} \\
 	      \end{array}
 	    </me>
-	  </p></li>
+	  </p>
+        </solution>
+      </task>
 
-	  <li><p>
+      <task label="ula-preview-3-1-b">
+	<statement>
+          <p> Find the <m>2\times2</m> matrix <m>A</m> that
+	  rotates vectors counterclockwise by
+	  <m>90^\circ</m>. </p>
+        </statement>
+        <response component="rs-preview"/>
+        <solution>
+	  <p>
 	    As we have seen a few times, the matrix is
 	    <m>A=\left[\begin{array}{rr}
 	    0 \amp -1 \\
 	    1 \amp 0 \\
 	    \end{array}\right]\text{.}
 	    </m>
-	  </p></li>
+	  </p>
+        </solution>
+      </task>
 
-	  <li><p>
+      <task label="ula-preview-3-1-c">
+        <statement>
+	  <p> Find the <m>2\times2</m> matrix <m>B</m> that
+	  rotates vectors <em>clockwise</em> by
+	  <m>90^\circ</m>. </p>
+        </statement>
+        <response component="rs-preview"/>
+        <solution>
+	  <p>
 	    Here, the matrix is
 	    <m>B=\left[\begin{array}{rr}
 	    0 \amp 1 \\
 	    -1 \amp 0 \\
 	    \end{array}\right]\text{.}
 	    </m>
-	  </p></li>
+	  </p>
+        </solution>
+      </task>
 
-	  <li><p> We should expect that <m>AB=I</m> since the effect
+      <task label="ula-preview-3-1-d">
+        <statement>
+	  <p> What do you expect the product <m>AB</m> to be?
+	  Explain the reasoning behind your expectation and then
+	  compute <m>AB</m> to verify it. </p>
+        </statement>
+        <response component="rs-preview"/>
+        <solution>
+	  <p> We should expect that <m>AB=I</m> since the effect
 	  of rotating by <m>90^\circ</m> clockwise followed by
 	  rotating <m>90^\circ</m> counterclockwise is to leave a
 	  vector unchanged.  We can verify this by performing the
 	  matrix multiplication. 
-	  </p></li>
+	  </p>
+        </solution>
+      </task>
 
-	  <li><p> We have
+      <task label="ula-preview-3-1-e">
+        <statement>
+	  <p> Solve the equation <m>A\xvec = \twovec{3}{-2}</m>
+	  using Gaussian elimination.
+	  <sage>
+	    <input>
+	    </input>
+	  </sage>
+	  </p>
+        </statement>
+        <response component="rs-preview"/>
+        <solution>
+	  <p> We have
 	  <me>
 	    \left[\begin{array}{rr|r}
 	    0 \amp -1 \amp 3 \\
@@ -104,9 +121,18 @@
 	    \end{array}\right]
 	  </me>
 	  so the solution is <m>\xvec=\twovec{-2}{-3}</m>.
-	  </p></li>
+	  </p>
+        </solution>
+      </task>
 
-	  <li><p>
+      <task label="ula-preview-3-1-f">
+        <statement>
+	  <p> Explain why your solution may also be found by
+	  computing <m>\xvec = B\twovec{3}{-2}</m>. </p>
+        </statement>
+        <response component="rs-preview"/>
+        <solution>
+	  <p>
 	    The equation <m>A\xvec=\twovec{3}{-2}</m> is asking us to
 	    find the vector that becomes <m>\twovec{3}{-2}</m> after
 	    being rotated by <m>90^\circ</m>.  If we rotate
@@ -120,10 +146,9 @@
 	      = I\twovec{3}{-2} 
 	      = \twovec{3}{-2}.
 	    </me>
-	  </p></li>
-	</ol></p>
-      </solution>
-      
+	  </p>
+        </solution>
+      </task>
     </exploration>
     
   </introduction>

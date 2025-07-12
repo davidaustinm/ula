@@ -16,65 +16,49 @@
     we will expand the concept of basis to describe sets like these.
     </p>
     
-    <exploration>
-      <statement>
-      <p> Let's consider the following matrix <m>A</m> and its reduced
-      row echelon form.
-      <me>
-	A = \left[\begin{array}{rrrr}
-	2 \amp -1 \amp 2 \amp 3 \\
-	1 \amp 0 \amp 0 \amp 2 \\
-	-2 \amp 2 \amp -4 \amp -2 \\
-	\end{array}\right]
-	\sim
-	\left[\begin{array}{rrrr}
-	1 \amp 0 \amp 0 \amp 2 \\
-	0 \amp 1 \amp -2 \amp 1 \\
-	0 \amp 0 \amp 0 \amp 0 \\
-	\end{array}\right]
-      </me>.
+    <exploration label="ula-preview-3-5">
+      <introduction>
+        <p> Let's consider the following matrix <m>A</m> and its reduced
+        row echelon form.
+        <me>
+	  A = \left[\begin{array}{rrrr}
+	  2 \amp -1 \amp 2 \amp 3 \\
+	  1 \amp 0 \amp 0 \amp 2 \\
+	  -2 \amp 2 \amp -4 \amp -2 \\
+	  \end{array}\right]
+	  \sim
+	  \left[\begin{array}{rrrr}
+	  1 \amp 0 \amp 0 \amp 2 \\
+	  0 \amp 1 \amp -2 \amp 1 \\
+	  0 \amp 0 \amp 0 \amp 0 \\
+	  \end{array}\right]
+        </me>.
+        </p>
+      </introduction>
 
-      <ol marker="a.">
-	<li><p> Are the columns of <m>A</m> linearly independent?  Is
-	the span of the columns <m>\real^3</m>?
-	</p></li>
-
-	<li><p> Give a parametric description of the solution space to
-	the homogeneous equation <m>A\xvec = \zerovec</m>. </p></li>
-
-	<li><p> Explain how this parametric description produces two
-	vectors <m>\wvec_1</m> and <m>\wvec_2</m> whose span is the
-	solution space to the equation <m>A\xvec = \zerovec</m>.
-	</p></li>
-
-	<li><p> What can you say about the linear independence of the
-	set of vectors <m>\wvec_1</m> and <m>\wvec_2</m>? </p></li>
-
-	<li><p> Let's denote the columns of <m>A</m> as
-	<m>\vvec_1</m>, 
-	<m>\vvec_2</m>, 
-	<m>\vvec_3</m>,  and
-	<m>\vvec_4</m>.
-	Explain why <m>\vvec_3</m> and <m>\vvec_4</m> can be written
-	as linear combinations of <m>\vvec_1</m> and <m>\vvec_2</m>.
-	</p></li>
-
-	<li><p> Explain why <m>\vvec_1</m> and <m>\vvec_2</m> are
-	linearly independent and <me>\laspan{\vvec_1,\vvec_2} =
-	\laspan{\vvec_1, \vvec_2, \vvec_3, \vvec_4}.</me>
-	</p></li>
-
-      </ol></p>
-      </statement>
-
-      <solution>
-	<p><ol marker="a.">
-	  <li><p> The columns of <m>A</m> are not linearly independent
+      <task label="ula-preview-3-5-a">
+        <statement>
+	  <p> Are the columns of <m>A</m> linearly independent?  Is
+	  the span of the columns <m>\real^3</m>?
+	  </p>
+        </statement>
+        <response component="rs-preview"/>
+        <solution>
+	  <p> The columns of <m>A</m> are not linearly independent
 	  since there is not a pivot position in every column.  Also,
 	  the span of the columns is not <m>\real^3</m> because there
-	  is not a pivot position in every row. </p></li>
+	  is not a pivot position in every row. </p>
+        </solution>
+      </task>
 
-	  <li><p> From the reduced row echelon form, we see that the
+      <task label="ula-preview-3-5-b">
+        <statement>
+	  <p> Give a parametric description of the solution space to
+	  the homogeneous equation <m>A\xvec = \zerovec</m>. </p>
+        </statement>
+        <response component="rs-preview"/>
+        <solution>
+	  <p> From the reduced row echelon form, we see that the
 	  homogeneous equation leads to the equations
 	  <me>
 	    \begin{alignedat}{5}
@@ -90,22 +74,68 @@
 	    \fourvec{-2x_4}{2x_3-x_4}{x_3}{x_4} =
 	    x_3\fourvec{0}{2}{1}{0} + x_4\fourvec{2}{-1}{0}{1}\text{.}
 	  </me>
-	  </p></li>
+	  </p>
+        </solution>
+      </task>
 
-	  <li><p> We see that every vector in the solution space is a
+      <task label="ula-preview-3-5-c">
+        <statement>
+	  <p> Explain how this parametric description produces two
+	  vectors <m>\wvec_1</m> and <m>\wvec_2</m> whose span is the
+	  solution space to the equation <m>A\xvec = \zerovec</m>.
+	  </p>
+        </statement>
+        <response component="rs-preview"/>
+        <solution>
+	  <p> We see that every vector in the solution space is a
 	  linear combination of the vectors
 	  <m>\wvec_1=\fourvec{0}{2}{1}{0}</m> and <m>\wvec_2 =
 	  \fourvec{2}{-1}{0}{1}</m>.
-	  </p></li>
+	  </p>
+        </solution>
+      </task>
 
-	  <li><p> This pair of vectors is linearly independent because one
-	  is not a scalar multiple of the other. </p></li>
+      <task label="ula-preview-3-5-d">
+        <statement>
+	  <p> What can you say about the linear independence of the
+	  set of vectors <m>\wvec_1</m> and <m>\wvec_2</m>? </p>
+        </statement>
+        <response component="rs-preview"/>
+        <solution>
+	  <p> This pair of vectors is linearly independent because one
+	  is not a scalar multiple of the other. </p>
+        </solution>
+      </task>
 
-	  <li><p> From the reduced row echelon form of <m>A</m>, we
+      <task label="ula-preview-3-5-e">
+        <statement>
+	  <p> Let's denote the columns of <m>A</m> as
+	  <m>\vvec_1</m>,
+	  <m>\vvec_2</m>,
+	  <m>\vvec_3</m>,  and
+	  <m>\vvec_4</m>.
+	  Explain why <m>\vvec_3</m> and <m>\vvec_4</m> can be written
+	  as linear combinations of <m>\vvec_1</m> and <m>\vvec_2</m>.
+	  </p>
+        </statement>
+        <response component="rs-preview"/>
+        <solution>
+	  <p> From the reduced row echelon form of <m>A</m>, we
 	  see that <m>\vvec_3 = -2\vvec_2</m> and
-	  <m>\vvec_4=2\vvec_1+\vvec_2</m>. </p></li>
+	  <m>\vvec_4=2\vvec_1+\vvec_2</m>. </p>
+        </solution>
+      </task>
 
-	  <li><p> We see that <m>\vvec_1</m> and <m>\vvec_2</m> are
+      <task label="ula-preview-3-5-f">
+        <statement>
+	  <p> Explain why <m>\vvec_1</m> and <m>\vvec_2</m> are
+	  linearly independent and <me>\laspan{\vvec_1,\vvec_2} =
+	  \laspan{\vvec_1, \vvec_2, \vvec_3, \vvec_4}.</me>
+	  </p>
+        </statement>
+        <response component="rs-preview"/>
+        <solution>
+	  <p> We see that <m>\vvec_1</m> and <m>\vvec_2</m> are
 	  linearly independent from the reduced row echelon form of
 	  <m>A</m>.  Moreover, we know that <m>\vvec_3</m> and
 	  <m>\vvec_4</m> can be written as linear combinations of
@@ -113,9 +143,9 @@
 	  combination of <m>\vvec_1</m>, <m>\vvec_2</m>,
 	  <m>\vvec_3</m>, and <m>\vvec_4</m> can be written as a
 	  linear combination of <m>\vvec_1</m> and <m>\vvec_2</m>
-	  alone. </p></li>
-	</ol></p>
-      </solution>
+	  alone. </p>
+        </solution>
+      </task>
 
     </exploration>
   </introduction>

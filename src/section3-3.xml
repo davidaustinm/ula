@@ -57,74 +57,100 @@
     bases that are well-suited to the task.
     </p>
 
-    <exploration>
-      <statement>
+    <exploration label="ula-preview-3-3">
+      <introduction>
       <p> Since we will be using various bases and the coordinate
       systems they define, let's review how to translate between
-      coordinate systems.
-      <ol marker="a.">
-	<li><p> Suppose that we have a basis
-	<m>\bcal=\{\vvec_1,\vvec_2,\ldots,\vvec_m\}</m> for
-	<m>\real^m</m>.  Explain what we mean by the representation
-	<m>\coords{\xvec}{\bcal}</m> of
-	a vector <m>\xvec</m> in the coordinate system 
-	defined by <m>\bcal</m>. </p></li>
+      coordinate systems.</p>
+      </introduction>
 
-	<li><p> If we are given the representation
-	<m>\coords{\xvec}{\bcal}</m>, how can we recover the vector
-	<m>\xvec</m>?  </p></li>
+      <task label="ula-preview-3-3-a">
+        <statement>
+	  <p> Suppose that we have a basis
+	  <m>\bcal=\{\vvec_1,\vvec_2,\ldots,\vvec_m\}</m> for
+	  <m>\real^m</m>.  Explain what we mean by the representation
+	  <m>\coords{\xvec}{\bcal}</m> of
+	  a vector <m>\xvec</m> in the coordinate system
+	  defined by <m>\bcal</m>. </p>
+        </statement>
+        <response component="rs-preview"/>
+        <solution>
+	  <p>
+	    The components of the vector <m>\coords{\xvec}{\bcal}</m>
+	    are the weights that express <m>\xvec</m> as a linear
+	    combination of the basis vectors;  that is,
+	    <m>\coords{\xvec}{\bcal} =
+	    \cfourvec{c_1}{c_2}{\vdots}{c_m}</m> if
+	    <m>\xvec=c_1\vvec_1+c_2\vvec_2+\ldots+c_m\vvec_m</m>.
+	  </p>
+        </solution>
+      </task>
 
-	<li><p> If we are given the vector <m>\xvec</m>, how can we
-	find <m>\coords{\xvec}{\bcal}</m>? </p></li>
+      <task label="ula-preview-3-3-b">
+        <statement>
+	  <p> If we are given the representation
+	  <m>\coords{\xvec}{\bcal}</m>, how can we recover the vector
+	  <m>\xvec</m>?  </p>
+        </statement>
+        <response component="rs-preview"/>
+        <solution>
+	  <p> If we form the matrix <m>P_{\bcal} =
+	  \left[\begin{array}{rrrr}
+	  \vvec_1 \amp \vvec_2 \amp \ldots \amp \vvec_m
+	  \end{array}\right]</m>, then
+	  <m>\xvec=P_{\bcal}\coords{\xvec}{\bcal}</m>.
+	  </p>
+        </solution>
+      </task>
 
-	<li><p> Suppose that
-	<me>
-	  \bcal=\left\{\twovec{1}{3},\twovec{1}{1}\right\}
-	</me> is a basis for <m>\real^2</m>.  If
-	<m>\coords{\xvec}{\bcal} = \twovec{1}{-2}</m>, find the vector
-	<m>\xvec</m>.
-	<sage>
-	  <input>
-	  </input>
-	</sage>
-	</p></li>
+      <task label="ula-preview-3-3-c">
+        <statement>
+	  <p> If we are given the vector <m>\xvec</m>, how can we
+	  find <m>\coords{\xvec}{\bcal}</m>? </p>
+        </statement>
+        <response component="rs-preview"/>
+        <solution>
+	  <p> As before,
+	  <m>\coords{\xvec}{\bcal}=P_{\bcal}^{-1}\xvec</m>.
+	  </p>
+        </solution>
+      </task>
 
-	<li><p> If <m>\xvec=\twovec{2}{-4}</m>, find
-	<m>\coords{\xvec}{\bcal}</m>. </p></li>
-      </ol></p>
-      </statement>
-    <solution>
-      <p><ol marker="a.">
-	<li><p>
-	  The components of the vector <m>\coords{\xvec}{\bcal}</m>
-	  are the weights that express <m>\xvec</m> as a linear
-	  combination of the basis vectors;  that is,
-	  <m>\coords{\xvec}{\bcal} =
-	  \cfourvec{c_1}{c_2}{\vdots}{c_m}</m> if
-	  <m>\xvec=c_1\vvec_1+c_2\vvec_2+\ldots+c_m\vvec_m</m>.
-	</p></li>
+      <task label="ula-preview-3-3-d">
+        <statement>
+	  <p> Suppose that
+	  <me>
+	    \bcal=\left\{\twovec{1}{3},\twovec{1}{1}\right\}
+	    </me> is a basis for <m>\real^2</m>.  If
+	    <m>\coords{\xvec}{\bcal} = \twovec{1}{-2}</m>, find the vector
+	    <m>\xvec</m>.
+	    <sage>
+	      <input>
+	      </input>
+	    </sage>
+	  </p>
+        </statement>
+        <response component="rs-preview"/>
+        <solution>
+	  <p> We find <m>\xvec=P_{\bcal}\coords{\xvec}{\bcal} =
+	  \twovec{-1}{1}</m>.
+	  </p>
+        </solution>
+      </task>
 
-	<li><p> If we form the matrix <m>P_{\bcal} =
-	\left[\begin{array}{rrrr}
-	\vvec_1 \amp \vvec_2 \amp \ldots \amp \vvec_m
-	\end{array}\right]</m>, then
-	<m>\xvec=P_{\bcal}\coords{\xvec}{\bcal}</m>.
-	</p></li>
-
-	<li><p> As before, 
-	<m>\coords{\xvec}{\bcal}=P_{\bcal}^{-1}\xvec</m>.
-	</p></li>
-
-	<li><p> We find <m>\xvec=P_{\bcal}\coords{\xvec}{\bcal} =
-	\twovec{-1}{1}</m>.
-	</p></li>
-
-	<li><p> We find
-	<m>\coords{\xvec}{\bcal}=P_{\bcal}^{-1}\xvec =
-	\twovec{-3}{5}</m>.
-	</p></li>
-      </ol></p>
-    </solution>
+      <task label="ula-preview-3-3-e">
+        <statement>
+	  <p> If <m>\xvec=\twovec{2}{-4}</m>, find
+	  <m>\coords{\xvec}{\bcal}</m>. </p>
+        </statement>
+        <response component="rs-preview"/>
+        <solution>
+	  <p> We find
+	  <m>\coords{\xvec}{\bcal}=P_{\bcal}^{-1}\xvec =
+	  \twovec{-3}{5}</m>.
+	  </p>
+        </solution>
+      </task>
     </exploration>
 
   </introduction>
