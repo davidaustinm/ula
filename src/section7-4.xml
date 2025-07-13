@@ -40,107 +40,139 @@
       value decomposition whether it's symmetric or not.
     </p>
 
-    <exploration>
-      <statement>
+    <exploration label="ula-preview-7-4">
+      <introduction>
 	<p>
 	  Let's review orthogonal diagonalizations and quadratic forms
 	  as our understanding of singular value decompositions will
 	  rely on them.
-	  <ol marker="a.">
-	    <li>
-	      <p>
-		Suppose that <m>A</m> is any matrix.  Explain why the
-		matrix <m>G = A^TA</m> is symmetric.
-	      </p>
-	    </li>
+        </p>
+      </introduction>
 
-	    <li>
-	      <p>
-		Suppose that <m>A = \begin{bmatrix}
-		1 \amp 2 \\
-		-2 \amp -1 \\
-		\end{bmatrix}</m>.  Find the matrix <m>G=A^TA</m> and
-		write out the quadratic form
-		<m>q_G\left(\twovec{x_1}{x_2}\right)</m> as a function
-		of <m>x_1</m> and <m>x_2</m>.
-	      </p>
-	    </li>
-	    <li>
-	      <p>
-		What is the maximum value of <m>q_G(\xvec)</m> over
-                all unit vectors and in 
-		which direction does it occur?
-		<sage>
-		  <input>
-		  </input>
-		</sage>
-	      </p>
-	    </li>
+      <task label="ula-preview-7-4-a">
+        <statement>
+	  <p>
+	    Suppose that <m>A</m> is any matrix.  Explain why the
+	    matrix <m>G = A^TA</m> is symmetric.
+	  </p>
+        </statement>
+        <response component="rs-preview"/>
+        <solution>
+	  <p>
+	    <m>G^T=(A^TA)^T = A^T(A^T)^T = A^TA=G</m>.
+	  </p>
+        </solution>
+      </task>
 
-	    <li>
-	      <p>
-		What is the minimum value of <m>q_G(\xvec)</m> over
-                all unit vectors and in
-		which direction does it occur?
-	      </p>
-	    </li>
+      <task label="ula-preview-7-4-b">
+        <statement>
+          <p>
+	    Suppose that <m>A = \begin{bmatrix}
+	    1 \amp 2 \\
+	    -2 \amp -1 \\
+	    \end{bmatrix}</m>.  Find the matrix <m>G=A^TA</m> and
+	    write out the quadratic form
+	    <m>q_G\left(\twovec{x_1}{x_2}\right)</m> as a function
+	    of <m>x_1</m> and <m>x_2</m>.
+	  </p>
+        </statement>
+        <response component="rs-preview"/>
+        <solution>
+	  <p>
+	    <m>G=\begin{bmatrix}
+	    5 \amp 4 \\
+	    4 \amp 5 \\
+	    \end{bmatrix}
+	    </m> leads to the quadratic form <m>q_G = 5x_1^2 +
+	    8x_1x_2 + 5x_2^2</m>.
+	  </p>
+        </solution>
+      </task>
 
-	    <li>
-	      <p>
-		What is the geometric relationship between the
-		directions in which the maximum and minimum values
-		occur? 
-	      </p>
-	    </li>
-	  </ol>
-	</p>
+      <task label="ula-preview-7-4-c">
+        <statement>
+	  <p>
+	    What is the maximum value of <m>q_G(\xvec)</m> over
+            all unit vectors and in
+	    which direction does it occur?
+	    <sage>
+	      <input>
+	      </input>
+	    </sage>
+	  </p>
+        </statement>
+        <response component="rs-preview"/>
+        <solution>
+	  <p>
+	    The maximum value of <m>q_G</m> equals the largest
+	    eigenvalue of <m>G</m>, which is <m>\lambda_1=9</m>.  This
+	    maximum value occurs in the direction of the
+	    associated eigenvector <m>\uvec_1 =
+	    \twovec{\frac{1}{\sqrt{2}}}{\frac{1}{\sqrt{2}}}</m>.
+	  </p>
+        </solution>
+      </task>
 
-      </statement>
-      <solution>
-	<p>
-	  <ol marker="a.">
-	    <li>
-	      <p>
-		<m>G^T=(A^TA)^T = A^T(A^T)^T = A^TA=G</m>.
-	      </p>
-	    </li>
-	    <li>
-	      <p>
-		<m>G=\begin{bmatrix}
-		5 \amp 4 \\
-		4 \amp 5 \\
-		\end{bmatrix}
-		</m> leads to the quadratic form <m>q_G = 5x_1^2 +
-		8x_1x_2 + 5x_2^2</m>.  
-	      </p>
-	    </li>
-	    <li>
-	      <p>
-		The maximum value of <m>q_G</m> equals the largest
-		eigenvalue of <m>G</m>, which is <m>\lambda_1=9</m>.  This
-		maximum value occurs in the direction of the
-		associated eigenvector <m>\uvec_1 =
-		\twovec{\frac{1}{\sqrt{2}}}{\frac{1}{\sqrt{2}}}</m>.
-	      </p>
-	    </li>
-	    <li>
-	      <p>
-		The minimum value of <m>q_G</m> equals the smallest
-		eigenvalue of <m>G</m>, which is <m>\lambda_2=1</m>.  This
-		minimum value occurs in the direction of the
-		associated eigenvector <m>\uvec_2 =
-		\twovec{\frac{1}{\sqrt{2}}}{-\frac{1}{\sqrt{2}}}</m>.
-	      </p>
-	    </li>
-	    <li>
-	      <p>
-		These two directions are orthogonal to each other.
-	      </p>
-	    </li>
-	  </ol>
-	</p>
-      </solution>
-	      
+      <task label="ula-preview-7-4-d">
+        <statement>
+	  <p>
+	    What is the minimum value of <m>q_G(\xvec)</m> over
+            all unit vectors and in
+	    which direction does it occur?
+	  </p>
+        </statement>
+        <response component="rs-preview"/>
+        <solution>
+	  <p>
+	    The minimum value of <m>q_G</m> equals the smallest
+	    eigenvalue of <m>G</m>, which is <m>\lambda_2=1</m>.  This
+	    minimum value occurs in the direction of the
+	    associated eigenvector <m>\uvec_2 =
+	    \twovec{\frac{1}{\sqrt{2}}}{-\frac{1}{\sqrt{2}}}</m>.
+	  </p>
+        </solution>
+      </task>
+
+      <task label="ula-preview-7-5-e">
+        <statement>
+	  <p>
+	    What is the geometric relationship between the
+	    directions in which the maximum and minimum values
+	    occur?
+	  </p>
+        </statement>
+        <response component="rs-preview"/>
+        <solution>
+	  <p>
+	    These two directions are orthogonal to each other.
+	  </p>
+        </solution>
+      </task>
+
+      <task component="rs-preview">
+        <query label="ula-preview-7-4-poll" visibility="instructor">
+          <statement>
+            <p>I feel confident with the material in this activity.</p>
+          </statement>
+          <choices>
+            <choice><p>Strongly Agree</p></choice>
+            <choice><p>Agree</p></choice>
+            <choice><p>Neutral</p></choice>
+            <choice><p>Disagree</p></choice>
+            <choice><p>Strongly Disagree</p></choice>
+          </choices>
+        </query>
+      </task>
+
+      <task component="rs-preview"
+            label="ula-preview-7-4-what-else">
+        <statement>
+          <p>What would you need to know to feel
+          more confident about this material?</p>
+        </statement>
+        <response/>
+      </task>
+
     </exploration>
       
   </introduction>

@@ -24,8 +24,8 @@
       diagonalization of symmetric matrices provides the key ideas.
     </p>
 
-    <exploration>
-      <statement>
+    <exploration label="ula-preview-7-3">
+      <introduction>
 	<p>
 	  We will begin by recalling our earlier discussion of
 	  variance.  Suppose we have a dataset that leads to the
@@ -34,102 +34,134 @@
 	    C = \begin{bmatrix}
 	    7 \amp -4 \\
 	    -4 \amp 13
-	    \end{bmatrix}.
-	  </me>
-	  <ol marker="a.">
-	    <li>
-	      <p>
-		Suppose that <m>\uvec</m> is a unit eigenvector of
-		<m>C</m> with eigenvalue <m>\lambda</m>.  What is the
-		variance <m>V_{\uvec}</m> in the <m>\uvec</m>
-		direction?
-	      </p>
-	    </li>
+	    \end{bmatrix}
+	  </me>.
+        </p>
+      </introduction>
 
-	    <li>
-	      <p>
-		Find an orthogonal diagonalization of <m>C</m>.
-		<sage>
-		  <input>
-		  </input>
-		</sage>
-	      </p>
-	    </li>
+      <task label="ula-preview-7-3-a">
+        <statement>
+	  <p>
+	    Suppose that <m>\uvec</m> is a unit eigenvector of
+	    <m>C</m> with eigenvalue <m>\lambda</m>.  What is the
+	    variance <m>V_{\uvec}</m> in the <m>\uvec</m>
+	    direction?
+	  </p>
+        </statement>
+        <response component="rs-preview"/>
+        <solution>
+	  <p>
+	    <m>V_{\uvec} = \uvec\cdot(C\uvec) =
+	    \lambda\uvec\cdot\uvec = \lambda</m>.
+	  </p>
+        </solution>
+      </task>
 
-	    <li>
-	      <p>
-		What is the total variance?
-	      </p>
-	    </li>
+      <task label="ula-preview-7-3-b">
+        <statement>
+	  <p>
+	    Find an orthogonal diagonalization of <m>C</m>.
+	    <sage>
+	      <input>
+	      </input>
+	    </sage>
+	  </p>
+        </statement>
+        <response component="rs-preview"/>
+        <solution>
+	  <p>
+	    We can write <m>C=QDQ^T</m> where
+	    <me>
+	      D=\begin{bmatrix}
+	      15 \amp 0 \\
+	      0 \amp 5 \\
+	      \end{bmatrix},~~~
+	      Q = \begin{bmatrix}
+	      \frac1{\sqrt{5}} \amp \frac2{\sqrt{5}} \\
+	      -\frac2{\sqrt{5}} \amp \frac1{\sqrt{5}} \\
+	      \end{bmatrix}
+	    </me>.
+	  </p>
+        </solution>
+      </task>
 
-	    <li>
-	      <p>
-		In
-		which direction is the variance greatest and what is
-		the variance in this direction?  If we project the
-		data onto this line, how much variance is lost?
-	      </p>
-	    </li>
+      <task label="ula-preview-7-3-c">
+        <statement>
+	  <p>
+	    What is the total variance?
+	  </p>
+        </statement>
+        <response component="rs-preview"/>
+        <solution>
+	  <p>
+	    The total variance is the sum of the eigenvalues,
+	    <m>V=\lambda_1 + \lambda_2 = 15 + 5 = 20</m>.
+	  </p>
+        </solution>
+      </task>
 
-	    <li>
-	      <p>
-		In which direction is the variance smallest and how is
-		this direction related to the direction of maximum
-		variance? 
-	      </p>
-	    </li>
-	  </ol>
-	</p>
-      </statement>
-      <solution>
-	<p>
-	  <ol marker="a.">
-	    <li>
-	      <p>
-		<m>V_{\uvec} = \uvec\cdot(C\uvec) =
-		\lambda\uvec\cdot\uvec = \lambda</m>.
-	      </p>
-	    </li>
-	    <li>
-	      <p>
-		We can write <m>C=QDQ^T</m> where
-		<me>
-		  D=\begin{bmatrix}
-		  15 \amp 0 \\
-		  0 \amp 5 \\
-		  \end{bmatrix},~~~
-		  Q = \begin{bmatrix}
-		  \frac1{\sqrt{5}} \amp \frac2{\sqrt{5}} \\
-		  -\frac2{\sqrt{5}} \amp \frac1{\sqrt{5}} \\
-		  \end{bmatrix}.
-		</me>
-	      </p>
-	    </li>
-	    <li>
-	      <p>
-		The total variance is the sum of the eigenvalues,
-		<m>V=\lambda_1 + \lambda_2 = 15 + 5 = 20</m>.
-	      </p>
-	    </li>
-	    <li>
-	      <p>
-		The variance is greatest in the direction of the
-		eigenvector associated to the largest eigenvalue.
-		This direction is defined by
-		<m>\twovec{\frac{1}{\sqrt{5}}}{-\frac2{\sqrt{5}}}</m>,
-		and the variance is 15 in this direction.  
-	      </p>
-	    </li>
-	    <li>
-	      <p>
-		The variance is smallest in the direction defined by
-		<m>\twovec{\frac2{\sqrt{5}}}{\frac1{\sqrt{5}}}</m>.
-	      </p>
-	    </li>
-	  </ol>
-	</p>
-      </solution>
-		
+      <task label="ula-preview-7-3-d">
+        <statement>
+	  <p>
+	    In
+	    which direction is the variance greatest and what is
+	    the variance in this direction?  If we project the
+	    data onto this line, how much variance is lost?
+	  </p>
+        </statement>
+        <response component="rs-preview"/>
+        <solution>
+	  <p>
+	    The variance is greatest in the direction of the
+	    eigenvector associated to the largest eigenvalue.
+	    This direction is defined by
+	    <m>\twovec{\frac{1}{\sqrt{5}}}{-\frac2{\sqrt{5}}}</m>,
+	    and the variance is 15 in this direction.
+	  </p>
+        </solution>
+      </task>
+
+      <task label="ula-preview-7-3-e">
+        <statement>
+	  <p>
+	    In which direction is the variance smallest and how is
+	    this direction related to the direction of maximum
+	    variance?
+	  </p>
+        </statement>
+        <response component="rs-preview"/>
+        <solution>
+	  <p>
+	    The variance is smallest in the direction defined by
+	    <m>\twovec{\frac2{\sqrt{5}}}{\frac1{\sqrt{5}}}</m>.
+	  </p>
+        </solution>
+      </task>
+
+      <task component="rs-preview">
+        <query label="ula-preview-7-3-poll" visibility="instructor">
+          <statement>
+            <p>I feel confident with the material in this activity.</p>
+          </statement>
+          <choices>
+            <choice><p>Strongly Agree</p></choice>
+            <choice><p>Agree</p></choice>
+            <choice><p>Neutral</p></choice>
+            <choice><p>Disagree</p></choice>
+            <choice><p>Strongly Disagree</p></choice>
+          </choices>
+        </query>
+      </task>
+
+      <task component="rs-preview"
+            label="ula-preview-7-3-what-else">
+        <statement>
+          <p>What would you need to know to feel
+          more confident about this material?</p>
+        </statement>
+        <response/>
+      </task>
+
     </exploration>
 
     <p>
