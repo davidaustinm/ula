@@ -38,103 +38,126 @@
       this.
     </p>
     
-    <exploration>
-      <statement>
-      <p>
-	<ol marker="a.">
-	  <li>
-	    <p> Is there a solution to the equation
-	    <m>A\xvec=\bvec</m> where <m>A</m> and <m>\bvec</m> are such
-	    that 
+    <exploration label="ula-preview-6-5">
+      <task label="ula-preview-6-5-a">
+        <statement>
+	  <p> Is there a solution to the equation
+	  <m>A\xvec=\bvec</m> where <m>A</m> and <m>\bvec</m> are such
+	  that
+	  <me>
+	    \begin{bmatrix}
+	    1 \amp 2 \\
+	    2 \amp 5 \\
+	    -1 \amp 0 \\
+	    \end{bmatrix}
+	    \xvec = \threevec5{-3}{-1}
+	  </me>.
+	  <sage>
+	    <input>
+	    </input>
+	  </sage>
+	  </p>
+        </statement>
+        <response component="rs-preview"/>
+        <solution>
+	  <p>
+	    The reduced row echelon form
 	    <me>
-	      \begin{bmatrix}
-	      1 \amp 2 \\
-	      2 \amp 5 \\
-	      -1 \amp 0 \\
-	      \end{bmatrix}
-	      \xvec = \threevec5{-3}{-1}\text{.}
+	      \left[
+	      \begin{array}{cc|c}
+	      1 \amp 2 \amp 5 \\
+	      2 \amp 5 \amp -3 \\
+	      -1 \amp 0 \amp -1\\
+	      \end{array}
+	      \right]
+	      \sim
+	      \left[
+	      \begin{array}{cc|c}
+	      1 \amp 0 \amp 0 \\
+	      0 \amp 1 \amp 0 \\
+	      0 \amp 0 \amp 1 \\
+	      \end{array}
+	      \right]
 	    </me>
-	    <sage>
-	      <input>
-	      </input>
-	    </sage>
-	    </p>
-	  </li>
+	    shows that there is no solution.
+	  </p>
+        </solution>
+      </task>
 
-	  <li>
-	    <p>
-	      We know that <m>\threevec12{-1}</m> and
-	      <m>\threevec250</m> form a basis for <m>\col(A)</m>.  Find
-	      an orthogonal basis for <m>\col(A)</m>. 
-	    </p>
-	  </li>
-	  
-	  <li>
-	    <p>
-	      Find the orthogonal projection <m>\widehat\bvec</m>
-	      of <m>\bvec</m> onto <m>\col(A)</m>.
-	    </p>
-	  </li>
+      <task label="ula-preview-6-5-b">
+        <statement>
+	  <p>
+	    We know that <m>\threevec12{-1}</m> and
+	    <m>\threevec250</m> form a basis for <m>\col(A)</m>.  Find
+	    an orthogonal basis for <m>\col(A)</m>.
+	  </p>
+        </statement>
+        <response component="rs-preview"/>
+        <solution>
+	  <p>
+	    Applying Gram-Schmidt, we find an orthogonal basis
+	    consisting of <m>\wvec_1=\cthreevec12{-1}</m> and
+	    <m>\wvec_2=\threevec012</m>.
+	  </p>
+        </solution>
+      </task>
 
-	  <li>
-	    <p>
-	      Explain why the equation <m>A\xvec=\widehat\bvec</m>
-	      must be consistent and then find its solution.
-	    </p>
-	  </li>
-	  
-	</ol>
-      </p>
-      </statement>
-      <solution>
-	<p>
-	  <ol marker="a">
-	    <li>
-	      <p>
-		The reduced row echelon form
-		<me>
-		  \left[
-		  \begin{array}{cc|c}
-		  1 \amp 2 \amp 5 \\
-		  2 \amp 5 \amp -3 \\
-		  -1 \amp 0 \amp -1\\
-		  \end{array}
-		  \right]
-		  \sim
-		  \left[
-		  \begin{array}{cc|c}
-		  1 \amp 0 \amp 0 \\
-		  0 \amp 1 \amp 0 \\
-		  0 \amp 0 \amp 1 \\
-		  \end{array}
-		  \right]
-		</me>
-		shows that there is no solution.
-	      </p>
-	    </li>
-	    <li>
-	      <p>
-		Applying Gram-Schmidt, we find an orthogonal basis
-		consisting of <m>\wvec_1=\cthreevec12{-1}</m> and
-		<m>\wvec_2=\threevec012</m>.
-	      </p>
-	    </li>
-	    <li>
-	      <p>
-		The projection formula gives <m>\bhat =
-		\cthreevec0{-1}{-2}</m>.
-	      </p>
-	    </li>
-	    <li>
-	      <p>
-		The equation is consistent because <m>\bhat</m> is in
-		<m>\col(A)</m>.  We find the solution
-		<m>\xvec=\twovec2{-1}</m>.
-	      </p>
-	    </li>
-	  </ol>
-	</p>
-      </solution>
+      <task label="ula-preview-6-5-c">
+        <statement>
+	  <p>
+	    Find the orthogonal projection <m>\widehat\bvec</m>
+	    of <m>\bvec</m> onto <m>\col(A)</m>.
+	  </p>
+        </statement>
+        <response component="rs-preview"/>
+        <solution>
+	  <p>
+	    The projection formula gives <m>\bhat =
+	    \cthreevec0{-1}{-2}</m>.
+	  </p>
+        </solution>
+      </task>
+
+      <task label="ula-preview-6-5-d">
+        <statement>
+	  <p>
+	    Explain why the equation <m>A\xvec=\widehat\bvec</m>
+	    must be consistent and then find its solution.
+	  </p>
+        </statement>
+        <response component="rs-preview"/>
+        <solution>
+	  <p>
+	    The equation is consistent because <m>\bhat</m> is in
+	    <m>\col(A)</m>.  We find the solution
+	    <m>\xvec=\twovec2{-1}</m>.
+	  </p>
+        </solution>
+      </task>
+
+      <task component="rs-preview">
+        <query label="ula-preview-6-5-poll" visibility="instructor">
+          <statement>
+            <p>I feel confident with the material in this activity.</p>
+          </statement>
+          <choices>
+            <choice><p>Strongly Agree</p></choice>
+            <choice><p>Agree</p></choice>
+            <choice><p>Neutral</p></choice>
+            <choice><p>Disagree</p></choice>
+            <choice><p>Strongly Disagree</p></choice>
+          </choices>
+        </query>
+      </task>
+
+      <task component="rs-preview"
+            label="ula-preview-6-5-what-else">
+        <statement>
+          <p>What would you need to know to feel
+          more confident about this material?</p>
+        </statement>
+        <response/>
+      </task>
     </exploration>
 
   </introduction>
