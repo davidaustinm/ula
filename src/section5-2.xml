@@ -24,89 +24,144 @@
     </p>
 
 
-    <exploration>
-      <statement>
-      <p> Let's recall some earlier observations about eigenvalues and
-      eigenvectors. 
-      <ol marker="a.">
-	<li><p> How are the eigenvalues and associated eigenvectors of
-	<m>A</m> related to those of <m>A^{-1}</m>? </p></li>
+    <exploration label="ula-preview-5-2">
+      <introduction>
+        <p> Let's recall some earlier observations about eigenvalues and
+        eigenvectors.
+        </p>
+      </introduction>
 
-	<li><p> How are the eigenvalues and associated eigenvectors of
-	<m>A</m> related to those of <m>A-3I</m>? </p></li>
-
-	<li><p> If <m>\lambda</m> is an eigenvalue of <m>A</m>, what
-	can we say about the pivot positions of <m>A-\lambda
-	I</m>?</p></li> 
-
-	<li><p> Suppose that
-	<m>A = \left[\begin{array}{rr}
-	0.8 \amp 0.4 \\
-	0.2 \amp 0.6 \\
-	\end{array}\right]
-	</m>.  Explain how we know that <m>1</m> is an eigenvalue of
-	<m>A</m> and then explain why the following Sage computation
-	is incorrect.
-	<sage>
-	  <input>
-A = matrix(2,2,[0.8, 0.4, 0.2, 0.6])
-I = matrix(2,2,[1, 0, 0, 1])	  
-(A-I).rref()
-	  </input>
-	</sage>
-	</p></li>
-
-	<li><p> Suppose that <m>\xvec_0 = \twovec{1}{0}</m>, and we
-	define a sequence <m>\xvec_{k+1} = A\xvec_k</m>;  in other
-	words, <m>\xvec_{k} = A^k\xvec_0</m>.  What happens to
-	<m>\xvec_k</m> as <m>k</m> grows increasingly large? </p></li>
-
-	<li><p> Explain how the eigenvalues of <m>A</m> are
-	responsible for the behavior noted in the previous
-	question. </p></li> 
-
-      </ol></p>
-      </statement>
-
-      <solution>
-	<p><ol marker="a.">
-	  <li><p> If <m>\lambda</m> is an eigenvalue of <m>A</m>, then
+      <task label="ula-preview-5-2-a">
+        <statement>
+	  <p> How are the eigenvalues and associated eigenvectors of
+	  <m>A</m> related to those of <m>A^{-1}</m>? </p>
+        </statement>
+        <response component="rs-preview"/>
+        <solution>
+	  <p> If <m>\lambda</m> is an eigenvalue of <m>A</m>, then
 	  <m>A\vvec=\lambda\vvec</m> for an associated eigenvector
 	  <m>\vvec</m>.  Multiplying by <m>A^{-1}</m> and
 	  <m>\lambda^{-1}</m>, we obtain <m>\lambda^{-1}\vvec =
 	  A^{-1}\vvec</m>, which shows that <m>\lambda^{-1}</m> is an
-	  eigenvalue of <m>A^{-1}</m>. </p></li>
+	  eigenvalue of <m>A^{-1}</m>. </p>
+        </solution>
+      </task>
 
-	  <li><p> In the same way, if <m>\lambda</m> is an eigenvalue
+      <task label="ula-preview-5-2-b">
+        <statement>
+	  <p> How are the eigenvalues and associated eigenvectors of
+	  <m>A</m> related to those of <m>A-3I</m>? </p>
+        </statement>
+        <response component="rs-preview"/>
+        <solution>
+	  <p> In the same way, if <m>\lambda</m> is an eigenvalue
 	  of <m>A</m>, then <m>A\vvec=\lambda\vvec</m> for an
 	  associated eigenvector <m>\vvec</m>.  This means that
 	  <m>(A-3I)\vvec = (\lambda-3)\vvec</m> so that
-	  <m>\lambda-3</m> is an eigenvalue of <m>A-3I</m>. </p></li>
+	  <m>\lambda-3</m> is an eigenvalue of <m>A-3I</m>. </p>
+        </solution>
+      </task>
 
-	  <li><p> If <m>\lambda</m> is an eigenvalue of <m>A</m>, then
+      <task label="ula-preview-5-2-c">
+        <statement>
+	  <p> If <m>\lambda</m> is an eigenvalue of <m>A</m>, what
+	  can we say about the pivot positions of <m>A-\lambda
+	  I</m>?</p>
+        </statement>
+        <response component="rs-preview"/>
+        <solution>
+	  <p> If <m>\lambda</m> is an eigenvalue of <m>A</m>, then
 	  <m>A-\lambda I</m> is not invertible and so has a row
-	  without a pivot position. </p></li>
+	  without a pivot position. </p>
+        </solution>
+      </task>
 
-	  <li><p> Since <m>A</m> is a positive stochastic matrix, we
+      <task label="ula-preview-5-2-d">
+        <statement>
+	  <p> Suppose that
+	  <m>A = \left[\begin{array}{rr}
+	  0.8 \amp 0.4 \\
+	  0.2 \amp 0.6 \\
+	  \end{array}\right]
+	  </m>.  Explain how we know that <m>1</m> is an eigenvalue of
+	  <m>A</m> and then explain why the following Sage computation
+	  is incorrect.
+	  <sage>
+	  <input>
+A = matrix(2,2,[0.8, 0.4, 0.2, 0.6])
+I = matrix(2,2,[1, 0, 0, 1])
+(A-I).rref()
+	  </input>
+	  </sage>
+	  </p>
+        </statement>
+        <response component="rs-preview"/>
+        <solution>
+	  <p> Since <m>A</m> is a positive stochastic matrix, we
 	  know that <m>\lambda=1</m> is an eigenvalue and hence that
 	  <m>A-I</m> is not invertible.  Sage, however, tells us that
 	  <m>A-I\sim I</m>, which cannot be true since <m>A-I</m> is
-	  not invertible. </p></li>
+	  not invertible. </p>
+        </solution>
+      </task>
 
-	  <li><p> The vectors <m>\xvec_k</m> form a Markov chain,
+      <task label="ula-preview-5-2-e">
+        <statement>
+	  <p> Suppose that <m>\xvec_0 = \twovec{1}{0}</m>, and we
+	  define a sequence <m>\xvec_{k+1} = A\xvec_k</m>;  in other
+	  words, <m>\xvec_{k} = A^k\xvec_0</m>.  What happens to
+	  <m>\xvec_k</m> as <m>k</m> grows increasingly large? </p>
+        </statement>
+        <response component="rs-preview"/>
+        <solution>
+	  <p> The vectors <m>\xvec_k</m> form a Markov chain,
 	  which must converge to the steady-state vector
-	  <m>\qvec=\twovec{\frac23}{\frac13}</m>. </p></li>
+	  <m>\qvec=\twovec{\frac23}{\frac13}</m>. </p>
+        </solution>
+      </task>
 
-	  <li><p> We have eigenvalues <m>\lambda_1=1</m> and
+      <task label="ula-preview-5-2-f">
+        <statement>
+	  <p> Explain how the eigenvalues of <m>A</m> are
+	  responsible for the behavior noted in the previous
+	  question. </p>
+        </statement>
+        <response component="rs-preview"/>
+        <solution>
+	  <p> We have eigenvalues <m>\lambda_1=1</m> and
 	  <m>\lambda_2=0.4</m>.  If we begin with
 	  <m>\xvec_0=c_1\vvec_1+c_2\vvec_2</m> and 
 	  successively multiply by <m>A</m>, we have
 	  <m>\xvec_k=c_1\vvec_1 + c_2(0.4)^k\vvec_2</m>.  When
 	  <m>k</m> becomes large, the coefficient of <m>\vvec_2</m>
 	  becomes insignificantly small so we are left with an
-	  eigenvector in <m>E_1</m>. </p></li>
-	</ol></p>
-      </solution>
+	  eigenvector in <m>E_1</m>. </p>
+        </solution>
+      </task>
+
+      <task component="rs-preview">
+        <query label="ula-preview-5-2-poll" visibility="instructor">
+          <statement>
+            <p>I feel confident with the material in this activity.</p>
+          </statement>
+          <choices>
+            <choice><p>Strongly Agree</p></choice>
+            <choice><p>Agree</p></choice>
+            <choice><p>Neutral</p></choice>
+            <choice><p>Disagree</p></choice>
+            <choice><p>Strongly Disagree</p></choice>
+          </choices>
+        </query>
+      </task>
+
+      <task component="rs-preview"
+            label="ula-preview-5-2-what-else">
+        <statement>
+          <p>What would you need to know to feel
+          more confident about this material?</p>
+        </statement>
+        <response/>
+      </task>
     </exploration>
 
   </introduction>

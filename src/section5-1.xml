@@ -17,50 +17,30 @@
     vectors <m>\bvec</m>.  
     </p>
 
-    <exploration>
-      <statement>
-      <p> To begin, let's recall how we implemented Gaussian
-      elimination by considering the matrix
-      <me>
-	A = \left[\begin{array}{rrrr}
-	1 \amp 2 \amp -1 \amp 2 \\
-	1 \amp 0 \amp -2 \amp 1 \\
-	3 \amp 2 \amp 1 \amp 0 \\
-	\end{array}\right]
-      </me>
-      <ol marker="a.">
-	<li><p> What is the first row operation we perform?
-	If the resulting matrix is
-	<m>A_1</m>, find a matrix <m>E_1</m> such that <m>E_1A =
-	A_1</m>.  </p></li>
+    <exploration label="ula-preview-5-1">
+      <introduction>
+        <p> To begin, let's recall how we implemented Gaussian
+        elimination by considering the matrix
+        <me>
+	  A = \left[\begin{array}{rrrr}
+	  1 \amp 2 \amp -1 \amp 2 \\
+	  1 \amp 0 \amp -2 \amp 1 \\
+	  3 \amp 2 \amp 1 \amp 0 \\
+	  \end{array}\right]
+        </me>.
+        </p>
+      </introduction>
 
-	<li><p> What is the matrix inverse <m>E_1^{-1}</m>?  You can
-	find this using your favorite technique for finding a matrix
-	inverse.  However, it may be easier to think about the effect
-	that the row operation has and how it can be undone. </p></li>
-
-	<li><p> Perform the next two steps in the Gaussian elimination
-	algorithm to obtain <m>A_3</m>.  Represent these steps using
-	multiplication by matrices <m>E_2</m> and <m>E_3</m> so that
-	<me>
-	  E_3E_2E_1A = A_3
-	</me>.
-	</p></li>
-
-	<li><p> Suppose we need to scale the second row by <m>-2</m>.
-	What is the <m>3\times3</m> matrix that perfoms this row
-	operation by left multiplication?
-	</p></li>
-
-	<li><p> Suppose that we need to interchange the first and
-	second rows.  What is the <m>3\times3</m> matrix that performs
-	this row operation by left multiplication?</p></li>
-      </ol></p>
-      </statement>
-
-      <solution>
-	<p><ol marker="a.">
-	  <li><p> We first multiply the first row by <m>-1</m> and add
+      <task label="ula-preview-5-1-a">
+        <statement>
+	  <p> What is the first row operation we perform?
+	  If the resulting matrix is
+	  <m>A_1</m>, find a matrix <m>E_1</m> such that <m>E_1A =
+	  A_1</m>.  </p>
+        </statement>
+        <response component="rs-preview"/>
+        <solution>
+	  <p> We first multiply the first row by <m>-1</m> and add
 	  to the second row.  This can be represented by multiplying
 	  <m>E_1A=A_1</m> where
 	  <me>E_1=\left[\begin{array}{rrr}
@@ -75,9 +55,20 @@
 	  3 \amp 2 \amp 1 \amp 0
 	  \end{array}\right]\text{.}
 	  </me>
-	  </p></li>
+	  </p>
+        </solution>
+      </task>
 
-	  <li><p> To undo the row operation, we multiply the first row
+      <task label="ula-preview-5-1-b">
+        <statement>
+	  <p> What is the matrix inverse <m>E_1^{-1}</m>?  You can
+	  find this using your favorite technique for finding a matrix
+	  inverse.  However, it may be easier to think about the effect
+	  that the row operation has and how it can be undone. </p>
+        </statement>
+        <response component="rs-preview"/>
+        <solution>
+	  <p> To undo the row operation, we multiply the first row
 	  by <m>1</m> and add to the second row.  This shows that <m>
 	  E_1^{-1} =
 	  \left[\begin{array}{rrr}
@@ -85,9 +76,23 @@
 	  1 \amp 1 \amp 0 \\
 	  0 \amp 0 \amp 1
 	  \end{array}\right]</m>.
-	  </p></li>
+	  </p>
+        </solution>
+      </task>
 
-	  <li><p> We have
+      <task label="ula-preview-5-1-c">
+        <statement>
+	  <p> Perform the next two steps in the Gaussian elimination
+	  algorithm to obtain <m>A_3</m>.  Represent these steps using
+	  multiplication by matrices <m>E_2</m> and <m>E_3</m> so that
+	  <me>
+	    E_3E_2E_1A = A_3
+	  </me>.
+	  </p>
+        </statement>
+        <response component="rs-preview"/>
+        <solution>
+	  <p> We have
 	  <me>
 	    \begin{array}{c}
 	    E_2 = \left[\begin{array}{rrr}
@@ -106,25 +111,70 @@
 	    0 \amp 0 \amp 6 \amp -4
 	    \end{array}\right]\text{.}
 	    \end{array}
-	  </me>
-	  </p></li>
+	  </me>.
+	  </p>
+        </solution>
+      </task>
 
-	  <li><p> The matrix performing this scaling is
+      <task label="ula-preview-5-1-d">
+        <statement>
+	  <p> Suppose we need to scale the second row by <m>-2</m>.
+	  What is the <m>3\times3</m> matrix that perfoms this row
+	  operation by left multiplication?
+	  </p>
+        </statement>
+        <response component="rs-preview"/>
+        <solution>
+	  <p> The matrix performing this scaling is
 	  <m>\left[\begin{array}{rrr} 1 \amp 0 \amp 0 \\
 	  0 \amp -2 \amp 0 \\
 	  0 \amp 0 \amp 1 \\
 	  \end{array}\right]</m>.
-	  </p></li>
+	  </p>
+        </solution>
+      </task>
 
-	  <li><p> The matrix performing this interchange is
+      <task label="ula-preview-5-1-e">
+        <statement>
+	  <p> Suppose that we need to interchange the first and
+	  second rows.  What is the <m>3\times3</m> matrix that performs
+	  this row operation by left multiplication?</p>
+        </statement>
+        <response component="rs-preview"/>
+        <solution>
+	  <p> The matrix performing this interchange is
 	  <m>\left[\begin{array}{rrr}
 	  0 \amp 1 \amp 0 \\
 	  1 \amp 0 \amp 0 \\
 	  0 \amp 0 \amp 1 \\
 	  \end{array}\right]</m>.
-	  </p></li>
-	</ol></p>
-      </solution>
+	  </p>
+        </solution>
+      </task>
+
+      <task component="rs-preview">
+        <query label="ula-preview-5-1-poll" visibility="instructor">
+          <statement>
+            <p>I feel confident with the material in this activity.</p>
+          </statement>
+          <choices>
+            <choice><p>Strongly Agree</p></choice>
+            <choice><p>Agree</p></choice>
+            <choice><p>Neutral</p></choice>
+            <choice><p>Disagree</p></choice>
+            <choice><p>Strongly Disagree</p></choice>
+          </choices>
+        </query>
+      </task>
+
+      <task component="rs-preview"
+            label="ula-preview-5-1-what-else">
+        <statement>
+          <p>What would you need to know to feel
+          more confident about this material?</p>
+        </statement>
+        <response/>
+      </task>
     </exploration>
 
   </introduction>
