@@ -15,13 +15,15 @@
     into a richer theory and illustrate its use with more meaningful
     examples. </p>
 
-    <exploration>
-      <statement>
+    <exploration label="ula-preview-4-1">
+      <introduction>
       <p> Before we introduce the definition of eigenvectors and
       eigenvalues, it will be helpful to remember some ideas we have
-      seen previously.
-      <ol marker="a.">
-	<li>
+      seen previously.</p>
+      </introduction>
+
+      <task label="ula-preview-4-1-a">
+        <statement>
 	  <sidebyside widths="50% 45%">
 	  <p> Suppose that <m>\vvec</m> is the vector shown in the
 	  figure.  Sketch the vector <m>2\vvec</m> and the vector
@@ -29,83 +31,99 @@
 	  </p>
 	  <image source="images/eigen-intro-vec" />
 	  </sidebyside>
-	</li>
-
-	<li><p> State the geometric effect that scalar multiplication
-	has on the vector <m>\vvec</m>.  Then sketch all the vectors
-	of the form <m>\lambda \vvec</m> where <m>\lambda</m> is a scalar.
-	</p></li>
-
-	<li><p> State the geometric effect of the matrix
-	transformation defined by 
-	<me>
-	  \left[\begin{array}{rr}
-	  3 \amp 0 \\
-	  0 \amp -1 \\
-	  \end{array}\right]
-	</me>.
-	</p></li>
-
-	<li><p> Suppose that <m>A</m> is a <m>2\times 2</m>
-	matrix and that <m>\vvec_1</m> and <m>\vvec_2</m> are vectors
-	such that
-	<me> A\vvec_1 = 3 \vvec_1, \qquad A\vvec_2 = -\vvec_2
-	</me>.
-	Use the linearity of matrix multiplication to express the
-	following vectors in terms of <m>\vvec_1</m> and 
-	<m>\vvec_2</m>.
-	<ol marker="1.">
-	  <li><p> <m>A(4\vvec_1)</m>. </p></li>
-	  <li><p> <m>A(\vvec_1 + \vvec_2)</m>. </p></li>
-	  <li><p> <m>A(4\vvec_1 -3\vvec_2)</m>. </p></li>
-	  <li><p> <m>A^2\vvec_1</m>. </p></li>
-	  <li><p> <m>A^2(4\vvec_1 - 3\vvec_2)</m>. </p></li>
-	  <li><p> <m>A^4\vvec_1</m>. </p></li>
-	</ol></p>
-	</li>
-      </ol></p>
-      </statement>
-
-      <solution>
-	<p><ol marker="a.">
-	  <li><p>
+        </statement>
+        <p component="rs-preview">You will be prompted to upload a
+        scan of your sketch in part (b).</p>
+        <solution>
+	  <p>
 	    The vectors are as shown.
 	    <sidebyside width="40%">
 	      <image source="images/ex-eigen-intro-vec" />
 	    </sidebyside>
-	  </p></li>
+	  </p>
+        </solution>
+      </task>
 
-	  <li><p> Scalar multiplication has the effect of stretching
+      <task label="ula-preview-4-1-b" attachment="yes">
+        <statement>
+	  <p> State the geometric effect that scalar multiplication
+	  has on the vector <m>\vvec</m>.  Then sketch all the vectors
+	  of the form <m>\lambda \vvec</m> where <m>\lambda</m> is a scalar.
+	  </p>
+        </statement>
+        <response component="rs-preview"/>
+        <solution>
+	  <p> Scalar multiplication has the effect of stretching
 	  and possibly flipping <m>\vvec</m> along the line defined by
-	  <m>\vvec</m>. </p></li>
+	  <m>\vvec</m>. </p>
+        </solution>
+      </task>
 
-	  <li><p> This matrix transformation stretches vectors by a
+      <task label="ula-preview-4-1-c">
+        <statement>
+	  <p> State the geometric effect of the matrix
+	  transformation defined by
+	  <me>
+	    \left[\begin{array}{rr}
+	    3 \amp 0 \\
+	    0 \amp -1 \\
+	    \end{array}\right]
+	    </me>.
+	  </p>
+        </statement>
+        <response component="rs-preview"/>
+        <solution>
+	  <p> This matrix transformation stretches vectors by a
 	  factor of <m>3</m> in the horizontal direction and flips
 	  vectors vertically.
-	  </p></li>
+	  </p>
+        </solution>
+      </task>
 
-	  <li><p> Applying linearity, we see that
+      <task label="ula-preview-4-1-d">
+        <statement>
+	  <p> Suppose that <m>A</m> is a <m>2\times 2</m>
+	  matrix and that <m>\vvec_1</m> and <m>\vvec_2</m> are vectors
+	  such that
+	  <me>
+            A\vvec_1 = 3 \vvec_1, \qquad A\vvec_2 = -\vvec_2
+	  </me>.
+	  Use the linearity of matrix multiplication to express the
+	  following vectors in terms of <m>\vvec_1</m> and
+	  <m>\vvec_2</m>.
 	  <ol marker="1.">
-	    <li><p> <m>A(4\vvec_1) = 4A\vvec_1 =
-	    12\vvec_1</m>. </p></li>
+	    <li><p> <m>A(4\vvec_1)</m>. </p></li>
+	    <li><p> <m>A(\vvec_1 + \vvec_2)</m>. </p></li>
+	    <li><p> <m>A(4\vvec_1 -3\vvec_2)</m>. </p></li>
+	    <li><p> <m>A^2\vvec_1</m>. </p></li>
+	    <li><p> <m>A^2(4\vvec_1 - 3\vvec_2)</m>. </p></li>
+	    <li><p> <m>A^4\vvec_1</m>. </p></li>
+	  </ol></p>
+        </statement>
+        <response component="rs-preview"/>
+      </task>
+      <solution>
+	<p> Applying linearity, we see that
+	<ol marker="1.">
+	  <li><p> <m>A(4\vvec_1) = 4A\vvec_1 =
+	  12\vvec_1</m>. </p></li>
 
-	    <li><p> <m>A(\vvec_1+\vvec_2) = A\vvec_1 + A\vvec_2 =
-	    3\vvec_1 - \vvec_2</m>. </p></li>
+	  <li><p> <m>A(\vvec_1+\vvec_2) = A\vvec_1 + A\vvec_2 =
+	  3\vvec_1 - \vvec_2</m>. </p></li>
 
-	    <li><p> <m>A(4\vvec_1-3\vvec_2) = 4A\vvec_1 -3A\vvec_2 =
-	    12\vvec_1 + 3\vvec_2</m>. </p></li>
+	  <li><p> <m>A(4\vvec_1-3\vvec_2) = 4A\vvec_1 -3A\vvec_2 =
+	  12\vvec_1 + 3\vvec_2</m>. </p></li>
 
-	    <li><p> <m>A^2\vvec_1 = A(3\vvec_1) =
-	    9\vvec_1</m>. </p></li>
+	  <li><p> <m>A^2\vvec_1 = A(3\vvec_1) =
+	  9\vvec_1</m>. </p></li>
 
-	    <li><p> <m>A^2(4\vvec_1-3\vvec_2) = A(12\vvec_1 +3\vvec_2) =
-	    36\vvec_1 - 3\vvec_2</m>. </p></li>
+	  <li><p> <m>A^2(4\vvec_1-3\vvec_2) = A(12\vvec_1 +3\vvec_2) =
+	  36\vvec_1 - 3\vvec_2</m>. </p></li>
 
-	    <li><p> <m>A^4\vvec_1 = 3^4\vvec_1 =
-	    81\vvec_1</m>. </p></li>
-	  </ol>
-	  </p></li>
-	</ol></p>
+	  <li><p> <m>A^4\vvec_1 = 3^4\vvec_1 =
+	  81\vvec_1</m>. </p></li>
+	</ol>
+	</p>
       </solution>
 
     </exploration>

@@ -22,77 +22,101 @@
     an understanding of eigenvalues and eigenvectors will help us make
     predictions about the long-term behavior of the system. </p>
 
-    <exploration>
-      <statement>
-      <p> Suppose that our rental car company rents from two locations
-      <m>P</m> and <m>Q</m>.  We find that 80% of the cars rented from
-      location <m>P</m> are returned to <m>P</m> while the other 20% are
-      returned to <m>Q</m>.  For cars rented from location <m>Q</m>,
-      60% are returned to <m>Q</m> and 40% to <m>P</m>. </p>
+    <exploration label="ula-preview-4-5">
+      <introduction>
+        <p> Suppose that our rental car company rents from two locations
+        <m>P</m> and <m>Q</m>.  We find that 80% of the cars rented from
+        location <m>P</m> are returned to <m>P</m> while the other 20% are
+        returned to <m>Q</m>.  For cars rented from location <m>Q</m>,
+        60% are returned to <m>Q</m> and 40% to <m>P</m>. </p>
 
-      <p> We will use <m>P_k</m> and <m>Q_k</m> to denote the number
-      of cars at the two locations on day <m>k</m>.  The following
-      day, the number of cars at <m>P</m> equals 80% of <m>P_k</m> and
-      40% of <m>Q_k</m>.  This shows that
-      <me>
-	\begin{aligned}
-	P_{k+1} \amp {}={} 0.8 P_k + 0.4Q_k \\
-	Q_{k+1} \amp {}={} 0.2 P_k + 0.6Q_k\text{.} \\
-	\end{aligned}
-      </me>
+        <p> We will use <m>P_k</m> and <m>Q_k</m> to denote the number
+        of cars at the two locations on day <m>k</m>.  The following
+        day, the number of cars at <m>P</m> equals 80% of <m>P_k</m> and
+        40% of <m>Q_k</m>.  This shows that
+        <me>
+	  \begin{aligned}
+	  P_{k+1} \amp {}={} 0.8 P_k + 0.4Q_k \\
+	  Q_{k+1} \amp {}={} 0.2 P_k + 0.6Q_k\text{.} \\
+	  \end{aligned}
+        </me>
+        </p>
+      </introduction>
 
-      <ol marker="a.">
-	<li><p> If we use the vector <m>\xvec_k =
-	\twovec{P_k}{Q_k}</m> to represent the distribution of cars on
-	day <m>k</m>, find a matrix <m>A</m> such that
-	<m>\xvec_{k+1} = A\xvec_k</m>. </p></li>
-
-	<li><p> Find the eigenvalues and associated eigenvectors of
-	<m>A</m>.  </p></li>
-
-	<li><p> Suppose that there are initially 1500 cars, all of
-	which are at location <m>P</m>.  Write the vector
-	<m>\xvec_0</m> as a linear combination of eigenvectors of
-	<m>A</m>. </p></li>
-
-	<li><p> Write the vectors <m>\xvec_k</m> as a linear
-	combination of eigenvectors of <m>A</m>. </p></li>
-
-	<li><p> What happens to the distribution of cars after a long
-	time? </p></li>
-
-      </ol></p>
-      </statement>
-
-      <solution>
-	<p><ol marker="a.">
-	  <li><p> Expressing the set of equations in matrix form, we
+      <task label="ula-preview-4-5-a">
+        <statement>
+	  <p> If we use the vector <m>\xvec_k =
+	  \twovec{P_k}{Q_k}</m> to represent the distribution of cars on
+	  day <m>k</m>, find a matrix <m>A</m> such that
+	  <m>\xvec_{k+1} = A\xvec_k</m>. </p>
+        </statement>
+        <response component="rs-preview"/>
+        <solution>
+	  <p> Expressing the set of equations in matrix form, we
 	  see that
 	  <m>A = \mattwo{0.8}{0.4}{0.2}{0.6}</m>.
-	  </p></li>
+	  </p>
+        </solution>
+      </task>
 
-	  <li><p> We have eigenvalues <m>\lambda_1 = 1</m> and
+      <task label="ula-preview-4-5-b">
+        <statement>
+	  <p> Find the eigenvalues and associated eigenvectors of
+	  <m>A</m>.  </p>
+        </statement>
+        <response component="rs-preview"/>
+        <solution>
+	  <p> We have eigenvalues <m>\lambda_1 = 1</m> and
 	  <m>\lambda_2 = 0.4</m> with associated eigenvectors
 	  <m>\vvec_1 = \twovec21</m> and
-	  <m>\vvec_2=\twovec{-1}{1}</m>. </p></li>
+	  <m>\vvec_2=\twovec{-1}{1}</m>. </p>
+        </solution>
+      </task>
 
-	  <li><p> We find that
+      <task label="ula-preview-4-5-c">
+        <statement>
+	  <p> Suppose that there are initially 1500 cars, all of
+	  which are at location <m>P</m>.  Write the vector
+	  <m>\xvec_0</m> as a linear combination of eigenvectors of
+	  <m>A</m>. </p>
+        </statement>
+        <response component="rs-preview"/>
+        <solution>
+	  <p> We find that
 	  <m>\xvec_0=\twovec{1500}{0} = 500\vvec_1-500\vvec_2</m>.
-	  </p></li>
+	  </p>
+        </solution>
+      </task>
 
-	  <li><p> Multiplying by the matrix <m>A</m> has the effect of
+      <task label="ula-preview-4-5-d">
+        <statement>
+	  <p> Write the vectors <m>\xvec_k</m> as a linear
+	  combination of eigenvectors of <m>A</m>. </p>
+        </statement>
+        <response component="rs-preview"/>
+        <solution>
+	  <p> Multiplying by the matrix <m>A</m> has the effect of
 	  multiplying the eigenvectors by their associated
 	  eigenvalues.  Therefore,
 	  <m>\xvec_k=500\vvec_1-500(0.4)^k\vvec_2</m>.
-	  </p></li>
+	  </p>
+        </solution>
+      </task>
 
-	  <li><p> As <m>k</m> becomes large, <m>0.4^k</m> becomes very
+      <task label="ula-preview-4-5-e">
+        <statement>
+	  <p> What happens to the distribution of cars after a long
+	  time? </p>
+        </statement>
+        <response component="rs-preview"/>
+        <solution>
+	  <p> As <m>k</m> becomes large, <m>0.4^k</m> becomes very
 	  close to zero.  Therefore <m>\xvec_k\approx500\vvec_1 =
 	  \twovec{1000}{500}</m>.  This tells us that <m>1000</m> cars
 	  are at location <m>P</m> and <m>500</m> are at <m>Q</m>.
-	  </p></li>
-	</ol></p>
-      </solution>
+	  </p>
+        </solution>
+      </task>
     </exploration>
 
   </introduction>
