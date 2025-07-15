@@ -1313,7 +1313,181 @@ A.eigenvectors_right()
       floating point numbers since floating point arithmetic is only
       an approximation. </p></li>
     </ul></p>
-    
+
+    <exercise component="proteus"
+              label="ula-proteus-4-2-reasoning-about-eigenthings">
+      <title>Reasoning about eigenvectors and eigenvalues</title>
+
+      <statement>
+        <p>Determine whether each of the statements about the
+        eigenvectors and eigenvalues of a matrix <m>A</m> is
+        Always True, never True, or Sometimes True.</p>
+      </statement>
+
+      <cardsort>
+        <match>
+          <premise>
+            If <m>\det(A+4I)=0</m>, then <m>\lambda=-4</m> is an
+            eigenvalue of <m>A</m>.
+          </premise>
+          <premise>
+            If <m>\lambda=3</m> is an eigenvalue of <m>A</m>, then
+            <m>E_3=\nul(A-3I)</m>.
+          </premise>
+          <premise>
+            If <m>\lambda = 0</m> is an eigenvalue of <m>A</m>, then
+            <m>\det(A) = 0</m>.
+          </premise>
+          <premise>
+            If <m>\nul(A-5I)=\{0\}</m>, then <m>\lambda=5</m> is not
+            an eigenvalue of <m>A</m>.
+          </premise>
+          <response>
+            Always True
+          </response>
+        </match>
+
+        <match>
+          <premise>
+            If <m>\lambda</m> is an eigenvaluel of a matrix <m>A</m>,
+            then <m>A-\lambda I</m> is row equivalent to <m>I</m>.
+          </premise>
+          <premise>
+            If the columns of <m>A+I</m> are linearly independent,
+            then <m>\lambda=-1</m> is an eigenvalue of <m>A</m>.
+          </premise>
+          <response>
+            Never True
+          </response>
+        </match>
+
+        <match>
+          <premise>
+            The eigenvalues of a matrix are its diagonal entries.
+          </premise>
+          <premise>
+            If <m>(\lambda-3)^2</m> is a factor of the characteristic
+            polynomial of <m>A</m>, then <m>\dim E_3 = 2</m>.
+          </premise>
+          <response>
+            Sometimes True
+          </response>
+        </match>
+      </cardsort>
+    </exercise>
+
+    <exercise component="proteus"
+              label="ula-proteus-4-2-finding-and-using-eigenvectors">
+      <title>Finding and using eigenvectors</title>
+      <introduction>
+        <p>
+          Let <m>A = \begin{bmatrix}
+          7 \amp -36 \\
+          3 \amp -14
+          \end{bmatrix}</m>.
+        </p>
+      </introduction>
+      <task label="ula-proteus-4-2-finding-and-using-eigenvectors-taskA">
+        <statement>
+          <p> Find the characteristic polynomial of <m>A</m>.</p>
+        </statement>
+        <response/>
+      </task>
+      <task  label="ula-proteus-4-2-finding-and-using-eigenvectors-taskB">
+        <statement>
+          <p> Use the characteristic polynomial to find the
+          eigenvalues of <m>A</m>.</p>
+        </statement>
+        <response/>
+      </task>
+      <task  label="ula-proteus-4-2-finding-and-using-eigenvectors-taskC">
+        <statement>
+          <p> Find a basis for each eigenspace of <m>A</m>.</p>
+        </statement>
+        <response/>
+      </task>
+      <task  label="ula-proteus-4-2-finding-and-using-eigenvectors-taskD">
+        <statement>
+          <p> Suppose <m>\xvec = \twovec{-5}{-3}</m>. Write <m>\xvec</m>
+          as a linear combination of the eigenvectors of <m>A</m>.</p>
+        </statement>
+        <response/>
+      </task>
+      <task  label="ula-proteus-4-2-finding-and-using-eigenvectors-taskE">
+        <statement>
+          <p> Suppose <m>\xvec = \twovec{-5}{-3}</m>. Use your answer to the
+          preceding part to write <m>A\xvec</m>
+          as a linear combination of the eigenvectors of <m>A</m>.</p>
+        </statement>
+        <response/>
+      </task>
+    </exercise>
+
+    <exercise component="proteus"
+              label="ula-proteus-4-2-conditions-for-evector-basis">
+      <title>Determining when there is a basis of eigenvectors</title>
+
+      <statement>
+        <p>Determine whether each condition on an <m>n\times n</m>
+        matrix <m>A</m> implies that there is a basis of <m>\real^n</m>
+        consisting of eigenvectors of <m>A</m>.
+        </p>
+      </statement>
+
+      <cardsort>
+        <match>
+          <premise>
+            <m>\det(A-\lambda I) = (4-\lambda) (2-\lambda) (0-\lambda)</m>.
+          </premise>
+          <premise>
+            <m>\det(A-\lambda I) = 4 - \lambda^2</m>.
+          </premise>
+          <premise>
+            <m>A = 5I</m>.
+          </premise>
+          <premise>
+            <m>A</m> is <m>2\times2</m> and there are vectors
+            <m>\vvec_1</m> and <m>\vvec_2</m> with
+            with <m>A\vvec_1 = -4\vvec_1</m> and <m>A\vvec_2 = 0</m>.
+          </premise>
+
+          <response>
+            There is a basis of eigenvectors.
+          </response>
+        </match>
+
+        <match>
+          <premise>
+            <m>\det(A-\lambda I) = 4 + \lambda^2</m>.
+          </premise>
+
+          <response>
+            There is not a basis of eigenvectors.
+          </response>
+        </match>
+
+        <match>
+          <premise>
+            <m>\det(A-\lambda I) =
+            (4-\lambda)^2 (2-\lambda)^3 (0-\lambda)
+            </m>.
+          </premise>
+          <premise>
+            <m>A</m> is <m>3\times3</m> and there are vectors
+            <m>\vvec_1</m> and <m>\vvec_2</m> with
+            <m>A\vvec_1 = -4\vvec_1</m> and <m>A\vvec_2 = 0</m>.
+          </premise>
+          <premise>
+            <m>A</m> is invertible.
+          </premise>
+
+          <response>
+            There is not enough information to determine.
+          </response>
+        </match>
+      </cardsort>
+    </exercise>
+
   </subsection>
 
   <xi:include href="exercises/exercises4-2.xml" />  

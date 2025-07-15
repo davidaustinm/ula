@@ -1235,6 +1235,213 @@ P*C*P.inverse()
     </ul>
     </p>
 
+    <exercise component="proteus"
+              label="ula-proteus-4-3-constructing-matrix-from-eigenpairs">
+      <title>Constructing a matrix from its eigenvalues and eigenvectors</title>
+      <statement>
+        <p>
+          Suppose that <m>A</m> is a <m>3\times 3</m> matrix with all
+          of the following:
+          <ul>
+            <li>
+              <p>
+                <m>\threevec{-6}{3}{1}</m> is an
+                eigenvector with
+                eigenvalue <m>-2</m>,
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>\threevec{1}{0}{-1}</m> is an
+                eigenvector with
+                eigenvalue <m>-1</m>,
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>\threevec{1}{1}{-3}</m> is an
+                eigenvector with
+                eigenvalue <m>1</m>.
+              </p>
+            </li>
+          </ul>
+          Determine the matrix <m>A</m> and explain your thinking.
+        </p>
+      </statement>
+      <response/>
+    </exercise>
+
+    <exercise component="proteus"
+              label="ula-proteus-4-3-diagonalizating-matrix">
+      <title>Diagonalizing a matrix</title>
+
+      <introduction>
+        <p>Suppose that
+        <m>A=\begin{bmatrix}
+        -8 \amp 5 \\
+        -10 \amp 7
+        \end{bmatrix}</m>.
+        </p>
+      </introduction>
+
+      <task label="ula-proteus-4-3-diagonalizating-matrix-a">
+        <statement>
+          <p>Find the characteristic polynomial of <m>A</m>.</p>
+        </statement>
+        <response/>
+      </task>
+
+      <task label="ula-proteus-4-3-diagonalizating-matrix-b">
+        <statement>
+          <p>Use the characteristic polynomial to find the
+          eigenvalues of <m>A</m>.</p>
+        </statement>
+        <response/>
+      </task>
+
+      <task label="ula-proteus-4-3-diagonalizating-matrix-c">
+        <statement>
+          <p>Find bases for each of the eigenspaces of <m>A</m>.</p>
+        </statement>
+        <response/>
+      </task>
+
+      <task label="ula-proteus-4-3-diagonalizating-matrix-d">
+        <statement>
+          <p>Find matrices <m>P</m>and <m>D</m> such that
+          <m>A=PDP^{-1}</m>.</p>
+        </statement>
+        <response/>
+      </task>
+    </exercise>
+
+    <exercise component="proteus"
+              label="ula-proteus-4-3-matching-diagonalizable-or-not">
+      <title>Conditions affecting diagonalizability</title>
+
+      <statement>
+        <p>
+          Suppose that <m>A</m> is a <m>4\times 4</m> matrix. For each
+          condition
+          on the left, choose the appropriate conclusion on the right.
+        </p>
+      </statement>
+
+      <cardsort>
+        <match>
+          <premise>
+            <m>A</m> has exactly 4 different real eigenvalues and no
+            other eigenvalues.
+          </premise>
+          <premise>
+            <m>A</m> has exactly 2 real eigenvalues, each of
+            multiplicity 2, and no other eigenvalues.
+            Both eigenspaces of <m>A</m> have dimension 2.
+          </premise>
+          <response>
+            <m>A</m> is diagonalizable.
+          </response>
+        </match>
+        <match>
+          <premise>
+            <m>A</m> has exactly 3 real eigenvalues, one of which,
+            <m>\lambda</m>, has multiplicity 2, and no other
+            eigenvalues. The dimension of the eigenspace corresponding
+            to <m>\lambda</m> is 1.
+          </premise>
+          <premise>
+            The eigenvalues of <m>A</m> are a pair <m>a\pm i b</m> of
+            complex eigenvalues with <m>b\neq 0</m>.
+          </premise>
+          <premise>
+            <m>A</m> has an eigenspace whose dimension is less than
+            the multiplicity of the
+            corresponding eigenvalue.
+          </premise>
+          <response>
+            <m>A</m> is not diagonalizable.
+          </response>
+        </match>
+        <match>
+          <premise>
+            <m>A</m> has exactly 3 real eigenvalues, one of which has
+            multiplicity 2, and no other eigenvalues.
+          </premise>
+          <premise>
+            <m>A</m> has only 1 real eigenvalue and no other
+            eigenvalues.
+          </premise>
+          <response>
+            More information is needed to determine whether or not
+            <m>A</m> is diagonalizable.
+          </response>
+        </match>
+      </cardsort>
+    </exercise>
+
+    <exercise component="proteus"
+              label="ula-proteus-4-3-conditions-for-diagonalizability">
+      <title>Determining when a matrix is diagonalizable</title>
+
+      <statement>
+        <p>Determine whether each condition on an <m>n\times n</m>
+        matrix <m>A</m> implies that <m>A</m> is diagonalizable.</p>
+      </statement>
+
+      <cardsort>
+        <match>
+          <premise>
+            <m>\det(A-\lambda I) = (4-\lambda) (2-\lambda) (0-\lambda)</m>.
+          </premise>
+          <premise>
+            <m>\det(A-\lambda I) = 4 - \lambda^2</m>.
+          </premise>
+          <premise>
+            <m>A = 5I</m>.
+          </premise>
+          <premise>
+            <m>A</m> is <m>2\times2</m> and there are vectors
+            <m>\vvec_1</m> and <m>\vvec_2</m> with
+            with <m>A\vvec_1 = -4\vvec_1</m> and <m>A\vvec_2 = 0</m>.
+          </premise>
+
+          <response>
+            <m>A</m> is diagonalizable.
+          </response>
+        </match>
+
+        <match>
+          <premise>
+            <m>\det(A-\lambda I) = 4 + \lambda^2</m>.
+          </premise>
+
+          <response>
+            <m>A</m> is not diagonalizable.
+          </response>
+        </match>
+
+        <match>
+          <premise>
+            <m>\det(A-\lambda I) =
+            (4-\lambda)^2 (2-\lambda)^3 (0-\lambda)
+            </m>.
+          </premise>
+          <premise>
+            <m>A</m> is <m>3\times3</m> and there are vectors
+            <m>\vvec_1</m> and <m>\vvec_2</m> with
+            <m>A\vvec_1 = -4\vvec_1</m> and <m>A\vvec_2 = 0</m>.
+          </premise>
+          <premise>
+            <m>A</m> is invertible.
+          </premise>
+
+          <response>
+            There is not enough information to determine.
+          </response>
+        </match>
+      </cardsort>
+    </exercise>
+
   </subsection>
 
   <xi:include href="exercises/exercises4-3.xml" />  
