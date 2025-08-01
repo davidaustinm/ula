@@ -1,5 +1,12 @@
 <!DOCTYPE html>
 <html lang="en-US" dir="ltr">
+<!--******************************************-->
+<!--*  Authored with PreTeXt                 *-->
+<!--*  pretextbook.org                       *-->
+<!--*  Theme: default-modern                 *-->
+<!--*  Palette: blue-green                   *-->
+<!--******************************************-->
+
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
 <!--*                                          *-->
@@ -33,21 +40,25 @@
 \end{aligned}
 \end{equation*}
 </div>
+<div class="autopermalink" data-description="Paragraph"><a href="#sec-power-method-3-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="sidebyside"><div class="sbsrow" style="margin-left:0%;margin-right:0%;">
-<div class="sbspanel top" style="width:60%;"><div class="para">As the figure shows, the vectors <span class="process-math">\(\xvec_k\)</span> are stretched by a factor of <span class="process-math">\(3\)</span> in the <span class="process-math">\(\vvec_1\)</span> direction and not at all in the <span class="process-math">\(\vvec_2\)</span> direction. Consequently, the vectors <span class="process-math">\(\xvec_k\)</span> become increasingly long, but their direction becomes closer to the direction of the eigenvector <span class="process-math">\(\vvec_1=\twovec{1}{1}\)</span> associated to the dominant eigenvalue.</div></div>
+<div class="sbspanel top" style="width:60%;"><div class="para">As the figure shows, the vectors <span class="process-math">\(\xvec_k\)</span> are stretched by a factor of <span class="process-math">\(3\)</span> in the <span class="process-math">\(\vvec_1\)</span> direction and not at all in the <span class="process-math">\(\vvec_2\)</span> direction. Consequently, the vectors <span class="process-math">\(\xvec_k\)</span> become increasingly long, but their direction becomes closer to the direction of the eigenvector <span class="process-math">\(\vvec_1=\twovec{1}{1}\)</span> associated to the dominant eigenvalue.<div class="autopermalink" data-description="Paragraph"><a href="#sec-power-method-3-4-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div></div>
 <div class="sbspanel top" style="width:40%;"><img src="external/images/numerical-power.svg" role="img" class="contained"></div>
 </div></div>
-<div class="para">To find an eigenvector associated to the dominant eigenvalue, we will prevent the length of the vectors <span class="process-math">\(\xvec_k\)</span> from growing arbitrarily large by multiplying by an appropriate scaling constant.  Here is one way to do this. Given the vector <span class="process-math">\(\xvec_k\text{,}\)</span> we identify its component having the largest absolute value and call it <span class="process-math">\(m_k\text{.}\)</span>  We then define <span class="process-math">\(\overline{\xvec}_k = \frac{1}{m_k} \xvec_k\text{,}\)</span> which means that the component of <span class="process-math">\(\overline{\xvec}_k\)</span> having the largest absolute value is <span class="process-math">\(1\text{.}\)</span>
+<div class="para">To find an eigenvector associated to the dominant eigenvalue, we will prevent the length of the vectors <span class="process-math">\(\xvec_k\)</span> from growing arbitrarily large by multiplying by an appropriate scaling constant.  Here is one way to do this. Given the vector <span class="process-math">\(\xvec_k\text{,}\)</span> we identify its component having the largest absolute value and call it <span class="process-math">\(m_k\text{.}\)</span>  We then define <span class="process-math">\(\overline{\xvec}_k = \frac{1}{m_k} \xvec_k\text{,}\)</span> which means that the component of <span class="process-math">\(\overline{\xvec}_k\)</span> having the largest absolute value is <span class="process-math">\(1\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec-power-method-3-4-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="para">For example, beginning with <span class="process-math">\(\xvec_0 = \twovec{1}{0}\text{,}\)</span> we find <span class="process-math">\(\xvec_1 = A\xvec_{0} =
 \twovec{2}{1}\text{.}\)</span>  The component of <span class="process-math">\(\xvec_1\)</span> having the largest absolute value is <span class="process-math">\(m_1=2\)</span> so we multiply by <span class="process-math">\(\frac{1}{m_1} = \frac12\)</span> to obtain <span class="process-math">\(\overline{\xvec}_1 =
 \twovec{1}{\frac12}\text{.}\)</span>  Then <span class="process-math">\(\xvec_2 = A\overline{\xvec}_1 =
-\twovec{\frac52}{2}\text{.}\)</span>  Now the component having the largest absolute value is <span class="process-math">\(m_2=\frac52\)</span> so we multiply by <span class="process-math">\(\frac25\)</span> to obtain <span class="process-math">\(\overline{\xvec}_2 = \twovec{1}{\frac45}\text{.}\)</span>
+\twovec{\frac52}{2}\text{.}\)</span>  Now the component having the largest absolute value is <span class="process-math">\(m_2=\frac52\)</span> so we multiply by <span class="process-math">\(\frac25\)</span> to obtain <span class="process-math">\(\overline{\xvec}_2 = \twovec{1}{\frac45}\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec-power-method-3-4-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="sidebyside"><div class="sbsrow" style="margin-left:0%;margin-right:0%;">
-<div class="sbspanel top" style="width:60%;"><div class="para">The resulting sequence of vectors <span class="process-math">\(\overline{\xvec}_k\)</span> is shown in the figure.  Notice how the vectors <span class="process-math">\(\overline{\xvec}_k\)</span> now approach the eigenvector <span class="process-math">\(\vvec_1\text{,}\)</span> which gives us a way to find the eigenvector <span class="process-math">\(\vvec=\twovec{1}{1}\text{.}\)</span> This is the <em class="emphasis">power method</em> for finding an eigenvector associated to the dominant eigenvalue of a matrix. </div></div>
+<div class="sbspanel top" style="width:60%;"><div class="para">The resulting sequence of vectors <span class="process-math">\(\overline{\xvec}_k\)</span> is shown in the figure.  Notice how the vectors <span class="process-math">\(\overline{\xvec}_k\)</span> now approach the eigenvector <span class="process-math">\(\vvec_1\text{,}\)</span> which gives us a way to find the eigenvector <span class="process-math">\(\vvec=\twovec{1}{1}\text{.}\)</span> This is the <em class="emphasis">power method</em> for finding an eigenvector associated to the dominant eigenvalue of a matrix. <div class="autopermalink" data-description="Paragraph"><a href="#sec-power-method-3-4-5-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div></div>
 <div class="sbspanel top" style="width:40%;"><img src="external/images/numerical-power-norm.svg" role="img" class="contained"></div>
-</div></div></article><span class="incontext"><a class="internal" href="sec-power-method.html#sec-power-method-3-4">in-context</a></span>
+</div></div>
+<div class="autopermalink" data-description="Example 5.2.2"><a href="#sec-power-method-3-4" title="Copy heading and permalink for Example 5.2.2" aria-label="Copy heading and permalink for Example 5.2.2">🔗</a></div></article><span class="incontext"><a class="internal" href="sec-power-method.html#sec-power-method-3-4">in-context</a></span>
 </body>
 </html>

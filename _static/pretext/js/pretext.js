@@ -22,13 +22,18 @@ function scrollTocToActive() {
         return; //complete failure, get out
     }
 
-    //See if we can also match fileName#hash
-    let tocEntryWHash = document.querySelector(
-        '#ptx-toc a[href="' + fileNameWHash + '"]'
-    );
-    if (tocEntryWHash) {
-        //Matched something below a subsection - activate the list item that contains it
-        tocEntryWHash.closest("li").classList.add("active");
+    //See if we can also match fileName#hash (assuming there is a fragment)
+    if (fileNameWHash.includes('#')) {
+        let tocEntryWHash = document.querySelector(
+            '#ptx-toc a[href="' + fileNameWHash + '"]'
+        );
+        if (tocEntryWHash) {
+            //Matched something below a subsection - activate the list item that contains it
+            tocEntry.closest("li").querySelectorAll("li").forEach(li => {
+                li.classList.remove("active");
+            });
+            tocEntryWHash.closest("li").classList.add("active");
+        }
     }
 
     //Now activate ToC item for fileName and scroll to it
@@ -53,13 +58,57 @@ function toggletoc() {
    scrollTocToActive();
 }
 
-window.addEventListener("DOMContentLoaded",function(event) {
-       thetocbutton = document.getElementsByClassName("toc-toggle")[0];
-       thetocbutton.addEventListener('click', () => toggletoc() );
-});
+function samePageLink(a) {
+    if (!(a instanceof HTMLAnchorElement)) return false;
+
+    try {
+        const linkUrl = new URL(a.href, document.baseURI);
+        const currentUrl = new URL(window.location.href);
+
+        const sameDocument =
+              linkUrl.origin === currentUrl.origin &&
+              linkUrl.pathname === currentUrl.pathname &&
+              linkUrl.search === currentUrl.search;
+
+        return sameDocument && !!linkUrl.hash;
+    } catch (e) {
+        // Invalid URL
+        return false;
+    }
+}
+
 
 window.addEventListener("DOMContentLoaded",function(event) {
-       scrollTocToActive();
+    thetocbutton = document.getElementsByClassName("toc-toggle")[0];
+    thetocbutton.addEventListener("click", (e) => {
+        toggletoc();
+        e.stopPropagation(); // keep global click handler from immediately toggling it back
+    });
+
+    // For themes that want it, install click handlers to auto close the toc
+    // when the reader clicks anywhere outside it or selects a subsection.
+    // (Selecting other sections or chapters navigates away from the page so
+    // effectively closes the TOC.)
+    if (getComputedStyle(document.documentElement).getPropertyValue('--auto-collapse-toc') == "yes") {
+
+        const sidebar = document.getElementById("ptx-sidebar");
+
+        // Handle all clicks outside the sidebar
+        window.addEventListener("click", function(event) {
+            if (sidebar.classList.contains("visible")) {
+                if (!event.composedPath().includes(sidebar)) {
+                    toggletoc();
+                }
+            }
+        });
+
+        // Handle clicks inside the sidebar but on link within a subsection.
+        sidebar.addEventListener("click", function (event) {
+            if (samePageLink(event.target.closest('a'))) {
+                toggletoc();
+            }
+        });
+    }
 });
 
 /* jump to next page if reader tries to scroll past the bottom */
@@ -83,7 +132,7 @@ window.addEventListener("DOMContentLoaded",function(event) {
 
 
 //-----------------------------------------------------------------------------
-// Dynamic TOC logic 
+// Dynamic TOC logic
 //-----------------------------------------------------------------------------
 
 //item is assumed to be expander in toc-item
@@ -91,7 +140,7 @@ function toggleTOCItem(expander) {
     let listItem = expander.closest(".toc-item");
     listItem.classList.toggle("expanded");
     let expanded = listItem.classList.contains("expanded");
-    
+
     let itemType = getTOCItemType(listItem);
     if(expanded) {
         expander.title = "Close" + (itemType !== "" ? " " + itemType : "");
@@ -159,7 +208,8 @@ window.addEventListener("DOMContentLoaded", function(event) {
             expander.classList.add('toc-expander');
             expander.classList.add('toc-chevron-surround');
             expander.title = 'toc-expander';
-            expander.innerHTML = '<span class="icon material-symbols-outlined" aria-hidden="true">chevron_left</span>';
+            // content of span is set by CSS :before rule.
+            expander.innerHTML = '<span class="icon material-symbols-outlined" aria-hidden="true"></span>';
             tocItem.querySelector(".toc-title-box").append(expander);
             expander.addEventListener('click', () => {
                 toggleTOCItem(expander);
@@ -175,4 +225,9 @@ window.addEventListener("DOMContentLoaded", function(event) {
             }
         }
       }
+});
+
+// This needs to be after the TOC's geometry is settled
+window.addEventListener("DOMContentLoaded",function(event) {
+    scrollTocToActive();
 });
