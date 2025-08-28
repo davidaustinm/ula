@@ -119,14 +119,14 @@ eBookConfig.allow_pairs = false;
 eBookConfig.enableScratchAC = false;
 eBookConfig.build_info = "";
 eBookConfig.python3 = null;
-eBookConfig.runestone_version = '7.9.3';
+eBookConfig.runestone_version = '7.9.8';
 eBookConfig.jobehost = '';
 eBookConfig.proxyuri_runs = '';
 eBookConfig.proxyuri_files = '';
 eBookConfig.enable_chatcodes =  false;
 </script>
 <!--*** Runestone Services ***-->
-<script src="_static/prefix-runtime.47a5fea5694fc0ae.bundle.js"></script><script src="_static/prefix-723.3e6434f80549315a.bundle.js"></script><script src="_static/prefix-runestone.014cb392a13bd045.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-723.3bccd435914aa0ff.css">
+<script src="_static/prefix-runtime.b215b0da62d655bd.bundle.js"></script><script src="_static/prefix-723.3e6434f80549315a.bundle.js"></script><script src="_static/prefix-runestone.28cc3c4821792be5.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-723.3bccd435914aa0ff.css">
 <link rel="stylesheet" type="text/css" href="_static/prefix-runestone.8141ae22fd347e48.css">
 <script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script><script src="_static/pretext/js/lti_iframe_resizer.js"></script><script async="" src="https://cse.google.com/cse.js?cx=015103900096539427448:ngwuia10qci"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
 </script><script>// Make *any* div with class 'sagecell-sage' an executable Sage cell
@@ -601,7 +601,7 @@ sagecell.makeSagecell({
 </li>
 </ul></nav></div>
 <main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="sec-gram-schmidt"><h2 class="heading hide-type">
-<span class="type">Section</span><span class="space"> </span><span class="codenumber">6.4</span><span class="space"> </span><span class="title">Finding orthogonal bases</span>
+<span class="type">Section</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">6.4</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Finding orthogonal bases</span>
 </h2>
 <section class="introduction" id="sec-gram-schmidt-2"><div class="para logical" id="sec-gram-schmidt-2-1">
 <div class="para">The last section demonstrated the value of working with orthogonal, and especially orthonormal, sets.  If we have an orthogonal basis <span class="process-math">\(\wvec_1,\wvec_2,\ldots,\wvec_n\)</span> for a subspace <span class="process-math">\(W\text{,}\)</span> the <a href="sec-orthogonal-bases.html#prop-proj-formula" class="xref" data-knowl="./knowl/xref/prop-proj-formula.html" data-reveal-label="Reveal" data-close-label="Close" title="Proposition 6.3.15: Projection formula">Projection Formula 6.3.15</a> tells us that the orthogonal projection of a vector <span class="process-math">\(\bvec\)</span> onto <span class="process-math">\(W\)</span> is</div>
@@ -623,7 +623,7 @@ sagecell.makeSagecell({
 <div class="para" id="sec-gram-schmidt-2-2">In the examples we’ve seen so far, however, orthogonal bases were given to us.  What we need now is a way to form orthogonal bases.  In this section, we’ll explore an algorithm that begins with a basis for a subspace and creates an orthogonal basis. Once we have an orthogonal basis, we can scale each of the vectors appropriately to produce an orthonormal basis.<div class="autopermalink" data-description="Paragraph"><a href="#sec-gram-schmidt-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <article class="exploration project-like" id="ula-preview-6-4"><h3 class="heading">
-<span class="type">Preview Activity</span><span class="space"> </span><span class="codenumber">6.4.1</span><span class="period">.</span>
+<span class="type">Preview Activity</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">6.4.1</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
 </h3>
 <div class="introduction" id="ula-preview-6-4-1">
 <div class="para logical" id="ula-preview-6-4-1-1">
@@ -637,8 +637,8 @@ sagecell.makeSagecell({
 <div class="para">as shown in <a href="sec-gram-schmidt.html#fig-gs-intro" class="xref" data-knowl="./knowl/xref/fig-gs-intro.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 6.4.1">Figure 6.4.1</a>.  Notice that this basis is not orthogonal.</div>
 <div class="autopermalink" data-description="Paragraph"><a href="#ula-preview-6-4-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<figure class="figure figure-like" id="fig-gs-intro"><div class="sidebyside"><div class="sbsrow" style="margin-left:25%;margin-right:25%;"><div class="sbspanel top" style="width:100%;"><img src="external/images/gram-schmidt-intro.svg" role="img" class="contained"></div></div></div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">6.4.1<span class="period">.</span></span><span class="space"> </span>A basis for <span class="process-math">\(\real^2\text{.}\)</span><div class="autopermalink" data-description="Figure 6.4.1"><a href="#fig-gs-intro" title="Copy heading and permalink for Figure 6.4.1" aria-label="Copy heading and permalink for Figure 6.4.1">🔗</a></div></figcaption></figure>
+<figure class="figure figure-like" id="fig-gs-intro"><div class="sidebyside"><div class="sbsrow" style="margin-left:25%;margin-right:25%;grid-template-columns:100%;column-gap:0%;"><div class="sbspanel sbspanel--top top" style=""><img src="external/images/gram-schmidt-intro.svg" role="img" class="contained"></div></div></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">6.4.1<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>A basis for <span class="process-math">\(\real^2\text{.}\)</span><div class="autopermalink" data-description="Figure 6.4.1"><a href="#fig-gs-intro" title="Copy heading and permalink for Figure 6.4.1" aria-label="Copy heading and permalink for Figure 6.4.1">🔗</a></div></figcaption></figure>
 </div>
 <article class="task exercise-like" id="ula-preview-6-4-a"><h4 class="heading"><span class="codenumber">(a)</span></h4>
 <div class="para" id="ula-preview-6-4-a-1-1">Find the vector <span class="process-math">\(\vhat_2\)</span> that is the orthogonal projection of <span class="process-math">\(\vvec_2\)</span> onto the line defined by <span class="process-math">\(\vvec_1\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ula-preview-6-4-a-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
@@ -648,23 +648,23 @@ sagecell.makeSagecell({
 </div>
 <div class="autopermalink" data-description="Task 6.4.1.b"><a href="#ula-preview-6-4-b" title="Copy heading and permalink for Task 6.4.1.b" aria-label="Copy heading and permalink for Task 6.4.1.b">🔗</a></div></article><article class="task exercise-like" id="ula-preview-6-4-c"><h4 class="heading"><span class="codenumber">(c)</span></h4>
 <div class="para" id="ula-preview-6-4-c-1-1">Define the new vectors <span class="process-math">\(\wvec_1=\vvec_1\)</span> and <span class="process-math">\(\wvec_2=\vvec_2-\vhat_2\)</span> and sketch them in <a href="sec-gram-schmidt.html#fig-gs-empty" class="xref" data-knowl="./knowl/xref/fig-gs-empty.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 6.4.2">Figure 6.4.2</a>.  Explain why <span class="process-math">\(\wvec_1\)</span> and <span class="process-math">\(\wvec_2\)</span> define an orthogonal basis for <span class="process-math">\(\real^2\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ula-preview-6-4-c-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div> <figure class="figure figure-like" id="fig-gs-empty"><div class="sidebyside"><div class="sbsrow" style="margin-left:25%;margin-right:25%;"><div class="sbspanel top" style="width:100%;"><img src="external/images/empty-3.svg" role="img" class="contained"></div></div></div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">6.4.2<span class="period">.</span></span><span class="space"> </span>Sketch the new basis <span class="process-math">\(\wvec_1\)</span> and <span class="process-math">\(\wvec_2\text{.}\)</span><div class="autopermalink" data-description="Figure 6.4.2"><a href="#fig-gs-empty" title="Copy heading and permalink for Figure 6.4.2" aria-label="Copy heading and permalink for Figure 6.4.2">🔗</a></div></figcaption></figure><div class="autopermalink" data-description="Task 6.4.1.c"><a href="#ula-preview-6-4-c" title="Copy heading and permalink for Task 6.4.1.c" aria-label="Copy heading and permalink for Task 6.4.1.c">🔗</a></div></article><article class="task exercise-like" id="ula-preview-6-4-d"><h4 class="heading"><span class="codenumber">(d)</span></h4>
+</div> <figure class="figure figure-like" id="fig-gs-empty"><div class="sidebyside"><div class="sbsrow" style="margin-left:25%;margin-right:25%;grid-template-columns:100%;column-gap:0%;"><div class="sbspanel sbspanel--top top" style=""><img src="external/images/empty-3.svg" role="img" class="contained"></div></div></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">6.4.2<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Sketch the new basis <span class="process-math">\(\wvec_1\)</span> and <span class="process-math">\(\wvec_2\text{.}\)</span><div class="autopermalink" data-description="Figure 6.4.2"><a href="#fig-gs-empty" title="Copy heading and permalink for Figure 6.4.2" aria-label="Copy heading and permalink for Figure 6.4.2">🔗</a></div></figcaption></figure><div class="autopermalink" data-description="Task 6.4.1.c"><a href="#ula-preview-6-4-c" title="Copy heading and permalink for Task 6.4.1.c" aria-label="Copy heading and permalink for Task 6.4.1.c">🔗</a></div></article><article class="task exercise-like" id="ula-preview-6-4-d"><h4 class="heading"><span class="codenumber">(d)</span></h4>
 <div class="para" id="ula-preview-6-4-d-1-1">Write the vector <span class="process-math">\(\bvec=\twovec8{-10}\)</span> as a linear combination of <span class="process-math">\(\wvec_1\)</span> and <span class="process-math">\(\wvec_2\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ula-preview-6-4-d-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Task 6.4.1.d"><a href="#ula-preview-6-4-d" title="Copy heading and permalink for Task 6.4.1.d" aria-label="Copy heading and permalink for Task 6.4.1.d">🔗</a></div></article><article class="task exercise-like" id="ula-preview-6-4-e"><h4 class="heading"><span class="codenumber">(e)</span></h4>
 <div class="para" id="ula-preview-6-4-e-1-1">Scale the vectors <span class="process-math">\(\wvec_1\)</span> and <span class="process-math">\(\wvec_2\)</span> to produce an orthonormal basis <span class="process-math">\(\uvec_1\)</span> and <span class="process-math">\(\uvec_2\)</span> for <span class="process-math">\(\real^2\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ula-preview-6-4-e-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Task 6.4.1.e"><a href="#ula-preview-6-4-e" title="Copy heading and permalink for Task 6.4.1.e" aria-label="Copy heading and permalink for Task 6.4.1.e">🔗</a></div></article><div class="autopermalink" data-description="Preview Activity 6.4.1"><a href="#ula-preview-6-4" title="Copy heading and permalink for Preview Activity 6.4.1" aria-label="Copy heading and permalink for Preview Activity 6.4.1">🔗</a></div></article></section><section class="subsection" id="sec-gram-schmidt-3"><h3 class="heading hide-type">
-<span class="type">Subsection</span><span class="space"> </span><span class="codenumber">6.4.1</span><span class="space"> </span><span class="title">Gram-Schmidt orthogonalization</span>
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">6.4.1</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Gram-Schmidt orthogonalization</span>
 </h3>
 <div class="para" id="sec-gram-schmidt-3-2"> The preview activity illustrates the main idea behind an algorithm, known as <em class="emphasis">Gram-Schmidt orthogonalization</em>, that begins with a basis for some subspace of <span class="process-math">\(\real^m\)</span> and produces an orthogonal or orthonormal basis. The algorithm relies on our construction of the orthogonal projection.  Remember that we formed the orthogonal projection <span class="process-math">\(\bhat\)</span> of <span class="process-math">\(\bvec\)</span> onto a subspace <span class="process-math">\(W\)</span> by requiring that <span class="process-math">\(\bvec-\bhat\)</span> is orthogonal to <span class="process-math">\(W\)</span> as shown in <a href="sec-gram-schmidt.html#fig-proj-orthog" class="xref" data-knowl="./knowl/xref/fig-proj-orthog.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 6.4.3">Figure 6.4.3</a>.<div class="autopermalink" data-description="Paragraph"><a href="#sec-gram-schmidt-3-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<figure class="figure figure-like" id="fig-proj-orthog"><div class="sidebyside"><div class="sbsrow" style="margin-left:25%;margin-right:25%;"><div class="sbspanel top" style="width:100%;"><img src="external/images/3d-orthog-proj-2.svg" role="img" class="contained"></div></div></div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">6.4.3<span class="period">.</span></span><span class="space"> </span>If <span class="process-math">\(\bhat\)</span> is the orthogonal projection of <span class="process-math">\(\bvec\)</span> onto <span class="process-math">\(W\text{,}\)</span> then <span class="process-math">\(\bvec-\bhat\)</span> is orthogonal to <span class="process-math">\(W\text{.}\)</span><div class="autopermalink" data-description="Figure 6.4.3"><a href="#fig-proj-orthog" title="Copy heading and permalink for Figure 6.4.3" aria-label="Copy heading and permalink for Figure 6.4.3">🔗</a></div></figcaption></figure><div class="para" id="sec-gram-schmidt-3-4">This observation guides our construction of an orthogonal basis for it allows us to create a vector that is orthogonal to a given subspace.  Let’s see how the Gram-Schmidt algorithm works.<div class="autopermalink" data-description="Paragraph"><a href="#sec-gram-schmidt-3-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<figure class="figure figure-like" id="fig-proj-orthog"><div class="sidebyside"><div class="sbsrow" style="margin-left:25%;margin-right:25%;grid-template-columns:100%;column-gap:0%;"><div class="sbspanel sbspanel--top top" style=""><img src="external/images/3d-orthog-proj-2.svg" role="img" class="contained"></div></div></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">6.4.3<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>If <span class="process-math">\(\bhat\)</span> is the orthogonal projection of <span class="process-math">\(\bvec\)</span> onto <span class="process-math">\(W\text{,}\)</span> then <span class="process-math">\(\bvec-\bhat\)</span> is orthogonal to <span class="process-math">\(W\text{.}\)</span><div class="autopermalink" data-description="Figure 6.4.3"><a href="#fig-proj-orthog" title="Copy heading and permalink for Figure 6.4.3" aria-label="Copy heading and permalink for Figure 6.4.3">🔗</a></div></figcaption></figure><div class="para" id="sec-gram-schmidt-3-4">This observation guides our construction of an orthogonal basis for it allows us to create a vector that is orthogonal to a given subspace.  Let’s see how the Gram-Schmidt algorithm works.<div class="autopermalink" data-description="Paragraph"><a href="#sec-gram-schmidt-3-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <article class="activity project-like" id="activity-gram-schmidt"><h4 class="heading">
-<span class="type">Activity</span><span class="space"> </span><span class="codenumber">6.4.2</span><span class="period">.</span>
+<span class="type">Activity</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">6.4.2</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
 </h4>
 <div class="para logical" id="activity-gram-schmidt-1-1">
 <div class="para">Suppose that <span class="process-math">\(W\)</span> is a three-dimensional subspace of <span class="process-math">\(\real^4\)</span> with basis:</div>
@@ -725,7 +725,7 @@ sagecell.makeSagecell({
 <div class="autopermalink" data-description="Activity 6.4.2"><a href="#activity-gram-schmidt" title="Copy heading and permalink for Activity 6.4.2" aria-label="Copy heading and permalink for Activity 6.4.2">🔗</a></div></article><div class="para" id="sec-gram-schmidt-3-6">As this activity illustrates, Gram-Schmidt orthogonalization begins with a basis <span class="process-math">\(\vvec_1\vvec_2,\ldots,\vvec_n\)</span> for a subspace <span class="process-math">\(W\)</span> of <span class="process-math">\(\real^m\)</span> and creates an orthogonal basis for <span class="process-math">\(W\text{.}\)</span>  Let’s work through a second example.<div class="autopermalink" data-description="Paragraph"><a href="#sec-gram-schmidt-3-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <article class="example example-like" id="example-gram-schmidt"><h4 class="heading">
-<span class="type">Example</span><span class="space"> </span><span class="codenumber">6.4.4</span><span class="period">.</span>
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">6.4.4</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
 </h4>
 <div class="para logical" id="example-gram-schmidt-1-1">
 <div class="para">Let’s start with the basis</div>
@@ -829,7 +829,7 @@ W_2 = \laspan{\wvec_1,\wvec_2} =
 <div class="para" id="sec-gram-schmidt-3-9">From here, we may form an orthonormal basis by constructing a unit vector parallel to each vector in the orthogonal basis: <span class="process-math">\(\uvec_j = 1/\len{\wvec_j}~\wvec_j\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec-gram-schmidt-3-9" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <article class="activity project-like" id="sec-gram-schmidt-3-10"><h4 class="heading">
-<span class="type">Activity</span><span class="space"> </span><span class="codenumber">6.4.3</span><span class="period">.</span>
+<span class="type">Activity</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">6.4.3</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
 </h4>
 <div class="para" id="sec-gram-schmidt-3-10-1-1">Sage can automate these computations for us.  Before we begin, however, it will be helpful to understand how we can combine things using a <code class="code-inline tex2jax_ignore">list</code> in Python.  For instance, if the vectors <code class="code-inline tex2jax_ignore">v1</code>, <code class="code-inline tex2jax_ignore">v2</code>, and <code class="code-inline tex2jax_ignore">v3</code> form a basis for a subspace, we can bundle them together using square brackets: <code class="code-inline tex2jax_ignore">[v1, v2, v3]</code>.  Furthermore, we could assign this to a variable, such as <code class="code-inline tex2jax_ignore">basis = [v1, v2, v3]</code>.<div class="autopermalink" data-description="Paragraph"><a href="#sec-gram-schmidt-3-10-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div> <div class="para logical" id="sec-gram-schmidt-3-10-1-2">
@@ -910,12 +910,12 @@ W_2 = \laspan{\wvec_1,\wvec_2} =
 <div class="autopermalink" data-description="Paragraph"><a href="#sec-gram-schmidt-3-10-1-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Activity 6.4.3"><a href="#sec-gram-schmidt-3-10" title="Copy heading and permalink for Activity 6.4.3" aria-label="Copy heading and permalink for Activity 6.4.3">🔗</a></div></article><div class="autopermalink" data-description="Subsection 6.4.1: Gram-Schmidt orthogonalization"><a href="#sec-gram-schmidt-3" title="Copy heading and permalink for Subsection 6.4.1: Gram-Schmidt orthogonalization" aria-label="Copy heading and permalink for Subsection 6.4.1: Gram-Schmidt orthogonalization">🔗</a></div></section><section class="subsection" id="sec-gram-schmidt-4"><h3 class="heading hide-type">
-<span class="type">Subsection</span><span class="space"> </span><span class="codenumber">6.4.2</span><span class="space"> </span><span class="title"><span class="process-math">\(QR\)</span> factorizations</span>
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">6.4.2</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title"><span class="process-math">\(QR\)</span> factorizations</span>
 </h3>
 <div class="para" id="sec-gram-schmidt-4-2">Now that we’ve seen how the Gram-Schmidt algorithm forms an orthonormal basis for a given subspace, we will explore how the algorithm leads to an important matrix factorization known as the <span class="process-math">\(QR\)</span> factorization.<div class="autopermalink" data-description="Paragraph"><a href="#sec-gram-schmidt-4-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <article class="activity project-like" id="sec-gram-schmidt-4-3"><h4 class="heading">
-<span class="type">Activity</span><span class="space"> </span><span class="codenumber">6.4.4</span><span class="period">.</span>
+<span class="type">Activity</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">6.4.4</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
 </h4>
 <div class="para logical" id="sec-gram-schmidt-4-3-1-1">
 <div class="para">Suppose that <span class="process-math">\(A\)</span> is the <span class="process-math">\(4\times3\)</span> matrix whose columns are</div>
@@ -1006,9 +1006,9 @@ W_2 = \laspan{\wvec_1,\wvec_2} =
 <div class="autopermalink" data-description="Activity 6.4.4"><a href="#sec-gram-schmidt-4-3" title="Copy heading and permalink for Activity 6.4.4" aria-label="Copy heading and permalink for Activity 6.4.4">🔗</a></div></article><div class="para" id="sec-gram-schmidt-4-4">When the columns of a matrix <span class="process-math">\(A\)</span> are linearly independent, they form a basis for <span class="process-math">\(\col(A)\)</span> so that we can perform the Gram-Schmidt algorithm.  The previous activity shows how this leads to a factorization of <span class="process-math">\(A\)</span> as the product of a matrix <span class="process-math">\(Q\)</span> whose columns are an orthonormal basis for <span class="process-math">\(\col(A)\)</span> and an upper triangular matrix <span class="process-math">\(R\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec-gram-schmidt-4-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <article class="proposition theorem-like" id="prop-qr"><h4 class="heading">
-<span class="type">Proposition</span><span class="space"> </span><span class="codenumber">6.4.5</span><span class="period">.</span><span class="space"> </span><span class="title"><span class="process-math">\(QR\)</span> factorization.</span>
+<span class="type">Proposition</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">6.4.5</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title"><span class="process-math">\(QR\)</span> factorization.</span>
 </h4>If <span class="process-math">\(A\)</span> is an <span class="process-math">\(m\times n\)</span> matrix whose columns are linearly independent, we may write <span class="process-math">\(A=QR\)</span> where <span class="process-math">\(Q\)</span> is an <span class="process-math">\(m\times n\)</span> matrix whose columns form an orthonormal basis for <span class="process-math">\(\col(A)\)</span> and <span class="process-math">\(R\)</span> is an <span class="process-math">\(n\times n\)</span> upper triangular matrix.<div class="autopermalink" data-description="Proposition 6.4.5: QR factorization"><a href="#prop-qr" title="Copy heading and permalink for Proposition 6.4.5: QR factorization" aria-label="Copy heading and permalink for Proposition 6.4.5: QR factorization">🔗</a></div></article><article class="example example-like" id="sec-gram-schmidt-4-6"><h4 class="heading">
-<span class="type">Example</span><span class="space"> </span><span class="codenumber">6.4.6</span><span class="period">.</span>
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">6.4.6</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
 </h4>
 <div class="para logical" id="sec-gram-schmidt-4-6-1-1">
 <div class="para">We’ll consider the matrix <span class="process-math">\(A=\begin{bmatrix}
@@ -1060,7 +1060,7 @@ A = Q\begin{bmatrix}
 <div class="autopermalink" data-description="Example 6.4.6"><a href="#sec-gram-schmidt-4-6" title="Copy heading and permalink for Example 6.4.6" aria-label="Copy heading and permalink for Example 6.4.6">🔗</a></div></article><div class="para" id="sec-gram-schmidt-4-7">The value of the <span class="process-math">\(QR\)</span> factorization will become clear in the next section where we use it to solve least-squares problems.<div class="autopermalink" data-description="Paragraph"><a href="#sec-gram-schmidt-4-7" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <article class="activity project-like" id="sec-gram-schmidt-4-8"><h4 class="heading">
-<span class="type">Activity</span><span class="space"> </span><span class="codenumber">6.4.5</span><span class="period">.</span>
+<span class="type">Activity</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">6.4.5</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
 </h4>
 <div class="para" id="sec-gram-schmidt-4-8-1-1">As before, we would like to use Sage to automate the process of finding and using the <span class="process-math">\(QR\)</span> factorization of a matrix <span class="process-math">\(A\text{.}\)</span> Evaluating the following cell provides a command <code class="code-inline tex2jax_ignore">QR(A)</code> that returns the factorization, which may be stored using, for example, <code class="code-inline tex2jax_ignore">Q, R = QR(A)</code>. <div id="sec-gram-schmidt-4-8-1-1-5" class="ptx-sagecell sagecell-sage"><script type="text/x-sage">sage.repl.load.load("https://raw.githubusercontent.com/davidaustinm/ula_modules/master/orthogonality.py", globals())
 </script></div>
@@ -1112,7 +1112,7 @@ A =
 <div class="autopermalink" data-description="Activity 6.4.5"><a href="#sec-gram-schmidt-4-8" title="Copy heading and permalink for Activity 6.4.5" aria-label="Copy heading and permalink for Activity 6.4.5">🔗</a></div></article><div class="para" id="sec-gram-schmidt-4-9">In fact, Sage provides its own version of the <span class="process-math">\(QR\)</span> factorization that is a bit different than the way we’ve developed the factorization here.  For this reason, we have provided our own version of the factorization.<div class="autopermalink" data-description="Paragraph"><a href="#sec-gram-schmidt-4-9" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Subsection 6.4.2: QR factorizations"><a href="#sec-gram-schmidt-4" title="Copy heading and permalink for Subsection 6.4.2: QR factorizations" aria-label="Copy heading and permalink for Subsection 6.4.2: QR factorizations">🔗</a></div></section><section class="subsection" id="sec-gram-schmidt-5"><h3 class="heading hide-type">
-<span class="type">Subsection</span><span class="space"> </span><span class="codenumber">6.4.3</span><span class="space"> </span><span class="title">Summary</span>
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">6.4.3</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Summary</span>
 </h3>
 <div class="para logical" id="sec-gram-schmidt-5-2">
 <div class="para">This section explored the Gram-Schmidt orthogonalization algorithm and how it leads to the matrix factorization <span class="process-math">\(A=QR\)</span> when the columns of <span class="process-math">\(A\)</span> are linearly independent.</div>
@@ -1158,9 +1158,9 @@ A =
 <div class="autopermalink" data-description="Paragraph"><a href="#sec-gram-schmidt-5-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Subsection 6.4.3: Summary"><a href="#sec-gram-schmidt-5" title="Copy heading and permalink for Subsection 6.4.3: Summary" aria-label="Copy heading and permalink for Subsection 6.4.3: Summary">🔗</a></div></section><section class="exercises" id="sec-gram-schmidt-6"><h3 class="heading hide-type">
-<span class="type">Exercises</span><span class="space"> </span><span class="codenumber">6.4.4</span><span class="space"> </span><span class="title">Exercises</span>
+<span class="type">Exercises</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">6.4.4</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Exercises</span>
 </h3>
-<article class="exercise exercise-like" id="sec-gram-schmidt-6-1"><h4 class="heading"><span class="codenumber">1<span class="period">.</span></span></h4>
+<article class="exercise exercise-like" id="sec-gram-schmidt-6-1"><h4 class="heading"><span class="codenumber">1<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
 <div class="para logical" id="sec-gram-schmidt-6-1-1-1">
 <div class="para">Suppose that a subspace <span class="process-math">\(W\)</span> of <span class="process-math">\(\real^3\)</span> has a basis formed by</div>
 <div class="displaymath process-math">
@@ -1193,7 +1193,7 @@ A =
 </ol>
 <div class="autopermalink" data-description="Paragraph"><a href="#sec-gram-schmidt-6-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Exercise 6.4.4.1"><a href="#sec-gram-schmidt-6-1" title="Copy heading and permalink for Exercise 6.4.4.1" aria-label="Copy heading and permalink for Exercise 6.4.4.1">🔗</a></div></article><article class="exercise exercise-like" id="sec-gram-schmidt-6-2"><h4 class="heading"><span class="codenumber">2<span class="period">.</span></span></h4>
+<div class="autopermalink" data-description="Exercise 6.4.4.1"><a href="#sec-gram-schmidt-6-1" title="Copy heading and permalink for Exercise 6.4.4.1" aria-label="Copy heading and permalink for Exercise 6.4.4.1">🔗</a></div></article><article class="exercise exercise-like" id="sec-gram-schmidt-6-2"><h4 class="heading"><span class="codenumber">2<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
 <div class="para" id="sec-gram-schmidt-6-2-1-1">Find the <span class="process-math">\(QR\)</span> factorization of <span class="process-math">\(A=\begin{bmatrix}
 4 \amp 7 \\
 -2 \amp 4 \\
@@ -1201,7 +1201,7 @@ A =
 \end{bmatrix}
 \text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec-gram-schmidt-6-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Exercise 6.4.4.2"><a href="#sec-gram-schmidt-6-2" title="Copy heading and permalink for Exercise 6.4.4.2" aria-label="Copy heading and permalink for Exercise 6.4.4.2">🔗</a></div></article><article class="exercise exercise-like" id="sec-gram-schmidt-6-3"><h4 class="heading"><span class="codenumber">3<span class="period">.</span></span></h4>
+<div class="autopermalink" data-description="Exercise 6.4.4.2"><a href="#sec-gram-schmidt-6-2" title="Copy heading and permalink for Exercise 6.4.4.2" aria-label="Copy heading and permalink for Exercise 6.4.4.2">🔗</a></div></article><article class="exercise exercise-like" id="sec-gram-schmidt-6-3"><h4 class="heading"><span class="codenumber">3<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
 <div class="para logical" id="sec-gram-schmidt-6-3-1-1">
 <div class="para">Consider the basis of <span class="process-math">\(\real^3\)</span> given by the vectors</div>
 <div class="displaymath process-math">
@@ -1253,7 +1253,7 @@ A =
 </ol>
 <div class="autopermalink" data-description="Paragraph"><a href="#sec-gram-schmidt-6-3-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Exercise 6.4.4.3"><a href="#sec-gram-schmidt-6-3" title="Copy heading and permalink for Exercise 6.4.4.3" aria-label="Copy heading and permalink for Exercise 6.4.4.3">🔗</a></div></article><article class="exercise exercise-like" id="sec-gram-schmidt-6-4"><h4 class="heading"><span class="codenumber">4<span class="period">.</span></span></h4>
+<div class="autopermalink" data-description="Exercise 6.4.4.3"><a href="#sec-gram-schmidt-6-3" title="Copy heading and permalink for Exercise 6.4.4.3" aria-label="Copy heading and permalink for Exercise 6.4.4.3">🔗</a></div></article><article class="exercise exercise-like" id="sec-gram-schmidt-6-4"><h4 class="heading"><span class="codenumber">4<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
 <div class="para logical" id="sec-gram-schmidt-6-4-1-1">
 <div class="para">Consider the vectors</div>
 <div class="displaymath process-math">
@@ -1290,7 +1290,7 @@ A =
 </ol>
 <div class="autopermalink" data-description="Paragraph"><a href="#sec-gram-schmidt-6-4-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Exercise 6.4.4.4"><a href="#sec-gram-schmidt-6-4" title="Copy heading and permalink for Exercise 6.4.4.4" aria-label="Copy heading and permalink for Exercise 6.4.4.4">🔗</a></div></article><article class="exercise exercise-like" id="sec-gram-schmidt-6-5"><h4 class="heading"><span class="codenumber">5<span class="period">.</span></span></h4>
+<div class="autopermalink" data-description="Exercise 6.4.4.4"><a href="#sec-gram-schmidt-6-4" title="Copy heading and permalink for Exercise 6.4.4.4" aria-label="Copy heading and permalink for Exercise 6.4.4.4">🔗</a></div></article><article class="exercise exercise-like" id="sec-gram-schmidt-6-5"><h4 class="heading"><span class="codenumber">5<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
 <div class="para logical" id="sec-gram-schmidt-6-5-1-1">
 <div class="para">Consider the set of vectors</div>
 <div class="displaymath process-math">
@@ -1314,7 +1314,7 @@ A =
 </ol>
 <div class="autopermalink" data-description="Paragraph"><a href="#sec-gram-schmidt-6-5-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Exercise 6.4.4.5"><a href="#sec-gram-schmidt-6-5" title="Copy heading and permalink for Exercise 6.4.4.5" aria-label="Copy heading and permalink for Exercise 6.4.4.5">🔗</a></div></article><article class="exercise exercise-like" id="sec-gram-schmidt-6-6"><h4 class="heading"><span class="codenumber">6<span class="period">.</span></span></h4>
+<div class="autopermalink" data-description="Exercise 6.4.4.5"><a href="#sec-gram-schmidt-6-5" title="Copy heading and permalink for Exercise 6.4.4.5" aria-label="Copy heading and permalink for Exercise 6.4.4.5">🔗</a></div></article><article class="exercise exercise-like" id="sec-gram-schmidt-6-6"><h4 class="heading"><span class="codenumber">6<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
 <div class="para logical" id="sec-gram-schmidt-6-6-1-1">
 <div class="para">Suppose that <span class="process-math">\(A\)</span> is a matrix with linearly independent columns and having the factorization <span class="process-math">\(A=QR\text{.}\)</span> Determine whether the following statements are true or false and explain your thinking.</div>
 <ol class="lower-alpha ol-marker-1" id="sec-gram-schmidt-6-6-1-1-3">
@@ -1347,7 +1347,7 @@ A =
 </ol>
 <div class="autopermalink" data-description="Paragraph"><a href="#sec-gram-schmidt-6-6-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Exercise 6.4.4.6"><a href="#sec-gram-schmidt-6-6" title="Copy heading and permalink for Exercise 6.4.4.6" aria-label="Copy heading and permalink for Exercise 6.4.4.6">🔗</a></div></article><article class="exercise exercise-like" id="sec-gram-schmidt-6-7"><h4 class="heading"><span class="codenumber">7<span class="period">.</span></span></h4>
+<div class="autopermalink" data-description="Exercise 6.4.4.6"><a href="#sec-gram-schmidt-6-6" title="Copy heading and permalink for Exercise 6.4.4.6" aria-label="Copy heading and permalink for Exercise 6.4.4.6">🔗</a></div></article><article class="exercise exercise-like" id="sec-gram-schmidt-6-7"><h4 class="heading"><span class="codenumber">7<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
 <div class="para logical" id="sec-gram-schmidt-6-7-1-1">
 <div class="para">Suppose we have the <span class="process-math">\(QR\)</span> factorization <span class="process-math">\(A=QR\text{,}\)</span> where <span class="process-math">\(A\)</span> is a <span class="process-math">\(7\times 4\)</span> matrix.</div>
 <ol class="lower-alpha ol-marker-1" id="sec-gram-schmidt-6-7-1-1-5">
@@ -1374,7 +1374,7 @@ A =
 </ol>
 <div class="autopermalink" data-description="Paragraph"><a href="#sec-gram-schmidt-6-7-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Exercise 6.4.4.7"><a href="#sec-gram-schmidt-6-7" title="Copy heading and permalink for Exercise 6.4.4.7" aria-label="Copy heading and permalink for Exercise 6.4.4.7">🔗</a></div></article><article class="exercise exercise-like" id="sec-gram-schmidt-6-8"><h4 class="heading"><span class="codenumber">8<span class="period">.</span></span></h4>
+<div class="autopermalink" data-description="Exercise 6.4.4.7"><a href="#sec-gram-schmidt-6-7" title="Copy heading and permalink for Exercise 6.4.4.7" aria-label="Copy heading and permalink for Exercise 6.4.4.7">🔗</a></div></article><article class="exercise exercise-like" id="sec-gram-schmidt-6-8"><h4 class="heading"><span class="codenumber">8<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
 <div class="para logical" id="sec-gram-schmidt-6-8-1-1">
 <div class="para">Suppose we have the <span class="process-math">\(QR\)</span> factorization <span class="process-math">\(A=QR\)</span> where the columns of <span class="process-math">\(A\)</span> are <span class="process-math">\(\avec_1,\avec_2,\ldots,\avec_n\)</span> and the columns of <span class="process-math">\(R\)</span> are <span class="process-math">\(\rvec_1,\rvec_2,\ldots,\rvec_n\text{.}\)</span>
 </div>

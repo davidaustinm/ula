@@ -119,14 +119,14 @@ eBookConfig.allow_pairs = false;
 eBookConfig.enableScratchAC = false;
 eBookConfig.build_info = "";
 eBookConfig.python3 = null;
-eBookConfig.runestone_version = '7.9.3';
+eBookConfig.runestone_version = '7.9.8';
 eBookConfig.jobehost = '';
 eBookConfig.proxyuri_runs = '';
 eBookConfig.proxyuri_files = '';
 eBookConfig.enable_chatcodes =  false;
 </script>
 <!--*** Runestone Services ***-->
-<script src="_static/prefix-runtime.47a5fea5694fc0ae.bundle.js"></script><script src="_static/prefix-723.3e6434f80549315a.bundle.js"></script><script src="_static/prefix-runestone.014cb392a13bd045.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-723.3bccd435914aa0ff.css">
+<script src="_static/prefix-runtime.b215b0da62d655bd.bundle.js"></script><script src="_static/prefix-723.3e6434f80549315a.bundle.js"></script><script src="_static/prefix-runestone.28cc3c4821792be5.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-723.3bccd435914aa0ff.css">
 <link rel="stylesheet" type="text/css" href="_static/prefix-runestone.8141ae22fd347e48.css">
 <script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script><script src="_static/pretext/js/lti_iframe_resizer.js"></script><script async="" src="https://cse.google.com/cse.js?cx=015103900096539427448:ngwuia10qci"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/pretext_search.js"></script><script src="_static/pretext/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
 </script><script>// Make *any* div with class 'sagecell-sage' an executable Sage cell
@@ -601,17 +601,17 @@ sagecell.makeSagecell({
 </li>
 </ul></nav></div>
 <main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="sec-bases"><h2 class="heading hide-type">
-<span class="type">Section</span><span class="space"> </span><span class="codenumber">3.2</span><span class="space"> </span><span class="title">Bases and coordinate systems</span>
+<span class="type">Section</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.2</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Bases and coordinate systems</span>
 </h2>
 <section class="introduction" id="sec-bases-2"><div class="para" id="sec-bases-2-1">Standard Cartesian coordinates are commonly used to describe points in the plane.  If we mention the point <span class="process-math">\((4,3)\text{,}\)</span> we know that we arrive at this point from the origin by moving four units to the right and three units up.<div class="autopermalink" data-description="Paragraph"><a href="#sec-bases-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="para" id="sec-bases-2-2">Sometimes, however, it is more natural to work in a different coordinate system.  Suppose that you live in the city whose map is shown in <a href="sec-bases.html#fig-city-map" class="xref" data-knowl="./knowl/xref/fig-city-map.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 3.2.1">Figure 3.2.1</a> and that you would like to give a guest directions for getting from your house to the store.  You would probably say something like, "Go four blocks up Maple.  Then turn left on Main for three blocks." The grid of streets in the city gives a more natural coordinate system than standard north-south, east-west coordinates.<div class="autopermalink" data-description="Paragraph"><a href="#sec-bases-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<figure class="figure figure-like" id="fig-city-map"><div class="sidebyside"><div class="sbsrow" style="margin-left:30%;margin-right:30%;"><div class="sbspanel top" style="width:100%;"><img src="external/images/city-map.svg" role="img" class="contained"></div></div></div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">3.2.1<span class="period">.</span></span><span class="space"> </span>A city map.<div class="autopermalink" data-description="Figure 3.2.1"><a href="#fig-city-map" title="Copy heading and permalink for Figure 3.2.1" aria-label="Copy heading and permalink for Figure 3.2.1">🔗</a></div></figcaption></figure><div class="para" id="sec-bases-2-4">In this section, we will develop the concept of a <em class="emphasis">basis</em> through which we will create new coordinate systems in <span class="process-math">\(\real^m\text{.}\)</span>  We will see that the right choice of a coordinate system provides a more natural way to approach some problems.<div class="autopermalink" data-description="Paragraph"><a href="#sec-bases-2-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<figure class="figure figure-like" id="fig-city-map"><div class="sidebyside"><div class="sbsrow" style="margin-left:30%;margin-right:30%;grid-template-columns:100%;column-gap:0%;"><div class="sbspanel sbspanel--top top" style=""><img src="external/images/city-map.svg" role="img" class="contained"></div></div></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.2.1<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>A city map.<div class="autopermalink" data-description="Figure 3.2.1"><a href="#fig-city-map" title="Copy heading and permalink for Figure 3.2.1" aria-label="Copy heading and permalink for Figure 3.2.1">🔗</a></div></figcaption></figure><div class="para" id="sec-bases-2-4">In this section, we will develop the concept of a <em class="emphasis">basis</em> through which we will create new coordinate systems in <span class="process-math">\(\real^m\text{.}\)</span>  We will see that the right choice of a coordinate system provides a more natural way to approach some problems.<div class="autopermalink" data-description="Paragraph"><a href="#sec-bases-2-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <article class="exploration project-like" id="ula-preview-3-2"><h3 class="heading">
-<span class="type">Preview Activity</span><span class="space"> </span><span class="codenumber">3.2.1</span><span class="period">.</span>
+<span class="type">Preview Activity</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.2.1</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
 </h3>
 <div class="introduction" id="ula-preview-3-2-1">
 <div class="para logical" id="ula-preview-3-2-1-1">
@@ -625,8 +625,8 @@ sagecell.makeSagecell({
 <div class="para">in <span class="process-math">\(\real^2\text{,}\)</span> which are shown in <a href="sec-bases.html#fig-basis-1" class="xref" data-knowl="./knowl/xref/fig-basis-1.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 3.2.2">Figure 3.2.2</a>.</div>
 <div class="autopermalink" data-description="Paragraph"><a href="#ula-preview-3-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<figure class="figure figure-like" id="fig-basis-1"><div class="sidebyside"><div class="sbsrow" style="margin-left:25%;margin-right:25%;"><div class="sbspanel top" style="width:100%;"><img src="external/images/basis-1.svg" role="img" class="contained"></div></div></div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">3.2.2<span class="period">.</span></span><span class="space"> </span>Linear combinations of <span class="process-math">\(\vvec_1\)</span> and <span class="process-math">\(\vvec_2\text{.}\)</span><div class="autopermalink" data-description="Figure 3.2.2"><a href="#fig-basis-1" title="Copy heading and permalink for Figure 3.2.2" aria-label="Copy heading and permalink for Figure 3.2.2">🔗</a></div></figcaption></figure>
+<figure class="figure figure-like" id="fig-basis-1"><div class="sidebyside"><div class="sbsrow" style="margin-left:25%;margin-right:25%;grid-template-columns:100%;column-gap:0%;"><div class="sbspanel sbspanel--top top" style=""><img src="external/images/basis-1.svg" role="img" class="contained"></div></div></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.2.2<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Linear combinations of <span class="process-math">\(\vvec_1\)</span> and <span class="process-math">\(\vvec_2\text{.}\)</span><div class="autopermalink" data-description="Figure 3.2.2"><a href="#fig-basis-1" title="Copy heading and permalink for Figure 3.2.2" aria-label="Copy heading and permalink for Figure 3.2.2">🔗</a></div></figcaption></figure>
 </div>
 <article class="task exercise-like" id="ula-preview-3-2-a"><h4 class="heading"><span class="codenumber">(a)</span></h4>
 <div class="para" id="ula-preview-3-2-a-1-1">Indicate the linear combination <span class="process-math">\(\vvec_1 -
@@ -647,16 +647,16 @@ sagecell.makeSagecell({
 </div>
 <div class="autopermalink" data-description="Task 3.2.1.e"><a href="#ula-preview-3-2-e" title="Copy heading and permalink for Task 3.2.1.e" aria-label="Copy heading and permalink for Task 3.2.1.e">🔗</a></div></article><div class="autopermalink" data-description="Preview Activity 3.2.1"><a href="#ula-preview-3-2" title="Copy heading and permalink for Preview Activity 3.2.1" aria-label="Copy heading and permalink for Preview Activity 3.2.1">🔗</a></div></article><div class="para" id="sec-bases-2-6">In the preview activity, we worked with a set of two vectors in <span class="process-math">\(\real^2\)</span> and found that we could express any vector in <span class="process-math">\(\real^2\)</span> in two different ways:  in the usual way where the components of the vector describe horizontal and vertical changes, and in a new way as a linear combination of <span class="process-math">\(\vvec_1\)</span> and <span class="process-math">\(\vvec_2\text{.}\)</span> We could also translate between these two descriptions.  This example illustrates the central idea of this section.<div class="autopermalink" data-description="Paragraph"><a href="#sec-bases-2-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div></section><section class="subsection" id="sec-bases-3"><h3 class="heading hide-type">
-<span class="type">Subsection</span><span class="space"> </span><span class="codenumber">3.2.1</span><span class="space"> </span><span class="title">Bases</span>
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.2.1</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Bases</span>
 </h3>
 <div class="para" id="sec-bases-3-2">In the preview activity, we created a new coordinate system for <span class="process-math">\(\real^2\)</span> using linear combinations of a set of two vectors.  More generally, the following definition will guide us.<div class="autopermalink" data-description="Paragraph"><a href="#sec-bases-3-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <article class="definition definition-like" id="sec-bases-3-3"><h4 class="heading">
-<span class="type">Definition</span><span class="space"> </span><span class="codenumber">3.2.3</span><span class="period">.</span>
+<span class="type">Definition</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.2.3</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
 </h4> <div class="para" id="sec-bases-3-3-1-2">A set of vectors <span class="process-math">\(\vvec_1,\vvec_2,\ldots,\vvec_n\)</span> in <span class="process-math">\(\real^m\)</span> is called a <em class="emphasis">basis</em> for <span class="process-math">\(\real^m\)</span> if the set of vectors spans <span class="process-math">\(\real^m\)</span> and is linearly independent.<div class="autopermalink" data-description="Paragraph"><a href="#sec-bases-3-3-1-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Definition 3.2.3"><a href="#sec-bases-3-3" title="Copy heading and permalink for Definition 3.2.3" aria-label="Copy heading and permalink for Definition 3.2.3">🔗</a></div></article><article class="activity project-like" id="sec-bases-3-4"><h4 class="heading">
-<span class="type">Activity</span><span class="space"> </span><span class="codenumber">3.2.2</span><span class="period">.</span>
+<span class="type">Activity</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.2.2</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
 </h4>
 <div class="para logical" id="sec-bases-3-4-1-1">
 <div class="para">We will look at some examples of bases in this activity.</div>
@@ -769,7 +769,7 @@ A \sim \left[\begin{array}{cccc}
 <div class="para" id="sec-bases-3-7">In addition to helping identify bases, this fact tells us something important about the number of vectors in a basis.  Since the matrix <span class="process-math">\(A\)</span> has a pivot position in every row and every column, it must have the same number of rows as columns. Therefore, the number of vectors in a basis for <span class="process-math">\(\real^m\)</span> must be <span class="process-math">\(m\text{.}\)</span>  For example, a basis for <span class="process-math">\(\real^{23}\)</span> must have exactly 23 vectors.<div class="autopermalink" data-description="Paragraph"><a href="#sec-bases-3-7" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <article class="proposition theorem-like" id="sec-bases-3-8"><h4 class="heading">
-<span class="type">Proposition</span><span class="space"> </span><span class="codenumber">3.2.4</span><span class="period">.</span>
+<span class="type">Proposition</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.2.4</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
 </h4>
 <div class="para logical" id="sec-bases-3-8-1-1">
 <div class="para">A set of vectors forms a basis for <span class="process-math">\(\real^m\)</span> if and only if the matrix</div>
@@ -786,7 +786,7 @@ A = \left[\begin{array}{rrrr}
 <div class="autopermalink" data-description="Paragraph"><a href="#sec-bases-3-8-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Proposition 3.2.4"><a href="#sec-bases-3-8" title="Copy heading and permalink for Proposition 3.2.4" aria-label="Copy heading and permalink for Proposition 3.2.4">🔗</a></div></article><article class="example example-like" id="sec-bases-3-9"><h4 class="heading">
-<span class="type">Example</span><span class="space"> </span><span class="codenumber">3.2.5</span><span class="period">.</span>
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.2.5</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
 </h4>
 <div class="para logical" id="sec-bases-3-9-1-1">
 <div class="para">Notice that the vectors</div>
@@ -801,7 +801,7 @@ A = \left[\begin{array}{rrrr}
 <div class="autopermalink" data-description="Paragraph"><a href="#sec-bases-3-9-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Example 3.2.5"><a href="#sec-bases-3-9" title="Copy heading and permalink for Example 3.2.5" aria-label="Copy heading and permalink for Example 3.2.5">🔗</a></div></article><div class="autopermalink" data-description="Subsection 3.2.1: Bases"><a href="#sec-bases-3" title="Copy heading and permalink for Subsection 3.2.1: Bases" aria-label="Copy heading and permalink for Subsection 3.2.1: Bases">🔗</a></div></section><section class="subsection" id="sec-bases-4"><h3 class="heading hide-type">
-<span class="type">Subsection</span><span class="space"> </span><span class="codenumber">3.2.2</span><span class="space"> </span><span class="title">Coordinate systems</span>
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.2.2</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Coordinate systems</span>
 </h3>
 <div class="para logical" id="sec-bases-4-2">
 <div class="para">A basis for <span class="process-math">\(\real^m\)</span> forms a coordinate system for <span class="process-math">\(\real^m\text{,}\)</span> as we will describe.  Rather than continuing to write a list of vectors, we will find it convenient to denote a basis using a single symbol, such as</div>
@@ -813,7 +813,7 @@ A = \left[\begin{array}{rrrr}
 <div class="autopermalink" data-description="Paragraph"><a href="#sec-bases-4-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <article class="example example-like" id="sec-bases-4-3"><h4 class="heading">
-<span class="type">Example</span><span class="space"> </span><span class="codenumber">3.2.6</span><span class="period">.</span>
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.2.6</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
 </h4>
 <div class="para logical" id="sec-bases-4-3-1-1">
 <div class="para">In this section’s preview activity, we considered the vectors</div>
@@ -826,10 +826,10 @@ A = \left[\begin{array}{rrrr}
 <div class="para">which form a basis <span class="process-math">\(\bcal=\{\vvec_1,\vvec_2\}\)</span> for <span class="process-math">\(\real^2\text{.}\)</span>
 </div>
 <div class="autopermalink" data-description="Paragraph"><a href="#sec-bases-4-3-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div> <div class="sidebyside"><div class="sbsrow" style="margin-left:2.5%;margin-right:2.5%;">
-<div class="sbspanel top" style="width:47.3684210526316%;"><div class="para" id="sec-bases-4-3-1-2-1">In the standard coordinate system, the point <span class="process-math">\((2,-3)\)</span> is found by moving 2 units to the right and 3 units down.  We would like to define a new coordinate system where we interpret <span class="process-math">\((2,-3)\)</span> to mean we move two times along <span class="process-math">\(\vvec_1\)</span> and 3 times along <span class="process-math">\(-\vvec_2\text{.}\)</span>  As we see in the figure, doing so leaves us at the point <span class="process-math">\((1,-4)\text{,}\)</span> expressed in the usual coordinate system.<div class="autopermalink" data-description="Paragraph"><a href="#sec-bases-4-3-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="sidebyside"><div class="sbsrow" style="margin-left:2.5%;margin-right:2.5%;grid-template-columns:47.3684210526316% 47.3684210526316%;column-gap:5%;">
+<div class="sbspanel sbspanel--top top" style=""><div class="para" id="sec-bases-4-3-1-2-1">In the standard coordinate system, the point <span class="process-math">\((2,-3)\)</span> is found by moving 2 units to the right and 3 units down.  We would like to define a new coordinate system where we interpret <span class="process-math">\((2,-3)\)</span> to mean we move two times along <span class="process-math">\(\vvec_1\)</span> and 3 times along <span class="process-math">\(-\vvec_2\text{.}\)</span>  As we see in the figure, doing so leaves us at the point <span class="process-math">\((1,-4)\text{,}\)</span> expressed in the usual coordinate system.<div class="autopermalink" data-description="Paragraph"><a href="#sec-bases-4-3-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div></div>
-<div class="sbspanel top" style="width:47.3684210526316%;"><img src="external/images/basis-1.svg" role="img" class="contained"></div>
+<div class="sbspanel sbspanel--top top" style=""><img src="external/images/basis-1.svg" role="img" class="contained"></div>
 </div></div> <div class="para logical" id="sec-bases-4-3-1-3">
 <div class="para">We have seen that</div>
 <div class="displaymath process-math">
@@ -936,7 +936,7 @@ c_1 \twovec{2}{1} + c_2 \twovec{1}{2} = \twovec{-8}{2}.
 <div class="autopermalink" data-description="Paragraph"><a href="#sec-bases-4-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <article class="activity project-like" id="sec-bases-4-6"><h4 class="heading">
-<span class="type">Activity</span><span class="space"> </span><span class="codenumber">3.2.3</span><span class="period">.</span>
+<span class="type">Activity</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.2.3</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
 </h4>
 <div class="para logical" id="sec-bases-4-6-1-1">
 <div class="para">Let’s begin with the basis <span class="process-math">\(\bcal =
@@ -1054,7 +1054,7 @@ P_{\bcal}^{-1}\xvec = \coords{\xvec}{\bcal}\text{.}
 <div class="autopermalink" data-description="Paragraph"><a href="#sec-bases-4-8" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <article class="proposition theorem-like" id="proposition-coordinate-transform"><h4 class="heading">
-<span class="type">Proposition</span><span class="space"> </span><span class="codenumber">3.2.7</span><span class="period">.</span>
+<span class="type">Proposition</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.2.7</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
 </h4>
 <div class="para logical" id="proposition-coordinate-transform-1-1">
 <div class="para">If <span class="process-math">\(\bcal\)</span> is a basis and <span class="process-math">\(P_{\bcal}\)</span> the matrix whose columns are the basis vectors, then</div>
@@ -1081,12 +1081,12 @@ P_{\bcal}^{-1}\xvec = \coords{\xvec}{\bcal}\text{.}
 <div class="autopermalink" data-description="Paragraph"><a href="#sec-bases-4-10" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Subsection 3.2.2: Coordinate systems"><a href="#sec-bases-4" title="Copy heading and permalink for Subsection 3.2.2: Coordinate systems" aria-label="Copy heading and permalink for Subsection 3.2.2: Coordinate systems">🔗</a></div></section><section class="subsection" id="sec-bases-5"><h3 class="heading hide-type">
-<span class="type">Subsection</span><span class="space"> </span><span class="codenumber">3.2.3</span><span class="space"> </span><span class="title">Examples of bases</span>
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.2.3</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Examples of bases</span>
 </h3>
 <div class="para" id="sec-bases-5-2">We will now look at some examples of bases that illustrate how it can be useful to study a problem using a different coordinate system.<div class="autopermalink" data-description="Paragraph"><a href="#sec-bases-5-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <article class="example example-like" id="sec-bases-5-3"><h4 class="heading">
-<span class="type">Example</span><span class="space"> </span><span class="codenumber">3.2.8</span><span class="period">.</span>
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.2.8</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
 </h4>
 <div class="para logical" id="sec-bases-5-3-1-1">
 <div class="para">Let’s consider the basis of <span class="process-math">\(\real^3\text{:}\)</span>
@@ -1145,10 +1145,10 @@ P_{\bcal} =
 <div class="autopermalink" data-description="Paragraph"><a href="#sec-bases-5-3-1-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Example 3.2.8"><a href="#sec-bases-5-3" title="Copy heading and permalink for Example 3.2.8" aria-label="Copy heading and permalink for Example 3.2.8">🔗</a></div></article><article class="example example-like" id="example-wavelet-basis"><h4 class="heading">
-<span class="type">Example</span><span class="space"> </span><span class="codenumber">3.2.9</span><span class="period">.</span>
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.2.9</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
 </h4>
 <div class="para" id="example-wavelet-basis-1-1">Suppose we work for a company that records its quarterly revenue, in millions of dollars, as:<div class="autopermalink" data-description="Paragraph"><a href="#example-wavelet-basis-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div> <figure class="table table-like" id="example-wavelet-basis-1-2"><figcaption><span class="type">Table</span><span class="space"> </span><span class="codenumber">3.2.10<span class="period">.</span></span><span class="space"> </span>A company’s quarterly revenue<div class="autopermalink" data-description="Table 3.2.10: A company’s quarterly revenue"><a href="#example-wavelet-basis-1-2" title="Copy heading and permalink for Table 3.2.10: A company’s quarterly revenue" aria-label="Copy heading and permalink for Table 3.2.10: A company’s quarterly revenue">🔗</a></div></figcaption><div class="tabular-box natural-width"><table class="tabular">
+</div> <figure class="table table-like" id="example-wavelet-basis-1-2"><figcaption><span class="type">Table</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.2.10<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>A company’s quarterly revenue<div class="autopermalink" data-description="Table 3.2.10: A company’s quarterly revenue"><a href="#example-wavelet-basis-1-2" title="Copy heading and permalink for Table 3.2.10: A company’s quarterly revenue" aria-label="Copy heading and permalink for Table 3.2.10: A company’s quarterly revenue">🔗</a></div></figcaption><div class="tabular-box natural-width"><table class="tabular">
 <tr>
 <td class="c m b1 r0 l0 t3 lines">Quarter</td>
 <td class="c m b1 r0 l0 t3 lines">Revenue</td>
@@ -1169,8 +1169,8 @@ P_{\bcal} =
 <td class="c m b2 r0 l0 t0 lines">4</td>
 <td class="c m b2 r0 l0 t0 lines">8.2</td>
 </tr>
-</table></div></figure> <div class="sidebyside"><div class="sbsrow" style="margin-left:2.5%;margin-right:2.5%;">
-<div class="sbspanel top" style="width:47.3684210526316%;"><div class="para logical" id="example-wavelet-basis-1-3-1">
+</table></div></figure> <div class="sidebyside"><div class="sbsrow" style="margin-left:2.5%;margin-right:2.5%;grid-template-columns:47.3684210526316% 47.3684210526316%;column-gap:5%;">
+<div class="sbspanel sbspanel--top top" style=""><div class="para logical" id="example-wavelet-basis-1-3-1">
 <div class="para">Rather than using a table to record the data, we could display it in a graph or write it as a vector in <span class="process-math">\(\real^4\text{:}\)</span>
 </div>
 <div class="displaymath process-math">
@@ -1180,7 +1180,7 @@ P_{\bcal} =
 </div>
 <div class="autopermalink" data-description="Paragraph"><a href="#example-wavelet-basis-1-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div></div>
-<div class="sbspanel top" style="width:47.3684210526316%;"><img src="external/images/basis-revenue.svg" role="img" class="contained"></div>
+<div class="sbspanel sbspanel--top top" style=""><img src="external/images/basis-revenue.svg" role="img" class="contained"></div>
 </div></div> <div class="para logical" id="example-wavelet-basis-1-4">
 <div class="para">Let’s consider a new basis <span class="process-math">\(\bcal\)</span> for <span class="process-math">\(\real^4\)</span> using vectors</div>
 <div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/fig-basis-revenue-elements.html">
@@ -1194,8 +1194,8 @@ P_{\bcal} =
 <div class="para">We may view these basis elements graphically, as in <a href="sec-bases.html#fig-basis-revenue-elements" class="xref" data-knowl="./knowl/xref/fig-basis-revenue-elements.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 3.2.11">Figure 3.2.11</a>
 </div>
 <div class="autopermalink" data-description="Paragraph"><a href="#example-wavelet-basis-1-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div> <figure class="figure figure-like" id="fig-basis-revenue-elements"><div class="sidebyside"><div class="sbsrow" style="margin-left:12.5%;margin-right:12.5%;"><div class="sbspanel top" style="width:100%;"><img src="external/images/basis-revenue-elements.svg" role="img" class="contained"></div></div></div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">3.2.11<span class="period">.</span></span><span class="space"> </span>A representation of the basis elements of <span class="process-math">\(\bcal\text{.}\)</span><div class="autopermalink" data-description="Figure 3.2.11"><a href="#fig-basis-revenue-elements" title="Copy heading and permalink for Figure 3.2.11" aria-label="Copy heading and permalink for Figure 3.2.11">🔗</a></div></figcaption></figure> <div class="para logical" id="example-wavelet-basis-1-6">
+</div> <figure class="figure figure-like" id="fig-basis-revenue-elements"><div class="sidebyside"><div class="sbsrow" style="margin-left:12.5%;margin-right:12.5%;grid-template-columns:100%;column-gap:0%;"><div class="sbspanel sbspanel--top top" style=""><img src="external/images/basis-revenue-elements.svg" role="img" class="contained"></div></div></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.2.11<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>A representation of the basis elements of <span class="process-math">\(\bcal\text{.}\)</span><div class="autopermalink" data-description="Figure 3.2.11"><a href="#fig-basis-revenue-elements" title="Copy heading and permalink for Figure 3.2.11" aria-label="Copy heading and permalink for Figure 3.2.11">🔗</a></div></figcaption></figure> <div class="para logical" id="example-wavelet-basis-1-6">
 <div class="para">To convert our revenue vectors into the coordinates given by <span class="process-math">\(\bcal\text{,}\)</span> we form the matrices:</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -1249,8 +1249,8 @@ P_{\bcal}^{-1} \fourvec{10.3}{13.1}{7.5}{8.2} =
 <div class="para">We will think about what these terms mean by adding them together one at a time.</div>
 <div class="autopermalink" data-description="Paragraph"><a href="#example-wavelet-basis-1-7" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div> <div class="sbsgroup">
-<div class="sidebyside"><div class="sbsrow" style="margin-left:2.5%;margin-right:2.5%;">
-<div class="sbspanel top" style="width:47.3684210526316%;"><div class="para logical" id="example-wavelet-basis-1-8-1-1">
+<div class="sidebyside"><div class="sbsrow" style="margin-left:2.5%;margin-right:2.5%;grid-template-columns:47.3684210526316% 47.3684210526316%;column-gap:5%;">
+<div class="sbspanel sbspanel--top top" style=""><div class="para logical" id="example-wavelet-basis-1-8-1-1">
 <div class="para">The first term,</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -1260,10 +1260,10 @@ P_{\bcal}^{-1} \fourvec{10.3}{13.1}{7.5}{8.2} =
 <div class="para">gives us the average revenue over the year.</div>
 <div class="autopermalink" data-description="Paragraph"><a href="#example-wavelet-basis-1-8-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div></div>
-<div class="sbspanel top" style="width:47.3684210526316%;"><img src="external/images/basis-revenue-approx-1.svg" role="img" class="contained"></div>
+<div class="sbspanel sbspanel--top top" style=""><img src="external/images/basis-revenue-approx-1.svg" role="img" class="contained"></div>
 </div></div>
-<div class="sidebyside"><div class="sbsrow" style="margin-left:2.5%;margin-right:2.5%;">
-<div class="sbspanel top" style="width:47.3684210526316%;"><div class="para logical" id="example-wavelet-basis-1-8-2-1">
+<div class="sidebyside"><div class="sbsrow" style="margin-left:2.5%;margin-right:2.5%;grid-template-columns:47.3684210526316% 47.3684210526316%;column-gap:5%;">
+<div class="sbspanel sbspanel--top top" style=""><div class="para logical" id="example-wavelet-basis-1-8-2-1">
 <div class="para">The average revenue for the first two quarters is 11.7, which is 1.925 million dollars above the yearly average.  Similarly, the average revenue for the last two quarters is 1.925 million dollars below the yearly average.  This is recorded by the second term</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -1273,10 +1273,10 @@ P_{\bcal}^{-1} \fourvec{10.3}{13.1}{7.5}{8.2} =
 </div>
 <div class="autopermalink" data-description="Paragraph"><a href="#example-wavelet-basis-1-8-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div></div>
-<div class="sbspanel top" style="width:47.3684210526316%;"><img src="external/images/basis-revenue-approx-2.svg" role="img" class="contained"></div>
+<div class="sbspanel sbspanel--top top" style=""><img src="external/images/basis-revenue-approx-2.svg" role="img" class="contained"></div>
 </div></div>
-<div class="sidebyside"><div class="sbsrow" style="margin-left:2.5%;margin-right:2.5%;">
-<div class="sbspanel top" style="width:47.3684210526316%;"><div class="para logical" id="example-wavelet-basis-1-8-3-1">
+<div class="sidebyside"><div class="sbsrow" style="margin-left:2.5%;margin-right:2.5%;grid-template-columns:47.3684210526316% 47.3684210526316%;column-gap:5%;">
+<div class="sbspanel sbspanel--top top" style=""><div class="para logical" id="example-wavelet-basis-1-8-3-1">
 <div class="para">Finally, the first quarter’s revenue is 1.400 million dollars below the average over the first two quarters and the second quarter’s revenue is 1.400 million dollars above that average.  This, and the corresponding data for the last two quarters, is captured by the last two terms:</div>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -1286,24 +1286,24 @@ P_{\bcal}^{-1} \fourvec{10.3}{13.1}{7.5}{8.2} =
 </div>
 <div class="autopermalink" data-description="Paragraph"><a href="#example-wavelet-basis-1-8-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div></div>
-<div class="sbspanel top" style="width:47.3684210526316%;"><img src="external/images/basis-revenue-approx-3.svg" role="img" class="contained"></div>
+<div class="sbspanel sbspanel--top top" style=""><img src="external/images/basis-revenue-approx-3.svg" role="img" class="contained"></div>
 </div></div>
 </div> <div class="para" id="example-wavelet-basis-1-9">If we write <span class="process-math">\(\coords{\xvec}{\bcal} =
 \fourvec{c_1}{c_2}{c_3}{c_4}\text{,}\)</span> we see that the coefficient <span class="process-math">\(c_1\)</span> measures the average revenue over the year, <span class="process-math">\(c_2\)</span> measures the deviation from the annual average in the first and second halves of the year, and <span class="process-math">\(c_3\)</span> measures how the revenue in the first and second quarter differs from the average in the first half of the year.  In this way, the coefficients provide a view of the revenue over different time scales, from an annual summary to a finer view of quarterly behavior.<div class="autopermalink" data-description="Paragraph"><a href="#example-wavelet-basis-1-9" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div> <div class="para" id="example-wavelet-basis-1-10">This basis is sometimes called a <em class="emphasis">Haar</em> wavelet basis, and the change of basis is known as a <em class="emphasis">Haar</em> wavelet transform.  In the next section, we will see how this basis provides a useful way to store digital images.<div class="autopermalink" data-description="Paragraph"><a href="#example-wavelet-basis-1-10" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Example 3.2.9"><a href="#example-wavelet-basis" title="Copy heading and permalink for Example 3.2.9" aria-label="Copy heading and permalink for Example 3.2.9">🔗</a></div></article><article class="activity project-like" id="sec-bases-5-5"><h4 class="heading">
-<span class="type">Activity</span><span class="space"> </span><span class="codenumber">3.2.4</span><span class="period">.</span><span class="space"> </span><span class="title">Edge detection.</span>
+<span class="type">Activity</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.2.4</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Edge detection.</span>
 </h4>
 <div class="para" id="sec-bases-5-5-2-1">An important problem in the field of computer vision is to detect edges in a digital photograph, as is shown in <a href="sec-bases.html#fig-edge-detection" class="xref" data-knowl="./knowl/xref/fig-edge-detection.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 3.2.12">Figure 3.2.12</a>.  Edge detection algorithms are useful when, say, we want a robot to locate an object in its field of view.  Graphic designers also use these algorithms to create artistic effects.<div class="autopermalink" data-description="Paragraph"><a href="#sec-bases-5-5-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div> <figure class="figure figure-like" id="fig-edge-detection"><div class="sidebyside"><div class="sbsrow" style="margin-left:2.5%;margin-right:2.5%;">
-<div class="sbspanel top" style="width:47.3684210526316%;"><img src="external/images/spring-canyon-cropped.jpg" class="contained"></div>
-<div class="sbspanel top" style="width:47.3684210526316%;"><img src="external/images/spring-canyon-edges.jpg" class="contained"></div>
+</div> <figure class="figure figure-like" id="fig-edge-detection"><div class="sidebyside"><div class="sbsrow" style="margin-left:2.5%;margin-right:2.5%;grid-template-columns:47.3684210526316% 47.3684210526316%;column-gap:5%;">
+<div class="sbspanel sbspanel--top top" style=""><img src="external/images/spring-canyon-cropped.jpg" class="contained"></div>
+<div class="sbspanel sbspanel--top top" style=""><img src="external/images/spring-canyon-edges.jpg" class="contained"></div>
 </div></div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">3.2.12<span class="period">.</span></span><span class="space"> </span>A canyon wall in Capitol Reef National Park and the result of an edge detection algorithm.<div class="autopermalink" data-description="Figure 3.2.12"><a href="#fig-edge-detection" title="Copy heading and permalink for Figure 3.2.12" aria-label="Copy heading and permalink for Figure 3.2.12">🔗</a></div></figcaption></figure> <div class="para" id="sec-bases-5-5-2-3">We will consider a very simple version of an edge detection algorithm to give a sense of how this works.  Rather than considering a two-dimensional photograph, we will think about a one-dimensional row of pixels in a photograph.  The grayscale values of a pixel measure the brightness of a pixel;  a grayscale value of 0 corresponds to black, and a value of 255 corresponds to white.<div class="autopermalink" data-description="Paragraph"><a href="#sec-bases-5-5-2-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.2.12<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>A canyon wall in Capitol Reef National Park and the result of an edge detection algorithm.<div class="autopermalink" data-description="Figure 3.2.12"><a href="#fig-edge-detection" title="Copy heading and permalink for Figure 3.2.12" aria-label="Copy heading and permalink for Figure 3.2.12">🔗</a></div></figcaption></figure> <div class="para" id="sec-bases-5-5-2-3">We will consider a very simple version of an edge detection algorithm to give a sense of how this works.  Rather than considering a two-dimensional photograph, we will think about a one-dimensional row of pixels in a photograph.  The grayscale values of a pixel measure the brightness of a pixel;  a grayscale value of 0 corresponds to black, and a value of 255 corresponds to white.<div class="autopermalink" data-description="Paragraph"><a href="#sec-bases-5-5-2-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div> <div class="para" id="sec-bases-5-5-2-4">Suppose, for simplicity, that the grayscale values for a row of six pixels are represented by a vector <span class="process-math">\(\xvec\)</span> in <span class="process-math">\(\real^6\text{:}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec-bases-5-5-2-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div> <div class="sidebyside"><div class="sbsrow" style="margin-left:0%;margin-right:0%;">
-<div class="sbspanel top" style="width:50%;"><div class="para logical" id="sec-bases-5-5-2-5-1">
+</div> <div class="sidebyside"><div class="sbsrow" style="margin-left:0%;margin-right:0%;grid-template-columns:50% 50%;column-gap:0%;">
+<div class="sbspanel sbspanel--top top" style=""><div class="para logical" id="sec-bases-5-5-2-5-1">
 <div class="displaymath process-math">
 \begin{equation*}
 \xvec = \left[\begin{array}{r}
@@ -1313,7 +1313,7 @@ P_{\bcal}^{-1} \fourvec{10.3}{13.1}{7.5}{8.2} =
 </div>
 <div class="autopermalink" data-description="Paragraph"><a href="#sec-bases-5-5-2-5-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div></div>
-<div class="sbspanel top" style="width:50%;"><img src="external/images/edges-grayscale.svg" role="img" class="contained"></div>
+<div class="sbspanel sbspanel--top top" style=""><img src="external/images/edges-grayscale.svg" role="img" class="contained"></div>
 </div></div> <div class="para logical" id="sec-bases-5-5-2-6">
 <div class="para">We can easily see that there is a jump in brightness between pixels 4 and 5, but how can we detect it computationally?  We will introduce a new basis <span class="process-math">\(\bcal\)</span> for <span class="process-math">\(\real^6\)</span> with vectors:</div>
 <div class="displaymath process-math">
@@ -1387,7 +1387,7 @@ P_{\bcal}^{-1}\xvec\text{,}\)</span> determine an expression for the coefficient
 </div> <div class="para" id="sec-bases-5-5-2-7">Readers who are familiar with calculus may recognize that this change of basis converts a vector <span class="process-math">\(\xvec\)</span> into <span class="process-math">\(\coords{\xvec}{\bcal}\text{,}\)</span> the set of changes in <span class="process-math">\(\xvec\text{.}\)</span>  This process is similar to differentiation in calculus.  Similarly, the process of converting <span class="process-math">\(\coords{\xvec}{\bcal}\)</span> into the vector <span class="process-math">\(\xvec\)</span> adds together the changes in a process similar to integration.  As a result, this change of basis represents a linear algebraic version of the Fundamental Theorem of Calculus.<div class="autopermalink" data-description="Paragraph"><a href="#sec-bases-5-5-2-7" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Activity 3.2.4: Edge detection"><a href="#sec-bases-5-5" title="Copy heading and permalink for Activity 3.2.4: Edge detection" aria-label="Copy heading and permalink for Activity 3.2.4: Edge detection">🔗</a></div></article><div class="autopermalink" data-description="Subsection 3.2.3: Examples of bases"><a href="#sec-bases-5" title="Copy heading and permalink for Subsection 3.2.3: Examples of bases" aria-label="Copy heading and permalink for Subsection 3.2.3: Examples of bases">🔗</a></div></section><section class="subsection" id="sec-bases-6"><h3 class="heading hide-type">
-<span class="type">Subsection</span><span class="space"> </span><span class="codenumber">3.2.4</span><span class="space"> </span><span class="title">Summary</span>
+<span class="type">Subsection</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.2.4</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Summary</span>
 </h3>
 <div class="para logical" id="sec-bases-6-2">
 <div class="para">We defined a basis to be a set of vectors <span class="process-math">\(\bcal =
@@ -1448,12 +1448,12 @@ P_{\bcal}^{-1} x \amp {}={} \coords{\xvec}{\bcal}. \\
 <div class="autopermalink" data-description="Paragraph"><a href="#sec-bases-6-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Subsection 3.2.4: Summary"><a href="#sec-bases-6" title="Copy heading and permalink for Subsection 3.2.4: Summary" aria-label="Copy heading and permalink for Subsection 3.2.4: Summary">🔗</a></div></section><section class="exercises" id="sec-bases-7"><h3 class="heading hide-type">
-<span class="type">Exercises</span><span class="space"> </span><span class="codenumber">3.2.5</span><span class="space"> </span><span class="title">Exercises</span>
+<span class="type">Exercises</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.2.5</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Exercises</span>
 </h3>
-<article class="exercise exercise-like" id="sec-bases-7-1"><h4 class="heading"><span class="codenumber">1<span class="period">.</span></span></h4>
+<article class="exercise exercise-like" id="sec-bases-7-1"><h4 class="heading"><span class="codenumber">1<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
 <div class="para" id="sec-bases-7-1-1-1">Shown in <a href="sec-bases.html#fig-ex-basis" class="xref" data-knowl="./knowl/xref/fig-ex-basis.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 3.2.13">Figure 3.2.13</a> are two vectors <span class="process-math">\(\vvec_1\)</span> and <span class="process-math">\(\vvec_2\)</span> in the plane <span class="process-math">\(\real^2\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec-bases-7-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div> <figure class="figure figure-like" id="fig-ex-basis"><div class="sidebyside"><div class="sbsrow" style="margin-left:27.5%;margin-right:27.5%;"><div class="sbspanel top" style="width:100%;"><img src="external/images/ex-basis.svg" role="img" class="contained"></div></div></div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">3.2.13<span class="period">.</span></span><span class="space"> </span>Vectors <span class="process-math">\(\vvec_1\)</span> and <span class="process-math">\(\vvec_2\)</span> in <span class="process-math">\(\real^2\text{.}\)</span><div class="autopermalink" data-description="Figure 3.2.13"><a href="#fig-ex-basis" title="Copy heading and permalink for Figure 3.2.13" aria-label="Copy heading and permalink for Figure 3.2.13">🔗</a></div></figcaption></figure> <div class="para logical" id="sec-bases-7-1-1-3">
+</div> <figure class="figure figure-like" id="fig-ex-basis"><div class="sidebyside"><div class="sbsrow" style="margin-left:27.5%;margin-right:27.5%;grid-template-columns:100%;column-gap:0%;"><div class="sbspanel sbspanel--top top" style=""><img src="external/images/ex-basis.svg" role="img" class="contained"></div></div></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.2.13<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Vectors <span class="process-math">\(\vvec_1\)</span> and <span class="process-math">\(\vvec_2\)</span> in <span class="process-math">\(\real^2\text{.}\)</span><div class="autopermalink" data-description="Figure 3.2.13"><a href="#fig-ex-basis" title="Copy heading and permalink for Figure 3.2.13" aria-label="Copy heading and permalink for Figure 3.2.13">🔗</a></div></figcaption></figure> <div class="para logical" id="sec-bases-7-1-1-3">
 <ol class="lower-alpha ol-marker-1" id="sec-bases-7-1-1-3-1">
 <li id="sec-bases-7-1-1-3-1-1">
 <div class="para" id="sec-bases-7-1-1-3-1-1-1">Explain why <span class="process-math">\(\bcal=\{\vvec_1,\vvec_2\}\)</span> is a basis for <span class="process-math">\(\real^2\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#sec-bases-7-1-1-3-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
@@ -1522,7 +1522,7 @@ P_{\bcal}^{-1} x \amp {}={} \coords{\xvec}{\bcal}. \\
 </ol>
 <div class="autopermalink" data-description="Paragraph"><a href="#sec-bases-7-1-1-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Exercise 3.2.5.1"><a href="#sec-bases-7-1" title="Copy heading and permalink for Exercise 3.2.5.1" aria-label="Copy heading and permalink for Exercise 3.2.5.1">🔗</a></div></article><article class="exercise exercise-like" id="sec-bases-7-2"><h4 class="heading"><span class="codenumber">2<span class="period">.</span></span></h4>
+<div class="autopermalink" data-description="Exercise 3.2.5.1"><a href="#sec-bases-7-1" title="Copy heading and permalink for Exercise 3.2.5.1" aria-label="Copy heading and permalink for Exercise 3.2.5.1">🔗</a></div></article><article class="exercise exercise-like" id="sec-bases-7-2"><h4 class="heading"><span class="codenumber">2<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
 <div class="para logical" id="sec-bases-7-2-1-1">
 <div class="para">Consider vectors</div>
 <div class="displaymath process-math">
@@ -1565,7 +1565,7 @@ P_{\bcal}^{-1} x \amp {}={} \coords{\xvec}{\bcal}. \\
 </ol>
 <div class="autopermalink" data-description="Paragraph"><a href="#sec-bases-7-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Exercise 3.2.5.2"><a href="#sec-bases-7-2" title="Copy heading and permalink for Exercise 3.2.5.2" aria-label="Copy heading and permalink for Exercise 3.2.5.2">🔗</a></div></article><article class="exercise exercise-like" id="sec-bases-7-3"><h4 class="heading"><span class="codenumber">3<span class="period">.</span></span></h4>
+<div class="autopermalink" data-description="Exercise 3.2.5.2"><a href="#sec-bases-7-2" title="Copy heading and permalink for Exercise 3.2.5.2" aria-label="Copy heading and permalink for Exercise 3.2.5.2">🔗</a></div></article><article class="exercise exercise-like" id="sec-bases-7-3"><h4 class="heading"><span class="codenumber">3<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
 <div class="para logical" id="sec-bases-7-3-1-1">
 <div class="para">Consider the following vectors in <span class="process-math">\(\real^4\text{:}\)</span>
 </div>
@@ -1606,7 +1606,7 @@ P_{\bcal}^{-1} x \amp {}={} \coords{\xvec}{\bcal}. \\
 </ol>
 <div class="autopermalink" data-description="Paragraph"><a href="#sec-bases-7-3-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Exercise 3.2.5.3"><a href="#sec-bases-7-3" title="Copy heading and permalink for Exercise 3.2.5.3" aria-label="Copy heading and permalink for Exercise 3.2.5.3">🔗</a></div></article><article class="exercise exercise-like" id="sec-bases-7-4"><h4 class="heading"><span class="codenumber">4<span class="period">.</span></span></h4>
+<div class="autopermalink" data-description="Exercise 3.2.5.3"><a href="#sec-bases-7-3" title="Copy heading and permalink for Exercise 3.2.5.3" aria-label="Copy heading and permalink for Exercise 3.2.5.3">🔗</a></div></article><article class="exercise exercise-like" id="sec-bases-7-4"><h4 class="heading"><span class="codenumber">4<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
 <div class="para logical" id="sec-bases-7-4-1-1">
 <div class="para">Consider the following vectors in <span class="process-math">\(\real^3\text{:}\)</span>
 </div>
@@ -1659,7 +1659,7 @@ P_{\bcal}^{-1} x \amp {}={} \coords{\xvec}{\bcal}. \\
 </ol>
 <div class="autopermalink" data-description="Paragraph"><a href="#sec-bases-7-4-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Exercise 3.2.5.4"><a href="#sec-bases-7-4" title="Copy heading and permalink for Exercise 3.2.5.4" aria-label="Copy heading and permalink for Exercise 3.2.5.4">🔗</a></div></article><article class="exercise exercise-like" id="sec-bases-7-5"><h4 class="heading"><span class="codenumber">5<span class="period">.</span></span></h4>
+<div class="autopermalink" data-description="Exercise 3.2.5.4"><a href="#sec-bases-7-4" title="Copy heading and permalink for Exercise 3.2.5.4" aria-label="Copy heading and permalink for Exercise 3.2.5.4">🔗</a></div></article><article class="exercise exercise-like" id="sec-bases-7-5"><h4 class="heading"><span class="codenumber">5<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
 <div class="para" id="sec-bases-7-5-1-1">This exercise involves a simple Fourier transform, which will play an important role in the next section.<div class="autopermalink" data-description="Paragraph"><a href="#sec-bases-7-5-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div> <div class="para logical" id="sec-bases-7-5-1-2">
 <div class="para">Suppose that we have the vectors</div>
@@ -1695,7 +1695,7 @@ P_{\bcal}^{-1} x \amp {}={} \coords{\xvec}{\bcal}. \\
 </ol>
 <div class="autopermalink" data-description="Paragraph"><a href="#sec-bases-7-5-1-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Exercise 3.2.5.5"><a href="#sec-bases-7-5" title="Copy heading and permalink for Exercise 3.2.5.5" aria-label="Copy heading and permalink for Exercise 3.2.5.5">🔗</a></div></article><article class="exercise exercise-like" id="sec-bases-7-6"><h4 class="heading"><span class="codenumber">6<span class="period">.</span></span></h4>
+<div class="autopermalink" data-description="Exercise 3.2.5.5"><a href="#sec-bases-7-5" title="Copy heading and permalink for Exercise 3.2.5.5" aria-label="Copy heading and permalink for Exercise 3.2.5.5">🔗</a></div></article><article class="exercise exercise-like" id="sec-bases-7-6"><h4 class="heading"><span class="codenumber">6<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
 <div class="para logical" id="sec-bases-7-6-1-1">
 <div class="para">Determine whether the following statements are true or false and provide a justification for your response.</div>
 <ol class="lower-alpha ol-marker-1" id="sec-bases-7-6-1-1-1">
@@ -1728,7 +1728,7 @@ P_{\bcal}\xvec\text{.}\)</span><div class="autopermalink" data-description="Para
 </ol>
 <div class="autopermalink" data-description="Paragraph"><a href="#sec-bases-7-6-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Exercise 3.2.5.6"><a href="#sec-bases-7-6" title="Copy heading and permalink for Exercise 3.2.5.6" aria-label="Copy heading and permalink for Exercise 3.2.5.6">🔗</a></div></article><article class="exercise exercise-like" id="sec-bases-7-7"><h4 class="heading"><span class="codenumber">7<span class="period">.</span></span></h4>
+<div class="autopermalink" data-description="Exercise 3.2.5.6"><a href="#sec-bases-7-6" title="Copy heading and permalink for Exercise 3.2.5.6" aria-label="Copy heading and permalink for Exercise 3.2.5.6">🔗</a></div></article><article class="exercise exercise-like" id="sec-bases-7-7"><h4 class="heading"><span class="codenumber">7<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
 <div class="para logical" id="sec-bases-7-7-1-1">
 <div class="para">Provide a justification for your response to each of the following questions.</div>
 <ol class="lower-alpha ol-marker-1" id="sec-bases-7-7-1-1-1">
@@ -1755,10 +1755,10 @@ P_{\bcal}\xvec\text{.}\)</span><div class="autopermalink" data-description="Para
 </ol>
 <div class="autopermalink" data-description="Paragraph"><a href="#sec-bases-7-7-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Exercise 3.2.5.7"><a href="#sec-bases-7-7" title="Copy heading and permalink for Exercise 3.2.5.7" aria-label="Copy heading and permalink for Exercise 3.2.5.7">🔗</a></div></article><article class="exercise exercise-like" id="sec-bases-7-8"><h4 class="heading"><span class="codenumber">8<span class="period">.</span></span></h4>
+<div class="autopermalink" data-description="Exercise 3.2.5.7"><a href="#sec-bases-7-7" title="Copy heading and permalink for Exercise 3.2.5.7" aria-label="Copy heading and permalink for Exercise 3.2.5.7">🔗</a></div></article><article class="exercise exercise-like" id="sec-bases-7-8"><h4 class="heading"><span class="codenumber">8<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
 <div class="para" id="sec-bases-7-8-1-1">Crystallographers find it convenient to use coordinate systems that are adapted to the specific geometry of a crystal. As a two-dimensional example, consider a layer of graphite in which carbon atoms are arranged in regular hexagons to form the crystalline structure shown in <a href="sec-bases.html#fig-ex-graphite" class="xref" data-knowl="./knowl/xref/fig-ex-graphite.html" data-reveal-label="Reveal" data-close-label="Close" title="Figure 3.2.14">Figure 3.2.14</a>.<div class="autopermalink" data-description="Paragraph"><a href="#sec-bases-7-8-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div> <figure class="figure figure-like" id="fig-ex-graphite"><div class="sidebyside"><div class="sbsrow" style="margin-left:25%;margin-right:25%;"><div class="sbspanel top" style="width:100%;"><img src="external/images/ex-graphite.svg" role="img" class="contained"></div></div></div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">3.2.14<span class="period">.</span></span><span class="space"> </span>A layer of carbon atoms in a graphite crystal.<div class="autopermalink" data-description="Figure 3.2.14"><a href="#fig-ex-graphite" title="Copy heading and permalink for Figure 3.2.14" aria-label="Copy heading and permalink for Figure 3.2.14">🔗</a></div></figcaption></figure> <div class="para" id="sec-bases-7-8-1-3">The origin of the coordinate system is at the carbon atom labeled by “0”.  It is convenient to choose the basis <span class="process-math">\(\bcal\)</span> defined by the vectors <span class="process-math">\(\vvec_1\)</span> and <span class="process-math">\(\vvec_2\)</span> and the coordinate system it defines.<div class="autopermalink" data-description="Paragraph"><a href="#sec-bases-7-8-1-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <figure class="figure figure-like" id="fig-ex-graphite"><div class="sidebyside"><div class="sbsrow" style="margin-left:25%;margin-right:25%;grid-template-columns:100%;column-gap:0%;"><div class="sbspanel sbspanel--top top" style=""><img src="external/images/ex-graphite.svg" role="img" class="contained"></div></div></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.2.14<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>A layer of carbon atoms in a graphite crystal.<div class="autopermalink" data-description="Figure 3.2.14"><a href="#fig-ex-graphite" title="Copy heading and permalink for Figure 3.2.14" aria-label="Copy heading and permalink for Figure 3.2.14">🔗</a></div></figcaption></figure> <div class="para" id="sec-bases-7-8-1-3">The origin of the coordinate system is at the carbon atom labeled by “0”.  It is convenient to choose the basis <span class="process-math">\(\bcal\)</span> defined by the vectors <span class="process-math">\(\vvec_1\)</span> and <span class="process-math">\(\vvec_2\)</span> and the coordinate system it defines.<div class="autopermalink" data-description="Paragraph"><a href="#sec-bases-7-8-1-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div> <div class="para logical" id="sec-bases-7-8-1-4">
 <ol class="lower-alpha ol-marker-1" id="sec-bases-7-8-1-4-1">
 <li id="sec-bases-7-8-1-4-1-1">
@@ -1812,7 +1812,7 @@ P_{\bcal}\xvec\text{.}\)</span><div class="autopermalink" data-description="Para
 </ol>
 <div class="autopermalink" data-description="Paragraph"><a href="#sec-bases-7-8-1-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Exercise 3.2.5.8"><a href="#sec-bases-7-8" title="Copy heading and permalink for Exercise 3.2.5.8" aria-label="Copy heading and permalink for Exercise 3.2.5.8">🔗</a></div></article><article class="exercise exercise-like" id="sec-bases-7-9"><h4 class="heading"><span class="codenumber">9<span class="period">.</span></span></h4>
+<div class="autopermalink" data-description="Exercise 3.2.5.8"><a href="#sec-bases-7-8" title="Copy heading and permalink for Exercise 3.2.5.8" aria-label="Copy heading and permalink for Exercise 3.2.5.8">🔗</a></div></article><article class="exercise exercise-like" id="sec-bases-7-9"><h4 class="heading"><span class="codenumber">9<span class="period heading-divison-mark heading-divison-mark__period">.</span></span></h4>
 <div class="para logical" id="sec-bases-7-9-1-1">
 <div class="para">Suppose that <span class="process-math">\(A=\left[\begin{array}{rr} 2 \amp 1 \\ 1\amp
 2 \\ \end{array}\right]\)</span> and</div>
