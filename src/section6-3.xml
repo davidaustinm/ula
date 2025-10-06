@@ -1553,17 +1553,19 @@
 
     <proposition xml:id="prop-orthog-decomp">
       <statement>
-	If <m>W</m> is a subspace of <m>\real^n</m> with orthogonal
-	complement <m>W^\perp</m>, then any <m>n</m>-dimensional
-	vector <m>\bvec</m> can be uniquely written as
-	<me>
-	  \bvec = \bhat + \bvec^\perp
-	</me>
-	where <m>\bhat</m> is in <m>W</m> and <m>\bvec^\perp</m> is in
-	<m>W^\perp</m>.  The vector <m>\bhat</m> is the orthogonal
-	projection of <m>\bvec</m> onto <m>W</m> and
-	<m>\bvec^\perp</m> is the orthogonal projection of
-	<m>\bvec</m> onto <m>W^\perp</m>.
+        <p>
+	  If <m>W</m> is a subspace of <m>\real^n</m> with orthogonal
+	  complement <m>W^\perp</m>, then any <m>n</m>-dimensional
+	  vector <m>\bvec</m> can be uniquely written as
+	  <me>
+	    \bvec = \bhat + \bvec^\perp
+	  </me>
+	  where <m>\bhat</m> is in <m>W</m> and <m>\bvec^\perp</m> is in
+	  <m>W^\perp</m>.  The vector <m>\bhat</m> is the orthogonal
+	  projection of <m>\bvec</m> onto <m>W</m> and
+	  <m>\bvec^\perp</m> is the orthogonal projection of
+	  <m>\bvec</m> onto <m>W^\perp</m>.
+        </p>
       </statement>
     </proposition>
 
@@ -1765,6 +1767,191 @@
 	
       </ul>
     </p>
+
+    <exercise component="proteus"
+              label="ula-proteus-6-3-determining-weights-from-dot-products">
+      <title>Determining weights from dot products</title>
+      <statement>
+        <p>
+          Suppose that <m>\{\vvec_1,\vvec_2,\vvec_3\}</m> is an
+          orthogonal basis of <m>\real^3</m>
+          and that <m>|\vvec_1|=5</m>, <m>|\vvec_2|=2</m>, and
+          <m>|\vvec_3|=3</m>.
+          Suppose that <m>\xvec</m> is a vector in <m>\real^3</m>
+          satisfying <m>\xvec\cdot \vvec_1=50</m>, <m>\xvec\cdot
+          \vvec_2=12</m>,
+          and <m>\xvec\cdot \vvec_3=-9</m>.
+        </p>
+        <p>
+          Fill in the weights:
+          <blockquote>
+            <m>\xvec =</m>
+            <fillin answer="2"  width="1" /> <m>\vvec_1+</m>
+            <fillin answer="3"  width="1" /> <m>\vvec_2+</m>
+            <fillin answer="-1"  width="1" />  <m> \vvec_3</m>.
+          </blockquote>
+        </p>
+      </statement>
+      <evaluation>
+        <evaluate>
+          <test correct = "yes">
+            <numcmp use-answer="yes" />
+          </test>
+        </evaluate>
+        <evaluate>
+          <test correct = "yes">
+            <numcmp use-answer="yes" />
+          </test>
+        </evaluate>
+        <evaluate>
+          <test correct = "yes">
+            <numcmp use-answer="yes" />
+          </test>
+        </evaluate>
+      </evaluation>
+    </exercise>
+
+    <exercise component="proteus"
+              label="ula-proteus-6-3-reasoning-orthog-basis">
+      <title>Reasoning about an orthogonal basis</title>
+
+      <statement>
+        <p>Suppose that <m>\wvec_1,\wvec_2,\ldots,\wvec_6</m> is an
+        orthogonal set spanning a <m>6</m>-dimensional subspace
+        <m>W</m> of
+        <m>\real^9</m> and that
+        <me>
+          P = \begin{bmatrix}
+          \wvec_1 \amp \wvec_2 \amp \ldots \amp \wvec_6
+          \end{bmatrix}
+        </me>.
+        Determine whether each of the following statements is Always
+        True, Never True, or Sometimes True.
+        </p>
+      </statement>
+
+      <cardsort>
+        <match>
+          <premise><m>P^TP</m> is a diagonal matrix.</premise>
+          <premise>If <m>P^TP=I_6</m>, then
+          <m>\wvec_1,\ldots,\wvec_6</m> is an orthonormal set.
+          </premise>
+          <premise><m>\dim\nul(P^T)=3</m>.</premise>
+          <response>Always true</response>
+        </match>
+        <match>
+          <premise><m>P^TP\bvec</m> is the orthogonal projection of
+          <m>\bvec</m> onto <m>W</m>.</premise>
+          <response>Sometimes true</response>
+        </match>
+        <match>
+          <premise><m>PP^T=I.</m></premise>
+          <premise><m>P</m> is invertible.</premise>
+          <premise><m>\dim\col(P)=3</m>.</premise>
+          <premise><m>P^T\wvec_1=\zerovec</m></premise>
+          <response>Never True</response>
+        </match>
+      </cardsort>
+    </exercise>
+
+    <exercise component="proteus"
+              label="ula-proteus-6-3-matching-orthog-proj">
+      <title>Reasoning about orthogonal projections</title>
+
+      <statement>
+        <p>Suppose that <m>W</m> is a <m>3</m>-dimensional subspace of
+        <m>\real^5</m>, that <m>\bvec</m> is a nonzero vector in
+        <m>\real^5</m>, and that <m>\bhat</m> is the orthogonal
+        projection of <m>\bvec</m> onto <m>W</m>. Suppose also that
+        <m>Q</m> is a matrix whose columns form an orthonormal basis
+        for <m>W</m>.
+        Determine whether
+        each of the following statements is Always True, Never True,
+        or Sometimes True.</p>
+      </statement>
+
+      <cardsort>
+        <match>
+          <premise><m>\bhat</m> is the vector in <m>W</m> that is
+          closest to <m>\bvec</m>.</premise>
+          <premise><m>\bhat</m> is in <m>W</m>.</premise>
+          <premise><m>Q^T(\bvec-\bhat) = \zerovec</m>.</premise>
+          <premise>If <m>Q^T\bhat=\zerovec</m>, then <m>\bvec</m> is
+          in <m>W^\perp</m>.</premise>
+          <premise><m>QQ^T\bhat = \bhat</m>.</premise>
+          <response>Always True</response>
+        </match>
+
+        <match>
+          <premise>If <m>\bhat=\zerovec</m>, then <m>\bvec</m> is in
+          <m>W</m>. </premise>
+          <premise><m>Q^TQ\bvec=\bhat</m>.</premise>
+          <premise>If <m>\bvec=\bhat</m>, then <m>\bvec</m> is in
+          <m>W^\perp</m>.</premise>
+          <response>Never True</response>
+        </match>
+
+        <match>
+          <response>Sometimes True</response>
+        </match>
+      </cardsort>
+    </exercise>
+
+    <exercise component="proteus"
+              label="ula-proteus-6-3-process-for-decomposing-a-vector">
+      <title>Writing a vector as a sum of a vector in <m>W</m> and a
+      vector orthogonal to <m>W</m></title>
+      <statement>
+        <p>
+          Suppose <m>\{\wvec_1,\wvec_2,\wvec_3\}</m> is an orthogonal
+          basis of
+          a subspace <m>W</m> of <m>\real^n</m>. Drag some of the
+          following blocks to
+          create a list of
+          steps that will write a vector <m>\xvec</m> in  <m>\real^n</m> as
+          <m>\xvec = \uvec+\vvec</m> where <m>\uvec</m> is in  <m>W</m> and
+          <m>\vvec</m> is in  <m>W^\perp</m>.
+        </p>
+      </statement>
+
+      <blocks>
+        <block>
+          <p>Divide each of the vectors <m>\wvec_1</m>,
+          <m>\wvec_2</m>, and <m>\wvec_3</m>
+          by its length to give an orthonormal basis
+          <m>\{\uvec_1,\uvec_2,\uvec_3\}</m> of <m>W</m>.</p>
+        </block>
+        <block>
+          <p>Let <m>Q = \begin{bmatrix} \uvec_1 \amp \uvec_2 \amp
+          \uvec_3 \end{bmatrix}</m>.</p>
+        </block>
+        <block>
+          <p>Find <m>P = QQ^T</m>.</p>
+        </block>
+        <block>
+          <p>Compute <m>\uvec = P\xvec</m>.</p>
+        </block>
+        <block>
+          <p>Compute <m>\vvec = \wvec - \uvec</m>.</p>
+        </block>
+        <block>
+          <p>Check that <m>\wvec = \uvec + \vvec</m>, <m>\uvec</m> is
+          in <m>W</m>,
+          and <m>\vvec</m> is in <m>W^\perp</m>.</p>
+        </block>
+        <block correct="no">
+          <p>Let <m>Q = \begin{bmatrix} \wvec_1 \amp \wvec_2 \amp
+          \wvec_3 \end{bmatrix}</m>.</p>
+        </block>
+        <block correct="no">
+          <p>Find <m>P = Q^TQ</m>.</p>
+        </block>
+        <block correct="no">
+          <p>Compute <m>\uvec = \xvec P</m>.</p>
+        </block>
+      </blocks>
+    </exercise>
+
   </subsection>
 
   <xi:include href="exercises/exercises6-3.xml" />
