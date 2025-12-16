@@ -29,7 +29,15 @@
 	  figure.  Sketch the vector <m>2\vvec</m> and the vector
 	  <m>-\vvec</m>.
 	  </p>
-	  <image source="images/eigen-intro-vec" />
+	  <image source="images/eigen-intro-vec">
+            <shortdescription>
+              A two dimensional vector and coordinate grid.
+            </shortdescription>
+            <description>
+              <p>A <m>1\times1</m> standard coordinate grid with a
+              vector <m>\vvec=\twovec12</m>.</p>
+            </description>
+          </image>
 	  </sidebyside>
           <p component="rs-preview">You will be prompted to upload a
           scan of your sketch in part (b).</p>
@@ -252,6 +260,18 @@
 		       source="jslibrary/figures.js
 			       jslibrary/eigenvectors.js"
 		       preview="preview/eigenvectors-preview.png">
+            <shortdescription>
+              An interactive diagram for exploring eigenvectors.
+            </shortdescription>
+            <description>
+              <p>An interactive diagram in which the reader can select
+              a <m>2\times2</m> matrix <m>A</m> using a set of sliders
+              appearing in a <m>2\times2</m> array across the top.
+              Below that is a <m>1\times1</m> standard coordinate grid
+              and coordinate axes along with a vector <m>\vvec</m>
+              that can be moved by clicking and dragging.  The vector
+              <m>A\vvec</m> is also shown.</p>
+            </description>
 	    <sbsgroup>
 	      <sidebyside width="75%">
 		<slate xml:id="eigenvectors-sliders"
@@ -398,8 +418,29 @@
 
     <figure xml:id="fig-eigen-intro">
       <sidebyside widths="45% 45%">
-	<image source="images/eigen-intro-1-0" />
-	<image source="images/eigen-intro-1-1" />
+	<image source="images/eigen-intro-1-0">
+          <shortdescription>
+            A vector that is not an eigenvector of the matrix A and
+            the result of multiplying it by A.
+          </shortdescription>
+          <description>
+            <p>The vectors <m>\vvec=\twovec10</m> and
+            <m>A\vvec=\twovec12</m> are shown.  The key point is that
+            these vectors do not lie on the same line.</p>
+          </description>
+        </image>
+	<image source="images/eigen-intro-1-1">
+          <shortdescription>
+            An eigenvector of the matrix and the result of multiplying
+            it by the matrix.
+          </shortdescription>
+          <description>
+            <p>The vectors <m>\vvec=\twovec11</m> and
+            <m>A\vvec=\twovec33</m>.  This shows that <m>\vvec</m> is
+            an eigenvector of the matrix <m>A</m> since they lie on
+            the same line.</p>
+          </description>
+        </image>
       </sidebyside>
       <caption>
 	On the left, the vector <m>\vvec</m> is not an eigenvector.
@@ -421,7 +462,18 @@
 
     <figure xml:id="fig-eigen-intro-2">
       <sidebyside width="45%">
-	<image source="images/eigen-intro-1-m1" />
+	<image source="images/eigen-intro-1-m1">
+          <shortdescription>
+            Another eigenvector of A and the result of multiplying it
+            by A.
+          </shortdescription>
+          <description>
+            <p>The vectors <m>\vvec=\twovec{-1}1</m> and
+            <m>A\vvec=\twovec1{-1}</m>.  This demonstrates that
+            <m>\vvec</m> is an eigenvector of the matrix <m>A</m>
+            since they lie on the same line.</p>
+          </description>
+        </image>
       </sidebyside>
       <caption>
 	Here we see another eigenvector <m>\vvec</m> with eigenvalue
@@ -479,7 +531,21 @@
 	</me>
 	as seen in the figure.
       </p>
-      <image source="images/eigen-basis" />
+      <image source="images/eigen-basis">
+        <shortdescription>
+          A linear combination of eigenvectors and the result of
+          multiplying it by the matrix.
+        </shortdescription>
+        <description>
+          <p>Vectors <m>\vvec_1=\twovec11</m> and
+          <m>\vvec_2=\twovec{-1}1</m> and the skewed coordinate grid
+          of their linear combinations.  The vector
+          <m>\xvec=\vvec_1-2\vvec_2</m> and its product
+          <m>A\xvec=3\vvec_1+2\vvec_2</m> show how the product can be
+          easily expressed as a linear combination of
+          eigenvectors.</p>
+        </description>
+      </image>
     </sidebyside>
 
     <p> In other words, multiplying by <m>A</m> has the effect of
@@ -503,7 +569,21 @@
 
     <figure xml:id="fig-eigen-intro-diagonal">
       <sidebyside width="80%">
-	<image source="images/eigen-intro-diagonal" />
+	<image source="images/eigen-intro-diagonal">
+          <shortdescription>
+            The unit square and the effect that multiplication by the
+            diagonal matrix has on it.
+          </shortdescription>
+          <description>
+            <p>On the left is shown the unit square, the
+            <m>1\times1</m> square with vertices at the origin and
+            <m>(1,1)</m>.  On the right is the rectangle with vertices
+            at the origin, <m>(3,0)</m>, <m>(3,-1)</m>, and
+            <m>(0,-1)</m>, which shows how the unit square is
+            transformed by multiplication by the diagonal matrix
+            <m>D</m>.</p>
+          </description>
+        </image>
       </sidebyside>
       <caption> The diagonal matrix <m>D</m> stretches vectors
       horizontally by a factor of <m>3</m> and flips vectors
@@ -524,7 +604,30 @@
     
     <figure xml:id="fig-eigen-intro-A">
       <sidebyside width="80%">
-	<image source="images/eigen-intro-A" />
+	<image source="images/eigen-intro-A">
+          <shortdescription>
+            Multiplication by A transforms a rotated square into a
+            rotated rectangle.
+          </shortdescription>
+          <description>
+            <p>On the left is shown the eigenvectors <m>\vvec_1</m>
+            and <m>\vvec_1</m> and the skewed coordinate grid of their
+            linear combinations.  The square whose vertices are the
+            origin, <m>\vvec_1</m>, <m>\vvec_1+\vvec_2</m>, and
+            <m>\vvec_2</m> is also shaded.</p>
+            <p>The effect of multiplying these features by <m>A</m> is
+            shown on the right.  The vectors <m>3\vvec_1</m> and
+            <m>-\vvec_2</m> are shown along with the rectangle whose
+            vertices are at the origin, <m>3\vvec_1</m>,
+            <m>3\vvec_1-\vvec_2</m>, and <m>-\vvec_2</m>.  This
+            rectangle shows how the square on the left is transformed
+            under multiplication by <m>A</m>.</p>
+            <p>This diagram is similar to <xref
+            ref="fig-eigen-intro-diagonal"/> except that the square on
+            the left and the rectangle on the right are rotated by
+            <m>45</m> degrees.</p>
+          </description>
+        </image>
       </sidebyside>
       <caption> The matrix <m>A</m> has the same geometric effect as
       the diagonal matrix <m>D</m> when expressed in the
