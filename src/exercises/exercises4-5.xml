@@ -13,7 +13,19 @@
 	the steady-state vectors and describe what happens to a Markov
 	chain defined by that matrix. </p>
 
-	<image source="images/ex-stoch"/>
+	<image source="images/ex-stoch">
+          <shortdescription>
+            A representation of a two by two stochastic dynamical
+            system.
+          </shortdescription>
+          <description>
+            <p>There are two boxes labelled P and Q.  There is an
+            arrow from P to Q and an arrow from Q to P.  There are
+            also loops from P back to itself and from Q back to
+            itself.  None of these is labelled since this exercise
+            will consider several possibilities.</p>
+          </description>
+        </image>
       </sidebyside>
 
       <p>
@@ -106,7 +118,26 @@
 
       <figure xml:id="fig-stoch-pops">
 	<sidebyside widths="50%">
-	  <image source="images/stoch-pops" />
+	  <image source="images/stoch-pops">
+          <shortdescription>
+            A description of how people move between urban, suburban,
+            and rural environments over time.
+          </shortdescription>
+          <description>
+            <p>Three boxes labelled U for <q>urban</q> , S for
+            <q>suburban</q>, and R for <q>rural</q>.</p>
+            <p>From the box labelled U, there is an arrow
+            pointing to S labelled with <m>0.07</m>, an arrow to R
+            labelled by <m>0.05</m>, and a loop pointing back to U
+            labelled <m>0.88</m>.</p>
+            <p>From S, there is an arrow pointing to U labelled
+            <m>0.08</m>, an arrow to R labelled <m>0.06</m>, and a loop
+            pointing back to S labelled <m>0.86</m>.</p>
+            <p>From R, there is an arrow pointing to U labelled
+            <m>0.08</m>, an arrow to S labelled <m>0.07</m>, and a loop
+            pointing back to R labelled <m>0.85</m>.</p>
+          </description>
+        </image>
 	</sidebyside>
 	<caption>
 	  The flow between urban, suburban, and rural
@@ -793,7 +824,27 @@ modified_markov_chain(G, x0, 20)
 	winner is the first player to reach square 100.
 	</p>
 
-	<image source="images/chutes.jpg" />
+	<image source="images/chutes.jpg">
+          <shortdescription>
+            The game board from Chutes and Ladders.
+          </shortdescription>
+          <description>
+            <p>The game board from <em>Chutes and Ladders.</em>  There
+            is a <m>10\times10</m> grid of squares labelled from
+            <m>1</m> to <m>100</m>.   The squares in the bottom row
+            are labelled <m>1</m> to <m>10</m> from left to right.
+            The squares in the second to the bottom row are labelled
+            <m>11</m> to <m>20</m> from right to left so that square
+            11 is directly above square 10.  In the third row from the
+            bottom, squares are labelled <m>21</m> to <m>30</m> from
+            left to right, and this pattern continues.</p>
+            <p>There are also a number of ladders that connect squares
+            labelled by smaller numbers to squares labelled by larger
+            numbers.  There are also chutes, or slides, that connect
+            squares labelled by larger numbers to squares labelled by
+            smaller numbers.</p>
+          </description>
+        </image>
       </sidebyside>
 
       <p>
@@ -810,7 +861,17 @@ modified_markov_chain(G, x0, 20)
 
 	  <figure xml:id="fig-chutes-plain">
 	    <sidebyside width="50%">
-	      <image source="images/chutes-plain" />
+	      <image source="images/chutes-plain">
+                <shortdescription>
+                  Eight squares in a row labelled from one to eight
+                  from left to right.
+                </shortdescription>
+                <description>
+                  <p>Eight squares are arranged in a row and labelled
+                  from <m>1</m> to <m>8</m> moving from left to right
+                  across the row.</p>
+                </description>
+              </image>
 	    </sidebyside>
 	    <caption>
 	      A simple version of Chutes and Ladders with neither chutes
@@ -852,7 +913,24 @@ markov_chain(A, x0, 10)
 
 	  <figure xml:id="fig-chutes-ladders">
 	    <sidebyside width="50%">
-	      <image source="images/chutes-ladders" />
+	      <image source="images/chutes-ladders">
+                <shortdescription>
+                  A simple version of Chutes and Ladders.
+                </shortdescription>
+                <description>
+                  <p>A simple version of <em>Chutes and Ladders</em>
+                  with eight boxes arranged from left to right.  The
+                  leftmost square is labelled <m>1</m> while the next
+                  square is blank.  The next squares are labelled
+                  <m>2</m>, <m>3</m>, <m>4</m>, and <m>5</m>.  Next is
+                  a blank square and then a square labelled <m>6</m>.
+                  There is an arrow from the leftmost blank square to
+                  the square labelled <m>4</m> representing a ladder.
+                  There is also an arrow from the rightmost blank
+                  square to the square labelled <m>1</m> representing
+                  a chute.</p>
+                </description>
+              </image>
 	    </sidebyside>
 	    <caption>
 	      A version of Chutes and Ladders with one chute and one
@@ -862,8 +940,8 @@ markov_chain(A, x0, 10)
 
 	  <p> Even though there are eight squares, we only need to
 	  consider six of them.  For instance, if we arrive at the
-	  first white square, we move up to square 4.
-	  Similarly, if we arrive at the second white square, we move
+	  first blank square, we move up to square 4.
+	  Similarly, if we arrive at the second blank square, we move
 	  down to square 1.</p>
 
 	  <p> Once again, construct the <m>6\times6</m> stochastic
