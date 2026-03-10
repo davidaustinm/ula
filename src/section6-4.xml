@@ -1439,6 +1439,259 @@ sage.repl.load.load("https://raw.githubusercontent.com/davidaustinm/ula_modules/
       </ul>
     </p>
 
+    <exercise component="proteus-playground"
+              label="ula-proteus-6-4-short-ans-gram-schmidt">
+      <title>Describing the Gram-Schmidt algorithm</title>
+
+      <introduction>
+        <p>Use a couple of sentences to respond to each of the
+        following prompts.</p>
+      </introduction>
+
+      <task label="ula-proteus-6-4-short-ans-gram-schmidt-overall">
+        <statement>
+          <p>What is the purpose of the Gram-Schmidt algorithm?</p>
+        </statement>
+        <response/>
+      </task>
+
+      <task label="ula-proteus-6-4-short-ans-gram-schmidt-step-explain">
+        <statement>
+          <p>Suppose that <m>\vvec_1</m>, <m>\vvec_2</m>,
+          <m>\vvec_3</m>, and <m>\vvec_4</m> form a basis for a
+          subspace of <m>\real^7</m>.  The third step of the
+          Gram-Schmidt algorithm would involve computing
+          <md>
+            \wvec_3 = \vvec_3 -
+            \frac{\vvec_3\cdot\wvec_1}{\wvec_1\cdot\wvec_1}\wvec_1 -
+            \frac{\vvec_3\cdot\wvec_2}{\wvec_2\cdot\wvec_2}\wvec_2
+          </md>.
+          What goal does this step accomplish in the
+          Gram-Schmidt algorithm and why does this specific
+          computation achieve this goal?</p>
+        </statement>
+        <response/>
+      </task>
+
+      <task label="ula-proteus-6-4-short-ans-gram-schmidt-step-vs">
+        <statement>
+          <p>Why would it not be appropriate to compute the following
+          in the third step of the algorithm:
+          <md>
+            \wvec_3 = \vvec_3 -
+            \frac{\vvec_3\cdot\vvec_1}{\vvec_1\cdot\vvec_1}\vvec_1 -
+            \frac{\vvec_3\cdot\vvec_2}{\vvec_2\cdot\vvec_2}\vvec_2
+          </md>?
+          </p>
+        </statement>
+        <response/>
+      </task>
+    </exercise>
+
+    <exercise component="proteus-playground"
+              label="ula-proteus-6-4-parsons-problem-for-gram-schmit">
+      <title>Using Gram-Schmidt to obtain an orthonormal basis</title>
+      <statement>
+        <p>
+          Suppose <m>\{\vvec_1,\vvec_2,\vvec_3\}</m> is a basis of
+          <m>\real^3</m> and that
+          you want to use the Gram-Schmidt process to create an
+          orthonormal basis
+          <m>\{\uvec_1,\uvec_2,\uvec_3\}</m>
+          of   <m>\real^3</m>.
+          Drag some of the following blocks to
+          create a list of steps that will accomplish this.
+        </p>
+      </statement>
+
+      <blocks>
+        <block>
+          <p> Set <m>\wvec_1 = \vvec_1</m>.</p>
+        </block>
+        <block>
+          <p> Find the orthogonal projection
+          <md>\vhat_2=\frac{\vvec_2\cdot \wvec_1}{\wvec_1\cdot\wvec_1}\wvec_1</md>
+          of <m> \vvec_2</m> onto <m>\laspan{\wvec_1}</m>.
+          </p>
+        </block>
+        <block>
+          <p> Compute <m>\wvec_2 = \vvec_2 - \vhat_2</m>.</p>
+        </block>
+        <block>
+          <p> Find the orthogonal projection
+          <md>\vhat_3=\frac{\vvec_3\cdot \wvec_1}{\wvec_1\cdot\wvec_1}\wvec_1+\frac{\vvec_3\cdot \wvec_2}{\wvec_2\cdot\wvec_2}\wvec_2</md>
+          of <m> \vvec_3</m> onto <m>\laspan{\wvec_1,\wvec_2}</m>.
+          </p>
+        </block>
+        <block>
+          <p> Compute <m>\wvec_3 = \vvec_3 - \vhat_3</m>.</p>
+        </block>
+        <block>
+          <p> Divide each of the vectors <m>\wvec_1</m>,
+          <m>\wvec_2</m>, and <m>\wvec_3</m>
+          by its length to give an orthonormal basis
+          <m>\{\uvec_1,\uvec_2,\uvec_3\}</m>
+          of <m>W</m>.
+          </p>
+        </block>
+        <block correct="no">
+          <p> Divide each of the vectors <m>\vvec_1</m>,
+          <m>\vvec_2</m>, and <m>\vvec_3</m>
+          by its length to give an orthonormal basis
+          <m>\{\uvec_1,\uvec_2,\uvec_3\}</m>
+          of <m>W</m>.
+          </p>
+        </block>
+        <block correct="no">
+          <p> Find the orthogonal projection
+          <md>\vhat_3=\frac{\vvec_3\cdot \vvec_1}{\vvec_1\cdot\vvec_1}\vvec_1+\frac{\vvec_3\cdot \vvec_2}{\vvec_2\cdot\vvec_2}\vvec_2</md>
+          of <m> \vvec_3</m> onto <m>\laspan{\vvec_1,\vvec_2}</m>.
+          </p>
+        </block>
+        <block correct="no">
+          <p> Compute <m>\wvec_2 = \vvec_2 + \vhat_2</m>.</p>
+        </block>
+        <block correct="no">
+          <p> Compute <m>\wvec_3 = \vvec_3 + \vhat_3</m>.</p>
+        </block>
+      </blocks>
+    </exercise>
+
+    <exercise component="proteus-playground"
+              label="ula-proteus-6-4-matrix-sizes-and-products-in-QR-factorization">
+      <title>The shapes of a <m>QR</m>-factorization</title>
+      <statement>
+        <p>
+          Suppose  <m>A</m> is a <m>6\times3</m> matrix with linearly
+          independent columns, and suppose <m>A=QR</m> is the
+          <m>QR</m>-factorization of <m>A</m>.
+        </p>
+        <p>
+          Fill in the blanks below:</p>
+          <p>   The matrix <m>R</m> has
+          <fillin answer="3"  width="1" /> rows and
+          <fillin answer="3"  width="1" /> columns.
+          </p>
+          <p> The matrix <m>Q</m> has
+          <fillin answer="6"  width="1" /> rows and
+          <fillin answer="3"  width="1" /> columns.
+          </p>
+          <p> The matrix <m>QQ^T</m> has
+          <fillin answer="6"  width="1" /> rows and
+          <fillin answer="6"  width="1" /> columns.
+          </p>
+          <p> The matrix <m>Q^TQ</m> has
+          <fillin answer="3"  width="1" /> rows and
+          <fillin answer="3"  width="1" /> columns.
+          </p>
+      </statement>
+      <evaluation>
+        <evaluate>
+          <test correct = "yes">
+            <numcmp use-answer="yes" />
+          </test>
+        </evaluate>
+        <evaluate>
+          <test correct = "yes">
+            <numcmp use-answer="yes" />
+          </test>
+        </evaluate>
+        <evaluate>
+          <test correct = "yes">
+            <numcmp use-answer="yes" />
+          </test>
+        </evaluate>
+        <evaluate>
+          <test correct = "yes">
+            <numcmp use-answer="yes" />
+          </test>
+        </evaluate>
+        <evaluate>
+          <test correct = "yes">
+            <numcmp use-answer="yes" />
+          </test>
+        </evaluate>
+        <evaluate>
+          <test correct = "yes">
+            <numcmp use-answer="yes" />
+          </test>
+        </evaluate>
+        <evaluate>
+          <test correct = "yes">
+            <numcmp use-answer="yes" />
+          </test>
+        </evaluate>
+        <evaluate>
+          <test correct = "yes">
+            <numcmp use-answer="yes" />
+          </test>
+        </evaluate>
+      </evaluation>
+    </exercise>
+
+    <exercise component="proteus-playground"
+              label="ula_proteus_Section_6_4_QR_Factorization_True_False">
+      <title>
+        Evaluating the truth or falsity of statements about the
+        <m>QR</m>-factorization
+      </title>
+      <statement>
+       <p>
+          Suppose  <m>A</m> is a <m>6\times3</m> matrix with
+          linearly
+          independent columns and <m>A=QR</m> is the
+          <m>QR</m>-factorization of <m>A</m>.
+       </p>
+       <p>
+          Drag each of the following statements to the appropriate
+          response.
+       </p>
+      </statement>
+      <cardsort>
+        <match>
+          <premise>
+            <m>QQ^T</m> is the identity matrix of the appropriate size.
+          </premise>
+          <premise>
+            <m>Q</m> is an invertible matrix.
+          </premise>
+         <premise>
+            The columns of <m>R</m> form an orthonormal basis of
+            <m>\col(A)</m>.
+          </premise>
+          <response>
+            Never True
+          </response>
+        </match>
+        <match>
+          <premise>
+            <m>Q^TQ</m> is the identity matrix of the appropriate size.
+          </premise>
+          <premise>
+            <m>R</m> is an invertible matrix.
+          </premise>
+         <premise>
+            <m>R=Q^TA</m>.
+          </premise>
+         <premise>
+            The columns of <m>Q</m> form an orthonormal basis of
+            <m>\col(A)</m>.
+          </premise>
+          <response>
+            Always True
+          </response>
+        </match>
+        <match>
+          <premise>
+            <m>R</m> is is a diagonal matrix.
+          </premise>
+          <response>
+            Sometimes True
+          </response>
+        </match>
+      </cardsort>
+    </exercise>
+
   </subsection>
 
   <xi:include href="exercises/exercises6-4.xml" />
