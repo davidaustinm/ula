@@ -1,0 +1,46 @@
+<diagram xmlns="https://prefigure.org"
+         dimensions="(200,180)" margins="5">
+  <definition>eye = (1, 0.6, 0.7) </definition>
+  <definition>dim=0.7</definition>
+  <transform>
+    <center/>
+    <translate by="(0,-10)"/>
+    <set-eye eye="eye"/>
+    <scale3d by="1.5*(70,50,60)"/>
+    <path at="plane" start="proj_2d(dim,dim,0)" fill="lightgray"
+          stroke="gray" closed="yes">
+      <lineto point="proj_2d(dim,-dim,0)"/>
+      <lineto point="proj_2d(-dim,-dim,0)"/>
+      <lineto point="proj_2d(-dim,dim,0)"/>
+    </path>
+    <path at="axes" start="proj_2d(0,0,0)" stroke="black">
+      <lineto point="proj_2d(1,0,0)"/>
+      <moveto point="proj_2d(0,0,0)"/>
+      <lineto point="proj_2d(0,1.2,0)"/>
+      <moveto point="proj_2d(0,0,0)"/>
+      <lineto point="proj_2d(0,0,1)"/>
+    </path>
+
+    <label at="x-label" anchor="proj_2d(1,0,0)" alignment="nw">
+      <m>x</m>
+    </label>
+    <label at="y-label" anchor="proj_2d(0,1.2,0)" alignment="nw">
+      <m>y</m>
+    </label>
+    <label at="z-label" anchor="proj_2d(0,0,1)" alignment="se">
+      <m>z</m>
+    </label>
+  </transform>
+
+  <annotations text="This three dimensional figure shows the standard set of three axes and the plane z equals zero.">
+    <annotation ref="axes"
+                text="The standard set of three coordinate axes">
+      <annotation ref="x-label"/>
+      <annotation ref="y-label"/>
+      <annotation ref="z-label"/>
+    </annotation>
+    <annotation ref="plane"
+                text="The plane defined by the equation z equals zero."/>
+  </annotations>
+</diagram>
+
