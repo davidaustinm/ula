@@ -1,0 +1,57 @@
+<diagram xmlns="https://prefigure.org"
+         dimensions="(300,240)" margins="5">
+  <definition>v1=(0.5,0.15,-0.075)</definition>
+  <definition>v2=(-0.1,0.5,0.1)</definition>
+  <transform>
+    <center/>
+    <set-eye eye="(1,0.45,0.5)"/>
+    <scale3d by="1.2*1.3*(70,70,70)"/>
+    <definition>w=2.5</definition>
+    <polygon at="plane"  points="(proj_2d(w*(v1+v2)),
+                     proj_2d(w*(v1-v2)),
+                     proj_2d(w*(-v1-v2)),
+                     proj_2d(w*(-v1+v2)))"
+             fill="#cccccc" stroke="none" closed="yes"
+             cliptobbox="yes"/>
+
+    <repeat at="grid" parameter="i=-2..2">
+      <line endpoints="(proj_2d(-w*v1 + i*v2),
+                       proj_2d(w*v1+i*v2))"
+            stroke="#808080" thickness="1" cliptobbox="yes"/>
+      <line endpoints="(proj_2d(i*v1 - w*v2),
+                       proj_2d(i*v1+w*v2))"
+            stroke="#808080" thickness="1" cliptobbox="yes"/>
+    </repeat>
+
+    <path at="axes" start="proj_2d(0,0,0)" stroke="black"
+          thickness="1">
+      <lineto point="proj_2d(0,0,1.3)"/>
+      <moveto point="proj_2d(0,0,0)"/>
+      <lineto point="proj_2d(2.2,0,0)"/>
+      <moveto point="proj_2d(0,0,0)"/>
+      <lineto point="proj_2d(0,1.4,0)"/>
+    </path>
+
+    <vector at="v1" v="proj_2d(v1)" stroke="black" thickness="2">
+      <m>\vvec_1</m>
+    </vector>
+    <vector at="v2" v="proj_2d(v2)" stroke="black" alignment="ne"
+            thickness="2">
+      <m>\vvec_2</m>
+    </vector>
+  </transform>
+  <rectangle lower-left="(0,0)" dimensions="(bbox[2],bbox[3])"
+             stroke="black"/>
+
+  <annotations text="The span of these two three dimensional vectors is a plane">
+    <annotation ref="v1"
+                text="The vector v one"/>
+    <annotation ref="v2"
+                text="The vector v two"/>
+    <annotation ref="grid"
+                text="A grid representing some of the linear combinations of v one and v two"/>
+    <annotation ref="plane"
+                text="This plane contains all linear combinations of v one and v two, which means that it is the span of v one and v two"/>
+  </annotations>
+    
+</diagram>

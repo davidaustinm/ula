@@ -1,0 +1,44 @@
+<diagram xmlns="https://prefigure.org"
+         dimensions="(300,240)" margins="5">
+  <definition>v=0.75*(0,1,0.35)</definition>
+  <definition>x_len=1.5</definition>
+  <definition>y_len=1.6</definition>
+  <definition>z_len=1.5</definition>
+  <transform>
+    <center/>
+    <translate by="(-10,-15)"/>
+    <set-eye eye="(1,0.75,0.75)"/>
+    <scale3d by="1.2*(70,70,70)"/>
+    <path at="axes" start="proj_2d(0,0,0)" stroke="black">
+      <lineto point="proj_2d(0,0,z_len)"/>
+      <moveto point="proj_2d(0,0,0)"/>
+      <lineto point="proj_2d(x_len,0,0)"/>
+      <moveto point="proj_2d(0,0,0)"/>
+      <lineto point="proj_2d(0,y_len,0)"/>
+    </path>
+    <line at="line" endpoints="(proj_2d(-2*v), proj_2d(2.2*v))"
+          stroke="#808080"/>
+    <vector at="v" tail="proj_2d(0,0,0)" v="proj_2d(v)" stroke="blue"
+            alignment="nw">
+      <m>\vvec</m>
+    </vector>
+    <label anchor="proj_2d(x_len,0,0)" alignment="nw">
+      <m>x</m>
+    </label>
+    <label anchor="proj_2d(0,y_len,0)" alignment="east">
+      <m>y</m>
+    </label>
+    <label anchor="proj_2d(0,0,z_len)" alignment="se">
+      <m>z</m>
+    </label>
+  </transform>
+
+  <annotations text="The span of a single vector is a line">
+    <annotation ref="axes"
+                text="A set of three dimensional coordinate axes"/>
+    <annotation ref="v"
+                text="The vector v"/>
+    <annotation ref="line"
+                text="The line that is the span of v"/>
+  </annotations>
+</diagram>
