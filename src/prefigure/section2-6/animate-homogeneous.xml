@@ -1,0 +1,103 @@
+<diagram xmlns="https://prefigure.org"
+         dimensions="(300, 240)" margins="5">
+  <templates>
+    <line thickness="1"/>
+  </templates>
+  <transform>
+    <set-eye eye="(0.8,0.63,0.5)"/>
+    <center/>
+    <translate by="(0,-25)"/>
+    <scale3d by="1.5*(57,50,57)"/>
+
+    <path at="axes-1" start="proj_2d(0,0,0)" stroke="black" thickness="1">
+      <lineto point="proj_2d(1.4,0,0)"/>
+      <moveto point="proj_2d(0,0,0)"/>
+      <lineto point="proj_2d(0,1.4,0)"/>
+    </path>
+
+    <label at="label-z" anchor="proj_2d(0,0,1.4)"
+           alignment="ne" offset="(-3,3)">
+      <m>z</m>
+    </label>
+    <label at="label-x" anchor="proj_2d(1.4,0,0)"
+           alignment="se" offset="(3,-3)">
+      <m>x</m>
+    </label>
+    <label at="label-y" anchor="proj_2d(0,1.4,0)"
+           alignment="nw" offset="(-3,3)">
+      <m>y</m>
+    </label>
+
+    <transform>
+      <scale3d by="(0.25,0.25,0.25)"/>
+
+      <define-shapes>
+        <polygon at="polygon"
+                 points="(proj_2d(-4,-4,1), proj_2d(-4,4,1), proj_2d(4,4,1), proj_2d(4,-4,1))"
+                 closed="yes"/>
+      </define-shapes>
+
+      <shape at="plane" shape="polygon" fill="#e5e5e5" stroke="none"/>
+
+      <transform>
+        <scale3d by="(4,4,4)"/>
+        <clip shape="polygon">
+          <path at="axes-poly" start="proj_2d(0,0,0)" stroke="#808080"
+                thickness="1">
+            <lineto point="proj_2d(0,0,1.4)"/>
+            <moveto point="proj_2d(0,0,0)"/>
+            <lineto point="proj_2d(1.4,0,0)"/>
+            <moveto point="proj_2d(0,0,0)"/>
+            <lineto point="proj_2d(0,1.4,0)"/>
+          </path>
+        </clip>
+
+      </transform>
+
+      <repeat at="grid" parameter="i=-4..4">
+        <line endpoints="(proj_2d(i,-4,1),proj_2d(i,4,1))"
+                stroke="lightgray"/>
+        <line endpoints="(proj_2d(-4,i,1),proj_2d(4,i,1))"
+                stroke="lightgray"/>
+      </repeat>
+
+      <line at="axis-z" endpoints="(proj_2d(0,0,1), proj_2d(0,0,5.6))"
+            stroke="black"/>
+      <line at="plane-axis-x"
+            endpoints="(proj_2d(-4,0,1), proj_2d(4,0,1))" stroke="black"/>
+      <line at="plane-axis-y"
+            endpoints="(proj_2d(0,-4,1), proj_2d(0,4,1))" stroke="black"/>
+
+      <definition>f(t)=proj_2d(0.25*sin(t), 2-0.5*cos(t),1)</definition>
+      <path at="char" start="proj_2d(0.5,0,1)" stroke="blue" thickness="1">
+        <lineto point="proj_2d(0,0.5,1)"/>
+        <lineto point="proj_2d(-0.5,0,1)"/>
+        <moveto point="proj_2d(0.5,1.5,1)"/>
+        <lineto point="proj_2d(-0.5,0.5,1)"/>
+        <moveto point="proj_2d(0,0.5,1)"/>
+        <lineto point="proj_2d(0,1.5,1)"/>
+        <parametric-curve function="f" domain="(0,2*pi)"/>
+      </path>
+    </transform>
+  </transform>
+
+  <annotations text="The character is drawn in homogeneous coordinates so that it resides in the plane z equals one">
+    <annotation ref="axes-group"
+                text="A set of three dimensional coordinate axes">
+      <annotation ref="axes-1"/>
+      <annotation ref="label-x"/>
+      <annotation ref="label-y"/>
+      <annotation ref="label-z"/>
+      <annotation ref="axis-z"/>
+      <annotation ref="axes-poly"/>
+    </annotation>
+    <annotation ref="plane-group"
+                text="The plane z equals one">
+      <annotation ref="plane-axis-x"/>
+      <annotation ref="plane-axis-y"/>
+      <annotation ref="grid"/>
+    </annotation>
+    <annotation ref="char"
+                text="The character drawn in the plane z equals one"/>
+  </annotations>
+</diagram>

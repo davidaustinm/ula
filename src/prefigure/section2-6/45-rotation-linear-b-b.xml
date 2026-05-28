@@ -1,0 +1,41 @@
+<diagram xmlns="https://prefigure.org"
+         dimensions="(300, 300)" margins="5">
+  <definition>v=(2,1)</definition>
+  <definition>w=(-1,3)</definition>
+  <coordinates bbox="(-5,-5,5,5)">
+    <grid-axes decorations="no" spacings="((-5,1,5),(-5,1,5))"/>
+    <transform>
+      <rotate by="45"/>
+      <vector at="v" v="v" stroke="gray" alignment="se">
+        <m>T(\vvec)</m>
+      </vector>
+      <vector at="w" v="w" stroke="gray" alignment="sw" offset="(3,0)">
+        <m>T(\wvec)</m>
+      </vector>
+      <vector at="v-trans" v="v" tail="w" stroke="gray"/>
+      <vector at="w-trans" v="w" tail="v" stroke="gray"/>
+      <vector at="sum" v="v+w" fill="blue" stroke="blue" alignment="nw"
+              offset="(6,-7)">
+        <m>T(\vvec+\wvec)</m>
+      </vector>
+    </transform>
+  </coordinates>
+
+  <annotations text="The parallelogram representing the sum of two vectors v and w rotated by 45 degrees by the matrix transformation T">
+    <annotation ref="group"
+                text="The parallelogram formed by T of v and T of w">
+      <annotation ref="v-sides"
+                  text="Opposite sides of the parallelogram formed by T of v">
+        <annotation ref="v"/>
+        <annotation ref="v-trans"/>
+      </annotation>
+      <annotation ref="w-sides"
+                  text="Opposite sides of the parallelogram formed by T of w">
+        <annotation ref="w"/>
+        <annotation ref="w-trans"/>
+      </annotation>
+    </annotation>
+    <annotation ref="sum"
+                text="The sum T of v plus T of w is the diagonal of the parallelogram"/>
+  </annotations>
+</diagram>
