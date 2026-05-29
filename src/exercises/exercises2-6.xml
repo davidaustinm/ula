@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<exercises>
+<exercises xmlns:xi="http://www.w3.org/2001/XInclude">
 
   <exercise>
     <statement>
@@ -281,22 +281,25 @@
       </p>
 
       <figure xml:id="fig-3d-basis">
-	<sidebyside width="40%">
-	  <image source="images/3d-basis">
-            <shortdescription>
-              A set of three dimensional coordinate axes with a vector
-              of length one drawn on each of the axes.
-            </shortdescription>
-            <description>
-              <p>A set of three dimensional coordinate axes.  Each
-              coordinate axis contains a vector of length one pointing
-              in the direction in which the coordinate increases.  In
-              particular, we have <m>\evec_1=\threevec100</m>,
-              <m>\evec_2=\threevec010</m>, and
-              <m>\evec_3=\threevec001</m>.</p>
-            </description>
-          </image>
-	</sidebyside>
+	<image width="50%">
+          <shortdescription>
+            A set of three dimensional coordinate axes with a vector
+            of length one drawn on each of the axes.
+          </shortdescription>
+          <description>
+            <p>A set of three dimensional coordinate axes.  Each
+            coordinate axis contains a vector of length one pointing
+            in the direction in which the coordinate increases.  In
+            particular, we have <m>\evec_1=\threevec100</m>,
+            <m>\evec_2=\threevec010</m>, and
+            <m>\evec_3=\threevec001</m>.</p>
+          </description>
+          <prefigure xmlns="https://prefigure.org"
+                     label="pf-3d-basis">
+            <xi:include href="prefigure/3d-basis-2-6.xml"/>
+          </prefigure>
+        </image>
+
 	<caption>
 	  The vectors 
 	  <m>\evec_1</m>, <m>\evec_2</m>, and 
@@ -622,24 +625,63 @@
       </p>
 
       <figure xml:id="fig-ex-rotate-about-p">
-	<sidebyside width="65%">
-	  <image source="images/ex-rotate-about-p">
-            <shortdescription>
-              A set of four diagrams illustrating how to rotate a
-              vector about a point other than the origin.
-            </shortdescription>
-            <description>
-              <p>This is a set of four diagrams.  In the upper left is
-              an arrow beginning at the point
-              <m>(1,2)</m>.  In the upper right diagram, the arrow
-              has been translated so that it begins at the origin.</p>
-              <p>In the lower left, the arrow beginning at the origin
-              has been rotated about the origin.  Finally, the diagram
-              in the lower right shows the rotated vector translated
-              back so that it begins at the point <m>(1,2)</m>.</p>
-            </description>
-          </image>
-	</sidebyside>
+	<sbsgroup widths="45% 45%">
+          <sidebyside>
+	    <image>
+              <shortdescription>
+                We wish to rotate this vector based at the point one two
+              </shortdescription>
+              <description>
+                <p>We begin with a vector based at the point
+                <m>(1,2)</m>.</p>
+              </description>
+              <prefigure xmlns="https://prefigure.org"
+                         label="pf-ex-rotate-about-p-a">
+                <xi:include href="prefigure/ex-rotate-about-p-a.xml"/>
+              </prefigure>
+            </image>
+	    <image>
+              <shortdescription>
+                We translate the vector so that it is based at the origin
+              </shortdescription>
+              <description>
+                <p>The vector has been translated so that it is based at
+                the origin.</p>
+              </description>
+              <prefigure xmlns="https://prefigure.org"
+                         label="pf-ex-rotate-about-p-b">
+                <xi:include href="prefigure/ex-rotate-about-p-b.xml"/>
+              </prefigure>
+            </image>
+	  </sidebyside>
+          <sidebyside>
+	    <image>
+              <shortdescription>
+                We next rotate the translated vector by 90 degrees
+              </shortdescription>
+              <description>
+                <p>We next rotate the translated vector by 90 degrees</p>
+              </description>
+              <prefigure xmlns="https://prefigure.org"
+                         label="pf-ex-rotate-about-p-c">
+                <xi:include href="prefigure/ex-rotate-about-p-c.xml"/>
+              </prefigure>
+            </image>
+	    <image>
+              <shortdescription>
+                Finally, we translate the vector back to the point one two
+              </shortdescription>
+              <description>
+                <p>Finally, we translate the vector back to the point
+                <m>(1,2)</m>.</p>
+              </description>
+              <prefigure xmlns="https://prefigure.org"
+                         label="pf-ex-rotate-about-p-d">
+                <xi:include href="prefigure/ex-rotate-about-p-d.xml"/>
+              </prefigure>
+            </image>
+	  </sidebyside>
+        </sbsgroup>
 	<caption>
 	  A sequence of matrix transformations that, when read right
 	  to left and top to bottom, rotate a vector about the point
@@ -807,19 +849,34 @@
       </p>
       
       <figure xml:id="fig-ex-projection">
-	<sidebyside width="75%">
-	  <image source="images/v-projection">
+	<sidebyside widths="45% 45%">
+	  <image>
             <shortdescription>
-              Two diagrams that show a vector and its vertical
-              projection onto the horizontal axis.
+              The vector x whose components are two three
             </shortdescription>
             <description>
-              <p>The diagram on the left shows a vector <m>\xvec =
-              \twovec23</m>.  The matrix transformation <m>T</m>
-              projects vertically onto the horizontal axis so that the
-              diagram on the right shows the vector <m>T(\xvec) =
+              <p>The vector <m>\xvec =
+              \twovec23</m>.</p>
+            </description>
+            <prefigure xmlns="https://prefigure.org"
+                       label="v-projection-a">
+              <xi:include href="prefigure/v-projection-a.xml"/>
+            </prefigure>
+          </image>
+	  <image>
+            <shortdescription>
+              The vector x whose components are two three
+            </shortdescription>
+            <description>
+              <p>The matrix transformation <m>T</m>
+              projects vertically onto the horizontal axis so that
+              <m>T(\xvec) =
               \twovec20</m>.</p>
             </description>
+            <prefigure xmlns="https://prefigure.org"
+                       label="v-projection-b">
+              <xi:include href="prefigure/v-projection-b.xml"/>
+            </prefigure>
           </image>
 	</sidebyside>
 	<caption>
@@ -1028,8 +1085,8 @@
       </p>
 
       <figure xml:id="fig-ex-complex-polar">
-	<sidebyside width="40%">
-	  <image source="images/ex-complex-polar">
+	<sidebyside width="50%">
+	  <image>
             <shortdescription>
               A vector is represented by an arrow with its length
               and the angle with the horizontal axis indicated.
@@ -1040,6 +1097,10 @@
               is denoted by <m>r</m> and the angle with the positive
               horizontal axis by <m>\theta</m>.</p>
             </description>
+            <prefigure xmlns="https://prefigure.org"
+                       label="pf-ex-complex-polar">
+              <xi:include href="prefigure/ex-complex-polar.xml"/>
+            </prefigure>
           </image>
 	</sidebyside>
 	<caption>
@@ -1233,22 +1294,24 @@
       </p>
 
       <figure xml:id="fig-ex-reflection-def">
-	<sidebyside width="40%">
-	  <image source="images/ex-reflection-def">
-            <shortdescription>
-              A line, a vector x, and the result of reflecting x in
-              the line.
-            </shortdescription>
-            <description>
-              <p>The line <m>L_\theta</m> that makes an angle
-              <m>\theta</m> with the
-              positive horizontal axis along with a vector
-              <m>\xvec</m>.  The result of reflecting <m>\xvec</m> in
-              the line <m>L_\theta</m> is shown and denoted by
-              <m>T(\xvec)</m>.</p>
-            </description>
-          </image>
-	</sidebyside>
+	<image width="50%">
+          <shortdescription>
+            A line, a vector x, and the result of reflecting x in
+            the line.
+          </shortdescription>
+          <description>
+            <p>The line <m>L_\theta</m> that makes an angle
+            <m>\theta</m> with the
+            positive horizontal axis along with a vector
+            <m>\xvec</m>.  The result of reflecting <m>\xvec</m> in
+            the line <m>L_\theta</m> is shown and denoted by
+            <m>T(\xvec)</m>.</p>
+          </description>
+          <prefigure xmlns="https://prefigure.org"
+                     label="pf-ex-reflection-def">
+            <xi:include href="prefigure/ex-reflection-def.xml"/>
+          </prefigure>
+        </image>
 	<caption>
 	  The reflection across the line <m>L_\theta</m>.
 	</caption>
@@ -1267,28 +1330,75 @@
 	<m>L_\theta</m>. 
       </p>     
       <figure xml:id="fig-ex-reflection-compose">
-	<sidebyside width="90%">
-	  <image source="images/ex-reflection-compose">
-            <shortdescription>
-              A series of four diagrams that decompose the reflection
-              in a line into simpler transformations.
-            </shortdescription>
-            <description>
-              <p>In the upper left diagram is shown a line and a vector
-              <m>\xvec</m>.  In the upper right is shown the result of
-              rotating the line clockwise so that the line becomes
-              the horizontal axis.  The rotated vector is denoted by
-              <m>R(\xvec)</m>.</p>
-              <p>In the lower left, the result of reflecting
-              <m>R(\xvec)</m> in the horizontal axis is shown and
-              denoted by <m>S(R(\xvec))</m>.  Finally, in the lower
-              right, the horizontal axis is rotated counterclockwise
-              back into the
-              original line.  The resulting vector is now denoted as
-              <m>T(S(R(\xvec)))</m>.</p>
-            </description>
-          </image>
-	</sidebyside>
+        <sbsgroup widths="45% 45%">
+	  <sidebyside>
+	    <image>
+              <shortdescription>
+                A line that makes an angle theta with the horizontal
+                axis and a vector x
+              </shortdescription>
+              <description>
+                <p>A line that makes an angle <m>\theta</m> with the
+                positive horizontal axis and a vector
+                <m>\xvec</m>.</p>
+              </description>
+              <prefigure xmlns="https://prefigure.org"
+                         label="pf-ex-reflection-compose-a">
+                <xi:include
+                    href="prefigure/ex-reflection-compose-a.xml"/>
+              </prefigure>
+            </image>
+	    <image>
+              <shortdescription>
+                The vector and the line have been rotated by an angle
+                negative theta
+              </shortdescription>
+              <description>
+                <p>The line has been rotated clockwise
+                so that the line lies on
+                the horizontal axis.  The rotated vector is denoted by
+                <m>R(\xvec)</m>.</p>
+              </description>
+              <prefigure xmlns="https://prefigure.org"
+                         label="pf-ex-reflection-compose-b">
+                <xi:include
+                    href="prefigure/ex-reflection-compose-b.xml"/>
+              </prefigure>
+            </image>
+	  </sidebyside>
+	  <sidebyside>
+	    <image>
+              <shortdescription>
+                The rotated vector is next reflected across the
+                horizontal axis
+              </shortdescription>
+              <description>
+                <p>The result of reflecting <m>R(\xvec)</m> in the
+                horizontal axis to obtain <m>S(R(\xvec))</m>.</p>
+              </description>
+              <prefigure xmlns="https://prefigure.org"
+                         label="pf-ex-reflection-compose-c">
+                <xi:include
+                    href="prefigure/ex-reflection-compose-c.xml"/>
+              </prefigure>
+            </image>
+	    <image>
+              <shortdescription>
+                Finally the line and vector are rotated by an angle theta
+              </shortdescription>
+              <description>
+                <p>Finally, the line and vector are rotated
+                counterclockwise by <m>\theta</m> to obtain the vector
+                <m>T(S(R(\xvec)))</m>.</p>
+              </description>
+              <prefigure xmlns="https://prefigure.org"
+                         label="pf-ex-reflection-compose-d">
+                <xi:include
+                    href="prefigure/ex-reflection-compose-d.xml"/>
+              </prefigure>
+            </image>
+	  </sidebyside>
+        </sbsgroup>
 	<caption>
 	  Reflection in the line <m>L_\theta</m> as a composition of three
 	  transformations.

@@ -1,0 +1,62 @@
+<diagram xmlns="https://prefigure.org"
+         dimensions="(250,225)" margins="5">
+  <definition>eye = (1, 0.6, 0.7) </definition>
+  <definition>dim=0.7</definition>
+  <transform>
+    <center/>
+    <translate by="(-10,-15)"/>
+    <set-eye eye="eye"/>
+    <scale3d by="1.7*(52,50,50)"/>
+
+    <group at="x-axis">
+      <line endpoints="(proj_2d(0,0,0), proj_2d(1.5,0,0))" stroke="black"/>
+      <label at="x-label" anchor="proj_2d(1.5,0,0)" alignment="nw">
+        <m>x</m>
+      </label>
+    </group>
+    <group at="y-axis">
+      <line endpoints="(proj_2d(0,0,0), proj_2d(0,1.5,0))" stroke="black"/>
+      <label at="y-label" anchor="proj_2d(0,1.5,0)" alignment="nw">
+        <m>y</m>
+      </label>
+    </group>
+    <group at="z-axis">
+      <line endpoints="(proj_2d(0,0,0), proj_2d(0,0,1.5))" stroke="black"/>
+      <label at="z-label" anchor="proj_2d(0,0,1.5)" alignment="se">
+        <m>z</m>
+      </label>
+    </group>
+
+    <vector at="e1" v="proj_2d(1,0,0)" stroke="blue" alignment="e"
+            offset="(6,0)">
+      <m>\evec_1</m>
+    </vector>
+    <vector at="e2" v="proj_2d(0,1,0)" stroke="blue" alignment="s">
+      <m>\evec_2</m>
+    </vector>
+    <vector at="e3" v="proj_2d(0,0,1)" stroke="blue" alignment="w">
+      <m>\evec_3</m>
+    </vector>
+  </transform>
+
+  <annotations text="The vectors e one, e two, and e three drawn in three dimensions.">
+    <annotation ref="axes"
+                text="A set of three dimensional coordinate axes">
+      <annotation ref="x-axis"/>
+      <annotation ref="y-axis"/>
+      <annotation ref="z-axis"/>
+    </annotation>
+    <annotation ref="e1"
+                text="The vector e one has length one and points along the x axis">
+      <annotation ref="x-axis"/>
+    </annotation>
+    <annotation ref="e2"
+                text="The vector e two has length one and points along the y axis">
+      <annotation ref="y-axis"/>
+    </annotation>
+    <annotation ref="e3"
+                text="The vector e three has length one and points along the z axis">
+      <annotation ref="z-axis"/>
+    </annotation>
+  </annotations>
+</diagram>
