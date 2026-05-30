@@ -1,0 +1,75 @@
+<diagram xmlns="https://prefigure.org"
+         dimensions="(350, 350)" margins="5">
+  <rectangle lower-left="(0,0)" dimensions="(350,350)" stroke="black"/>
+  <definition>v1=(1,0)</definition>
+  <definition>v2=(cos(2*pi/3), sin(2*pi/3))</definition>
+  <definition>verts=((0,0),v1,2*v1+v2,2*(v1+v2),v1+2*v2, v2)</definition>
+  <coordinates bbox="(-1,-1,5,5)">
+
+    <vector at="v1" v="0.9*v1" stroke="black" alignment="sw">
+      <m>\vvec_1</m>
+    </vector>
+    <vector at="v2" v="0.9*v2" stroke="black" alignment="sw">
+      <m>\vvec_2</m>
+    </vector>
+
+    <repeat at="atoms" parameter="i=-1..3">
+      <repeat parameter="j=-2..3">
+        <transform>
+          <translate by="j*(v1+2*v2) + i*(v1-v2)"/>
+          <polygon points="verts" cliptobbox="yes"
+                   closed="yes" stroke="black"/>
+          <repeat parameter="p in verts">
+            <point p="p" fill="lightblue" size="10" cliptobbox="yes"/>
+          </repeat>
+        </transform>
+      </repeat>
+    </repeat>
+
+    <repeat at="origin" parameter="p in verts">
+      <point p="p" size="10" fill="yellow"/>
+    </repeat>
+
+    <point at="0" p="(0,0)" size="10" fill="yellow"/>
+    <label at="0-label" anchor="(0,0)" alignment="c">0</label>
+    
+    <point at="C" p="v1+v2" size="10" fill="lightgray"/>
+    <label at="C-label" anchor="v1+v2" alignment="c">C</label>
+
+    <transform>
+      <translate by="4*v1+2*v2"/>
+      <repeat at="translate" parameter="p in verts">
+        <point p="p" size="10" fill="lightgray"/>
+      </repeat>
+      <point at="1" p="(0,0)" size="10" fill="lightgray" alignment="c"/>
+      <label at="1-label" anchor="(0,0)" alignment="c">1</label>
+    </transform>
+  </coordinates>
+
+  <annotations text="A group of carbon atoms forming a layer of graphite">
+    <annotation ref="atoms"
+                text="The carbon atoms are arranged in a hexagonal grid"/>
+    <annotation ref="v1"
+                text="A basis vector v one"/>
+    <annotation ref="v2"
+                text="A basis vector v two"/>
+    <annotation ref="origin"
+                text="A hexagonal ring of carbon atoms">
+      <annotation ref="0"
+                  text="The lower left carbon atom is labeled 0">
+        <annotation ref="0-label"/>
+      </annotation>
+      <annotation ref="C"
+                  text="The location in the center of this hexagonal ring is labeled C">
+        <annotation ref="C-label"/>
+      </annotation>
+    </annotation>
+    <annotation ref="translate"
+                text="A second hexagonal ring of carbon atoms">
+      <annotation ref="1"
+                  text="The lower left carbon atom is labeled 1">
+        <annotation ref="1-label"/>
+      </annotation>
+    </annotation>
+  </annotations>
+</diagram>
