@@ -1,0 +1,57 @@
+<diagram xmlns="https://prefigure.org"
+         dimensions="(250, 250)" margins="5">
+  <coordinates bbox="(-3.5,-3.5,3.5,3.5)">
+    <define-shapes>
+      <rectangle at="border" lower-left="(-3.5,-3.5)" dimensions="(7,7)"/>
+    </define-shapes>
+
+    <clip shape="border">
+      <transform>
+        <change-basis basis="((1,0.5),(-0.5,0.75))"/>
+        <repeat at="grid" parameter="i=-5..5">
+          <line endpoints="((i,-10),(i,10))" stroke="gray"
+                thickness="1"/>
+          <line endpoints="((-10,i),(10,i))" stroke="gray"
+                thickness="1"/>
+        </repeat>
+        <line at="maple" endpoints="((-5,-1),(5,-1))" stroke="darkgray"
+              offset="(0,3)" clear-background="yes">
+          <b>Maple</b>
+        </line>
+        <line at="main" endpoints="((2,-5),(2,5))" stroke="darkgray"
+              label-location="-0.45" offset="(0,3)"
+              clear-background="yes">
+          <b>Main</b>
+        </line>
+      </transform>
+      <point at="house" p="(-1.5,-1.75)" fill="blue"
+             alignment="se" clear-background="yes">
+        <b>House</b>
+      </point>
+      <point at="store" p="(1,2.5)" fill="red" alignment="sw"
+             clear-background="yes">
+        <b>Store</b>
+      </point>
+      <vector at="north" v="(0,1.2)" tail="(-2.9,0.5)"
+              fill="black" stroke="black"
+              alignment="east" offset="(6,0)" label-location="0.5">
+        <b>N</b>
+      </vector>
+    </clip>
+    <shape shape="border" stroke="black" thickness="2"/>
+  </coordinates>
+
+  <annotations text="A map of a city with streets and two locations shown">
+    <annotation ref="north"
+                text="North is in the upward direction on this map"/>
+    <annotation ref="grid"
+                text="The streets, however, do not run exactly north and south"/>
+    <annotation ref="house" text="Here is your house on Maple street">
+      <annotation ref="maple"/>
+    </annotation>
+    <annotation ref="store"
+                text="We would like to visit the store on Main street">
+      <annotation ref="main"/>
+    </annotation>
+  </annotations>
+</diagram>
