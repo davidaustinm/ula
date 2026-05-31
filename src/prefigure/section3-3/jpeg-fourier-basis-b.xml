@@ -1,0 +1,24 @@
+<diagram xmlns="https://prefigure.org"
+         dimensions="(250, 200)" margins="(30,5,5,5)">
+  <definition>j=1</definition>
+  <definition>f(t)=cos((2*t+1)*j*pi/16)</definition>
+  <definition>strings=['first','second','third','fourth','fifth','sixth','seventh','eighth']</definition>
+  <coordinates bbox="(0,-1.25,7,1.25)">
+    <axes at="axes" hlabels="(0,1,7)" vlabels="(-1,1,1)">
+      <ylabel alignment="se"><m>\vvec_{${j}}</m></ylabel>
+    </axes>
+    <graph at="graph" function="f" stroke="gray"/>
+    <repeat at="components" parameter="k=0..7"
+            annotate="yes" text="The components of the basis vector">
+      <point at="point" p="(k, f(k))" fill="blue"
+             annotate="yes" text="The ${strings[k]} component"/>
+    </repeat>
+  </coordinates>
+
+  <annotations text="The second basis vector v one">
+    <annotation ref="axes" text="A set of axes to represent the values of the components"/>
+    <annotation ref="graph"
+                text="The graph of the function that describes the values of the components"/>
+    <annotation ref="components"/>
+  </annotations>
+</diagram>
