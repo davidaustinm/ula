@@ -1,0 +1,23 @@
+<diagram xmlns="https://prefigure.org"
+         dimensions="(250, 250)" margins="5">
+  <definition>stretch=1.35</definition>
+  <definition>rotate=0.33</definition>
+  <definition>x=[[1.5,0], [2,0], [3,0], [4,0], [5,0]]</definition>
+  <coordinates bbox="(-6,-6,6,6)">
+    <grid spacings="((-6,1,6),(-6,1,6))"/>
+    <repeat parameter="p in x">
+      <repeat parameter="k=0..3">
+        <definition>l=length(p)</definition>
+        <definition>angle=atan2(p[1],p[0])</definition>
+        <definition>f(t)=l*stretch**t*(cos(angle+t*rotate),sin(angle+t*rotate))</definition>
+        <parametric-curve function="f" stroke="blue" domain="(-10,10)"
+                          arrows="1" arrow-location="0.5"
+                          cliptobbox="yes"/>
+        <repeat parameter="k=0..4">
+          <point p="f(k)" size="2.5" fill="black" stroke="none"/>
+        </repeat>
+        <definition>p=(-p[1],p[0])</definition>
+      </repeat>
+    </repeat>
+  </coordinates>
+</diagram>

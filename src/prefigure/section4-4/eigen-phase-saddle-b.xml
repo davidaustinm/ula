@@ -1,0 +1,41 @@
+<diagram xmlns="https://prefigure.org"
+         dimensions="(250, 250)" margins="5">
+  <definition>lambda1=1.4</definition>
+  <definition>lambda2=0.8</definition>
+  <definition>g(t,x)=(lambda1**t * x[0], lambda2**t * x[1])</definition>
+  <definition>x=[[1,0], [1,1], [2,2], [3,3], [4,4], [5,5], [0,1]]</definition>
+  <definition>v1=(1,0.5)</definition>
+  <definition>v2=(-1,1)</definition>
+  <coordinates bbox="(-6,-6,6,6)">
+    <repeat at="grid" parameter="i=-6..6">
+      <line endpoints="(i*v1,i*v1+v2)" stroke="lightgray" infinite="yes"/>
+      <line endpoints="(i*v2,i*v2+v1)" stroke="lightgray" infinite="yes"/>
+    </repeat>
+    <axes at="std-axes" decorations="no"/>
+    <transform>
+      <change-basis basis="(v1, v2)"/>
+      <repeat at="curves" parameter="p in x"
+              annotate="yes" text="A set of trajectories">
+        <repeat at="permute" parameter="k=0..3">
+          <definition>f(t)=g(t,p)</definition>
+          <parametric-curve function="f" stroke="blue" domain="(-10,10)"
+                            arrows="1" arrow-location="-0.5"
+                            cliptobbox="yes"/>
+          <repeat at="iterates" parameter="k=-2..2">
+            <point p="f(2*k)" size="2.5" fill="black" stroke="none"
+                   cliptobbox="yes"/>
+          </repeat>
+          <definition>p=(-p[1],p[0])</definition>
+        </repeat>
+      </repeat>
+    </transform>
+  </coordinates>
+
+  <annotations text="Trajectories for a saddle shown in the standard coordinate system">
+    <annotation ref="std-axes"
+                text="The standard axes"/>
+    <annotation ref="grid"
+                text="A coordinate grid defined by the eigenvectors"/>
+    <annotation ref="curves"/>
+  </annotations>
+</diagram>

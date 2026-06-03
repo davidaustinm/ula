@@ -1,0 +1,71 @@
+<diagram xmlns="https://prefigure.org"
+         dimensions="(250, 150)" margins="5">
+  <coordinates bbox="(-2.5,-1,5.5,4)">
+    <definition>jp=(2,3)</definition>
+    <definition>yp=(4,0)</definition>
+    <definition>ap=(0,0)</definition>
+
+    <line at="jp-yp" endpoints="(jp,yp)" additional-arrows="0.5"
+          stroke="black"/>
+    <line at="yp-ap" endpoints="(yp,ap)" additional-arrows="0.5"
+          stroke="black"/>
+    <line at="ap-jp" endpoints="(ap,jp)" additional-arrows="0.5"
+          stroke="black"/>
+
+    <label at="jp-yp-label" anchor="0.5*(jp+yp)" alignment="east"
+           offset="(4,0)">80%</label>
+    <label at="yp-ap-label" anchor="0.5*(yp+ap)" alignment="south"
+           offset="(0,-4)">90%</label>
+    <label at="ap-jp-label" anchor="0.5*(ap+jp)" alignment="west"
+           offset="(-4,0)">40%</label>
+
+    <definition>ap_dims=(1.7,1.2)</definition>
+
+    <angle-marker at="ap-ap"
+                  points="(ap+0.5*ap_dims, ap+0.5*(-ap_dims[0],ap_dims[1]),ap-0.5*ap_dims)" arrow="yes" radius="22" stroke="black"/>
+    <label at="ap-ap-label" anchor="ap+0.5*(-ap_dims[0],ap_dims[1])"
+           offset="22/sqrt(2)*(-1,1)+(0,-4)" alignment="nw">80%</label>
+
+    <rectangle at="ap" center="ap" dimensions="(1.7,1.2)"
+               fill="white" stroke="black"/>
+    <rectangle at="yp" center="yp" dimensions="(2.3,1.2)"
+               fill="white" stroke="black"/>
+    <rectangle at="jp" center="jp" dimensions="(2.3,1.2)"
+               fill="white" stroke="black"/>
+    <label at="ap-label" anchor="ap" alignment="center">Adults</label>
+    <label at="yp-label" anchor="yp" alignment="center">Yearlings</label>
+    <label at="jp-label" anchor="jp" alignment="center">Juveniles</label>
+
+  </coordinates>
+
+  <annotations text="This diagram represents the three populations of bisons and the percentages that move form one populations to another in a given year">
+    <annotation ref="jp"
+                text="The juvenile population">
+      <annotation ref="jp-label"/>
+    </annotation>
+    <annotation ref="yp"
+                text="The yearling population">
+      <annotation ref="yp-label"/>
+    </annotation>
+    <annotation ref="ap"
+                text="The adult population">
+      <annotation ref="ap-label"/>
+    </annotation>
+    <annotation ref="jp-yp"
+                text="Each year, eighty percent of the juvenile survive to be yearlings">
+      <annotation ref="jp-yp-label"/>
+    </annotation>
+    <annotation ref="yp-ap"
+                text="Each year, ninety percent of the yearlings survive to adulthood">
+      <annotation ref="yp-jp-label"/>
+    </annotation>
+    <annotation ref="ap-ap"
+                text="Each year, eighty percent of the adults survive">
+      <annotation ref="ap-ap-label"/>
+    </annotation>
+    <annotation ref="ap-jp"
+                text="Each year, forty percent of the adults give birth to a juvenile">
+      <annotation ref="ap-jp-label"/>
+    </annotation>
+  </annotations>
+</diagram>

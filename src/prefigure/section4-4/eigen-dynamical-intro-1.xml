@@ -1,0 +1,52 @@
+<diagram xmlns="https://prefigure.org"
+         dimensions="(250, 250)" margins="5">
+  <definition>v1=(2,1)</definition>
+  <definition>v2=(-2,1)</definition>
+  <definition>lambda1=1.3</definition>
+  <definition>lambda2=0.5</definition>
+  <definition>f(t)=(2*lambda1 ** t, lambda2 ** t)</definition>
+  <definition>x=(2,1)</definition>
+  <definition>text=("x naught","x one", "x two", "x three")</definition>
+  
+  <coordinates bbox="(-8,-8,8,8)">
+    <repeat at="grid" parameter="i=-5..5">
+      <line endpoints="(i*v1,i*v1+v2)" infinite="yes"
+            stroke="#bbb" thickness="1"/>
+      <line endpoints="(i*v2,i*v2+v1)" infinite="yes"
+            stroke="#bbb" thickness="1"/>
+    </repeat>
+    <group at="axes">
+      <line endpoints="((0,0),v1)" infinite="yes" stroke="black"/>
+      <line endpoints="((0,0),v2)" infinite="yes" stroke="black"/>
+    </group>
+
+    <axes at="std-axes" decorations="no" thickness="1"/>
+      
+    <transform>
+      <change-basis basis="(v1, v2)"/>
+      <parametric-curve at="curve" function="f" domain="(-10,10)"
+                        arrows="1" arrow-width="5"
+                        arrow-location="-1" stroke="blue"/>
+      <repeat at="points" parameter="k=0..2"
+              annotate="yes" text="Successive iterations of the state vector">
+        <point at="point" p="f(k)" fill="black" stroke="no"
+               annotate="yes" text="${text[k]}" cliptobbox="yes"/>
+      </repeat>
+      <label anchor="x" alignment="n"
+             offset="(0,7)" clear-background="yes">
+        <m>\xvec_0</m>
+      </label>
+    </transform>
+  </coordinates>
+
+  <annotations text="This diagram shows how the state vector evolves in the standard coordinate system.">
+    <annotation ref="std-axes" text="The standard axes"/>
+    <annotation ref="grid"
+                text="The coordinate grid and axes in the coordinate system defined by the eigenvectors">
+      <annotation ref="axes"/>
+    </annotation>
+    <annotation ref="curve"
+                text="The state vector will be pushed along this curve."/>
+    <annotation ref="points"/>
+  </annotations>
+</diagram>

@@ -1,0 +1,27 @@
+<diagram xmlns="https://prefigure.org"
+         dimensions="(250, 250)" margins="5">
+  <definition>lambda1=1.3</definition>
+  <definition>lambda2=1.5</definition>
+  <definition>g(t,x)=x[0]*(cos(t),sin(t))</definition>
+  <definition>x=[[1,0], [2,0], [3,0], [4,0], [5,0], [6,0]]</definition>
+  <definition>v1=(1,1)</definition>
+  <definition>v2=(-1,1)</definition>
+  <coordinates bbox="(-6,-6,6,6)">
+    <repeat parameter="i=-6..6">
+      <line endpoints="(i*v1,i*v1+v2)" stroke="lightgray" infinite="yes"/>
+      <line endpoints="(i*v2,i*v2+v1)" stroke="lightgray" infinite="yes"/>
+    </repeat>
+    <transform>
+      <change-basis basis="((1,1),(-1,1))"/>
+      <repeat parameter="p in x">
+        <definition>f(t)=g(t,p)</definition>
+        <parametric-curve function="f" stroke="blue" domain="(0,10)"
+                          arrows="1" arrow-location="3*pi/4"
+                          cliptobbox="yes"/>
+        <repeat parameter="k=0..3">
+          <point p="f(k*pi/2)" size="2.5" fill="black" stroke="none"/>
+        </repeat>
+      </repeat>
+    </transform>
+  </coordinates>
+</diagram>
