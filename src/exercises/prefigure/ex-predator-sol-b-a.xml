@@ -1,0 +1,26 @@
+<diagram xmlns="https://prefigure.org"
+         dimensions="(250, 250)" margins="5">
+  <definition>lambda1=1.0</definition>
+  <definition>lambda2=1.5</definition>
+  <definition>g(t,x)=(lambda1**t * x[0], lambda2**t * x[1])</definition>
+  <definition>x=[[2,2], [4,2],[6,2],[0,2],[-6,2],[-4,2],[-2,2]]</definition>
+  <coordinates bbox="(-6,-6,6,6)">
+    <grid-axes at="grid" spacings="((-6,1,6),(-6,1,6))"
+               decorations="no"/>
+    <repeat at="curves" parameter="p in x"
+            annotate="yes" text="A set of trajectories">
+      <repeat at="permute" parameter="k=0..1">
+        <definition>f(t)=g(t,p)</definition>
+        <parametric-curve function="f" stroke="blue" domain="(-10,3)"
+                          arrows="1" arrow-location="-0.8"
+                          cliptobbox="yes"/>
+        <repeat at="iterates" parameter="k=0..11">
+          <point p="f(2*k)" size="2.5" fill="black" stroke="none"
+                 cliptobbox="yes"/>
+        </repeat>
+        <definition>p=(p[0],-p[1])</definition>
+      </repeat>
+    </repeat>
+  </coordinates>
+  
+</diagram>

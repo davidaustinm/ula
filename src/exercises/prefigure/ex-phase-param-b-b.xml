@@ -1,0 +1,39 @@
+<diagram xmlns="https://prefigure.org"
+         dimensions="(250, 250)" margins="5">
+  <definition>lambda1=1.0</definition>
+  <definition>lambda2=0.5</definition>
+  <definition>g(t,x)=(lambda1**t * x[0], lambda2**t * x[1])</definition>
+  <definition>x=[[-6,4],[-4,4],[-2,4],[0,4], [2,4], [4,4], [6,4]]</definition>
+  <definition>iters=[-4,-2,0,2,4]</definition>
+  <definition>v1=(1,0.5)</definition>
+  <definition>v2=(-1,0.5)</definition>
+  <coordinates bbox="(-6,-6,6,6)">
+    <axes at="std-axes" decorations="no" thickness="1"/>
+    <repeat at="grid" parameter="i=-10..10">
+      <line endpoints="(i*v1,i*v1+v2)" stroke="lightgray" infinite="yes"/>
+      <line endpoints="(i*v2,i*v2+v1)" stroke="lightgray" infinite="yes"/>
+    </repeat>
+    <line endpoints="((0,0),v1)" stroke="black" infinite="yes"/>
+    <line endpoints="((0,0),v2)" stroke="black" infinite="yes"/>
+    <transform>
+      <change-basis basis="(v1, v2)"/>
+      <repeat at="curves" parameter="p in x"
+              annotate="yes" text="A set of trajectories">
+        <repeat at="permute" parameter="k=0..1"
+                annotate="yes">
+          <definition>f(t)=g(t,p)</definition>
+          <parametric-curve function="f" stroke="blue" domain="(-3,10)"
+                            arrows="1" arrow-location="1"
+                            cliptobbox="yes"/>
+          <repeat at="iterates" parameter="k in iters"
+                  annotate="yes">
+            <point p="f(k)" size="2.5" fill="black" stroke="none"
+                   cliptobbox="yes"/>
+          </repeat>
+          <definition>p=(p[0],-p[1])</definition>
+        </repeat>
+      </repeat>
+    </transform>
+  </coordinates>
+
+</diagram>
