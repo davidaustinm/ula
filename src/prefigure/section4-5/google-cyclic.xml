@@ -1,0 +1,42 @@
+<diagram xmlns="https://prefigure.org"
+         dimensions="(200,200)" margins="5">
+  <definition>f(k)=2*(cos(k*2*pi/5),sin(k*2*pi/5))</definition>
+  <coordinates bbox="(-3,-3,3,3)">
+    <network directed="yes" labels="yes" node-fill="#ccccff"
+             node-size="15">
+      <node at="1" p="f(0)" font-size="20">1</node>
+      <node at="2" p="f(1)" font-size="20">2</node>
+      <node at="3" p="f(2)" font-size="20">3</node>
+      <node at="4" p="f(3)" font-size="20">4</node>
+      <node at="5" p="f(4)" font-size="20">5</node>
+      <edge vertices="(1,2)"/>
+      <edge vertices="(2,3)"/>
+      <edge vertices="(3,4)"/>
+      <edge vertices="(4,5)"/>
+      <edge vertices="(5,1)"/>
+    </network>
+  </coordinates>
+
+  <annotations text="An internet with five pages linked in a cyclic fashion">
+    <annotation ref="node-1"
+                text="The first page links to page two">
+      <annotation ref="edge-1-2"/>
+    </annotation>
+    <annotation ref="node-2"
+                text="The second page links to page three">
+      <annotation ref="edge-2-3"/>
+    </annotation>
+    <annotation ref="node-3"
+                text="The third page links to page four">
+      <annotation ref="edge-3-4"/>
+    </annotation>
+    <annotation ref="node-4"
+                text="The fourth page links to page five">
+      <annotation ref="edge-4-5"/>
+    </annotation>
+    <annotation ref="node-5"
+                text="The fifth page links back to page one">
+      <annotation ref="edge-5-1"/>
+    </annotation>
+  </annotations>
+</diagram>

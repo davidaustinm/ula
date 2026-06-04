@@ -1,0 +1,50 @@
+<diagram xmlns="https://prefigure.org"
+         dimensions="(250, 250)" margins="5">
+  <coordinates bbox="(-2,-2,6,5)">
+    <network directed="yes" labels="yes" node-style="box"
+             node-fill="white" node-size="20" node-thickness="2">
+      <node at="1" p="(2,3)" loop-orientation="135">P</node>
+      <node at="2" p="(4,0)" loop-orientation="315">Q</node>
+      <node at="3" p="(0,0)" loop-orientation="225">R</node>
+      <edge vertices="(1,2)" offset="(-5,10)">0.4</edge>
+      <edge vertices="(2,1)">0</edge>
+      <edge vertices="(3,1)" offset="(-7,-7)">0.2</edge>
+      <edge vertices="(1,3)">0</edge>
+      <edge vertices="(2,3)" offset="(10,0)">0.4</edge>
+      <edge vertices="(3,2)">0.2</edge>
+      <edge vertices="(1,1)" loop-scale="(0.6,0.6)">0.6</edge>
+      <edge vertices="(2,2)" loop-scale="(0.6,0.6)">0.6</edge>
+      <edge vertices="(3,3)" loop-scale="(0.6,0.6)">0.6</edge>
+    </network>
+  </coordinates>
+
+  <annotations text="This diagram describes the percentages that move between parties from one election to the next">
+    <annotation ref="node-1"
+                text="The party P">
+      <annotation ref="edge-1-2"
+                  text="Forty percent of the people who support party P in one election will support party Q in the next"/>
+      <annotation ref="edge-1-3"
+                  text="None of the people who support party P in one election will support party R in the next"/>
+      <annotation ref="loop-1"
+                  text="Sixty percent of the people who support party P in one election will still support party P in the next"/>
+    </annotation>
+    <annotation ref="node-2"
+                text="The party Q">
+      <annotation ref="edge-2-1"
+                  text="None of the people who support party Q in one election will support party P in the next"/>
+      <annotation ref="edge-2-3"
+                  text="Forty percent of the people who support party Q in one election will support party R in the next"/>
+      <annotation ref="loop-2"
+                  text="Sixty percent of the people who support party Q in one election will still support party Q in the next"/>
+    </annotation>
+    <annotation ref="node-3"
+                text="The party R">
+      <annotation ref="edge-3-1"
+                  text="Twenty percent of the people who support party R in one election will support party P in the next"/>
+      <annotation ref="edge-3-2"
+                  text="Twenty percent of the people who support party R in one election will support party Q in the next"/>
+      <annotation ref="loop-3"
+                  text="Sixty percent of the people who support party R in one election will still support party R in the next"/>
+    </annotation>
+  </annotations>
+</diagram>

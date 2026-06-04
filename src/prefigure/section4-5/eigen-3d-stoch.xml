@@ -1,0 +1,69 @@
+<diagram xmlns="https://prefigure.org"
+         dimensions="(250, 230)" margins="5">
+  <definition>lamz = 1.0</definition>
+  <definition>p=[[1,0,0],[1,0,1],[1,0,2]]</definition>
+  <definition>rs = 0.8</definition>
+  <definition>thetas = 1</definition>
+        
+  <transform>
+    <center/>
+    <translate by="(0,-30)"/>
+    <set-eye eye="(1,0.5,0.3)"/>
+    <scale3d by="1.35*(40,40,40)"/>
+    <repeat at="grid" parameter="k=-4..4"
+            annotate="yes" text="The plane formed by x one and x two">
+      <line endpoints="(proj_2d(-2,k/2,0),proj_2d(2,k/2,0))"
+            stroke="lightgray" cliptobbox="yes"/>
+      <line endpoints="(proj_2d(k/2,2,0),proj_2d(k/2,-2,0))"
+            stroke="lightgray" cliptobbox="yes"/>
+    </repeat>
+    
+    <path at="axes" start="proj_2d(0,0,0)" stroke="black">
+      <lineto point="proj_2d(2.5,0,0)"/>
+      <moveto point="proj_2d(0,0,0)"/>
+      <lineto point="proj_2d(0,2.5,0)"/>
+      <moveto point="proj_2d(0,0,0)"/>
+      <lineto point="proj_2d(0,0,2.5)"/>
+    </path>
+    
+    <group at="axis-labels">
+      <label anchor="proj_2d(2.5,0,0)"
+             alignment="sw" offset="(-4,-4)">
+        <m>x_1</m>
+      </label>
+      <label anchor="proj_2d(0,2.2,0)"
+             alignment="sw" offset="(4,-4)">
+        <m>x_2</m>
+      </label>
+      <label anchor="proj_2d(0,0,2.5)"
+             alignment="se" offset="(4,-4)">
+        <m>x_3</m>
+      </label>
+    </group>
+
+    <repeat at="curves" parameter="z in [0,0.8,1.6]"
+            annotate="yes" text="A set of trajectories, each of which spirals into the x three axis">
+      <definition>x=[1,0,z]</definition>
+      <definition>r=1</definition>
+      <definition>a=atan2(x[1],x[0])</definition>
+      <definition>f(t)=proj_2d(r*rs**t*(cos(a+thetas*t),sin(a+thetas*t),0)+(0,0,x[2]*lamz**t))</definition>
+      <parametric-curve at="curve" function="f" domain="(-3,15)"
+                        stroke="blue" arrows="1"
+                        arrow-location="0.5"
+                        annotate="yes" text="This trajectory spirals into the x three axis"/>
+    </repeat>
+
+    
+  </transform>
+
+  <annotations text="Some trajectories for the three-dimensional stochastic system">
+    <annotation ref="axes"
+                text="A set of three dimensional coordinate axes">
+      <annotation ref="axes-labels"/>
+    </annotation>
+    <annotation ref="grid"
+                text="The x one x two plane"/>
+    <annotation ref="curves"
+                text="A trajectory that begins in the plane spirals into the origin"/>
+  </annotations>
+</diagram>
