@@ -1,0 +1,40 @@
+<diagram xmlns="https://prefigure.org"
+         dimensions="(400, 100)" margins="(20,5,20,5)">
+  <definition>lambda1=16.35</definition>
+  <definition>lambda2=0.75</definition>
+  <coordinates bbox="(-20,-1,20,1)">
+    <rectangle at="left-rect" lower-left="(-lambda1, -0.1)"
+               dimensions="(lambda1-lambda2,0.5)"
+               fill="lightgray"/>
+    <rectangle at="right-rect" lower-left="(lambda2, -0.1)"
+               dimensions="(lambda1-lambda2,0.5)"
+               fill="lightgray"/>
+    <axes at="axes" axes="horizontal" hticks="(-20,5,20)"
+          hlabels="(-20,10,20)" h-zero-label="yes"/>
+    <line at="l2" endpoints="((lambda2,-0.6),(lambda2,0.7))" stroke="blue"/>
+    <line at="l1" endpoints="((lambda1,-0.6),(lambda1,0.7))" stroke="blue"/>
+    <label at="l1-label" anchor="(lambda1,-0.6)" alignment="s">
+      <m>\lambda_1</m>
+    </label>
+    <label at="l2-label" anchor="(lambda2,-0.6)" alignment="s">
+      <m>\lambda_2</m>
+    </label>
+  </coordinates>
+
+  <annotations text="The number line showing possible locations of the eigenvalues">
+    <annotation ref="axes"
+                text="The number line"/>
+    <annotation ref="l1"
+                text="The largest eigenvalue lambda one">
+      <annotation ref="l1-label"/>
+    </annotation>
+    <annotation ref="l2"
+                text="The smallest eigenvalue lambda two">
+      <annotation ref="l2-label"/>
+    </annotation>
+    <annotation ref="right-rect"
+                text="The other eigenvalues possibly lie in this region between the smallest and largest eigenvalues"/>
+    <annotation ref="left-rect"
+                text="Alternatively, the other eigenvalues may lie in this region between the minus the smallest and minus the largest eigenvalues"/>
+  </annotations>
+</diagram>
