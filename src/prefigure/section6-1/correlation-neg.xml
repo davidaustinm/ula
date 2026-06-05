@@ -1,0 +1,29 @@
+<diagram xmlns="https://prefigure.org"
+         dimensions="(200, 200)" margins="5">
+  <definition>values=[0.2868102815667748, 0.7637737847220079, 0.8584363951259391, 1.0229565851517308, 1.1599470902645166, 0.8192631408245136, 0.34203912849193346, -0.2583422904128766, -0.5750192456043894, -0.7954895975728457, -0.7845630695295376]</definition>
+  <definition>scale=-0.5</definition>
+  <coordinates bbox="(0,-1.5,10,1.5)">
+    <axes at="axes" hticks="(0,1,10)" decorations="no"/>
+    <group at="series-1">
+      <polygon points="(k,values[k])" parameter="k=0..10"
+               stroke="blue"/>
+      <repeat parameter="k=0..10">
+        <point p="(k,values[k])" fill="blue" stroke="none"/>
+      </repeat>
+    </group>
+    <group at="series-2">
+      <polygon points="(k,scale*values[k])" parameter="k=0..10"
+               stroke="orange"/>
+      <repeat parameter="k=0..10">
+        <point p="(k,scale*values[k])" fill="orange" stroke="none"/>
+      </repeat>
+    </group>
+  </coordinates>
+
+  <annotations text="Two time series that are negatively correlated">
+    <annotation ref="series-1"
+                text="The first time series"/>
+    <annotation ref="series-2"
+                text="The second time series"/>
+  </annotations>
+</diagram>
