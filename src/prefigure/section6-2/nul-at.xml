@@ -1,0 +1,47 @@
+<diagram xmlns="https://prefigure.org"
+         dimensions="(240, 195)" margins="5">
+  <definition>corner = [-3,-3]</definition>
+  <definition>u = [8,2]</definition>
+  <definition>v = [-2,2]</definition>
+  <definition>center = corner + 0.5*(u+v)</definition>
+  <definition>p = [-u[1], u[0]]</definition>
+  <coordinates bbox="(-5,-5,5,3)">
+    <define-shapes>
+      <polygon at="plane-shape" points="((-3,-3),(5,-1),(3,1),(-5,-1))"
+               closed="yes"/>
+    </define-shapes>
+    <shape at="plane" shape="plane-shape" fill="lightgray"
+           stroke="black"/>
+    <line at="W-perp" endpoints="(center+p,center-2*p)"
+          infinite="yes" stroke="black"/>
+    <clip shape="plane-shape">
+      <line at="W-perp-2" endpoints="(center,center-p)" stroke="gray"/>
+    </clip>
+    <path at="angle" start="(0.4,-0.9)" fill="none" stroke="black">
+      <lineto point="(0.3,-0.5)"/>
+      <lineto point="(-0.1,-0.6)"/>
+    </path>
+    <label at="W-label" anchor="(3,-2.5)"
+           alignment="c" offset="(0,3)">
+      <m>\col(A)</m>
+    </label>
+    <label at="W-perp-label" anchor="(0,2)"
+           alignment="c" offset="(25,0)">
+      <m>\nul(A^T)</m>
+    </label>
+  </coordinates>
+
+  <annotations text="The orthogonal complement of the column space of A is the null space of A transpose">
+    <annotation ref="plane"
+                text="The column space of A">
+      <annotation ref="W-label"/>
+    </annotation>
+    <annotation ref="W-perp"
+                text="The orthogonal complement of the column space, which is the null space of A transpose">
+      <annotation ref="W-perp-2"/>
+      <annotation ref="W-perp-label"/>
+      <annotation ref="angle"/>
+    </annotation>
+  </annotations>
+    
+</diagram>
