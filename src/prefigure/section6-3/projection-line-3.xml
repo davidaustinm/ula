@@ -1,0 +1,49 @@
+<diagram xmlns="https://prefigure.org"
+         dimensions="(275, 275)" margins="5">
+  <definition>v=(2,1)</definition>
+  <definition>w=(2,4)</definition>
+  <definition>bhat=dot(v,w)/dot(v,v)*v</definition>
+  <definition>bperp = w - bhat</definition>
+  <definition>y=2.2*v</definition>
+  <coordinates bbox="(-1,-1,5,5)">
+    <grid at="grid" spacings="((-1,1,5),(-1,1,5))" thickness="1"/>
+    <axes at="axes"  hlabels="(0,2,4)" vlabels="(0,2,4)"/>
+    <line at="L"  endpoints="((0,0),v)" infinite="yes" stroke="blue"/>
+    <label at="L-label" anchor="(5,2.5)"
+           alignment="nw" offset="(-4,4)">
+      <m>L</m>
+    </label>
+    <group outline="tactile">
+      <angle-marker at="angle" points="(y,bhat,w)"/>
+      <vector at="bperp" v="bperp" tail="bhat" stroke="gray"
+              label-location="0.4" offset="(3,0)" alignment="sw">
+        <m>\bvec-\bhat</m>
+      </vector>
+      <vector at="y" v="y" stroke="black">
+        <m>\yvec</m>
+      </vector>
+      <vector at="bhat" v="bhat" stroke="black">
+        <m>\bhat</m>
+      </vector>
+      <vector at="diff" v="w-y" tail="y" stroke="gray"/>
+      <vector at="b" v="w" stroke="black">
+        <m>\bvec</m>
+      </vector>
+    </group>
+  </coordinates>
+
+  <annotations text="If b hat is the vector on the line L that is closest to the vector b, then b minus b hat should be perpendicular to L">
+    <annotation ref="grid" text="The coordinate grid and axes">
+      <annotation ref="axes"/>
+    </annotation>
+    <annotation ref="L" text="The line L"/>
+    <annotation ref="b" text="The vector b is not on the line"/>
+    <annotation ref="bhat" text="The vector b hat, which is the closest vector to b on the line"/>
+    <annotation ref="bperp" text="The vector b perp, which is the difference between b and b hat, is perpendicular to the line L"/>
+    <annotation ref="y" text="If y is another vector on L, then b minus y forms the hypotenuse of a right triangle with one leg being b minus b perp">
+      <annotation ref="diff"/>
+      <annotation ref="diff"/>
+      <annotation ref="angle"/>
+    </annotation>
+  </annotations>
+</diagram>

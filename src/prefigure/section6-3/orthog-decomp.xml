@@ -1,0 +1,50 @@
+<diagram xmlns="https://prefigure.org"
+         dimensions="(250, 250)" margins="5">
+  <definition>v=(2,1)</definition>
+  <definition>w=(2,4)</definition>
+  <definition>bhat=dot(v,w)/dot(v,v)*v</definition>
+  <definition>bperp = w - bhat</definition>
+  <coordinates bbox="(-5,-5,5,5)">
+    <grid at="grid" spacings="((-5,1,5),(-5,1,5))" thickness="1"/>
+    <axes at="axes"  hlabels="(-4,4,4)" vlabels="(-4,4,4)"/>
+    <line at="L"  endpoints="((0,0),v)" infinite="yes" stroke="blue"/>
+    <label at="L-label" anchor="(5,2.5)"
+           alignment="nw" offset="(-4,4)">
+      <m>L</m>
+    </label>
+    <line at="L-perp"  endpoints="((0,0),bperp)"
+          infinite="yes" stroke="blue"/>
+    <label at="L-perp-label" anchor="1.5*bperp"
+           alignment="sw" offset="(-4,4)">
+      <m>L^\perp</m>
+    </label>
+    <vector at="bperp" v="bperp" stroke="black"
+            alignment="sw" label-location="0.9">
+      <m>\bvec^\perp</m>
+    </vector>
+    
+    <vector at="bhat" v="bhat" stroke="black">
+      <m>\bhat</m>
+    </vector>
+    <vector at="b" v="w" stroke="black">
+      <m>\bvec</m>
+    </vector>
+  </coordinates>
+
+  <annotations text="A vector b is the sum of b hat, the orthogonal projection onto the line L, and b perp, the orthogonal projection onto the orthogonal complement of L">
+    <annotation ref="grid" text="The coordinate grid and axes">
+      <annotation ref="axes"/>
+    </annotation>
+    <annotation ref="b" text="The vector b"/>
+    <annotation ref="bhat" text="The vector b hat is the orthogonal projection of b onto L">
+      <annotation ref="L" text="The line L">
+        <annotation ref="L-label"/>
+      </annotation>
+    </annotation>
+    <annotation ref="bperp" text="The vector b perp is the orthogonal projection of b onto the orthogonal complement of L">
+      <annotation ref="L-perp" text="The orthogonal complement of L">
+        <annotattion ref="l-perp-label"/>
+      </annotation>
+    </annotation>
+  </annotations>
+</diagram>

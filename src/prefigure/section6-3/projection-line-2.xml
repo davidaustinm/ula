@@ -1,0 +1,43 @@
+<diagram xmlns="https://prefigure.org"
+         dimensions="(250, 250)" margins="5">
+  <definition>v=(2,1)</definition>
+  <definition>w=(2,4)</definition>
+  <definition>bhat=dot(v,w)/dot(v,v)*v</definition>
+  <definition>bperp = w - bhat</definition>
+  <coordinates bbox="(-1,-1,5,5)">
+    <grid at="grid" spacings="((-1,1,5),(-1,1,5))" thickness="1"/>
+    <axes at="axes"  hlabels="(0,2,4)" vlabels="(0,2,4)"/>
+    <line at="L"  endpoints="((0,0),v)" infinite="yes" stroke="blue"/>
+    <label at="L-label" anchor="(5,2.5)"
+           alignment="nw" offset="(-4,4)">
+      <m>L</m>
+    </label>
+    <group outline="tactile">
+      <vector at="bperp" v="bperp" tail="bhat" stroke="gray" label-location="0.5">
+        <m>\bvec-s\wvec</m>
+      </vector>
+      <vector at="bhat" v="bhat" stroke="red">
+        <m>s\wvec</m>
+      </vector>
+      <vector at="v" v="v" stroke="black">
+        <m>\wvec</m>
+      </vector>
+      <vector at="b" v="w" stroke="black">
+        <m>\bvec</m>
+      </vector>
+    </group>
+  </coordinates>
+
+  <annotations text="A line L is defined by a vector w.  The vector b hat is the vector on the line that is closest to the vector b, which is not on the line">
+    <annotation ref="grid" text="The coordinate grid and axes">
+      <annotation ref="axes"/>
+    </annotation>
+    <annotation ref="L" text="The line L consists of all scalar multiples of w">
+      <annotation ref="v" text="The vector w"/>
+      <annotation ref="L-label"/>
+    </annotation>
+    <annotation ref="b" text="The vector b is not on the line"/>
+    <annotation ref="bhat" text="The vector b hat, which is the closest vector to b on the line, is a scalar multiple s times w"/>
+    <annotation ref="bperp" text="The vector b perp, which is the difference between b and s times w, is perpendicular to the line L"/>
+  </annotations>
+</diagram>
