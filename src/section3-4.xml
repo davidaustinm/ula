@@ -1494,6 +1494,349 @@
     using Gaussian elimination is considerably less work.
     </p>
 
+    <exercise component="proteus-playground"
+              label="ula-proteus-3-4-detfalse-v1">
+      <title>Disproving determinant statements</title>
+      <introduction>
+        <p>
+        Show that the following properties are not true in general by
+        finding examples where the equation is false.
+        </p>
+      </introduction>
+      <task label="ula-proteus-3-4-detfalse-scalar">
+        <statement>
+          <p>Find a <m>2 \times 2</m> matrix <m>A</m> that
+          demonstrates that the following equality is not always true.
+          <me>\det(4A)=4\det(A)</me>.
+          </p>
+        </statement>
+        <response />
+      </task>
+      <task label="ula-proteus-3-4-scalarconj">
+        <statement>
+        <p>Let <m>A</m> be a <m>2\times 2</m> matrix. Write a
+        conjecture for how <m>\det(4A)</m> relates to
+        <m>4\det(A)</m>.</p>
+        </statement>
+        <response />
+      </task>
+      <task label="ula-proteus-3-4-detfalse-sum">
+        <statement>
+          <p>Find <m>2 \times 2</m> matrices, <m>A</m> and <m>B</m>
+          that demonstrate that the following equality is not always
+          true.
+          <me>\det(A+B)=\det(A)+\det(B)</me></p>
+        </statement>
+        <response />
+      </task>
+    </exercise>
+
+    <exercise component="proteus-playground"
+              label="ula-proteus-3-4-detfillin-v1">
+      <title>
+        Finding determinants of products, inverses, and powers
+      </title>
+      <statement>
+        <p>
+        Let <m>A</m> be a <m>3\times 3</m> matrix. If <m>\det(A)=5</m>
+        and <m>\det(B)=-2</m> find each of the following. Enter your
+        answer in decimal form.
+        <ul>
+          <li>
+            <p><m>\det(2A)=</m>
+            <fillin answer="40" width="3"/>.
+            </p>
+          </li>
+          <li>
+            <p><m>\det(AB)=</m>
+            <fillin answer="-10" width="3"/>.
+            </p>
+          </li>
+          <li>
+            <p><m>\det(A^{-1})=</m>
+            <fillin answer="0.2" width="3"/>.
+            </p>
+          </li>
+          <li>
+            <p><m>\det(AB^{-1})=</m>
+            <fillin answer="-2.5" width="3"/>.
+            </p>
+          </li>
+          <li>
+            <p><m>\det(B^{3})=</m>
+            <fillin answer="-8" width="3"/>.
+            </p>
+          </li>
+        </ul>
+        </p>
+      </statement>
+      <evaluation>
+        <evaluate>
+          <test correct = "yes">
+            <numcmp use-answer="yes" />
+          </test>
+        </evaluate>
+        <evaluate>
+          <test correct = "yes">
+            <numcmp use-answer="yes" />
+          </test>
+        </evaluate>
+        <evaluate>
+          <test correct = "yes">
+            <numcmp use-answer="yes" />
+          </test>
+        </evaluate>
+        <evaluate>
+          <test correct = "yes">
+            <numcmp use-answer="yes" />
+          </test>
+        </evaluate>
+        <evaluate>
+          <test correct = "yes">
+            <numcmp use-answer="yes" />
+          </test>
+        </evaluate>
+      </evaluation>
+    </exercise>
+
+    <exercise component="proteus-playground"
+              label="ula-proteus-3-4-cofactor-fillin-v1">
+      <title>
+        Evaluating a determinant with a cofactor expansion
+      </title>
+      <statement>
+        <p>
+          We will compute the determinant of the matrix
+          <m>
+            A = \begin{bmatrix}
+            2 \amp 3 \amp -1 \\
+            1 \amp 2 \amp 0 \\
+            5 \amp -2 \amp 2\\
+            \end{bmatrix}
+          </m>
+          using a cofactor expansion based on the second column.  Fill
+          in the blanks below giving the numerical value that appears
+          before each of the determinants.
+        </p>
+
+        <p>
+          <m>\det(A) = </m>
+          <fillin answer="-3" width="3"/>
+          <m>\det\begin{bmatrix}
+          1 \amp 0 \\
+          5 \amp -2 \\
+          \end{bmatrix}+</m>
+          <fillin answer="2" width="3"/>
+          <m>\det\begin{bmatrix}
+          2 \amp 3 \\
+          5 \amp 2 \\
+          \end{bmatrix}+</m>
+          <fillin answer="2" width="3"/>
+          <m>\det\begin{bmatrix}
+          1 \amp 3 \\
+          1 \amp 2 \\
+          \end{bmatrix}</m>.
+        </p>
+      </statement>
+      <evaluation>
+        <evaluate>
+          <test correct = "yes">
+            <numcmp use-answer="yes" />
+          </test>
+        </evaluate>
+        <evaluate>
+          <test correct = "yes">
+            <numcmp use-answer="yes" />
+          </test>
+        </evaluate>
+        <evaluate>
+          <test correct = "yes">
+            <numcmp use-answer="yes" />
+          </test>
+        </evaluate>
+      </evaluation>
+    </exercise>
+
+    <exercise component="proteus-playground"
+              label="ula-proteus-3-4-det-row-operations-v1">
+      <title>The effect of row operations on the determinant</title>
+      <statement>
+        <p>Suppose we begin with a <m>3\times3</m> matrix <m>A</m> and
+        perform the following row operations:
+        <ul>
+          <li>
+            <p>Interchange rows two and three of <m>A</m> to obtain
+            <m>A_1</m>.</p>
+          </li>
+          <li>
+            <p>Add 3 times row one to row two of matrix <m>A_1</m> to
+            obtain <m>A_2</m>.</p>
+          </li>
+          <li>
+            <p>Multiply row two of <m>A_2</m> by <m>1/2</m> to obtain
+            <m>A_3</m>.</p>
+          </li>
+          <li>
+            <p>Add row two to row three of matrix <m>A_3</m> to obtain
+            <m>U=\begin{bmatrix}
+            2 \amp 1 \amp -3 \\
+            0 \amp -1 \amp 2 \\
+            0 \amp 0 \amp 4 \\
+            \end{bmatrix}</m>.</p>
+          </li>
+        </ul>
+        </p>
+
+        <p>Work backwards to find <m>\det(A)</m>:
+        <ul>
+          <li>
+            <p><m>\det(U)=</m> <fillin answer="-8" width="3"/></p>
+          </li>
+          <li>
+            <p><m>\det(A_3)=</m> <fillin answer="-8" width="3"/></p>
+          </li>
+          <li>
+            <p><m>\det(A_2)=</m> <fillin answer="-16" width="3"/></p>
+          </li>
+          <li>
+            <p><m>\det(A_1)=</m> <fillin answer="-16" width="3"/></p>
+          </li>
+          <li>
+            <p><m>\det(A)=</m> <fillin answer="16" width="3"/></p>
+          </li>
+        </ul>
+        </p>
+      </statement>
+      <evaluation>
+        <evaluate>
+          <test correct = "yes">
+            <numcmp use-answer="yes" />
+          </test>
+        </evaluate>
+        <evaluate>
+          <test correct = "yes">
+            <numcmp use-answer="yes" />
+          </test>
+        </evaluate>
+        <evaluate>
+          <test correct = "yes">
+            <numcmp use-answer="yes" />
+          </test>
+        </evaluate>
+        <evaluate>
+          <test correct = "yes">
+            <numcmp use-answer="yes" />
+          </test>
+        </evaluate>
+        <evaluate>
+          <test correct = "yes">
+            <numcmp use-answer="yes" />
+          </test>
+        </evaluate>
+      </evaluation>
+    </exercise>
+
+    <exercise component="proteus-playground"
+              label="ula-proteus-3-4-det-parsons-v1">
+      <title>Evaluate a determinant</title>
+
+      <statement>
+        <p>We will find the determinant of the matrix
+        <m>A=\begin{bmatrix}
+        0 \amp 2 \amp -3 \\
+        3 \amp -1 \amp 1 \\
+        1 \amp -2 \amp 4 \\
+        \end{bmatrix}</m> using a cofactor expansion along the third
+        row.  Drag the blocks below into the correct order to do
+        do.</p>
+      </statement>
+
+      <blocks>
+        <block>
+          <md>
+            <mrow>(-1)^{3+1}(-3)\cdot\amp\det
+            \begin{bmatrix}
+            3 \amp -1 \\
+            1 \amp -2 \\
+            \end{bmatrix}
+            </mrow>
+            <mrow>
+            + \amp (-1)^{3+2}(1)\cdot\det
+            \begin{bmatrix}
+            0 \amp 2 \\
+            1 \amp -2 \\
+            \end{bmatrix}
+            </mrow>
+            <mrow>
+              + \amp (-1)^{3+3}(4)\cdot\det
+              \begin{bmatrix}
+              0 \amp 2 \\
+              3 \amp -1 \\
+              \end{bmatrix}
+            </mrow>
+          </md>
+        </block>
+        <block>
+          <md>
+            <mrow>
+              (1)(-3)\amp(3\cdot(-2)-(-1)\cdot1)
+            </mrow>
+            <mrow>
+              + \amp (-1)(1)(0\cdot(-2)-2\cdot1)
+            </mrow>
+            <mrow>
+              + \amp
+              (1)(4)(0\cdot(-1)-2\cdot3)
+            </mrow>
+          </md>
+        </block>
+        <block>
+          <me>15+2-24</me>
+        </block>
+        <block>
+          <me>-7</me>
+        </block>
+        <block correct="no">
+          <md>
+            <mrow>
+              (-1)(-3)\cdot\amp\det
+              \begin{bmatrix}
+              3 \amp -1 \\
+              1 \amp -2 \\
+              \end{bmatrix}
+            </mrow>
+            <mrow>
+              + \amp(1)(1)\cdot\det
+              \begin{bmatrix}
+              0 \amp 2 \\
+              1 \amp -2 \\
+              \end{bmatrix}
+            </mrow>
+            <mrow>
+              + \amp(-1)(4)\cdot\det
+              \begin{bmatrix}
+              0 \amp 2 \\
+              3 \amp -1 \\
+              \end{bmatrix}
+            </mrow>
+          </md>
+        </block>
+        <block correct="no">
+          <md>
+            <mrow>
+              (1)(-3)\amp(3\cdot(-2)+(-1)\cdot1)
+            </mrow>
+            <mrow>
+              + \amp (-1)(1)(0\cdot(-2)+2\cdot1)
+            </mrow>
+            <mrow>
+              + \amp (1)(4)(0\cdot(-1)+2\cdot3)
+            </mrow>
+          </md>
+        </block>
+      </blocks>
+    </exercise>
+
   </subsection>
   
   <xi:include href="exercises/exercises3-4.xml" />
