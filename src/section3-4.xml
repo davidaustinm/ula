@@ -1120,7 +1120,7 @@
       Therefore, <m>\det(A^{-1}) = 1/\det(A)</m>.
     </p>
 
-    <proposition>
+    <proposition xml:id="prop-det-inverse-reciprocal">
       <statement>
 	<p>
 	  If <m>A</m> is an invertible matrix, then
@@ -1833,6 +1833,198 @@
               + \amp (1)(4)(0\cdot(-1)+2\cdot3)
             </mrow>
           </md>
+        </block>
+      </blocks>
+    </exercise>
+
+   <exercise component="proteus-playground"
+            label="ula-proteus-3-4-dets-triangular-matrices-v1">
+    <title>Determinants of triangular matrices</title>
+      <statement>
+        <p>
+          In each part below, find the determinant of the given matrix
+          using the first part of
+          <xref ref="proposition-det-properties"/>.
+          <ul>
+            <li>
+              <p>
+                <m>\det \begin{bmatrix}
+		-2 \amp 0 \amp 0  \\
+		7 \amp 4 \amp 0 \\
+		-1 \amp 11 \amp 5  \\
+		\end{bmatrix} = </m>
+                <fillin answer="-40" width="3" />.
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>\det \begin{bmatrix}
+		7 \amp 2 \amp -15  \\
+		0 \amp 1 \amp 70 \\
+		0 \amp 0 \amp 4  \\
+		\end{bmatrix} = </m>
+                <fillin answer="28"  width="3" />.
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>\det \begin{bmatrix}
+		3 \amp 0 \amp 0  \\
+		0 \amp -2 \amp 0 \\
+		0 \amp 0 \amp -6  \\
+		\end{bmatrix} = </m>
+                <fillin answer="36"  width="3" />.
+              </p>
+            </li>
+          </ul>
+        </p>
+      </statement>
+      <evaluation>
+        <evaluate>
+          <test correct = "yes">
+            <numcmp use-answer="yes" />
+          </test>
+        </evaluate>
+        <evaluate>
+          <test correct = "yes">
+            <numcmp use-answer="yes" />
+          </test>
+        </evaluate>
+        <evaluate>
+          <test correct = "yes">
+            <numcmp use-answer="yes" />
+          </test>
+        </evaluate>
+      </evaluation>
+    </exercise>
+
+    <exercise component="proteus-playground"
+              label="ula-proteus-3-4-linear-combinations2-v1">
+      <title>Explaining an incorrect computation of a determinant</title>
+      <statement>
+        <p>Suppose that a student incorrectly uses the first part of
+        <xref ref="proposition-det-properties"/>
+           To conclude that
+           <me>
+            \det \begin{bmatrix}
+	    1 \amp -2 \amp -6  \\
+	    -1 \amp 3 \amp 0 \\
+	    0 \amp -8 \amp -2  \\
+	    \end{bmatrix} = 1\cdot 3 \cdot (-2)=-6.
+           </me>
+           Explain why this is an incorrect use of the theorem.
+           Also, give the correct determinant of the matrix.
+        </p>
+        </statement>
+      <response/>
+    </exercise>
+
+    <exercise component="proteus-playground"
+              label="ula-proteus-3-4-invertible-nonzero-det-v1">
+      <title>
+        Proving that an invertible matrix has nonzero
+        determinant
+      </title>
+      <statement>
+        <p>
+          Organize the steps given below to show that, if <m>A</m>
+          is an invertible <m>n\times n</m> matrix then
+          <m>\det(A)\neq 0</m>. Not every step given will be used.
+        </p>
+      </statement>
+
+      <blocks>
+        <block>
+          <p>Suppose that <m>A</m> is an invertible <m>n\times n</m>
+          matrix.</p>
+        </block>
+        <block>
+          <p>Then <m>A^{-1}</m> exists, and <m>A A^{-1} = I_n</m>.</p>
+        </block>
+        <block>
+          <p>Therefore  <m>\det(A A^{-1}) = \det(I_n)</m>.</p>
+        </block>
+        <block>
+          <p><xref ref="proposition-det-properties"/>
+           implies that <m>\det(A A^{-1}) =\det(A)\det(A^{-1})</m> and
+           <m>\det(I_n)=1</m>. </p>
+        </block>
+        <block>
+          <p>Therefore  <m>\det(A)\det(A^{-1}) = 1</m>. </p>
+        </block>
+        <block>
+          <p>
+            This shows that <m>\det(A)\neq 0</m>. </p>
+        </block>
+        <block correct="no">
+          <p>Suppose <m>\det(A) \neq 0</m>.</p>
+        </block>
+        <block correct="no">
+          <p>Since <m>\det(I_n)=1</m>, we conclude that
+          <m>\det(A) = 1</m>.</p>
+        </block>
+      </blocks>
+    </exercise>
+
+    <exercise component="proteus-playground"
+              label="ula-proteus-3-4-nonzero-det-implies-invertible-v1">
+      <title>
+        Proving that a matrix with nonzero determinant is
+        invertible
+      </title>
+      <statement>
+        <p>
+          Organize the steps given below to show that, if <m>A</m> is
+          an <m>n\times n</m> matrix with <m>\det(A)\neq 0</m>, then
+          <m>A</m> is invertible.  Not every step given will be used.
+        </p>
+        <p>
+          The reduced row echelon form of <m>A</m> will be denoted by
+          <m>A'</m>.
+        </p>
+      </statement>
+
+      <blocks>
+        <block>
+          <p>Suppose that <m>A</m> is an <m>n\times n</m>
+            matrix with <m>\det(A)\neq 0</m>. </p>
+        </block>
+        <block>
+          <p>There is a sequence of row operations that will convert
+          <m>A</m> to its reduced row echelon form <m>A'</m>.  By
+          <xref ref="proposition-det-row-operations"/>, applying any row
+          operation to a matrix changes the determinant of the matrix
+          only by multiplying by a nonzero real number. Therefore,
+          <m>k\det(A) = \det(A') </m> for some nonzero
+          real number <m>k</m>. </p>
+        </block>
+        <block>
+          <p>
+            Since <m>\det(A)</m> and <m>k</m> are nonzero and
+            <m>k\det(A) = \det(A') </m>, we conclude that
+            <m>\det(A')\neq 0</m>. </p>
+        </block>
+        <block>
+          <p>
+            An <m>n\times n</m> reduced row echelon form <m>B</m> that
+            is not equal to <m>I_n</m> must have an entire row of
+            zeros, and therefore, <m>\det(B) = 0</m>.  The fact that
+            <m>\det(A')\neq 0</m> now shows that
+            <m>A=I_n</m>.</p>
+        </block>
+        <block>
+          <p>
+            Since <m>A'=I_n</m>, we have shown that
+            <m>A</m> is invertible by <xref
+            ref="prop-det-inverse-reciprocal"/>
+          </p>
+        </block>
+        <block correct="no">
+          <p>Suppose <m>A</m> is invertible.</p>
+        </block>
+        <block correct="no">
+          <p>Since <m>A</m> is invertible, Proposition 3.4.12
+            implies that <m>\det(A^{-1}) = 1/\det(A)</m>.</p>
         </block>
       </blocks>
     </exercise>
