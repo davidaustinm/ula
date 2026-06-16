@@ -1,0 +1,65 @@
+<diagram xmlns="https://prefigure.org"
+         dimensions="(300, 300)" margins="5">
+  <definition>v1=(1,2)</definition>
+  <definition>v2=(-2,1.2)</definition>
+  <definition>size=10</definition>
+  <rectangle lower-left="(-5,-5)" dimensions="(310, 310)"
+             fill="white"/>
+  <coordinates bbox="(-size,-size,size,size)">
+    <repeat at="grid" parameter="i=-5..5">
+      <line endpoints="(i*v1,i*v1+v2)" infinite="yes"
+            stroke="lightgray"/>
+      <line endpoints="(i*v2,i*v2+v1)" infinite="yes"
+            stroke="lightgray"/>
+    </repeat>
+    <axes at="axes" decorations="no" stroke="gray"/>
+
+    <vector at="v1" v="v1" stroke="blue" alignment="east">
+      <m>\vvec</m>
+    </vector>
+    <vector at="v2" v="v2" stroke="blue" alignment="west">
+      <m>\wvec</m>
+    </vector>
+
+    <point at="a" p="2*v1-v2" stroke="none" fill="black" alignment="east">
+      <m>a</m>
+    </point>
+    <point at="b" p="-3*v1" stroke="none" fill="black" alignment="west">
+      <m>b</m>
+    </point>
+    <point at="c" p="2*v1+3*v2" stroke="none" fill="black" alignment="east">
+      <m>c</m>
+    </point>
+    <point at="d" p="-v1-4*v2" stroke="none" fill="black" alignment="east">
+      <m>d</m>
+    </point>
+    <point at="e" p="-2*v1+2*v2" stroke="none" fill="black" alignment="east">
+      <m>e</m>
+    </point>
+  </coordinates>
+
+  <annotations text="Two vectors and some linear combinations formed from them">
+    <annotation ref="axes"
+                text="A standard set of axes"/>
+    <annotation ref="group"
+                text="The two vectors v and w">
+      <annotation ref="v1" text="The vector v"/>
+      <annotation ref="v2" text="The vector w"/>
+    </annotation>
+    <annotation ref="grid"
+                text="A grid representing linear combinations of v and w"/>
+    <annotation ref="pt-group"
+                text="A set of linear combinations">
+      <annotation ref="a"
+                  text="The linear combination labeled a"/>
+      <annotation ref="b"
+                  text="The linear combination labeled b"/>
+      <annotation ref="c"
+                  text="The linear combination labeled c"/>
+      <annotation ref="d"
+                  text="The linear combination labeled d"/>
+      <annotation ref="e"
+                  text="The linear combination labeled e"/>
+    </annotation>
+  </annotations>
+</diagram>
