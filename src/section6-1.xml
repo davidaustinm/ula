@@ -2120,6 +2120,214 @@ plotclusters(clusters, centroids)
     </exercise>
 
     <exercise component="proteus-playground"
+              label="ula-proteus-6-1-compdotprod-v1">
+      <title>Finding dot products</title>
+      <introduction>
+        <p>
+          Let <m>\vvec_1=\threevec{1}{2}{-3}</m>,
+          <m>\vvec_2=\threevec{-1}{2}{0}</m>, and
+          <m>\vvec_3=\threevec{-2}{1}{2}</m>.
+        </p>
+      </introduction>
+      <task label="ula-proteus-6-1-compdotprod-a-v1">
+        <statement><p> Find the following dot products.</p>
+        <ul>
+          <li>
+            <p><m>\vvec_1\cdot\vvec_2=</m>
+            <fillin answer="0" width="3"/>.
+            </p>
+          </li>
+          <li>
+            <p><m>\vvec_1\cdot\vvec_3=</m>
+            <fillin answer="-6" width="3"/>.
+            </p>
+          </li>
+          <li>
+            <p><m>\vvec_2\cdot\vvec_3=</m>
+            <fillin answer="4" width="3"/>.
+            </p>
+          </li>
+          <li>
+            <p><m>\vvec_3\cdot\vvec_2=</m>
+            <fillin answer="4" width="3"/>.
+            </p>
+          </li>
+          <li>
+            <p><m>(3\vvec_1)\cdot\vvec_3=</m>
+            <fillin answer="-18" width="3"/>.
+            </p>
+          </li>
+        </ul>
+      </statement>
+      <evaluation>
+        <evaluate>
+          <test correct = "yes">
+          <numcmp use-answer="yes" />
+          </test>
+        </evaluate>
+        <evaluate>
+          <test correct = "yes">
+          <numcmp use-answer="yes" />
+          </test>
+        </evaluate>
+        <evaluate>
+          <test correct = "yes">
+          <numcmp use-answer="yes" />
+          </test>
+        </evaluate>
+        <evaluate>
+          <test correct = "yes">
+          <numcmp use-answer="yes" />
+          </test>
+        </evaluate>
+        <evaluate>
+          <test correct = "yes">
+          <numcmp use-answer="yes" />
+          </test>
+        </evaluate>
+      </evaluation>
+      </task>
+      <task label="ula-proteus-6-1-compdotprod-b-v1">
+        <statement>
+          <p>
+            Which of the vectors are orthogonal to each other?
+          </p>
+        </statement>
+        <choices randomize="no">
+          <choice correct="yes">
+            <statement>
+              <p><m>\vvec_1</m> and <m>\vvec_2</m></p>
+            </statement>
+          </choice>
+          <choice>
+            <statement>
+              <p><m>\vvec_2</m> and <m>\vvec_3</m></p>
+            </statement>
+            <feedback>
+              <p>What does the dot product tell you about
+              othogonality?</p>
+            </feedback>
+          </choice>
+          <choice>
+            <statement>
+              <p><m>\vvec_1</m> and <m>\vvec_3</m></p>
+            </statement>
+            <feedback>
+              <p>What does the dot product tell you about
+              othogonality?</p>
+            </feedback>
+          </choice>
+          <choice>
+            <statement>
+              <p><m>\vvec_1</m> and <m>-\vvec_1</m></p>
+            </statement>
+            <feedback>
+              <p>Can parallel vectors be orthogonal?</p>
+            </feedback>
+          </choice>
+          <choice correct="yes">
+            <statement><p><m>2\vvec_1</m> and <m>3\vvec_2</m></p>
+            </statement>
+          </choice>
+        </choices>
+      </task>
+    </exercise>
+
+    <exercise component="proteus-playground"
+              label="ula-proteus-6-1-dot-product-distributivity-v1">
+      <title>Distributivity of the dot product</title>
+      <introduction>
+        <p>
+          Suppose we have vectors <m>\vvec</m> and <m>\wvec</m> for
+          which
+          <md>
+            <mrow>
+              \vvec\cdot\vvec\amp=29
+            </mrow>
+            <mrow>
+              \wvec\cdot\wvec\amp=25
+            </mrow>
+            <mrow>
+              \vvec\cdot\wvec\amp=23
+            </mrow>
+          </md>.
+        </p>
+      </introduction>
+      <task label="ula-proteus-6-1-dot-product-distributivity-a-v1">
+        <statement>
+          <p>
+            What is the length <m>\len{\wvec}</m>?
+            <fillin answer="5" width="3"/>
+          </p>
+        </statement>
+        <evaluation>
+          <evaluate>
+            <test correct = "yes">
+              <numcmp use-answer="yes" />
+            </test>
+            <test>
+              <strcmp>.*</strcmp>
+              <feedback>
+                <p>Please try again.</p>
+              </feedback>
+            </test>
+          </evaluate>
+        </evaluation>
+      </task>
+      <task label="ula-proteus-6-1-dot-product-distributivity-b-v1">
+        <statement>
+          <p>
+            What is the angle between <m>\vvec</m> and <m>\wvec</m>?
+            Express your result in degrees rounded
+            to the nearest tenths place.
+          </p>
+          <p>
+            <fillin answer="31.3" width="3"/>
+          </p>
+        </statement>
+        <evaluation>
+          <evaluate>
+            <test correct = "yes">
+              <numcmp use-answer="yes" tolerance="0.1"/>
+            </test>
+            <test>
+              <strcmp>.*</strcmp>
+              <feedback>
+                <p>Please try again.</p>
+              </feedback>
+            </test>
+          </evaluate>
+        </evaluation>
+      </task>
+      <task label="ula-proteus-6-1-dot-product-distributivity-c-v1">
+        <statement>
+          <p>
+            Suppose that <m>l</m> is a scalar. Find the value of
+            <m>l</m> for which <m>l\vvec-\wvec</m> is orthogonal to
+            <m>\wvec</m>. Round your answer to the nearest tenths
+            place.
+          </p>
+          <p>
+            <fillin answer="1.1" width="3"/>
+          </p>
+        </statement>
+        <evaluation>
+          <evaluate>
+            <test correct = "yes">
+              <numcmp use-answer="yes" tolerance="0.1"/>
+            </test>
+            <test>
+              <strcmp>.*</strcmp>
+              <feedback>
+                <p>Please try again.</p>
+              </feedback>
+            </test>
+          </evaluate>
+        </evaluation>
+      </task>
+    </exercise>
+
+    <exercise component="proteus-playground"
               label="ula-proteus-6-1-proofzerocond-v1">
       <title>Proving the zero condition of the dot product</title>
       <statement>
