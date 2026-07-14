@@ -68,12 +68,12 @@ ltv.offset = [-10,5];
 ltv.font = "bold 16px arial";
 topcanvas.addPlotable(ltv);
 
-var lba = new Label("a", [0,1.5]);
+var lba = new Label("c", [0,1.5]);
 lba.offset = [-5,-3]
 lba.font = "italic 16px arial";
 bottommatrix.addPlotable(lba);
 
-var lbb = new Label("b", [0,0.5]);
+var lbb = new Label("d", [0,0.5]);
 lbb.offset = [-5,-3]
 lbb.font = "italic 16px arial";
 bottommatrix.addPlotable(lbb);
