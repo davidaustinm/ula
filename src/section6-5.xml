@@ -70,14 +70,14 @@
 	  <p> Is there a solution to the equation
 	  <m>A\xvec=\bvec</m> where <m>A</m> and <m>\bvec</m> are such
 	  that
-	  <me>
+	  <md>
 	    \begin{bmatrix}
 	    1 \amp 2 \\
 	    2 \amp 5 \\
 	    -1 \amp 0 \\
 	    \end{bmatrix}
 	    \xvec = \threevec5{-3}{-1}
-	  </me>.
+	  </md>.
 	  <sage>
 	    <input>
 	    </input>
@@ -88,7 +88,7 @@
         <solution>
 	  <p>
 	    The reduced row echelon form
-	    <me>
+	    <md>
 	      \left[
 	      \begin{array}{cc|c}
 	      1 \amp 2 \amp 5 \\
@@ -104,7 +104,7 @@
 	      0 \amp 0 \amp 1 \\
 	      \end{array}
 	      \right]
-	    </me>
+	    </md>
 	    shows that there is no solution.
 	  </p>
         </solution>
@@ -457,7 +457,7 @@
       toward throughout this chapter.  If the data points are denoted as
       <m>(x_i, y_i)</m>, we construct the matrix <m>A</m> and vector
       <m>\bvec</m> as
-      <me>
+      <md>
 	A =
 	\begin{bmatrix}
 	1 \amp x_1 \\
@@ -465,7 +465,7 @@
 	1 \amp x_3 \\
 	\end{bmatrix},\hspace{24pt}
 	\bvec = \threevec{y_1}{y_2}{y_3}\text{.}
-      </me>
+      </md>
       With the vector <m>\xvec=\ctwovec bm</m> representing the line
       <m>b+mx = y</m>, we see that
       the equation <m>A\xvec=\bvec</m> describes a line passing
@@ -582,9 +582,9 @@
       ref="prop-col-orthog" /> tells us is the same as
       <m>\nul(A^T)</m>.  Since <m>\bhat-\bvec</m> is in
       <m>\nul(A^T)</m>, it follows that
-      <me>
+      <md>
 	A^T(\widehat\bvec-\bvec) = \zerovec\text{.}
-      </me>
+      </md>
       Because the least-squares approximate
       solution is the vector <m>\xhat</m> such that <m>A\xhat =
       \bhat</m>, we can rearrange this equation to see that
@@ -610,9 +610,9 @@
 	there is a unique least-squares approximate solution
 	<m>\xhat</m> to the equation <m>A\xvec=\bvec</m> given by the
 	normal equation
-	<me>
+	<md>
 	  A^TA\xhat = A^T\bvec\text{.}
-	</me>
+	</md>
 	</p>
       </statement>
     </proposition>
@@ -620,7 +620,7 @@
     <example>
       <p>
 	Consider the equation
-	<me>
+	<md>
 	  \begin{bmatrix}
 	  2 \amp 1 \\
 	  2 \amp 0 \\
@@ -628,15 +628,15 @@
 	  \end{bmatrix}
 	  \xvec
 	  = \threevec{16}{-1}7
-	</me>
+	</md>
 	with matrix <m>A</m> and vector <m>\bvec</m>.  
 	Since this equation is inconsistent, we will find the least-squares
 	approximate solution <m>\xhat</m> by solving the normal
 	equation <m>A^TA\xhat = A^T\bvec</m>, which has the form
-	<me>
+	<md>
 	  A^TA\xhat = \begin{bmatrix} 9 \amp -1 \\ -1 \amp 10 \\
 	  \end{bmatrix} \xhat = \twovec{23}{37} = A^T\bvec 
-	</me>
+	</md>
 	and the solution <m>\xhat=\twovec34</m>.
       </p>
     </example>
@@ -687,9 +687,9 @@ list_plot(data, color='blue', size=40, xmin=12, xmax=22, ymin=60, ymax=100)
 	<p>
 	  We would like to represent this relationship by a linear
 	  function
-	  <me>
+	  <md>
 	    \beta_0 + \beta_1 C = T\text{.}
-	  </me>
+	  </md>
 	  <ol marker="a.">
 	    <li>
 	      <p>
@@ -947,10 +947,10 @@ plot_model(xhat, data, domain=(12, 22))
       <statement>
 	<p>
 	  The coefficient of determination is
-	  <me>
+	  <md>
 	    R^2 = 1 - \frac{|\bvec - A\xhat|^2}
 	    {|\widetilde{\bvec}|^2},
-	  </me>
+	  </md>
 	  where <m>\widetilde{\bvec}</m> is the vector obtained by
 	  demeaning 
 	  <m>\bvec</m>.
@@ -1020,9 +1020,9 @@ plot_model(xhat, data, domain=(12, 22))
 	      <p>
 		Multiply both sides of the second expression by
 		<m>Q^T</m> and explain why
-		<me>
+		<md>
 		  R\xhat = Q^T\bvec.
-		</me>
+		</md>
 	      </p>
 
 	      <p>
@@ -1030,9 +1030,9 @@ plot_model(xhat, data, domain=(12, 22))
 		simple equation to solve using back substitution, as we
 		saw in <xref ref="sec-gaussian-revisited" />.  We will
 		therefore write the least-squares approximate solution as
-		<me>
+		<md>
 		  \xhat = R^{-1}Q^T\bvec,
-		</me>
+		</md>
 		and put this to use in the following context.
 	      </p>
 	    </li>
@@ -1041,8 +1041,8 @@ plot_model(xhat, data, domain=(12, 22))
 	      <p>
 		Brozak’s formula, which is used to calculate a person's body fat
 		index <m>BFI</m>, is
-		<me>BFI = 100 \left(\frac{4.57}{\rho} - 4.142\right)
-		</me>
+		<md>BFI = 100 \left(\frac{4.57}{\rho} - 4.142\right)
+		</md>
 		where <m>\rho</m> denotes a person's body density in
 		grams per cubic centimeter.  Obtaining an accurate
 		measure of <m>\rho</m> is difficult, however, because it
@@ -1109,10 +1109,10 @@ print(df)
 
 	      <p>
 		We would like to find the linear function
-		<me>
+		<md>
 		  \beta_0 + \beta_1w + \beta_2h + \beta_3a + \beta_4r +
 		  \beta_5n = BFI
-		</me>
+		</md>
 		that best fits the data.
 	      </p>
 
@@ -1221,12 +1221,12 @@ print(df)
 	    <li>
 	      <p>
 		We find that
-		<me>
+		<md>
 		  \beta_0 = 54.08, \beta_1 = 0.19, \beta_2 =
 		    -2.62,
 		    \beta_3 = 0.92, \beta_4 = 2.70, \beta_5 =
 		    -0.41
-		</me>
+		</md>
 	      </p>
 	    </li>
 	    <li>
@@ -1281,12 +1281,12 @@ print(df)
 	    <li>
 	      <p>
 		We find that
-		<me>
+		<md>
 		  \beta_0 = 54.08, \beta_1 = 0.19, \beta_2 =
 		    -2.62,
 		    \beta_3 = 0.92, \beta_4 = 2.70, \beta_5 =
 		    -0.41
-		</me>
+		</md>
 	      </p>
 	    </li>
 	    <li>
@@ -1317,9 +1317,9 @@ print(df)
 	  have the <m>QR</m> factorization <m>A=QR</m>, then the
 	  least-squares approximate solution <m>\xhat</m> to the equation
 	  <m>A\xvec=\bvec</m> is given by
-	  <me>
+	  <md>
 	    \xhat = R^{-1}Q^T\bvec\text{.}
-	  </me>
+	  </md>
 	</p>
       </statement>
     </proposition>
@@ -1375,9 +1375,9 @@ list_plot(data, color='blue', size=40)
 
 	      <p>
 		Let's fit a quadratic function of the form
-		<me>
+		<md>
 		  \beta_0 + \beta_1 x + \beta_2 x^2 = y
-		</me>
+		</md>
 		to this dataset.
 	      </p>
 
@@ -1441,9 +1441,9 @@ list_plot(data, color='blue', size=40) + plot( **your function here**,
 	    <li>
 	      <p>
 		Now fit a cubic polynomial of the form
-		<me>
+		<md>
 		  \beta_0 + \beta_1x + \beta_2 x^2 + \beta_3x^3 = y
-		</me>
+		</md>
 		to this dataset.
 		<sage>
 		  <input>
@@ -1618,7 +1618,7 @@ list_plot(data, color='blue', size=40) + plot( **your function here**,
       fitting a quadratic and cubic function to a dataset have
       a special form.  In particular, if the data points are labeled
       <m>(x_i, y_i)</m> and we seek a degree <m>k</m> polynomial, then
-      <me>
+      <md>
 	A =
 	\begin{bmatrix}
 	1 \amp x_1 \amp x_1^2 \amp \ldots \amp x_1^k \\
@@ -1626,7 +1626,7 @@ list_plot(data, color='blue', size=40) + plot( **your function here**,
 	\vdots \amp \vdots \amp \vdots \amp \ddots \amp \vdots \\
 	1 \amp x_m \amp x_m^2 \amp \ldots \amp x_m^k \\
 	\end{bmatrix}.
-      </me>
+      </md>
       This is called a <em>Vandermonde</em> matrix of degree <m>k</m>.   
     </p>
 

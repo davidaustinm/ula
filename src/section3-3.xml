@@ -146,9 +146,9 @@
       <task label="ula-preview-3-3-d">
         <statement>
 	  <p> Suppose that
-	  <me>
+	  <md>
 	    \bcal=\left\{\twovec{1}{3},\twovec{1}{1}\right\}
-	    </me> is a basis for <m>\real^2</m>.  If
+	    </md> is a basis for <m>\real^2</m>.  If
 	    <m>\coords{\xvec}{\bcal} = \twovec{1}{-2}</m>, find the vector
 	    <m>\xvec</m>.
 	    <sage>
@@ -229,18 +229,18 @@
 
     <p> We define a basis <m>\bcal=\{\vvec_1,\vvec_2,\vvec_3\}</m>
     where
-    <me>
+    <md>
       \vvec_1 =\left[\begin{array}{c} 1 \\ 1 \\ 1 \end{array}\right],~~~
       \vvec_2 =\left[\begin{array}{c} 0 \\ -0.34413 \\ 1.77200
       \end{array}\right],~~~
       \vvec_3 =\left[\begin{array}{c} 1.40200 \\ -0.71414 \\
       0 \end{array}\right]
-    </me>
+    </md>
     to define a new coordinate system with coordinates we denote
     <m>Y</m>, <m>C_b</m>, and <m>C_r</m>:
-    <me>
+    <md>
       \coords{\threevec{R}{G}{B}}{\bcal} = \threevec{Y}{C_b}{C_r}
-    </me>.
+    </md>.
     <idx> luminance </idx>
     <idx> chrominance </idx>
     The coordinate <m>Y</m> is called <em>luminance</em> while
@@ -514,23 +514,23 @@
 
 	  <li><p>
 	    The matrices are
-	    <me>
+	    <md>
 	      P_{\bcal} =
 	      \left[\begin{array}{rrr}
 	      1.0000 \amp 0.00000 \amp 1.4020 \\
 	      1.0000 \amp -0.34413 \amp -0.71414 \\
 	      1.0000 \amp 1.7720 \amp 0.00000
 	      \end{array}\right]
-	    </me>
+	    </md>
 	    and
-	    <me>
+	    <md>
 	      P_{\bcal}^{-1} =
 	      \left[\begin{array}{rrr}
 	      0.29900 \amp 0.58700 \amp 0.11400 \\
 	      -0.16874 \amp -0.33126 \amp 0.50000 \\
 	      0.50000 \amp -0.41869 \amp -0.081311
 	      \end{array}\right]\text{.}
-	    </me>
+	    </md>
 	  </p></li>
 
 	  <li><p> To convert from <m>RGB</m> to <m>YC_bC_r</m>, we
@@ -571,7 +571,7 @@
 	  </p></li>
 
 	  <li><p> We have
-	  <me>
+	  <md>
 	    \begin{alignedat}{4}
 	    Y \amp {}={} \amp 0.299R \amp {}+{} \amp 0.587G \amp {}+{}
 	    \amp 0.114B \\
@@ -580,7 +580,7 @@
 	    C_r \amp {}={} \amp 0.500R \amp {}-{} \amp 0.419G \amp {}-{}
 	    \amp 0.081B\text{.} \\
 	    \end{alignedat}
-	  </me>
+	  </md>
 	  The expression for <m>Y</m> is a weighted average of the
 	  <m>R</m>, <m>G</m>, and <m>B</m> values.  The expression for
 	  <m>C_b</m> takes half the amount of <m>B</m> and subtracts
@@ -838,10 +838,10 @@
 
     <p> Let's look at the first column of luminance values, which is a
     vector in <m>\real^8</m>:
-    <me>\xvec = \left[\begin{array}{c}
+    <md>\xvec = \left[\begin{array}{c}
     176 \\ 181 \\ 165 \\ \vdots \\ 150 \\
     \end{array}\right]
-    </me>.
+    </md>.
     We will perform a change of basis and describe this
     vector by the average of the luminance values and
     information about variations from the average.
@@ -852,7 +852,7 @@
       The JPEG compression algorithm uses the <em>Discrete Fourier
     Transform</em>, which is defined using the basis <m>\bcal</m>
     whose basis vectors are
-    <me>
+    <md>
       \begin{aligned}
       \vvec_0 = \left[\begin{array}{c}
       \cos\left(\frac{(2\cdot0+1)\cdot0\pi}{16}\right) \\
@@ -884,7 +884,7 @@
       \cos\left(\frac{(2\cdot7+1)\cdot7\pi}{16}\right) \\
       \end{array}\right]\text{.} \\
       \end{aligned}
-    </me>
+    </md>
     </p>
 
     <p> On first glance, this probably looks intimidating, but we can
@@ -988,11 +988,11 @@
       Remember that <m>\xvec</m> is the vector of luminance values in
       the first column as seen on the right.  We will write
       <m>\xvec</m> in the new coordinates
-      <me>
+      <md>
 	\coords{\xvec}{\bcal} = \left[\begin{array}{c}
 	F_0 \\ F_1 \\ F_2 \\ \vdots \\ F_7
 	\end{array}\right]
-      </me>.
+      </md>.
       The coordinates <m>F_j</m> are called the <em>Fourier
       coefficients</em> of the vector <m>\xvec</m>.
       </p>
@@ -1355,7 +1355,7 @@ print (y_fourier.numerical_approx(digits=3))
       <m>j</m> will be small.
       </p></li>
       <li><p> We have
-      <me>
+      <md>
 	P_{\bcal}^{-1} =
 	\left[\begin{array}{rrrrrrrr}
 	0.125 \amp 0.125 \amp 0.125 \amp 0.125 \amp 0.125 \amp 0.125
@@ -1375,13 +1375,13 @@ print (y_fourier.numerical_approx(digits=3))
 	0.0488 \amp -0.139 \amp 0.208 \amp -0.245 \amp 0.245 \amp
 	-0.208 \amp 0.139 \amp -0.0488 
 	\end{array}\right]\text{.}
-      </me>
+      </md>
       From the top row of this matrix, we see that
       <m>F_0=\frac18(x_0+x_1+\ldots+x_7)</m>.
       </p></li>
 
       <li><p> We find that
-      <me>
+      <md>
 	\cfourvec{F_0}{F_1}{\vdots}{F_7} =
 	\left[\begin{array}{c}
 	151.6\\
@@ -1392,7 +1392,7 @@ print (y_fourier.numerical_approx(digits=3))
 	-3.121\\
 	-0.4167\\
 	0.6794\end{array}\right]\text{.}
-      </me>
+      </md>
       Notice that the largest Fourier coefficient is <m>F_0=151.6</m>
       and that the coefficients <m>F_4</m>, <m>F_5</m>, <m>F_6</m>,
       and <m>F_7</m> are relatively small.  This reflects the fact
@@ -1401,7 +1401,7 @@ print (y_fourier.numerical_approx(digits=3))
 
       <li><p>
 	Notice that
-	<me>\xvec=
+	<md>\xvec=
 	\left[\begin{array}{c}
 	176 \\ 181 \\ 165 \\ 139 \\131 \\ 131 \\ 140 \\ 150
 	\end{array}\right],~~~
@@ -1409,12 +1409,12 @@ print (y_fourier.numerical_approx(digits=3))
 	\left[\begin{array}{c}
 	176 \\ 181 \\ 166 \\ 140 \\131 \\ 133 \\ 140 \\ 150
 	\end{array}\right]
-	</me>
+	</md>
 	showing that the approximation is quite good.
       </p></li>
 
       <li><p> We have
-      <me>
+      <md>
 	F =
 	\left[\begin{array}{rrrrrrrr}
 	152 \amp 154 \amp 163 \amp 165 \amp 164 \amp 163 \amp 162 \amp 161 \\
@@ -1426,7 +1426,7 @@ print (y_fourier.numerical_approx(digits=3))
 	-0.417 \amp -1.04 \amp -1.45 \amp -1.97 \amp 1.38 \amp 1.13 \amp 1.10 \amp 1.22 \\
 	0.679 \amp 0.450 \amp -0.403 \amp -0.335 \amp 0.00929 \amp -0.166 \amp 0.207 \amp -0.141
 	\end{array}\right]\text{.}
-      </me>
+      </md>
       </p></li>
 
       <li><p>
@@ -1454,7 +1454,7 @@ print (y_fourier.numerical_approx(digits=3))
     relatively constant, it seems reasonable to find the Fourier coefficients
     of the <em>rows</em> of the matrix of Fourier coefficients.  Doing
     so leads to the matrix
-      <me>
+      <md>
 	\left[\begin{array}{rrrrrrrr}
 160.6 \amp -4.0 \amp -4.8 \amp -1.7 \amp 0.0 \amp 0.9 \amp 0.8 \amp
 0.3  \\
@@ -1467,7 +1467,7 @@ print (y_fourier.numerical_approx(digits=3))
 -0.0 \amp -1.4 \amp 0.4 \amp 0.9 \amp 0.1 \amp -0.5 \amp 0.0 \amp 0.5 \\
 0.0 \amp 0.2 \amp 0.3 \amp 0.3 \amp 0.0 \amp -0.0 \amp -0.2 \amp 0.0 \\
 \end{array}\right]
-      </me>.
+      </md>.
     </p>
 
     <p> If we were to look inside a JPEG image file, we would see lots
@@ -1477,7 +1477,7 @@ print (y_fourier.numerical_approx(digits=3))
     chrominance, and red chrominance values.  However, we store these
     Fourier coefficients as integers inside the JPEG file so we need
     to round off the coefficients to the nearest integer, as shown here:
-    <me>\left[\begin{array}{rrrrrrrr}
+    <md>\left[\begin{array}{rrrrrrrr}
     161 \amp -4 \amp -5 \amp -2 \amp 0 \amp 1 \amp 1 \amp 0  \\
 3 \amp 15 \amp 4 \amp 1 \amp -2 \amp 0 \amp 0 \amp 0  \\
 4 \amp 7 \amp 2 \amp 3 \amp 1 \amp 0 \amp 0 \amp 0  \\
@@ -1487,7 +1487,7 @@ print (y_fourier.numerical_approx(digits=3))
 0 \amp -1 \amp 0 \amp 1 \amp 0 \amp -1 \amp 0 \amp 1  \\
 0 \amp 0 \amp 0 \amp 0 \amp 0 \amp 0 \amp 0 \amp 0  \\
 \end{array}\right]
-</me>.
+</md>.
 </p>
 <p>
   There are many zeroes in this matrix, and 
@@ -1527,14 +1527,14 @@ print (y_fourier.numerical_approx(digits=3))
     relatively high.  After 
     rounding off the Fourier coefficients, we will set all of the
     coefficients whose absolute value is less than 2 to zero, which
-    creates the matrix: <me>\left[\begin{array}{rrrrrrrr} 161 \amp -4
+    creates the matrix: <md>\left[\begin{array}{rrrrrrrr} 161 \amp -4
     \amp -5 \amp 0 \amp 0 \amp 0 \amp 0 \amp 0 \\ 3 \amp 15 \amp 4
     \amp 0 \amp 0 \amp 0 \amp 0 \amp 0 \\ 4 \amp 7 \amp 2 \amp 3 \amp
     0 \amp 0 \amp 0 \amp 0 \\ -2 \amp -4 \amp 0 \amp 0 \amp 0 \amp 0
     \amp 0 \amp 0 \\ 0 \amp 0 \amp 0 \amp 0 \amp 0 \amp 0 \amp 0 \amp
     0 \\ 0 \amp 0 \amp 0 \amp 0 \amp 0 \amp 0 \amp 0 \amp 0 \\ 0 \amp
     0 \amp 0 \amp 0 \amp 0 \amp 0 \amp 0 \amp 0 \\ 0 \amp 0 \amp 0
-    \amp 0 \amp 0 \amp 0 \amp 0 \amp 0 \\ \end{array}\right]. </me>
+    \amp 0 \amp 0 \amp 0 \amp 0 \amp 0 \\ \end{array}\right]. </md>
     Notice that there are 12 nonzero Fourier coefficients, out of 64, that we
     need to record.  Consequently, we only save <m>12/64 \approx
     19\%</m> of the data.
@@ -1543,7 +1543,7 @@ print (y_fourier.numerical_approx(digits=3))
     <p> If instead, the quality setting is relatively low, we set all
     of the Fourier coefficients whose absolute value is less than 4 to
     zero, creating the matrix:
-<me>\left[\begin{array}{rrrrrrrr}
+<md>\left[\begin{array}{rrrrrrrr}
 161 \amp -4 \amp -5 \amp 0 \amp 0 \amp 0 \amp 0 \amp 0  \\
 0 \amp 15 \amp 0 \amp 0 \amp 0 \amp 0 \amp 0 \amp 0  \\
 0 \amp 7 \amp 0 \amp 0 \amp 0 \amp 0 \amp 0 \amp 0  \\
@@ -1553,7 +1553,7 @@ print (y_fourier.numerical_approx(digits=3))
 0 \amp 0 \amp 0 \amp 0 \amp 0 \amp 0 \amp 0 \amp 0  \\
 0 \amp 0 \amp 0 \amp 0 \amp 0 \amp 0 \amp 0 \amp 0  \\
 \end{array}\right]
-</me>. Notice that there are only 5 nonzero Fourier coefficients that
+</md>. Notice that there are only 5 nonzero Fourier coefficients that
 we need to record now, meaning we save only <m>5/64\approx 8\%</m>
 of the data.  This will result in a smaller JPEG file describing the
 image.
@@ -1569,7 +1569,7 @@ image.
       values and the reconstructed luminance values.  When the quality
       setting was high and we stored 12 Fourier coefficients, we find
       this difference to be
-      <me>\left[\begin{array}{rrrrrrrr}
+      <md>\left[\begin{array}{rrrrrrrr}
       -7 \amp -7 \amp -1 \amp 3 \amp -2 \amp -1 \amp 0 \amp -1  \\
       4 \amp 4 \amp 4 \amp -1 \amp -3 \amp 0 \amp -1 \amp -3  \\
       1 \amp 3 \amp 0 \amp -7 \amp -3 \amp 1 \amp 3 \amp 3  \\
@@ -1579,10 +1579,10 @@ image.
       1 \amp -2 \amp 4 \amp 3 \amp -4 \amp -6 \amp -2 \amp 3  \\
       0 \amp -1 \amp 2 \amp 1 \amp -1 \amp -4 \amp -1 \amp 5  \\
       \end{array}\right]
-      </me>.
+      </md>.
       When the quality setting is lower and we store only 5 Fourier
       coefficients, the difference is
-      <me>\left[\begin{array}{rrrrrrrr}
+      <md>\left[\begin{array}{rrrrrrrr}
       3 \amp -3 \amp -2 \amp 0 \amp 0 \amp 7 \amp 10 \amp 10  \\
       14 \amp 11 \amp 6 \amp -1 \amp -1 \amp 3 \amp 4 \amp 4  \\
       7 \amp 10 \amp 5 \amp -5 \amp -3 \amp -1 \amp 2 \amp 3  \\
@@ -1592,7 +1592,7 @@ image.
       -3 \amp -6 \amp 2 \amp 3 \amp -2 \amp -5 \amp -4 \amp -1  \\
       6 \amp 3 \amp 4 \amp 5 \amp 4 \amp 0 \amp -1 \amp 0  \\
       \end{array}\right]
-      </me>.
+      </md>.
     </p>
 
     <p> This demonstrates the trade off.  With a high quality setting,

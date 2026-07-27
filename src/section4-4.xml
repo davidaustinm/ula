@@ -34,7 +34,7 @@
       <introduction>
         <p> Suppose that we have a diagonalizable matrix
         <m>A=PDP^{-1}</m> where
-        <me>
+        <md>
 	  P = \left[\begin{array}{rr}
 	  1 \amp -1 \\
 	  1 \amp 2 \\
@@ -43,7 +43,7 @@
 	  2 \amp 0 \\
 	  0 \amp -3 \\
 	  \end{array}\right]
-        </me>.
+        </md>.
         </p>
       </introduction>
 
@@ -170,12 +170,12 @@
       <p> If we know the populations in one year, suppose that
       the populations in the following year
       are determined by the expressions
-      <me>
+      <md>
 	\begin{aligned}
 	R_{k+1} \amp {}={} 0.9 R_k + 0.8 S_k \\
 	S_{k+1} \amp {}={} 0.2 R_k + 0.9 S_k\text{.} \\
 	\end{aligned}
-      </me>
+      </md>
       This is an example of a mutually beneficial relationship between
       two species.  If species <m>S</m> is not present, then
       <m>R_{k+1} = 0.9R_k</m>, which means that the population of
@@ -197,10 +197,10 @@
       </m>.
       <ol marker="a.">
 	<li><p> Verify that
-	<me>
+	<md>
 	  \vvec_1=\twovec{2}{1},\qquad
 	  \vvec_2=\twovec{-2}{1}
-	</me>
+	</md>
 	are eigenvectors of <m>A</m> and find their respective
 	eigenvalues. </p></li>
 
@@ -247,14 +247,14 @@
 
 	  <li><p> Each time we multiply by <m>A</m>, the eigenvectors
 	  are multiplied by their associated eigenvalues.  This gives
-	  <me>
+	  <md>
 	    \begin{aligned}
 	    \xvec_1 = A\xvec_0 \amp = 2(1.3)\vvec_1 + 0.5\vvec_2 \\
 	    \xvec_2 = A\xvec_1 \amp = 2(1.3)^2\vvec_1 + 0.5^2\vvec_2 \\
 	    \xvec_3 = A\xvec_2 \amp = 2(1.3)^3\vvec_1 +
 	    0.5^3\vvec_2\text{.} \\
 	    \end{aligned}
-	  </me>
+	  </md>
 	  </p></li>
 
 	  <li><p> After a long time <m>0.5^k\approx 0</m> so we have
@@ -295,28 +295,28 @@
 
     <p> Let's look at the specific example in the previous activity
     more carefully.  We see that 
-    <me>
+    <md>
       \xvec_{k+1} = A\xvec_k = 
       \left[\begin{array}{rr}
       0.9 \amp 0.8 \\
       0.2 \amp 0.9 \\
       \end{array}\right]
       \xvec_k
-    </me>
+    </md>
     and that the matrix <m>A</m> has eigenvectors <m>\vvec_1 =
     \twovec{2}{1}</m> and <m>\vvec_2=\twovec{-2}{1}</m> with associated
     eigenvalues <m>\lambda_1=1.3</m> and <m>\lambda_2=0.5</m>. </p>
 
     <p>
       With initial populations <m>\xvec_0=\twovec{2}{3}</m>, we have
-      <me>
+      <md>
 	\begin{aligned}
 	\xvec_0 \amp {}={} 2\vvec_1 + 1\vvec_2 \\
 	\xvec_1 \amp {}={} 1.3\cdot2\vvec_1 + 0.5\cdot1\vvec_2 \\
 	\xvec_2 \amp {}={} 1.3^2\cdot2\vvec_1 + 0.5^2\cdot1\vvec_2 \\
 	\xvec_k \amp {}={} 1.3^k\cdot2\vvec_1 + 0.5^k\cdot1\vvec_2. \\
 	\end{aligned}
-      </me>
+      </md>
     </p>
 
     <p>
@@ -324,7 +324,7 @@
       <m>\vvec_1</m> and <m>\vvec_2</m> form a basis <m>\bcal</m> of
       <m>\real^2</m>, which says that <m>A</m> is diagonalizable;
       that is, <m>A = PDP^{-1}</m> where
-      <me>
+      <md>
 	P = \left[\begin{array}{rr} \vvec_1 \amp \vvec_2
 	\end{array}\right] =
 	\left[\begin{array}{rr}
@@ -335,7 +335,7 @@
 	1.3 \amp 0 \\
 	0 \amp 0.5 \\
 	\end{array}\right].
-      </me>
+      </md>
     </p>
 
     <p> The coordinate system defined by the basis <m>\bcal</m> can be
@@ -345,13 +345,13 @@
     <m>\coords{\xvec_0}{\bcal} = \twovec{2}{1}</m>.  Moreover,
     <m>\xvec_1=A\xvec_0 = (1.3)\cdot2\vvec_1 + (0.5)\cdot1\vvec_2</m>
     so that
-    <me>
+    <md>
       \coords{\xvec_1}{\bcal} = \twovec{1.3\cdot 2}{0.5\cdot 1} =
       D\twovec21 = D\coords{\xvec_0}{\bcal}.
-    </me>  
+    </md>  
 
     In the same way,
-    <me>
+    <md>
       \begin{aligned}
       \coords{\xvec_1}{\bcal} \amp {}={} D\coords{\xvec_0}{\bcal} =
       \ctwovec{1.3\cdot 2}{0.5\cdot 1} \\
@@ -362,13 +362,13 @@
       \coords{\xvec_k}{\bcal} \amp {}={} 
       \ctwovec{1.3^k\cdot2}{0.5^k\cdot1}\text{.} \\
       \end{aligned}
-    </me>
+    </md>
     </p>
     <p>
     More generally, we have
-    <me>
+    <md>
       \coords{A\xvec}{\bcal} = D\coords{\xvec}{\bcal},
-    </me>
+    </md>
     which is a restatement of the fact that <m>A</m> is
     similar to <m>D</m>.
     </p>
@@ -454,14 +454,14 @@
     <p> Eventually, the vectors become practically indistinguishable
     from a scalar multiple of <m>\vvec_1 = \twovec{2}{1}</m> since
     <m>\xvec_k\approx 1.3^k\cdot2\vvec_1</m>.  This means that
-    <me>
+    <md>
       \xvec_k = \twovec{R_k}{S_k} \approx 1.3^k\cdot 2\vvec_1 = 
       \twovec{1.3^k\cdot4}{1.3^k\cdot2}.
-    </me>
+    </md>
     This shows that
-    <me>
+    <md>
       R_k/S_k \approx (1.3^k\cdot 4) / (1.3^k\cdot 2) = 2
-    </me>
+    </md>
     so that we expect the population of species <m>R</m> to eventually
     be about
     twice that of species <m>S</m>.
@@ -1355,9 +1355,9 @@
       consider two species <m>R</m> and <m>S</m> whose populations in
       year <m>k</m> form a vector <m>\xvec_k=\twovec{R_k}{S_k}</m> and
       which evolve according to the rule
-      <me>
+      <md>
 	\xvec_{k+1}=A\xvec_k
-      </me>.
+      </md>.
       <ol marker="a.">
 	<li>
 	  <p> Suppose that
@@ -1420,12 +1420,12 @@
       <solution>
 	<p><ol marker="a.">
 	  <li><p> With this matrix <m>A</m>, we have
-	  <me>
+	  <md>
 	    \begin{aligned}
 	    R_{k+1} \amp = 0.7R_k \\
 	    S_{k+1} \amp = 1.6S_k\text{.} \\
 	    \end{aligned}
-	  </me>
+	  </md>
 	  This shows that the population of one species does not
 	  depend on the other.  This dynamical system is a saddle
 	  because we have the eigenvalues <m>\lambda_1=0.7</m> and
@@ -1435,12 +1435,12 @@
 	  </p></li>
 
 	  <li><p> Now we have
-	  <me>
+	  <md>
 	    \begin{alignedat}{3}
 	    R_{k+1} \amp {}={} \amp 0.7R_k \amp{}+{} \amp 0.3S_k\\
 	    S_{k+1} \amp {}={} \amp \amp \amp 1.6S_k\text{.} \\
 	    \end{alignedat}
-	  </me>
+	  </md>
 	  The population of species <m>S</m> is not influenced by
 	  species <m>R</m>.  However, we see that the population of
 	  species <m>R</m> grows in the presence of species <m>S</m>.
@@ -1458,12 +1458,12 @@
 	  </p></li>
 
 	  <li><p> Here we have 
-	  <me>
+	  <md>
 	    \begin{alignedat}{3}
 	    R_{k+1} \amp {}={} \amp 0.7R_k \amp{}+{} \amp 0.5S_k\\
 	    S_{k+1} \amp {}={} \amp -0.4R_k \amp {}+{}\amp 1.6S_k\text{.} \\
 	    \end{alignedat}
-	  </me>
+	  </md>
 	  Species <m>S</m> helps species <m>R</m> to grow, while
 	  species <m>R</m> inhibits the growth of species <m>S</m>.
 	  One explanation for this is that species <m>R</m> preys on
@@ -1680,9 +1680,9 @@
       <p> By <m>J_k</m>, <m>Y_k</m>, and <m>A_k</m>, we denote the
       number of juveniles, yearlings, and adults in year <m>k</m>.  We
       have
-      <me>
+      <md>
 	J_{k+1} = 0.4 A_k
-      </me>.
+      </md>.
       <ol marker="a.">
 	<li><p> Find similar expressions for <m>Y_{k+1}</m> and
 	<m>A_{k+1}</m> in terms of <m>J_k</m>, <m>Y_k</m>, and
@@ -1696,7 +1696,7 @@
 
 	<li><p> We can write <m>A = PEP^{-1}</m> where the matrices
 	<m>E</m> and <m>P</m> are approximately:
-	<me>
+	<md>
 	  \begin{aligned}
 	  E \amp {}={} \left[\begin{array}{rrr}
 	   1.058 \amp  0 \amp  0 \\
@@ -1709,7 +1709,7 @@
 	  2.644 \amp -0.322 \amp  -1.264 \\
 	  \end{array}\right]\text{.}
 	  \end{aligned}
-	</me>
+	</md>
 	Make a prediction about the long-term behavior of
 	<m>\xvec_k</m>.  For instance, at what rate does it grow?  For
 	every 100 adults, how many juveniles, and yearlings are there?
@@ -1742,14 +1742,14 @@
       <solution>
 	<p><ol marker="a.">
 	  <li><p> We have the relationships
-	  <me>
+	  <md>
 	    \begin{alignedat}{4}
 	    J_{k+1} \amp {}={} \amp \amp \amp \amp \amp 0.4 A_k \\
 	    Y_{k+1} \amp {}={} \amp 0.8 J_k \\
 	    A_{k+1} \amp {}={} \amp \amp \amp 0.9Y_k \amp {}+{} \amp
 	    0.8A_k\text{.} \\
 	    \end{alignedat}
-	  </me>
+	  </md>
 	  </p></li>
 
 	  <li><p> The matrix <m>A=\left[\begin{array}{rrr}
