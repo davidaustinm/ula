@@ -34,12 +34,12 @@
         of cars at the two locations on day <m>k</m>.  The following
         day, the number of cars at <m>P</m> equals 80% of <m>P_k</m> and
         40% of <m>Q_k</m>.  This shows that
-        <me>
+        <md>
 	  \begin{aligned}
 	  P_{k+1} \amp {}={} 0.8 P_k + 0.4Q_k \\
 	  Q_{k+1} \amp {}={} 0.2 P_k + 0.6Q_k\text{.} \\
 	  \end{aligned}
-        </me>
+        </md>
         </p>
       </introduction>
 
@@ -151,13 +151,13 @@
 
     <p> In the preview activity, the distribution of rental cars was
     described by the discrete dynamical system
-    <me>
+    <md>
       \xvec_{k+1} = A\xvec_k=\left[\begin{array}{rr}
       0.8 \amp 0.4 \\
       0.2 \amp 0.6 \\
       \end{array}\right]
       \xvec_k
-    </me>.
+    </md>.
     This matrix has some special properties.  First, each entry
     represents the probability that a car 
     rented at one location is returned to another.  For instance,
@@ -283,7 +283,7 @@
     <m>k+1</m>, party <m>P</m> retains 60% of its voters from the
     previous election and adds 20% of those who voted for party <m>R</m>.
     In this way, we see that
-    <me>
+    <md>
       \begin{alignedat}{6}
       P_{k+1} \amp {}={} 0.6P_k \amp \amp \amp + 0.2 R_k \\
       Q_{k+1} \amp {}={} 0.4P_k \amp {}+{} \amp 0.6Q_k \amp {}+{}
@@ -291,15 +291,15 @@
       R_{k+1} \amp {}={} \amp {}{} \amp 0.4Q_k \amp {}+{}
       0.6R_k\\
       \end{alignedat}
-    </me>
+    </md>
     We therefore define the matrix
-    <me>
+    <md>
       A = \left[\begin{array}{rrr}
       0.6 \amp 0 \amp 0.2 \\
       0.4 \amp 0.6 \amp 0.2 \\
       0 \amp 0.4 \amp 0.6 \\
       \end{array}\right]
-    </me>
+    </md>
     and note that <m>\xvec_{k+1} = A\xvec_k</m>.  </p>
 
     <p> If we consider the first column of <m>A</m>, we see that the
@@ -317,7 +317,7 @@
     every voter votes for one of the three parties, the sum of these
     entries must be 1, which means that <m>\xvec_0</m> is a
     probability vector. We then find that
-    <me>
+    <md>
       \begin{array}{cccc}
       \xvec_1=\threevec{0.300}{0.400}{0.300},\amp
       \xvec_2=\threevec{0.240}{0.420}{0.340},\amp
@@ -328,7 +328,7 @@
       \xvec_{10}=\threevec{0.200}{0.400}{0.400},\amp
       \ldots \\
       \end{array}
-    </me>.
+    </md>.
     Notice that the vectors <m>\xvec_k</m> are also probability
     vectors and that the sequence <m>\xvec_k</m> seems to be
     converging to <m>\threevec{0.2}{0.4}{0.4}</m>.  It is this
@@ -337,10 +337,10 @@
     </p>
     
     <p> We find that the eigenvalues of <m>A</m> are
-    <me>
+    <md>
       \lambda_1 = 1, \qquad \lambda_2 = 0.4 + 0.2i, \qquad\lambda_3 =
       0.4-0.2i 
-    </me>.
+    </md>.
     Notice that if <m>\vvec</m> is an eigenvector of <m>A</m> with
     associated eigenvalue <m>\lambda_1=1</m>, then <m>A\vvec = 1\vvec
     = \vvec</m>.  That is, <m>\vvec</m> is unchanged when we multiply
@@ -349,13 +349,13 @@
 
     <sidebyside widths="55% 45%">
       <p> Otherwise, we have <m>A=PEP^{-1}</m> where
-      <me>
+      <md>
 	E = \left[\begin{array}{rrr}
 	1 \amp 0 \amp 0 \\
 	0 \amp 0.4 \amp -0.2 \\
 	0 \amp 0.2 \amp 0.4 \\
 	\end{array}\right]
-      </me>
+      </md>
       Notice that <m>|\lambda_2| = |\lambda_3| \lt 1</m> so the
       trajectories <m>\xvec_k</m> spiral into the
       eigenspace <m>E_1</m> as indicated in the figure.
@@ -462,7 +462,7 @@
     <activity>
       <statement>
       <p> Consider the matrices
-      <me>
+      <md>
 	A=\left[\begin{array}{rr}
 	0 \amp 1 \\
 	1 \amp 0 \\
@@ -471,7 +471,7 @@
 	0.4 \amp 0.3 \\
 	0.6 \amp 0.7 \\
 	\end{array}\right]
-      </me>.
+      </md>.
       <ol marker="a.">
 	<li><p> Verify that both <m>A</m> and <m>B</m> are stochastic
 	matrices. </p></li>
@@ -532,12 +532,12 @@ markov_chain(A, x0, 10)
 	  </p></li>
 
 	  <li><p> The terms in the Markov chain are
-	  <me>
+	  <md>
 	    \xvec_0 = \twovec10,
 	    \xvec_1 = \twovec01,
 	    \xvec_2 = \twovec10,
 	    \xvec_3 = \twovec01,\ldots
-	  </me>
+	  </md>
 	  so the chain does not converge to any vector, much less the
 	  steady-state vector.
 	  </p></li>
@@ -550,7 +550,7 @@ markov_chain(A, x0, 10)
 	  is the only probability vector in <m>E_1</m>. </p></li>
 
 	  <li><p> Here we find
-	  <me>
+	  <md>
 	    \begin{array}{rrrr}
 	    \xvec_0 = \twovec10, \amp
 	    \xvec_1 = \twovec{0.4}{0.6}, \amp
@@ -559,7 +559,7 @@ markov_chain(A, x0, 10)
 	    \xvec_4 = \twovec{0.3334}{0.6666}, \amp
 	    \xvec_5 = \twovec{0.33334}{0.66666},\amp\ldots
 	    \end{array}
-	  </me>
+	  </md>
 	  which appears to be converging to the steady-state vector
 	  <m>\qvec=\twovec{\frac13}{\frac23}</m>.
 	  </p></li>
@@ -884,9 +884,9 @@ markov_chain(C, x0, 10)
       divides its PageRank <m>x_3</m> in half and gives half to page
       1.  Page 2 has only one outgoing link so it gives all of its
       PageRank <m>x_2</m> to page 1.  We therefore have
-      <me>
+      <md>
 	x_1 = x_2 + \frac12 x_3
-      </me>.
+      </md>.
       </p>
 
       <p>
@@ -960,7 +960,7 @@ markov_chain(G, x0, 20)
 	  </p>
 
 	  <p> This means that
-	  <me>
+	  <md>
 	    \begin{alignedat}{4}
 	    x_1 \amp {}={} \amp \amp \amp x_2 \amp {}+{} \amp
 	    \frac12x_3 \\
@@ -968,7 +968,7 @@ markov_chain(G, x0, 20)
 	    \frac12x_3 \\
 	    x_3 \amp {}={} \amp \frac12x_1\amp \amp \amp \amp\text{.} \\
 	    \end{alignedat}
-	  </me>
+	  </md>
 	  </p></li>
 
 	  <li><p> From the equations, we see that
@@ -1164,14 +1164,14 @@ markov_chain(G, x0, 20)
 	<p><ol marker="a.">
 	  <li><p> After creating a Markov chain to find the
 	  steady-state vector, we find
-	  <me>
+	  <md>
 	    \begin{array}{rrrr}
 	    x_1 = 0.057, \amp x_2=0.085, \amp x_3=0.028, \amp
 	    x_4=0.085, \\
 	    x_5 = 0.071, \amp x_6=0.212, \amp x_7=0.170, \amp
 	    x_8=0.292\text{.}
 	    \end{array}
-	  </me>
+	  </md>
 	  </p></li>
 
 	  <li><p> This shows us that page <m>8</m> is judged to be the
@@ -1183,7 +1183,7 @@ markov_chain(G, x0, 20)
 	  </p></li>
 
 	  <li><p> We have the matrix
-	  <me>
+	  <md>
 	    G = \left[\begin{array}{rrrrr}
 	    0 \amp 0 \amp 0 \amp 0 \amp 1 \\
 	    1 \amp 0 \amp 0 \amp 0 \amp 0 \\
@@ -1191,9 +1191,9 @@ markov_chain(G, x0, 20)
 	    0 \amp 0 \amp 1 \amp 0 \amp 0 \\
 	    0 \amp 0 \amp 0 \amp 1 \amp 0 \\
 	    \end{array}\right]\text{,}
-	  </me>
+	  </md>
 	  which leads to the Markov chain
-	  <me>
+	  <md>
 	    \xvec_0=\left[\begin{array}{c} 1\\ 0\\ 0 \\ 0
 	    \\0\end{array}\right], 
 	    \xvec_1=\left[\begin{array}{c} 0\\ 1\\ 0 \\ 0
@@ -1204,13 +1204,13 @@ markov_chain(G, x0, 20)
 	    \\0\end{array}\right], 
 	    \xvec_4=\left[\begin{array}{c} 0\\ 0\\ 0 \\ 0
 	    \\1\end{array}\right], \ldots
-	  </me>
+	  </md>
 	  This Markov chain does not converge to a steady-state
 	  vector. </p></li>
 
 	  <li><p> As all of the pages seem equally important, we
 	  should expect the PageRank vector to be
-	  <me>
+	  <md>
 	    \xvec=\left[\begin{array}{c}
 	    \frac 15 \\
 	    \frac 15 \\
@@ -1218,19 +1218,19 @@ markov_chain(G, x0, 20)
 	    \frac 15 \\
 	    \frac 15
 	    \end{array}\right]\text{.}
-	  </me>
+	  </md>
 	  </p></li>
 
 	  <li><p> After generating some terms of a Markov chain, we
 	  see that 
-	  <me>
+	  <md>
 	    \begin{array}{rrrr}
 	    x_1 = 0.000, \amp x_2=0.000, \amp x_3=0.000, \amp
 	    x_4=0.000, \\
 	    x_5 = 0.120, \amp x_6=0.240, \amp x_7=0.240, \amp
 	    x_8=0.400\text{.}
 	    \end{array}
-	  </me>
+	  </md>
 	  These are not the components of a steady-state vector
 	  because some of the entries are zero.  The Google matrix
 	  <m>G</m> cannot be a positive matrix in this example.  This
@@ -1295,29 +1295,29 @@ markov_chain(G, x0, 20)
 
     <p> To make sense of this, suppose that there are <m>n</m> pages
     on our internet.  The matrix
-    <me>
+    <md>
       H_n = \left[\begin{array}{rrrr}
       \frac1n \amp \frac1n \amp \ldots \amp \frac1n \\
       \frac1n \amp \frac1n \amp \ldots \amp \frac1n \\
       \vdots \amp \vdots \amp \ddots \amp \vdots \\
       \frac1n \amp \frac1n \amp \ldots \amp \frac1n \\
       \end{array}\right]
-    </me>
+    </md>
     is a positive stochastic matrix describing a process where we can
     move from 
     any page to another with equal probability.  To form the modified
     Google matrix <m>G'</m>, we choose a parameter <m>\alpha</m> that
     is used to mix <m>G</m> and <m>H_n</m> together;  that is,
     <m>G'</m> is the positive stochastic matrix
-    <me>
+    <md>
       G' = \alpha G +(1-\alpha)H_n
-    </me>.
+    </md>.
     In practice, it is thought that Google uses a value of
     <m>\alpha=0.85</m> (Google doesn't publish this number as it is
     a trade secret) so that we have
-    <me>
+    <md>
       G' = 0.85 G + 0.15H_n
-    </me>.
+    </md>.
     Intuitively, this means that an Internet user will randomly follow
     a link from one page to another 85% of the time and will randomly
     jump to any other page on the Internet 15% of the time.  Since the
@@ -1391,14 +1391,14 @@ modified_markov_chain(G, x0, 20)
 	  </p></li>
 
 	  <li><p> We find that
-	  <me>
+	  <md>
 	    \begin{array}{rrrr}
 	    x_1 = 0.019, \amp x_2=0.072, \amp x_3=0.027, \amp
 	    x_4=0.080, \\
 	    x_5 = 0.106, \amp x_6=0.213, \amp x_7=0.179, \amp
 	    x_8=0.305\text{.}
 	    \end{array}
-	  </me>
+	  </md>
 	  Now the entries are all positive so we can make assessments about
 	  the relative quality of all the pages.  Due to the presence
 	  of the matrix <m>H_n</m> in the modified Google matrix, the

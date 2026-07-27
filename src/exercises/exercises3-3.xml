@@ -63,14 +63,14 @@ print (Pinv.numerical_approx(digits=3))
 	  \end{array}\right]
 	</m> and find the approximation <m>\yvec</m>, which compares
 	to the original vector <m>\xvec</m>.  
-	<me>
+	<md>
 	  \yvec=\left[\begin{array}{c}
 	  103 \\ 94 \\ 91 \\ 92 \\ 103 \\ 105 \\ 105 \\ 108
 	  \end{array}\right],~~~
 	  \xvec=\left[\begin{array}{c}
 	  103 \\ 94 \\ 91 \\ 92 \\ 103 \\ 105 \\ 105 \\ 108
 	  \end{array}\right]\text{.}
-	</me>
+	</md>
 	In this case, the approximation <m>\yvec</m> is the same as
 	the original vector <m>\xvec</m>.
 	</p></li>
@@ -82,14 +82,14 @@ print (Pinv.numerical_approx(digits=3))
 	  \end{array}\right]
 	</m> and find the approximation <m>\yvec</m>, which compares
 	to the original vector <m>\xvec</m>.  
-	<me>
+	<md>
 	  \yvec=\left[\begin{array}{c}
 	  94 \\ 95 \\ 97 \\ 99 \\ 101 \\ 103 \\ 105 \\ 106
 	  \end{array}\right],~~~
 	  \xvec=\left[\begin{array}{c}
 	  103 \\ 94 \\ 91 \\ 92 \\ 103 \\ 105 \\ 105 \\ 108
 	  \end{array}\right]\text{.}
-	</me>
+	</md>
 	Now we see that the approximating vector <m>\yvec</m> differs
 	from the original vector <m>\xvec</m>, though not significantly. 
 	</p></li>
@@ -262,7 +262,7 @@ print (Pinv.numerical_approx(digits=3))
       functions.  There is also a Fourier Sine Transform defined using
       a basis <m>\scal</m> consisting of sine functions.  For
       instance, in <m>\real^4</m>, the basis vectors of <m>\scal</m> are
-    <me>
+    <md>
       \begin{aligned}
       \vvec_1 = \left[\begin{array}{c}
       \sin\left(\frac{1\cdot1\pi}{8}\right) \\
@@ -290,7 +290,7 @@ print (Pinv.numerical_approx(digits=3))
       \sin\left(\frac{7\cdot4\pi}{8}\right) \\
       \end{array}\right]\text{.} \\
       \end{aligned}
-    </me>
+    </md>
     We can think of these vectors graphically, as shown in <xref
     ref="fig-fourier-sine-basis" />.
       </p>
@@ -410,7 +410,7 @@ C = matrix(cosmat).numerical_approx()
     <solution>
       <p><ol marker="a.">
 	<li><p> We find that
-	<me>
+	<md>
 	  \coords{\xvec}{\scal} =
 	  \left[\begin{array}{c}
 	  220 \\ 18.7 \\ 79.3 \\ 5.3 \\
@@ -419,7 +419,7 @@ C = matrix(cosmat).numerical_approx()
 	  \left[\begin{array}{c}
 	  165 \\ 20.1 \\ -11.0 \\ -0.3 \\
 	  \end{array}\right]\text{.}
-	</me>
+	</md>
 	</p></li>
 
 	<li><p> The higher Fourier Cosine coefficients are smaller
@@ -429,7 +429,7 @@ C = matrix(cosmat).numerical_approx()
 	</p></li>
 
 	<li><p> We find that
-	<me>
+	<md>
 	  \coords{\xvec}{\scal} =
 	  \left[\begin{array}{c}
 	  131 \\ 0 \\ 54.1 \\ 0 \\
@@ -438,7 +438,7 @@ C = matrix(cosmat).numerical_approx()
 	  \left[\begin{array}{c}
 	  100 \\ 0 \\ 0 \\ 0
 	  \end{array}\right]\text{.}
-	</me>
+	</md>
 	</p></li>
 
 	<li><p> Generally speaking, we can safely ignore more of the
@@ -502,12 +502,12 @@ C = matrix(cosmat).numerical_approx()
       <p> In <xref ref="example-wavelet-basis" />, we looked at a
       basis for <m>\real^4</m> that we called the Haar wavelet basis.
       The basis vectors are
-      <me>
+      <md>
 	\vvec_1=\fourvec{1}{1}{1}{1},
 	\vvec_2=\fourvec{1}{1}{-1}{-1},
 	\vvec_3=\fourvec{1}{-1}{0}{0},
 	\vvec_4=\fourvec{0}{0}{1}{-1}
-      </me>,
+      </md>,
       which may be understood graphically as in <xref
       ref="fig-haar-wavelet-basis" />. We will denote this basis by
       <m>\wcal</m>. 
@@ -582,23 +582,23 @@ C = matrix(cosmat).numerical_approx()
       <p> The change of coordinates from a vector <m>\xvec</m> in
       <m>\real^4</m> to <m>\coords{\xvec}{\wcal}</m> is called the
       Haar <em>wavelet transform</em> and we write
-      <me>
+      <md>
 	\coords{\xvec}{\wcal} = \fourvec{H_1}{H_2}{H_3}{H_4}
-      </me>.  The coefficients <m>H_1,H_2,H_3,H_4</m> are called
+      </md>.  The coefficients <m>H_1,H_2,H_3,H_4</m> are called
       wavelet coefficients.
       </p>
 
       <p> Let's work with the <m>4\times4</m> block of luminance
       values in the upper left corner of our larger <m>8\times8</m>
       block:
-      <me>
+      <md>
 	\left[\begin{array}{rrrr}
 	176 \amp 170 \amp 170 \amp 169 \\
 	181 \amp 179 \amp 175 \amp 167 \\
 	165 \amp 170 \amp 169 \amp 161 \\
 	139 \amp 150 \amp 164 \amp 166
 	\end{array}\right]
-      </me>.
+      </md>.
       </p>
 	
       <p> <ol marker="a.">
@@ -706,25 +706,25 @@ print (approx_luminance.numerical_approx(digits=3))
 	</p></li>
 
 	<li><p> We find the wavelet coefficients
-	<me>
+	<md>
 	  \left[\begin{array}{rrrr}
 	  167 \amp -0.7 \amp -1.0 \amp 1.9 \\
 	  6.4 \amp 3.8 \amp 3.0 \amp 0.4 \\
 	  -2.1 \amp -1.4 \amp 1.0 \amp -1.8 \\
 	  5.8 \amp 5.8 \amp 1.5 \amp 2.5 \\
 	  \end{array}\right]\text{.}
-	</me>
+	</md>
 	</p></li>
 
 	<li><p> We find the approximate luminance values to be
-	<me>
+	<md>
 	  \left[\begin{array}{rrrr}
 	  177 \amp 177 \amp 170 \amp 170 \\
 	  177 \amp 177 \amp 170 \amp 170 \\
 	  156 \amp 156 \amp 165 \amp 165 \\
 	  156 \amp 156 \amp 165 \amp 165 \\
 	  \end{array}\right]\text{.}
-	</me>
+	</md>
 	</p></li>
 
 	<li><p> The luminance values are constant on <m>2\times2</m>
@@ -755,25 +755,25 @@ print (approx_luminance.numerical_approx(digits=3))
 	</p></li>
 
 	<li><p> We find the wavelet coefficients
-	<me>
+	<md>
 	  \left[\begin{array}{rrrr}
 	  167 \amp -0.7 \amp -1.0 \amp 1.9 \\
 	  6.4 \amp 3.8 \amp 3.0 \amp 0.4 \\
 	  -2.1 \amp -1.4 \amp 1.0 \amp -1.8 \\
 	  5.8 \amp 5.8 \amp 1.5 \amp 2.5 \\
 	  \end{array}\right]\text{.}
-	</me>
+	</md>
 	</p></li>
 
 	<li><p> We find the approximate luminance values to be
-	<me>
+	<md>
 	  \left[\begin{array}{rrrr}
 	  177 \amp 177 \amp 170 \amp 170 \\
 	  177 \amp 177 \amp 170 \amp 170 \\
 	  156 \amp 156 \amp 165 \amp 165 \\
 	  156 \amp 156 \amp 165 \amp 165 \\
 	  \end{array}\right]\text{.}
-	</me>
+	</md>
 	</p></li>
 
 	<li><p> The luminance values are constant on <m>2\times2</m>

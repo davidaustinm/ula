@@ -17,7 +17,7 @@
       But what can we do with matrices that are not symmetric or even
       square?  For instance, the following matrices are not
       diagonalizable, much less orthogonally so:
-      <me>
+      <md>
 	\begin{bmatrix}
 	2 \amp 1 \\
 	0 \amp 2
@@ -27,7 +27,7 @@
 	1 \amp 1 \amp 0 \\
 	-1 \amp 0 \amp 1
 	\end{bmatrix}.
-      </me>
+      </md>
       In this section, we will develop a description of
       matrices called the <em>singular value decomposition</em> that
       is, in many ways, analogous to an orthogonal diagonalization.
@@ -202,9 +202,9 @@
       <em>singular vectors</em>, by studying a function somewhat
       similar to a quadratic form.  More specifically, any matrix
       <m>A</m> defines a function
-      <me>
+      <md>
 	l_A(\xvec) = |A\xvec|,
-      </me>
+      </md>
       which measures the length of <m>A\xvec</m>.
       For example, the diagonal matrix
       <m>D=\begin{bmatrix}
@@ -223,16 +223,16 @@
       While <m>l_A(\xvec)</m> is not itself a quadratic form, it
       becomes one 
       if we square it:
-      <me>
+      <md>
 	\left(l_A(\xvec)\right)^2 = |A\xvec|^2 = (A\xvec)\cdot(A\xvec)
 	= \xvec\cdot(A^TA\xvec)=q_{A^TA}(\xvec)\text{.}
-      </me>
+      </md>
       <idx> Gram matrix </idx>
       We call <m>G=A^TA</m>, the <em>Gram matrix</em> associated to
       <m>A</m> and note that
-      <me>
+      <md>
 	l_A(\xvec) = \sqrt{q_G(\xvec)}\text{.}
-      </me>
+      </md>
       This is important in the next activity, which 
       introduces singular values and singular
       vectors.
@@ -426,7 +426,7 @@
 	    <li>
 	      <p>
 		Form the matrices
-		<me>
+		<md>
 		  U = \begin{bmatrix}\uvec_1 \amp \uvec_2
 		  \end{bmatrix}, \hspace{24pt}
 		  \Sigma = \begin{bmatrix}
@@ -435,7 +435,7 @@
 		  \end{bmatrix}, \hspace{24pt}
 		  V = \begin{bmatrix}\vvec_1 \amp \vvec_2
 		  \end{bmatrix}
-		</me>
+		</md>
 		and explain why <m>AV = U\Sigma</m>.
 	      </p>
 	    </li>
@@ -475,7 +475,7 @@
 		4 \amp 5 \\
 		\end{bmatrix} = QDQ^T</m>
 		where
-		<me>
+		<md>
 		  D = \begin{bmatrix}
 		  9 \amp 0 \\
 		  0 \amp 1 \\
@@ -484,7 +484,7 @@
 		  1/\sqrt{2} \amp 1/\sqrt{2} \\
 		  1/\sqrt{2} \amp -1/\sqrt{2} \\
 		  \end{bmatrix}\text{.}
-		</me>
+		</md>
 		The maximum value of <m>q_G(\xvec)</m> is therefore
 		<m>\lambda_1=9</m>, which occurs in the direction 
 		<m>\twovec{1/\sqrt{2}}{1/\sqrt{2}}</m>.  The minimum
@@ -624,7 +624,7 @@
 	  0 \amp 8 \\
 	  \end{bmatrix}</m>.  Since <m>G</m> is symmetric, it can be
 	  orthogonally diagonalized with
-	  <me>
+	  <md>
 	    D = \begin{bmatrix}
 	    8 \amp 0 \\
 	    0 \amp 2 \\
@@ -633,7 +633,7 @@
 	    0 \amp 1 \\
 	    1 \amp 0 \\
 	    \end{bmatrix}\text{.}
-	  </me>
+	  </md>
 	</p>
 
 	<p>
@@ -702,7 +702,7 @@
 
 	<p>
 	  We now have <m>AV=U\Sigma</m> because
-	  <me>
+	  <md>
 	    AV = \begin{bmatrix}
 	    A\vvec_1 \amp A\vvec_2
 	    \end{bmatrix}
@@ -710,13 +710,13 @@
 	    \sigma_1\uvec_1 \amp \sigma_2\uvec_2
 	    \end{bmatrix}
 	    = \Sigma U\text{.}
-	  </me>
+	  </md>
 	  Because the right singular vectors, the columns of <m>V</m>,
 	  are eigenvectors of the symmetric matrix <m>G</m>, they form
 	  an orthonormal basis, which means that <m>V</m> is
 	  orthogonal.  Therefore, we have <m>(AV)V^T = A = U\Sigma
 	  V^T</m>.  This gives the singular value decomposition
-	  <me>
+	  <md>
 	    A = \begin{bmatrix}
 	    1 \amp 2 \\
 	    -1 \amp 2 \\
@@ -734,7 +734,7 @@
 	    1 \amp 0 \\
 	    \end{bmatrix}^T
 	    = U\Sigma V^T\text{.}
-	  </me>
+	  </md>
 	</p>
       </statement>
     </example>
@@ -805,13 +805,13 @@
 	  2 \amp 1
 	  \end{bmatrix}</m>.  
 	  The associated Gram matrix is
-	  <me>G = A^TA = \begin{bmatrix}
+	  <md>G = A^TA = \begin{bmatrix}
 	  5 \amp 4 \\
 	  4 \amp 5 \\
 	  \end{bmatrix}\text{,}
-	  </me>
+	  </md>
 	  which has an orthogonal diagonalization with
-	  <me>
+	  <md>
 	    D = \begin{bmatrix}
 	    9 \amp 0 \\
 	    0 \amp 1 \\
@@ -820,7 +820,7 @@
 	    1/\sqrt{2} \amp 1/\sqrt{2} \\
 	    1/\sqrt{2} \amp -1/\sqrt{2} \\
 	    \end{bmatrix}\text{.}
-	  </me>
+	  </md>
 	  This gives singular values and vectors
 	  <md>
 	    <mrow>
@@ -836,7 +836,7 @@
 	  </md>
 	  and the singular value decomposition <m>A=U\Sigma V^T</m>
 	  where 
-	  <me>
+	  <md>
 	    U = \begin{bmatrix}
 	    1/\sqrt{2} \amp -1/\sqrt{2} \\
 	    1/\sqrt{2} \amp 1/\sqrt{2}
@@ -849,7 +849,7 @@
 	    1/\sqrt{2} \amp 1/\sqrt{2} \\
 	    1/\sqrt{2} \amp -1/\sqrt{2}
 	    \end{bmatrix}.
-	  </me>
+	  </md>
 	</p>
 
 	<p>
@@ -921,11 +921,11 @@
 		Now form
 		<m>\Sigma</m> so that it has the same shape as
 		<m>A</m>:
-		<me>\Sigma = \begin{bmatrix}
+		<md>\Sigma = \begin{bmatrix}
 		\sigma_1 \amp 0 \amp 0 \\
 		0 \amp \sigma_2 \amp 0
 		\end{bmatrix}
-		</me>
+		</md>
 		and verify that <m>A = U\Sigma V^T</m>.
 		<sage>
 		  <input>
@@ -955,15 +955,15 @@
 	      <p>
 		Constructing the Gram matrix of <m>A</m> gives
 		the <m>3\times3</m> matrix
-		<me>
+		<md>
 		  G = \begin{bmatrix}
 		  2 \amp 1 \amp 0 \\
 		  1 \amp 1 \amp 1 \\
 		  0 \amp 1 \amp 2
 		  \end{bmatrix}\text{,}
-		</me>
+		</md>
 		which can be orthogonally diagaonalized with
-		<me>
+		<md>
 		  D = \begin{bmatrix}
 		  3 \amp 0 \amp 0 \\
 		  0 \amp 2 \amp 0 \\
@@ -974,7 +974,7 @@
 		  1/\sqrt{3} \amp 0 \amp -2/\sqrt{6} \\
 		  1/\sqrt{3} \amp -1/\sqrt{2} \amp 1/\sqrt{6} 
 		  \end{bmatrix}.
-		</me>
+		</md>
 	      </p>
 	    </li>
 	    <li>
@@ -999,9 +999,9 @@
 		  </mrow>
 		</md>
 		showing that
-		<me>
+		<md>
 		  \uvec_1 = \twovec01, \hspace{24pt} \uvec_2 = \twovec10.
-		</me>
+		</md>
 		Notice that <m>A\vvec_3 = \zerovec</m> so it is not
 		possible to find a vector <m>\uvec_3</m> in this way.
 	      </p>
@@ -1014,7 +1014,7 @@
 	    <li>
 	      <p>
 		We have
-		<me>
+		<md>
 		  U = \begin{bmatrix}
 		  0 \amp 1 \\
 		  1 \amp 0 \\
@@ -1024,7 +1024,7 @@
 		  1/\sqrt{3} \amp 0 \amp -2/\sqrt{6} \\
 		  1/\sqrt{3} \amp -1/\sqrt{2} \amp 1/\sqrt{6} 
 		  \end{bmatrix}\text{.}
-		</me>
+		</md>
 		The matrix <m>U</m> is <m>2\times2</m> since there are
 		two rows in <m>A</m> and <m>V</m> is <m>3\times3</m>
 		since there are three columns in <m>A</m>
@@ -1056,7 +1056,7 @@
 	    <li>
 	      <p>
 		<m>G</m> can be orthogonally diagaonalized with
-		<me>
+		<md>
 		  D = \begin{bmatrix}
 		  3 \amp 0 \amp 0 \\
 		  0 \amp 2 \amp 0 \\
@@ -1067,7 +1067,7 @@
 		  1/\sqrt{3} \amp 0 \amp -2/\sqrt{6} \\
 		  1/\sqrt{3} \amp -1/\sqrt{2} \amp 1/\sqrt{6} 
 		  \end{bmatrix}.
-		</me>
+		</md>
 	      </p>
 	    </li>
 	    <li>
@@ -1086,7 +1086,7 @@
 	    <li>
 	      <p>
 		We have
-		<me>
+		<md>
 		  U = \begin{bmatrix}
 		  0 \amp 1 \\
 		  1 \amp 0 \\
@@ -1096,7 +1096,7 @@
 		  1/\sqrt{3} \amp 0 \amp -2/\sqrt{6} \\
 		  1/\sqrt{3} \amp -1/\sqrt{2} \amp 1/\sqrt{6} 
 		  \end{bmatrix}\text{.}
-		</me>
+		</md>
 	      </p>
 	    </li>
 	    <li>
@@ -1133,7 +1133,7 @@
 
 	<p>
 	  Finding an orthogonal diagonalization of <m>G=A^TA</m> gives
-	  <me>
+	  <md>
 	    D=\begin{bmatrix}
 	    144 \amp 0 \amp 0 \\
 	    0 \amp 9 \amp 0 \\
@@ -1144,7 +1144,7 @@
 	    2/3 \amp -2/3 \amp 1/3 \\
 	    2/3 \amp 1/3 \amp -2/3 \\
 	    \end{bmatrix}\text{,}
-	  </me>
+	  </md>
 	  which gives singular values <m>\sigma_1=\sqrt{144}=12</m>,
 	  <m>\sigma_2 = \sqrt{9}= 3</m>, and <m>\sigma_3 = 0</m>.
 	  The right singular vectors <m>\vvec_i</m> appear as the
@@ -1173,7 +1173,7 @@
 	  Notice that it's not possible to find a third left singular
 	  vector since <m>A\vvec_3=\zerovec</m>.
 	  We therefore form the matrices
-	  <me>
+	  <md>
 	    U = \begin{bmatrix}
 	    0 \amp 1 \\
 	    -1 \amp 0 \\
@@ -1187,7 +1187,7 @@
 	    2/3 \amp -2/3 \amp 1/3 \\
 	    2/3 \amp 1/3 \amp -2/3 \\
 	    \end{bmatrix}\text{,}
-	  </me>
+	  </md>
 	  which gives the singular value decomposition <m>A=U\Sigma V^T</m>.
 	</p>
 
@@ -1225,9 +1225,9 @@
       Notice that a singular value decomposition of <m>A</m> gives
       us a singular value decomposition of <m>A^T</m>.  More
       specifically, if <m>A=U\Sigma V^T</m>, then
-      <me>
+      <md>
 	A^T = (U\Sigma V^T)^T = V\Sigma^T U^T.
-      </me>
+      </md>
     </p>
     
     <proposition xml:id="prop-svd-transpose">
@@ -1278,7 +1278,7 @@
 	<p>
 	  Let's suppose that a matrix <m>A</m> has a singular value
 	  decomposition <m>A=U\Sigma V^T</m> where
-	  <me>
+	  <md>
 	    U=\begin{bmatrix}
 	    \uvec_1 \amp \uvec_2 \amp \uvec_3 \amp \uvec_4
 	    \end{bmatrix},\hspace{10pt}
@@ -1291,7 +1291,7 @@
 	    V=\begin{bmatrix}
 	    \vvec_1 \amp \vvec_2 \amp \vvec_3
 	    \end{bmatrix}.
-	  </me>
+	  </md>
 	  <ol marker="a.">
 	    <li>
 	      <p>
@@ -1305,9 +1305,9 @@
 		Suppose we write a three-dimensional vector
 		<m>\xvec</m> as a linear combination of right
 		singular vectors:
-		<me>
+		<md>
 		  \xvec = c_1\vvec_1 + c_2\vvec_2 + c_3\vvec_3\text{.}
-		</me>
+		</md>
 		We would like to find an expression for
 		<m>A\xvec</m>.
 	      </p>
@@ -1378,9 +1378,9 @@
 		Remember that <m>\bvec</m> is in <m>\col(A)</m> if the
 		equation <m>A\xvec = \bvec</m> is consistent, which
 		means that
-		<me>
+		<md>
 		  A\xvec = 20c_1\uvec_1 + 5c_2\uvec_2 = \bvec
-		</me>
+		</md>
 		for some coefficients <m>c_1</m> and <m>c_2</m>.  How
 		do the left singular vectors <m>\uvec_i</m> provide an
 		orthonormal basis for <m>\col(A)</m>?
@@ -1522,19 +1522,19 @@
 	<p>
 	  As in the activity, if <m>\xvec = c_1 \vvec_1 + c_2\vvec_2 +
 	  \ldots + c_5\vvec_5</m>, we have
-	  <me>
+	  <md>
 	    A\xvec = \sigma_1c_1\uvec_1 + \sigma_2c_2\uvec_2 +
 	    \sigma_3c_3\uvec_3\text{.}
-	  </me>
+	  </md>
 	</p>
 
 	<p>
 	  If <m>\bvec</m> is in <m>\col(A)</m>, then <m>\bvec</m>
 	  must have the form
-	  <me>
+	  <md>
 	    \bvec = \sigma_1c_1\uvec_1 + \sigma_2c_2\uvec_2 +
 	    \sigma_3c_3\uvec_3\text{,}
-	  </me>
+	  </md>
 	  which says that <m>\bvec</m> is a linear combination of
 	  <m>\uvec_1</m>, <m>\uvec_2</m>, and <m>\uvec_3</m>.  
 	  These three vectors therefore form a basis for
@@ -1556,10 +1556,10 @@
 	  Moreover, if <m>\xvec = c_1 \vvec_1 + c_2\vvec_2 +
 	  \ldots + c_5\vvec_5</m> satisfies <m>A\xvec = \zerovec</m>,
 	  then 
-	  <me>
+	  <md>
 	    A\xvec = \sigma_1c_1\uvec_1 + \sigma_2c_2\uvec_2 +
 	    \sigma_3c_3\uvec_3=\zerovec\text{,}
-	  </me>
+	  </md>
 	  which implies that <m>c_1=0</m>, <m>c_2=0</m>, and
 	  <m>c_3=0</m>.  Therefore, <m>\xvec =
 	  c_4\vvec_4+c_5\vvec_5</m> so <m>\vvec_4</m> and
@@ -1581,7 +1581,7 @@
       <m>A</m> is 
       <m>r</m>, then there are <m>r</m> nonzero singular values and
       <m>\Sigma</m> has the form 
-      <me>
+      <md>
 	\begin{bmatrix}
 	\sigma_1 \amp \ldots \amp 0 \amp \ldots \amp 0 \\
 	0 \amp \ldots \amp 0 \amp \ldots \amp 0 \\
@@ -1590,23 +1590,23 @@
 	\vdots \amp \vdots \amp \vdots \amp \ddots \amp \vdots \\
 	0 \amp \ldots \amp 0 \amp \ldots \amp 0 \\
 	\end{bmatrix},
-      </me>
+      </md>
       The first <m>r</m> columns of
       <m>U</m> form an orthonormal basis for <m>\col(A)</m>:
-      <me>
+      <md>
 	U = \left[
 	\underbrace{\uvec_1 ~ \ldots ~ \uvec_r}_{\col(A)} \hspace{3pt}
 	\uvec_{r+1} ~ \ldots ~ \uvec_m
 	\right]
-      </me>
+      </md>
       and the last <m>n-r</m> columns of <m>V</m> form an orthonormal
       basis for <m>\nul(A)</m>: 
-      <me>
+      <md>
 	V = \left[
 	\vvec_1 ~ \ldots ~ \vvec_r\hspace{3pt}
 	\underbrace{\vvec_{r+1} ~ \ldots ~ \vvec_n}_{\nul(A)}
 	\right]
-      </me>
+      </md>
     </p>
 
     <p>
@@ -1621,8 +1621,8 @@
     <proposition xml:id="prop-rank-transpose">
       <statement>
 	<p>
-	  For any matrix <m>A</m>, <me>\rank(A) =
-	  \rank(A^T)\text{.}</me>
+	  For any matrix <m>A</m>, <md>\rank(A) =
+	  \rank(A^T)\text{.}</md>
 	</p>
       </statement>
     </proposition>
@@ -1638,12 +1638,12 @@
       Therefore, the columns of
       <m>U</m> provide orthonormal bases for <m>\col(A)</m> and
       <m>\nul(A^T)</m>:
-      <me>
+      <md>
 	U = \left[
 	\underbrace{\uvec_1 ~ \ldots ~ \uvec_r}_{\col(A)} \hspace{3pt}
 	\underbrace{\uvec_{r+1} ~ \ldots ~ \uvec_m}_{\nul(A^T)}
 	\right]\text{.}
-      </me>
+      </md>
       This reflects the familiar fact that <m>\nul(A^T)</m> is the
       orthogonal complement of <m>\col(A)</m>.
     </p>
@@ -1661,12 +1661,12 @@
       singular value decomposition provides just that.  To summarize,
       the columns of <m>V</m> provide orthonormal bases for
       <m>\col(A^T)</m> and <m>\nul(A)</m>:
-      <me>
+      <md>
 	V = \left[
 	\underbrace{\vvec_1 ~ \ldots ~ \vvec_r}_{\col(A^T)}\hspace{3pt}
 	\underbrace{\vvec_{r+1} ~ \ldots ~ \vvec_n}_{\nul(A)}
 	\right]
-      </me>
+      </md>
     </p>
 
     <p>
@@ -1757,7 +1757,7 @@
 	<p>
 	  Suppose we have a singular value decomposition <m>A =
 	  U\Sigma V^T</m> where
-	  <me>
+	  <md>
 	    U = \begin{bmatrix}
 	    \uvec_1 \amp \uvec_2 \amp \uvec_3 \amp \uvec_4
 	    \end{bmatrix},\hspace{24pt}
@@ -1770,7 +1770,7 @@
 	    V = \begin{bmatrix}
 	    \vvec_1 \amp \vvec_2 \amp \vvec_3 
 	    \end{bmatrix}\text{.}
-	  </me>
+	  </md>
 	  <ol marker="a.">
 	    <li>
 	      <p>
@@ -1786,7 +1786,7 @@
 	    <li>
 	      <p>
 		Explain why
-		<me>
+		<md>
 		  U\Sigma = \begin{bmatrix}
 		  \uvec_1 \amp \uvec_2
 		  \end{bmatrix}
@@ -1794,13 +1794,13 @@
 		  18 \amp 0 \amp 0 \\
 		  0 \amp 4 \amp 0 \\
 		  \end{bmatrix}\text{.}
-		</me>
+		</md>
 	      </p>
 	    </li>
 	    <li>
 	      <p>
 		Explain why
-		<me>
+		<md>
 		  \begin{bmatrix}
 		  18 \amp 0 \amp 0 \\
 		  0 \amp 4 \amp 0 \\
@@ -1812,7 +1812,7 @@
 		  \begin{bmatrix}
 		  \vvec_1 \amp \vvec_2
 		  \end{bmatrix}^T\text{.}
-		</me>
+		</md>
 	      </p>
 	    </li>
 	    <li>
@@ -1849,7 +1849,7 @@
 	    <li>
 	      <p>
 		Notice that
-		<me>
+		<md>
 		  U\Sigma =
 		  \begin{bmatrix}
 		  \uvec_1 \amp \uvec_2 \amp \uvec_3 \amp \uvec_4
@@ -1870,13 +1870,13 @@
 		  18 \amp 0 \amp 0 \\
 		  0 \amp 4 \amp 0 \\
 		  \end{bmatrix}\text{.}
-		</me>
+		</md>
 	      </p>
 	    </li>
 	    <li>
 	      <p>
 		Notice that
-		<me>
+		<md>
 		  \begin{bmatrix}
 		  18 \amp 0 \amp 0 \\
 		  0 \amp 4 \amp 0 \\
@@ -1901,14 +1901,14 @@
 		  \begin{bmatrix}
 		  \vvec_1 \amp \vvec_2
 		  \end{bmatrix}^T\text{.}
-		</me>
+		</md>
 	      </p>
 	    </li>
 	    <li>
 	      <p>
 		Put together the previous parts to see that
 		<m>A=U_r\Sigma_rV_r^T</m> where
-		<me>
+		<md>
 		  U_r = \begin{bmatrix}
 		  \uvec_1 \amp \uvec_2
 		  \end{bmatrix},\hspace{24pt}
@@ -1919,7 +1919,7 @@
 		  V_r = \begin{bmatrix}
 		  \vvec_1 \amp \vvec_2
 		  \end{bmatrix}\text{.}
-		</me>
+		</md>
 	      </p>
 	    </li>
 	  </ol>
@@ -1946,7 +1946,7 @@
 	    <li>
 	      <p>
 		Notice that
-		<me>
+		<md>
 		  U\Sigma =
 		  \begin{bmatrix}
 		  \uvec_1 \amp \uvec_2 \amp \uvec_3 \amp \uvec_4
@@ -1960,13 +1960,13 @@
 		  = \begin{bmatrix}
 		  18\uvec_1 \amp 4\uvec_2 \amp \zerovec
 		  \end{bmatrix} 
-		</me>
+		</md>
 	      </p>
 	    </li>
 	    <li>
 	      <p>
 		Notice that
-		<me>
+		<md>
 		  \begin{bmatrix}
 		  18 \amp 0 \amp 0 \\
 		  0 \amp 4 \amp 0 \\
@@ -1980,14 +1980,14 @@
 		  \vvec_2^T \\
 		  \vvec_3^T
 		  \end{bmatrix} 
-		</me>
+		</md>
 	      </p>
 	    </li>
 	    <li>
 	      <p>
 		Put together the previous parts to see that
 		<m>A=U_r\Sigma_rV_r^T</m> where
-		<me>
+		<md>
 		  U_r = \begin{bmatrix}
 		  \uvec_1 \amp \uvec_2
 		  \end{bmatrix},\hspace{24pt}
@@ -1998,7 +1998,7 @@
 		  V_r = \begin{bmatrix}
 		  \vvec_1 \amp \vvec_2
 		  \end{bmatrix}\text{.}
-		</me>
+		</md>
 	      </p>
 	    </li>
 	  </ol>
@@ -2051,7 +2051,7 @@
 	<p>
 	  In <xref ref="example-svd-nonsquare" />, we found the
 	  singular value decomposition
-	  <me>A=\begin{bmatrix}
+	  <md>A=\begin{bmatrix}
 	  2 \amp -2 \amp 1 \\
 	  -4 \amp -8 \amp -8 \\
 	  \end{bmatrix}
@@ -2068,10 +2068,10 @@
 	    2/3 \amp -2/3 \amp 1/3 \\
 	    2/3 \amp 1/3 \amp -2/3 \\
 	    \end{bmatrix}^T\text{.}
-	  </me>
+	  </md>
 	  Since there are two nonzero singular values, <m>\rank(A)
 	  =2</m> so that the reduced singular value decomposition is
-	  <me>A=\begin{bmatrix}
+	  <md>A=\begin{bmatrix}
 	  2 \amp -2 \amp 1 \\
 	  -4 \amp -8 \amp -8 \\
 	  \end{bmatrix}
@@ -2088,7 +2088,7 @@
 	    2/3 \amp -2/3  \\
 	    2/3 \amp 1/3  \\
 	    \end{bmatrix}^T\text{.}
-	  </me>
+	  </md>
 	</p>
       </statement>
     </example>

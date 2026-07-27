@@ -185,7 +185,7 @@ markov_chain(A, x0, 20)
     <solution>
       <p><ol marker="a.">
 	<li><p> The diagram tells us that
-	<me>
+	<md>
 	  \begin{alignedat}{4}
 	  R_{k+1} \amp {}={} \amp 0.85R_k \amp {}+{} \amp 0.06S_k \amp
 	  {}+{} \amp 0.05U_k \\
@@ -194,7 +194,7 @@ markov_chain(A, x0, 20)
 	  U_{k+1} \amp {}={} \amp 0.08R_k \amp {}+{} \amp 0.08S_k \amp
 	  {}+{} \amp 0.88U_k \\
 	  \end{alignedat}
-	</me>
+	</md>
 	giving the stochastic matrix
 	<m>A=
 	\left[\begin{array}{rrr}
@@ -314,13 +314,13 @@ markov_chain(A, x0, 20)
   <exercise>
     <statement>
       <p> Consider the stochastic matrix
-      <me>
+      <md>
 	A = \left[\begin{array}{rrr}
 	1 \amp 0.2 \amp 0.2 \\
 	0 \amp 0.6 \amp 0.2 \\
 	0 \amp 0.2 \amp 0.6 \\
 	\end{array}\right]
-      </me>.
+      </md>.
       <ol marker="a.">
 	<li><p> Find the eigenvalues of <m>A</m>.
 	<sage>
@@ -389,12 +389,12 @@ markov_chain(A, x0, 20)
     <statement>
       <p> In the last section, we considered examples of interacting
       species such as
-      <me>
+      <md>
 	\begin{aligned}
 	R_{k+1} \amp {}={} 0.9R_k - 0.2S_k \\
 	S_{k+1} \amp {}={} 0.1R_k + 1.2S_k \\
 	\end{aligned}
-      </me>
+      </md>
       <ol marker="a.">
 	<li><p> If the vector <m>\xvec_k=\twovec{R_k}{S_k}</m>,
 	write the matrix <m>A</m> that describes the evolution of the
@@ -640,14 +640,14 @@ markov_chain(A, x0, 20)
 	\end{bmatrix}</m>. </p></li> 
 
 	<li><p> We have
-	<me>
+	<md>
 	  \begin{aligned}
 	  (A-I)\xvec \amp = \evec_1 \\
 	  S(A-I)\xvec \amp = S\evec_1 \\
 	  \begin{bmatrix} 0 \end{bmatrix} \amp = \begin{bmatrix} 1
 	  \end{bmatrix}.
 	  \end{aligned}
-	</me>
+	</md>
 	This says that the original equation <m>(A-I)\xvec =
 	\evec_1</m> is not consistent. </p></li>
 	
@@ -693,18 +693,18 @@ markov_chain(A, x0, 20)
       defined by the Google matrix <m>G</m> did not converge to an
       appropriate PageRank vector.  For this reason, Google defines
       the matrix 
-      <me>
+      <md>
 	H_n = \left[\begin{array}{rrrr}
 	\frac1n \amp \frac1n \amp \ldots \amp \frac1n \\
 	\frac1n \amp \frac1n \amp \ldots \amp \frac1n \\
 	\vdots \amp \vdots \amp \ddots \amp \vdots \\
 	\frac1n \amp \frac1n \amp \ldots \amp \frac1n \\
 	\end{array}\right]
-      </me>,
+      </md>,
       where <m>n</m> is the number of web pages, and constructs a
       Markov chain from the modified 
       Google matrix 
-      <me>G' = \alpha G + (1-\alpha)H_n</me>.
+      <md>G' = \alpha G + (1-\alpha)H_n</md>.
       Since <m>G'</m> is positive, the Markov chain is guaranteed to
       converge to a unique steady-state vector. </p>
 
@@ -1013,7 +1013,7 @@ markov_chain(A, x0, 10)
     <solution>
       <p><ol marker="a.">
 	<li><p> We have the matrix
-	<me>
+	<md>
 	  A =
 	  \left[\begin{array}{rrrrrrrr}
 	  0 \amp 0 \amp 0 \amp 0 \amp 0 \amp 0 \amp 0 \amp 0 \\
@@ -1025,10 +1025,10 @@ markov_chain(A, x0, 10)
 	  0 \amp 0 \amp 0 \amp 0 \amp \frac{1}{2} \amp \frac{1}{2} \amp 0 \amp 0 \\
 	  0 \amp 0 \amp 0 \amp 0 \amp 0 \amp \frac{1}{2} \amp 1 \amp 1
 	  \end{array}\right]\text{.}
-	</me>
+	</md>
 	Starting a Markov chain with <m>\xvec_0 = \evec_1</m>, we find
 	that
-	<me>
+	<md>
 	  \xvec_4=\left[\begin{array}{c}
 	  0.000\\ 0.000\\ 0.000\\ 0.000\\ 0.0625\\ 0.250\\ 0.375\\ 0.312
 	  \end{array}\right],
@@ -1038,7 +1038,7 @@ markov_chain(A, x0, 10)
 	  \xvec_7=\left[\begin{array}{c}
 	  0.000\\ 0.000\\ 0.000\\ 0.000\\ 0.000\\ 0.000\\ 0.000\\ 1.00
 	  \end{array}\right]\text{.}
-	</me>
+	</md>
 	This says that the chances are <m>31.2</m>% that
 	we arrive at square <m>8</m> after four moves and
 	<m>98.4</m>% that we arrive after five moves.  We
@@ -1058,7 +1058,7 @@ markov_chain(A, x0, 10)
 	  \end{array}\right]\text{,}
 	</m>
 	which leads to the Markov chain with terms
-	<me>
+	<md>
 	  \begin{array}{rrr}
 	  \xvec_3=\left[\begin{array}{c}
 	  0.250\\ 0.125\\ 0.000\\ 0.250\\ 0.250\\ 0.125
@@ -1076,7 +1076,7 @@ markov_chain(A, x0, 10)
 	  0.027\\ 0.015\\ 0.008\\ 0.028\\ 0.020\\ 0.902
 	  \end{array}\right]\text{.}
 	  \end{array}
-	</me>
+	</md>
 	<ol marker="1.">
 	  <li><p> We can first arrive at square <m>6</m> after three
 	  moves.  The chances of doing so are <m>12.5</m>%. </p></li>
