@@ -151,11 +151,11 @@
 	    </md> is a basis for <m>\real^2</m>.  If
 	    <m>\coords{\xvec}{\bcal} = \twovec{1}{-2}</m>, find the vector
 	    <m>\xvec</m>.
-	    <sage>
-	      <input>
-	      </input>
-	    </sage>
-	  </p>
+          </p>
+	  <sage>
+	    <input>
+	    </input>
+	  </sage>
         </statement>
         <response component="rs-preview"/>
         <solution>
@@ -406,12 +406,11 @@
 	</p></li>
 	
 	<li><p> Verify that <m>\bcal</m> is a basis for
-	<m>\real^3</m>.
+	<m>\real^3</m>.</p>
 	<sage>
 	  <input>
 	  </input>
 	</sage>
-      </p>
 	</li>
 	
 	<li><p> Find the matrix <m>P_{\bcal}</m> that converts from
@@ -1229,7 +1228,7 @@
 	<m>P_{\bcal}</m>, which is denoted <c>P</c>, and its inverse
 	<m>P_{\bcal}^{-1}</m>,
 	which is denoted <c>Pinv</c>.  Evaluate this Sage cell and
-	notice that it prints the matrix <m>P_{\bcal}^{-1}</m>.
+	notice that it prints the matrix <m>P_{\bcal}^{-1}</m>.</p>
 	<sage xml:id="sage-dct-def">
 	  <input>
 mat = [[cos((2*i+1)*j*pi/16) for j in range(8)] for i in range(8)]
@@ -1238,6 +1237,7 @@ Pinv = P.inverse()
 print (Pinv.numerical_approx(digits=3))
 	  </input>
 	</sage>
+        <p>
 	Now look at the form of 
 	<m>P_{\bcal}^{-1}</m> and explain why <m>F_0</m> is the
 	average of the luminance values in the vector
@@ -1252,7 +1252,7 @@ print (Pinv.numerical_approx(digits=3))
 	coefficients  
 	<m>F_0,F_1,\ldots,F_7</m>.  If you have
 	evaluated the cell above, you will still be able to refer to
-	<c>P</c> and <c>Pinv</c> in this cell.  
+	<c>P</c> and <c>Pinv</c> in this cell.  </p>
 	<sage>
 	  <input>
 x = vector([176,181,165,139,131,131,140,150])
@@ -1261,6 +1261,7 @@ f =
 print (f.numerical_approx(digits=4))
 	  </input>
 	</sage>
+        <p>
 	Write the Fourier coefficients and discuss the relative
 	sizes of the coefficients.
 	</p></li>
@@ -1272,7 +1273,7 @@ print (f.numerical_approx(digits=4))
 	  nearest integer and setting <m>F_6</m> and <m>F_7</m> to zero.
 	  This is an approximation to <m>\fvec</m>, the vector of
 	  Fourier coefficients.  Use the approximation to <m>\fvec</m>
-	  to form an approximation of the vector <m>\xvec</m>.
+	  to form an approximation of the vector <m>\xvec</m>.</p>
 	  <sage>
 	    <input>
 # define fapprox below and then find xapprox
@@ -1282,9 +1283,11 @@ print ("x      =", x)
 print ("xapprox=", xapprox.numerical_approx(digits=3))
 	    </input>
 	  </sage>
+          <p>
 	  How much does your approximation differ from the actual
 	  vector <m>\xvec</m>?
-	</p></li>
+          </p>
+	</li>
 
 	<li><p> When we ignore the Fourier coefficients corresponding
 	to rapidly varying basis elements, we see that the vector
@@ -1301,7 +1304,7 @@ print ("xapprox=", xapprox.numerical_approx(digits=3))
       <c>luminance</c>, which is the <m>8\times8</m> matrix of
       luminance values.  Find the <m>8\times8</m> matrix <m>F</m>
       whose columns are the Fourier coefficients of the columns of
-      luminance values.
+      luminance values.</p>
       <sage>
 	<input>
 luminance = matrix(8,8, [176, 170, 170, 169, 162, 160, 155, 150, 181,
@@ -1315,7 +1318,7 @@ print (F.numerical_approx(digits=3))
 
 	</input>
       </sage>
-	</p></li>
+	</li>
 
 	<li><p> Notice that the first row of this matrix consists of
 	the 
@@ -1323,7 +1326,7 @@ print (F.numerical_approx(digits=3))
 	as we saw before, the entries in this row do not change
 	significantly as we move across the row.  In the Sage cell
 	below, write these entries in the vector <m>\yvec</m> and find
-	the corresponding Fourier coefficients.
+	the corresponding Fourier coefficients.</p>
 	<sage>
 	  <input>
 # define the vector y as the entries in the first row of F	    
@@ -1332,7 +1335,7 @@ y_fourier =
 print (y_fourier.numerical_approx(digits=3))
 	  </input>
 	</sage>
-	</p></li>
+	</li>
       </ol>
     </p>
   </statement>

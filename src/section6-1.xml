@@ -447,10 +447,10 @@
 	    <m>\len{\wvec}</m>, <m>\vvec\cdot\wvec</m>, and the angle
 	    between <m>\vvec</m> and <m>\wvec</m>.  You may use
 	    <c>arccos</c> to find the angle's measure expressed in
-	    radians.  
+	    radians.</p>
 	    <sage>
 	    </sage>
-	    </p></li>
+	    </li>
 	</ol></p>
       </statement>
       <solution>
@@ -677,6 +677,7 @@
 	      For instance, the word <q>act</q> appears 3 times in the
 	      Veteran's Day article and 0 times in the Labor Day
 	      article.
+            </p>
 
 	      <sage>
 		<input>
@@ -684,10 +685,11 @@ sage.repl.load.load("https://raw.githubusercontent.com/davidaustinm/ula_modules/
 events.head(int(10))
 		</input>
 	      </sage>
+              <p>
 	      For each of the five articles, we obtain 604-dimensional
 	      vectors, which are named <c>veterans</c>, <c>memorial</c>,
 	      <c>labor</c>, <c>golden</c>, and <c>super</c>.
-	    </p>
+              </p>
 
 	    <p>
 	      <ol marker="1.">
@@ -714,13 +716,11 @@ events.head(int(10))
 		  the vector <c>veterans</c> and the other four
 		  vectors.  To express the angle in degrees, use the
 		  <c>degrees(x)</c> command, which gives the number of
-		  degrees in <c>x</c> radians.
-
+		  degrees in <c>x</c> radians.</p>
 		  <sage>
 		    <input>
 		    </input>
 		  </sage>
-		  </p>
 		</li>
 
 		<li>
@@ -748,13 +748,14 @@ events.head(int(10))
 	      which we imagine represent the value of two stocks over a
 	      period of time.  (This cell relies on some data loaded by the
 	      first cell in this activity.)
+            </p>
 
-	      <sage>
-		<input>
+	    <sage>
+	      <input>
 series_plot(s1, 'blue') + series_plot(s2, 'orange')		
-		</input>
-	      </sage>
-
+	      </input>
+	    </sage>
+            <p>
 	      Even though one stock has a higher value than the other,
 	      the two appear to be related since they seem to rise and
 	      fall at roughly similar ways.  We often say that they are
@@ -772,7 +773,8 @@ series_plot(s1, 'blue') + series_plot(s2, 'orange')
 		    <c>demean(s)</c>, that returns the demeaned time
 		    series of <c>s</c>.  Use the Sage cell below to
 		    demean the series <m>\svec_1</m> and <m>\svec_2</m> and
-		    plot. 
+		    plot.
+                  </p>
 		    <sage>
 		      <input>
 ds1 = demean(s1)
@@ -780,7 +782,6 @@ ds2 = demean(s2)
 series_plot(ds1, 'blue') + series_plot(ds2, 'orange')		
 		      </input>
 		    </sage>
-		  </p>
 		</li>
 
 		<li>
@@ -803,12 +804,12 @@ series_plot(ds1, 'blue') + series_plot(ds2, 'orange')
 		  <p>
 		    Find the correlation between <m>\svec_1</m> and
 		    <m>\svec_2</m>.
+                  </p>
 		    <sage>
 		      <input>
 
 		      </input>
 		    </sage>
-		  </p>
 		</li>
 
 		<li>
@@ -902,26 +903,26 @@ series_plot(ds1, 'blue') + series_plot(ds2, 'orange')
 		  <p>
 		    Use the Sage cell below to plot the time series
 		    <m>\svec_1</m> and <m>\svec_3</m> and find their
-		    correlation. 
+		    correlation.
+                  </p>
 		    <sage>
 		      <input>
 series_plot(s1, 'blue') + series_plot(s3, 'orange')		
 		      </input>
 		    </sage>
-		  </p>
 		</li>
 
 		<li>
 		  <p>
 		    Use the Sage cell below to plot the time series
 		    <m>\svec_1</m> and <m>\svec_4</m> and find their
-		    correlation. 
+		    correlation.
+                  </p>
 		    <sage>
 		      <input>
 series_plot(s1, 'blue') + series_plot(s4, 'orange')		
 		      </input>
 		    </sage>
-		  </p>
 		</li>
 
 	      </ol>
@@ -1609,15 +1610,17 @@ series_plot(s1, 'blue') + series_plot(s4, 'orange')
 		Evaluating the following cell will load and display a
 		dataset consisting of 177 data points.  This dataset
 		has the name <c>data</c>.
+              </p>
 		<sage>
 		  <input>
 sage.repl.load.load("https://raw.githubusercontent.com/davidaustinm/ula_modules/master/k_means.py", globals())
 list_plot(data, color='blue', size=20, aspect_ratio=1)
 		  </input>
 		</sage>
+                <p>
 		Given this plot of the data, what would seem like a
 		reasonable number of clusters?
-	      </p>
+                </p>
 	    </li>
 
 	    <li>
@@ -1635,6 +1638,7 @@ list_plot(data, color='blue', size=20, aspect_ratio=1)
 		times.  Notice that clusterings having lower objectives
 		seem to fit the data better.  Repeat this experiment
 		with a few different values of <m>k</m>.
+              </p>
 		<sage>
 		  <input>
 k = 2  # you may change the value of k here
@@ -1643,7 +1647,6 @@ print('Objective =', objective)
 plotclusters(clusters, centroids)
 		  </input>
 		</sage>
-	      </p>
 	    </li>
 	    
 	    <li>
@@ -1654,6 +1657,7 @@ plotclusters(clusters, centroids)
 		<m>k</m>, the following cell will run the
 		algorithm 10 times and display the clustering having the
 		smallest objective.
+              </p>
 		<sage>
 		  <input>
 k = 2  # you may change the value of k here
@@ -1662,7 +1666,6 @@ print('Objective =', objective)
 plotclusters(clusters, centroids)
 		  </input>
 		</sage>
-	      </p>
 	      
 	      <p>
 		For each value of <m>k</m> between 2 and 9, find the
