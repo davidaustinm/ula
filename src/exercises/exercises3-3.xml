@@ -12,7 +12,7 @@
       <ol marker="a.">
 	<li><p> In the Sage cell below is a copy of the change of
 	basis matrices that define the Fourier transform.  Find the
-	Fourier coefficients of <m>\xvec</m>.
+	Fourier coefficients of <m>\xvec</m>.</p>
 	<sage>
 	  <input>
 mat = [[cos((2*i+1)*j*pi/16) for j in range(8)] for i in range(8)]
@@ -21,7 +21,7 @@ Pinv = P.inverse()
 print (Pinv.numerical_approx(digits=3))	    
 	  </input>
 	</sage>
-	</p></li>
+        </li>
 
 	<li><p> We will now form the vector <m>\yvec</m>, which is an
 	approximation of <m>\xvec</m> by rounding all the
@@ -607,13 +607,13 @@ C = matrix(cosmat).numerical_approx()
 	<m>\xvec</m> is the first column of luminance values in the
 	<m>4\times4</m> block above, find the wavelet coefficients
 	<m>\coords{\xvec}{\wcal}</m>.
-
+      </p>
 	<sage>
 	  <input>
 W = matrix(4,4,[1,1,1,0,1,1,-1,0,1,-1,0,1,1,-1,0,-1])	    
 	  </input>
 	</sage>
-	</p></li>
+	</li>
 
 	<li><p> Notice that <m>H_1</m> gives the average value of the
 	components of <m>\xvec</m> and <m>H_2</m> describes how the
@@ -642,7 +642,7 @@ W = matrix(4,4,[1,1,1,0,1,1,-1,0,1,-1,0,1,1,-1,0,-1])
 	wavelet transform;  that is, it will first find the wavelet
 	coefficients of each of the columns and then perform the
 	wavelet transform on the rows.  You only need to evaluate the
-	cell to find the wavelet coefficients obtained in this way.
+	cell to find the wavelet coefficients obtained in this way.</p>
 	<sage>
 	  <input>
 luminance = matrix(4,4,[176, 170, 170, 169, 181, 179, 175, 167, 165,
@@ -652,14 +652,14 @@ wavelet_transform = (Winv*(Winv*luminance).transpose()).transpose()
 print (wavelet_transform.numerical_approx(digits=3))
 	  </input>
 	</sage>
-	</p></li>
+	</li>
 
 	<li><p> Now set all the wavelet coefficients equal to zero
 	except those in the upper left <m>2\times2</m> block and use
 	them to define the matrix <c>coeffs</c> in the Sage cell
 	below.  This has the effect of ignoring all of the small-scale
 	differences.  Evaluating this cell will recover the
-	approximate luminance values.
+	approximate luminance values.</p>
 	<sage>
 	  <input>
 # define the matrix of coefficients below
@@ -669,7 +669,7 @@ approx_luminance = W*((W*(coeffs.transpose())).transpose())
 print (approx_luminance.numerical_approx(digits=3))
 	  </input>
 	</sage>
-	</p> </li>
+	</li>
 
 	<li><p> Explain how the wavelet transform and this approximation
 	can be used to create a lower resolution version of the
