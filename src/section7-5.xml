@@ -199,8 +199,9 @@
       matrix to consist of floating point entries.  We do this by
       including <c>RDF</c> inside the matrix definition, as
       illustrated in the following cell.
-      <sage>
-	<input>
+    </p>
+    <sage>
+      <input>
 A = matrix(RDF, 3, 2, [1,0,-1,1,1,1])
 U, Sigma, V = A.SVD()	  
 print(U)
@@ -208,9 +209,8 @@ print('---------')
 print(Sigma)
 print('---------')
 print(V)
-	</input>
-      </sage>
-    </p>
+      </input>
+    </sage>
 
     <activity>
       <statement>
@@ -231,11 +231,11 @@ print(V)
 		Find a singular value decomposition for <m>A</m> using
 		the Sage cell below.  What are singular values of
 		<m>A</m>?
-		<sage>
-		  <input>
-		  </input>
-		</sage>
-	      </p>
+              </p>
+	      <sage>
+		<input>
+		</input>
+	      </sage>
 	    </li>
 	    <li>
 	      <p>
@@ -262,12 +262,12 @@ print(V)
 		extract columns or rows from <c>B</c>.  For instance,
 		<c>B.matrix_from_rows([0,1,2])</c> provides a matrix
 		formed from the first three rows of <c>B</c>.
-		<sage>
-		  <input>
+              </p>
+	      <sage>
+		<input>
 
-		  </input>
-		</sage>
-	      </p>
+		</input>
+	      </sage>
 	    </li>
 
 	    <li>
@@ -303,11 +303,11 @@ print(V)
 		</md>
 		is the least-squares approximate solution, and
 		use this expression to find <m>\xhat</m>.
-		<sage>
-		  <input>
-		  </input>
-		</sage>
-	      </p>
+              </p>
+	      <sage>
+		<input>
+		</input>
+	      </sage>
 	    </li>
 	      
 	  </ol>
@@ -571,35 +571,37 @@ print(V)
 	  <c>U</c>, <c>V</c>, and <c>Sigma</c>.  Notice how the
 	  <c>diagonal_matrix</c> command provides a convenient way to
 	  form the diagonal matrix <m>\Sigma</m>.
-	  <sage>
-	    <input>
+        </p>
+	<sage>
+	  <input>
 h = 1/2
 U = matrix(4,4,[h,h,h,h,  h,h,-h,-h,  h,-h,h,-h,  h,-h,-h,h])	    
 V = matrix(4,4,[h,h,h,h,  h,-h,-h,h,  -h,-h,h,h,  -h,h,-h,h])
 Sigma = diagonal_matrix([500, 100, 20, 4])
-	    </input>
-	  </sage>
+	  </input>
+	</sage>
+        <p>
 	  <ol marker="a.">
 	    <li>
 	      <p>
 		Form the matrix <m>A=U\Sigma V^T</m>.  What is
 		<m>\rank(A)</m>?
-		<sage>
-		  <input>
-		  </input>
-		</sage>
-	      </p>
+              </p>
+	      <sage>
+		<input>
+		</input>
+	      </sage>
 	    </li>
 
 	    <li>
 	      <p>
 		Now form the approximating matrix <m>A_1=U\Sigma^{(1)}
 		V^T</m>.  What is <m>\rank(A_1)</m>?
-		<sage>
-		  <input>
-		  </input>
-		</sage>
-	      </p>
+              </p>
+	      <sage>
+		<input>
+		</input>
+	      </sage>
 	    </li>
 
 	    <li>
@@ -614,11 +616,11 @@ Sigma = diagonal_matrix([500, 100, 20, 4])
 	      <p>
 		Now find <m>A_2 = U\Sigma^{(2)} V^T</m> and the error
 		<m>A-A_2</m>.  What is <m>\rank(A_2)</m>?
-		<sage>
-		  <input>
-		  </input>
-		</sage>
-	      </p>
+              </p>
+	      <sage>
+		<input>
+		</input>
+	      </sage>
 	    </li>
 
 	    <li>
@@ -956,14 +958,15 @@ Sigma = diagonal_matrix([500, 100, 20, 4])
 	  Evaluating the following cell will load the dataset and
 	  define the demeaned
 	  data matrix <m>A</m> whose shape is <m>4\times150</m>.
-	  <sage>
-	    <input>
+        </p>
+	<sage>
+	  <input>
 sage.repl.load.load('https://raw.githubusercontent.com/davidaustinm/ula_modules/master/pca_iris.py', globals())
 df.T
 
-	    </input>
-	  </sage>
-	  
+	  </input>
+	</sage>
+	<p>  
 	  <ol marker="a.">
 	    <li>
 	      <p>
@@ -973,13 +976,13 @@ df.T
 		each of the four principal components.  What is the
 		fraction of variance retained by the first two
 		principal components?
-		<sage>
-		  <input>
+              </p>
+	      <sage>
+		<input>
 
 
-		  </input>
-		</sage>
-	      </p>
+		</input>
+	      </sage>
 	    </li>
 
 	    <li>
@@ -1041,8 +1044,9 @@ df.T
 		evaluate this cell, you will see a plot of the
 		projected demeaned data plots, similar to the one we
 		created in <xref ref="sec-pca" />.
-		<sage>
-		  <input>
+              </p>
+	      <sage>
+		<input>
 # Form the SVD of A and use it to form Gamma2
 
 		    
@@ -1053,9 +1057,8 @@ data = Gamma2.columns()
 (list_plot(data[:50], color='blue', aspect_ratio=1) +
  list_plot(data[50:100], color='orange') +
  list_plot(data[100:], color='green'))
-		  </input>
-		</sage>
-	      </p>
+		</input>
+	      </sage>
 	    </li>
 	  </ol>
 	</p>
@@ -1204,25 +1207,29 @@ data = Gamma2.columns()
 	  Evaluating the following cell loads some data that we'll use
 	  in this activity.  To begin, it defines and displays a
 	  <m>25\times15</m> matrix <m>A</m>.
-	  <sage>
-	    <input>
+        </p>
+	<sage>
+	  <input>
 sage.repl.load.load('https://raw.githubusercontent.com/davidaustinm/ula_modules/master/svd_compress.py', globals())
 print(A)
 
 
-	    </input>
-	  </sage>
+	  </input>
+	</sage>
+        <p>
 	  <ol marker="a.">
 	    <li>
 	      <p> 
 		If we interpret 0 as black and 1 as white, this matrix
 		represents an image as shown below.
-		<sage>
-		  <input>
+              </p>
+	      <sage>
+		<input>
 display_matrix(A)
 
-		  </input>
-		</sage>
+		</input>
+	      </sage>
+              <p>
 		We will explore how the singular value
 		decomposition helps us to compress this image.
 		<ol marker="1.">
@@ -1239,13 +1246,13 @@ display_matrix(A)
 		      The following cell plots the singular values of
 		      <m>A</m>.  Explain how this plot verifies that
 		      the rank is what you found in the previous part.
-		      <sage>
-			<input>
+                    </p>
+		    <sage>
+		      <input>
 plot_sv(A)		    
 
-			</input>
-		      </sage>
-		    </p>
+		      </input>
+		    </sage>
 		  </li>
 
 		  <li>
@@ -1256,13 +1263,13 @@ plot_sv(A)
 		      images represented by the
 		      first few approximations.  What is the smallest
 		      value of <m>k</m> for which <m>A=A_k</m>?
-		      <sage>
-			<input>
+                    </p>
+		    <sage>
+		      <input>
 k = 
 display_matrix(approximate(A, k))			  
-			</input>
-		      </sage>
-		    </p>
+		      </input>
+		    </sage>
 		  </li>
 
 		  <li>
@@ -1310,35 +1317,37 @@ display_matrix(approximate(A, k))
 		      Consider the following image consisting of an
 		      array of <m>316\times310</m> pixels stored in the
 		      matrix <m>A</m>.
-		      <sage>
-			<input>
+                    </p>
+		    <sage>
+		      <input>
 A = matrix(RDF, image)
 display_image(A)
 
-			</input>
-		      </sage>
-		    </p>
+		      </input>
+		    </sage>
 		    <p>
 		      Plot the singular values of <m>A</m>.
-		      <sage>
-			<input>
+                    </p>
+		    <sage>
+		      <input>
 plot_sv(A)
-			</input>
-		      </sage>
-		    </p>
+		      </input>
+		    </sage>
 		  </li>
 
 		  <li>
 		    <p>
 		      Use the cell below to study the approximations
 		      <m>A_k</m> for <m>k=1, 10, 20, 50, 100</m>.
-		      <sage>
-			<input>
+                    </p>
+		    <sage>
+		      <input>
 k = 1
 display_image(approximate(A, k))		    
 
-			</input>
-		      </sage>
+		      </input>
+		    </sage>
+                    <p>
 		      Notice how the approximating image
 		      <m>A_k</m> more closely approximates the
 		      original image <m>A</m> as <m>k</m> increases.
@@ -1360,12 +1369,14 @@ display_image(approximate(A, k))
 		decomposition to image processing is called
 		<em>denoising</em>.  For example, consider the image
 		represented by the matrix <m>A</m> below.
-		<sage>
-		  <input>
+              </p>
+	      <sage>
+		<input>
 A = matrix(RDF, noise.values)		    
 display_matrix(A)		
-		  </input>
-		</sage>
+		</input>
+	      </sage>
+              <p>
 		This image is similar to the image of the letter "O"
 		we first studied in this activity, but there are
 		splotchy regions in the background that result,
@@ -1380,13 +1391,13 @@ display_matrix(A)
 		      singular values of this matrix similar to those
 		      represented by the clean image that we 
 		      considered earlier and how are they different?
-		      <sage>
-			<input>
+                    </p>
+		    <sage>
+		      <input>
 plot_sv(A)
 
-			</input>
-		      </sage>
-		    </p>
+		      </input>
+		    </sage>
 		  </li>
 
 		  <li>
@@ -1404,14 +1415,14 @@ plot_sv(A)
 		      <m>k</m> below and notice that the new image
 		      appears to be somewhat cleaned up as a result of
 		      removing the noise.
-		      <sage>
-			<input>
+                    </p>
+		    <sage>
+		      <input>
 k = 
 display_matrix(approximate(A, k))
 
-			</input>
-		      </sage>
-		    </p>
+		      </input>
+		    </sage>
 		  </li>
 		</ol>
 	      </p>
@@ -1646,15 +1657,16 @@ display_matrix(approximate(A, k))
 	  represented by the column.  An entry of -1 means that
 	  justice was in the minority.  This information is also
 	  stored in the <m>9\times911</m> matrix <m>A</m>.
-	  
-	  <sage>
-	    <input>
+	</p>
+	<sage>
+	  <input>
 sage.repl.load.load('https://raw.githubusercontent.com/davidaustinm/ula_modules/master/svd_supreme.py', globals())
 A = matrix(RDF, cases.values)
 cases
 
-	    </input>
-	  </sage>
+	  </input>
+	</sage>
+        <p>
 	  The justices are listed, very roughly, in order from more
 	  conservative to more progressive.
 	</p>
@@ -1665,13 +1677,15 @@ cases
 	  displays the first 50 columns of the matrix <m>A</m> with
 	  white representing an entry of +1, red representing -1, and
 	  black representing 0.
-	  <sage>
-	    <input>
+        </p>
+	<sage>
+	  <input>
 display_matrix(A.matrix_from_columns(range(50)))
 
 
-	    </input>
-	  </sage>
+	  </input>
+	</sage>
+        <p>
 	  <ol marker="a.">
 	    <li>
 	      <p>
@@ -1679,12 +1693,12 @@ display_matrix(A.matrix_from_columns(range(50)))
 		the significance of this plot, including the relative
 		contributions from the singular values <m>\sigma_k</m>
 		as <m>k</m> increases.
-		<sage>
-		  <input>
+              </p>
+	      <sage>
+		<input>
 plot_sv(A)
-		  </input>
-		</sage>
-	      </p>
+		</input>
+	      </sage>
 	    </li>
 	    
 	    <li>
@@ -1692,12 +1706,12 @@ plot_sv(A)
 		Form the singular value decomposition <m>A=U\Sigma
 		V^T</m> and the matrix of coefficients <m>\Gamma</m>
 		so that <m>A=U\Gamma</m>.
-		<sage>
-		  <input>
+              </p>
+	      <sage>
+		<input>
 
-		  </input>
-		</sage>
-	      </p>
+		</input>
+	      </sage>
 	    </li>
 
 	    <li>
@@ -1709,11 +1723,11 @@ plot_sv(A)
 		provides a visual display of the <m>k^{th}</m> column
 		of a matrix <m>A</m>.  Describe the justices' votes in
 		the second case.
-		<sage>
-		  <input>
-		  </input>
-		</sage>
-	      </p>
+              </p>
+	      <sage>
+		<input>
+		</input>
+	      </sage>
 	    </li>
 
 	    <li>
@@ -1724,12 +1738,13 @@ plot_sv(A)
 		<m>\Gamma</m> holding the coefficients that express the
 		second case as a linear combination of left singular
 		vectors.
-		<sage>
-		  <input>
+              </p>
+	      <sage>
+		<input>
 
-		  </input>
-		</sage>
-
+		</input>
+	      </sage>
+              <p>
 		What does this tell us about how the second case is
 		constructed as a linear combination of left singular
 		vectors?  What is the significance of the first left
@@ -1742,12 +1757,12 @@ plot_sv(A)
 		Let's now study the <m>48^{th}</m> case, which is
 		represented by the column of <m>A</m> indexed by
 		<c>47</c>.  Describe the voting pattern in this case.
-		<sage>
-		  <input>
+              </p>
+	      <sage>
+		<input>
 
-		  </input>
-		</sage>
-	      </p>
+		</input>
+	      </sage>
 	    </li>
 
 	    <li>
@@ -1756,11 +1771,13 @@ plot_sv(A)
 		and the vector 
 		of coefficients that express the <m>48^{th}</m> case as
 		a linear combination of left singular vectors.
-		<sage>
-		  <input>
-
-		  </input>
-		</sage>
+              </p>
+	      <sage>
+		<input>
+                  
+		</input>
+	      </sage>
+              <p>
 		Describe how this case is constructed as a linear
 		combination of singular vectors.  What is the
 		significance of the second left singular vector
@@ -1818,13 +1835,15 @@ plot_sv(A)
 		reason, we will now focus on the 5-4 decisions.
 		Evaluating the next cell forms the <m>9\times188</m>
 		matrix <m>B</m> consisting of 5-4 decisions.
-		<sage>
-		  <input>
+              </p>
+	      <sage>
+		<input>
 B = matrix(RDF, fivefour.values)
 display_matrix(B.matrix_from_columns(range(50)))
 
-		  </input>
-		</sage>
+		</input>
+	      </sage>
+              <p>
 		Form the singular value decomposition of <m>B=U\Sigma
 		V^T</m> 
 		along with the matrix <m>\Gamma</m> of coefficients so
@@ -1833,11 +1852,13 @@ display_matrix(B.matrix_from_columns(range(50)))
 		<m>7^{th}</m> case, indexed by <c>6</c>, is
 		constructed as a linear 
 		combination of left singular vectors.
-		<sage>
-		  <input>
+              </p>
+	      <sage>
+		<input>
 
-		  </input>
-		</sage>
+		</input>
+	      </sage>
+              <p>
 		What does this singular vector tell us about the
 		make up of the court and whether it leans towards the
 		conservatives or progressives?  
@@ -1850,11 +1871,13 @@ display_matrix(B.matrix_from_columns(range(50)))
 		<m>\uvec_2</m> and study how the <m>6^{th}</m> case,
 		indexed by <c>5</c>, is constructed as a linear
 		combination of left singular vectors.
-		<sage>
-		  <input>
+              </p>
+	      <sage>
+		<input>
 
-		  </input>
-		</sage>
+		</input>
+	      </sage>
+              <p>
 		What does <m>\uvec_2</m> tell us about the
 		relative importance of the justices' voting records?
 	      </p>
