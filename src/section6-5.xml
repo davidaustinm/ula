@@ -304,6 +304,72 @@
 	</p>
       </statement>
 
+      <answer>
+	<p>
+	  <ol marker="a.">
+	    <li>
+	      <p>
+		It's not
+		possible to draw a line through all three points.
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		We have the equations
+		<md>
+		  <mrow>
+		    b + m \amp {}={} 1
+		  </mrow>
+		  <mrow>
+		    b + 2m \amp {}={} 1
+		  </mrow>
+		  <mrow>
+		    b + 3m \amp {}={} 3
+		  </mrow>
+		</md>
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		We have <m>A = \begin{bmatrix}
+		1 \amp 1 \\
+		1 \amp 2 \\
+		1 \amp 3 \\
+		\end{bmatrix}</m> and <m>\bvec=\threevec113</m>.
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		This linear system is inconsistent.
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		<m>\bhat=\threevec{2/3}{5/3}{8/3}</m>.
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		<m>\xvec=\twovec{-1/3}1</m>.
+		This line is shown in <xref
+		ref="fig-best-fit-line-ans" />.
+	      </p>
+	      <figure xml:id="fig-best-fit-line-ans">
+		<caption>
+		  The line that best approximates the three data
+		  points.
+		</caption>
+		<image width="50%">
+                  <prefigure xmlns="https://prefigure.org"
+                             label="pf-line-regress-2-ans">
+                    <xi:include href="prefigure/section6-5/line-regress-2.xml"/>
+                  </prefigure>
+                </image>
+	      </figure>
+	    </li>
+	  </ol>
+	</p>
+      </answer>
       <solution>
 	<p>
 	  <ol marker="a.">
@@ -381,72 +447,6 @@
 	</p>
       </solution>
 
-      <answer>
-	<p>
-	  <ol marker="a.">
-	    <li>
-	      <p>
-		It's not
-		possible to draw a line through all three points.
-	      </p>
-	    </li>
-	    <li>
-	      <p>
-		We have the equations
-		<md>
-		  <mrow>
-		    b + m \amp {}={} 1
-		  </mrow>
-		  <mrow>
-		    b + 2m \amp {}={} 1
-		  </mrow>
-		  <mrow>
-		    b + 3m \amp {}={} 3
-		  </mrow>
-		</md>
-	      </p>
-	    </li>
-	    <li>
-	      <p>
-		We have <m>A = \begin{bmatrix}
-		1 \amp 1 \\
-		1 \amp 2 \\
-		1 \amp 3 \\
-		\end{bmatrix}</m> and <m>\bvec=\threevec113</m>.
-	      </p>
-	    </li>
-	    <li>
-	      <p>
-		This linear system is inconsistent.
-	      </p>
-	    </li>
-	    <li>
-	      <p>
-		<m>\bhat=\threevec{2/3}{5/3}{8/3}</m>.
-	      </p>
-	    </li>
-	    <li>
-	      <p>
-		<m>\xvec=\twovec{-1/3}1</m>.
-		This line is shown in <xref
-		ref="fig-best-fit-line-ans" />.
-	      </p>
-	      <figure xml:id="fig-best-fit-line-ans">
-		<caption>
-		  The line that best approximates the three data
-		  points.
-		</caption>
-		<image width="50%">
-                  <prefigure xmlns="https://prefigure.org"
-                             label="pf-line-regress-2-ans">
-                    <xi:include href="prefigure/section6-5/line-regress-2.xml"/>
-                  </prefigure>
-                </image>
-	      </figure>
-	    </li>
-	  </ol>
-	</p>
-      </answer>
 
     </activity>
 
@@ -764,6 +764,46 @@ plot_model(xhat, data, domain=(12, 22))
 	</p>
       </statement>
 
+      <answer>
+	<p>
+	  <ol marker="a.">
+	    <li>
+	      <p>
+		<m>\beta_0 + 20.0\beta_1 =
+		88.6</m>.
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		<m>A</m> is the <m>15\times2</m> matrix whose first
+		column consists only of 1's and whose second column is
+		the vector of chirp rates.  The vector <m>\bvec</m> is
+		the vector of temperatures.
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		<m>A^TA=\begin{bmatrix}
+		15.0 \amp 248.5 \\
+		248.5 \amp 4157.9 \\
+		\end{bmatrix}</m> and <m>A^T\bvec =
+		\twovec{1190.2}{19857.7}</m>
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		<m>\xhat = \twovec{\beta_0}{\beta_1} =
+		\twovec{22.8}{3.4}</m>.
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		<m>97.9</m> degrees.
+	      </p>
+	    </li>
+	  </ol>
+	</p>
+      </answer>
       <solution>
 	<p>
 	  <ol marker="a.">
@@ -806,46 +846,6 @@ plot_model(xhat, data, domain=(12, 22))
 	</p>
       </solution>
 
-      <answer>
-	<p>
-	  <ol marker="a.">
-	    <li>
-	      <p>
-		<m>\beta_0 + 20.0\beta_1 =
-		88.6</m>.
-	      </p>
-	    </li>
-	    <li>
-	      <p>
-		<m>A</m> is the <m>15\times2</m> matrix whose first
-		column consists only of 1's and whose second column is
-		the vector of chirp rates.  The vector <m>\bvec</m> is
-		the vector of temperatures.
-	      </p>
-	    </li>
-	    <li>
-	      <p>
-		<m>A^TA=\begin{bmatrix}
-		15.0 \amp 248.5 \\
-		248.5 \amp 4157.9 \\
-		\end{bmatrix}</m> and <m>A^T\bvec =
-		\twovec{1190.2}{19857.7}</m>
-	      </p>
-	    </li>
-	    <li>
-	      <p>
-		<m>\xhat = \twovec{\beta_0}{\beta_1} =
-		\twovec{22.8}{3.4}</m>.
-	      </p>
-	    </li>
-	    <li>
-	      <p>
-		<m>97.9</m> degrees.
-	      </p>
-	    </li>
-	  </ol>
-	</p>
-      </answer>
     </activity>
 
     <p>
@@ -1180,6 +1180,65 @@ print(df)
 	</p>
       </statement>
 
+      <answer>
+	<p>
+	  <ol marker="a.">
+	    <li>
+	      <p>
+		Use the fact that <m>\bhat=QQ^T\bvec</m>.
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		Use the fact that <m>Q^TQ=I</m>.
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		<m>\beta_0 + 154\beta_1 + 68\beta_2 + 85\beta_3 +
+		17\beta_4 + 36\beta_5 = 13</m>
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		<m>A</m> is the <m>10\times6</m> matrix whose columns
+		are a vector of all 1's followed by the vectors of
+		weights, heights, abdominal, wrist, and neck
+		measurements.  The vector <m>\bvec</m> is the vector
+		of BFI readings.
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		<m>Q</m> is a <m>10\times6</m> matrix and <m>R</m> is
+		a <m>6\times6</m> upper triangular matrix.
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		We find that
+		<md>
+		  \beta_0 = 54.08, \beta_1 = 0.19, \beta_2 =
+		    -2.62,
+		    \beta_3 = 0.92, \beta_4 = 2.70, \beta_5 =
+		    -0.41
+		</md>
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		<m>R^2=0.95</m>
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		Evaluating <m>\beta_0 + 190\beta_1 + 70\beta_2 +
+		90\beta_3 + 18\beta_4 + 35\beta_5 = 22.9</m>
+	      </p>
+	    </li>
+	  </ol>
+	</p>
+      </answer>
       <solution>
 	<p>
 	  <ol marker="a.">
@@ -1245,65 +1304,6 @@ print(df)
 	</p>
       </solution>
 
-      <answer>
-	<p>
-	  <ol marker="a.">
-	    <li>
-	      <p>
-		Use the fact that <m>\bhat=QQ^T\bvec</m>.
-	      </p>
-	    </li>
-	    <li>
-	      <p>
-		Use the fact that <m>Q^TQ=I</m>.
-	      </p>
-	    </li>
-	    <li>
-	      <p>
-		<m>\beta_0 + 154\beta_1 + 68\beta_2 + 85\beta_3 +
-		17\beta_4 + 36\beta_5 = 13</m>
-	      </p>
-	    </li>
-	    <li>
-	      <p>
-		<m>A</m> is the <m>10\times6</m> matrix whose columns
-		are a vector of all 1's followed by the vectors of
-		weights, heights, abdominal, wrist, and neck
-		measurements.  The vector <m>\bvec</m> is the vector
-		of BFI readings.
-	      </p>
-	    </li>
-	    <li>
-	      <p>
-		<m>Q</m> is a <m>10\times6</m> matrix and <m>R</m> is
-		a <m>6\times6</m> upper triangular matrix.
-	      </p>
-	    </li>
-	    <li>
-	      <p>
-		We find that
-		<md>
-		  \beta_0 = 54.08, \beta_1 = 0.19, \beta_2 =
-		    -2.62,
-		    \beta_3 = 0.92, \beta_4 = 2.70, \beta_5 =
-		    -0.41
-		</md>
-	      </p>
-	    </li>
-	    <li>
-	      <p>
-		<m>R^2=0.95</m>
-	      </p>
-	    </li>
-	    <li>
-	      <p>
-		Evaluating <m>\beta_0 + 190\beta_1 + 70\beta_2 +
-		90\beta_3 + 18\beta_4 + 35\beta_5 = 22.9</m>
-	      </p>
-	    </li>
-	  </ol>
-	</p>
-      </answer>
 
     </activity>
 
@@ -1481,6 +1481,68 @@ list_plot(data, color='blue', size=40) + plot( **your function here**,
 	</p>
       </statement>
 
+      <answer>
+	<p>
+	  <ol marker="a.">
+	    <li>
+	      <p>
+		We have the equations
+		<md>
+		  <mrow>
+		    \beta_0 + 0\beta_1 + 0^2\beta_2 \amp {}={} 2
+		  </mrow>
+		  <mrow>
+		    \beta_0 + 1\beta_1 + 1^2\beta_2 \amp {}={} 1
+		  </mrow>
+		  <mrow>
+		    \beta_0 + 2\beta_1 + 2^2\beta_2 \amp {}={} 3
+		  </mrow>
+		  <mrow>
+		    \beta_0 + 3\beta_1 + 3^2\beta_2 \amp {}={} 3
+		  </mrow>
+		</md>
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		<m>\xhat = \threevec{7/4}{-1/4}{1/4}</m>
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		<m>\frac74 - \frac14 x +
+		\frac14x^2 = y</m>.
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		<m>1.9375</m>.
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		<m>0.54</m>
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		<m>2-\frac{25}{6}x+4x^2-\frac56x^3 = y</m>.
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		<m>R^2=1</m>
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		The graph of the cubic function passes through each
+		data point.
+	      </p>
+	    </li>
+	  </ol>
+	</p>
+      </answer>
       <solution>
 	<p>
 	  <ol marker="a.">
@@ -1552,68 +1614,6 @@ list_plot(data, color='blue', size=40) + plot( **your function here**,
 	</p>
       </solution>
 
-      <answer>
-	<p>
-	  <ol marker="a.">
-	    <li>
-	      <p>
-		We have the equations
-		<md>
-		  <mrow>
-		    \beta_0 + 0\beta_1 + 0^2\beta_2 \amp {}={} 2
-		  </mrow>
-		  <mrow>
-		    \beta_0 + 1\beta_1 + 1^2\beta_2 \amp {}={} 1
-		  </mrow>
-		  <mrow>
-		    \beta_0 + 2\beta_1 + 2^2\beta_2 \amp {}={} 3
-		  </mrow>
-		  <mrow>
-		    \beta_0 + 3\beta_1 + 3^2\beta_2 \amp {}={} 3
-		  </mrow>
-		</md>
-	      </p>
-	    </li>
-	    <li>
-	      <p>
-		<m>\xhat = \threevec{7/4}{-1/4}{1/4}</m>
-	      </p>
-	    </li>
-	    <li>
-	      <p>
-		<m>\frac74 - \frac14 x +
-		\frac14x^2 = y</m>.
-	      </p>
-	    </li>
-	    <li>
-	      <p>
-		<m>1.9375</m>.
-	      </p>
-	    </li>
-	    <li>
-	      <p>
-		<m>0.54</m>
-	      </p>
-	    </li>
-	    <li>
-	      <p>
-		<m>2-\frac{25}{6}x+4x^2-\frac56x^3 = y</m>.
-	      </p>
-	    </li>
-	    <li>
-	      <p>
-		<m>R^2=1</m>
-	      </p>
-	    </li>
-	    <li>
-	      <p>
-		The graph of the cubic function passes through each
-		data point.
-	      </p>
-	    </li>
-	  </ol>
-	</p>
-      </answer>
     </activity>
 
     <p>
@@ -1795,6 +1795,46 @@ plot_model(xhat, data)
 	</p>
       </statement>
       
+      <answer>
+	<p>
+	  <ol marker="a.">
+	    <li>
+	      <p>
+		<m>\xhat = \begin{bmatrix}
+		17.4\\-7.1\\4.5\\-1.1\\0.1\\-0.003
+		\end{bmatrix}
+		</m>
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		The fifth degree polynomial fits the data fairly well.
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		<m>R^2=0.99</m>
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		<m>R^2=0.9997</m>.
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		<m>R^2=1</m>
+	      </p>
+	    </li>
+	    <li>
+	      <p>
+		<m>8.7</m> million square kilometers
+		of sea ice.
+	      </p>
+	    </li>
+	  </ol>
+	</p>
+      </answer>
       <solution>
 	<p>
 	  <ol marker="a.">
@@ -1836,48 +1876,8 @@ plot_model(xhat, data)
 	  </ol>
 	</p>
       </solution>
-	    
-      <answer>
-	<p>
-	  <ol marker="a.">
-	    <li>
-	      <p>
-		<m>\xhat = \begin{bmatrix}
-		17.4\\-7.1\\4.5\\-1.1\\0.1\\-0.003
-		\end{bmatrix}
-		</m>
-	      </p>
-	    </li>
-	    <li>
-	      <p>
-		The fifth degree polynomial fits the data fairly well.
-	      </p>
-	    </li>
-	    <li>
-	      <p>
-		<m>R^2=0.99</m>
-	      </p>
-	    </li>
-	    <li>
-	      <p>
-		<m>R^2=0.9997</m>.
-	      </p>
-	    </li>
-	    <li>
-	      <p>
-		<m>R^2=1</m>
-	      </p>
-	    </li>
-	    <li>
-	      <p>
-		<m>8.7</m> million square kilometers
-		of sea ice.
-	      </p>
-	    </li>
-	  </ol>
-	</p>
-      </answer>
-	    
+
+
     </activity>
 	
 

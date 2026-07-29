@@ -45,6 +45,45 @@ print (Pinv.numerical_approx(digits=3))
       </p>
     </statement>
 
+    <answer>
+      <p><ol marker="a.">
+	<li><p>
+	  <m>
+	  \left[\begin{array}{c}
+	  100\\ -5.99 \\ 3.98 \\ 4.46 \\ 1.94 \\ -0.97 \\ 0.84 \\
+	  1.07 \\
+	  \end{array}\right]
+	  </m>.
+	</p></li>
+
+	<li><p> <m>
+	  \yvec=\left[\begin{array}{c}
+	  103 \\ 94 \\ 91 \\ 92 \\ 103 \\ 105 \\ 105 \\ 108
+	  \end{array}\right]
+	</m>
+	</p></li>
+
+	<li><p>
+	  <m>
+	  \yvec=\left[\begin{array}{c}
+	  94 \\ 95 \\ 97 \\ 99 \\ 101 \\ 103 \\ 105 \\ 106
+	  \end{array}\right]
+	  </m>
+	</p></li>
+
+	<li><p> In the first approximation, the reconstructed vector
+	<m>\yvec</m> agrees with the original vector <m>\xvec</m>.  In
+	the second approximation, there are only two nonzero Fourier
+	coefficients, and we see that the approximating vector differs
+	from the original vector.  In the second case, however, we are
+	using only one quarter of the Fourier coefficients.  Though
+	the entries in the vector <m>\yvec</m> differ from those in the
+	original vector <m>\xvec</m>, the difference is probably not
+	visually noticeable since the possible values range from 0 to
+	255.
+	</p></li>
+      </ol></p>
+    </answer>
     <solution>
       <p><ol marker="a.">
 	<li><p>
@@ -107,46 +146,7 @@ print (Pinv.numerical_approx(digits=3))
 	</p></li>
       </ol></p>
     </solution>
-	  
-    <answer>
-      <p><ol marker="a.">
-	<li><p>
-	  <m> 
-	  \left[\begin{array}{c}
-	  100\\ -5.99 \\ 3.98 \\ 4.46 \\ 1.94 \\ -0.97 \\ 0.84 \\
-	  1.07 \\
-	  \end{array}\right]
-	  </m>.
-	</p></li>
 
-	<li><p> <m>
-	  \yvec=\left[\begin{array}{c}
-	  103 \\ 94 \\ 91 \\ 92 \\ 103 \\ 105 \\ 105 \\ 108
-	  \end{array}\right]
-	</m>
-	</p></li>
-
-	<li><p>
-	  <m>
-	  \yvec=\left[\begin{array}{c}
-	  94 \\ 95 \\ 97 \\ 99 \\ 101 \\ 103 \\ 105 \\ 106
-	  \end{array}\right]
-	  </m>
-	</p></li>
-
-	<li><p> In the first approximation, the reconstructed vector
-	<m>\yvec</m> agrees with the original vector <m>\xvec</m>.  In
-	the second approximation, there are only two nonzero Fourier
-	coefficients, and we see that the approximating vector differs
-	from the original vector.  In the second case, however, we are
-	using only one quarter of the Fourier coefficients.  Though
-	the entries in the vector <m>\yvec</m> differ from those in the
-	original vector <m>\xvec</m>, the difference is probably not
-	visually noticeable since the possible values range from 0 to
-	255.
-	</p></li>
-      </ol></p>
-    </answer>
 
   </exercise>
 
@@ -176,6 +176,43 @@ print (Pinv.numerical_approx(digits=3))
       </ol></p>
     </statement>
 
+    <answer>
+      <p><ol marker="a.">
+	<li><p> The goal is to represent the image in a format that
+	requires less storage but still allows us to reconstruct the
+	image with most of the visual information preserved.
+	</p></li>
+
+	<li><p> In the <m>YC_bC_r</m> color model, the most significant
+	visual information is stored in the <m>Y</m> channel.
+	Therefore, we should store most of this information.  The
+	information in the <m>C_b</m> and <m>C_r</m> channels is not
+	as visually significant so we can store a smaller amount of
+	that data without noticing the effect.
+	</p></li>
+
+	<li><p> As seen in an image, these blocks are relatively
+	small, which means that the approximations we reconstruct are
+	probably not noticeably different from the original.  Also,
+	the blocks are small enough so that the image does not
+	typically change a lot over the block.  At the same time, the
+	blocks are large enough to allow us to save storage by
+	throwing away some of the Fourier coefficients.
+	</p></li>
+
+	<li><p> The Discrete Fourier Transform represents the data in
+	a block as its average and variations from the average.
+	Since the blocks are relatively small, there will typically be
+	small variations away from the average.  Therefore, we can
+	often ignore those variations without visually
+	detecting the approximation.  </p></li>
+
+	<li><p> Our eyes do not detect individual pixels so we do not
+	detect differences from one pixel to the next.  This means that
+	we do not typically notice rapid variations.
+	</p></li>
+      </ol></p>
+    </answer>
     <solution>
       <p><ol marker="a.">
 	<li><p> The goal is to represent the image in a format that
@@ -213,45 +250,8 @@ print (Pinv.numerical_approx(digits=3))
 	</p></li>
       </ol></p>
     </solution>
-	
-    <answer>
-      <p><ol marker="a.">
-	<li><p> The goal is to represent the image in a format that
-	requires less storage but still allows us to reconstruct the
-	image with most of the visual information preserved.
-	</p></li>
 
-	<li><p> In the <m>YC_bC_r</m> color model, the most significant
-	visual information is stored in the <m>Y</m> channel.
-	Therefore, we should store most of this information.  The
-	information in the <m>C_b</m> and <m>C_r</m> channels is not
-	as visually significant so we can store a smaller amount of
-	that data without noticing the effect.
-	</p></li>
 
-	<li><p> As seen in an image, these blocks are relatively
-	small, which means that the approximations we reconstruct are
-	probably not noticeably different from the original.  Also,
-	the blocks are small enough so that the image does not
-	typically change a lot over the block.  At the same time, the
-	blocks are large enough to allow us to save storage by
-	throwing away some of the Fourier coefficients.
-	</p></li>
-
-	<li><p> The Discrete Fourier Transform represents the data in
-	a block as its average and variations from the average.
-	Since the blocks are relatively small, there will typically be
-	small variations away from the average.  Therefore, we can
-	often ignore those variations without visually
-	detecting the approximation.  </p></li>
-
-	<li><p> Our eyes do not detect individual pixels so we do not
-	detect differences from one pixel to the next.  This means that
-	we do not typically notice rapid variations.
-	</p></li>
-      </ol></p>
-    </answer>
-	
   </exercise>
 
   <exercise>
@@ -407,6 +407,51 @@ C = matrix(cosmat).numerical_approx()
       </ol></p>
     </statement>
 
+    <answer>
+      <p><ol marker="a.">
+	<li><p>
+	<m>
+	  \coords{\xvec}{\scal} =
+	  \left[\begin{array}{c}
+	  220 \\ 18.7 \\ 79.3 \\ 5.3 \\
+	  \end{array}\right]
+	  </m> and
+	  <m>
+	  \coords{\xvec}{\ccal} =
+	  \left[\begin{array}{c}
+	  165 \\ 20.1 \\ -11.0 \\ -0.3 \\
+	  \end{array}\right]
+	  </m>.
+	</p></li>
+
+	<li><p> The higher Fourier Cosine coefficients are smaller
+	than their counterparts in the Fourier Sine transform.  This
+	means that we can ignore these coefficients in the Fourier
+	Cosine transform without losing too much information.
+	</p></li>
+
+	<li><p>
+	<m>
+	  \coords{\xvec}{\scal} =
+	  \left[\begin{array}{c}
+	  131 \\ 0 \\ 54.1 \\ 0 \\
+	  \end{array}\right]
+	  </m> and
+	  <m>
+	  \coords{\xvec}{\ccal} =
+	  \left[\begin{array}{c}
+	  100 \\ 0 \\ 0 \\ 0
+	  \end{array}\right]
+	</m>.
+	</p></li>
+
+	<li><p> Generally speaking, we can safely ignore more of the
+	coefficients in the Fourier Cosine transform.  Most of the
+	important information is channeled into the first coefficient,
+	which records the average of the components of the vector
+	<m>\xvec</m>.  </p></li>
+      </ol></p>
+    </answer>
     <solution>
       <p><ol marker="a.">
 	<li><p> We find that
@@ -449,51 +494,6 @@ C = matrix(cosmat).numerical_approx()
       </ol></p>
     </solution>
 
-    <answer>
-      <p><ol marker="a.">
-	<li><p> 
-	<m>
-	  \coords{\xvec}{\scal} =
-	  \left[\begin{array}{c}
-	  220 \\ 18.7 \\ 79.3 \\ 5.3 \\
-	  \end{array}\right]
-	  </m> and
-	  <m>
-	  \coords{\xvec}{\ccal} =
-	  \left[\begin{array}{c}
-	  165 \\ 20.1 \\ -11.0 \\ -0.3 \\
-	  \end{array}\right]
-	  </m>.
-	</p></li>
-
-	<li><p> The higher Fourier Cosine coefficients are smaller
-	than their counterparts in the Fourier Sine transform.  This
-	means that we can ignore these coefficients in the Fourier
-	Cosine transform without losing too much information.
-	</p></li>
-
-	<li><p> 
-	<m>
-	  \coords{\xvec}{\scal} =
-	  \left[\begin{array}{c}
-	  131 \\ 0 \\ 54.1 \\ 0 \\
-	  \end{array}\right]
-	  </m> and
-	  <m>
-	  \coords{\xvec}{\ccal} =
-	  \left[\begin{array}{c}
-	  100 \\ 0 \\ 0 \\ 0
-	  \end{array}\right]
-	</m>.
-	</p></li>
-
-	<li><p> Generally speaking, we can safely ignore more of the
-	coefficients in the Fourier Cosine transform.  Most of the
-	important information is channeled into the first coefficient,
-	which records the average of the components of the vector
-	<m>\xvec</m>.  </p></li>
-      </ol></p>
-    </answer>
 
   </exercise>
 
@@ -681,6 +681,54 @@ print (approx_luminance.numerical_approx(digits=3))
       algorithm.  </p>
     </statement>
 
+    <answer>
+      <p><ol marker="a.">
+	<li><p> <m>\coords{\xvec}{\wcal} =
+	\left[\begin{array}{c}
+	165 \\ 13.2 \\ -2.5 \\ 13.0 \\
+	\end{array}\right]
+	</m>.
+	</p></li>
+
+	<li><p>
+	  <m>\yvec=\left[\begin{array}{c}
+	  178.2 \\ 178.2 \\ 151.8 \\ 151.8 \\
+	  \end{array}\right]
+	  </m>.
+	</p></li>
+
+	<li><p> The first two components are equal as are the last two
+	components.
+	</p></li>
+
+	<li><p> We find the wavelet coefficients
+	<md>
+	  \left[\begin{array}{rrrr}
+	  167 \amp -0.7 \amp -1.0 \amp 1.9 \\
+	  6.4 \amp 3.8 \amp 3.0 \amp 0.4 \\
+	  -2.1 \amp -1.4 \amp 1.0 \amp -1.8 \\
+	  5.8 \amp 5.8 \amp 1.5 \amp 2.5 \\
+	  \end{array}\right]\text{.}
+	</md>
+	</p></li>
+
+	<li><p> We find the approximate luminance values to be
+	<md>
+	  \left[\begin{array}{rrrr}
+	  177 \amp 177 \amp 170 \amp 170 \\
+	  177 \amp 177 \amp 170 \amp 170 \\
+	  156 \amp 156 \amp 165 \amp 165 \\
+	  156 \amp 156 \amp 165 \amp 165 \\
+	  \end{array}\right]\text{.}
+	</md>
+	</p></li>
+
+	<li><p> The luminance values are constant on <m>2\times2</m>
+	blocks.  It is as if the image is represented with pixels that
+	are twice as wide and twice as tall.
+	</p></li>
+      </ol></p>
+    </answer>
     <solution>
       <p><ol marker="a.">
 	<li><p> We find that <m>\coords{\xvec}{\wcal} =
@@ -733,55 +781,7 @@ print (approx_luminance.numerical_approx(digits=3))
 	</p></li>
       </ol></p>
     </solution>
-	  
-    <answer>
-      <p><ol marker="a.">
-	<li><p> <m>\coords{\xvec}{\wcal} =
-	\left[\begin{array}{c}
-	165 \\ 13.2 \\ -2.5 \\ 13.0 \\
-	\end{array}\right]
-	</m>.
-	</p></li>
 
-	<li><p> 
-	  <m>\yvec=\left[\begin{array}{c}
-	  178.2 \\ 178.2 \\ 151.8 \\ 151.8 \\
-	  \end{array}\right]
-	  </m>.
-	</p></li>
-
-	<li><p> The first two components are equal as are the last two
-	components.  
-	</p></li>
-
-	<li><p> We find the wavelet coefficients
-	<md>
-	  \left[\begin{array}{rrrr}
-	  167 \amp -0.7 \amp -1.0 \amp 1.9 \\
-	  6.4 \amp 3.8 \amp 3.0 \amp 0.4 \\
-	  -2.1 \amp -1.4 \amp 1.0 \amp -1.8 \\
-	  5.8 \amp 5.8 \amp 1.5 \amp 2.5 \\
-	  \end{array}\right]\text{.}
-	</md>
-	</p></li>
-
-	<li><p> We find the approximate luminance values to be
-	<md>
-	  \left[\begin{array}{rrrr}
-	  177 \amp 177 \amp 170 \amp 170 \\
-	  177 \amp 177 \amp 170 \amp 170 \\
-	  156 \amp 156 \amp 165 \amp 165 \\
-	  156 \amp 156 \amp 165 \amp 165 \\
-	  \end{array}\right]\text{.}
-	</md>
-	</p></li>
-
-	<li><p> The luminance values are constant on <m>2\times2</m>
-	blocks.  It is as if the image is represented with pixels that
-	are twice as wide and twice as tall.
-	</p></li>
-      </ol></p>
-    </answer>
   </exercise>
   
   <exercise>
@@ -892,22 +892,6 @@ print (approx_luminance.numerical_approx(digits=3))
 
     </statement>
 
-    <solution>
-      <p><ol marker="a.">
-	<li><p> The color changes but not the brightness. </p></li>
-	<li><p> The color appears more <q>washed out</q> with a low
-	saturation and appears more vibrant with a high
-	saturation. </p></li>
-	<li><p> The brightness changes. </p></li>
-	<li><p> Set the saturation <m>S=0</m> and the value
-	<m>V=255</m>. </p></li>
-
-	<li><p> Set <m>S=V=0</m>. </p></li>
-	<li><p> <m>128\leq H \leq 192</m>. </p></li>
-	<li><p> <m>64\leq H \leq 128</m>. </p></li>
-      </ol></p>
-    </solution>
-	
     <answer>
       <p><ol marker="a.">
 	<li><p> The color changes but not the brightness. </p></li>
@@ -923,7 +907,23 @@ print (approx_luminance.numerical_approx(digits=3))
 	<li><p> <m>64\leq H \leq 128</m>. </p></li>
       </ol></p>
     </answer>
-	
+    <solution>
+      <p><ol marker="a.">
+	<li><p> The color changes but not the brightness. </p></li>
+	<li><p> The color appears more <q>washed out</q> with a low
+	saturation and appears more vibrant with a high
+	saturation. </p></li>
+	<li><p> The brightness changes. </p></li>
+	<li><p> Set the saturation <m>S=0</m> and the value
+	<m>V=255</m>. </p></li>
+
+	<li><p> Set <m>S=V=0</m>. </p></li>
+	<li><p> <m>128\leq H \leq 192</m>. </p></li>
+	<li><p> <m>64\leq H \leq 128</m>. </p></li>
+      </ol></p>
+    </solution>
+
+
   </exercise>
   
 </exercises>
