@@ -38,6 +38,15 @@ def inverse_power(A, x, N):
       </ol></p>
     </statement>
 
+    <answer>
+      <p><ol marker="a.">
+	<li><p> <m>-\frac13</m>, <m>-5</m>, <m>1</m>, and
+	<m>\frac14</m>. </p></li>
+
+	<li><p> <m>-4</m>, <m>6.8</m>,
+	<m>8</m>, and <m>12</m>. </p></li>
+      </ol></p>
+    </answer>
     <solution>
       <p><ol marker="a.">
 	<li><p> The eigenvalues of <m>A^{-1}</m> are the reciprocals
@@ -52,15 +61,6 @@ def inverse_power(A, x, N):
       </ol></p>
     </solution>
 
-    <answer>
-      <p><ol marker="a.">
-	<li><p> <m>-\frac13</m>, <m>-5</m>, <m>1</m>, and
-	<m>\frac14</m>. </p></li>
-
-	<li><p> <m>-4</m>, <m>6.8</m>,
-	<m>8</m>, and <m>12</m>. </p></li>
-      </ol></p>
-    </answer>
   </exercise>
 
   <exercise>
@@ -97,6 +97,17 @@ def inverse_power(A, x, N):
       </ol></p>
     </statement>
 
+    <answer>
+      <p><ol marker="a.">
+	<li><p> <m>\lambda = -6</m> and <m>2</m>. </p></li>
+
+	<li><p> <m>\lambda=1.024</m> and <m>-0.224</m>. </p></li>
+
+	<li><p> <m>\lambda = -14.014</m>,
+	<m>-1.530</m>, <m>11.226</m>, and
+	<m>4.618</m>. </p></li>
+      </ol></p>
+    </answer>
     <solution>
       <p><ol marker="a.">
 	<li><p> The power method tells us that the dominant eigenvalue
@@ -131,18 +142,7 @@ def inverse_power(A, x, N):
       </ol></p>
     </solution>
 
-    <answer>
-      <p><ol marker="a.">
-	<li><p> <m>\lambda = -6</m> and <m>2</m>. </p></li>
 
-	<li><p> <m>\lambda=1.024</m> and <m>-0.224</m>. </p></li>
-
-	<li><p> <m>\lambda = -14.014</m>,
-	<m>-1.530</m>, <m>11.226</m>, and 
-	<m>4.618</m>. </p></li>
-      </ol></p>
-    </answer>
-	
   </exercise>
 
   <exercise>
@@ -169,6 +169,11 @@ A = matrix(5,5, [-14.6,  9.0, -14.1, 5.8,  13.0,
       </sage>
     </statement>
 
+    <answer>
+      <p> <m>\lambda=9.449</m>,
+      <m>-2.134</m>,
+      <m>-4.399</m>, <m>7.100</m>, and <m>5.974</m>. </p>
+    </answer>
     <solution>
       <p> The power method shows us that <m>\lambda_1=9.449</m> is the
       dominant eigenvalue.  The inverse power method tells us that
@@ -177,12 +182,7 @@ A = matrix(5,5, [-14.6,  9.0, -14.1, 5.8,  13.0,
       <m>-4.399</m>, <m>7.100</m>, and <m>5.974</m>. </p>
     </solution>
 
-    <answer>
-      <p> <m>\lambda=9.449</m>,
-      <m>-2.134</m>,
-      <m>-4.399</m>, <m>7.100</m>, and <m>5.974</m>. </p>
-    </answer>
-    
+
   </exercise>
 
   <exercise>
@@ -212,6 +212,16 @@ A = matrix(5,5, [-14.6,  9.0, -14.1, 5.8,  13.0,
 
     </statement>
 
+    <answer>
+      <p><ol marker="a.">
+	<li><p> The methods do not converge. </p></li>
+
+	<li><p> There is not a unique dominant eigenvalue. </p></li>
+
+	<li><p> Try finding an eigenvalue closest to, say,
+	<m>5</m>. </p></li>
+      </ol></p>
+    </answer>
     <solution>
       <p><ol marker="a.">
 	<li><p> We see that neither the power method nor the inverse
@@ -230,16 +240,6 @@ A = matrix(5,5, [-14.6,  9.0, -14.1, 5.8,  13.0,
       </ol></p>
     </solution>
 
-    <answer>
-      <p><ol marker="a.">
-	<li><p> The methods do not converge. </p></li>
-
-	<li><p> There is not a unique dominant eigenvalue. </p></li>
-
-	<li><p> Try finding an eigenvalue closest to, say,
-	<m>5</m>. </p></li>
-      </ol></p>
-    </answer>
   </exercise>
 
   <exercise xml:id="exercise-power-method">
@@ -266,6 +266,24 @@ A = matrix(5,5, [-14.6,  9.0, -14.1, 5.8,  13.0,
     </statement>
 
 
+    <answer>
+      <p><ol marker="a.">
+	<li><p> We see that the vectors <m>\overline{\xvec}_k</m> do
+	not converge and the multipliers <m>m_k</m> converge to the
+	wrong value. </p></li>
+
+	<li><p> The multipliers are obtained
+	from the first component, then the second component, then the
+	first, and so on.
+	</p></li>
+
+	<li><p> Choose one of the components, say, the first one and
+	consider the ratio between that component of
+	<m>A\overline{\xvec}_k</m> and <m>\overline{\xvec}_k</m>
+	in place of the multiplier <m>m_k</m>.
+	</p></li>
+      </ol></p>
+    </answer>
     <solution>
       <p><ol marker="a.">
 	<li><p> We see that the vectors <m>\overline{\xvec}_k</m> do
@@ -291,24 +309,6 @@ A = matrix(5,5, [-14.6,  9.0, -14.1, 5.8,  13.0,
       </ol></p>
     </solution>
 
-    <answer>
-      <p><ol marker="a.">
-	<li><p> We see that the vectors <m>\overline{\xvec}_k</m> do
-	not converge and the multipliers <m>m_k</m> converge to the
-	wrong value. </p></li>
-
-	<li><p> The multipliers are obtained
-	from the first component, then the second component, then the
-	first, and so on.
-	</p></li>
-
-	<li><p> Choose one of the components, say, the first one and
-	consider the ratio between that component of
-	<m>A\overline{\xvec}_k</m> and <m>\overline{\xvec}_k</m>
-	in place of the multiplier <m>m_k</m>.  
-	</p></li>
-      </ol></p>
-    </answer>
   </exercise>
 
   <exercise>
@@ -322,6 +322,10 @@ A = matrix(5,5, [-14.6,  9.0, -14.1, 5.8,  13.0,
       </p>
     </statement>
 
+    <answer>
+      <p> We will need more steps when finding the dominant eigenvalue
+      of <m>A</m>. </p>
+    </answer>
     <solution>
       <p> For both matrices, <m>\lambda_1=4</m> is the dominant
       eigenvalue and <m>\lambda_2</m> is the eigenvalue closest to
@@ -336,10 +340,6 @@ A = matrix(5,5, [-14.6,  9.0, -14.1, 5.8,  13.0,
       eigenvalue of <m>A</m>.</p>
     </solution>
 
-    <answer>
-      <p> We will need more steps when finding the dominant eigenvalue
-      of <m>A</m>. </p>
-    </answer>
   </exercise>
 
   <exercise>
@@ -354,16 +354,16 @@ A = matrix(5,5, [-14.6,  9.0, -14.1, 5.8,  13.0,
       the matrix <m>A</m> in this case?</p>
     </statement>
 
+    <answer>
+      <p> <m>\lambda=3</m> is the dominant eigenvalue with a
+      multiplicity greater than one. </p>
+    </answer>
     <solution>
       <p> The dominant eigenvector is <m>\lambda=3</m> but it has a
       multiplicity greater than one and the associated eigenspace has
       <m>\dim E_3 \gt 1</m>. </p>
     </solution>
 
-    <answer>
-      <p> <m>\lambda=3</m> is the dominant eigenvalue with a
-      multiplicity greater than one. </p>
-    </answer>
   </exercise>
 
   <exercise>
@@ -376,6 +376,9 @@ A = matrix(5,5, [-14.6,  9.0, -14.1, 5.8,  13.0,
 	</p>
     </statement>
 
+    <answer>
+      <p> The vectors <m>\overline{\xvec}_k</m> will not converge. </p>
+    </answer>
     <solution>
       <p> The power method relies on the fact that the vectors
       <m>\overline{\xvec}_k</m> attempt to line up in the direction of
@@ -385,9 +388,6 @@ A = matrix(5,5, [-14.6,  9.0, -14.1, 5.8,  13.0,
       converge. </p>
     </solution>
 
-    <answer>
-      <p> The vectors <m>\overline{\xvec}_k</m> will not converge. </p>
-    </answer>
   </exercise>
 
   <exercise>
@@ -415,6 +415,18 @@ A = matrix(5,5, [-14.6,  9.0, -14.1, 5.8,  13.0,
       </ol></p>
     </statement>
 
+    <answer>
+      <p><ol marker="a.">
+	<li><p> There is a single eigenvalue <m>\lambda=1</m> having
+	multiplicity two with its associated eigenspace <m>E_1</m>
+	being one-dimensional with basis vector <m>\vvec=\twovec10</m>.
+	</p></li>
+
+	<li><p> Applying either the power or inverse power method will
+	find the eigenvalue <m>\lambda=1</m> and a scalar multiple of
+	<m>\vvec</m>. </p></li>
+      </ol></p>
+    </answer>
     <solution>
       <p><ol marker="a.">
 	<li><p> There is a single eigenvalue <m>\lambda=1</m> having
@@ -428,18 +440,6 @@ A = matrix(5,5, [-14.6,  9.0, -14.1, 5.8,  13.0,
       </ol></p>
     </solution>
 
-    <answer>
-      <p><ol marker="a.">
-	<li><p> There is a single eigenvalue <m>\lambda=1</m> having
-	multiplicity two with its associated eigenspace <m>E_1</m>
-	being one-dimensional with basis vector <m>\vvec=\twovec10</m>.
-	</p></li>
-
-	<li><p> Applying either the power or inverse power method will
-	find the eigenvalue <m>\lambda=1</m> and a scalar multiple of
-	<m>\vvec</m>. </p></li>
-      </ol></p>
-    </answer>
   </exercise>
 
 </exercises>
