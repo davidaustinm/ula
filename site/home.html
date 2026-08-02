@@ -5,335 +5,394 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Understanding Linear Algebra</title>
     <link href="main.css" rel="stylesheet" />
+    <style>
+      /* Skip link — visible only on focus */
+      .skip-link {
+        position: absolute;
+        left: -9999px;
+        top: auto;
+        width: 1px;
+        height: 1px;
+        overflow: hidden;
+      }
+      .skip-link:focus {
+        position: static;
+        width: auto;
+        height: auto;
+        display: block;
+        padding: 0.5em 1em;
+        background: #043959;
+        color: white;
+        text-decoration: none;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 16px;
+      }
+
+      /* Visible focus outline for keyboard navigation */
+      :focus-visible {
+        outline: 3px solid #005fcc;
+        outline-offset: 2px;
+      }
+
+      /* Tagline styled to match the old h2 (24px normal white) */
+      .subtitle-text {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 24px;
+        font-weight: normal;
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+
+      /* Section headings styled to match old h3 (16px bold) */
+      h2.section-heading {
+        font-size: 16px;
+        font-weight: bold;
+      }
+
+      /* CC-BY image: constrain on small screens */
+      .cc-image {
+        max-width: 120px;
+        height: auto;
+        display: block;
+        margin: auto;
+      }
+    </style>
   </head>
 
   <body style="display:flex">
 
-    <main style="margin:auto">        
-  <!-- new home page -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
 
-    <!-- main div for content -->
-    <div style="max-width:900px; background:white; margin:auto; flex:0 1 100%">
+    <main id="main-content" style="margin:auto">
 
-      <div class="header">
-	<div class="title" tabindex="0">
-	  <h1>
-	    Understanding Linear Algebra
-	  </h1>
-	</div>
+      <!-- main div for content -->
+      <div style="max-width:900px; background:white; margin:auto; flex:0 1 100%">
 
-	<div class="subtitle" tabindex="0">
-	<h2>
-	  An open-access linear algebra textbook
-	</h2>
-	</div>
-      </div>
+        <div class="header">
+          <div class="title">
+            <h1>
+              Understanding Linear Algebra
+            </h1>
+          </div>
 
-      <div style="padding-top:5px; padding-bottom:20px">
-	<ul class="navigation">
-	  <li><a href="#about">About</a></li>
-	  <li><a href="#features">Features</a></li>
-	  <li><a href="#instructors">For instructors</a></li>
-	  <li><a href="#contact">Contact</a></li>
-	  <li><a href="#license">License</a></li>
-	</ul>
-      </div>
-
-      <div class="update" tabindex="0">
-	<p>
-	  <b>January 2026 updates</b>
-        </p>
-
-        <ul>
-          <li>
-            <p>
-              Alt text and image descriptions have been added to all
-              of the figures in the text.  Though accessibility
-              requirements vary considerably, the HTML version
-              of <em>Understanding Linear Algebra</em> that is
-              available here should be fully accessible.
+          <div class="subtitle">
+            <p class="subtitle-text">
+              An open-access linear algebra textbook
             </p>
-          </li>
-          <li>
+          </div>
+        </div>
+
+        <div style="padding-top:5px; padding-bottom:20px">
+          <nav aria-label="Page sections">
+            <ul class="navigation">
+              <li><a href="#about">About</a></li>
+              <li><a href="#features">Features</a></li>
+              <li><a href="#instructors">For instructors</a></li>
+              <li><a href="#contact">Contact</a></li>
+              <li><a href="#license">License</a></li>
+            </ul>
+          </nav>
+        </div>
+
+        <div class="update">
+          <p>
+            <b>August 2026 updates</b>
+          </p>
+
+          <ul>
+            <li>
+              <p>
+                While the content is largely unchanged, there has been
+                some maintenance and reorganization of the textbook's
+                <a href="https://pretextbook.org"
+                   target="_blank">
+                  PreTeXt
+                </a>
+                source that may affect the numbering of
+                subsections.
+              </p>
+            </li>
+            <li>
+              <p>
+                Most diagrams have been recreated in
+                <a href="https://prefigure.org"
+                   target="_blank">
+                  PreFigure
+                </a>
+                and may be interactively explored using arrow keys.
+              </p>
+            </li>
+            <li>
+              <p>
+                Alt text and image descriptions have been added to all
+                of the figures in the text.  Though accessibility
+                requirements vary considerably, the HTML version
+                of <em>Understanding Linear Algebra</em> that is
+                available here should be fully accessible.
+              </p>
+            </li>
+            <li>
+              <p>
+                <em>Understanding Linear Algebra</em> is available for
+                use on <a href="https://landing.runestone.academy/"
+                          target="_blank">Runestone Academy</a>.  This
+                version has interactive preview activities as well as a
+                collection of interactive homework sets at the end of
+                many sections.  Student work on Runestone can be
+                recorded and graded with results reported back to
+                students at no cost to students and instructors.
+              </p>
+            </li>
+          </ul>
+        </div>
+
+        <div class="container">
+          <div class="cover">
+            <img src="ula-cover.png"
+                 alt="Book cover of Understanding Linear Algebra" />
+          </div>
+
+          <div id="about" class="about">
             <p>
-              <em>Understanding Linear Algebra</em> is available for
-              use on <a href="https://landing.runestone.academy/"
-                        target=_blank> Runestone Academy</a>.  This
-              version has interactive preview activities as well as a
-              collection of interactive homework sets at the end of
-              many sections.  Student work on Runestone can be
-              recorded and graded with results reported back to
-              students at no cost to students and instructors.
+              <em>Understanding Linear Algebra</em> is a freely
+              available linear algebra textbook suitable for use in a
+              first undergraduate linear algebra course.  The text aims
+              to support readers as they develop their ability to reason
+              mathematically, their computational
+              fluency, and their understanding of the role that linear
+              algebra plays in shaping our society.  It is also
+              designed to support an active learning classroom
+              environment.
             </p>
-          </li>
-        </ul>
-      </div>
-      
-      
 
-	<div class="container" tabindex="0" >
-	  <div class="cover">
-	    <img src="ula-cover.png"
-		 alt="Book cover"
-		 />
-	  </div>
+            <p>
+              <em>Understanding Linear Algebra</em> is written in
+              <a href="https://pretextbook.org/" target="_blank">
+                PreTeXt</a> and has been endorsed by the
+              <a href="https://aimath.org/textbooks/" target="_blank">
+                Open Textbook Initiative
+              </a>
+              at the
+              <a href="https://aimath.org" target="_blank">
+                American Institute of Mathematics.
+              </a>
+            </p>
 
-	  <div id="about" class="about" tabindex="0">
-	    <p>
-	      <em> Understanding Linear Algebra </em> is a freely
-	      available linear algebra textbook suitable for use in a
-	      first undergraduate linear algebra course.  The text aims
-	      to support readers as they develop their ability to reason
-	      mathematically, their computational
-	      fluency, and their understanding of the role that linear
-	      algebra plays in shaping our society.  It is also
-	      designed to support an active learning classroom
-	      environment. 
-	    </p>
-
-	    <p>
-	      <em>Understanding Linear Algebra</em> is written in
-	      <a href="https://pretextbook.org/" target=_blank>
-		PreTeXt</a> and has been endorsed by the
-	      <a href="https://aimath.org/textbooks/" target=_blank>
-		Open Textbook Initiative
-	      </a>
-	      at the
-	      <a href="https://aimath.org" target=_blank>
-		American Institute of Mathematics.
-	      </a>
-	    </p>
-
-	    <h3>
-	      Textbook
-	    </h3>
-	    <ul>
-	      <li>
-		<p>
-		  <a href="ula.html" target=_blank>
-		    Read online
-		  </a>
-		</p>
-	      </li>
-	      <li>
-		<p>
-		  <a href="https://scholarworks.gvsu.edu/books/26/" target=_blank>
-		    Download a PDF
-		  </a>
-		</p>
-	      </li>
-	      <li>
-		<p>
-		  <a href="https://www.619wreath.com/ula.html" target=_blank>
-		    Low-cost print from 619 Wreath
-		  </a>
-		</p>
-	      </li>
+            <h3>
+              Textbook
+            </h3>
+            <ul>
+              <li>
+                <p>
+                  <a href="ula.html" target="_blank">
+                    Read online
+                  </a>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <a href="https://scholarworks.gvsu.edu/books/26/" target="_blank">
+                    Download a PDF
+                  </a>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <a href="https://www.619wreath.com/ula.html" target="_blank">
+                    Low-cost print from 619 Wreath
+                  </a>
+                </p>
+              </li>
               <li>
                 <p>
                   <a href="https://landing.runestone.academy/"
-                     target=_blank>
+                     target="_blank">
                     Runestone Academy,</a>
                   with interactive exercises
                 </p>
               </li>
-	      <!--
-	      <li>
-		<p>
-		  <em>ULA</em> is available on
-		  <a href="https://runestone.academy/ns/books/published/ula/frontmatter.html?mode=browsing" target=_blank>
-		    Runestone Academy
-		  </a>
-		</p>
-	      </li>
-	      -->
-	    </ul>
+            </ul>
 
-	    <h3>
-	      Activities workbook
-	    </h3>
-	    <ul>
-	      <li>
-		<p>
-		  <a href="activities/ula-workbook.pdf" target=_blank>
-		    Download a PDF
-		  </a>
-		</p>
-	      </li>
-	      <li>
-		<p>
-		  <a href="https://www.619wreath.com/ula.html" target=_blank>
-		    Low-cost print from 619 Wreath
-		  </a>
-		</p>
-	      </li>
-	    </ul>
-	    
-	  </div>
-	</div>
+            <h3>
+              Activities workbook
+            </h3>
+            <ul>
+              <li>
+                <p>
+                  <a href="activities/ula-workbook.pdf" target="_blank">
+                    Download a PDF
+                  </a>
+                </p>
+              </li>
+              <li>
+                <p>
+                  <a href="https://www.619wreath.com/ula.html" target="_blank">
+                    Low-cost print from 619 Wreath
+                  </a>
+                </p>
+              </li>
+            </ul>
 
+          </div>
+        </div>
 
-	<div id="features" style="padding:10px; border-bottom:2px solid"
-	     tabindex="0">
-	<h3>
-	  Features
-	</h3>
+        <div id="features" style="padding:10px; border-bottom:2px solid">
+          <h2 class="section-heading">
+            Features
+          </h2>
 
-	<ul>
-	  <li>
-	    <p>
-	      <em> Understanding Linear Algebra </em> can support a
-	      two-course introductory sequence to linear algebra.
-	      While it is not meant to serve as an introduction to
-	      proofs, activities and exercises support students as
-	      they develop their ability to reason mathematically and
-	      communicate their understanding.  At my university,
-	      our first two linear algebra courses do not require
-	      calculus as a prerequisite, and we find that many
-	      students thrive in it.
-	    </p>
-	  </li>
-	  <li>
-	    <p>
-	      <em>Understanding Linear Algebra</em> is intended to
-	      support active learning.  Each 
-	      section begins with a preview activity for students to
-	      complete before class and subsequently contains several
-	      activities for students to complete in class, perhaps
-	      working collaboratively in small groups.  A solutions
-	      manual for the activities is available upon request.
-	    </p>
-	  </li>
-	  <li>
-	    <p>
-	      Each section contains numerous exercises from routine
-	      review to more in-depth, conceptual questions.
-	      Solutions are also available upon request.
-	    </p>
-	  </li>
-	  <li>
-	    <p>
-	      The text contains numerous embedded
-	      <a href="https://www.sagemath.org/" target=_blank>
-		Sage
-	      </a>
-	      cells to facilitate linear algebraic computations.
-	      Relevant Sage commands are introduced as needed and
-	      summarized in an appendix.
-	    </p>
-	  </li>
-	  <li>
-	    <p>
-	      Many applications are introduced and developed in depth to
-	      build an appreciation of how linear algebra plays a
-	      vital role in our society.  These applications include
-	      topics such as 
-	      computer animation, image compression, Google PageRank,
-	      least squares, principal component analysis, and singular
-	      value decompositions.
-	    </p>
-	  </li>
-	  <li>
-	    <p>
-	      Interactive diagrams embedded in the text help students
-	      develop an intuitive understanding of key linear algebra
-	      concepts.
-	    </p>
-	  </li>
-	</ul>
+          <ul>
+            <li>
+              <p>
+                <em>Understanding Linear Algebra</em> can support a
+                two-course introductory sequence to linear algebra.
+                While it is not meant to serve as an introduction to
+                proofs, activities and exercises support students as
+                they develop their ability to reason mathematically and
+                communicate their understanding.  At my university,
+                our first two linear algebra courses do not require
+                calculus as a prerequisite, and we find that many
+                students thrive in it.
+              </p>
+            </li>
+            <li>
+              <p>
+                <em>Understanding Linear Algebra</em> is intended to
+                support active learning.  Each
+                section begins with a preview activity for students to
+                complete before class and subsequently contains several
+                activities for students to complete in class, perhaps
+                working collaboratively in small groups.  A solutions
+                manual for the activities is available upon request.
+              </p>
+            </li>
+            <li>
+              <p>
+                Each section contains numerous exercises from routine
+                review to more in-depth, conceptual questions.
+                Solutions are also available upon request.
+              </p>
+            </li>
+            <li>
+              <p>
+                The text contains numerous embedded
+                <a href="https://www.sagemath.org/" target="_blank">
+                  Sage
+                </a>
+                cells to facilitate linear algebraic computations.
+                Relevant Sage commands are introduced as needed and
+                summarized in an appendix.
+              </p>
+            </li>
+            <li>
+              <p>
+                Many applications are introduced and developed in depth to
+                build an appreciation of how linear algebra plays a
+                vital role in our society.  These applications include
+                topics such as
+                computer animation, image compression, Google PageRank,
+                least squares, principal component analysis, and singular
+                value decompositions.
+              </p>
+            </li>
+            <li>
+              <p>
+                Interactive diagrams embedded in the text help students
+                develop an intuitive understanding of key linear algebra
+                concepts.
+              </p>
+            </li>
+          </ul>
 
-        <p>
-          The <a href="https://maa.org/" target="_blank">
-            Mathematical Association of America</a>
-          recognized <em>Understanding Linear Algebra</em>
-          with the
-          <a href="https://maa.org/news/recipient-of-the-2025-daniel-solow-authors-award-announced/"
-             target="_blank">2025 Daniel Solow Author's Award</a>
-          at MathFest 2025.  The text has also been endorsed by the
-          <a href="https://textbooks.aimath.org/" target="_blank">
-            Open Textbook Initiative,
-          </a>
-          sponsored by the
-          <a href="https://aimath.org/" target="_blank">
-            American Institute of Mathematics.
-          </a>
-        </p>
+          <p>
+            The <a href="https://maa.org/" target="_blank">
+              Mathematical Association of America</a>
+            recognized <em>Understanding Linear Algebra</em>
+            with the
+            <a href="https://maa.org/news/recipient-of-the-2025-daniel-solow-authors-award-announced/"
+               target="_blank">2025 Daniel Solow Author's Award</a>
+            at MathFest 2025.  The text has also been endorsed by the
+            <a href="https://textbooks.aimath.org/" target="_blank">
+              Open Textbook Initiative,
+            </a>
+            sponsored by the
+            <a href="https://aimath.org/" target="_blank">
+              American Institute of Mathematics.
+            </a>
+          </p>
 
-      </div>
+        </div>
 
-      <div id="instructors" style="padding:10px; border-bottom:2px
-				   solid"
-	   tabindex="0">
-	<h3>
-	  For instructors
-	</h3>
+        <div id="instructors" style="padding:10px; border-bottom:2px solid">
+          <h2 class="section-heading">
+            For instructors
+          </h2>
 
-	<p>
-	  First, I hope <em>Understanding Linear Algebra</em> is a
-	  valuable resource for you and your students in whatever way
-	  you find most appropriate to use it.
-	  I would <em>very much</em> like to hear from you at the
-	  email address given below.  Since the book is freely
-	  available, it's difficult to know how many people are using
-	  it and what value they are finding in it.
-	</p>
+          <p>
+            First, I hope <em>Understanding Linear Algebra</em> is a
+            valuable resource for you and your students in whatever way
+            you find most appropriate to use it.
+            I would <em>very much</em> like to hear from you at the
+            email address given below.  Since the book is freely
+            available, it's difficult to know how many people are using
+            it and what value they are finding in it.
+          </p>
 
-	<p>
-	  The book is in use at over 100 institutions, from R1s to
-	  community colleges and high schools.  There is a community
-	  of instructors using <em>ULA</em>, and we share resources
-	  such as online homework sets, syllabi, learning objectives,
-	  and more.  There are also solution
-	  manuals for both the activities and exercises available upon
-	  request.
-	  Please reach out to me to connect with this
-	  community.
-	</p>
-	  
-      </div>
+          <p>
+            The book is in use at over 100 institutions, from R1s to
+            community colleges and high schools.  There is a community
+            of instructors using <em>ULA</em>, and we share resources
+            such as online homework sets, syllabi, learning objectives,
+            and more.  There are also solution
+            manuals for both the activities and exercises available upon
+            request.
+            Please reach out to me to connect with this
+            community.
+          </p>
 
-      <div id="contact" style="padding:10px; border-bottom:2px solid"
-	   tabindex="0">
-	<h3>
-	  Contact
-	</h3>
+        </div>
 
-	<p>
-	  <a href="https://davidaustinm.github.io" target=_blank>
-	    David Austin
-	  </a> is a professor of mathematics at
-	  <a href="https://gvsu.edu" target=_blank>
-	    Grand Valley State University</a>.
-	  Questions, feedback, suggestions, and anything else are
-	  always welcome:
-	</p>
-	<p style="text-align:center">
-	  David Austin, austind at gvsu.edu
-	</p>
-      </div>
+        <div id="contact" style="padding:10px; border-bottom:2px solid">
+          <h2 class="section-heading">
+            Contact
+          </h2>
 
-      <div id="license" style="padding:10px" tabindex="0">
-	<h3>
-	  License
-	</h3>
-	<p>
-	  This work is licensed under a
-	  <a href="http://creativecommons.org/licenses/by/4.0/" target=_blank>
-	    Creative Commons Attribution 4.0 International License</a>.
-	</p>
-	<p style="text-align:center">
-	  <img src="images/cc-by.svg" />
-	</p>
-	<p style="text-align:center">
-	  &copy; David Austin 2017 - 2025
-	</p>
+          <p>
+            <a href="https://davidaustinm.github.io" target="_blank">
+              David Austin
+            </a> is a professor of mathematics at
+            <a href="https://gvsu.edu" target="_blank">
+              Grand Valley State University</a>.
+            Questions, feedback, suggestions, and anything else are
+            always welcome:
+          </p>
+          <p style="text-align:center">
+            David Austin, austind at gvsu.edu
+          </p>
+        </div>
+
+        <div id="license" style="padding:10px">
+          <h2 class="section-heading">
+            License
+          </h2>
+          <p>
+            This work is licensed under a
+            <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">
+              Creative Commons Attribution 4.0 International License</a>.
+          </p>
+          <p style="text-align:center">
+            <img src="images/cc-by.svg"
+                 class="cc-image"
+                 alt="Creative Commons Attribution 4.0 International License" />
+          </p>
+          <p style="text-align:center">
+            &copy; David Austin 2017 - 2025
+          </p>
+
+        </div>
 
       </div>
-
-    </div>
     </main>
-  
+
   </body>
 </html>
-
-
