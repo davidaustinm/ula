@@ -1613,9 +1613,111 @@ pca_plot(Q.T*A)
         </response>
       </match>
     </cardsort>
-  </exercise>    
+  </exercise>
 
-  </subsection>
+  <exercise component="proteus"
+            label="ula-proteus-7-3-fraction-of-variance-on-subspaces-v1">
+    <title>Fraction of the variance represented when projecting onto subspaces</title>
+    <statement>
+      <p>
+        Suppose that we work with a dataset in <m>\real^4</m> having
+        40 data points.  The demeaned data matrix <m>A </m> is
+        <m>4\times 40</m>.  The covariance matrix is <m>\displaystyle
+        C=\frac{1}{40}AA^T</m>, which is a <m>4\times 4</m> matrix.
+        The matrix <m>C</m> is symmetric, and the Spectral Theorem
+        tells us that <m>C</m> is orthogonally diagonalizable. Suppose
+        that <m>C=QDQ^T</m> where
+        <md>
+          Q = \begin{bmatrix}
+          \uvec_1 \amp \uvec_2 \amp \uvec_3 \amp \uvec_4 \hspace{4pt}
+          \end{bmatrix},\hspace{24pt}
+          D = \begin{bmatrix} 32 \amp 0 \amp
+          0 \amp 0 \\ 0 \amp 10 \amp 0 \amp 0 \\ 0 \amp 0 \amp 6 \amp 0
+          \\ 0 \amp 0 \amp 0 \amp 2 \\ \end{bmatrix},
+        </md>
+        where <m>\uvec_1</m>, <m> \uvec_2</m>, <m> \uvec_3</m>, and <m>
+        \uvec_4 </m> is an orthonormal basis of <m>\real^4</m>.
+        <ul>
+          <li>
+            Enter <m>V</m>, total variance of the dataset.
+            <fillin answer="50" width="2" />
+          </li>
+          <li>
+            Enter <m>V_{\uvec_1}</m>, the variance of the data when
+            projected onto <m>\laspan{\uvec_1}</m>.
+            <fillin answer="32" width="2" />
+          </li>
+          <li>
+            Enter the fraction of the total variance that is
+            represented when the data is projected onto
+            <m>\laspan{\uvec_1}</m>.
+            <fillin answer="0.64" width="3"/> (Answer as a decimal.)
+          </li>
+          <li>
+            Enter the variance of the data when projected onto
+            <m>\laspan{\uvec_1,\uvec_2}</m>.
+            <fillin answer="42" width="2" />
+          </li>
+          <li>
+            Enter the fraction of the total variance that is
+            represented when the data is projected onto
+            <m>\laspan{\uvec_1,\uvec_2}</m>.
+            <fillin answer="0.84" width="3" /> (Answer as a decimal.)
+          </li>
+          <li>
+            Enter the variance of the data when projected onto
+            <m>\laspan{\uvec_1,\uvec_2,\uvec_3}</m>.
+            <fillin answer="48" width="2" />
+          </li>
+          <li>
+            Enter the fraction of the total variance that is
+            represented when the data is projected onto
+            <m>\laspan{\uvec_1,\uvec_2,\uvec_3}</m>.
+            <fillin answer="0.96" width="3" /> (Answer as a decimal.)
+          </li>
+        </ul>
+      </p>
+    </statement>
+    <evaluation>
+      <evaluate>
+        <test correct="yes">
+          <numcmp use-answer="yes" />
+        </test>
+      </evaluate>
+      <evaluate>
+        <test correct="yes">
+          <numcmp use-answer="yes" />
+        </test>
+      </evaluate>
+      <evaluate>
+        <test correct="yes">
+          <numcmp use-answer="yes" />
+        </test>
+      </evaluate>
+      <evaluate>
+        <test correct="yes">
+          <numcmp use-answer="yes" />
+        </test>
+      </evaluate>
+      <evaluate>
+        <test correct="yes">
+          <numcmp use-answer="yes" />
+        </test>
+      </evaluate>
+      <evaluate>
+        <test correct="yes">
+          <numcmp use-answer="yes" />
+        </test>
+      </evaluate>
+      <evaluate>
+        <test correct="yes">
+          <numcmp use-answer="yes" />
+        </test>
+      </evaluate>
+    </evaluation>
+  </exercise>
+
+</subsection>
 
   <xi:include href="exercises/exercises7-3.xml" />
   

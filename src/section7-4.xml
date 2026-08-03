@@ -2168,7 +2168,7 @@
 
     <exercise component="proteus-playground"
               label="ula-proteus-7-4-SVD-cardsort-v1">
-      <title>Interpreting the singular value decomposition.</title>
+      <title>Interpreting the singular value decomposition</title>
       <statement>
         <p> Let <m>A=U\Sigma V^T</m> where
         <md alignment="align">
@@ -2230,7 +2230,7 @@
         <match>
           <premise>
             <p>
-              <m>\laspan{\twovec{2/\sqrt{5}}{1\sqrt{5}},\twovec{-1/\sqrt{5}}{2\sqrt{5}}}</m>
+              <m>\laspan{\twovec{2/\sqrt{5}}{1/\sqrt{5}},\twovec{-1/\sqrt{5}}{2/\sqrt{5}}}</m>
             </p>
           </premise>
           <response>
@@ -2254,7 +2254,181 @@
       </cardsort>
     </exercise>
 
-  </subsection>
+  <exercise component="proteus"
+            label="ula_proteus_7_4_find_singular_values_from_Gram_matrix_v1">
+    <title>Finding singular values using the Gram matrix</title>
+    <statement>
+      <p>
+        Suppose that the Gram matrix of a <m>4\times 3</m> matrix
+        <m>A</m> is
+        <md>
+          G = A^TA=\begin{bmatrix}
+          6 \amp -4 \amp 14 \\
+          -4 \amp 12 \amp -28 \\
+          14 \amp -28 \amp 70\\
+          \end{bmatrix}
+        </md>.
+        The matrix <m>A</m> has two nonzero singular values.
+      </p>
+      <p>
+        Enter numbers in the blanks below, rounded to the nearest
+        tenth.
+      </p>
+      <p>
+        The larger nonzero singular value of <m>A</m> is
+        <fillin answer="9.2" width="3" />.
+      </p>
+      <p>
+        The smaller nonzero singular value of <m>A</m> is
+        <fillin answer="2.0" width="3" />.
+      </p>
+      <p>
+        The rank of <m>A</m> is <fillin answer="2" width="2" />.
+      </p>
+    </statement>
+    <evaluation>
+      <evaluate>
+        <test correct="yes">
+          <numcmp use-answer="yes" />
+        </test>
+      </evaluate>
+      <evaluate>
+        <test correct="yes">
+          <numcmp use-answer="yes" />
+        </test>
+      </evaluate>
+      <evaluate>
+        <test correct="yes">
+          <numcmp use-answer="yes" />
+        </test>
+      </evaluate>
+    </evaluation>
+  </exercise>
+
+  <exercise component="proteus"
+            label="ula_proteus_7_4_SVD_find_rank_and_bases_for_subspaces_v1">
+    <title>
+      Finding information about a matrix from its singular value
+      decomposition
+    </title>
+    <introduction>
+      <p>
+        Let <m>A=U\Sigma V^T</m> where
+        <md>
+          <mrow>U = \amp \begin{bmatrix}
+            0.78\amp -0.24\amp 0.58\\
+            -0.18\amp 0.80 \amp 0.58\\
+            0.60 \amp 0.55\amp -0.58\\
+            \end{bmatrix}
+          </mrow>
+          <mrow>\Sigma = \amp \begin{bmatrix}
+            5.30 \amp 0 \amp 0 \amp 0 \\
+            0 \amp 3.99 \amp 0 \amp 0 \\
+            0 \amp 0 \amp 0 \amp 0 \\
+            \end{bmatrix}
+          </mrow>
+          <mrow>V = \amp \begin{bmatrix}
+            0.70 \amp -0.11\amp 0.65\amp 0.28\\
+            -0.26\amp -0.08\amp -0.14\amp 0.95\\
+            0.60 \amp 0.49\amp -0.62\amp 0.11\\
+            -0.28\amp 0.86\amp 0.42\amp 0.06\\
+            \end{bmatrix}
+          </mrow>
+        </md>.
+      </p>
+    </introduction>
+    <task label="ula_proteus_7_4_SVD_find_rank_and_bases_for_subspaces_v1_a">
+      <statement>
+        <p>
+          Enter numbers in the blanks below:
+        </p>
+        <p>
+          The matrix <m>A</m> has
+          <fillin answer="3" width="1" />
+          rows and <fillin answer="4" width="1" /> columns.
+        </p>
+        <p>
+          The rank of <m>A</m> is <fillin answer="2" width="1" />.
+        </p>
+      </statement>
+      <evaluation>
+        <evaluate>
+          <test correct="yes">
+            <numcmp use-answer="yes" />
+          </test>
+        </evaluate>
+        <evaluate>
+          <test correct="yes">
+            <numcmp use-answer="yes" />
+          </test>
+        </evaluate>
+        <evaluate>
+          <test correct="yes">
+            <numcmp use-answer="yes" />
+          </test>
+        </evaluate>
+      </evaluation>
+    </task>
+    <task label="ula_proteus_7_4_SVD_find_rank_and_bases_for_subspaces_v1_b">
+      <statement>
+        <p>
+          Match each span on the left with its description on the right.
+        </p>
+      </statement>
+      <cardsort>
+        <match>
+          <premise>
+            <p>
+              <m>\left\{\fourvec{0.65}{-0.14}{-0.62}{0.42},\fourvec{0.28}{0.95}{0.11}{0.06} \right\}</m>
+            </p>
+          </premise>
+          <response>
+            <p>
+              <m>\nul(A)</m>
+            </p>
+          </response>
+        </match>
+        <match>
+          <premise>
+            <p>
+              <m>\left\{ \threevec{0.58}{0.58}{-0.58}\right\}</m>
+            </p>
+          </premise>
+          <response>
+            <p>
+              <m>\nul(A^T)</m>
+            </p>
+          </response>
+        </match>
+        <match>
+          <premise>
+            <p>
+              <m>\left\{\fourvec{0.70}{-0.26}{0.60}{-0.28},\fourvec{-0.11}{-0.08}{0.49}{0.86}\right\}</m>
+            </p>
+          </premise>
+          <response>
+            <p>
+              <m>\col(A^T)</m>
+            </p>
+          </response>
+        </match>
+        <match>
+          <premise>
+            <p>
+              <m>\left\{ \threevec{0.78}{-0.18}{0.60}, \threevec{-0.24}{0.80}{0.55}\right\}</m>
+            </p>
+          </premise>
+          <response>
+            <p>
+              <m>\col(A)</m>
+            </p>
+          </response>
+        </match>
+      </cardsort>
+    </task>
+  </exercise>
+
+</subsection>
 
   <xi:include href="exercises/exercises7-4.xml" />
    
