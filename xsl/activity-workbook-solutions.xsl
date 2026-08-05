@@ -227,10 +227,10 @@
 <xsl:param name="latex.preamble.late">
     <xsl:text>\renewenvironment{activitysolution}[4]&#xa;</xsl:text>
     <xsl:text>  {\begin{tcolorbox}[activitysolutionstyle, title={\hyperref[#4]{#1~#2}\notblank{#3}{\space#3}{}}]}&#xa;</xsl:text>
-    <xsl:text>  {\end{tcolorbox}\newpage\null\newpage}&#xa;</xsl:text>
+    <xsl:text>  {\end{tcolorbox}\newpage}&#xa;</xsl:text>
     <xsl:text>\renewenvironment{explorationsolution}[4]&#xa;</xsl:text>
     <xsl:text>  {\begin{tcolorbox}[explorationsolutionstyle, title={\hyperref[#4]{#1~#2}\notblank{#3}{\space#3}{}}]}&#xa;</xsl:text>
-    <xsl:text>  {\end{tcolorbox}\newpage\null\newpage}&#xa;</xsl:text>
+    <xsl:text>  {\end{tcolorbox}\newpage}&#xa;</xsl:text>
     <xsl:value-of select="$latex.preamble.late.common" />
     <xsl:text>%% Override: no CC image footer on chapter-opening pages&#xa;</xsl:text>
     <xsl:text>\assignpagestyle{\chapter}{empty}&#xa;</xsl:text>

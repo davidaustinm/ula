@@ -80,58 +80,32 @@
         output-dir="published/ula-proteus-playground-dev"
         />
     <target
-        name="solutions"
+        name="solutions-pdf" 
         format="pdf"
         source="solution-manual.xml"
         publication="publication-solutions.ptx"
         output-dir="solutions-pdf"
-        xsl="solution-manual.xsl"
         latex-engine="xelatex"
-        />
-    <target
-        name="solutions-latex"
-        format="latex"
-        source="solution-manual.xml"
-        publication="publication-solutions.ptx"
-        output-dir="solutions-latex"
-        xsl="solution-manual.xsl"
-        />
-    <target
-        name="workbook"
-        format="pdf"
-        source="activity-workbook.xml"
-        publication="publication-workbook.ptx"
-        output-dir="workbook-pdf"
-        xsl="solution-manual.xsl"
-        />
-    <target
-        name="workbook-solutions"
-        format="pdf"
-        source="activity-workbook.xml"
-        publication="publication-workbook-solutions.ptx"
-        output-dir="workbook-solutions"
-        xsl="solution-manual.xsl"
-        />
+        xsl="solution-manual.xsl" />
 
+    <target
+      name="workbook"
+      format="pdf"
+      source="activity-workbook.xml" 
+      publication="publication-workbook.ptx"
+      latex-engine="xelatex"
+      output-dir="workbook-pdf"
+      xsl="activity-workbook.xsl" />
+    
+    <target
+      name="workbook-solutions"
+      format="pdf"
+      source="activity-workbook.xml" 
+      publication="publication-workbook-solutions.ptx"
+      latex-engine="xelatex"
+      output-dir="workbook-solutions"
+      xsl="activity-workbook-solutions.xsl" />
+    
   </targets>
 </project>
 
-<!--
-    <target name="workbook" pdf-method="xelatex">
-      <format>pdf</format>
-      <source>src/activity-workbook.xml</source>
-      <publication>publication/publication-workbook.ptx</publication>
-      <output-dir>output/workbook-pdf</output-dir>
-      <xsl>xsl/solution-manual.xsl</xsl>      
-    </target>
-    <target name="workbook-latex">
-      <format>latex</format>
-      <source>src/activity-workbook.xml</source>
-      <publication>publication/publication-workbook.ptx</publication>
-      <output-dir>output/workbook-latex</output-dir>
-      <xsl>xsl/solution-manual.xsl</xsl>      
-    </target>
-
-  </targets>
-
--->
