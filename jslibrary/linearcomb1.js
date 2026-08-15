@@ -48,12 +48,12 @@ var tb = mkslider([dx, 2-dx], 0.5, topmatrix, topupdate);
 ta.init(1);
 tb.init(0);
 
-var lta = new Label("c", [0,1.5]);
+var lta = new Label("a", [0,1.5]);
 lta.offset = [-5,-3]
 lta.font = "italic 16px arial";
 topmatrix.addPlotable(lta);
 
-var ltb = new Label("d", [0,0.5]);
+var ltb = new Label("b", [0,0.5]);
 ltb.offset = [-5,-3]
 ltb.font = "italic 16px arial";
 topmatrix.addPlotable(ltb);
@@ -68,12 +68,12 @@ ltv.offset = [-10,5];
 ltv.font = "bold 16px arial";
 topcanvas.addPlotable(ltv);
 
-var lba = new Label("c", [0,1.5]);
+var lba = new Label("a", [0,1.5]);
 lba.offset = [-5,-3]
 lba.font = "italic 16px arial";
 bottommatrix.addPlotable(lba);
 
-var lbb = new Label("d", [0,0.5]);
+var lbb = new Label("b", [0,0.5]);
 lbb.offset = [-5,-3]
 lbb.font = "italic 16px arial";
 bottommatrix.addPlotable(lbb);
